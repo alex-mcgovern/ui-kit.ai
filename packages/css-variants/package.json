@@ -1,0 +1,15 @@
+{
+    "name": "@boondoggle/css-variants",
+    "exports": {
+        ".": "./src/index.ts"
+    },
+    "version": "0.0.0",
+    "type": "module",
+    "main": "./src/index.ts",
+    "devDependencies": {
+        "@boondoggle/css-types": "*"
+    },
+    "dependencies": {
+        "@boondoggle/css-vars": "*"
+    }
+}
