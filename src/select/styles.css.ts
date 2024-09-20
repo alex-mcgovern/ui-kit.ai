@@ -1,5 +1,6 @@
 import type { SelectValueRenderProps } from "react-aria-components";
 
+import { typography } from "@boondoggle/css-variants";
 import { red, redA } from "@radix-ui/colors";
 import { assignVars, style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
@@ -61,6 +62,7 @@ export const selectCSS = style([
 
 export const selectButtonCSS = recipe({
     base: [
+        typography.body_md,
         css({
             alignItems: "center",
             color: "text_high_contrast",
@@ -68,8 +70,6 @@ export const selectButtonCSS = recipe({
             display: "flex",
 
             flexShrink: "0",
-
-            fontStyle: "bodySm",
 
             height: "element_sm",
             width: "100%",

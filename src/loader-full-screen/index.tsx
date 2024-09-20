@@ -1,3 +1,5 @@
+import { typography } from "@boondoggle/css-variants";
+
 import type { BoxProps } from "../box";
 
 import { Box } from "../box";
@@ -30,8 +32,8 @@ export function LoaderFullScreen({
             />
             {loadingText && (
                 <Box
+                    className={typography.body_sm}
                     color={color}
-                    fontStyle="bodySm"
                 >
                     {loadingText}
                 </Box>

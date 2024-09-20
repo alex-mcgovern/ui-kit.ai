@@ -1,3 +1,4 @@
+import { typography } from "@boondoggle/css-variants";
 import { style } from "@vanilla-extract/css";
 import { calc } from "@vanilla-extract/css-utils";
 
@@ -33,18 +34,18 @@ export const menuSectionCSS = style([
  * ------------------------------------------------------------------------------- */
 
 export const menuItemNameCSS = style([
+    typography.body_sm,
     css({
         color: "text_high_contrast",
         display: "block",
-        fontStyle: "bodySm",
     }),
 ]);
 
 export const menuItemDescriptionCSS = style([
+    typography.body_sm,
     css({
         color: "text_low_contrast",
         display: "block",
-        fontStyle: "bodySm",
     }),
 ]);
 
@@ -53,11 +54,11 @@ export const menuItemDescriptionCSS = style([
  * ------------------------------------------------------------------------------- */
 
 export const menuHeaderCSS = style([
+    typography.body_sm,
     css({
         alignItems: "center",
         color: "text_low_contrast",
         display: "flex",
-        fontStyle: "bodySm",
 
         fontWeight: "normal",
         textAlign: "left",

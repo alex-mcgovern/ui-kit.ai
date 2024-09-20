@@ -1,5 +1,7 @@
 import type { RowData, Table } from "@tanstack/react-table";
 
+import { typography } from "@boondoggle/css-variants";
+
 import { i18n } from "../../../_i18n";
 import { Box } from "../../../box";
 import { Button } from "../../../button";
@@ -20,8 +22,8 @@ export function TablePagination<TRowData extends RowData>({
             <Box
                 alignItems="center"
                 as="span"
+                className={typography.body_md}
                 display="flex"
-                fontSize="bodyMd"
                 gap="space_1"
                 marginRight="auto"
                 marginY="space_1"

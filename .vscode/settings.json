@@ -96,5 +96,8 @@
     "turboConsoleLog.insertEnclosingClass": false,
     "turboConsoleLog.insertEnclosingFunction": false,
     "turboConsoleLog.logMessagePrefix": "debug",
-    "turboConsoleLog.logType": "debug"
+    "turboConsoleLog.logType": "debug",
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    }
 }

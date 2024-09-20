@@ -4,6 +4,7 @@ import type {
     LinkRenderProps,
 } from "react-aria-components";
 
+import { typography } from "@boondoggle/css-variants";
 import { style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 
@@ -75,11 +76,11 @@ export const filterButtonGroupCSS = recipe<ReactAriaRecipe<GroupRenderProps>>({
  * ------------------------------------------------------------------------------- */
 
 export const filterButtonGroupLabelCSS = style([
+    typography.body_sm,
     css({
         alignItems: "center",
         color: "text_low_contrast",
         display: "inline-flex",
-        fontStyle: "bodySm",
         gap: "space_1",
         paddingX: "space_2",
     }),
@@ -97,11 +98,11 @@ export const removeFilterButtonCSS = recipe<
     ReactAriaRecipe<ButtonRenderProps | LinkRenderProps>
 >({
     base: [
+        typography.body_sm,
         css({
             color: "text_low_contrast",
             display: "inline-flex",
             flexShrink: "0",
-            fontStyle: "bodySm",
             fontWeight: "medium",
             gap: "space_2",
             outline: "none",
@@ -152,12 +153,12 @@ export const filterButtonCSS = recipe<
     ReactAriaRecipe<ButtonRenderProps | LinkRenderProps>
 >({
     base: [
+        typography.body_sm,
         css({
             alignItems: "center",
             color: "text_high_contrast",
             display: "inline-flex",
             flexShrink: "0",
-            fontStyle: "bodySm",
             gap: "space_2",
             outline: "none",
             paddingX: "space_2",

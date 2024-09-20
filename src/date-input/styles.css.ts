@@ -3,6 +3,7 @@ import type {
     DateSegmentRenderProps,
 } from "react-aria-components";
 
+import { typography } from "@boondoggle/css-variants";
 import { recipe } from "@vanilla-extract/recipes";
 
 import type { ReactAriaRecipe } from "../_css-utils/react-aria-recipe";
@@ -16,11 +17,11 @@ export const dateInputCSS = recipe<
     >
 >({
     base: [
+        typography.body_sm,
         css({
             alignItems: "center",
             color: "text_high_contrast",
             display: "flex",
-            fontStyle: "bodySm",
             height: "element_sm",
             paddingX: "space_2",
             width: "100%",

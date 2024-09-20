@@ -1,5 +1,6 @@
 import type { InputRenderProps } from "react-aria-components";
 
+import { typography } from "@boondoggle/css-variants";
 import { calc } from "@vanilla-extract/css-utils";
 import { recipe } from "@vanilla-extract/recipes";
 
@@ -10,12 +11,12 @@ import { variantColorOverlay, vars } from "../index.css";
 
 export const textareaCSS = recipe<ReactAriaRecipe<InputRenderProps>>({
     base: [
+        typography.body_md,
         css({
             background: "bg_field",
             border: "border_field",
             borderRadius: "md",
             color: "text_high_contrast",
-            fontStyle: "bodySm",
             outline: "none",
             paddingX: "space_2",
             transition: "short",

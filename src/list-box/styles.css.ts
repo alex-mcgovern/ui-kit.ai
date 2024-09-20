@@ -1,5 +1,6 @@
 import type { ListBoxItemRenderProps } from "react-aria-components";
 
+import { typography } from "@boondoggle/css-variants";
 import { style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 
@@ -22,6 +23,7 @@ export const listBoxCSS = style([
 
 export const listBoxItemCSS = recipe<ReactAriaRecipe<ListBoxItemRenderProps>>({
     base: [
+        typography.body_sm,
         css({
             alignItems: "center",
             borderRadius: "sm",
@@ -29,7 +31,6 @@ export const listBoxItemCSS = recipe<ReactAriaRecipe<ListBoxItemRenderProps>>({
             cursor: "pointer",
             display: "flex",
             flexShrink: "0",
-            fontStyle: "bodySm",
             fontWeight: "normal",
             gap: "space_2",
             minHeight: "space_8",

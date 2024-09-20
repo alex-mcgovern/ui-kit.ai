@@ -1,1 +1,1 @@
-export { typography } from "./_typography";
+export { typography } from "./typography.css";

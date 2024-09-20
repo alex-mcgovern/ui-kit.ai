@@ -1,3 +1,4 @@
+import { typography } from "@boondoggle/css-variants";
 import { style } from "@vanilla-extract/css";
 
 import { withPrefersMotion } from "../_css-utils";
@@ -19,12 +20,11 @@ export const radioButtonInputStyles = style([
 ]);
 
 export const radioButtonLabelStyles = style([
+    typography.body_sm,
     css({
-        fontSize: "bodyMd",
         position: "relative",
     }),
     {
-        lineHeight: "1.25",
         ...withPrefersMotion({
             transition: `border-color ${vars.transitionDuration.short} ease, background ${vars.transitionDuration.short} ease`,
         }),

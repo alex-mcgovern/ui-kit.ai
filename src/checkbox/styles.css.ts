@@ -1,5 +1,6 @@
 import type { CheckboxRenderProps } from "react-aria-components";
 
+import { typography } from "@boondoggle/css-variants";
 import { recipe } from "@vanilla-extract/recipes";
 
 import type { ReactAriaRecipe } from "../_css-utils/react-aria-recipe";
@@ -33,13 +34,15 @@ export const checkboxTickCSS = recipe({
 });
 
 export const checkboxWrapperCSS = recipe<ReactAriaRecipe<CheckboxRenderProps>>({
-    base: css({
-        alignItems: "center",
-        color: "text_high_contrast",
-        display: "flex",
-        fontStyle: "bodySm",
-        gap: "space_2",
-    }),
+    base: [
+        typography.body_sm,
+        css({
+            alignItems: "center",
+            color: "text_high_contrast",
+            display: "flex",
+            gap: "space_2",
+        }),
+    ],
     variants: {
         isDisabled: {
             false: {},

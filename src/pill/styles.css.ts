@@ -1,3 +1,4 @@
+import { typography } from "@boondoggle/css-variants";
 import { recipe } from "@vanilla-extract/recipes";
 
 import { css } from "../css/index.css";
@@ -5,6 +6,7 @@ import { variantColorOverlay } from "../index.css";
 
 export const pillCSS = recipe({
     base: [
+        typography.body_sm,
         css({
             alignItems: "center",
             background: "tint_hover",
@@ -14,7 +16,6 @@ export const pillCSS = recipe({
             display: "inline-flex",
 
             flexShrink: "0",
-            fontSize: "bodySm",
             fontWeight: "medium",
             height: "space_6",
 

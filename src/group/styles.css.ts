@@ -1,5 +1,6 @@
 import type { GroupRenderProps } from "react-aria-components";
 
+import { typography } from "@boondoggle/css-variants";
 import { recipe } from "@vanilla-extract/recipes";
 
 import type { ReactAriaRecipe } from "../_css-utils/react-aria-recipe";
@@ -9,13 +10,13 @@ import { variantColorOverlay } from "../index.css";
 
 export const groupCSS = recipe<ReactAriaRecipe<GroupRenderProps>>({
     base: [
+        typography.body_sm,
         css({
             alignItems: "center",
             background: "bg_field",
             border: "border_field",
             borderRadius: "md",
             display: "flex",
-            fontStyle: "bodySm",
             height: "space_8",
             outline: "none",
             overflow: "hidden",

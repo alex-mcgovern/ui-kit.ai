@@ -1,5 +1,7 @@
 import type { HTMLProps, ReactNode } from "react";
 
+import { typography } from "@boondoggle/css-variants";
+
 import type { WithName } from "../types";
 
 import { Box } from "../box";
@@ -90,8 +92,8 @@ export function RadioButtonCard({
                     <Box color="text_low_contrast">{title}</Box>
                 </Box>
                 <Box
+                    className={typography.body_sm}
                     color="text_low_contrast"
-                    fontStyle="bodySm"
                 >
                     {body}
                 </Box>

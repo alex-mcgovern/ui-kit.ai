@@ -1,5 +1,6 @@
 import type { InputRenderProps } from "react-aria-components";
 
+import { typography } from "@boondoggle/css-variants";
 import { style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 
@@ -32,9 +33,9 @@ export const inputIconCSS = style([
 
 export const inputCSS = recipe<ReactAriaRecipe<InputRenderProps>>({
     base: [
+        typography.body_sm,
         css({
             color: "text_high_contrast",
-            fontStyle: "bodySm",
             height: "element_sm",
             width: "100%",
         }),

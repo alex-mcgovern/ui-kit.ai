@@ -1,3 +1,4 @@
+import { typography } from "@boondoggle/css-variants";
 import { style } from "@vanilla-extract/css";
 
 import { withPrefersMotion } from "../_css-utils";
@@ -5,12 +6,12 @@ import { css } from "../css/index.css";
 import { vars } from "../index.css";
 
 export const fieldButtonCSS = style([
+    typography.body_md,
     css({
         borderRadius: "sm",
 
         color: "text_low_contrast",
         flexShrink: "0",
-        fontStyle: "bodyMd",
 
         height: "space_6",
         width: "space_6",

@@ -1,4 +1,4 @@
-import { TypographyVariant } from "@boondoggle/css-types";
+import type { TypographyVariant } from "@boondoggle/css-types";
 
 export const FONT_SIZE: Record<TypographyVariant, string> = {
 	body_lg: "1rem",

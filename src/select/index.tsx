@@ -4,6 +4,7 @@ import type {
     SelectProps as RACSelectProps,
 } from "react-aria-components";
 
+import { typography } from "@boondoggle/css-variants";
 import { faAnglesUpDown } from "@fortawesome/pro-solid-svg-icons/faAnglesUpDown";
 import clsx from "clsx";
 import { forwardRef } from "react";
@@ -51,13 +52,15 @@ function _SelectButton<TItemId extends string = string>(
                 }
             />
             <Icon
-                className={css({
-                    fontStyle: "bodyMd",
-                    height: "space_6",
-                    marginLeft: "auto",
-                    marginRight: "space_1",
-                    width: "space_6",
-                })}
+                className={clsx(
+                    typography.body_md,
+                    css({
+                        height: "space_6",
+                        marginLeft: "auto",
+                        marginRight: "space_1",
+                        width: "space_6",
+                    }),
+                )}
                 color="text_low_contrast"
                 icon={faAnglesUpDown}
             />

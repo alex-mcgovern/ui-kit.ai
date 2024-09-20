@@ -1,3 +1,4 @@
+import { typography } from "@boondoggle/css-variants";
 import { keyframes, style } from "@vanilla-extract/css";
 
 import { withPrefersMotion } from "../_css-utils";
@@ -100,9 +101,9 @@ export const mobileMenuHeaderCSS = style([
 ]);
 
 export const mobileMenuTitleCSS = style([
+    typography.body_sm,
     css({
         color: "text_high_contrast",
-        fontStyle: "bodyLg",
         fontWeight: "semibold",
         marginY: "none",
     }),

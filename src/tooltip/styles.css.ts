@@ -4,6 +4,7 @@ import type {
     TooltipRenderProps,
 } from "react-aria-components";
 
+import { typography } from "@boondoggle/css-variants";
 import { createVar, keyframes } from "@vanilla-extract/css";
 import { calc } from "@vanilla-extract/css-utils";
 import { recipe } from "@vanilla-extract/recipes";
@@ -126,12 +127,12 @@ const keyframesOutToBottom = keyframes({
 
 export const tooltipCSS = recipe<ReactAriaRecipe<TooltipRenderProps>>({
     base: [
+        typography.body_sm,
         css({
             background: "black",
             borderRadius: "sm",
             boxShadow: "md",
             color: "white",
-            fontSize: "bodySm",
             paddingX: "space_2",
         }),
     ],
@@ -294,11 +295,13 @@ export const tooltipCSS = recipe<ReactAriaRecipe<TooltipRenderProps>>({
 export const tooltipTriggerButtonCSS = recipe<
     ReactAriaRecipe<ButtonRenderProps>
 >({
-    base: css({
-        color: "text_low_contrast",
-        fontStyle: "bodyMd",
-        transition: "short",
-    }),
+    base: [
+        typography.body_md,
+        css({
+            color: "text_low_contrast",
+            transition: "short",
+        }),
+    ],
     variants: {
         isDisabled: {
             false: {},

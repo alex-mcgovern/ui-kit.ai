@@ -1,5 +1,6 @@
 import type { MenuItemRenderProps } from "react-aria-components";
 
+import { typography } from "@boondoggle/css-variants";
 import { style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 
@@ -20,6 +21,7 @@ export const menuCSS = style([
 
 export const menuItemCSS = recipe<ReactAriaRecipe<MenuItemRenderProps>>({
     base: [
+        typography.body_sm,
         css({
             alignItems: "center",
             borderRadius: "sm",
@@ -27,7 +29,6 @@ export const menuItemCSS = recipe<ReactAriaRecipe<MenuItemRenderProps>>({
             cursor: "pointer",
             display: "flex",
             flexShrink: "0",
-            fontStyle: "bodySm",
             fontWeight: "normal",
             gap: "space_2",
             minHeight: "space_8",

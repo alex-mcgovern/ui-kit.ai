@@ -1,3 +1,4 @@
+import { typography } from "@boondoggle/css-variants";
 import { faCircleExclamation } from "@fortawesome/pro-solid-svg-icons/faCircleExclamation";
 
 import { Box } from "../box";
@@ -37,8 +38,8 @@ export const V2DialogErrorMessage = ({
                 />
 
                 <Box
+                    className={typography.body_lg}
                     color="text_low_contrast"
-                    fontStyle="bodyLg"
                     fontWeight="semibold"
                 >
                     {error.message}

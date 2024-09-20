@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
+import { typography } from "@boondoggle/css-variants";
 import { Button } from "react-aria-components";
 
 import { Card as StoryComp } from ".";
@@ -50,7 +51,7 @@ export const WithHeader: Story = {
             <>
                 <Box
                     as="h3"
-                    fontStyle="h5"
+                    className={typography.h5}
                     marginBottom="none"
                 >
                     Title

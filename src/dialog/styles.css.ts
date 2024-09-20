@@ -1,3 +1,4 @@
+import { typography } from "@boondoggle/css-variants";
 import { keyframes, style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 
@@ -177,9 +178,9 @@ export const dialogHeaderCSS = style([
 ]);
 
 export const dialogTitleCSS = style([
+    typography.body_lg,
     css({
         color: "text_high_contrast",
-        fontStyle: "bodyLg",
         fontWeight: "semibold",
         marginY: "none",
     }),

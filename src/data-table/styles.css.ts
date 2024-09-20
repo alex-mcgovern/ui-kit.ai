@@ -1,3 +1,4 @@
+import { typography } from "@boondoggle/css-variants";
 import { style } from "@vanilla-extract/css";
 
 import { css } from "../css/index.css";
@@ -7,12 +8,11 @@ import { css } from "../css/index.css";
  * ------------------------------------------------------------------------------- */
 
 const commonCellCSS = style([
+    typography.body_md,
     css({
         alignItems: "center",
         borderBottom: "border_rule",
         display: "flex",
-
-        fontStyle: "bodyMd",
         justifyContent: "start",
         paddingX: "space_4",
 

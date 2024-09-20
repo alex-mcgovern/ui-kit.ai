@@ -1,5 +1,7 @@
 import type { ReactNode } from "react";
 
+import { typography } from "@boondoggle/css-variants";
+
 import { Box } from "../box";
 import { cardCSS, headerCSS } from "./styles.css";
 
@@ -85,7 +87,7 @@ export function Card({
                                 {title && (
                                     <Box
                                         as="h3"
-                                        fontStyle="bodyLg"
+                                        className={typography.body_lg}
                                         marginBottom="space_1"
                                     >
                                         {title}

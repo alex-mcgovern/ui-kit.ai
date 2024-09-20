@@ -1,3 +1,4 @@
+import { typography } from "@boondoggle/css-variants";
 import { style } from "@vanilla-extract/css";
 
 import { withPrefersMotion } from "../_css-utils";
@@ -38,13 +39,17 @@ export const toastCSS = css({
     paddingY: "space_2",
 });
 
-export const toastTitleCSS = css({
-    color: "toast_text",
-    fontStyle: "bodyMd",
-    fontWeight: "semibold",
-});
+export const toastTitleCSS = style([
+    typography.body_md,
+    css({
+        color: "toast_text",
+        fontWeight: "semibold",
+    }),
+]);
 
-export const toastDescriptionCSS = css({
-    color: "toast_text",
-    fontStyle: "bodyMd",
-});
+export const toastDescriptionCSS = style([
+    typography.body_md,
+    css({
+        color: "toast_text",
+    }),
+]);

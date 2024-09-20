@@ -1,3 +1,4 @@
+import { typography } from "@boondoggle/css-variants";
 import { style } from "@vanilla-extract/css";
 import { calc } from "@vanilla-extract/css-utils";
 
@@ -35,9 +36,9 @@ export const switchCSS = style([
 ]);
 
 export const switchLabelCSS = style([
+    typography.body_md,
     css({
         color: "text_high_contrast",
-        fontStyle: "bodyMd",
     }),
 ]);
 

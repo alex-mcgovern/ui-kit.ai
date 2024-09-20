@@ -1,12 +1,12 @@
+import { typography } from "@boondoggle/css-variants";
 import { style } from "@vanilla-extract/css";
 
 import { css } from "../css/index.css";
 
 export const confirmTextCSS = style([
+    typography.body_md,
     css({
         display: "inline-block",
-        fontSize: "bodyMd",
-        lineHeight: "bodySm",
         marginBottom: "space_2",
     }),
     {

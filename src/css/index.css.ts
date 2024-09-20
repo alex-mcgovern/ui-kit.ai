@@ -46,7 +46,6 @@ const properties = defineProperties({
         flexGrow: ["0", "1"],
         flexShrink: ["0", "1"],
         flexWrap: ["wrap", "nowrap"],
-        fontSize: vars.fontSize,
         fontWeight: vars.fontWeight,
         height: { ...vars.height, ...vars.spacing },
         inset: ["0"],
@@ -61,7 +60,6 @@ const properties = defineProperties({
         ],
         justifySelf: ["stretch", "start", "center", "end", "baseline"],
         left: ["0"],
-        lineHeight: vars.lineHeight,
         margin: vars.spacing,
         marginBottom: vars.spacing,
         marginLeft: vars.spacing,
@@ -108,7 +106,6 @@ const properties = defineProperties({
         zIndex: ["-1", "1"],
     },
     shorthands: {
-        fontStyle: ["fontSize", "lineHeight"],
         marginX: ["marginLeft", "marginRight"],
         marginY: ["marginTop", "marginBottom"],
         overflow: ["overflowX", "overflowY"],

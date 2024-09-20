@@ -1,3 +1,4 @@
+import { typography } from "@boondoggle/css-variants";
 import { keyframes, style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 
@@ -12,6 +13,7 @@ import { a11yFocus, vars } from "../index.css";
 export const menuButtonCSS = recipe({
     base: [
         a11yFocus,
+        typography.body_sm,
         css({
             alignItems: "center",
             background: "background",
@@ -22,7 +24,6 @@ export const menuButtonCSS = recipe({
             display: "flex",
             flexGrow: "1",
             flexShrink: "0",
-            fontStyle: "bodyMd",
             gap: "space_1",
             justifyContent: "center",
         }),

@@ -1,5 +1,6 @@
 import type { ButtonRenderProps, LinkRenderProps } from "react-aria-components";
 
+import { typography } from "@boondoggle/css-variants";
 import { recipe } from "@vanilla-extract/recipes";
 
 import type { ReactAriaRecipe } from "../_css-utils/react-aria-recipe";
@@ -12,13 +13,12 @@ export const buttonCSS = recipe<
     ReactAriaRecipe<ButtonRenderProps | LinkRenderProps>
 >({
     base: [
+        typography.body_md,
         css({
             alignItems: "center",
             borderRadius: "md",
             display: "inline-flex",
             flexShrink: "0",
-
-            fontStyle: "bodyMd",
             fontWeight: "medium",
 
             gap: "space_2",

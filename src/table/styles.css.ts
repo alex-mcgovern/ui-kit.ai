@@ -6,6 +6,7 @@ import type {
     TableRenderProps,
 } from "react-aria-components";
 
+import { typography } from "@boondoggle/css-variants";
 import { style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 
@@ -44,17 +45,19 @@ export const tableCSS = recipe<ReactAriaRecipe<TableRenderProps>>({
  * ------------------------------------------------------------------------------- */
 
 export const columnCSS = recipe<ReactAriaRecipe<ColumnRenderProps>>({
-    base: css({
-        borderBottom: "border_rule",
-        color: "text_low_contrast",
-        fontStyle: "bodySm",
-        fontWeight: "medium",
-        outline: "none",
-        paddingX: "space_2",
-        paddingY: "space_2",
-        textAlign: "left",
-        transition: "short",
-    }),
+    base: [
+        typography.body_md,
+        css({
+            borderBottom: "border_rule",
+            color: "text_low_contrast",
+            fontWeight: "medium",
+            outline: "none",
+            paddingX: "space_2",
+            paddingY: "space_2",
+            textAlign: "left",
+            transition: "short",
+        }),
+    ],
     compoundVariants: [
         {
             style: css({ color: "text_high_contrast" }),
@@ -100,16 +103,18 @@ export const columnCSS = recipe<ReactAriaRecipe<ColumnRenderProps>>({
  * ------------------------------------------------------------------------------- */
 
 export const cellCSS = recipe<ReactAriaRecipe<CellRenderProps>>({
-    base: css({
-        borderBottom: "border_rule",
-        color: "text_high_contrast",
-        fontStyle: "bodySm",
-        outline: "none",
-        paddingX: "space_2",
-        paddingY: "space_2",
-        textAlign: "left",
-        transition: "short",
-    }),
+    base: [
+        typography.body_sm,
+        css({
+            borderBottom: "border_rule",
+            color: "text_high_contrast",
+            outline: "none",
+            paddingX: "space_2",
+            paddingY: "space_2",
+            textAlign: "left",
+            transition: "short",
+        }),
+    ],
     variants: {
         isFocused: {
             false: {},

@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
+import { typography } from "@boondoggle/css-variants";
 import { faker } from "@faker-js/faker";
 
 import { Cell, Column, Row, Table, TableBody, TableHeader } from ".";
@@ -28,14 +29,14 @@ const MockUserCell = () => {
             />
             <Box flexShrink="0">
                 <Box
-                    fontStyle="bodySm"
+                    className={typography.body_sm}
                     fontWeight="medium"
                 >
                     {firstName} {lastName}
                 </Box>
                 <Box
+                    className={typography.body_sm}
                     color="text_low_contrast"
-                    fontStyle="bodySm"
                 >
                     {faker.internet.email()}
                 </Box>

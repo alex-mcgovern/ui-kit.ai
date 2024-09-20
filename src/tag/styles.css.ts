@@ -1,3 +1,4 @@
+import { typography } from "@boondoggle/css-variants";
 import { recipe } from "@vanilla-extract/recipes";
 
 import { withPrefersMotion } from "../_css-utils";
@@ -6,6 +7,7 @@ import { a11yFocus, variantColorOverlay, vars } from "../index.css";
 
 export const getTagStyle = recipe({
     base: [
+        typography.body_sm,
         css({
             alignItems: "center",
             background: "tint_hover",
@@ -16,7 +18,6 @@ export const getTagStyle = recipe({
 
             flexShrink: "0",
 
-            fontStyle: "bodySm",
             gap: "space_1",
             paddingX: "space_2",
 

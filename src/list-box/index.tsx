@@ -4,6 +4,7 @@ import type {
     ListBoxProps as ReactAriaListBoxProps,
 } from "react-aria-components";
 
+import { typography } from "@boondoggle/css-variants";
 import clsx from "clsx";
 import { forwardRef } from "react";
 import {
@@ -147,9 +148,9 @@ function BaseListBox<TItemId extends string = string>(
             ref={ref}
             renderEmptyState={() => (
                 <Box
+                    className={typography.body_sm}
                     color="text_low_contrast"
                     display="flex"
-                    fontStyle="bodySm"
                     placeItems="center"
                     whiteSpace="nowrap"
                 >

@@ -1,3 +1,4 @@
+import { typography } from "@boondoggle/css-variants";
 import { faInfoCircle } from "@fortawesome/pro-solid-svg-icons/faInfoCircle";
 import { Children } from "react";
 
@@ -38,8 +39,8 @@ export function V2DialogAlert({
             )}
 
             <Box
+                className={typography.body_sm}
                 color="text_low_contrast"
-                fontStyle="bodyMd"
             >
                 {title ? <Box fontWeight="semibold">{title}</Box> : null}
                 {description ? description : null}

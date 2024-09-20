@@ -1,5 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
+import { typography } from "@boondoggle/css-variants";
+
 import { Header as StoryComp } from ".";
 import { Box } from "../box";
 import { Button } from "../button";
@@ -10,7 +12,7 @@ const meta = {
             <>
                 <Box
                     as="h1"
-                    fontStyle="h4"
+                    className={typography.h1}
                     fontWeight="semibold"
                     marginBottom="none"
                 >

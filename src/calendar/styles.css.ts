@@ -1,5 +1,6 @@
 import type { CalendarCellRenderProps } from "react-aria-components";
 
+import { typography } from "@boondoggle/css-variants";
 import { style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 
@@ -28,9 +29,9 @@ export const calendarHeaderCSS = style([
 ]);
 
 export const calendarHeadingCSS = style([
+    typography.body_md,
     css({
         flexGrow: "1",
-        fontStyle: "bodyMd",
         margin: "none",
         textAlign: "center",
     }),
@@ -43,9 +44,9 @@ export const calendarGridHeaderCSS = style([
 ]);
 
 export const calendarGridHeaderCellCSS = style([
+    typography.body_md,
     css({
         color: "text_low_contrast",
-        fontStyle: "bodySm",
         fontWeight: "medium",
         height: "space_8",
         textAlign: "center",
@@ -58,12 +59,12 @@ export const calendarGridHeaderCellCSS = style([
 export const calendarCellCSS = recipe<ReactAriaRecipe<CalendarCellRenderProps>>(
     {
         base: [
+            typography.body_md,
             css({
                 aspectRatio: "square",
                 borderRadius: "50%",
                 cursor: "pointer",
                 display: "flex",
-                fontStyle: "bodySm",
                 height: "space_8",
                 margin: "space_0.25",
                 outline: "none",

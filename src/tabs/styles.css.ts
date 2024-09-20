@@ -1,3 +1,4 @@
+import { typography } from "@boondoggle/css-variants";
 import { style } from "@vanilla-extract/css";
 import { calc } from "@vanilla-extract/css-utils";
 import { recipe } from "@vanilla-extract/recipes";
@@ -72,6 +73,7 @@ export const tabListInnerCSS = recipe({
  * ------------------------------------------------------------------------------- */
 
 export const tabOuterCSS = style([
+    typography.body_md,
     css({
         borderRadius: "md",
 
@@ -79,7 +81,6 @@ export const tabOuterCSS = style([
         display: "inline-flex",
         flexShrink: "0",
 
-        fontStyle: "bodyMd",
         fontWeight: "medium",
 
         paddingY: "space_0.25",

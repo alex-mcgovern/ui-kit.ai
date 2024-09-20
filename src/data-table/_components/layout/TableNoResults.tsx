@@ -1,5 +1,6 @@
 import type { RowData, Table } from "@tanstack/react-table";
 
+import { typography } from "@boondoggle/css-variants";
 import { faCircleExclamation } from "@fortawesome/pro-solid-svg-icons/faCircleExclamation";
 
 import { i18n } from "../../../_i18n";
@@ -20,10 +21,10 @@ export function TableNoResults<TRowData extends RowData>({
     return (
         <Box
             alignItems="center"
+            className={typography.body_md}
             color="text_low_contrast"
             display="flex"
             flexDirection="column"
-            fontStyle="bodySm"
             gap="space_4"
             justifyContent="center"
             paddingX="space_4"
@@ -36,7 +37,7 @@ export function TableNoResults<TRowData extends RowData>({
             />
 
             <Box
-                fontStyle="bodyLg"
+                className={typography.body_lg}
                 fontWeight="semibold"
             >
                 {i18n.no_results_found}

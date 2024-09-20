@@ -1,3 +1,4 @@
+import { typography } from "@boondoggle/css-variants";
 import { Faker, en } from "@faker-js/faker";
 import { createColumnHelper } from "@tanstack/react-table";
 
@@ -53,15 +54,15 @@ export const COLUMNS = [
                         />
                         <Box>
                             <Box
-                                fontStyle="bodySm"
+                                className={typography.body_sm}
                                 fontWeight="medium"
                             >
                                 {row.original.first_name}{" "}
                                 {row.original.last_name}
                             </Box>
                             <Box
+                                className={typography.body_sm}
                                 color="text_low_contrast"
-                                fontStyle="bodySm"
                             >
                                 {row.original.email_address}
                             </Box>
