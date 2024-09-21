@@ -1,9 +1,8 @@
 import type { ComplexStyleRule } from "@vanilla-extract/css";
 
 import { TypographyVariant } from "@boondoggle.design/css-types";
+import { vars } from "@boondoggle.design/css-vars";
 import { styleVariants } from "@vanilla-extract/css";
-
-import { vars } from "../../css/vars/src";
 
 type TypographyStyleVariants = Record<TypographyVariant, ComplexStyleRule>;
 

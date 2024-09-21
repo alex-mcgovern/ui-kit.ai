@@ -3,7 +3,7 @@ import type {
     DateSegmentRenderProps,
 } from "react-aria-components";
 
-import { typography } from "@boondoggle/css-variants";
+import { typography } from "@boondoggle.design/css-variants";
 import { recipe } from "@vanilla-extract/recipes";
 
 import type { ReactAriaRecipe } from "../_css-utils/react-aria-recipe";

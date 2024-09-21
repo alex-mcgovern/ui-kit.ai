@@ -1,0 +1,16 @@
+{
+    "name": "@boondoggle.design/css-global-styles",
+    "exports": {
+        ".": "./src/index.ts"
+    },
+    "version": "0.0.0",
+    "type": "module",
+    "main": "./src/index.ts",
+    "devDependencies": {
+        "@boondoggle.design/css-types": "*"
+    },
+    "dependencies": {
+        "@boondoggle.design/css-layers": "*",
+        "@boondoggle.design/css-vars": "*"
+    }
+}

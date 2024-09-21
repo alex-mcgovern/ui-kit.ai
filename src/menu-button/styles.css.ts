@@ -1,4 +1,4 @@
-import { typography } from "@boondoggle/css-variants";
+import { typography } from "@boondoggle.design/css-variants";
 import { keyframes, style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 

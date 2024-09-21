@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { typography } from "@boondoggle/css-variants";
+import { typography } from "@boondoggle.design/css-variants";
 
 import { Header as StoryComp } from ".";
 import { Box } from "../box";

@@ -1,4 +1,4 @@
-import { typography } from "@boondoggle/css-variants";
+import { typography } from "@boondoggle.design/css-variants";
 import { style } from "@vanilla-extract/css";
 
 import { withPrefersMotion } from "../_css-utils";

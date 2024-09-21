@@ -1,6 +1,6 @@
 import type { InputRenderProps } from "react-aria-components";
 
-import { typography } from "@boondoggle/css-variants";
+import { typography } from "@boondoggle.design/css-variants";
 import { calc } from "@vanilla-extract/css-utils";
 import { recipe } from "@vanilla-extract/recipes";
 

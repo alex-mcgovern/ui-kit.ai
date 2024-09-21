@@ -1,5 +1,5 @@
 {
-    "name": "@boondoggle/css-variants",
+    "name": "@boondoggle.design/css-vars",
     "exports": {
         ".": "./src/index.ts"
     },
@@ -7,9 +7,6 @@
     "type": "module",
     "main": "./src/index.ts",
     "devDependencies": {
-        "@boondoggle/css-types": "*"
-    },
-    "dependencies": {
-        "@boondoggle/css-vars": "*"
+        "@boondoggle.design/css-types": "*"
     }
 }

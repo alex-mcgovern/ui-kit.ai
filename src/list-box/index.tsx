@@ -4,7 +4,7 @@ import type {
     ListBoxProps as ReactAriaListBoxProps,
 } from "react-aria-components";
 
-import { typography } from "@boondoggle/css-variants";
+import { typography } from "@boondoggle.design/css-variants";
 import clsx from "clsx";
 import { forwardRef } from "react";
 import {

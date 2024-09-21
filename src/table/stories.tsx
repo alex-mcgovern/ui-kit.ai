@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { typography } from "@boondoggle/css-variants";
+import { typography } from "@boondoggle.design/css-variants";
 import { faker } from "@faker-js/faker";
 
 import { Cell, Column, Row, Table, TableBody, TableHeader } from ".";

@@ -1,4 +1,4 @@
-import { typography } from "@boondoggle/css-variants";
+import { typography } from "@boondoggle.design/css-variants";
 
 import type { BoxProps } from "../box";
 

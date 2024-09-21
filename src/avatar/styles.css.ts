@@ -1,7 +1,7 @@
+import { vars } from "@boondoggle.design/css-vars";
 import { recipe } from "@vanilla-extract/recipes";
 
 import { css } from "../css/index.css";
-import { vars } from "../index.css";
 
 export const avatarCSS = recipe({
     base: [
@@ -16,7 +16,7 @@ export const avatarCSS = recipe({
             overflow: "hidden",
         }),
         {
-            fontSize: `max(${vars.fontSize.bodySm}, 100%)`,
+            fontSize: `max(${vars.font_size.body_sm}, 100%)`,
         },
     ],
     variants: {

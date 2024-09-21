@@ -1,6 +1,6 @@
 import type { RowData, Table } from "@tanstack/react-table";
 
-import { typography } from "@boondoggle/css-variants";
+import { typography } from "@boondoggle.design/css-variants";
 import { faCircleExclamation } from "@fortawesome/pro-solid-svg-icons/faCircleExclamation";
 
 import { i18n } from "../../../_i18n";

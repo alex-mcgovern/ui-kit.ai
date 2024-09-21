@@ -1,6 +1,6 @@
 import type { HTMLProps, ReactNode } from "react";
 
-import { typography } from "@boondoggle/css-variants";
+import { typography } from "@boondoggle.design/css-variants";
 
 import type { WithName } from "../types";
 

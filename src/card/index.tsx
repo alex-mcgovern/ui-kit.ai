@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 
-import { typography } from "@boondoggle/css-variants";
+import { typography } from "@boondoggle.design/css-variants";
 
 import { Box } from "../box";
 import { cardCSS, headerCSS } from "./styles.css";

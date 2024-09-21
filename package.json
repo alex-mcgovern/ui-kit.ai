@@ -73,9 +73,9 @@
         "test:watch": "jest --watch"
     },
     "dependencies": {
-        "@boondoggle/css-types": "*",
-        "@boondoggle/css-variants": "*",
-        "@boondoggle/css-vars": "*",
+        "@boondoggle.design/css-types": "*",
+        "@boondoggle.design/css-variants": "*",
+        "@boondoggle.design/css-vars": "*",
         "@dessert-box/core": "0.2.0",
         "@dessert-box/react": "0.7.5",
         "@fortawesome/fontawesome-svg-core": "6.5.1",

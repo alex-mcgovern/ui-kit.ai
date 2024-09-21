@@ -1,3 +1,4 @@
+import { vars as newVars } from "@boondoggle.design/css-vars";
 import {
     amber,
     amberA,
@@ -125,18 +126,6 @@ export const vars = createGlobalTheme(":root, ::backdrop", {
     fontFamily: {
         body: '-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji"',
     },
-    fontSize: {
-        bodyLg: "1rem", // 16px
-        bodyMd: "0.875rem", // 14px
-        bodySm: "0.8125rem", // 13px
-        h1: "2.5rem", // 40px
-        h2: "2rem", // 32 px
-        h3: "1.75rem", // 28px
-        h4: "1.5rem", // 24px
-        h5: "1.25rem", // 20px
-        h6: "1.125rem", // 18px
-        root: "16px",
-    },
     fontWeight: {
         bold: "700",
         extrabold: "800",
@@ -181,18 +170,6 @@ export const vars = createGlobalTheme(":root, ::backdrop", {
         "min-content": "min-content",
 
         topBar: "3rem",
-    },
-    lineHeight: {
-        bodyLg: "1.5rem", // 24px
-        bodyMd: "1.5rem", // 24px
-        bodySm: "1rem", // 16px
-        h1: "3rem", // 48px
-        h2: "2.5rem", // 40px
-        h3: "2rem", // 32px
-        h4: "1.75rem", // 28px
-        h5: "1.5rem", // 24px
-        h6: "1.5rem", // 24px
-        root: "1.5rem", // 24px
     },
     spacing: {
         auto: "auto",
@@ -580,21 +557,6 @@ globalStyle("a:focus-visible", {
     },
 });
 
-globalStyle(":root", {
-    "@media": {
-        [MEDIA_QUERY_MOBILE]: {
-            vars: {
-                [vars.fontSize.h1]: "2.5rem",
-                [vars.fontSize.h2]: "2rem",
-                [vars.fontSize.h3]: "1.625rem",
-                [vars.fontSize.h4]: "1.375rem",
-                [vars.fontSize.h5]: "1.125rem",
-                [vars.fontSize.h6]: "1rem",
-            },
-        },
-    },
-});
-
 globalStyle("*", {
     "@layer": {
         [baseLayer]: { boxSizing: "border-box", margin: 0 },
@@ -606,7 +568,11 @@ globalStyle("html", {
         [baseLayer]: {
             accentColor: vars.color.bg_button_primary,
             background: vars.color.background,
-            fontSize: vars.fontSize.root,
+            color: vars.color.text_high_contrast,
+            fontFamily: vars.fontFamily.body,
+            fontSize: newVars.font_size.root,
+            lineHeight: newVars.line_height.root,
+            WebkitFontSmoothing: "antialiased",
         },
     },
 });
@@ -614,8 +580,6 @@ globalStyle("html", {
 globalStyle("html, body", {
     "@layer": {
         [baseLayer]: {
-            fontFamily: vars.fontFamily.body,
-            fontSize: vars.fontSize.root,
             height: "100%",
         },
     },
@@ -623,11 +587,7 @@ globalStyle("html, body", {
 
 globalStyle("body", {
     "@layer": {
-        [baseLayer]: {
-            color: vars.color.text_high_contrast,
-            lineHeight: vars.lineHeight.bodyMd,
-            WebkitFontSmoothing: "antialiased",
-        },
+        [baseLayer]: {},
     },
 });
 
@@ -707,72 +667,6 @@ globalStyle("pre:has(code)", {
     },
 });
 
-globalStyle("h1, h2, h3, h4, h5, h6", {
-    "@layer": {
-        [baseLayer]: {
-            display: "block",
-            fontWeight: vars.fontWeight.medium,
-            lineHeight: 1.4,
-            marginBottom: vars.spacing.space_2,
-            overflowWrap: "break-word",
-        },
-    },
-});
-
-globalStyle("h1", {
-    "@layer": {
-        [baseLayer]: {
-            fontSize: vars.fontSize.h1,
-            fontWeight: vars.fontWeight.bold,
-        },
-    },
-});
-
-globalStyle("h2", {
-    "@layer": {
-        [baseLayer]: {
-            fontSize: vars.fontSize.h2,
-            fontWeight: vars.fontWeight.semibold,
-        },
-    },
-});
-
-globalStyle("h3", {
-    "@layer": {
-        [baseLayer]: {
-            fontSize: vars.fontSize.h3,
-            fontWeight: vars.fontWeight.semibold,
-        },
-    },
-});
-
-globalStyle("h4", {
-    "@layer": {
-        [baseLayer]: {
-            fontSize: vars.fontSize.h4,
-            fontWeight: vars.fontWeight.semibold,
-        },
-    },
-});
-
-globalStyle("h5", {
-    "@layer": {
-        [baseLayer]: {
-            fontSize: vars.fontSize.h5,
-            fontWeight: vars.fontWeight.semibold,
-        },
-    },
-});
-
-globalStyle("h6", {
-    "@layer": {
-        [baseLayer]: {
-            fontSize: vars.fontSize.h6,
-            fontWeight: vars.fontWeight.semibold,
-        },
-    },
-});
-
 globalStyle("hr", {
     "@layer": {
         [baseLayer]: {
@@ -787,61 +681,6 @@ globalStyle("hr", {
 });
 
 /** -----------------------------------------------------------------------------
- * LIST ELEMENTS
- * ------------------------------------------------------------------------------- */
-
-globalStyle("ul, ol", {
-    "@layer": {
-        [baseLayer]: {
-            marginBlockEnd: 0,
-            marginBlockStart: 0,
-            marginInlineStart: vars.spacing.space_3,
-            paddingInlineStart: 0,
-        },
-    },
-});
-
-globalStyle("ul li, ol li", {
-    "@layer": {
-        [baseLayer]: {
-            fontSize: vars.fontSize.bodyMd,
-            lineHeight: vars.lineHeight.bodyMd,
-            marginBottom: 0,
-        },
-    },
-});
-
-globalStyle("ul li::marker, ol li::marker", {
-    "@layer": {
-        [baseLayer]: {
-            color: vars.color.text_low_contrast,
-            fontWeight: vars.fontWeight.semibold,
-        },
-    },
-});
-
-globalStyle("menu", {
-    "@layer": {
-        [baseLayer]: {
-            listStyleType: "none",
-            margin: 0,
-            padding: 0,
-        },
-    },
-});
-
-globalStyle("p", {
-    "@layer": {
-        [baseLayer]: {
-            fontSize: vars.fontSize.bodyMd,
-            lineHeight: vars.lineHeight.bodyMd,
-            marginBottom: vars.spacing.space_2,
-            overflowWrap: "break-word",
-        },
-    },
-});
-
-/** -----------------------------------------------------------------------------
  * TABLE ELEMENTS
  * ------------------------------------------------------------------------------- */
 
@@ -849,25 +688,25 @@ globalStyle("p", {
  * Some re-usable style rules that can apply table styling to different elements.
  */
 
-const tHeadStyleRule: StyleRule = {
-    fontSize: vars.fontSize.bodySm,
-    fontWeight: vars.fontWeight.semibold,
-};
+// const tHeadStyleRule: StyleRule = {
+//     fontSize: vars.fontSize.bodySm,
+//     fontWeight: vars.fontWeight.semibold,
+// };
 
-export const tHeadStyles = style({
-    display: "table-header-group",
-    ...tHeadStyleRule,
-});
+// export const tHeadStyles = style({
+//     display: "table-header-group",
+//     ...tHeadStyleRule,
+// });
 
 /**
  * Table cell styles
  */
-const tableCellStyleRule: StyleRule = {
-    fontSize: vars.fontSize.bodyMd,
-    padding: `${vars.spacing.space_2} ${vars.spacing.space_4}`,
-    // textAlign: "left",
-    verticalAlign: "middle",
-};
+// const tableCellStyleRule: StyleRule = {
+//     fontSize: vars.fontSize.bodyMd,
+//     padding: `${vars.spacing.space_2} ${vars.spacing.space_4}`,
+//     // textAlign: "left",
+//     verticalAlign: "middle",
+// };
 
 // globalStyle("th, td", {
 // 	"@layer": {
@@ -888,7 +727,7 @@ const tableCellStyleRule: StyleRule = {
 
 export const thStyles = style({
     display: "table-cell",
-    ...tableCellStyleRule,
+    // ...tableCellStyleRule,
 });
 
 export const tdStyles = style({
@@ -896,7 +735,7 @@ export const tdStyles = style({
     overflow: "hidden",
     textOverflow: "ellipsis",
     whiteSpace: "nowrap",
-    ...tableCellStyleRule,
+    // ...tableCellStyleRule,
 });
 
 // Display table classes

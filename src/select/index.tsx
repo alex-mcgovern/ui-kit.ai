@@ -4,7 +4,7 @@ import type {
     SelectProps as RACSelectProps,
 } from "react-aria-components";
 
-import { typography } from "@boondoggle/css-variants";
+import { typography } from "@boondoggle.design/css-variants";
 import { faAnglesUpDown } from "@fortawesome/pro-solid-svg-icons/faAnglesUpDown";
 import clsx from "clsx";
 import { forwardRef } from "react";
