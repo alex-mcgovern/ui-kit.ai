@@ -6,6 +6,7 @@ import type {
 } from "@tanstack/react-table";
 import type { JSXElementConstructor, ReactNode } from "react";
 
+import { Size } from "@boondoggle.design/css-types";
 import { faEllipsis } from "@fortawesome/pro-solid-svg-icons/faEllipsis";
 import {
     getCoreRowModel,
@@ -59,8 +60,9 @@ export function TableRowMenuButton<TActionId extends string>(
         >
             <Button
                 appearance="secondary"
+                isSquare
                 name="row_actions"
-                size="square_sm"
+                size={Size.SM}
             >
                 <Icon icon={faEllipsis} />
             </Button>

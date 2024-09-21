@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
+import { Size } from "@boondoggle.design/css-types";
 import { faker } from "@faker-js/faker";
 import { faEllipsis } from "@fortawesome/pro-solid-svg-icons/faEllipsis";
 import { faPlus } from "@fortawesome/pro-solid-svg-icons/faPlus";
@@ -133,7 +134,7 @@ export const With1Action: Story = {
         actions: (
             <Button
                 name="primary_action"
-                size="sm"
+                size={Size.SM}
             >
                 <Icon icon={faPlus} />
                 Primary action
@@ -148,15 +149,16 @@ export const With2Actions: Story = {
             <>
                 <Button
                     appearance="secondary"
+                    isSquare
                     name="secondary_action"
-                    size="square_sm"
+                    size={Size.SM}
                 >
                     <Icon icon={faEllipsis} />
                 </Button>
 
                 <Button
                     name="primary_action"
-                    size="sm"
+                    size={Size.SM}
                 >
                     <Icon icon={faPlus} />
                     Primary action
@@ -187,15 +189,16 @@ export const KitchenSink: Story = {
             <>
                 <Button
                     appearance="secondary"
+                    isSquare
                     name="secondary_action"
-                    size="square_sm"
+                    size={Size.SM}
                 >
                     <Icon icon={faEllipsis} />
                 </Button>
                 ,
                 <Button
                     name="primary_action"
-                    size="sm"
+                    size={Size.SM}
                 >
                     <Icon icon={faPlus} />
                     Primary action

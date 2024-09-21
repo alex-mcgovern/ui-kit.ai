@@ -1,3 +1,4 @@
+import type { Size } from "@boondoggle.design/css-types";
 import type {
     ButtonProps as RACButtonProps,
     LinkProps as RACLinkProps,
@@ -7,15 +8,25 @@ import clsx from "clsx";
 import { forwardRef } from "react";
 import { Button as RACButton, Link as RACLink } from "react-aria-components";
 
-import type { ButtonVariants } from "./styles.css";
+import type { ColorOverlay } from "../index.css";
 
-import { buttonCSS } from "./styles.css";
+import { DEFAULT_SIZE } from "../../packages/css/config/src";
+import { sizeRecipe } from "../../packages/css/recipes/src";
+import { buttonCSS, buttonPaddingRecipe } from "./styles.css";
 
 /** -----------------------------------------------------------------------------
  * Button
  * ------------------------------------------------------------------------------- */
 
-export type ButtonProps = RACButtonProps & ButtonVariants;
+export type ButtonVariants = {
+    alignment?: "center" | "left";
+    appearance?: "ghost" | "primary" | "secondary";
+    colorOverlay?: ColorOverlay;
+    isSquare?: boolean;
+    size?: Size;
+};
+
+export type ButtonProps = Omit<RACButtonProps, "size"> & ButtonVariants;
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     (
@@ -24,7 +35,8 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
             appearance = "primary",
             className,
             colorOverlay,
-            size = "sm",
+            isSquare = false,
+            size = DEFAULT_SIZE,
             ...props
         },
         ref,
@@ -35,12 +47,13 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
                 className={(renderProps) =>
                     clsx(
                         className,
+                        sizeRecipe({ isSquare, size }),
+                        buttonPaddingRecipe({ isSquare, size }),
                         buttonCSS({
                             ...renderProps,
                             alignment,
                             appearance,
                             colorOverlay,
-                            size,
                         }),
                     )
                 }
@@ -63,7 +76,8 @@ export const LinkButton = forwardRef<HTMLAnchorElement, LinkButtonProps>(
             appearance = "primary",
             className,
             colorOverlay,
-            size = "sm",
+            isSquare = false,
+            size = DEFAULT_SIZE,
             ...props
         },
         ref,
@@ -74,12 +88,13 @@ export const LinkButton = forwardRef<HTMLAnchorElement, LinkButtonProps>(
                 className={(renderProps) =>
                     clsx(
                         className,
+                        sizeRecipe({ isSquare, size }),
+                        buttonPaddingRecipe({ isSquare, size }),
                         buttonCSS({
                             ...renderProps,
                             alignment,
                             appearance,
                             colorOverlay,
-                            size,
                         }),
                     )
                 }

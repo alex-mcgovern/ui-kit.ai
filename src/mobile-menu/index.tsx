@@ -1,5 +1,6 @@
 import type { ComponentProps, ReactNode } from "react";
 
+import { Size } from "@boondoggle.design/css-types";
 import { faBars } from "@fortawesome/pro-solid-svg-icons/faBars";
 import { faTimes } from "@fortawesome/pro-solid-svg-icons/faTimes";
 import { useState } from "react";
@@ -54,9 +55,10 @@ export const V2MobileMenuHeader = ({
                 className={css({
                     marginLeft: "auto",
                 })}
+                isSquare
                 name="close"
                 onPress={close}
-                size="square_md"
+                size={Size.SM}
                 type="button"
             >
                 <Icon icon={faTimes} />
@@ -119,7 +121,8 @@ export const V2MobileMenu = ({
                         mobile: "inline-flex",
                     },
                 })}
-                size="square_md"
+                isSquare
+                size={Size.SM}
             >
                 <Icon icon={isOpen ? faTimes : faBars} />
             </Button>

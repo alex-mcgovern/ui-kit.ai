@@ -8,6 +8,7 @@ import type {
     TableProps as RACTableProps,
 } from "react-aria-components";
 
+import { Size } from "@boondoggle.design/css-types";
 import { faSort as faSortUp } from "@fortawesome/pro-duotone-svg-icons/faSort";
 import { faGripDots } from "@fortawesome/pro-solid-svg-icons/faGripDots";
 import { clsx } from "clsx";
@@ -218,7 +219,8 @@ function _Row<T extends object>(
                 <Cell>
                     <Button
                         appearance="ghost"
-                        size="square_sm"
+                        isSquare
+                        size={Size.SM}
                         slot="drag"
                     >
                         <Icon icon={faGripDots} />

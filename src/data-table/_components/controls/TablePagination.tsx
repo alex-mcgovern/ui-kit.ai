@@ -1,5 +1,6 @@
 import type { RowData, Table } from "@tanstack/react-table";
 
+import { Size } from "@boondoggle.design/css-types";
 import { typography } from "@boondoggle.design/css-variants";
 
 import { i18n } from "../../../_i18n";
@@ -57,7 +58,7 @@ export function TablePagination<TRowData extends RowData>({
                     isDisabled={!table.getCanPreviousPage()}
                     name="button_previous_page"
                     onPress={() => table.previousPage()}
-                    size="sm"
+                    size={Size.SM}
                 >
                     {i18n.prev}
                 </Button>
@@ -66,7 +67,7 @@ export function TablePagination<TRowData extends RowData>({
                     isDisabled={!table.getCanNextPage()}
                     name="button_next_page"
                     onPress={() => table.nextPage()}
-                    size="sm"
+                    size={Size.SM}
                 >
                     {i18n.next}
                 </Button>

@@ -1,5 +1,6 @@
 import type { RowData, Table } from "@tanstack/react-table";
 
+import { Size } from "@boondoggle.design/css-types";
 import { typography } from "@boondoggle.design/css-variants";
 import { faCircleExclamation } from "@fortawesome/pro-solid-svg-icons/faCircleExclamation";
 
@@ -51,7 +52,7 @@ export function TableNoResults<TRowData extends RowData>({
                         table.setColumnFilters([]);
                         table.setGlobalFilter("");
                     }}
-                    size="sm"
+                    size={Size.SM}
                 >
                     {i18n.clear_all_filters}
                 </Button>

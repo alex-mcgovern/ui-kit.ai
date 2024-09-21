@@ -1,13 +1,72 @@
+import type { Size } from "@boondoggle.design/css-types";
+import type { ComplexStyleRule } from "@vanilla-extract/css";
 import type { ButtonRenderProps, LinkRenderProps } from "react-aria-components";
 
 import { typography } from "@boondoggle.design/css-variants";
+import { vars } from "@boondoggle.design/css-vars";
+import { createVar, styleVariants } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 
 import type { ReactAriaRecipe } from "../_css-utils/react-aria-recipe";
-import type { ColorOverlay } from "../index.css";
+// import type { ColorOverlay } from "../index.css";
 
+import { DEFAULT_SIZE } from "../../packages/css/config/src";
 import { css } from "../css/index.css";
 import { variantColorOverlay } from "../index.css";
+
+/** -----------------------------------------------------------------------------
+ * Padding
+ * ------------------------------------------------------------------------------- */
+
+const paddingX = createVar();
+const paddingY = createVar();
+
+const paddingVariant = styleVariants<Record<Size, ComplexStyleRule>>({
+    lg: {
+        vars: {
+            [paddingX]: vars.spacing.space_6,
+            [paddingY]: vars.spacing.space_3,
+        },
+    },
+    md: {
+        vars: {
+            [paddingX]: vars.spacing.space_4,
+            [paddingY]: vars.spacing.space_3,
+        },
+    },
+    sm: {
+        vars: {
+            [paddingX]: vars.spacing.space_3,
+            [paddingY]: vars.spacing.space_1,
+        },
+    },
+    xs: {
+        vars: {
+            [paddingX]: vars.spacing.space_3,
+            [paddingY]: vars.spacing.space_1,
+        },
+    },
+});
+
+export const buttonPaddingRecipe = recipe({
+    base: {
+        padding: `${paddingY} ${paddingX}`,
+    },
+    defaultVariants: {
+        size: DEFAULT_SIZE,
+    },
+    variants: {
+        isSquare: {
+            false: {},
+            true: {
+                vars: {
+                    [paddingX]: paddingY,
+                },
+            },
+        },
+        size: paddingVariant,
+    },
+});
 
 export const buttonCSS = recipe<
     ReactAriaRecipe<ButtonRenderProps | LinkRenderProps>
@@ -185,7 +244,6 @@ export const buttonCSS = recipe<
     defaultVariants: {
         alignment: "center",
         appearance: "primary",
-        size: "sm",
     },
     variants: {
         alignment: {
@@ -231,66 +289,5 @@ export const buttonCSS = recipe<
             false: {},
             true: {},
         },
-        size: {
-            lg: css({
-                height: "space_12",
-                paddingX: "space_6",
-                paddingY: "space_3",
-            }),
-            md: css({
-                height: "space_10",
-                paddingX: "space_4",
-                paddingY: "space_3",
-            }),
-            sm: css({
-                height: "space_8",
-                paddingX: "space_3",
-                paddingY: "space_1",
-            }),
-            square_lg: css({
-                aspectRatio: "square",
-                flexGrow: "0",
-                height: "space_12",
-                width: "space_12",
-            }),
-            square_md: css({
-                aspectRatio: "square",
-                flexGrow: "0",
-                height: "space_10",
-                width: "space_10",
-            }),
-            square_sm: css({
-                aspectRatio: "square",
-                flexGrow: "0",
-                height: "space_8",
-                width: "space_8",
-            }),
-            square_xs: css({
-                aspectRatio: "square",
-                flexGrow: "0",
-                height: "space_6",
-                width: "space_6",
-            }),
-            xs: css({
-                height: "space_6",
-                paddingX: "space_3",
-                paddingY: "space_0",
-            }),
-        },
     },
 });
-
-export type ButtonVariants = {
-    alignment?: "center" | "left";
-    appearance?: "ghost" | "primary" | "secondary";
-    colorOverlay?: ColorOverlay;
-    size?:
-        | "lg"
-        | "md"
-        | "sm"
-        | "square_lg"
-        | "square_md"
-        | "square_sm"
-        | "square_xs"
-        | "xs";
-};

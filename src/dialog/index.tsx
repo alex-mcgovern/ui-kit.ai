@@ -1,6 +1,7 @@
 import type { ComponentProps, ReactNode } from "react";
 import type { DialogProps as RACDialogProps } from "react-aria-components";
 
+import { Size } from "@boondoggle.design/css-types";
 import { faTimes } from "@fortawesome/pro-solid-svg-icons/faTimes";
 import clsx from "clsx";
 import {
@@ -70,7 +71,7 @@ export const V2DialogHeader = ({
                 })}
                 name="close"
                 onPress={close}
-                size="square_sm"
+                size={Size.SM}
                 type="button"
             >
                 <Icon icon={faTimes} />

@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
+import { Size } from "@boondoggle.design/css-types";
 import { faClock } from "@fortawesome/pro-solid-svg-icons/faClock";
 import { faEllipsis } from "@fortawesome/pro-solid-svg-icons/faEllipsis";
 import { faPlus } from "@fortawesome/pro-solid-svg-icons/faPlus";
@@ -61,15 +62,16 @@ const meta = {
                 <TableActionsContainer>
                     <Button
                         appearance="secondary"
+                        isSquare
                         name="secondary_action"
-                        size="square_sm"
+                        size={Size.SM}
                     >
                         <Icon icon={faEllipsis} />
                     </Button>
 
                     <Button
                         name="primary_action"
-                        size="sm"
+                        size={Size.SM}
                     >
                         <Icon icon={faPlus} />
                         Primary action
