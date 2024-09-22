@@ -1,7 +1,8 @@
 import type { ComponentProps, ReactNode } from "react";
 import type { DialogProps as RACDialogProps } from "react-aria-components";
 
-import { Size } from "@boondoggle.design/css-types";
+import { Button } from "@boondoggle.design/button";
+import { ButtonVariant, Size } from "@boondoggle.design/css-types";
 import { faTimes } from "@fortawesome/pro-solid-svg-icons/faTimes";
 import clsx from "clsx";
 import {
@@ -14,7 +15,6 @@ import {
 
 import type { ColorOverlay } from "../index.css";
 
-import { Button } from "../button";
 import { css } from "../css/index.css";
 import { Icon } from "../icon";
 import {
@@ -64,7 +64,6 @@ export const V2DialogHeader = ({
             </RACHeading>
 
             <Button
-                appearance="ghost"
                 aria-label="Close"
                 className={css({
                     marginLeft: "auto",
@@ -73,6 +72,7 @@ export const V2DialogHeader = ({
                 onPress={close}
                 size={Size.SM}
                 type="button"
+                variant={ButtonVariant.GHOST}
             >
                 <Icon icon={faTimes} />
             </Button>

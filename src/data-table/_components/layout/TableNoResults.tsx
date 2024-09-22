@@ -1,13 +1,13 @@
 import type { RowData, Table } from "@tanstack/react-table";
 
-import { Size } from "@boondoggle.design/css-types";
+import { Button } from "@boondoggle.design/button";
+import { ButtonVariant, Size } from "@boondoggle.design/css-types";
 import { typography } from "@boondoggle.design/css-variants";
 import { faCircleExclamation } from "@fortawesome/pro-solid-svg-icons/faCircleExclamation";
 
 import { i18n } from "../../../_i18n";
 import { arrayHasLength } from "../../../_lib/array-has-length";
 import { Box } from "../../../box";
-import { Button } from "../../../button";
 import { Icon } from "../../../icon";
 
 export function TableNoResults<TRowData extends RowData>({
@@ -46,13 +46,13 @@ export function TableNoResults<TRowData extends RowData>({
 
             {isFiltered && (
                 <Button
-                    appearance="secondary"
                     name="clear_filters"
                     onPress={() => {
                         table.setColumnFilters([]);
                         table.setGlobalFilter("");
                     }}
                     size={Size.SM}
+                    variant={ButtonVariant.SECONDARY}
                 >
                     {i18n.clear_all_filters}
                 </Button>

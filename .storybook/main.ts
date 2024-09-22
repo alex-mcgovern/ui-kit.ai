@@ -12,9 +12,9 @@ const config: StorybookConfig = {
         options: {},
     },
     stories: [
-        "../(src|documentation)/**/*.stories.tsx",
-        "../(src|documentation)/**/stories.tsx",
-        "../(src|documentation)/**/*.mdx",
+        "../(src|packages|documentation)/**/*.stories.tsx",
+        "../(src|packages|documentation)/**/stories.tsx",
+        "../(src|packages|documentation)/**/*.mdx",
     ],
     typescript: {
         check: false,
@@ -34,7 +34,7 @@ const config: StorybookConfig = {
         merge(config, {
             plugins: [
                 new VanillaExtractPlugin({
-                    identifiers: "short",
+                    identifiers: "debug",
                     outputCss: true,
                 }),
             ],

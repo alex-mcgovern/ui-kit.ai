@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
+import { Button } from "@boondoggle.design/button";
 import { Link } from "react-aria-components";
 
 import { Tooltip, TooltipTrigger, TooltipTriggerButton } from ".";
-import { Button } from "../button";
 
 const meta = {
     args: {

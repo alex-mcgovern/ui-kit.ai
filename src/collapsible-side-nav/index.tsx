@@ -2,14 +2,14 @@
 
 import type { Dispatch, ReactNode, SetStateAction } from "react";
 
-import { Size } from "@boondoggle.design/css-types";
+import { Button } from "@boondoggle.design/button";
+import { ButtonVariant, Size } from "@boondoggle.design/css-types";
 import { faSidebar } from "@fortawesome/pro-solid-svg-icons/faSidebar";
 import * as RadixCollapsible from "@radix-ui/react-collapsible";
 import { useCallback } from "react";
 import { createContext, useContext, useLayoutEffect } from "react";
 import { useState } from "react";
 
-import { Button } from "../button";
 import { Icon } from "../icon";
 import { MEDIA_QUERY_MOBILE } from "../index.css";
 import {
@@ -105,12 +105,12 @@ export const ButtonToggleCollapsibleNav = () => {
 
     return (
         <Button
-            appearance="ghost"
             className={collapsibleNavButtonCSS}
             isSquare
             name="mobile_menu"
             onPress={() => setIsOpen((c) => !c)}
             size={Size.SM}
+            variant={ButtonVariant.GHOST}
         >
             <Icon icon={faSidebar} />
         </Button>

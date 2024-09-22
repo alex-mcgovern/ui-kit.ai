@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Size } from "@boondoggle.design/css-types";
+import { Button } from "@boondoggle.design/button";
+import { ButtonVariant, Size } from "@boondoggle.design/css-types";
 import { faker } from "@faker-js/faker";
 import { faEllipsis } from "@fortawesome/pro-solid-svg-icons/faEllipsis";
 import { faPlus } from "@fortawesome/pro-solid-svg-icons/faPlus";
@@ -9,7 +10,6 @@ import type { TV2DataTableRowActions } from ".";
 import type { MockTableData } from "./_mocks/data-table.mock";
 
 import { DataTable as StoryComp, TableRowMenuButton } from ".";
-import { Button } from "../button";
 import { Icon } from "../icon";
 import { COLUMNS, mockColumn } from "./_mocks/data-table.mock";
 
@@ -148,10 +148,10 @@ export const With2Actions: Story = {
         actions: (
             <>
                 <Button
-                    appearance="secondary"
                     isSquare
                     name="secondary_action"
                     size={Size.SM}
+                    variant={ButtonVariant.SECONDARY}
                 >
                     <Icon icon={faEllipsis} />
                 </Button>
@@ -188,10 +188,10 @@ export const KitchenSink: Story = {
         actions: (
             <>
                 <Button
-                    appearance="secondary"
                     isSquare
                     name="secondary_action"
                     size={Size.SM}
+                    variant={ButtonVariant.SECONDARY}
                 >
                     <Icon icon={faEllipsis} />
                 </Button>

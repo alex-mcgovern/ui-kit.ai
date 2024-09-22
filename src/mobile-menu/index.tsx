@@ -1,6 +1,7 @@
 import type { ComponentProps, ReactNode } from "react";
 
-import { Size } from "@boondoggle.design/css-types";
+import { Button } from "@boondoggle.design/button";
+import { ButtonVariant, Size } from "@boondoggle.design/css-types";
 import { faBars } from "@fortawesome/pro-solid-svg-icons/faBars";
 import { faTimes } from "@fortawesome/pro-solid-svg-icons/faTimes";
 import { useState } from "react";
@@ -12,7 +13,6 @@ import {
     ModalOverlay as ReactAriaModalOverlay,
 } from "react-aria-components";
 
-import { Button } from "../button";
 import { css } from "../css/index.css";
 import { Icon } from "../icon";
 import {
@@ -50,7 +50,6 @@ export const V2MobileMenuHeader = ({
             ) : null}
 
             <Button
-                appearance="ghost"
                 aria-label="Close"
                 className={css({
                     marginLeft: "auto",
@@ -60,6 +59,7 @@ export const V2MobileMenuHeader = ({
                 onPress={close}
                 size={Size.SM}
                 type="button"
+                variant={ButtonVariant.GHOST}
             >
                 <Icon icon={faTimes} />
             </Button>
@@ -114,7 +114,6 @@ export const V2MobileMenu = ({
             }}
         >
             <Button
-                appearance="ghost"
                 className={css({
                     display: {
                         desktop: "none",
@@ -123,6 +122,7 @@ export const V2MobileMenu = ({
                 })}
                 isSquare
                 size={Size.SM}
+                variant={ButtonVariant.GHOST}
             >
                 <Icon icon={isOpen ? faTimes : faBars} />
             </Button>

@@ -1,6 +1,6 @@
-import { globalLayer } from "@vanilla-extract/css";
-
-export const resetLayer = globalLayer("reset");
-export const BASE_LAYER = globalLayer("base");
-export const themeLayer = globalLayer("theme");
-export const sprinklesLayer = globalLayer("sprinkles");
+export {
+    BASE_LAYER,
+    THEME_LAYER,
+    resetLayer,
+    sprinklesLayer,
+} from "./layers.css";

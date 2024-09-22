@@ -1,12 +1,12 @@
 import type { CalendarDate, ZonedDateTime } from "@internationalized/date";
 import type { Meta, StoryObj } from "@storybook/react";
 
+import { Button } from "@boondoggle.design/button";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { parseAbsoluteToLocal } from "@internationalized/date";
 import { z } from "zod";
 
 import { Form } from ".";
-import { Button } from "../button";
 import { Checkbox } from "../checkbox";
 import { FormCheckboxGroup } from "../checkbox-group";
 import { ComboBoxButton, FormComboBox } from "../combo-box";

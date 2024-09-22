@@ -1,18 +1,17 @@
+import type { ColorOverlay } from "@boondoggle.design/css-types";
 import type { ReactNode } from "react";
 
 import { Size } from "@boondoggle.design/css-types";
+import { variantColorOverlay } from "@boondoggle.design/css-variants";
 import { zodResolver } from "@hookform/resolvers/zod";
 import clsx from "clsx";
 import { forwardRef, useState } from "react";
 import { z } from "zod";
 
-import type { ColorOverlay } from "../index.css";
-
 import { Box } from "../box";
 import { css } from "../css/index.css";
 import { Form } from "../form";
 import { FormSubmitButton } from "../form-submit-button";
-import { variantColorOverlay } from "../index.css";
 import { Input } from "../input";
 import { Label } from "../label";
 import { FormTextField } from "../text-field";
@@ -103,7 +102,6 @@ export const ConfirmedAction = forwardRef<HTMLDivElement, ConfirmedActionProps>(
                     </FormTextField>
 
                     <FormSubmitButton
-                        appearance="primary"
                         aria-disabled={userConfirmText !== strConfirmText}
                         className={css({
                             width: "100%",

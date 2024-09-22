@@ -8,7 +8,8 @@ import type {
     TableProps as RACTableProps,
 } from "react-aria-components";
 
-import { Size } from "@boondoggle.design/css-types";
+import { Button } from "@boondoggle.design/button";
+import { ButtonVariant, Size } from "@boondoggle.design/css-types";
 import { faSort as faSortUp } from "@fortawesome/pro-duotone-svg-icons/faSort";
 import { faGripDots } from "@fortawesome/pro-solid-svg-icons/faGripDots";
 import { clsx } from "clsx";
@@ -25,7 +26,6 @@ import {
 } from "react-aria-components";
 import { Column as RACColumn } from "react-aria-components";
 
-import { Button } from "../button";
 import { Checkbox } from "../checkbox";
 import { Icon } from "../icon";
 import {
@@ -218,10 +218,10 @@ function _Row<T extends object>(
             {allowsDragging && (
                 <Cell>
                     <Button
-                        appearance="ghost"
                         isSquare
                         size={Size.SM}
                         slot="drag"
+                        variant={ButtonVariant.GHOST}
                     >
                         <Icon icon={faGripDots} />
                     </Button>

@@ -1,8 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
+import { Button } from "@boondoggle.design/button";
+import { ButtonVariant } from "@boondoggle.design/css-types";
+
 import { Toaster, toast } from ".";
 import { Box } from "../box";
-import { Button } from "../button";
 
 const meta = {
     args: {},
@@ -17,26 +19,26 @@ const meta = {
                     gap="space_1"
                 >
                     <Button
-                        appearance="secondary"
                         onPress={() => {
                             toast("This is a toast");
                         }}
+                        variant={ButtonVariant.SECONDARY}
                     >
                         Default toast
                     </Button>
                     <Button
-                        appearance="secondary"
                         onPress={() => {
                             toast.error("This is an error toast");
                         }}
+                        variant={ButtonVariant.SECONDARY}
                     >
                         Error toast
                     </Button>
                     <Button
-                        appearance="secondary"
                         onPress={() => {
                             toast.success("This is a success toast");
                         }}
+                        variant={ButtonVariant.SECONDARY}
                     >
                         Success toast
                     </Button>

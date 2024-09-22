@@ -17,3 +17,23 @@ export enum Size {
     SM = "sm",
     XS = "xs",
 }
+
+export enum ButtonVariant {
+    GHOST = "ghost",
+    PRIMARY = "primary",
+    SECONDARY = "secondary",
+}
+
+export enum ColorOverlay {
+    AMBER = "amber",
+    BLUE = "blue",
+    GRAY = "gray",
+    GREEN = "green",
+    RED = "red",
+    RESET = "reset",
+}
+
+export enum TextColor {
+    HIGH_CONTRAST = "high_contrast",
+    LOW_CONTRAST = "low_contrast",
+}

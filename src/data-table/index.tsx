@@ -6,7 +6,8 @@ import type {
 } from "@tanstack/react-table";
 import type { JSXElementConstructor, ReactNode } from "react";
 
-import { Size } from "@boondoggle.design/css-types";
+import { Button } from "@boondoggle.design/button";
+import { ButtonVariant, Size } from "@boondoggle.design/css-types";
 import { faEllipsis } from "@fortawesome/pro-solid-svg-icons/faEllipsis";
 import {
     getCoreRowModel,
@@ -23,7 +24,6 @@ import type { MenuButtonProps } from "../menu-button";
 
 import { arrayHasLength } from "../_lib/array-has-length";
 import { Box } from "../box";
-import { Button } from "../button";
 import { Icon } from "../icon";
 import { MenuButton } from "../menu-button";
 import {
@@ -59,10 +59,10 @@ export function TableRowMenuButton<TActionId extends string>(
             placement="bottom end"
         >
             <Button
-                appearance="secondary"
                 isSquare
                 name="row_actions"
                 size={Size.SM}
+                variant={ButtonVariant.SECONDARY}
             >
                 <Icon icon={faEllipsis} />
             </Button>

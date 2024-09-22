@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
+import { Button } from "@boondoggle.design/button";
 import { faker } from "@faker-js/faker";
 
 import { Popover, PopoverOverlayArrow } from ".";
-import { Button } from "../button";
 import { Dialog } from "../dialog";
 import { DialogTrigger } from "../dialog-trigger";
 

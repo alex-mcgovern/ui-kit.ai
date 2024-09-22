@@ -3,6 +3,8 @@ import type {
     DateValue as RACDateValue,
 } from "react-aria-components";
 
+import { Button } from "@boondoggle.design/button";
+import { ButtonVariant } from "@boondoggle.design/css-types";
 import { faAngleLeft } from "@fortawesome/pro-solid-svg-icons/faAngleLeft";
 import { faAngleRight } from "@fortawesome/pro-solid-svg-icons/faAngleRight";
 import clsx from "clsx";
@@ -16,7 +18,6 @@ import {
     Heading as RACHeading,
 } from "react-aria-components";
 
-import { Button } from "../button";
 import { Icon } from "../icon";
 import {
     calendarCSS,
@@ -37,15 +38,15 @@ export const Calendar = <TDateValue extends RACDateValue>(
         >
             <header className={calendarHeaderCSS}>
                 <Button
-                    appearance="ghost"
                     slot="previous"
+                    variant={ButtonVariant.GHOST}
                 >
                     <Icon icon={faAngleLeft} />
                 </Button>
                 <RACHeading className={calendarHeadingCSS} />
                 <Button
-                    appearance="ghost"
                     slot="next"
+                    variant={ButtonVariant.GHOST}
                 >
                     <Icon icon={faAngleRight} />
                 </Button>

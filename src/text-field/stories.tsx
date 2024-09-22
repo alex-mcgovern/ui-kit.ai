@@ -1,5 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
+import { Button } from "@boondoggle.design/button";
+import { ButtonVariant } from "@boondoggle.design/css-types";
 import { useRef } from "react";
 
 import {
@@ -8,7 +10,6 @@ import {
     TextFieldCopyButton,
     TextFieldVisibilityButton,
 } from ".";
-import { Button } from "../button";
 import { css } from "../css/index.css";
 import { Group } from "../group";
 import { Input } from "../input";
@@ -107,11 +108,11 @@ export const TestRef: Story = {
                     <Input ref={ref} />
                 </TextField>
                 <Button
-                    appearance="secondary"
                     className={css({ width: "100%" })}
                     onPress={() => {
                         ref.current?.focus();
                     }}
+                    variant={ButtonVariant.SECONDARY}
                 >
                     Focus field
                 </Button>

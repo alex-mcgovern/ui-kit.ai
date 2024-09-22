@@ -1,19 +1,19 @@
 import type { ComponentProps } from "react";
 
+import { Button } from "@boondoggle.design/button";
+import { ButtonVariant } from "@boondoggle.design/css-types";
 import { forwardRef } from "react";
-
-import { Button } from "../button";
 
 export const FormSubmitButton = forwardRef<
     HTMLButtonElement,
     Omit<ComponentProps<typeof Button>, "name">
->(({ appearance = "primary", children, ...rest }, ref) => {
+>(({ children, variant = ButtonVariant.PRIMARY, ...rest }, ref) => {
     return (
         <Button
-            appearance={appearance}
             name="submit"
             ref={ref}
             type="submit"
+            variant={variant}
             {...rest}
         >
             {children}

@@ -2,6 +2,8 @@ import "@fortawesome/fontawesome-svg-core/styles.css";
 import { Parameters, Preview } from "@storybook/react";
 import { Toaster } from "../src/toaster";
 import React from "react";
+import "@boondoggle.design/css-vars";
+import "@boondoggle.design/css-global-styles";
 
 export const parameters: Parameters = {
     actions: {

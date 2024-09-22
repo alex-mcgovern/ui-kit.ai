@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
+import { Button } from "@boondoggle.design/button";
 import { faker } from "@faker-js/faker";
 
 import {
@@ -8,7 +9,6 @@ import {
     V2MobileMenuHeader,
     V2ScrollableMobileMenuContent,
 } from ".";
-import { Button } from "../button";
 import { css } from "../css/index.css";
 
 const meta = {

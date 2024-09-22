@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Size } from "@boondoggle.design/css-types";
+import { Button } from "@boondoggle.design/button";
+import { ButtonVariant, Size } from "@boondoggle.design/css-types";
 import { faClock } from "@fortawesome/pro-solid-svg-icons/faClock";
 import { faEllipsis } from "@fortawesome/pro-solid-svg-icons/faEllipsis";
 import { faPlus } from "@fortawesome/pro-solid-svg-icons/faPlus";
@@ -11,7 +12,6 @@ import {
     TableHeader,
     TableSearchContainer,
 } from ".";
-import { Button } from "../button";
 import {
     FilterButton,
     FilterButtonGroup,
@@ -61,10 +61,10 @@ const meta = {
                 </TableFiltersContainer>
                 <TableActionsContainer>
                     <Button
-                        appearance="secondary"
                         isSquare
                         name="secondary_action"
                         size={Size.SM}
+                        variant={ButtonVariant.GHOST}
                     >
                         <Icon icon={faEllipsis} />
                     </Button>

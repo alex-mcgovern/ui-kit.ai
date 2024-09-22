@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Size } from "@boondoggle.design/css-types";
+import { Button } from "@boondoggle.design/button";
+import { ButtonVariant, Size } from "@boondoggle.design/css-types";
 import { faBars } from "@fortawesome/pro-solid-svg-icons/faBars";
 
 import { MenuButton } from ".";
-import { Button } from "../button";
 import { Icon } from "../icon";
 import { FlagAe } from "../icon-flag/ae";
 import { FlagDe } from "../icon-flag/de";
@@ -95,9 +95,9 @@ const meta = {
         return (
             <MenuButton {...args}>
                 <Button
-                    appearance="secondary"
                     isSquare
                     size={Size.MD}
+                    variant={ButtonVariant.SECONDARY}
                 >
                     <Icon icon={faBars} />
                 </Button>

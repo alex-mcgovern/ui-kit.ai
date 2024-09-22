@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
+import { Button } from "@boondoggle.design/button";
 import { faker } from "@faker-js/faker";
 
 import {
@@ -8,7 +9,6 @@ import {
     V2DialogHeader,
     V2ScrollableDialogContent,
 } from ".";
-import { Button } from "../button";
 import { css } from "../css/index.css";
 import { V2DialogAlert } from "../dialog-alert";
 import { V2DialogErrorMessage } from "../dialog-error-message";

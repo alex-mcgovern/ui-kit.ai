@@ -5,6 +5,8 @@ import { vars } from "@boondoggle.design/css-vars";
 import { createVar, styleVariants } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 
+import { DEFAULT_SIZE } from "../../config/src";
+
 const size = createVar();
 
 const sizeVariant = styleVariants<Record<Size, ComplexStyleRule>>({
@@ -33,9 +35,9 @@ const sizeVariant = styleVariants<Record<Size, ComplexStyleRule>>({
 export const sizeRecipe = recipe({
     base: {
         height: size,
-        vars: {
-            [size]: vars.spacing.space_10,
-        },
+    },
+    defaultVariants: {
+        size: DEFAULT_SIZE,
     },
     variants: {
         isSquare: {

@@ -73,9 +73,11 @@
         "test:watch": "jest --watch"
     },
     "dependencies": {
+        "@boondoggle.design/button": "*",
         "@boondoggle.design/css-config": "*",
         "@boondoggle.design/css-types": "*",
         "@boondoggle.design/css-variants": "*",
+        "@boondoggle.design/css-color-palette": "*",
         "@boondoggle.design/css-recipes": "*",
         "@boondoggle.design/css-vars": "*",
         "@dessert-box/core": "0.2.0",
