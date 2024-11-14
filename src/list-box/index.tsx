@@ -26,9 +26,9 @@ import { i18n } from "../_i18n";
 import { Box } from "../box";
 import { Checkbox } from "../checkbox";
 import { Section } from "../section";
-import { listBoxCSS, listBoxItemCSS } from "./styles.css";
+import { listBoxCSS, listBoxItemCSS } from "./styles/menu-item-text.css";
 
-type SingleListBoxItem<TItemId extends string = string> = {
+export type SingleListBoxItem<TItemId extends string = string> = {
     children?: never;
     colorOverlay?: ColorOverlay;
     description?: string;

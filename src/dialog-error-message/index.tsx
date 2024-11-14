@@ -1,5 +1,5 @@
 import { Button } from "@boondoggle.design/button";
-import { ButtonVariant, ColorOverlay } from "@boondoggle.design/css-types";
+import { ButtonVariant, Color } from "@boondoggle.design/css-types";
 import { typography } from "@boondoggle.design/css-variants";
 import { faCircleExclamation } from "@fortawesome/pro-solid-svg-icons/faCircleExclamation";
 
@@ -54,14 +54,14 @@ export const V2DialogErrorMessage = ({
                     gridTemplateColumns="2x"
                 >
                     <Button
-                        colorOverlay={ColorOverlay.RED}
+                        colorOverlay={Color.RED}
                         onPress={onPressCancel}
                         variant={ButtonVariant.SECONDARY}
                     >
                         {strCancel}
                     </Button>
                     <Button
-                        colorOverlay={ColorOverlay.RED}
+                        colorOverlay={Color.RED}
                         onPress={onPressTryAgain}
                     >
                         {strTryAgain}

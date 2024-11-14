@@ -1,8 +1,9 @@
 import type { PaletteShape } from "./types";
 
-import { buildButtonTheme } from "./builders/button";
+import { button } from "./builders/button";
 import { focus } from "./builders/focus";
-import { buildTextColorPalette } from "./builders/text";
+import { menuItem } from "./builders/menu-item";
+import { text } from "./builders/text";
 import { step } from "./utils";
 
 export const buildTheme = ({
@@ -18,9 +19,10 @@ export const buildTheme = ({
 }) => {
     return {
         black: step(secondary, 12),
-        button: buildButtonTheme({ isOverlay, primary, secondary }),
+        button: button({ isOverlay, primary, secondary }),
         focus: focus({ isOverlay, primary }),
-        text: buildTextColorPalette({ isOverlay, primary, secondary }),
+        menu_item: menuItem({ isOverlay, primary, secondary }),
+        text: text({ isOverlay, primary, secondary }),
         white: step(secondary, 1),
     };
 };

@@ -6,7 +6,7 @@ import { step } from "../utils";
 
 type TextColorMap = Record<TextColor, string>;
 
-export const buildTextColorPalette = ({
+export const text = ({
     isOverlay,
     secondary,
 }: {

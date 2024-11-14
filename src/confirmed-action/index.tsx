@@ -1,4 +1,4 @@
-import type { ColorOverlay } from "@boondoggle.design/css-types";
+import type { Color } from "@boondoggle.design/css-types";
 import type { ReactNode } from "react";
 
 import { Size } from "@boondoggle.design/css-types";
@@ -35,7 +35,7 @@ const getZodSchema = ({
 type ConfirmedActionProps = {
     autoFocus?: boolean;
     buttonContent: ReactNode;
-    colorOverlay?: ColorOverlay;
+    colorOverlay?: Color;
     onConfirmed?: (() => Promise<unknown>) | (() => unknown);
     strConfirmText: string;
     strInvalid: string;

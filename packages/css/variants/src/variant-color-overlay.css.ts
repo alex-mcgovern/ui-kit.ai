@@ -1,4 +1,4 @@
-import type { ColorOverlay } from "@boondoggle.design/css-types";
+import type { Color } from "@boondoggle.design/css-types";
 import type { ComplexStyleRule } from "@vanilla-extract/css";
 
 import {
@@ -14,7 +14,7 @@ import { styleVariants } from "@vanilla-extract/css";
 
 import { THEME_LAYER } from "../../layers/src";
 
-type ColorOverlayStyleVariants = Record<ColorOverlay, ComplexStyleRule>;
+type ColorOverlayStyleVariants = Record<Color, ComplexStyleRule>;
 
 export const variantColorOverlay = styleVariants<ColorOverlayStyleVariants>({
     amber: {

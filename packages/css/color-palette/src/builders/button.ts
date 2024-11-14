@@ -15,7 +15,7 @@ type ButtonThemeConfig = Record<Property, Record<ButtonState, string>>;
 
 type ButtonThemeMap = Record<ButtonVariant, ButtonThemeConfig>;
 
-export const buildButtonTheme = ({
+export const button = ({
     isOverlay,
     primary,
     secondary,

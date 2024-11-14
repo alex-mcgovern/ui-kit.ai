@@ -1,12 +1,8 @@
-import type {
-    ButtonVariant,
-    ColorOverlay,
-    Size,
-} from "@boondoggle.design/css-types";
+import type { ButtonVariant, Color, Size } from "@boondoggle.design/css-types";
 
 export type ButtonProps = {
     alignment?: "center" | "left";
-    colorOverlay?: ColorOverlay;
+    colorOverlay?: Color;
     isSquare?: boolean;
     size?: Size;
     variant?: ButtonVariant;

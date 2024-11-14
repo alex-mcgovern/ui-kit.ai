@@ -92,10 +92,10 @@ export const vars = createGlobalTheme(":root, ::backdrop", {
     },
     borderRadius: {
         "50%": "50%",
-        lg: "12px",
-        md: "8px",
+        lg: "8px",
+        md: "4px",
         pill: "99999px",
-        sm: "4px",
+        sm: "2px",
     },
     boxShadow: {
         lg: `${blackA.blackA3} 0px 5px 40px`,

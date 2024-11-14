@@ -1,13 +1,52 @@
 import type { ListBoxItemRenderProps } from "react-aria-components";
 
 import { typography } from "@boondoggle.design/css-variants";
+import { vars } from "@boondoggle.design/css-vars";
 import { style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 
-import type { ReactAriaRecipe } from "../_css-utils/react-aria-recipe";
+import type { ReactAriaRecipe } from "../../_css-utils/react-aria-recipe";
 
-import { css } from "../css/index.css";
-import { unobtrusiveScrollBar, variantColorOverlay, vars } from "../index.css";
+import { css } from "../../css/index.css";
+import { unobtrusiveScrollBar } from "../../index.css";
+
+export const container = style([
+    {
+        overflow: "hidden",
+    },
+]);
+
+const textCommon = style([
+    typography.body_sm,
+    {
+        display: "block",
+        fontWeight: vars.font_weight.normal,
+        overflow: "hidden",
+        selectors: {
+            "&:first-letter": {
+                textTransform: "capitalize",
+            },
+        },
+        textAlign: "left",
+        textDecoration: "none",
+        textOverflow: "ellipsis",
+        whiteSpace: "nowrap",
+    },
+]);
+
+export const label = style([
+    textCommon,
+    {
+        color: vars.color.text.high_contrast,
+    },
+]);
+
+export const description = style([
+    textCommon,
+    {
+        color: vars.color.text.low_contrast,
+    },
+]);
 
 export const listBoxCSS = style([
     css({
@@ -29,10 +68,8 @@ export const listBoxItemCSS = recipe<ReactAriaRecipe<ListBoxItemRenderProps>>({
             borderRadius: "sm",
             color: "text_high_contrast",
             cursor: "pointer",
-            display: "flex",
             flexShrink: "0",
             fontWeight: "normal",
-            gap: "space_2",
             minHeight: "space_8",
             paddingX: "space_2",
             paddingY: "space_1",
@@ -48,65 +85,9 @@ export const listBoxItemCSS = recipe<ReactAriaRecipe<ListBoxItemRenderProps>>({
             },
         },
     ],
-    compoundVariants: [
-        {
-            style: {
-                display: "grid",
-                gridTemplateColumns: `${vars.spacing.space_5} 1fr ${vars.spacing.space_5}`,
-            },
-            variants: {
-                hasIcon: "true",
-                selectionMode: "single",
-            },
-        },
-        {
-            style: {
-                display: "grid",
-                gridTemplateColumns: `${vars.spacing.space_5} 1fr ${vars.spacing.space_5}`,
-            },
-            variants: {
-                hasIcon: "true",
-                selectionMode: "multiple",
-            },
-        },
-        {
-            style: {
-                display: "grid",
-                gridTemplateColumns: `${vars.spacing.space_5} 1fr`,
-            },
-            variants: {
-                hasIcon: "true",
-                selectionMode: "none",
-            },
-        },
-        {
-            style: {
-                display: "grid",
-                gridTemplateColumns: `1fr ${vars.spacing.space_5}`,
-            },
-            variants: {
-                hasIcon: "false",
-                selectionMode: "single",
-            },
-        },
-        {
-            style: {
-                display: "grid",
-                gridTemplateColumns: `1fr ${vars.spacing.space_5}`,
-            },
-            variants: {
-                hasIcon: "false",
-                selectionMode: "multiple",
-            },
-        },
-    ],
+    compoundVariants: [],
     variants: {
         allowsDragging: {
-            false: {},
-            true: {},
-        },
-        colorOverlay: variantColorOverlay,
-        hasIcon: {
             false: {},
             true: {},
         },

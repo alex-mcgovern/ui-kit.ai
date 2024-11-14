@@ -24,7 +24,7 @@ export enum ButtonVariant {
     SECONDARY = "secondary",
 }
 
-export enum ColorOverlay {
+export enum Color {
     AMBER = "amber",
     BLUE = "blue",
     GRAY = "gray",

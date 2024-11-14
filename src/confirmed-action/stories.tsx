@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { ColorOverlay } from "@boondoggle.design/css-types";
+import { Color } from "@boondoggle.design/css-types";
 
 import { ConfirmedAction } from ".";
 import { Toaster } from "../toaster";
@@ -36,6 +36,6 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {};
 export const ColorOverlayRed: Story = {
     args: {
-        colorOverlay: ColorOverlay.RED,
+        colorOverlay: Color.RED,
     },
 };

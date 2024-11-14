@@ -13,51 +13,62 @@ import {
 
 import { buildTheme } from "./build-theme";
 
+const PRIMARY = blue;
+const PRIMARY_A = blueA;
+const SECONDARY = slate;
+const SECONDARY_A = slateA;
+const SEMANTIC_DESTRUCTIVE = red;
+const SEMANTIC_DESTRUCTIVE_A = redA;
+const SEMANTIC_POSITIVE = green;
+const SEMANTIC_POSITIVE_A = greenA;
+const SEMANTIC_WARN = amber;
+const SEMANTIC_WARN_A = amberA;
+
 export const COLOR_BASE = buildTheme({
-    alpha: slateA,
+    alpha: SECONDARY_A,
     isOverlay: false,
-    primary: blue,
-    secondary: slate,
+    primary: PRIMARY,
+    secondary: SECONDARY,
 });
 
 export const COLOR_RESET = buildTheme({
-    alpha: slateA,
+    alpha: SECONDARY_A,
     isOverlay: false,
-    primary: blue,
-    secondary: slate,
+    primary: PRIMARY,
+    secondary: SECONDARY,
 });
 
 export const COLOR_AMBER = buildTheme({
-    alpha: amberA,
+    alpha: SEMANTIC_WARN_A,
     isOverlay: true,
-    primary: amber,
-    secondary: amber,
+    primary: SEMANTIC_WARN,
+    secondary: SEMANTIC_WARN,
 });
 
 export const COLOR_BLUE = buildTheme({
-    alpha: blueA,
+    alpha: PRIMARY_A,
     isOverlay: true,
-    primary: blue,
-    secondary: blue,
+    primary: PRIMARY,
+    secondary: PRIMARY,
 });
 
 export const COLOR_GRAY = buildTheme({
-    alpha: slateA,
+    alpha: SECONDARY_A,
     isOverlay: true,
-    primary: slate,
-    secondary: slate,
+    primary: SECONDARY,
+    secondary: SECONDARY,
 });
 
 export const COLOR_GREEN = buildTheme({
-    alpha: greenA,
+    alpha: SEMANTIC_POSITIVE_A,
     isOverlay: true,
-    primary: green,
-    secondary: green,
+    primary: SEMANTIC_POSITIVE,
+    secondary: SEMANTIC_POSITIVE,
 });
 
 export const COLOR_RED = buildTheme({
-    alpha: redA,
+    alpha: SEMANTIC_DESTRUCTIVE_A,
     isOverlay: true,
-    primary: red,
-    secondary: red,
+    primary: SEMANTIC_DESTRUCTIVE,
+    secondary: SEMANTIC_DESTRUCTIVE,
 });
