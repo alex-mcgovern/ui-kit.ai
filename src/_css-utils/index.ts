@@ -1,5 +1,8 @@
 import type { StyleRule } from "@vanilla-extract/css";
 
+/**
+ * @deprecated
+ */
 export function withPrefersMotion({ ...styleRules }: StyleRule): StyleRule {
     return {
         "@media": {

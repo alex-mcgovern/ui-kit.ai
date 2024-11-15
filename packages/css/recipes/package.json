@@ -10,6 +10,7 @@
         "@boondoggle.design/css-types": "*"
     },
     "dependencies": {
-        "@boondoggle.design/css-vars": "*"
+        "@boondoggle.design/css-vars": "*",
+        "@boondoggle.design/utils": "*"
     }
 }
