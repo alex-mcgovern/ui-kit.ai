@@ -54,7 +54,7 @@ const meta = {
         ),
     },
     component: StoryComp,
-    title: "Dialog",
+    title: "New/Dialog",
 } satisfies Meta<typeof StoryComp>;
 
 export default meta;
