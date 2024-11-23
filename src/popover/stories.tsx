@@ -4,7 +4,7 @@ import { Button } from "@boondoggle.design/button";
 import { faker } from "@faker-js/faker";
 
 import { Popover, PopoverOverlayArrow } from ".";
-import { Dialog } from "../dialog";
+import { Dialog } from "../../packages/components/dialog";
 import { DialogTrigger } from "../dialog-trigger";
 
 const meta = {

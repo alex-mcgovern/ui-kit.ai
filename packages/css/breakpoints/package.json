@@ -1,0 +1,9 @@
+{
+    "name": "@boondoggle.design/css-breakpoints",
+    "exports": {
+        ".": "./src/index.ts"
+    },
+    "version": "0.0.0",
+    "type": "module",
+    "main": "./src/index.ts"
+}

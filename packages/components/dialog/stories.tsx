@@ -1,17 +1,15 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { Button } from "@boondoggle.design/button";
+import { Color, Size } from "@boondoggle.design/css-types";
 import { faker } from "@faker-js/faker";
 
-import {
-    V2Dialog as StoryComp,
-    V2DialogFooter,
-    V2DialogHeader,
-    V2ScrollableDialogContent,
-} from ".";
-import { css } from "../css/index.css";
-import { V2DialogAlert } from "../dialog-alert";
-import { V2DialogErrorMessage } from "../dialog-error-message";
+import { V2Dialog as StoryComp, V2DialogHeader } from ".";
+import { css } from "../../../src/css/index.css";
+import { V2DialogAlert } from "../../../src/dialog-alert";
+import { V2DialogErrorMessage } from "../../../src/dialog-error-message";
+import { DialogContent } from "./components/dialog-content";
+import { DialogFooter } from "./components/dialog-footer";
 
 const meta = {
     args: {
@@ -24,7 +22,7 @@ const meta = {
                     close={close}
                     title="Dialog Title"
                 />
-                <V2ScrollableDialogContent>
+                <DialogContent>
                     <>
                         <p>
                             A modal dialog component powered by{" "}
@@ -40,8 +38,8 @@ const meta = {
                             );
                         })}
                     </>
-                </V2ScrollableDialogContent>
-                <V2DialogFooter>
+                </DialogContent>
+                <DialogFooter>
                     <Button
                         className={css({ width: "100%" })}
                         onPress={() => {
@@ -51,12 +49,9 @@ const meta = {
                     >
                         Confirm
                     </Button>
-                </V2DialogFooter>
+                </DialogFooter>
             </>
         ),
-        modalOverlayProps: {
-            isDismissable: true,
-        },
     },
     component: StoryComp,
     title: "Dialog",
@@ -69,13 +64,13 @@ export const Default: Story = {};
 
 export const WidthSm: Story = {
     args: {
-        width: "sm",
+        width: Size.SM,
     },
 };
 
 export const WidthLg: Story = {
     args: {
-        width: "lg",
+        width: Size.LG,
     },
 };
 
@@ -96,7 +91,7 @@ export const WithDialogErrorMessage: Story = {
                 />
             </>
         ),
-        colorOverlay: "red",
+        colorOverlay: Color.RED,
         dialogTriggerProps: {
             defaultOpen: true,
         },
@@ -116,7 +111,7 @@ export const WithDialogAlert: Story = {
                     description="This is a description for the alert"
                     title="This is an alert"
                 />
-                <V2ScrollableDialogContent>
+                <DialogContent>
                     <>
                         <p>
                             A modal dialog component powered by{" "}
@@ -132,8 +127,8 @@ export const WithDialogAlert: Story = {
                             );
                         })}
                     </>
-                </V2ScrollableDialogContent>
-                <V2DialogFooter>
+                </DialogContent>
+                <DialogFooter>
                     <Button
                         className={css({ width: "100%" })}
                         onPress={() => {
@@ -143,7 +138,7 @@ export const WithDialogAlert: Story = {
                     >
                         Confirm
                     </Button>
-                </V2DialogFooter>
+                </DialogFooter>
             </>
         ),
         dialogTriggerProps: {

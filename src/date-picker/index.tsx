@@ -8,7 +8,7 @@ import { useController, useFormContext } from "react-hook-form";
 
 import { Calendar } from "../calendar";
 import { css } from "../css/index.css";
-import { Dialog } from "../dialog";
+import { Dialog } from "../../packages/components/dialog";
 import { FieldButton } from "../field-button";
 import { FieldError } from "../field-error";
 import { Icon } from "../icon";

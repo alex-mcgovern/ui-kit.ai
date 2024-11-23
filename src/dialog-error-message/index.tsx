@@ -4,7 +4,7 @@ import { typography } from "@boondoggle.design/css-variants";
 import { faCircleExclamation } from "@fortawesome/pro-solid-svg-icons/faCircleExclamation";
 
 import { Box } from "../box";
-import { V2DialogFooter } from "../dialog";
+import { V2DialogFooter } from "../../packages/components/dialog";
 import { Icon } from "../icon";
 import { variantColorOverlay } from "../index.css";
 

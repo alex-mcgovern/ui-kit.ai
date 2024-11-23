@@ -2,14 +2,14 @@ import { typography } from "@boondoggle.design/css-variants";
 import { keyframes, style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 
-import { withPrefersMotion } from "../_css-utils";
-import { css } from "../css/index.css";
+import { withPrefersMotion } from "../../../src/_css-utils";
+import { css } from "../../../src/css/index.css";
 import {
     MEDIA_QUERY_MOBILE,
     MEDIA_QUERY_TABLET,
     variantColorOverlay,
     vars,
-} from "../index.css";
+} from "../../../src/index.css";
 
 /** -----------------------------------------------------------------------------
  * Dialog
@@ -183,22 +183,5 @@ export const dialogTitleCSS = style([
         color: "text_high_contrast",
         fontWeight: "semibold",
         marginY: "none",
-    }),
-]);
-
-export const dialogContentCSS = style([
-    css({
-        overflowY: "auto",
-        paddingX: "space_4",
-        paddingY: "space_4",
-    }),
-]);
-
-export const dialogFooterCSS = style([
-    css({
-        borderTop: "border_rule",
-        marginTop: "auto",
-        paddingX: "space_4",
-        paddingY: "space_3",
     }),
 ]);

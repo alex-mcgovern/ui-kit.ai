@@ -1,21 +1,23 @@
 import type { ButtonRenderProps, LinkRenderProps } from "react-aria-components";
 
-import { transitionRecipe } from "@boondoggle.design/css-recipes/src/transition.css";
-import { Duration } from "@boondoggle.design/css-types";
+import { transitionRecipe } from "@boondoggle.design/css-recipes";
+import { Duration, Ease } from "@boondoggle.design/css-types";
 import { typography } from "@boondoggle.design/css-variants";
 import { vars } from "@boondoggle.design/css-vars";
 import { recipe } from "@vanilla-extract/recipes";
 
 import type { ReactAriaRecipe } from "../../../../../src/_css-utils/react-aria-recipe";
 
-import { css } from "../../../../../src/css/index.css";
-
 export const buttonBase = recipe<
     ReactAriaRecipe<ButtonRenderProps | LinkRenderProps>
 >({
     base: [
         typography.body_md,
-        transitionRecipe(Duration.SHORT, "background-color, color"),
+        transitionRecipe(
+            Duration.MEDIUM,
+            "background-color, color",
+            Ease.EASE_OUT_CIRC,
+        ),
         {
             alignItems: "center",
             display: "inline-flex",
@@ -23,16 +25,14 @@ export const buttonBase = recipe<
             gap: vars.spacing.space_2,
         },
         {
-            fontWeight: "medium",
+            fontWeight: vars.font_weight.medium,
             textDecoration: "none",
             whiteSpace: "nowrap",
         },
         {
             borderRadius: vars.border_radius.sm,
-        },
-        css({
             outline: "none",
-        }),
+        },
     ],
 
     defaultVariants: {
@@ -40,8 +40,8 @@ export const buttonBase = recipe<
     },
     variants: {
         alignment: {
-            center: [css({ justifyContent: "center", textAlign: "center" })],
-            left: [css({ justifyContent: "start", textAlign: "left" })],
+            center: { justifyContent: "center", textAlign: "center" },
+            left: { justifyContent: "start", textAlign: "left" },
         },
     },
 });
