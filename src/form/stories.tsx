@@ -25,7 +25,10 @@ import {
     NumberFieldDecrementButton,
     NumberFieldIncrementButton,
 } from "../number-field";
-import { FormSelect, SelectButton } from "../select";
+import {
+    FormSelect,
+    SelectButton,
+} from "../../packages/components/select/src/select";
 import { TextArea } from "../text-area";
 import { FormTextField, TextFieldVisibilityButton } from "../text-field";
 import { Toaster } from "../toaster";

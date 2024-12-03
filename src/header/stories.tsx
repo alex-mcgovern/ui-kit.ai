@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { Button } from "@boondoggle.design/button";
-import { Size } from "@boondoggle.design/css-types";
+import { SizeVariant } from "@boondoggle.design/css-types";
 import { typography } from "@boondoggle.design/css-variants";
 
 import { Header as StoryComp } from ".";
@@ -33,6 +33,6 @@ export const Default: Story = {};
 
 export const WithActions: Story = {
     args: {
-        actions: <Button size={Size.SM}>Primary action</Button>,
+        actions: <Button size={SizeVariant.SM}>Primary action</Button>,
     },
 };

@@ -7,7 +7,7 @@ import type {
 import type { JSXElementConstructor, ReactNode } from "react";
 
 import { Button } from "@boondoggle.design/button";
-import { ButtonVariant, Size } from "@boondoggle.design/css-types";
+import { ButtonVariant, SizeVariant } from "@boondoggle.design/css-types";
 import { faEllipsis } from "@fortawesome/pro-solid-svg-icons/faEllipsis";
 import {
     getCoreRowModel,
@@ -61,7 +61,7 @@ export function TableRowMenuButton<TActionId extends string>(
             <Button
                 isSquare
                 name="row_actions"
-                size={Size.SM}
+                size={SizeVariant.SM}
                 variant={ButtonVariant.SECONDARY}
             >
                 <Icon icon={faEllipsis} />

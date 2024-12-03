@@ -1,7 +1,7 @@
 import type { ComponentProps, ReactNode } from "react";
 
 import { Button } from "@boondoggle.design/button";
-import { ButtonVariant, Size } from "@boondoggle.design/css-types";
+import { ButtonVariant, SizeVariant } from "@boondoggle.design/css-types";
 import { faBars } from "@fortawesome/pro-solid-svg-icons/faBars";
 import { faTimes } from "@fortawesome/pro-solid-svg-icons/faTimes";
 import { useState } from "react";
@@ -57,7 +57,7 @@ export const V2MobileMenuHeader = ({
                 isSquare
                 name="close"
                 onPress={close}
-                size={Size.SM}
+                size={SizeVariant.SM}
                 type="button"
                 variant={ButtonVariant.GHOST}
             >
@@ -121,7 +121,7 @@ export const V2MobileMenu = ({
                     },
                 })}
                 isSquare
-                size={Size.SM}
+                size={SizeVariant.SM}
                 variant={ButtonVariant.GHOST}
             >
                 <Icon icon={isOpen ? faTimes : faBars} />

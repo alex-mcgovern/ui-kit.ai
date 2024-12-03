@@ -5,7 +5,7 @@ import { forwardRef } from "react";
 import { useController, useFormContext } from "react-hook-form";
 
 import type { ComboBoxProps } from "../combo-box";
-import type { IterableListBoxItem } from "../list-box";
+import type { IterableListBoxItem } from "../../packages/components/list-box/src";
 
 import { ComboBox } from "../combo-box";
 import { FieldError } from "../field-error";

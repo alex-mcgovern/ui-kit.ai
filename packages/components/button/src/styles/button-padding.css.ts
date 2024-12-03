@@ -1,4 +1,4 @@
-import type { Size } from "@boondoggle.design/css-types";
+import type { SizeVariant } from "@boondoggle.design/css-types";
 import type { ComplexStyleRule } from "@vanilla-extract/css";
 
 import { DEFAULT_SIZE } from "@boondoggle.design/css-config";
@@ -9,7 +9,7 @@ import { recipe } from "@vanilla-extract/recipes";
 const paddingX = createVar();
 const paddingY = createVar();
 
-const paddingVariant = styleVariants<Record<Size, ComplexStyleRule>>({
+const paddingVariant = styleVariants<Record<SizeVariant, ComplexStyleRule>>({
     lg: {
         vars: {
             [paddingX]: vars.spacing.space_6,

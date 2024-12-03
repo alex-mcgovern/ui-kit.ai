@@ -3,12 +3,16 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Button } from "@boondoggle.design/button";
 import { faker } from "@faker-js/faker";
 
-import { Popover, PopoverOverlayArrow } from ".";
-import { Dialog } from "../../packages/components/dialog";
-import { DialogTrigger } from "../dialog-trigger";
+import { css } from "../../../../src/css/index.css";
+import { DialogTrigger } from "../../../../src/dialog-trigger";
+import { Dialog } from "../../dialog";
+import { Popover } from "./components/popover";
+import { PopoverOverlayArrow } from "./components/popover-overlay-arrow";
 
 const meta = {
-    args: {},
+    args: {
+        className: css({ padding: "space_2" }),
+    },
     component: Popover,
     render: (args) => {
         return (
@@ -25,7 +29,7 @@ const meta = {
             </DialogTrigger>
         );
     },
-    title: "Popover",
+    title: "New/Popover",
 } satisfies Meta<typeof Popover>;
 
 export default meta;

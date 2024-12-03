@@ -12,7 +12,7 @@ import { Dialog } from "../../packages/components/dialog";
 import { FieldButton } from "../field-button";
 import { FieldError } from "../field-error";
 import { Icon } from "../icon";
-import { Popover } from "../popover";
+import { Popover } from "../../packages/components/popover/src/components/popover";
 
 /** -----------------------------------------------------------------------------
  * DatePickerButton

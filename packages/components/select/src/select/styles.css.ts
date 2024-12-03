@@ -5,11 +5,11 @@ import { red, redA } from "@radix-ui/colors";
 import { assignVars, style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 
-import type { ReactAriaRecipe } from "../_css-utils/react-aria-recipe";
+import type { ReactAriaRecipe } from "../../../../../src/_css-utils/react-aria-recipe";
 
-import { makeTheme, withPrefersMotion } from "../_css-utils";
-import { css } from "../css/index.css";
-import { vars } from "../index.css";
+import { makeTheme, withPrefersMotion } from "../../../../../src/_css-utils";
+import { css } from "../../../../../src/css/index.css";
+import { vars } from "../../../../../src/index.css";
 
 export const selectValueCSS = recipe<
     ReactAriaRecipe<SelectValueRenderProps<string>>

@@ -1,0 +1,18 @@
+{
+    "name": "@boondoggle.design/list-box",
+    "exports": {
+        ".": "./src/index.ts"
+    },
+    "version": "0.0.0",
+    "type": "module",
+    "main": "./src/index.ts",
+    "types": "./src/index.ts",
+    "dependencies": {
+        "@boondoggle.design/css-breakpoints": "*",
+        "@boondoggle.design/css-config": "*",
+        "@boondoggle.design/css-recipes": "*",
+        "@boondoggle.design/css-types": "*",
+        "@boondoggle.design/popover": "*",
+        "@boondoggle.design/types": "*"
+    }
+}

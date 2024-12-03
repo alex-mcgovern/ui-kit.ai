@@ -14,8 +14,8 @@ import {
 
 import type { SingleListBoxItem } from "..";
 
-import { Checkbox } from "../../checkbox";
-import { Icon } from "../../icon";
+import { Checkbox } from "../../../../../src/checkbox";
+import { Icon } from "../../../../../src/icon";
 import { menuItem } from "../styles/menu-item.base.css";
 import * as layoutStyles from "../styles/menu-item-layout.css";
 import * as textStyles from "../styles/menu-item-text.css";

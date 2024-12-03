@@ -1,7 +1,7 @@
 import type { RowData, Table } from "@tanstack/react-table";
 
 import { Button } from "@boondoggle.design/button";
-import { ButtonVariant, Size } from "@boondoggle.design/css-types";
+import { ButtonVariant, SizeVariant } from "@boondoggle.design/css-types";
 import { typography } from "@boondoggle.design/css-variants";
 import { faCircleExclamation } from "@fortawesome/pro-solid-svg-icons/faCircleExclamation";
 
@@ -51,7 +51,7 @@ export function TableNoResults<TRowData extends RowData>({
                         table.setColumnFilters([]);
                         table.setGlobalFilter("");
                     }}
-                    size={Size.SM}
+                    size={SizeVariant.SM}
                     variant={ButtonVariant.SECONDARY}
                 >
                     {i18n.clear_all_filters}

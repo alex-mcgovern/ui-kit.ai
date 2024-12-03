@@ -1,7 +1,7 @@
 import type { Color } from "@boondoggle.design/css-types";
 import type { ReactNode } from "react";
 
-import { Size } from "@boondoggle.design/css-types";
+import { SizeVariant } from "@boondoggle.design/css-types";
 import { variantColorOverlay } from "@boondoggle.design/css-variants";
 import { zodResolver } from "@hookform/resolvers/zod";
 import clsx from "clsx";
@@ -107,7 +107,7 @@ export const ConfirmedAction = forwardRef<HTMLDivElement, ConfirmedActionProps>(
                             width: "100%",
                         })}
                         colorOverlay={colorOverlay}
-                        size={Size.SM}
+                        size={SizeVariant.SM}
                     >
                         {buttonContent}
                     </FormSubmitButton>

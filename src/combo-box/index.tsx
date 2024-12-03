@@ -7,13 +7,13 @@ import { forwardRef } from "react";
 import { ComboBox as RACCombobox } from "react-aria-components";
 import { useController, useFormContext } from "react-hook-form";
 
-import type { IterableListBoxItem } from "../list-box";
+import type { IterableListBoxItem } from "../../packages/components/list-box/src";
 
 import { FieldButton } from "../field-button";
 import { FieldError } from "../field-error";
 import { Icon } from "../icon";
-import { ListBox } from "../list-box";
-import { Popover } from "../popover";
+import { ListBox } from "../../packages/components/list-box/src";
+import { Popover } from "../../packages/components/popover/src/components/popover";
 import { comboBoxCSS } from "./styles.css";
 
 /** -----------------------------------------------------------------------------

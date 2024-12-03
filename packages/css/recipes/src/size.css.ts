@@ -1,4 +1,4 @@
-import type { Size } from "@boondoggle.design/css-types";
+import type { SizeVariant } from "@boondoggle.design/css-types";
 import type { ComplexStyleRule } from "@vanilla-extract/css";
 
 import { vars } from "@boondoggle.design/css-vars";
@@ -9,7 +9,7 @@ import { DEFAULT_SIZE } from "../../config/src";
 
 const size = createVar();
 
-const sizeVariant = styleVariants<Record<Size, ComplexStyleRule>>({
+const sizeVariant = styleVariants<Record<SizeVariant, ComplexStyleRule>>({
     lg: {
         vars: {
             [size]: vars.spacing.space_12,

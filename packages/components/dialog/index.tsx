@@ -3,7 +3,7 @@ import type { ComponentProps } from "react";
 import type { DialogProps as RACDialogProps } from "react-aria-components";
 
 import { Button } from "@boondoggle.design/button";
-import { ButtonVariant, Size } from "@boondoggle.design/css-types";
+import { ButtonVariant, SizeVariant } from "@boondoggle.design/css-types";
 import { faTimes } from "@fortawesome/pro-solid-svg-icons/faTimes";
 import clsx from "clsx";
 import {
@@ -65,7 +65,7 @@ export const V2DialogHeader = ({
                 })}
                 name="close"
                 onPress={close}
-                size={Size.SM}
+                size={SizeVariant.SM}
                 type="button"
                 variant={ButtonVariant.GHOST}
             >
@@ -80,7 +80,7 @@ export const V2Dialog = ({
     children,
     colorOverlay,
     dialogTriggerProps,
-    width = Size.SM,
+    width = SizeVariant.SM,
 }: {
     buttonProps?: ComponentProps<typeof Button>;
     children: ComponentProps<typeof RACDialog>["children"];
@@ -89,7 +89,7 @@ export const V2Dialog = ({
         ComponentProps<typeof RACDialogTrigger>,
         "children"
     >;
-    width?: Exclude<Size, Size.XS>;
+    width?: Exclude<SizeVariant, SizeVariant.XS>;
 }) => {
     return (
         <RACDialogTrigger {...dialogTriggerProps}>

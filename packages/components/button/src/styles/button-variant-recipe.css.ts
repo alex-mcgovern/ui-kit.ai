@@ -12,9 +12,9 @@ const [buttonVariantTheme, buttonVariantVars] = createTheme({
     color: vars.color.white,
 });
 
-type ColorOverlayStyleVariants = Record<ButtonVariant, ComplexStyleRule>;
+type ButtonStyleVariant = Record<ButtonVariant, ComplexStyleRule>;
 
-const buttonVariant = styleVariants<ColorOverlayStyleVariants>({
+const buttonStyleVariant = styleVariants<ButtonStyleVariant>({
     ghost: {
         vars: assignVars(buttonVariantVars, {
             backgroundColor: vars.color.button.ghost.backgroundColor,
@@ -68,6 +68,6 @@ export const buttonVariantRecipe = recipe({
         variant: ButtonVariant.PRIMARY,
     },
     variants: {
-        variant: buttonVariant,
+        variant: buttonStyleVariant,
     },
 });

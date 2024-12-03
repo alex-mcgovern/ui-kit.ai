@@ -9,7 +9,7 @@ import type {
 } from "react-aria-components";
 
 import { Button } from "@boondoggle.design/button";
-import { ButtonVariant, Size } from "@boondoggle.design/css-types";
+import { ButtonVariant, SizeVariant } from "@boondoggle.design/css-types";
 import { faSort as faSortUp } from "@fortawesome/pro-duotone-svg-icons/faSort";
 import { faGripDots } from "@fortawesome/pro-solid-svg-icons/faGripDots";
 import { clsx } from "clsx";
@@ -219,7 +219,7 @@ function _Row<T extends object>(
                 <Cell>
                     <Button
                         isSquare
-                        size={Size.SM}
+                        size={SizeVariant.SM}
                         slot="drag"
                         variant={ButtonVariant.GHOST}
                     >

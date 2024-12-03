@@ -4,7 +4,7 @@ import { faAppleWhole, faBanana } from "@fortawesome/pro-duotone-svg-icons";
 import { faShapes } from "@fortawesome/pro-duotone-svg-icons/faShapes";
 import { ListBox } from "react-aria-components";
 
-import { Icon } from "../../icon";
+import { Icon } from "../../../../../src/icon";
 import { ListBoxItem } from "./list-box-item";
 
 const meta = {

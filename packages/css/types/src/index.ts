@@ -61,7 +61,12 @@ export enum Ease {
     QUART_OUT_IN = "quart_out_in",
 }
 
-export enum Size {
+export enum FieldVariant {
+    BORDERLESS = "borderless",
+    DEFAULT = "default",
+}
+
+export enum SizeVariant {
     LG = "lg",
     MD = "md",
     SM = "sm",

@@ -2,7 +2,7 @@ import type { Button } from "@boondoggle.design/button";
 import type { ComponentProps } from "react";
 
 import { Color } from "@boondoggle.design/css-types";
-import { Size } from "@boondoggle.design/css-types";
+import { SizeVariant } from "@boondoggle.design/css-types";
 import { variantColorOverlay } from "@boondoggle.design/css-variants";
 import clsx from "clsx";
 import { Modal as RACModal } from "react-aria-components";
@@ -13,12 +13,12 @@ import { modalWidthRecipe } from "../styles/dialog-modal-width.css";
 export const DialogModal = ({
     color = Color.RESET,
     isDismissable = true,
-    width = Size.SM,
+    width = SizeVariant.SM,
     ...props
 }: ComponentProps<typeof RACModal> & {
     buttonProps?: ComponentProps<typeof Button>;
     color?: Color;
-    width?: Exclude<Size, Size.XS>;
+    width?: Exclude<SizeVariant, SizeVariant.XS>;
 }) => {
     return (
         <RACModal

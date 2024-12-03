@@ -14,7 +14,10 @@ import { FlagGb } from "../icon-flag/gb";
 import { FlagUs } from "../icon-flag/us";
 import { Input } from "../input";
 import { Label } from "../label";
-import { Select, SelectButton } from "../select";
+import {
+    Select,
+    SelectButton,
+} from "../../packages/components/select/src/select";
 import { Toaster } from "../toaster";
 
 const meta = {

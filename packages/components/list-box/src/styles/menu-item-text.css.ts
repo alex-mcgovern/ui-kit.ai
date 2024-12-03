@@ -5,10 +5,10 @@ import { vars } from "@boondoggle.design/css-vars";
 import { style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 
-import type { ReactAriaRecipe } from "../../_css-utils/react-aria-recipe";
+import type { ReactAriaRecipe } from "../../../../../src/_css-utils/react-aria-recipe";
 
-import { css } from "../../css/index.css";
-import { unobtrusiveScrollBar } from "../../index.css";
+import { css } from "../../../../../src/css/index.css";
+import { unobtrusiveScrollBar } from "../../../../../src/index.css";
 
 export const container = style([
     {

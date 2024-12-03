@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { Button } from "@boondoggle.design/button";
-import { Color, Size } from "@boondoggle.design/css-types";
+import { Color, SizeVariant } from "@boondoggle.design/css-types";
 import { faker } from "@faker-js/faker";
 
 import { V2Dialog as StoryComp, V2DialogHeader } from ".";
@@ -64,13 +64,13 @@ export const Default: Story = {};
 
 export const WidthSm: Story = {
     args: {
-        width: Size.SM,
+        width: SizeVariant.SM,
     },
 };
 
 export const WidthLg: Story = {
     args: {
-        width: Size.LG,
+        width: SizeVariant.LG,
     },
 };
 

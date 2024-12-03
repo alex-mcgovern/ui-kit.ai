@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { Button } from "@boondoggle.design/button";
-import { ButtonVariant, Size } from "@boondoggle.design/css-types";
+import { ButtonVariant, SizeVariant } from "@boondoggle.design/css-types";
 import { faBars } from "@fortawesome/pro-solid-svg-icons/faBars";
 
 import { MenuButton } from ".";
@@ -96,7 +96,7 @@ const meta = {
             <MenuButton {...args}>
                 <Button
                     isSquare
-                    size={Size.MD}
+                    size={SizeVariant.MD}
                     variant={ButtonVariant.SECONDARY}
                 >
                     <Icon icon={faBars} />

@@ -2,7 +2,7 @@ import { vars } from "@boondoggle.design/css-vars";
 import { createVar, style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 
-import { css } from "../../css/index.css";
+import { css } from "../../../../../src/css/index.css";
 
 const BACKGROUND_COLOR = createVar();
 

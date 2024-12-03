@@ -1,3 +1,3 @@
-import { Size } from "@boondoggle.design/css-types";
+import { SizeVariant } from "@boondoggle.design/css-types";
 
-export const DEFAULT_SIZE: Size = Size.SM;
+export const DEFAULT_SIZE: SizeVariant = SizeVariant.SM;

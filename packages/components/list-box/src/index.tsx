@@ -1,3 +1,4 @@
+import type { ListSchema } from "@boondoggle.design/types";
 import type { ForwardedRef, ReactNode } from "react";
 import type {
     ListBoxItemProps as ReactAriaListBoxItemProps,
@@ -15,17 +16,17 @@ import {
     Text as ReactAriaText,
 } from "react-aria-components";
 
-import type { ColorOverlay } from "../index.css";
+import type { ColorOverlay } from "../../../../src/index.css";
 
 import {
     menuHeaderCSS,
     menuItemDescriptionCSS,
     menuItemNameCSS,
-} from "../_css/menu.css";
-import { i18n } from "../_i18n";
-import { Box } from "../box";
-import { Checkbox } from "../checkbox";
-import { Section } from "../section";
+} from "../../../../src/_css/menu.css";
+import { i18n } from "../../../../src/_i18n";
+import { Box } from "../../../../src/box";
+import { Checkbox } from "../../../../src/checkbox";
+import { Section } from "../../../../src/section";
 import { listBoxCSS, listBoxItemCSS } from "./styles/menu-item-text.css";
 
 export type SingleListBoxItem<TItemId extends string = string> = {
@@ -136,14 +137,14 @@ function ListBoxItem<TItemId extends string = string>({
 }
 
 export type ListBoxProps<TItemId extends string = string> =
-    ReactAriaListBoxProps<IterableListBoxItem<TItemId>>;
+    ReactAriaListBoxProps<ListSchema<TItemId>>;
 
 function BaseListBox<TItemId extends string = string>(
     props: ListBoxProps<TItemId>,
     ref: ForwardedRef<HTMLDivElement>,
 ) {
     return (
-        <ReactAriaListBox<IterableListBoxItem<TItemId>>
+        <ReactAriaListBox<ListSchema<TItemId>>
             className={listBoxCSS}
             ref={ref}
             renderEmptyState={() => (

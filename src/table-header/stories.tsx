@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { Button } from "@boondoggle.design/button";
-import { ButtonVariant, Size } from "@boondoggle.design/css-types";
+import { ButtonVariant, SizeVariant } from "@boondoggle.design/css-types";
 import { faClock } from "@fortawesome/pro-solid-svg-icons/faClock";
 import { faEllipsis } from "@fortawesome/pro-solid-svg-icons/faEllipsis";
 import { faPlus } from "@fortawesome/pro-solid-svg-icons/faPlus";
@@ -63,7 +63,7 @@ const meta = {
                     <Button
                         isSquare
                         name="secondary_action"
-                        size={Size.SM}
+                        size={SizeVariant.SM}
                         variant={ButtonVariant.GHOST}
                     >
                         <Icon icon={faEllipsis} />
@@ -71,7 +71,7 @@ const meta = {
 
                     <Button
                         name="primary_action"
-                        size={Size.SM}
+                        size={SizeVariant.SM}
                     >
                         <Icon icon={faPlus} />
                         Primary action

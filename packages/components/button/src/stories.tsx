@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import type { ComponentProps } from "react";
 
-import { ButtonVariant, Size } from "@boondoggle.design/css-types";
+import { ButtonVariant, SizeVariant } from "@boondoggle.design/css-types";
 import { faShapes } from "@fortawesome/pro-solid-svg-icons/faShapes";
 
 import { css } from "../../../../src/css/index.css";
@@ -31,7 +31,7 @@ const SizeTemplate = (args: ComponentProps<typeof Button>) => (
                 marginBottom: "space_2",
             })}
         >
-            {Object.values(Size).map((size) => (
+            {Object.values(SizeVariant).map((size) => (
                 <Button
                     key={size}
                     {...args}
@@ -46,7 +46,7 @@ const SizeTemplate = (args: ComponentProps<typeof Button>) => (
                 gap: "space_2",
             })}
         >
-            {Object.values(Size).map((size) => (
+            {Object.values(SizeVariant).map((size) => (
                 <Button
                     key={size}
                     {...args}
