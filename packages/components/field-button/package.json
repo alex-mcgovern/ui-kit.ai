@@ -1,0 +1,16 @@
+{
+    "name": "@boondoggle.design/field-button",
+    "exports": {
+        ".": "./src/index.ts"
+    },
+    "version": "0.0.0",
+    "type": "module",
+    "main": "./src/index.ts",
+    "types": "./src/index.ts",
+    "dependencies": {
+        "@boondoggle.design/css-recipes": "*",
+        "@boondoggle.design/css-types": "*",
+        "@boondoggle.design/css-config": "*",
+        "@boondoggle.design/field-button": "*"
+    }
+}
