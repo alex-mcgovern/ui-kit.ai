@@ -12,22 +12,22 @@ const size = createVar();
 const sizeVariant = styleVariants<Record<SizeVariant, ComplexStyleRule>>({
     lg: {
         vars: {
-            [size]: vars.spacing.space_12,
+            [size]: vars.space.space_12,
         },
     },
     md: {
         vars: {
-            [size]: vars.spacing.space_10,
+            [size]: vars.space.space_10,
         },
     },
     sm: {
         vars: {
-            [size]: vars.spacing.space_8,
+            [size]: vars.space.space_8,
         },
     },
     xs: {
         vars: {
-            [size]: vars.spacing.space_6,
+            [size]: vars.space.space_6,
         },
     },
 });

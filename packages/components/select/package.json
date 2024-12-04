@@ -12,6 +12,7 @@
         "@boondoggle.design/css-config": "*",
         "@boondoggle.design/css-recipes": "*",
         "@boondoggle.design/css-types": "*",
+        "@boondoggle.design/list-box": "*",
         "@boondoggle.design/popover": "*",
         "@boondoggle.design/types": "*"
     },

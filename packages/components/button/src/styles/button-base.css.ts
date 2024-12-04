@@ -22,7 +22,7 @@ export const buttonBase = recipe<
             alignItems: "center",
             display: "inline-flex",
             flexShrink: 0,
-            gap: vars.spacing.space_2,
+            gap: vars.space.space_2,
         },
         {
             fontWeight: vars.font_weight.medium,

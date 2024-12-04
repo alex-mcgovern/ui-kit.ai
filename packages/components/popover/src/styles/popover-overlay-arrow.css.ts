@@ -3,8 +3,8 @@ import { style } from "@vanilla-extract/css";
 
 export const overlayArrow = style([
     {
-        height: vars.spacing.space_3,
-        width: vars.spacing.space_3,
+        height: vars.space.space_3,
+        width: vars.space.space_3,
     },
 ]);
 

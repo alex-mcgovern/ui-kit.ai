@@ -3,7 +3,7 @@ import { withPrefersMotion } from "@boondoggle.design/utils";
 import { keyframes, style } from "@vanilla-extract/css";
 import { calc } from "@vanilla-extract/css-utils";
 
-const TRANSLATE_DISTANCE = vars.spacing.space_1;
+const TRANSLATE_DISTANCE = vars.space.space_1;
 const TRANSLATE_DISTANCE_NEGATIVE = calc.multiply(TRANSLATE_DISTANCE, -1);
 
 const DURATION = vars.duration.short;
@@ -24,7 +24,7 @@ function getFade(direction: Direction, placement: PlacementAxis) {
         [direction === "in" ? "0%" : "100%"]: {
             filter: "blur(4px)",
             opacity: 0,
-            transform: `translate${axis}(${distance}) scale(0.95)`,
+            transform: `translate${axis}(${distance}) scale${axis}(0.95)`,
         },
         [direction === "in" ? "100%" : "0%"]: { opacity: 1 },
     };

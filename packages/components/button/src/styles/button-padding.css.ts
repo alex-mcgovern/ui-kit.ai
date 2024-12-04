@@ -12,26 +12,26 @@ const paddingY = createVar();
 const paddingVariant = styleVariants<Record<SizeVariant, ComplexStyleRule>>({
     lg: {
         vars: {
-            [paddingX]: vars.spacing.space_6,
-            [paddingY]: vars.spacing.space_3,
+            [paddingX]: vars.space.space_6,
+            [paddingY]: vars.space.space_3,
         },
     },
     md: {
         vars: {
-            [paddingX]: vars.spacing.space_4,
-            [paddingY]: vars.spacing.space_3,
+            [paddingX]: vars.space.space_4,
+            [paddingY]: vars.space.space_3,
         },
     },
     sm: {
         vars: {
-            [paddingX]: vars.spacing.space_3,
-            [paddingY]: vars.spacing.space_1,
+            [paddingX]: vars.space.space_3,
+            [paddingY]: vars.space.space_1,
         },
     },
     xs: {
         vars: {
-            [paddingX]: vars.spacing.space_2,
-            [paddingY]: vars.spacing.space_1,
+            [paddingX]: vars.space.space_2,
+            [paddingY]: vars.space.space_1,
         },
     },
 });

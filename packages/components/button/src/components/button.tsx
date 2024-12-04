@@ -1,7 +1,7 @@
 import type { ButtonProps as RACButtonProps } from "react-aria-components";
 
 import { DEFAULT_SIZE } from "@boondoggle.design/css-config";
-import { focusRing, sizeRecipe } from "@boondoggle.design/css-recipes";
+import { focusRingRecipe, sizeRecipe } from "@boondoggle.design/css-recipes";
 import { ButtonVariant } from "@boondoggle.design/css-types";
 import { variantColorOverlay } from "@boondoggle.design/css-variants";
 import clsx from "clsx";
@@ -38,7 +38,7 @@ export const Button = forwardRef<
                     buttonPaddingRecipe({ isSquare, size }),
                     buttonVariantRecipe({ variant }),
                     colorOverlay ? variantColorOverlay[colorOverlay] : null,
-                    focusRing({ variant: "default" }),
+                    focusRingRecipe({ variant: "default" }),
                     sizeRecipe({ isSquare, size }),
                     className,
                 )}

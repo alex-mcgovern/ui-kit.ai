@@ -8,11 +8,11 @@ export const selectIconStyle = style([
         color: vars.color.text.low_contrast,
     },
     {
-        height: vars.spacing.space_3,
-        width: vars.spacing.space_3,
+        height: vars.space.space_3,
+        width: vars.space.space_3,
     },
     {
         marginLeft: "auto",
-        marginRight: vars.spacing.space_2,
+        marginRight: vars.space.space_2,
     },
 ]);

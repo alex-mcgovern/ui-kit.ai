@@ -3,5 +3,5 @@ import { style } from "@vanilla-extract/css";
 
 export const dialogContentCSS = style({
     overflowY: "auto",
-    padding: `${vars.spacing.space_3} ${vars.spacing.space_4}`,
+    padding: `${vars.space.space_3} ${vars.space.space_4}`,
 });

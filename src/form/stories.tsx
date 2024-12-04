@@ -9,16 +9,19 @@ import { z } from "zod";
 import { Form } from ".";
 import { Checkbox } from "../checkbox";
 import { FormCheckboxGroup } from "../checkbox-group";
-import { ComboBoxButton, FormComboBox } from "../combo-box";
+import {
+    ComboBoxButton,
+    FormComboBox,
+} from "../../packages/components/combo-box/src/components/combo-box";
 import { FormComboBoxCountry } from "../combo-box-country";
 import { css } from "../css/index.css";
 import { DateInput } from "../date-input";
 import { DatePickerButton, FormDatePicker } from "../date-picker";
-import { Group } from "../group";
+import { FieldGroup } from "../../packages/components/field-group/src/components/field-group";
 import { FlagEu } from "../icon-flag/eu";
 import { FlagGb } from "../icon-flag/gb";
 import { FlagUs } from "../icon-flag/us";
-import { Input } from "../input";
+import { Input } from "../../packages/components/input/src/components/input";
 import { Label } from "../label";
 import {
     FormNumberField,
@@ -28,7 +31,7 @@ import {
 import {
     FormSelect,
     SelectButton,
-} from "../../packages/components/select/src/select";
+} from "../../packages/components/select/src/select/components/select";
 import { TextArea } from "../text-area";
 import { FormTextField, TextFieldVisibilityButton } from "../text-field";
 import { Toaster } from "../toaster";
@@ -126,10 +129,10 @@ const meta = {
                                 type="password"
                             >
                                 <Label>Password</Label>
-                                <Group>
+                                <FieldGroup>
                                     <Input variant="unstyled" />
                                     <TextFieldVisibilityButton />
-                                </Group>
+                                </FieldGroup>
                             </FormTextField>
 
                             {/** --------------------------------------------
@@ -180,10 +183,10 @@ const meta = {
                                 name="date_of_birth"
                             >
                                 <Label>Date of birth</Label>
-                                <Group>
+                                <FieldGroup>
                                     <DateInput variant="unstyled" />
                                     <DatePickerButton />
-                                </Group>
+                                </FieldGroup>
                             </FormDatePicker>
 
                             {/** --------------------------------------------
@@ -200,10 +203,10 @@ const meta = {
                                 name="date_time"
                             >
                                 <Label>Date/time</Label>
-                                <Group>
+                                <FieldGroup>
                                     <DateInput variant="unstyled" />
                                     <DatePickerButton />
-                                </Group>
+                                </FieldGroup>
                             </FormDatePicker>
 
                             {/** --------------------------------------------
@@ -218,11 +221,11 @@ const meta = {
                                 step={100}
                             >
                                 <Label>Count</Label>
-                                <Group>
+                                <FieldGroup>
                                     <Input variant="unstyled" />
                                     <NumberFieldDecrementButton />
                                     <NumberFieldIncrementButton />
-                                </Group>
+                                </FieldGroup>
                             </FormNumberField>
 
                             {/** --------------------------------------------
@@ -342,13 +345,13 @@ const meta = {
                                 name="favourite_food"
                             >
                                 <Label>Favourite food</Label>
-                                <Group>
+                                <FieldGroup>
                                     <Input
                                         placeholder="Type a food..."
                                         variant="unstyled"
                                     />
                                     <ComboBoxButton />
-                                </Group>
+                                </FieldGroup>
                             </FormComboBox>
 
                             {/** --------------------------------------------
@@ -362,13 +365,13 @@ const meta = {
                                 name="country"
                             >
                                 <Label>Country</Label>
-                                <Group>
+                                <FieldGroup>
                                     <Input
                                         placeholder="Type a country..."
                                         variant="unstyled"
                                     />
                                     <ComboBoxButton />
-                                </Group>
+                                </FieldGroup>
                             </FormComboBoxCountry>
 
                             {/** --------------------------------------------

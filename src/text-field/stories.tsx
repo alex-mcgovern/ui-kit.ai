@@ -11,8 +11,8 @@ import {
     TextFieldVisibilityButton,
 } from ".";
 import { css } from "../css/index.css";
-import { Group } from "../group";
-import { Input } from "../input";
+import { FieldGroup } from "../../packages/components/field-group/src/components/field-group";
+import { Input } from "../../packages/components/input/src/components/input";
 import { Label } from "../label";
 import { Toaster } from "../toaster";
 import { Tooltip, TooltipTrigger, TooltipTriggerButton } from "../tooltip";
@@ -80,10 +80,10 @@ export const TypePassword: Story = {
         return (
             <TextField {...args}>
                 <Label>Label</Label>
-                <Group>
+                <FieldGroup>
                     <Input variant="unstyled" />
                     <TextFieldVisibilityButton />
-                </Group>
+                </FieldGroup>
             </TextField>
         );
     },
@@ -129,12 +129,12 @@ export const KitchenSink: Story = {
         return (
             <TextField {...args}>
                 <Label>Label</Label>
-                <Group>
+                <FieldGroup>
                     <Input variant="unstyled" />
                     <TextFieldClearButton />
                     <TextFieldCopyButton />
                     <TextFieldVisibilityButton />
-                </Group>
+                </FieldGroup>
             </TextField>
         );
     },

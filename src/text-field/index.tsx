@@ -1,3 +1,7 @@
+import {
+    FieldButton,
+    type FieldButtonProps,
+} from "@boondoggle.design/field-button";
 import { faCopy } from "@fortawesome/pro-solid-svg-icons/faCopy";
 import { faEye } from "@fortawesome/pro-solid-svg-icons/faEye";
 import { faEyeSlash } from "@fortawesome/pro-solid-svg-icons/faEyeSlash";
@@ -13,7 +17,6 @@ import {
 import { useController, useFormContext } from "react-hook-form";
 
 import { i18n } from "../_i18n";
-import { FieldButton, type FieldButtonProps } from "../field-button";
 import { FieldError } from "../field-error";
 import { Icon } from "../icon";
 import { toast } from "../toaster";

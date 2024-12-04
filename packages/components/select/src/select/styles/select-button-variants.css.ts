@@ -11,9 +11,9 @@ const [selectButtonVariantTheme, selectButtonVariantVars] = createTheme({
     borderColor: vars.color.input.default.borderColor,
 });
 
-type ColorOverlayStyleVariants = Record<FieldVariant, ComplexStyleRule>;
+type SelectButtonStyleVariants = Record<FieldVariant, ComplexStyleRule>;
 
-const selectButtonStyleVariant = styleVariants<ColorOverlayStyleVariants>({
+const selectButtonStyleVariant = styleVariants<SelectButtonStyleVariants>({
     borderless: {
         vars: assignVars(selectButtonVariantVars, {
             backgroundColor: vars.color.input.borderless.backgroundColor,

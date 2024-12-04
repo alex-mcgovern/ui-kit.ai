@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { ComboBoxCountry } from ".";
-import { ComboBoxButton } from "../combo-box";
-import { Group } from "../group";
-import { Input } from "../input";
+import { ComboBoxButton } from "../../packages/components/combo-box/src/components/combo-box";
+import { FieldGroup } from "../../packages/components/field-group/src/components/field-group";
+import { Input } from "../../packages/components/input/src/components/input";
 import { Label } from "../label";
 
 const meta = {
@@ -12,10 +12,10 @@ const meta = {
         return (
             <ComboBoxCountry {...args}>
                 <Label>Country/Region</Label>
-                <Group>
+                <FieldGroup>
                     <Input variant="unstyled" />
                     <ComboBoxButton />
-                </Group>
+                </FieldGroup>
             </ComboBoxCountry>
         );
     },

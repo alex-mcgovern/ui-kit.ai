@@ -8,7 +8,7 @@ globalStyle("ul, ol", {
         [BASE_LAYER]: {
             marginBlockEnd: 0,
             marginBlockStart: 0,
-            marginInlineStart: vars.spacing.space_3,
+            marginInlineStart: vars.space.space_3,
             paddingInlineStart: 0,
         },
     },

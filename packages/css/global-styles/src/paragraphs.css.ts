@@ -8,7 +8,7 @@ globalStyle("p", {
         [BASE_LAYER]: {
             fontSize: vars.font_size.body_md,
             lineHeight: vars.line_height.body_md,
-            marginBottom: vars.spacing.space_2,
+            marginBottom: vars.space.space_2,
             overflowWrap: "break-word",
         },
     },

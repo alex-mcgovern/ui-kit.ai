@@ -41,15 +41,15 @@ export const input = ({
         default: {
             backgroundColor: {
                 base: step(secondary, isOverlay ? 3 : 2),
-                isDisabled: step(secondary, isOverlay ? 2 : 1),
-                isFocused: step(secondary, 0),
-                isFocusVisible: step(secondary, 0),
+                isDisabled: step(secondary, isOverlay ? 3 : 2),
+                isFocused: step(secondary, isOverlay ? 2 : 1),
+                isFocusVisible: step(secondary, isOverlay ? 2 : 1),
                 isHovered: step(secondary, isOverlay ? 2 : 1),
             },
             borderColor: {
                 base: step(secondary, isOverlay ? 7 : 6),
-                isDisabled: step(secondary, isOverlay ? 3 : 2),
-                isFocused: step(primary, 6),
+                isDisabled: step(secondary, isOverlay ? 7 : 6),
+                isFocused: step(secondary, isOverlay ? 8 : 7),
                 isFocusVisible: step(primary, 6),
                 isHovered: step(secondary, isOverlay ? 8 : 7),
             },

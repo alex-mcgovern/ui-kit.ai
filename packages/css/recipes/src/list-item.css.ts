@@ -3,7 +3,7 @@ import { createVar } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 
 const gridLayout = createVar();
-const ADORNMENT = vars.spacing.space_4;
+const ADORNMENT = vars.space.space_4;
 
 const GRID_LAYOUT_BASE = "1fr";
 const GRID_LAYOUT_L_BASE = `${ADORNMENT} 1fr`;

@@ -17,9 +17,9 @@ import {
     FilterButtonGroup,
     RemoveFilterButton,
 } from "../filter-button-group";
-import { Group } from "../group";
+import { FieldGroup } from "../../packages/components/field-group/src/components/field-group";
 import { Icon } from "../icon";
-import { Input } from "../input";
+import { Input } from "../../packages/components/input/src/components/input";
 import { MenuButton } from "../menu-button";
 import {
     SearchField,
@@ -33,11 +33,11 @@ const meta = {
             <>
                 <TableSearchContainer>
                     <SearchField>
-                        <Group>
+                        <FieldGroup>
                             <SearchFieldIcon />
                             <Input variant="unstyled" />
                             <SearchFieldClearButton />
-                        </Group>
+                        </FieldGroup>
                     </SearchField>
                 </TableSearchContainer>
                 <TableFiltersContainer>

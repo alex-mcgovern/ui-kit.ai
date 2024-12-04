@@ -8,16 +8,16 @@ import {
     NumberFieldIncrementButton,
 } from ".";
 import { css } from "../css/index.css";
-import { Group } from "../group";
+import { FieldGroup } from "../../packages/components/field-group/src/components/field-group";
 import { FlagEu } from "../icon-flag/eu";
 import { FlagGb } from "../icon-flag/gb";
 import { FlagUs } from "../icon-flag/us";
-import { Input } from "../input";
+import { Input } from "../../packages/components/input/src/components/input";
 import { Label } from "../label";
 import {
     Select,
     SelectButton,
-} from "../../packages/components/select/src/select";
+} from "../../packages/components/select/src/select/components/select";
 import { Toaster } from "../toaster";
 
 const meta = {
@@ -74,11 +74,11 @@ export const KitchenSink: Story = {
         return (
             <NumberField {...args}>
                 <Label>Label</Label>
-                <Group>
+                <FieldGroup>
                     <NumberFieldDecrementButton />
                     <Input variant="unstyled" />
                     <NumberFieldIncrementButton />
-                </Group>
+                </FieldGroup>
             </NumberField>
         );
     },

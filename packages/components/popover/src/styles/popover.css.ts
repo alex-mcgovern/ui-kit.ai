@@ -1,6 +1,5 @@
 import { vars } from "@boondoggle.design/css-vars";
 import { style } from "@vanilla-extract/css";
-import { calc } from "@vanilla-extract/css-utils";
 
 export const popoverCSS = style([
     {
@@ -12,10 +11,7 @@ export const popoverCSS = style([
     {
         selectors: {
             "&[data-trigger='ComboBox']": {
-                minWidth: calc.add(
-                    "var(--trigger-width)",
-                    vars.spacing.space_1,
-                ),
+                minWidth: "var(--trigger-width)",
             },
             "&[data-trigger='DatePicker']": {
                 width: "unset",

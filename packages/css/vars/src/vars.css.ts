@@ -23,5 +23,5 @@ export const vars = createGlobalTheme(":root", {
     font_size: FONT_SIZE,
     font_weight: FONT_WEIGHT,
     line_height: LINE_HEIGHT,
-    spacing: SPACING,
+    space: SPACING,
 });

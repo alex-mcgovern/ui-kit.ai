@@ -12,7 +12,7 @@ import { Box } from "../box";
 import { css } from "../css/index.css";
 import { Form } from "../form";
 import { FormSubmitButton } from "../form-submit-button";
-import { Input } from "../input";
+import { Input } from "../../packages/components/input/src/components/input";
 import { Label } from "../label";
 import { FormTextField } from "../text-field";
 

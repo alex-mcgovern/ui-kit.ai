@@ -1,8 +1,8 @@
 import type { RowData, Table } from "@tanstack/react-table";
 
 import { i18n } from "../../../../_i18n";
-import { Group } from "../../../../group";
-import { Input } from "../../../../input";
+import { FieldGroup } from "../../../../../packages/components/field-group/src/components/field-group";
+import { Input } from "../../../../../packages/components/input/src/components/input";
 import {
     SearchField,
     SearchFieldClearButton,
@@ -22,14 +22,14 @@ export function TableGlobalFilter<TRowData extends RowData>({
             onChange={table.setGlobalFilter}
             value={table.getState().globalFilter ?? ""}
         >
-            <Group>
+            <FieldGroup>
                 <Input
-                    icon={<SearchFieldIcon />}
+                    slotLeft={<SearchFieldIcon />}
                     placeholder={i18n.filter_placeholder}
                     variant="unstyled"
                 />
                 <SearchFieldClearButton />
-            </Group>
+            </FieldGroup>
         </SearchField>
     );
 }

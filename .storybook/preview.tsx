@@ -6,9 +6,6 @@ import "@boondoggle.design/css-vars";
 import "@boondoggle.design/css-global-styles";
 
 export const parameters: Parameters = {
-    actions: {
-        argTypesRegex: "^on[A-Z].*",
-    },
     controls: {
         expanded: false,
         matchers: {
@@ -19,9 +16,6 @@ export const parameters: Parameters = {
         viewMode: "docs",
     },
     layout: "centered",
-    // viewport: {
-    // 	defaultViewport: "tablet",
-    // },
 };
 
 export const preview: Preview = {

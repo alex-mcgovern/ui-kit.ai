@@ -4,10 +4,10 @@ import { countries } from "countries-list";
 import { forwardRef } from "react";
 import { useController, useFormContext } from "react-hook-form";
 
-import type { ComboBoxProps } from "../combo-box";
-import type { IterableListBoxItem } from "../../packages/components/list-box/src";
+import type { ComboBoxProps } from "../../packages/components/combo-box/src/components/combo-box";
+import type { IterableListBoxItem } from "../../packages/components/list-box/src/components/list-box";
 
-import { ComboBox } from "../combo-box";
+import { ComboBox } from "../../packages/components/combo-box/src/components/combo-box";
 import { FieldError } from "../field-error";
 import { FLAGS } from "../icon-flag/_map";
 

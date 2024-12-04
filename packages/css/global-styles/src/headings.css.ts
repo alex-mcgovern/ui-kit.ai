@@ -7,7 +7,7 @@ globalStyle("h1, h2, h3, h4, h5, h6", {
     "@layer": {
         [BASE_LAYER]: {
             display: "block",
-            marginBottom: vars.spacing.space_2,
+            marginBottom: vars.space.space_2,
             overflowWrap: "break-word",
             textWrap: "balance",
         },

@@ -1,42 +1,51 @@
 import type { Color } from "@boondoggle.design/css-types";
 import type { ReactNode } from "react";
+import type { ListBoxItemProps as AriaListBoxItemProps } from "react-aria-components";
 
-interface ListEntrySchema<TItemId extends string = string> {
-    children?: ListEntrySchema<TItemId>[];
+interface Base<TItemId extends string = string, TValue extends object = object>
+    extends Omit<
+        AriaListBoxItemProps<TValue>,
+        "children" | "id" | "textValue"
+    > {
     color?: Color;
     description?: string;
     href?: string;
     id: TItemId | string;
-    label: string;
+    items?: Base<TItemId>[];
     slotLeft?: ReactNode;
     slotRight?: ReactNode;
+    textValue: string;
 }
 
-interface ListEntryItemSchema<TItemId extends string = string>
-    extends ListEntrySchema<TItemId> {
-    children?: never;
+export interface ListBoxItemSchema<
+    TItemId extends string = string,
+    TValue extends object = object,
+> extends Base<TItemId, TValue> {
     color?: Color;
     description?: string;
     href?: string;
     id: TItemId;
-    label: string;
+    items?: never;
     slotLeft?: ReactNode;
     slotRight?: ReactNode;
+    textValue: string;
 }
 
-interface ListEntrySectionSchema<TItemId extends string = string>
-    extends ListEntrySchema<TItemId> {
-    children?: ListEntrySchema<TItemId>[];
+export interface ListBoxSectionSchema<
+    TItemId extends string = string,
+    TValue extends object = object,
+> extends Base<TItemId, TValue> {
     color?: never;
     description?: never;
     href?: never;
     id: string;
-    label: string;
+    items?: ListBoxItemSchema<TItemId, TValue>[];
     slotLeft?: ReactNode;
     slotRight?: never;
+    textValue: string;
 }
 
-export type ListSchema<TItemId extends string = string> = (
-    | ListEntryItemSchema<TItemId>
-    | ListEntrySectionSchema<TItemId>
-)[];
+export type ListSchema<
+    TItemId extends string = string,
+    TValue extends object = object,
+> = ListBoxItemSchema<TItemId, TValue> | ListBoxSectionSchema<TItemId, TValue>;

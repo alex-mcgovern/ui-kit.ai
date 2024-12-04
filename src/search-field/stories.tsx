@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { SearchField, SearchFieldClearButton, SearchFieldIcon } from ".";
-import { Group } from "../group";
-import { Input } from "../input";
+import { FieldGroup } from "../../packages/components/field-group/src/components/field-group";
+import { Input } from "../../packages/components/input/src/components/input";
 import { Label } from "../label";
 
 const meta = {
@@ -12,11 +12,11 @@ const meta = {
         return (
             <SearchField {...args}>
                 <Label>Label</Label>
-                <Group>
+                <FieldGroup>
                     <SearchFieldIcon />
                     <Input variant="unstyled" />
                     <SearchFieldClearButton />
-                </Group>
+                </FieldGroup>
             </SearchField>
         );
     },

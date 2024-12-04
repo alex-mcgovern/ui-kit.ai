@@ -14,5 +14,8 @@
         "@boondoggle.design/css-types": "*",
         "@boondoggle.design/popover": "*",
         "@boondoggle.design/types": "*"
+    },
+    "devDependencies": {
+        "@boondoggle.design/mocks": "*"
     }
 }

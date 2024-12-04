@@ -1,3 +1,4 @@
+import { FieldButton } from "@boondoggle.design/field-button";
 import { faMinus } from "@fortawesome/pro-solid-svg-icons/faMinus";
 import { faPlus } from "@fortawesome/pro-solid-svg-icons/faPlus";
 import clsx from "clsx";
@@ -8,7 +9,6 @@ import {
 } from "react-aria-components";
 import { useController, useFormContext } from "react-hook-form";
 
-import { FieldButton } from "../field-button";
 import { FieldError } from "../field-error";
 import { Icon } from "../icon";
 import { numberFieldCSS } from "./styles.css";

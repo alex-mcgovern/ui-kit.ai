@@ -14,8 +14,8 @@ export const menuItem = ({
         backgroundColor: {
             base: "transparent",
             isDisabled: "transparent",
-            isHovered: step(secondary, isOverlay ? 3 : 2),
-            isPressed: step(secondary, isOverlay ? 4 : 3),
+            isHovered: step(secondary, isOverlay ? 4 : 3),
+            isPressed: step(secondary, isOverlay ? 5 : 4),
         },
     };
 };

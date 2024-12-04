@@ -9,7 +9,7 @@ import { Link as RACLink } from "react-aria-components";
 import type { ButtonProps } from "../types";
 
 import { DEFAULT_SIZE } from "../../../../css/config/src";
-import { focusRing, sizeRecipe } from "../../../../css/recipes/src";
+import { focusRingRecipe, sizeRecipe } from "../../../../css/recipes/src";
 import { buttonBase } from "../styles/button-base.css";
 import { buttonPaddingRecipe } from "../styles/button-padding.css";
 import { buttonVariantRecipe } from "../styles/button-variant-recipe.css";
@@ -38,7 +38,7 @@ export const ButtonLink = forwardRef<
                     buttonPaddingRecipe({ isSquare, size }),
                     buttonVariantRecipe({ variant }),
                     colorOverlay ? variantColorOverlay[colorOverlay] : null,
-                    focusRing({ variant: "inset" }),
+                    focusRingRecipe({ variant: "inset" }),
                     sizeRecipe({ isSquare, size }),
                     className,
                 )}

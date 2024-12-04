@@ -1,112 +1,102 @@
-import type { Color } from "@boondoggle.design/css-types";
-import type { ReactNode } from "react";
-import type {
-    ListBoxItemProps as AriaListBoxItemProps,
-    ListBoxItemRenderProps as AriaListBoxItemRenderProps,
-} from "react-aria-components";
+import type { ListBoxItemSchema } from "@boondoggle.design/types";
 
-import { faCheck } from "@fortawesome/pro-duotone-svg-icons";
+import { faCheck } from "@fortawesome/pro-duotone-svg-icons/faCheck";
 import clsx from "clsx";
 import {
-    ListBoxItem as AriaListBoxItem,
-    Text as ReactAriaText,
+    ListBoxItem as RACListBoxItem,
+    Text as RACText,
 } from "react-aria-components";
-
-import type { SingleListBoxItem } from "..";
 
 import { Checkbox } from "../../../../../src/checkbox";
 import { Icon } from "../../../../../src/icon";
-import { menuItem } from "../styles/menu-item.base.css";
-import * as layoutStyles from "../styles/menu-item-layout.css";
-import * as textStyles from "../styles/menu-item-text.css";
+import { FieldIconContainer } from "../../../field-icon-container/src";
+import {
+    listBoxGridLeftStyle,
+    listBoxGridRightStyle,
+    listBoxGridStyle,
+} from "../styles/list-box-grid.css";
+import {
+    descriptionStyle,
+    textValueStyle,
+} from "../styles/list-box-item-text.css";
+import { listBoxItemStyle } from "../styles/menu-item.base.css";
 
-export type ListBoxItemProps<TItemId extends string = string> =
-    AriaListBoxItemProps<SingleListBoxItem<TItemId>> & {
-        colorOverlay?: Color;
-        icon?: ReactNode;
-    };
-
-type MenuItemProps = AriaListBoxItemProps & {
-    colorOverlay?: Color;
-    description?: string;
-    icon?: ReactNode;
-};
-
-function MenuItemChildren({
-    props,
-    renderProps,
-}: {
-    props: MenuItemProps;
-    renderProps: AriaListBoxItemRenderProps;
-}) {
-    if (!props.children) {
-        return (
-            <div className={textStyles.container}>
-                <ReactAriaText
-                    className={textStyles.label}
-                    slot="label"
-                >
-                    {props.textValue}
-                </ReactAriaText>
-
-                {props.description ? (
-                    <ReactAriaText
-                        className={textStyles.description}
-                        slot="description"
-                    >
-                        {props.description}
-                    </ReactAriaText>
-                ) : null}
-            </div>
-        );
-    } else if (typeof props.children === "function") {
-        return props.children(renderProps);
-    } else return props.children;
-}
-
-function MenuItemRight({
-    renderProps,
-}: {
-    renderProps: AriaListBoxItemRenderProps;
-}) {
-    if (renderProps.selectionMode === "single" && renderProps.isSelected) {
-        return <Icon icon={faCheck} />;
-    }
-
-    if (renderProps.selectionMode === "multiple") {
-        return (
-            <Checkbox
-                isReadOnly
-                isSelected={renderProps.isSelected}
-            />
-        );
-    }
-
-    return null;
-}
-
-export function ListBoxItem(props: MenuItemProps) {
+export function ListBoxItem({
+    description,
+    slotLeft,
+    slotRight,
+    ...props
+}: ListBoxItemSchema) {
     return (
-        <AriaListBoxItem
-            className={clsx(props.className, menuItem, layoutStyles.container)}
-            data-icon={!!props.icon}
+        <RACListBoxItem
             {...props}
+            className={clsx(
+                listBoxItemStyle,
+                listBoxGridStyle,
+                props.className,
+            )}
         >
-            {(renderProps) => {
+            {({ isSelected, selectionMode }) => {
                 return (
                     <>
-                        <div className={layoutStyles.left}>{props.icon}</div>
-                        <MenuItemChildren
-                            props={props}
-                            renderProps={renderProps}
-                        />
+                        {/*
+                         * NOTE: We always render the element containing the
+                         * `slotLeft` prop, as if another item in the list has
+                         * a `slotLeft`, we should still ensure that the text is
+                         * aligned throughout the list. This is controlled via
+                         * CSS */}
+                        <FieldIconContainer className={listBoxGridLeftStyle}>
+                            {slotLeft}
+                        </FieldIconContainer>
 
-                        <div className={layoutStyles.right}>
-                            <MenuItemRight renderProps={renderProps} />
+                        <div>
+                            <RACText
+                                className={textValueStyle}
+                                slot="label"
+                            >
+                                {props.textValue}
+                            </RACText>
+
+                            {description ? (
+                                <RACText
+                                    className={descriptionStyle}
+                                    slot="description"
+                                >
+                                    {description}
+                                </RACText>
+                            ) : null}
                         </div>
+
+                        {/*
+                         * NOTE #1: We always render the element on the right
+                         * hand side of the item. If another element has content
+                         * in this part of the grid, this should be rendered
+                         * as empty space to preserve alignment.
+                         *
+                         * NOTE #2: There is an order of importance for the
+                         * content that gets rendered in here. A decorative slot
+                         * can be overridden by a submenu trigger, or a selection
+                         * indicator, though combining this should be disabled at
+                         * the type level in any case.
+                         *
+                         * (The nested ternary, while ugly, is the most
+                         * appropriate way to dictate this behavior)
+                         * */}
+                        <FieldIconContainer className={listBoxGridRightStyle}>
+                            {selectionMode === "single" && isSelected ? (
+                                <Icon icon={faCheck} />
+                            ) : selectionMode === "multiple" ? (
+                                <Checkbox
+                                    isReadOnly
+                                    isSelected={isSelected}
+                                />
+                            ) : slotRight ? (
+                                slotRight
+                            ) : null}
+                        </FieldIconContainer>
                     </>
                 );
             }}
-        </AriaListBoxItem>
+        </RACListBoxItem>
     );
 }

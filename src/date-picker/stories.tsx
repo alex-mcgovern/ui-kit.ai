@@ -4,7 +4,7 @@ import { parseAbsoluteToLocal, parseDate } from "@internationalized/date";
 
 import { DatePicker, DatePickerButton } from ".";
 import { DateInput } from "../date-input";
-import { Group } from "../group";
+import { FieldGroup } from "../../packages/components/field-group/src/components/field-group";
 import { Label } from "../label";
 
 const meta = {
@@ -17,10 +17,10 @@ const meta = {
     render: (args) => (
         <DatePicker {...args}>
             <Label>Date</Label>
-            <Group>
+            <FieldGroup>
                 <DateInput variant="unstyled" />
                 <DatePickerButton />
-            </Group>
+            </FieldGroup>
         </DatePicker>
     ),
     title: "DatePicker",

@@ -3,6 +3,7 @@ import type { ForwardedRef } from "react";
 import type { ButtonProps as RACButtonProps } from "react-aria-components";
 
 import { sizeRecipe } from "@boondoggle.design/css-recipes";
+import { focusRingRecipe } from "@boondoggle.design/css-recipes";
 import { SizeVariant } from "@boondoggle.design/css-types";
 import { FieldVariant } from "@boondoggle.design/css-types";
 import { faAnglesUpDown } from "@fortawesome/pro-solid-svg-icons/faAnglesUpDown";
@@ -19,15 +20,20 @@ import { selectButtonVariantRecipe } from "../styles/select-button-variants.css"
 import { selectIconStyle } from "../styles/select-icon.css";
 import { selectValueStyle } from "../styles/select-value.css";
 
-function _SelectButton<TItemId extends string = string>(
+export interface SelectButtonProps extends Omit<RACButtonProps, "children"> {
+    size?: SizeVariant;
+    variant?: FieldVariant;
+}
+
+function _SelectButton<
+    TItemId extends string = string,
+    TValue extends object = object,
+>(
     {
         size = SizeVariant.MD,
         variant = FieldVariant.DEFAULT,
         ...props
-    }: RACButtonProps & {
-        size?: SizeVariant;
-        variant?: FieldVariant;
-    },
+    }: SelectButtonProps,
     ref: ForwardedRef<HTMLButtonElement>,
 ) {
     return (
@@ -37,11 +43,14 @@ function _SelectButton<TItemId extends string = string>(
                 selectButtonBaseStyle,
                 selectButtonVariantRecipe({ variant }),
                 sizeRecipe({ size }),
+                focusRingRecipe({ variant: "inset" }),
                 props.className,
             )}
             ref={ref}
         >
-            <RACSelectValue<ListSchema<TItemId>> className={selectValueStyle} />
+            <RACSelectValue<ListSchema<TItemId, TValue>>
+                className={selectValueStyle}
+            />
             <Icon
                 className={selectIconStyle}
                 icon={faAnglesUpDown}

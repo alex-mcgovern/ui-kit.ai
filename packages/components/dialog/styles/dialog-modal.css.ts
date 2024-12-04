@@ -4,7 +4,7 @@ import { withPrefersMotion } from "@boondoggle.design/utils";
 import { keyframes } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 
-const TRANSLATE_DISTANCE = vars.spacing.space_8;
+const TRANSLATE_DISTANCE = vars.space.space_8;
 
 const fadeIn = keyframes({
     "0%": {

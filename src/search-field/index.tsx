@@ -1,3 +1,4 @@
+import { FieldButton } from "@boondoggle.design/field-button";
 import { faSearch } from "@fortawesome/pro-solid-svg-icons/faSearch";
 import { faTimesCircle } from "@fortawesome/pro-solid-svg-icons/faTimesCircle";
 import clsx from "clsx";
@@ -8,7 +9,6 @@ import {
 } from "react-aria-components";
 
 import { css } from "../css/index.css";
-import { FieldButton } from "../field-button";
 import { Icon } from "../icon";
 import { searchFieldCSS, searchFieldClearButtonCSS } from "./styles.css";
 
