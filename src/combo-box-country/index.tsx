@@ -5,7 +5,7 @@ import { forwardRef } from "react";
 import { useController, useFormContext } from "react-hook-form";
 
 import type { ComboBoxProps } from "../../packages/components/combo-box/src/components/combo-box";
-import type { IterableListBoxItem } from "../../packages/components/list-box/src/components/list-box";
+import type { IterableListBoxItem } from "@boondoggle.design/list-box/src/components/options";
 
 import { ComboBox } from "../../packages/components/combo-box/src/components/combo-box";
 import { FieldError } from "../field-error";

@@ -3,7 +3,7 @@ import type { CSSProperties, ForwardedRef } from "react";
 import type { ComboBoxProps as RACComboBoxProps } from "react-aria-components";
 
 import { FieldVariant } from "@boondoggle.design/css-types";
-import { ListBox } from "@boondoggle.design/list-box";
+import { Options } from "@boondoggle.design/list-box";
 import { Popover } from "@boondoggle.design/popover";
 import { faSearch } from "@fortawesome/pro-solid-svg-icons/faSearch";
 import clsx from "clsx";
@@ -65,7 +65,7 @@ function _ComboBox<
                                 } as CSSProperties
                             }
                         >
-                            <ListBox<TItemId, TValue> />
+                            <Options<TItemId, TValue> />
                         </Popover>
                     </>
                 )}

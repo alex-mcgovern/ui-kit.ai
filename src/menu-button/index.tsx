@@ -1,12 +1,12 @@
 import type { MenuProps as RACMenuProps } from "react-aria-components";
 
+import type { PopoverProps } from "../../packages/components/popover/src/components/popover";
 import type { IterableMenuItem } from "../menu";
 import type { MenuTriggerProps } from "../menu-trigger";
-import type { PopoverProps } from "../../packages/components/popover/src/components/popover";
 
+import { Popover } from "../../packages/components/popover/src/components/popover";
 import { DynamicMenu } from "../menu";
 import { MenuTrigger } from "../menu-trigger";
-import { Popover } from "../../packages/components/popover/src/components/popover";
 
 export type MenuButtonProps<TItemId extends string = string> =
     MenuTriggerProps &

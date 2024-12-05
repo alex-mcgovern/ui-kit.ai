@@ -1,1 +1,1 @@
-export { ListBox, type ListBoxProps } from "./components/list-box";
+export { Options, type OptionsProps } from "./components/options";

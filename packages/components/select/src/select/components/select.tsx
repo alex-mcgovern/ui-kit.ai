@@ -2,7 +2,7 @@ import type { ListSchema } from "@boondoggle.design/types";
 import type { ComponentProps, ForwardedRef } from "react";
 import type { SelectProps as RACSelectProps } from "react-aria-components";
 
-import { ListBox } from "@boondoggle.design/list-box";
+import { Options } from "@boondoggle.design/list-box";
 import { Popover } from "@boondoggle.design/popover";
 import clsx from "clsx";
 import { forwardRef } from "react";
@@ -39,7 +39,7 @@ function _Select<
                         : children}
 
                     <Popover placement={props.placement}>
-                        <ListBox<TItemId, TValue> items={props.items} />
+                        <Options<TItemId, TValue> items={props.items} />
                     </Popover>
                 </>
             )}
