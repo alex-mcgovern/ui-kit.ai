@@ -8,16 +8,15 @@ import clsx from "clsx";
 import { forwardRef } from "react";
 import { Button as RACButton } from "react-aria-components";
 
-import type { ButtonProps } from "../types";
+import type { BaseButtonProps } from "../types";
 
 import { buttonBase } from "../styles/button-base.css";
 import { buttonPaddingRecipe } from "../styles/button-padding.css";
 import { buttonVariantRecipe } from "../styles/button-variant-recipe.css";
 
-export const Button = forwardRef<
-    HTMLButtonElement,
-    RACButtonProps & ButtonProps
->(
+export interface ButtonProps extends BaseButtonProps, RACButtonProps {}
+
+export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     (
         {
             alignment = "center",

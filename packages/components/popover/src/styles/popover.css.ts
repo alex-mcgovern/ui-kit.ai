@@ -1,9 +1,10 @@
+import { frostedGlassBgStyle } from "@boondoggle.design/css-recipes";
 import { vars } from "@boondoggle.design/css-vars";
 import { style } from "@vanilla-extract/css";
 
 export const popoverCSS = style([
+    frostedGlassBgStyle,
     {
-        backgroundColor: vars.color.background.base,
         border: `1px solid ${vars.color.border.base}`,
         borderRadius: vars.border_radius.md,
         boxShadow: vars.box_shadow.md,

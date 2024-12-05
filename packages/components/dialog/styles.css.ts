@@ -1,4 +1,3 @@
-import { typography } from "@boondoggle.design/css-variants";
 import { keyframes, style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 
@@ -156,32 +155,4 @@ export const dialogModalCSS = style([
         },
         outline: 0,
     },
-]);
-
-export const dialogHeaderCSS = style([
-    css({
-        alignItems: "center",
-        borderBottom: "border_rule",
-        display: "flex",
-
-        justifyContent: "space-between",
-
-        maxWidth: "100%",
-        paddingLeft: "space_4",
-        paddingRight: "space_2",
-
-        paddingY: "space_2",
-        position: "sticky",
-
-        top: "0",
-    }),
-]);
-
-export const dialogTitleCSS = style([
-    typography.body_lg,
-    css({
-        color: "text_high_contrast",
-        fontWeight: "semibold",
-        marginY: "none",
-    }),
 ]);

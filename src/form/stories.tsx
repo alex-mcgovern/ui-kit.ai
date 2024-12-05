@@ -7,7 +7,7 @@ import { parseAbsoluteToLocal } from "@internationalized/date";
 import { z } from "zod";
 
 import { Form } from ".";
-import { Checkbox } from "../checkbox";
+import { Checkbox } from "../../packages/components/checkbox/src/components/checkbox";
 import { FormCheckboxGroup } from "../checkbox-group";
 import {
     ComboBoxButton,

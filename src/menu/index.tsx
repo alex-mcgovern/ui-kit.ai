@@ -16,7 +16,7 @@ import {
 import type { ColorOverlay } from "../index.css";
 
 import { menuHeaderCSS } from "../_css/menu.css";
-import { Checkbox } from "../checkbox";
+import { Checkbox } from "../../packages/components/checkbox/src/components/checkbox";
 import { Section } from "../section";
 import { menuCSS, menuItemCSS } from "./styles.css";
 

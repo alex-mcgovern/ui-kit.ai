@@ -6,7 +6,7 @@ import clsx from "clsx";
 import { forwardRef } from "react";
 import { Link as RACLink } from "react-aria-components";
 
-import type { ButtonProps } from "../types";
+import type { BaseButtonProps } from "../types";
 
 import { DEFAULT_SIZE } from "../../../../css/config/src";
 import { focusRingRecipe, sizeRecipe } from "../../../../css/recipes/src";
@@ -14,10 +14,9 @@ import { buttonBase } from "../styles/button-base.css";
 import { buttonPaddingRecipe } from "../styles/button-padding.css";
 import { buttonVariantRecipe } from "../styles/button-variant-recipe.css";
 
-export const ButtonLink = forwardRef<
-    HTMLAnchorElement,
-    RACLinkProps & ButtonProps
->(
+export interface ButtonLinkProps extends BaseButtonProps, RACLinkProps {}
+
+export const ButtonLink = forwardRef<HTMLAnchorElement, ButtonLinkProps>(
     (
         {
             alignment = "center",

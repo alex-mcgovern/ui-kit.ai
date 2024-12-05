@@ -1,15 +1,13 @@
 import type { ListBoxItemSchema } from "@boondoggle.design/types";
 
-import { faCheck } from "@fortawesome/pro-duotone-svg-icons/faCheck";
+import { Checkbox } from "@boondoggle.design/checkbox";
+import { FieldIconContainer } from "@boondoggle.design/field-icon-container";
 import clsx from "clsx";
 import {
     ListBoxItem as RACListBoxItem,
     Text as RACText,
 } from "react-aria-components";
 
-import { Checkbox } from "../../../../../src/checkbox";
-import { Icon } from "../../../../../src/icon";
-import { FieldIconContainer } from "../../../field-icon-container/src";
 import {
     listBoxGridLeftStyle,
     listBoxGridRightStyle,
@@ -83,12 +81,17 @@ export function ListBoxItem({
                          * appropriate way to dictate this behavior)
                          * */}
                         <FieldIconContainer className={listBoxGridRightStyle}>
-                            {selectionMode === "single" && isSelected ? (
-                                <Icon icon={faCheck} />
+                            {selectionMode === "single" ? (
+                                <Checkbox
+                                    isReadOnly
+                                    isSelected={isSelected}
+                                    variant="borderless"
+                                />
                             ) : selectionMode === "multiple" ? (
                                 <Checkbox
                                     isReadOnly
                                     isSelected={isSelected}
+                                    variant="borderlessUntilHovered"
                                 />
                             ) : slotRight ? (
                                 slotRight

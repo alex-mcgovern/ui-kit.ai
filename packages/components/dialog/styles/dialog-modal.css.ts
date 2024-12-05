@@ -27,7 +27,7 @@ const fadeOut = keyframes({
 export const modalCSS = recipe({
     base: [
         {
-            backgroundColor: vars.color.background.base,
+            background: vars.color.background.base,
             border: `1px solid ${vars.color.border.base}`,
             borderRadius: vars.border_radius.md,
             boxShadow: vars.box_shadow.lg,

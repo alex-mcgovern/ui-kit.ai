@@ -12,6 +12,8 @@
         "@boondoggle.design/css-config": "*",
         "@boondoggle.design/css-recipes": "*",
         "@boondoggle.design/css-types": "*",
+        "@boondoggle.design/checkbox": "*",
+        "@boondoggle.design/field-icon-container": "*",
         "@boondoggle.design/popover": "*",
         "@boondoggle.design/types": "*"
     },

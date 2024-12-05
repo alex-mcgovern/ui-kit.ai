@@ -26,7 +26,7 @@ import {
 } from "react-aria-components";
 import { Column as RACColumn } from "react-aria-components";
 
-import { Checkbox } from "../checkbox";
+import { Checkbox } from "../../packages/components/checkbox/src/components/checkbox";
 import { Icon } from "../icon";
 import {
     cellCSS,

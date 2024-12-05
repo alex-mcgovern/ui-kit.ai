@@ -11,17 +11,19 @@ import { step } from "./utils";
 
 export const buildTheme = ({
     alpha,
+    alphaWhite,
     isOverlay,
     primary,
     secondary,
 }: {
     alpha: PaletteShape;
+    alphaWhite: PaletteShape;
     isOverlay: boolean;
     primary: PaletteShape;
     secondary: PaletteShape;
 }) => {
     return {
-        background: background({ alpha, secondary }),
+        background: background({ alpha, alphaWhite, secondary }),
         black: step(secondary, 12),
         border: border({ isOverlay, primary, secondary }),
         button: button({ isOverlay, primary, secondary }),

@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { CheckboxGroup } from ".";
-import { Checkbox } from "../checkbox";
+import { Checkbox } from "../../packages/components/checkbox/src/components/checkbox";
 import { css } from "../css/index.css";
 import { Label } from "../label";
 

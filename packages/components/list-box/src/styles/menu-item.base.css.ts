@@ -7,7 +7,7 @@ export const listBoxItemStyle = style([
     {
         borderRadius: vars.border_radius.md,
         minHeight: vars.space.space_8,
-        padding: `${vars.space.space_2} ${vars.space.space_2}`,
+        padding: `${vars.space.space_1} ${vars.space.space_2}`,
         width: "100%",
     },
     {

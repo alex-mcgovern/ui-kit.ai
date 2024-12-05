@@ -4,12 +4,15 @@ import { Button } from "@boondoggle.design/button";
 import { Color, SizeVariant } from "@boondoggle.design/css-types";
 import { faker } from "@faker-js/faker";
 
-import { V2Dialog as StoryComp, V2DialogHeader } from ".";
+import { V2Dialog as StoryComp } from ".";
 import { css } from "../../../src/css/index.css";
 import { V2DialogAlert } from "../../../src/dialog-alert";
 import { V2DialogErrorMessage } from "../../../src/dialog-error-message";
+import { DialogCloseButton } from "./components/dialog-close-button";
 import { DialogContent } from "./components/dialog-content";
 import { DialogFooter } from "./components/dialog-footer";
+import { DialogHeader } from "./components/dialog-header";
+import { DialogTitle } from "./components/dialog-title";
 
 const meta = {
     args: {
@@ -18,10 +21,10 @@ const meta = {
         },
         children: ({ close }) => (
             <>
-                <V2DialogHeader
-                    close={close}
-                    title="Dialog Title"
-                />
+                <DialogHeader>
+                    <DialogTitle>Dialog Title</DialogTitle>
+                    <DialogCloseButton />
+                </DialogHeader>
                 <DialogContent>
                     <>
                         <p>
@@ -78,10 +81,10 @@ export const WithDialogErrorMessage: Story = {
     args: {
         children: ({ close }) => (
             <>
-                <V2DialogHeader
-                    close={close}
-                    title="Dialog Title"
-                />
+                <DialogHeader>
+                    <DialogTitle>Dialog Title</DialogTitle>
+                    <DialogCloseButton />
+                </DialogHeader>
                 <V2DialogErrorMessage
                     error={{ message: "This is an error message" }}
                     onPressCancel={close}
@@ -102,10 +105,10 @@ export const WithDialogAlert: Story = {
     args: {
         children: ({ close }) => (
             <>
-                <V2DialogHeader
-                    close={close}
-                    title="Dialog Title"
-                />
+                <DialogHeader>
+                    <DialogTitle>Dialog Title</DialogTitle>
+                    <DialogCloseButton />
+                </DialogHeader>
                 <V2DialogAlert
                     colorOverlay="red"
                     description="This is a description for the alert"

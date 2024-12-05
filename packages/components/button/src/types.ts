@@ -4,10 +4,10 @@ import type {
     SizeVariant,
 } from "@boondoggle.design/css-types";
 
-export type ButtonProps = {
+export interface BaseButtonProps {
     alignment?: "center" | "left";
     colorOverlay?: Color;
     isSquare?: boolean;
     size?: SizeVariant;
     variant?: ButtonVariant;
-};
+}

@@ -3,25 +3,16 @@ import type { ComponentProps } from "react";
 import type { DialogProps as RACDialogProps } from "react-aria-components";
 
 import { Button } from "@boondoggle.design/button";
-import { ButtonVariant, SizeVariant } from "@boondoggle.design/css-types";
-import { faTimes } from "@fortawesome/pro-solid-svg-icons/faTimes";
+import { SizeVariant } from "@boondoggle.design/css-types";
 import clsx from "clsx";
 import {
     Dialog as RACDialog,
     DialogTrigger as RACDialogTrigger,
-    Heading as RACHeading,
 } from "react-aria-components";
 
-import { css } from "../../../src/css/index.css";
-import { Icon } from "../../../src/icon";
 import { DialogModal } from "./components/dialog-modal";
 import { DialogModalOverlay } from "./components/dialog-modal-overlay";
-import {
-    dialogCSS,
-    dialogHeaderCSS,
-    dialogModalCSS,
-    dialogTitleCSS,
-} from "./styles.css";
+import { dialogCSS, dialogModalCSS } from "./styles.css";
 
 /** -----------------------------------------------------------------------------
  * Dialog
@@ -35,43 +26,6 @@ export const Dialog = (props: DialogProps) => {
             {...props}
             className={clsx(props.className, dialogCSS)}
         />
-    );
-};
-
-/** -----------------------------------------------------------------------------
- * DialogHeader
- * ------------------------------------------------------------------------------- */
-
-export const V2DialogHeader = ({
-    close,
-    title,
-}: {
-    close: () => void;
-    title: string;
-}) => {
-    return (
-        <header className={dialogHeaderCSS}>
-            <RACHeading
-                className={dialogTitleCSS}
-                slot="title"
-            >
-                {title}
-            </RACHeading>
-
-            <Button
-                aria-label="Close"
-                className={css({
-                    marginLeft: "auto",
-                })}
-                name="close"
-                onPress={close}
-                size={SizeVariant.SM}
-                type="button"
-                variant={ButtonVariant.GHOST}
-            >
-                <Icon icon={faTimes} />
-            </Button>
-        </header>
     );
 };
 
