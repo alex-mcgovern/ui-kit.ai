@@ -58,7 +58,7 @@ export const inputVariantRecipe = recipe({
         },
     ],
     defaultVariants: {
-        variant: FieldVariant.DEFAULT,
+        variant: "default",
     },
     variants: {
         variant: inputStyleVariant,

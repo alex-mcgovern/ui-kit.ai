@@ -18,9 +18,16 @@ export const checkboxStyle = style([
         display: "flex",
         justifyContent: "center",
     },
-    transitionRecipe(
-        Duration.MEDIUM,
-        "background-color, border-color",
-        Ease.EASE_OUT_CIRC,
-    ),
+    transitionRecipe([
+        {
+            duration: Duration.MEDIUM,
+            ease: Ease.EASE_OUT_CIRC,
+            property: "background-color",
+        },
+        {
+            duration: Duration.MEDIUM,
+            ease: Ease.EASE_OUT_CIRC,
+            property: "border-color",
+        },
+    ]),
 ]);

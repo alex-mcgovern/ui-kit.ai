@@ -1,6 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { FieldVariant } from "@boondoggle.design/css-types";
 import { getListMockCountries } from "@boondoggle.design/mocks";
 
 import { FlagDe } from "../../../../../src/icon-flag/de";
@@ -97,7 +96,7 @@ export const Borderless: Story = {
     render: (args) => {
         return (
             <Select {...args}>
-                <SelectButton variant={FieldVariant.BORDERLESS} />
+                <SelectButton variant={"borderless"} />
             </Select>
         );
     },

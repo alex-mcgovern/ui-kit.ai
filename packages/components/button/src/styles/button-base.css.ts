@@ -13,11 +13,18 @@ export const buttonBase = recipe<
 >({
     base: [
         typography.body_md,
-        transitionRecipe(
-            Duration.MEDIUM,
-            "background-color, color",
-            Ease.EASE_OUT_CIRC,
-        ),
+        transitionRecipe([
+            {
+                duration: Duration.MEDIUM,
+                ease: Ease.EASE_OUT_CIRC,
+                property: "background-color",
+            },
+            {
+                duration: Duration.MEDIUM,
+                ease: Ease.EASE_OUT_CIRC,
+                property: "color",
+            },
+        ]),
         {
             alignItems: "center",
             display: "inline-flex",

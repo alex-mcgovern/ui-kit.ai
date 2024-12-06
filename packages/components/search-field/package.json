@@ -1,0 +1,17 @@
+{
+    "name": "@boondoggle.design/search-field",
+    "exports": {
+        ".": "./src/index.ts"
+    },
+    "version": "0.0.0",
+    "type": "module",
+    "main": "./src/index.ts",
+    "types": "./src/index.ts",
+    "dependencies": {
+        "@boondoggle.design/field-button": "*",
+        "@boondoggle.design/css-recipes": "*",
+        "@boondoggle.design/css-types": "*",
+        "@boondoggle.design/css-config": "*",
+        "@boondoggle.design/css-breakpoints": "*"
+    }
+}

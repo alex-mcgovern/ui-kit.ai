@@ -60,7 +60,7 @@ export const selectButtonVariantRecipe = recipe({
         },
     ],
     defaultVariants: {
-        variant: FieldVariant.DEFAULT,
+        variant: "default",
     },
     variants: {
         variant: selectButtonStyleVariant,

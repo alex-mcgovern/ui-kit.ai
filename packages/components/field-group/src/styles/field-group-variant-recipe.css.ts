@@ -60,7 +60,7 @@ export const fieldGroupVariantRecipe = recipe({
         },
     ],
     defaultVariants: {
-        variant: FieldVariant.DEFAULT,
+        variant: "default",
     },
     variants: {
         variant: fieldGroupStyleVariant,

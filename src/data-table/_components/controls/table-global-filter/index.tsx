@@ -7,7 +7,7 @@ import {
     SearchField,
     SearchFieldClearButton,
     SearchFieldIcon,
-} from "../../../../search-field";
+} from "../../../../../packages/components/search-field/src/components/search-field";
 import { tableGlobalFilterCSS } from "./styles.css";
 
 export function TableGlobalFilter<TRowData extends RowData>({

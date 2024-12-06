@@ -12,20 +12,20 @@ import {
     TableHeader,
     TableSearchContainer,
 } from ".";
+import { FieldGroup } from "../../packages/components/field-group/src/components/field-group";
+import { Input } from "../../packages/components/input/src/components/input";
+import { Menu } from "../../packages/components/menu/src/components/menu";
 import {
     FilterButton,
     FilterButtonGroup,
     RemoveFilterButton,
 } from "../filter-button-group";
-import { FieldGroup } from "../../packages/components/field-group/src/components/field-group";
 import { Icon } from "../icon";
-import { Input } from "../../packages/components/input/src/components/input";
-import { MenuButton } from "../menu-button";
 import {
     SearchField,
     SearchFieldClearButton,
     SearchFieldIcon,
-} from "../search-field";
+} from "../../packages/components/search-field/src/components/search-field";
 
 const meta = {
     args: {
@@ -42,7 +42,7 @@ const meta = {
                 </TableSearchContainer>
                 <TableFiltersContainer>
                     <FilterButtonGroup isFilterApplied={false}>
-                        <MenuButton
+                        <Menu
                             items={[
                                 { id: "item_1", name: "Item 1" },
                                 { id: "item_2", name: "Item 2" },
@@ -55,7 +55,7 @@ const meta = {
                                 />
                                 Filter 1
                             </FilterButton>
-                        </MenuButton>
+                        </Menu>
                         <RemoveFilterButton />
                     </FilterButtonGroup>
                 </TableFiltersContainer>

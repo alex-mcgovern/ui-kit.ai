@@ -3,15 +3,15 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { faClock } from "@fortawesome/pro-solid-svg-icons/faClock";
 
 import { FilterButton, FilterButtonGroup, RemoveFilterButton } from ".";
+import { Menu } from "../../packages/components/menu/src/components/menu";
 import { Icon } from "../icon";
-import { MenuButton } from "../menu-button";
 
 const meta = {
     args: {},
     component: FilterButtonGroup,
     render: (args) => (
         <FilterButtonGroup {...args}>
-            <MenuButton
+            <Menu
                 items={[
                     { id: "item_1", name: "Item 1" },
                     { id: "item_2", name: "Item 2" },
@@ -24,7 +24,7 @@ const meta = {
                     />
                     Filter 1
                 </FilterButton>
-            </MenuButton>
+            </Menu>
             <RemoveFilterButton />
         </FilterButtonGroup>
     ),
@@ -53,7 +53,7 @@ export const isFilterAppliedFalse: Story = {
     render: (args) => {
         return (
             <FilterButtonGroup {...args}>
-                <MenuButton
+                <Menu
                     items={[
                         { id: "item_1", name: "Item 1" },
                         { id: "item_2", name: "Item 2" },
@@ -66,7 +66,7 @@ export const isFilterAppliedFalse: Story = {
                         />
                         Filter 1
                     </FilterButton>
-                </MenuButton>
+                </Menu>
             </FilterButtonGroup>
         );
     },

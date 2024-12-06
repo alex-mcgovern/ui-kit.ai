@@ -5,7 +5,7 @@ import { vars } from "@boondoggle.design/css-vars";
 import { style } from "@vanilla-extract/css";
 import { calc } from "@vanilla-extract/css-utils";
 
-export const fieldButtonCSS = style([
+export const fieldButtonStyle = style([
     typography.body_md,
     {
         alignItems: "center",
@@ -21,11 +21,26 @@ export const fieldButtonCSS = style([
         marginRight: vars.space["space_0.5"],
         width: vars.space.space_8,
     },
-    transitionRecipe(
-        Duration.SHORT,
-        "color, background-color",
-        Ease.EASE_OUT_CIRC,
-    ),
+    {
+        transitionBehavior: "allow-discrete",
+    },
+    transitionRecipe([
+        {
+            duration: Duration.SHORT,
+            ease: Ease.EASE_OUT_CIRC,
+            property: "background-color",
+        },
+        {
+            duration: Duration.LONG,
+            ease: Ease.EASE_OUT_CIRC,
+            property: "opacity",
+        },
+        {
+            duration: Duration.LONG,
+            ease: Ease.EASE_OUT_CIRC,
+            property: "display",
+        },
+    ]),
     {
         selectors: {
             "&:first-of-type": {

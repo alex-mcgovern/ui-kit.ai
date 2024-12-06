@@ -2,7 +2,6 @@ import type { ListSchema } from "@boondoggle.design/types";
 import type { CSSProperties, ForwardedRef } from "react";
 import type { ComboBoxProps as RACComboBoxProps } from "react-aria-components";
 
-import { FieldVariant } from "@boondoggle.design/css-types";
 import { Options } from "@boondoggle.design/list-box";
 import { Popover } from "@boondoggle.design/popover";
 import { faSearch } from "@fortawesome/pro-solid-svg-icons/faSearch";
@@ -33,7 +32,7 @@ function _ComboBox<
             <ComboBoxGroup>
                 <ComboBoxInput
                     slotLeft={<Icon icon={faSearch} />}
-                    variant={FieldVariant.BORDERLESS}
+                    variant={"borderless"}
                 />
                 <ComboBoxClearButton />
                 <ComboBoxButton />
@@ -65,7 +64,11 @@ function _ComboBox<
                                 } as CSSProperties
                             }
                         >
-                            <Options<TItemId, TValue> />
+                            <Options<
+                                "listbox",
+                                TItemId,
+                                TValue
+                            > type="listbox" />
                         </Popover>
                     </>
                 )}

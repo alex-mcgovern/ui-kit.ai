@@ -20,10 +20,7 @@ export interface FieldGroupProps extends RACGroupProps {
  * [React Aria Documentation](https://react-spectrum.adobe.com/react-aria/Group.html)
  */
 export const FieldGroup = forwardRef<HTMLDivElement, FieldGroupProps>(
-    (
-        { size = SizeVariant.MD, variant = FieldVariant.DEFAULT, ...props },
-        ref,
-    ) => {
+    ({ size = SizeVariant.MD, variant = "default", ...props }, ref) => {
         return (
             <RACGroup
                 {...props}

@@ -21,5 +21,11 @@ export const checkboxTickStyle = style([
         transition: "medium",
         width: vars.space.space_3,
     },
-    transitionRecipe(Duration.SHORT, "stroke-dashoffset", Ease.EASE_IN_CIRC),
+    transitionRecipe([
+        {
+            duration: Duration.MEDIUM,
+            ease: Ease.EASE_OUT_CIRC,
+            property: "stroke-dashoffset",
+        },
+    ]),
 ]);

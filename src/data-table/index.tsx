@@ -20,12 +20,12 @@ import { flexRender } from "@tanstack/react-table";
 import { useEffect, useState } from "react";
 import { Fragment } from "react";
 
-import type { MenuButtonProps } from "../menu-button";
+import type { MenuButtonProps } from "../../packages/components/menu/src/components/menu";
 
+import { Menu } from "../../packages/components/menu/src/components/menu";
 import { arrayHasLength } from "../_lib/array-has-length";
 import { Box } from "../box";
 import { Icon } from "../icon";
-import { MenuButton } from "../menu-button";
 import {
     TableActionsContainer,
     TableHeader,
@@ -54,7 +54,7 @@ export function TableRowMenuButton<TActionId extends string>(
     props: MenuButtonProps<TActionId>,
 ) {
     return (
-        <MenuButton
+        <Menu
             {...props}
             placement="bottom end"
         >
@@ -66,7 +66,7 @@ export function TableRowMenuButton<TActionId extends string>(
             >
                 <Icon icon={faEllipsis} />
             </Button>
-        </MenuButton>
+        </Menu>
     );
 }
 

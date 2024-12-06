@@ -1,3 +1,4 @@
+import { frostedGlassBgStyle } from "@boondoggle.design/css-recipes";
 import { variantColorOverlay } from "@boondoggle.design/css-variants";
 import { vars } from "@boondoggle.design/css-vars";
 import { withPrefersMotion } from "@boondoggle.design/utils";
@@ -26,8 +27,9 @@ const fadeOut = keyframes({
 
 export const modalCSS = recipe({
     base: [
+        frostedGlassBgStyle,
         {
-            background: vars.color.background.base,
+            // background: vars.color.background.base,
             border: `1px solid ${vars.color.border.base}`,
             borderRadius: vars.border_radius.md,
             boxShadow: vars.box_shadow.lg,

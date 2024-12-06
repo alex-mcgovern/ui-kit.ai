@@ -29,11 +29,7 @@ function _SelectButton<
     TItemId extends string = string,
     TValue extends object = object,
 >(
-    {
-        size = SizeVariant.MD,
-        variant = FieldVariant.DEFAULT,
-        ...props
-    }: SelectButtonProps,
+    { size = SizeVariant.MD, variant = "default", ...props }: SelectButtonProps,
     ref: ForwardedRef<HTMLButtonElement>,
 ) {
     return (

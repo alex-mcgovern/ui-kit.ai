@@ -1,8 +1,9 @@
+import type { FieldVariant } from "@boondoggle.design/css-types";
 import type { ReactNode } from "react";
 import type { InputProps as RACInputProps } from "react-aria-components";
 
 import { focusRingRecipe, sizeRecipe } from "@boondoggle.design/css-recipes";
-import { FieldVariant, SizeVariant } from "@boondoggle.design/css-types";
+import { SizeVariant } from "@boondoggle.design/css-types";
 import clsx from "clsx";
 import { forwardRef } from "react";
 import { Input as RACInput } from "react-aria-components";
@@ -22,12 +23,7 @@ export interface InputProps extends Omit<RACInputProps, "size"> {
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(
     (
-        {
-            size = SizeVariant.MD,
-            slotLeft,
-            variant = FieldVariant.DEFAULT,
-            ...props
-        },
+        { size = SizeVariant.MD, slotLeft, variant = "default", ...props },
         ref,
     ) => {
         return (

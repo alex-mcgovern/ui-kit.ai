@@ -27,7 +27,7 @@ export const Default: Story = {};
 
 export const Borderless: Story = {
     args: {
-        variant: FieldVariant.BORDERLESS,
+        variant: "borderless",
     },
 };
 

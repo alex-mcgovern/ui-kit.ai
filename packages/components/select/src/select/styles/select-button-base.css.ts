@@ -6,11 +6,33 @@ import { style } from "@vanilla-extract/css";
 
 export const selectButtonBaseStyle = style([
     typography.body_md,
-    transitionRecipe(
-        Duration.SHORT,
-        "color, background-color, border-color, outline, opacity",
-        Ease.EASE_OUT_CIRC,
-    ),
+    transitionRecipe([
+        {
+            duration: Duration.SHORT,
+            ease: Ease.EASE_OUT_CIRC,
+            property: "color",
+        },
+        {
+            duration: Duration.SHORT,
+            ease: Ease.EASE_OUT_CIRC,
+            property: "background-color",
+        },
+        {
+            duration: Duration.SHORT,
+            ease: Ease.EASE_OUT_CIRC,
+            property: "border-color",
+        },
+        {
+            duration: Duration.SHORT,
+            ease: Ease.EASE_OUT_CIRC,
+            property: "opacity",
+        },
+        {
+            duration: Duration.LONG,
+            ease: Ease.EASE_OUT_CIRC,
+            property: "outline",
+        },
+    ]),
     {
         alignItems: "center",
         display: "flex",
