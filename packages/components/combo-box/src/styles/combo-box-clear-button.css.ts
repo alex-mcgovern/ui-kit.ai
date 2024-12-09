@@ -6,6 +6,7 @@ export const comboBoxClearButtonStyle = style([
         selectors: {
             "&[data-empty=true]": {
                 display: "none",
+                filter: "blur(1px)",
                 opacity: 0,
             },
         },

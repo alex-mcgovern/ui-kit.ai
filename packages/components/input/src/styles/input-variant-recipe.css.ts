@@ -1,6 +1,6 @@
+import type { FieldVariant } from "@boondoggle.design/css-types";
 import type { ComplexStyleRule } from "@vanilla-extract/css";
 
-import { FieldVariant } from "@boondoggle.design/css-types";
 import { vars } from "@boondoggle.design/css-vars";
 import { styleVariants } from "@vanilla-extract/css";
 import { assignVars, createTheme } from "@vanilla-extract/css";
@@ -15,6 +15,7 @@ type InputStyleVariants = Record<FieldVariant, ComplexStyleRule>;
 
 const inputStyleVariant = styleVariants<InputStyleVariants>({
     borderless: {
+        border: "0 !important",
         outline: "0 !important",
         vars: assignVars(inputVariantVars, {
             backgroundColor: vars.color.input.borderless.backgroundColor,

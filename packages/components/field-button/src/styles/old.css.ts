@@ -36,9 +36,14 @@ export const fieldButtonStyle = style([
             property: "opacity",
         },
         {
-            duration: Duration.LONG,
+            duration: Duration.MEDIUM,
             ease: Ease.EASE_OUT_CIRC,
             property: "display",
+        },
+        {
+            duration: Duration.MEDIUM,
+            ease: Ease.EASE_OUT_CIRC,
+            property: "filter",
         },
     ]),
     {
