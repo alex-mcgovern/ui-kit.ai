@@ -121,7 +121,6 @@ const meta: Meta<typeof Dialog> = {
         DialogTitle: DialogTitle as ComponentType<unknown>,
         DialogTrigger: DialogTrigger as ComponentType<unknown>,
     },
-    tags: ["autodocs"],
     title: "Dialog",
 };
 

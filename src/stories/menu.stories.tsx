@@ -24,7 +24,6 @@ const meta = {
             </Popover>
         </MenuTrigger>
     ),
-    tags: ["autodocs"],
     title: "Menu",
 } satisfies Meta<typeof Menu>;
 

@@ -37,7 +37,6 @@ const meta = {
     parameters: {
         layout: "centered",
     },
-    tags: ["autodocs"],
     title: "ComboBox",
 } satisfies Meta<typeof ComboBox<OptionsSchema<"listbox">>>;
 

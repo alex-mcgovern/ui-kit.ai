@@ -24,7 +24,6 @@ const meta: Meta<typeof Tooltip> = {
         layout: "centered",
     },
     render: Template,
-    tags: ["autodocs"],
     title: "Tooltip",
 };
 

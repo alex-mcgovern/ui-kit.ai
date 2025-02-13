@@ -9,7 +9,6 @@ const meta = {
         children: TEXT,
     },
     component: Heading,
-    tags: ["autodocs"],
     title: "Heading",
 } satisfies Meta<typeof Heading>;
 

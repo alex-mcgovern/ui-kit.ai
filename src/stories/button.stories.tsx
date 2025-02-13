@@ -15,7 +15,6 @@ const buttonMeta = {
     parameters: {
         layout: "centered",
     },
-    tags: ["autodocs"],
     title: "Button",
 } satisfies Meta<typeof Button>;
 

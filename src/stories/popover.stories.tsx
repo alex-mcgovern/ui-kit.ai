@@ -21,7 +21,6 @@ const meta: Meta<typeof Popover> = {
             <Popover {...args} className="max-w-[250px]"></Popover>
         </DialogTrigger>
     ),
-    tags: ["autodocs"],
     title: "Popover",
 };
 

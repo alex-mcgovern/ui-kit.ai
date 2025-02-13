@@ -18,7 +18,6 @@ const meta = {
     parameters: {
         layout: "centered",
     },
-    tags: ["autodocs"],
     title: "TextField",
 } satisfies Meta<typeof TextField>;
 

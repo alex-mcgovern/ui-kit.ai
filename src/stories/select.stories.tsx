@@ -20,7 +20,6 @@ const meta: Meta<typeof Select> = {
         layout: "centered",
     },
     render: (args) => <Select {...args}></Select>,
-    tags: ["autodocs"],
     title: "Select",
 };
 

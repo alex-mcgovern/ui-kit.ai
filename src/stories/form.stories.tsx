@@ -8,7 +8,6 @@ const meta = {
     parameters: {
         layout: "centered",
     },
-    tags: ["autodocs"],
     title: "Form",
 } satisfies Meta<typeof Form>;
 

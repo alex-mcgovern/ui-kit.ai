@@ -40,7 +40,7 @@ const config = {
         };
     },
     docs: {
-        autodocs: "tag",
+        autodocs: false,
     },
     typescript: {
         reactDocgen: "react-docgen-typescript",
