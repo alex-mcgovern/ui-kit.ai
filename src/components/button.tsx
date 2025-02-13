@@ -29,21 +29,29 @@ const buttonStyle = tv({
         "transition-colors",
         // padding
         "px-4 py-2",
-        '[&:has([data-slot="slot-left"])]:pl-2',
-        '[&:has([data-slot="slot-right"])]:pr-2',
+        "[&:has([data-slot=slot-left])]:pl-3",
+        "[&:has([data-slot=slot-right])]:pr-3",
         // icon styles
         "[&_svg]:size-3 [&_svg]:shrink-0",
+        // disabled
+        "disabled:cursor-not-allowed",
+        "disabled:opacity-25",
     ],
     compoundVariants: [
         {
-            className: `border-red-800 bg-red-800 hover:border-red-700 hover:bg-red-700
-            pressed:border-red-900 pressed:bg-red-900`,
+            className: [
+                "border-red-700 bg-red-700",
+                "hover:border-red-600 hover:bg-red-600",
+                "pressed:border-red-900 pressed:bg-red-900",
+            ],
             isDestructive: true,
             variant: "primary",
         },
         {
-            className: `border-red-700 text-red-900 hover:border-red-800 hover:bg-red-100
-            pressed:bg-red-200`,
+            className: [
+                "border-red-700 text-error",
+                "hover:border-red-800 hover:bg-red-50 pressed:bg-red-200",
+            ],
             isDestructive: true,
             variant: "secondary",
         },
@@ -66,13 +74,13 @@ const buttonStyle = tv({
         },
         variant: {
             primary: [
+                "text-white",
+                "shadow-sm",
                 "border-gray-800 bg-gray-800",
                 // hover
                 "hover:border-gray-700 hover:bg-gray-700",
                 // pressed
                 "pressed:border-gray-900 pressed:bg-gray-900",
-                `disabled:text-disabled text-white shadow-sm disabled:border-gray-200
-                disabled:bg-base`,
             ],
             secondary: [
                 // base
@@ -82,11 +90,9 @@ const buttonStyle = tv({
                 "hover:border-gray-300 hover:bg-gray-100",
                 // pressed
                 "pressed:border-gray-300 pressed:bg-gray-100",
-                "disabled:text-disabled disabled:border-gray-200 disabled:bg-base",
             ],
             tertiary: [
-                `disabled:text-disabled border-transparent bg-transparent text-primary
-                hover:bg-gray-100 disabled:bg-transparent`,
+                "border-transparent bg-transparent text-primary hover:bg-gray-100",
                 "pressed:bg-gray-100",
             ],
         },
@@ -94,10 +100,37 @@ const buttonStyle = tv({
 });
 
 type ButtonCommonProps = {
+    /**
+     * When set to `true` the Button will styled in red, to denote a destructive action.
+     */
     isDestructive?: boolean;
+    /**
+     * When set to `true` the Button will be styled to be square with a fixed
+     * height & width. This should be used in conjunction with passing an icon
+     * component to the `children` prop.
+     *
+     * **Note**: If you aren't passing text to the `children` prop, ensure you
+     * are passing an `aria-label` attribute, so the Button is correctly
+     * labelled to assistive technologies.
+     */
     isIcon?: boolean;
+    /**
+     * A decorative node (e.g. an icon) to render on the left side of the
+     * Button. When a node is passed, the padding on the corresponding side is
+     * slightly reduced to maintain visual balance.
+     */
     slotLeft?: SlotNode;
+    /**
+     * A decorative node (e.g. an icon) to render on the right side of the
+     * Button. When a node is passed, the padding on the corresponding side is
+     * slightly reduced to maintain visual balance.
+     */
     slotRight?: SlotNode;
+    /**
+     * - **`primary`**: The main action button. Use this for the most important actions on a page, such as "Submit," "Save," or "Continue."
+     * - **`secondary`**: A less prominent button used for secondary actions, like "Cancel" or "Go Back." It should not compete visually with primary buttons.
+     * - **`tertiary`**: A minimal-styled button for low-emphasis actions. Use this for links, "Learn More" buttons, or actions that don't require strong visual weight.
+     */
     variant?: ButtonVariantType;
 };
 
@@ -116,22 +149,40 @@ const ButtonLoadingState = ({
                 {children}
             </div>
             <div className="absolute inset-0 flex items-center justify-center">
-                <Loader className="!size-5" />
+                <Loader className="!size-4" />
             </div>
         </div>
     ) : (
         children
     );
 
+/**
+ * A button allows a user to perform an action, with mouse, touch, and keyboard interactions.
+ * [Built with React Aria Button](https://react-spectrum.adobe.com/react-aria/Button.html)
+ *
+ * ## Install
+ *
+ * ```sh
+ * npm i boondoggle
+ * ```
+ *
+ * ## Usage
+ *
+ * ```tsx
+ * import { Button } from "boondoggle";
+ *
+ * <Button>Button</Button>
+ * ```
+ */
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     (
         {
             isDestructive,
-            isIcon,
+            isIcon = false,
             isPending,
             slotLeft,
             slotRight,
-            variant,
+            variant = "primary",
             ...props
         },
         ref,

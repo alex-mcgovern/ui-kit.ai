@@ -36,10 +36,7 @@ const config = [
         ignores: ["node_modules/**/*"],
     },
     {
-        files: [
-            "src/stories/**/*.tsx",
-            "src/test/**/*.tsx",
-        ],
+        files: ["src/stories/**/*.tsx", "src/test/**/*.tsx"],
         rules: {
             "sonarjs/no-duplicate-string": "off",
         },
@@ -53,16 +50,12 @@ const config = [
                     prefer: "type-imports",
                 },
             ],
-            "@typescript-eslint/no-confusing-non-null-assertion":
-                "error",
+            "@typescript-eslint/no-confusing-non-null-assertion": "error",
             "@typescript-eslint/no-deprecated": "error",
             "@typescript-eslint/no-explicit-any": "error",
-            "@typescript-eslint/no-misused-promises":
-                "error",
-            "@typescript-eslint/no-non-null-assertion":
-                "error",
-            "@typescript-eslint/no-unnecessary-condition":
-                "error",
+            "@typescript-eslint/no-misused-promises": "error",
+            "@typescript-eslint/no-non-null-assertion": "error",
+            "@typescript-eslint/no-unnecessary-condition": "error",
             "@typescript-eslint/no-unused-vars": [
                 "error",
                 {
@@ -75,13 +68,10 @@ const config = [
                     varsIgnorePattern: "^_",
                 },
             ],
-            "@typescript-eslint/prefer-nullish-coalescing":
-                "error",
+            "@typescript-eslint/prefer-nullish-coalescing": "error",
             "@typescript-eslint/require-await": "error",
-            "@typescript-eslint/strict-boolean-expressions":
-                "error",
-            "@typescript-eslint/switch-exhaustiveness-check":
-                "error",
+            "@typescript-eslint/strict-boolean-expressions": "error",
+            "@typescript-eslint/switch-exhaustiveness-check": "error",
             eqeqeq: ["error", "smart"],
             // "import/namespace": "off",
             // "import/no-cycle": "error",
@@ -126,7 +116,25 @@ const config = [
             "perfectionist/sort-modules": [
                 "error",
                 {
-                    customGroups: [],
+                    customGroups: [
+                        {
+                            anyOf: [
+                                {
+                                    selector: "const",
+                                    modifiers: "export",
+                                },
+                            ],
+                            groupName: "public-constants",
+                        },
+                        {
+                            anyOf: [
+                                {
+                                    selector: "const",
+                                },
+                            ],
+                            groupName: "private-constants",
+                        },
+                    ],
                     groups: [
                         ["declare-enum", "enum"],
                         "export-enum",
@@ -139,6 +147,7 @@ const config = [
                         ["export-interface", "export-type"],
                         ["declare-class", "class"],
                         "export-class",
+                        ["private-constants", "public-constants"],
                         ["declare-function", "function"],
                         "export-function",
                     ],
@@ -171,11 +180,9 @@ const config = [
             "require-await": "off",
             "sonarjs/no-redundant-boolean": "error",
             "tailwindcss/classnames-order": "off",
-            "tailwindcss/enforces-negative-arbitrary-values":
-                "error",
+            "tailwindcss/enforces-negative-arbitrary-values": "error",
             "tailwindcss/enforces-shorthand": "error",
-            "tailwindcss/no-contradicting-classname":
-                "error",
+            "tailwindcss/no-contradicting-classname": "error",
             "tailwindcss/no-custom-classname": [
                 "error",
                 {
@@ -206,10 +213,7 @@ const config = [
             // },
             tailwindcss: {
                 callees: ["tv", "twMerge"],
-                config: join(
-                    import.meta.dirname,
-                    "./tailwind.config.ts",
-                ),
+                config: join(import.meta.dirname, "./tailwind.config.ts"),
             },
         },
     },
