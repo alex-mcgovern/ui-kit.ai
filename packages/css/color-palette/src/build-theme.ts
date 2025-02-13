@@ -1,18 +1,9 @@
 import type { PaletteShape } from "./types";
 
-import { background } from "./builders/background";
-import { border } from "./builders/border";
-import { button } from "./builders/button";
-import { focus } from "./builders/focus";
-import { input } from "./builders/input";
-import { menuItem } from "./builders/menu-item";
-import { text } from "./builders/text";
 import { step } from "./utils";
 
 export const buildTheme = ({
     alpha,
-    alphaWhite,
-    isOverlay,
     primary,
     secondary,
 }: {
@@ -23,14 +14,19 @@ export const buildTheme = ({
     secondary: PaletteShape;
 }) => {
     return {
-        background: background({ alpha, alphaWhite, secondary }),
-        black: step(secondary, 12),
-        border: border({ isOverlay, primary, secondary }),
-        button: button({ isOverlay, primary, secondary }),
-        focus: focus({ isOverlay, primary }),
-        input: input({ isOverlay, primary, secondary }),
-        menu_item: menuItem({ isOverlay, primary, secondary }),
-        text: text({ isOverlay, primary, secondary }),
-        white: step(secondary, 1),
-    };
+        bg_1: step(secondary, 1),
+        bg_2: step(secondary, 2),
+        border_1: step(secondary, 5),
+        border_2: step(secondary, 6),
+        fg_1: step(secondary, 11),
+        fg_1_inverted: step(secondary, 2),
+        fg_2: step(secondary, 12),
+        fg_2_inverted: step(secondary, 1),
+        focus_ring: step(primary, 8),
+        primary_1: step(primary, 10),
+        primary_2: step(primary, 11),
+        shadow: step(alpha, 5),
+        tint_1: step(secondary, 3),
+        tint_2: step(secondary, 4),
+    } as const;
 };

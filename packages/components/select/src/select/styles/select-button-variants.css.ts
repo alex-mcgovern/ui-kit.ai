@@ -1,61 +1,50 @@
+import type { FieldVariant } from "@boondoggle.design/css-types";
 import type { ComplexStyleRule } from "@vanilla-extract/css";
 
-import { FieldVariant } from "@boondoggle.design/css-types";
 import { vars } from "@boondoggle.design/css-vars";
+import { disabledStyleMacro } from "@boondoggle.design/style-rule-macros";
 import { styleVariants } from "@vanilla-extract/css";
 import { assignVars, createTheme } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 
-const [selectButtonVariantTheme, selectButtonVariantVars] = createTheme({
-    backgroundColor: vars.color.input.default.backgroundColor,
-    borderColor: vars.color.input.default.borderColor,
+const [theme, themeVars] = createTheme({
+    backgroundColor: vars.color.bg_1,
+    borderColor: vars.color.border_1,
 });
 
 type SelectButtonStyleVariants = Record<FieldVariant, ComplexStyleRule>;
 
 const selectButtonStyleVariant = styleVariants<SelectButtonStyleVariants>({
     borderless: {
-        vars: assignVars(selectButtonVariantVars, {
-            backgroundColor: vars.color.input.borderless.backgroundColor,
-            borderColor: vars.color.input.borderless.borderColor,
+        vars: assignVars(themeVars, {
+            backgroundColor: "transparent",
+            borderColor: "transparent",
         }),
     },
     default: {
-        vars: assignVars(selectButtonVariantVars, {
-            backgroundColor: vars.color.input.default.backgroundColor,
-            borderColor: vars.color.input.default.borderColor,
+        selectors: {
+            "&[data-hovered]": {
+                backgroundColor: vars.color.bg_1,
+                borderColor: vars.color.border_2,
+            },
+        },
+        vars: assignVars(themeVars, {
+            backgroundColor: vars.color.bg_2,
+            borderColor: vars.color.border_1,
         }),
     },
 });
 
 export const selectButtonVariantRecipe = recipe({
     base: [
-        selectButtonVariantTheme,
+        theme,
         {
-            backgroundColor: selectButtonVariantVars.backgroundColor.base,
-            borderColor: selectButtonVariantVars.borderColor.base,
+            backgroundColor: themeVars.backgroundColor,
+            borderColor: themeVars.borderColor,
+        },
+        {
             selectors: {
-                "&[data-disabled]": {
-                    backgroundColor:
-                        selectButtonVariantVars.backgroundColor.isDisabled,
-                    borderColor: selectButtonVariantVars.borderColor.isDisabled,
-                },
-                "&[data-focus-visible]": {
-                    backgroundColor:
-                        selectButtonVariantVars.backgroundColor.isFocusVisible,
-                    borderColor:
-                        selectButtonVariantVars.borderColor.isFocusVisible,
-                },
-                "&[data-focused]": {
-                    backgroundColor:
-                        selectButtonVariantVars.backgroundColor.isFocused,
-                    borderColor: selectButtonVariantVars.borderColor.isFocused,
-                },
-                "&[data-hovered]": {
-                    backgroundColor:
-                        selectButtonVariantVars.backgroundColor.isHovered,
-                    borderColor: selectButtonVariantVars.borderColor.isHovered,
-                },
+                "&[data-disabled]": disabledStyleMacro(),
             },
         },
     ],

@@ -1,29 +1,24 @@
-import { keyframes, style } from "@vanilla-extract/css";
+import { transitionRecipe } from "@boondoggle.design/css-recipes";
+import { Duration, Ease } from "@boondoggle.design/css-types";
+import { style } from "@vanilla-extract/css";
 
-import { vars } from "../index.css";
-
-/**
- * Shared styles used for collapsible open/close state
- */
-
-const open = keyframes({
-    from: { height: 0 },
-    to: { height: "var(--radix-collapsible-content-height)" },
-});
-
-const close = keyframes({
-    from: { height: "var(--radix-collapsible-content-height)" },
-    to: { height: 0 },
-});
-
-export const collapsibleContentAnimation = style({
-    overflow: "hidden",
-    selectors: {
-        '&[data-state="closed"]': {
-            animation: `${close} ${vars.transitionDuration.medium} ${vars.ease.quart_in_out} forwards`,
+export const collapsibleContentAnimation = style([
+    transitionRecipe([
+        {
+            duration: Duration.LONG,
+            ease: Ease.EASE_OUT_CIRC,
+            property: "height",
         },
-        '&[data-state="open"]': {
-            animation: `${open} ${vars.transitionDuration.medium} ${vars.ease.quart_in_out} forwards`,
+    ]),
+    {
+        overflow: "hidden",
+        selectors: {
+            '&[data-state="closed"]': {
+                maxHeight: 0,
+            },
+            '&[data-state="open"]': {
+                maxHeight: "var(--radix-collapsible-content-height)",
+            },
         },
     },
-});
+]);

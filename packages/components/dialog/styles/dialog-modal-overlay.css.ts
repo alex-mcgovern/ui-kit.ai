@@ -7,13 +7,13 @@ const fadeIn = keyframes({
         backgroundColor: "transparent",
     },
     "100%": {
-        backgroundColor: vars.color.background.overlay,
+        backgroundColor: vars.color.shadow,
     },
 });
 
 const fadeOut = keyframes({
     "0%": {
-        backgroundColor: vars.color.background.overlay,
+        backgroundColor: vars.color.shadow,
     },
     "100%": {
         backgroundColor: "transparent",
@@ -35,7 +35,7 @@ export const modalOverlayCSS = style([
     },
     {
         animationFillMode: "forwards",
-        background: vars.color.background.overlay,
+        background: vars.color.shadow,
     },
     withPrefersMotion({
         selectors: {

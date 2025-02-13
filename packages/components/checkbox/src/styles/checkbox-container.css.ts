@@ -15,7 +15,7 @@ export const checkboxContainerStyle = style([
         gap: vars.space.space_2,
     },
     {
-        color: vars.color.text.high_contrast,
+        color: vars.color.fg_2,
     },
     {
         selectors: {

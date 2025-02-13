@@ -10,7 +10,7 @@ export const optionsEmptyStateStyle = style([
         justifyItems: "center",
     },
     {
-        color: vars.color.text.low_contrast,
+        color: vars.color.fg_1,
         display: "flex",
         whiteSpace: "nowrap",
     },

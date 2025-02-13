@@ -10,7 +10,7 @@ export const borderRecipe = recipe({
     variants: {
         color: {
             base: {
-                borderColor: vars.color.border.base,
+                borderColor: vars.color.border_1,
             },
             transparent: {
                 borderColor: "transparent",

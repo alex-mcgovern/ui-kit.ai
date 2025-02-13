@@ -3,8 +3,6 @@ import { assignVars, createTheme, styleVariants } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 
 const [checkboxThemeClass, checkboxThemeVars] = createTheme({
-    // backgroundColor: vars.color.background.base,
-    // borderColor: vars.color.border.base,
     backgroundColor: "transparent",
     borderColor: "transparent",
 });
@@ -20,8 +18,8 @@ const checkboxVariantStyle = styleVariants({
         selectors: {
             [`:is([data-hovered],[data-pressed]) &`]: {
                 vars: assignVars(checkboxThemeVars, {
-                    backgroundColor: vars.color.background.tint,
-                    borderColor: vars.color.border.base,
+                    backgroundColor: vars.color.bg_2,
+                    borderColor: vars.color.border_2,
                 }),
             },
         },
@@ -34,14 +32,14 @@ const checkboxVariantStyle = styleVariants({
         selectors: {
             [`:is([data-pressed],[data-hovered]) &`]: {
                 vars: assignVars(checkboxThemeVars, {
-                    backgroundColor: vars.color.background.tint,
-                    borderColor: vars.color.border.base,
+                    backgroundColor: vars.color.tint_1,
+                    borderColor: vars.color.border_2,
                 }),
             },
         },
         vars: assignVars(checkboxThemeVars, {
-            backgroundColor: vars.color.background.base,
-            borderColor: vars.color.border.base,
+            backgroundColor: vars.color.bg_1,
+            borderColor: vars.color.border_1,
         }),
     },
 });

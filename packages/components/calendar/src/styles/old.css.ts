@@ -1,60 +1,12 @@
 import type { CalendarCellRenderProps } from "react-aria-components";
 
 import { typography } from "@boondoggle.design/css-variants";
-import { style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 
-import type { ReactAriaRecipe } from "../_css-utils/react-aria-recipe";
+import type { ReactAriaRecipe } from "../../../../../src/_css-utils/react-aria-recipe";
 
-import { css } from "../css/index.css";
-import { variantColorOverlay } from "../index.css";
-
-export const calendarCSS = style([
-    css({
-        color: "text_high_contrast",
-        maxWidth: "100%",
-    }),
-    {
-        width: "fit-content",
-    },
-]);
-
-export const calendarHeaderCSS = style([
-    css({
-        alignItems: "center",
-        display: "flex",
-        marginBottom: "space_1",
-        marginX: "space_1",
-    }),
-]);
-
-export const calendarHeadingCSS = style([
-    typography.body_md,
-    css({
-        flexGrow: "1",
-        margin: "none",
-        textAlign: "center",
-    }),
-]);
-
-export const calendarGridHeaderCSS = style([
-    css({
-        borderBottom: "border_rule",
-    }),
-]);
-
-export const calendarGridHeaderCellCSS = style([
-    typography.body_md,
-    css({
-        color: "text_low_contrast",
-        fontWeight: "medium",
-        height: "space_8",
-        textAlign: "center",
-    }),
-    {
-        verticalAlign: "middle",
-    },
-]);
+import { css } from "../../../../../src/css/index.css";
+import { variantColorOverlay } from "../../../../../src/index.css";
 
 export const calendarCellCSS = recipe<ReactAriaRecipe<CalendarCellRenderProps>>(
     {

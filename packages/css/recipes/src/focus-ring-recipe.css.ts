@@ -11,6 +11,8 @@ const focusRingVariant = styleVariants({
         },
     },
     inset: {
+        outlineOffset: FOCUS_RING_OFFSET,
+
         vars: {
             [FOCUS_RING_OFFSET]: "-2px",
         },
@@ -24,8 +26,8 @@ export const focusRingRecipe = recipe({
         outlineWidth: 0,
         selectors: {
             ["&[data-focus-visible]"]: {
-                borderColor: vars.color.focus.borderColor,
-                outlineColor: vars.color.focus.outlineColor,
+                borderColor: vars.color.focus_ring,
+                outlineColor: vars.color.focus_ring,
                 outlineOffset: FOCUS_RING_OFFSET,
                 outlineStyle: "solid",
                 outlineWidth: "2px",

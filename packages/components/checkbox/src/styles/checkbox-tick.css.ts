@@ -11,7 +11,7 @@ export const checkboxTickStyle = style([
                 strokeDashoffset: "44px",
             },
         },
-        stroke: vars.color.text.low_contrast,
+        stroke: vars.color.fg_1,
         strokeDasharray: 22,
         strokeDashoffset: "66px",
         strokeWidth: vars.space["space_0.75"],

@@ -30,7 +30,7 @@ export const modalCSS = recipe({
         frostedGlassBgStyle,
         {
             // background: vars.color.background.base,
-            border: `1px solid ${vars.color.border.base}`,
+            border: `1px solid ${vars.color.border_1}`,
             borderRadius: vars.border_radius.md,
             boxShadow: vars.box_shadow.lg,
             outline: "none",

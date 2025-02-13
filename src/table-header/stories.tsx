@@ -16,16 +16,16 @@ import { FieldGroup } from "../../packages/components/field-group/src/components
 import { Input } from "../../packages/components/input/src/components/input";
 import { Menu } from "../../packages/components/menu/src/components/menu";
 import {
+    SearchField,
+    SearchFieldClearButton,
+    SearchFieldIcon,
+} from "../../packages/components/search-field/src/components/search-field";
+import {
     FilterButton,
     FilterButtonGroup,
     RemoveFilterButton,
 } from "../filter-button-group";
 import { Icon } from "../icon";
-import {
-    SearchField,
-    SearchFieldClearButton,
-    SearchFieldIcon,
-} from "../../packages/components/search-field/src/components/search-field";
 
 const meta = {
     args: {

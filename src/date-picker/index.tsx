@@ -9,7 +9,7 @@ import { useController, useFormContext } from "react-hook-form";
 
 import { Dialog } from "../../packages/components/dialog";
 import { Popover } from "../../packages/components/popover/src/components/popover";
-import { Calendar } from "../calendar";
+import { Calendar } from "../../packages/components/calendar/src/components/calendar";
 import { css } from "../css/index.css";
 import { FieldError } from "../field-error";
 import { Icon } from "../icon";

@@ -7,7 +7,7 @@ export const selectValueStyle = style({
     padding: `0 ${vars.space.space_3}`,
     selectors: {
         "&[data-placeholder]": {
-            color: vars.color.text.low_contrast,
+            color: vars.color.fg_1,
         },
     },
 });

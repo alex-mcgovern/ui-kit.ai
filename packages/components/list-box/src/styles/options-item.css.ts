@@ -1,7 +1,6 @@
 import { vars } from "@boondoggle.design/css-vars";
-import { createVar, style } from "@vanilla-extract/css";
-
-const BACKGROUND_COLOR = createVar();
+import { disabledStyleMacro } from "@boondoggle.design/style-rule-macros";
+import { style } from "@vanilla-extract/css";
 
 export const optionsItemStyle = style([
     {
@@ -11,39 +10,20 @@ export const optionsItemStyle = style([
         width: "100%",
     },
     {
-        backgroundColor: BACKGROUND_COLOR,
+        backgroundColor: "transparent",
         cursor: "pointer",
         outline: 0,
         selectors: {
-            "&[data-disabled]": {
-                cursor: "not-allowed",
-                opacity: "0.5",
-                vars: {
-                    [BACKGROUND_COLOR]:
-                        vars.color.menu_item.backgroundColor.isDisabled,
-                },
-            },
+            "&[data-disabled]": disabledStyleMacro(),
             "&[data-focus-visible]": {
-                vars: {
-                    [BACKGROUND_COLOR]:
-                        vars.color.menu_item.backgroundColor.isHovered,
-                },
+                backgroundColor: vars.color.tint_1,
             },
             "&[data-hovered]": {
-                vars: {
-                    [BACKGROUND_COLOR]:
-                        vars.color.menu_item.backgroundColor.isHovered,
-                },
+                backgroundColor: vars.color.tint_1,
             },
             "&[data-pressed]": {
-                vars: {
-                    [BACKGROUND_COLOR]:
-                        vars.color.menu_item.backgroundColor.isPressed,
-                },
+                backgroundColor: vars.color.tint_1,
             },
-        },
-        vars: {
-            [BACKGROUND_COLOR]: vars.color.menu_item.backgroundColor.base,
         },
     },
 ]);

@@ -1,6 +1,26 @@
 {
-    "arrowParens": "always",
-    "proseWrap": "always",
+    "endingPosition": "relative",
+    "plugins": [
+        "prettier-plugin-tailwindcss",
+        "prettier-plugin-classnames",
+        "prettier-plugin-merge"
+    ],
+    "semi": false,
+    "singleQuote": true,
     "tabWidth": 4,
-    "singleAttributePerLine": true
+    "tailwindConfig": "./tailwind.config.ts",
+    "trailingComma": "es5",
+    "useTabs": false,
+    "tailwindFunctions": [
+        "composeTailwindRenderProps",
+        "tv",
+        "twMerge",
+        "composeTailwindRenderProps"
+    ],
+    "customFunctions": [
+        "composeTailwindRenderProps",
+        "tv",
+        "twMerge",
+        "composeTailwindRenderProps"
+    ]
 }

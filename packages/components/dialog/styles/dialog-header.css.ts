@@ -13,7 +13,7 @@ export const dialogHeaderStyle = style([
         paddingRight: vars.space.space_2,
         paddingTop: vars.space.space_2,
     },
-    { borderBottom: `1px solid ${vars.color.border.base}` },
+    { borderBottom: `1px solid ${vars.color.border_1}` },
     {
         position: "sticky",
         top: "0",

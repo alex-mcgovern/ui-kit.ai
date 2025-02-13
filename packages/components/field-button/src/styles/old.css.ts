@@ -61,12 +61,10 @@ export const fieldButtonStyle = style([
                 opacity: 0.5,
             },
             "&[data-hovered]": {
-                background:
-                    vars.color.button.secondary.backgroundColor.isHovered,
+                background: vars.color.tint_1,
             },
             "&[data-pressed]": {
-                background:
-                    vars.color.button.secondary.backgroundColor.isHovered,
+                background: vars.color.tint_1,
             },
         },
     },

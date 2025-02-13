@@ -10,9 +10,9 @@ import {
     TextFieldCopyButton,
     TextFieldVisibilityButton,
 } from ".";
-import { css } from "../css/index.css";
 import { FieldGroup } from "../../packages/components/field-group/src/components/field-group";
 import { Input } from "../../packages/components/input/src/components/input";
+import { css } from "../css/index.css";
 import { Label } from "../label";
 import { Toaster } from "../toaster";
 import { Tooltip, TooltipTrigger, TooltipTriggerButton } from "../tooltip";
@@ -81,7 +81,7 @@ export const TypePassword: Story = {
             <TextField {...args}>
                 <Label>Label</Label>
                 <FieldGroup>
-                    <Input variant="unstyled" />
+                    <Input variant="borderless" />
                     <TextFieldVisibilityButton />
                 </FieldGroup>
             </TextField>

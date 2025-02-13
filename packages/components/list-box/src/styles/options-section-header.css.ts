@@ -5,7 +5,7 @@ import { style } from "@vanilla-extract/css";
 export const optionsSectionHeaderStyle = style([
     typography.body_sm,
     {
-        color: vars.color.text.low_contrast,
+        color: vars.color.fg_1,
         fontWeight: vars.font_weight.medium,
         textAlign: "left",
     },

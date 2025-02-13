@@ -41,7 +41,7 @@ export const fieldGroupBaseStyle = style([
         width: "100%",
     },
     {
-        color: vars.color.text.high_contrast,
+        color: vars.color.fg_2,
     },
     {
         borderRadius: vars.border_radius.md,

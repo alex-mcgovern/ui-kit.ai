@@ -36,6 +36,7 @@ export const SPACING = {
     space_6: "1.5rem",
     space_7: "1.75rem",
     space_8: "2rem",
+    space_9: "2.25rem",
     space_10: "2.5rem",
     space_12: "3rem",
 };

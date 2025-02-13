@@ -2,65 +2,53 @@ import type { ComplexStyleRule } from "@vanilla-extract/css";
 
 import { ButtonVariant } from "@boondoggle.design/css-types";
 import { vars } from "@boondoggle.design/css-vars";
-import { assignVars } from "@vanilla-extract/css";
-import { createTheme, styleVariants } from "@vanilla-extract/css";
+import { disabledStyleMacro } from "@boondoggle.design/style-rule-macros";
+import { styleVariants } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
-
-const [buttonVariantTheme, buttonVariantVars] = createTheme({
-    backgroundColor: vars.color.button.primary.backgroundColor,
-    borderColor: vars.color.button.primary.borderColor,
-    color: vars.color.white,
-});
 
 type ButtonStyleVariant = Record<ButtonVariant, ComplexStyleRule>;
 
 const buttonStyleVariant = styleVariants<ButtonStyleVariant>({
     ghost: {
-        vars: assignVars(buttonVariantVars, {
-            backgroundColor: vars.color.button.ghost.backgroundColor,
-            borderColor: vars.color.button.ghost.borderColor,
-            color: vars.color.text.high_contrast,
-        }),
+        backgroundColor: "transparent",
+        borderColor: "transparent",
+        color: vars.color.fg_2,
+        selectors: {
+            "&[data-hovered]:not([data-disabled])": {
+                backgroundColor: vars.color.tint_1,
+                borderColor: vars.color.tint_1,
+            },
+        },
     },
     primary: {
-        vars: assignVars(buttonVariantVars, {
-            backgroundColor: vars.color.button.primary.backgroundColor,
-            borderColor: vars.color.button.primary.borderColor,
-            color: vars.color.white,
-        }),
+        backgroundColor: vars.color.primary_1,
+        borderColor: vars.color.primary_1,
+        color: vars.color.fg_2_inverted,
+        selectors: {
+            "&[data-hovered]:not([data-disabled])": {
+                backgroundColor: vars.color.primary_2,
+                borderColor: vars.color.primary_2,
+            },
+        },
     },
     secondary: {
-        vars: assignVars(buttonVariantVars, {
-            backgroundColor: vars.color.button.secondary.backgroundColor,
-            borderColor: vars.color.button.secondary.borderColor,
-            color: vars.color.text.high_contrast,
-        }),
+        backgroundColor: vars.color.tint_1,
+        borderColor: vars.color.border_1,
+        color: vars.color.fg_2,
+        selectors: {
+            "&[data-hovered]:not([data-disabled])": {
+                backgroundColor: vars.color.tint_2,
+                borderColor: vars.color.border_2,
+            },
+        },
     },
 });
 
 export const buttonVariantRecipe = recipe({
     base: [
-        buttonVariantTheme,
         {
-            backgroundColor: buttonVariantVars.backgroundColor.base,
-            borderColor: buttonVariantVars.borderColor.base,
-            color: buttonVariantVars.color,
             selectors: {
-                "&[data-disabled]": {
-                    backgroundColor:
-                        buttonVariantVars.backgroundColor.isDisabled,
-                    borderColor: buttonVariantVars.borderColor.isDisabled,
-                },
-                "&[data-hovered]": {
-                    backgroundColor:
-                        buttonVariantVars.backgroundColor.isHovered,
-                    borderColor: buttonVariantVars.borderColor.isHovered,
-                },
-                "&[data-pressed]": {
-                    backgroundColor:
-                        buttonVariantVars.backgroundColor.isPressed,
-                    borderColor: buttonVariantVars.borderColor.isPressed,
-                },
+                "&[data-disabled]": disabledStyleMacro(),
             },
         },
     ],

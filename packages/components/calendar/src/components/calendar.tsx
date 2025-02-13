@@ -18,15 +18,13 @@ import {
     Heading as RACHeading,
 } from "react-aria-components";
 
-import { Icon } from "../icon";
-import {
-    calendarCSS,
-    calendarCellCSS,
-    calendarGridHeaderCSS,
-    calendarGridHeaderCellCSS,
-    calendarHeaderCSS,
-    calendarHeadingCSS,
-} from "./styles.css";
+import { Icon } from "../../../../../src/icon";
+import { calendarStyle } from "../styles/calendar.css";
+import { calendarCellStyle } from "../styles/calendar-cell-state.css";
+import { calendarGridHeaderCSS } from "../styles/calendar-grid-header.css";
+import { calendarGridHeaderCellCSS } from "../styles/calendar-grid-header-cell.css";
+import { calendarHeaderStyle } from "../styles/calendar-header.css";
+import { calendarHeadingCSS } from "../styles/calendar-heading.css";
 
 export const Calendar = <TDateValue extends RACDateValue>(
     props: RACCalendarProps<TDateValue>,
@@ -34,9 +32,9 @@ export const Calendar = <TDateValue extends RACDateValue>(
     return (
         <RACCalendar
             {...props}
-            className={clsx(props.className, calendarCSS)}
+            className={clsx(props.className, calendarStyle)}
         >
-            <header className={calendarHeaderCSS}>
+            <header className={calendarHeaderStyle}>
                 <Button
                     slot="previous"
                     variant={ButtonVariant.GHOST}
@@ -64,35 +62,7 @@ export const Calendar = <TDateValue extends RACDateValue>(
                 <RACCalendarGridBody>
                     {(date) => (
                         <RACCalendarCell
-                            className={({
-                                isDisabled,
-                                isFocused,
-                                isFocusVisible,
-                                isHovered,
-                                isInvalid,
-                                isOutsideMonth,
-                                isOutsideVisibleRange,
-                                isPressed,
-                                isSelected,
-                                isSelectionEnd,
-                                isSelectionStart,
-                                isUnavailable,
-                            }) =>
-                                calendarCellCSS({
-                                    isDisabled,
-                                    isFocused,
-                                    isFocusVisible,
-                                    isHovered,
-                                    isInvalid,
-                                    isOutsideMonth,
-                                    isOutsideVisibleRange,
-                                    isPressed,
-                                    isSelected,
-                                    isSelectionEnd,
-                                    isSelectionStart,
-                                    isUnavailable,
-                                })
-                            }
+                            className={calendarCellStyle}
                             date={date}
                         />
                     )}

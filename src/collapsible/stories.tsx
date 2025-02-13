@@ -11,6 +11,15 @@ import { Icon } from "../icon";
 
 export default {
     component: StoryComp,
+    decorators: [
+        (Story) => {
+            return (
+                <div style={{ width: 300 }}>
+                    <Story />
+                </div>
+            );
+        },
+    ],
     title: "Collapsible",
 };
 

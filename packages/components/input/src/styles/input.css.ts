@@ -3,6 +3,7 @@ import { transitionRecipe } from "@boondoggle.design/css-recipes";
 import { Duration, Ease } from "@boondoggle.design/css-types";
 import { typography } from "@boondoggle.design/css-variants";
 import { vars } from "@boondoggle.design/css-vars";
+import { disabledStyleMacro } from "@boondoggle.design/style-rule-macros";
 import { assignVars, style } from "@vanilla-extract/css";
 
 export const inputBaseStyle = style([
@@ -41,7 +42,7 @@ export const inputBaseStyle = style([
         width: "100%",
     },
     {
-        color: vars.color.text.high_contrast,
+        color: vars.color.fg_2,
     },
     {
         borderRadius: vars.border_radius.md,
@@ -50,10 +51,7 @@ export const inputBaseStyle = style([
     },
     {
         selectors: {
-            "&[data-disabled]": {
-                cursor: "not-allowed !important",
-                opacity: 0.5,
-            },
+            "&[data-disabled]": disabledStyleMacro(),
             "&[data-invalid]": {
                 vars: assignVars(vars.color, COLOR_RED),
             },

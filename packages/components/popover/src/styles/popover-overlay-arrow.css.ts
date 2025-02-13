@@ -10,8 +10,8 @@ export const overlayArrow = style([
 
 export const overlayArrowSvg = style([
     {
-        fill: vars.color.background.base,
-        stroke: vars.color.border.base,
+        fill: vars.color.bg_1,
+        stroke: vars.color.border_1,
         strokeWidth: 1,
     },
     {

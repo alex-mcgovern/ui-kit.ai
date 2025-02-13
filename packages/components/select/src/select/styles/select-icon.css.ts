@@ -5,7 +5,7 @@ import { style } from "@vanilla-extract/css";
 export const selectIconStyle = style([
     typography.body_md,
     {
-        color: vars.color.text.low_contrast,
+        color: vars.color.fg_1,
     },
     {
         height: vars.space.space_3,

@@ -5,7 +5,7 @@ import { style } from "@vanilla-extract/css";
 export const dialogTitleStyle = style([
     typography.body_lg,
     {
-        color: vars.color.text.high_contrast,
+        color: vars.color.fg_2,
         fontWeight: vars.font_weight.semibold,
         margin: 0,
     },

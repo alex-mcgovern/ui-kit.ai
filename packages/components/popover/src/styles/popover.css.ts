@@ -5,7 +5,7 @@ import { style } from "@vanilla-extract/css";
 export const popoverCSS = style([
     frostedGlassBgStyle,
     {
-        border: `1px solid ${vars.color.border.base}`,
+        border: `1px solid ${vars.color.border_1}`,
         borderRadius: vars.border_radius.md,
         boxShadow: vars.box_shadow.md,
     },

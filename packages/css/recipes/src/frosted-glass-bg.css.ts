@@ -3,5 +3,5 @@ import { style } from "@vanilla-extract/css";
 
 export const frostedGlassBgStyle = style({
     backdropFilter: `blur(${vars.space.space_2})`,
-    backgroundColor: vars.color.background.frosted,
+    backgroundColor: vars.color.bg_1,
 });

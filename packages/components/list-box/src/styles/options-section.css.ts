@@ -5,7 +5,7 @@ export const optionsSectionStyle = style([
     {
         selectors: {
             "&:not(:last-child)::after": {
-                background: vars.color.border.base,
+                background: vars.color.border_1,
                 content: "",
 
                 display: "block",

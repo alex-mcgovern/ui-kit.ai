@@ -25,13 +25,13 @@ const base = style([
 export const optionsItemTextValueStyle = style([
     base,
     {
-        color: vars.color.text.high_contrast,
+        color: vars.color.fg_2,
     },
 ]);
 
 export const optionsItemDescriptionStyle = style([
     base,
     {
-        color: vars.color.text.low_contrast,
+        color: vars.color.fg_1,
     },
 ]);

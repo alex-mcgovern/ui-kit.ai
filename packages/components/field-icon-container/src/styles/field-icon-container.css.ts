@@ -7,7 +7,7 @@ export const fieldIconContainerStyle = style([
         width: vars.space.space_6,
     },
     {
-        color: vars.color.text.low_contrast,
+        color: vars.color.fg_1,
     },
     {
         alignItems: "center",
