@@ -1,7 +1,0 @@
-.git
-*.md
-build
-dist
-node_modules
-tmp
-.vscode/javascript-react.code-snippets
