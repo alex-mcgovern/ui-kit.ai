@@ -1,0 +1,10 @@
+import * as React from "react";
+// NOTE: This is a hack to make forwarding a ref to a generic component
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
+export function forwardRef<T, P = {}>(
+    render: (props: P, ref: React.Ref<T>) => React.ReactNode,
+): (props: P & React.RefAttributes<T>) => React.ReactNode {
+    // @ts-expect-error - This is a hack to make the types work
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    return React.forwardRef(render) as any;
+}

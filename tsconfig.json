@@ -1,0 +1,22 @@
+{
+    "compilerOptions": {
+      "allowJs": true,
+      "checkJs": true,
+      "declaration": true,
+      "esModuleInterop": true,
+      "isolatedModules": true,
+      "jsx": "preserve",
+      "lib": ["es2022", "dom", "dom.iterable"],
+      "module": "preserve",
+      "moduleDetection": "force",
+      "noEmit": true,
+      "noImplicitOverride": true,
+      "noUncheckedIndexedAccess": true,
+      "resolveJsonModule": true,
+      "skipLibCheck": true,
+      "strict": true,
+      "target": "es2022",
+      "verbatimModuleSyntax": true
+    },
+    "include": ["src/**/*", "eslint.config.js"]
+  }
