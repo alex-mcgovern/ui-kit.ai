@@ -21,7 +21,7 @@ const buttonMeta = {
 export default buttonMeta;
 type Story = StoryObj<typeof buttonMeta>;
 
-export const Example: Story = {
+export const Default: Story = {
     args: {
         children: "Button",
     },

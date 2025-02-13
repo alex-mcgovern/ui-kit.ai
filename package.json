@@ -10,7 +10,8 @@
     "check-jest": "jest",
     "check-prettier": "prettier . --check",
     "check-tsc": "tsc",
-    "storybook": "storybook dev -p 65534",
+    "dev": "storybook dev -p 65534",
+    "dev:docs": "storybook dev --docs -p 65534",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
