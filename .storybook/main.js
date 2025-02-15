@@ -16,7 +16,7 @@ const excludedProps = new Set([
 
 /** @type { import('@storybook/react-vite').StorybookConfig } */
 const config = {
-    stories: ["../**/*.stories.tsx", "../**/*.docs.mdx"],
+    stories: ["../src/stories/**/*.tsx", "../src/docs/**/*.docs.mdx"],
     addons: [
         "@storybook/addon-links",
         "@storybook/addon-essentials",
@@ -52,7 +52,6 @@ const config = {
                 esModuleInterop: false,
             },
             propFilter: (prop) => {
-                console.debug("👉  prop:", prop);
                 return (
                     !prop.name.startsWith("aria-") &&
                     !excludedProps.has(prop.name)
