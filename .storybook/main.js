@@ -46,12 +46,18 @@ const config = {
         reactDocgen: "react-docgen-typescript",
         reactDocgenTypescriptOptions: {
             shouldExtractLiteralValuesFromEnum: true,
+            shouldIncludeExpression: false,
             compilerOptions: {
                 allowSyntheticDefaultImports: false,
                 esModuleInterop: false,
             },
-            propFilter: (prop) =>
-                !prop.name.startsWith("aria-") && !excludedProps.has(prop.name),
+            propFilter: (prop) => {
+                console.debug("👉  prop:", prop);
+                return (
+                    !prop.name.startsWith("aria-") &&
+                    !excludedProps.has(prop.name)
+                );
+            },
         },
     },
 };

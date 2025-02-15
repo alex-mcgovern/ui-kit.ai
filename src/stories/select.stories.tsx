@@ -1,114 +1,98 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import type { SelectRenderProps } from "react-aria-components";
 
-import { Button } from "../components/button";
-import { Form } from "../components/form";
-import { Label } from "../components/label";
+import React from "react";
+
+import type { OptionsSchema } from "../types/options";
+
 import { Select, SelectButton } from "../components/select";
+import { Label } from "../components/label";
 import { getMockOptions } from "../mocks/options";
+import type { ComponentProps, ComponentType } from "react";
+import { StoryArgsListTemplate, type StoryArgsList } from "../types/storybook";
 
-const meta: Meta<typeof Select> = {
-    component: Select,
-    decorators: [
-        (Story) => (
-            <div style={{ width: "400px" }}>
-                <Story />
-            </div>
-        ),
-    ],
-    parameters: {
-        layout: "centered",
+type ArgsList = StoryArgsList<{
+    Select: ComponentProps<typeof Select>;
+    SelectButton?: Partial<ComponentProps<typeof SelectButton>>;
+}>;
+
+const ARGS_LIST: ArgsList = {
+    "Flat list": {
+        Select: {
+            items: getMockOptions({ withIcon: true }),
+        },
     },
-    render: (args) => <Select {...args}></Select>,
-    title: "Select",
+    "With sections": {
+        Select: {
+            items: getMockOptions({ withIcon: true, withSections: true }),
+        },
+    },
+    isInvalid: {
+        Select: {
+            items: getMockOptions({ withIcon: true, withSections: true }),
+            isInvalid: true,
+        },
+    },
+    isDisabled: {
+        Select: {
+            items: getMockOptions({ withIcon: true, withSections: true }),
+            isDisabled: true,
+        },
+    },
+    isBorderless: {
+        Select: {
+            items: getMockOptions({ withIcon: true, withSections: true }),
+        },
+        SelectButton: {
+            isBorderless: true,
+        },
+    },
+    disabledKeys: {
+        Select: {
+            items: getMockOptions({ withIcon: true, withSections: true }),
+            disabledKeys: ["france", "germany", "spain"],
+        },
+    },
 };
+
+const meta = {
+    args: {
+        children: (
+            <>
+                <Label>Select</Label>
+                <SelectButton />
+            </>
+        ),
+        items: getMockOptions(),
+    },
+    component: Select,
+    title: "Components/Select",
+    subcomponents: {
+        SelectButton: SelectButton as ComponentType<unknown>,
+    },
+} satisfies Meta<typeof Select<OptionsSchema<"listbox">>>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const FlatList: Story = {
-    args: {
-        items: getMockOptions(),
-    },
-};
-
-export const FlatListIcons: Story = {
-    args: {
-        items: getMockOptions({ withIcon: true }),
-    },
-};
-
-export const WithSections: Story = {
-    args: {
-        items: getMockOptions({ withSections: true }),
-    },
-};
-
-export const WithSectionsIcons: Story = {
-    args: {
-        items: getMockOptions({ withIcon: true, withSections: true }),
-    },
-};
-
-export const IsBorderless: Story = {
-    args: {
-        children: (rp: SelectRenderProps) => (
-            <SelectButton {...rp} isBorderless />
-        ),
-        items: getMockOptions(),
-    },
-};
-
-export const IsInvalid: Story = {
-    args: {
-        children: (
-            <>
-                <Label>Select (invalid)</Label>
-                <SelectButton />
-            </>
-        ),
-        isInvalid: true,
-        items: getMockOptions(),
-    },
-};
-
-export const IsDisabled: Story = {
-    args: {
-        children: (
-            <>
-                <Label>Select (disabled)</Label>
-                <SelectButton />
-            </>
-        ),
-        isDisabled: true,
-        items: getMockOptions(),
-    },
-};
-
-export const DisabledItems: Story = {
-    args: {
-        children: (
-            <>
-                <Label>Select (disabled items)</Label>
-                <SelectButton />
-            </>
-        ),
-        disabledKeys: ["france", "germany", "spain"],
-        items: getMockOptions(),
-    },
-};
-
-export const Validation: Story = {
-    args: {
-        isRequired: true,
-        items: getMockOptions(),
-    },
+export const Default: Story = {
+    args: {},
     render: (args) => (
-        <Form className="flex flex-col items-start gap-2">
-            <Select {...args} />
-            <Button type="submit" variant="secondary">
-                Submit
-            </Button>
-        </Form>
+        <StoryArgsListTemplate<ComponentProps<typeof Select>, ArgsList>
+            args={args}
+            argsList={ARGS_LIST}
+            renderComponent={({
+                args,
+                storyArgs: {
+                    Select: selectArgs,
+                    SelectButton: selectButtonArgs,
+                },
+            }) => (
+                <>
+                    <Select {...args} {...selectArgs}>
+                        <SelectButton {...selectButtonArgs} />
+                    </Select>
+                </>
+            )}
+        />
     ),
 };

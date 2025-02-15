@@ -1,0 +1,112 @@
+import { Story, ArgTypes, Canvas, Unstyled, Meta } from "@storybook/blocks";
+import { Button } from "../components/button";
+import { StarIcon } from "lucide-react"
+import * as examples from "./button.stories"
+
+<Meta title="Components/Button" />
+
+# Button
+
+A button allows a user to perform an action, with mouse, touch, and keyboard
+interactions.
+
+[source code](https://github.com/alex-mcgovern/boondoggle/tree/main/src/components/button)
+&nbsp;|&nbsp;
+[react aria](https://react-spectrum.adobe.com/react-aria/Button.html)
+
+<hr />
+
+<br/>
+<Unstyled>
+    <div className="flex gap-2 mb-2">
+        <Button variant="primary">Primary</Button>
+        <Button variant="secondary">Primary</Button>
+        <Button variant="tertiary">Primary</Button>
+    </div>
+    <div className="flex gap-2 mb-2">
+        <Button variant="primary" isDisabled>Primary</Button>
+        <Button variant="secondary" isDisabled>Primary</Button>
+        <Button variant="tertiary" isDisabled>Primary</Button>
+    </div>
+    <div className="flex gap-2 mb-2">
+        <Button variant="primary" isDestructive>Primary</Button>
+        <Button variant="secondary" isDestructive>Primary</Button>
+        <Button variant="tertiary" isDestructive>Primary</Button>
+    </div>
+    <div className="flex gap-2 mb-2">
+        <Button variant="primary" isIcon><StarIcon /></Button>
+        <Button variant="secondary" isIcon><StarIcon /></Button>
+        <Button variant="tertiary" isIcon><StarIcon /></Button>
+    </div>
+    <div className="flex gap-2 mb-2">
+        <Button slotLeft={<StarIcon />} variant="primary">Primary</Button>
+        <Button slotLeft={<StarIcon />} variant="secondary">Primary</Button>
+        <Button slotLeft={<StarIcon />} variant="tertiary">Primary</Button>
+    </div>
+    <div className="flex gap-2 mb-2">
+        <Button slotRight={<StarIcon />} variant="primary">Primary</Button>
+        <Button slotRight={<StarIcon />} variant="secondary">Primary</Button>
+        <Button slotRight={<StarIcon />} variant="tertiary">Primary</Button>
+    </div>
+</Unstyled>
+<br/>
+
+## Button `variant`
+
+Boondoggle has three variants of buttons, `primary`, `secondary`, and `tertiary`. If
+no `variant` is specified, a `primary` button will be rendered.
+
+<Canvas layout="centered" of={examples.variant} />
+
+## Button `isDestructive`
+
+When `isDestructive` is set to `true` the Button will styled in red, to denote a destructive action.
+
+<Canvas layout="centered" of={examples.isDestructive} />
+
+## Button `isDisabled`
+
+A button can be disabled by setting the `isDisabled` prop to `true`. This will
+prevent the button from being interacted with. Opacity is reduced to provide
+some visual feedback that the button is disabled.
+
+<div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+    <Canvas layout="centered" className="!my-2" of={examples.isDisabled} />
+    <Canvas layout="centered" className="!my-2" of={examples.isDestructiveIsDisabled} />
+</div>
+
+## Button `isIcon`
+
+When `isIcon` is set to `true` the Button will be styled to be square with a fixed
+height & width. This should be used in conjunction with passing an icon
+component to the `children` prop.
+
+<Canvas layout="centered" of={examples.isIcon} />
+
+**Note**: If you aren't passing text to the `children` prop, ensure you
+are passing an `aria-label` attribute, so the Button is correctly
+labelled to assistive technologies, e.g:
+
+```tsx
+<Button
+    isIcon
+    aria-label="Add to favorites" // ⬅️ Assistive technology label
+>
+    <StarIcon />
+</Button>
+```
+
+## Button `slotLeft` & `slotRight`
+
+A decorative node (e.g. an icon) to render on the left or right side of the
+Button. When a node is passed, the padding on the corresponding side is
+slightly reduced to maintain visual balance.
+
+<div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+    <Canvas layout="centered" className="!my-2" of={examples.slotLeft} />
+    <Canvas layout="centered" className="!my-2" of={examples.slotRight} />
+</div>
+
+## Component API
+
+<ArgTypes of={Button} />

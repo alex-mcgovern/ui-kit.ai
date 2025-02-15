@@ -15,10 +15,8 @@ import {
 
 const meta = {
     component: TextField,
-    parameters: {
-        layout: "centered",
-    },
-    title: "TextField",
+
+    title: "Components/TextField",
 } satisfies Meta<typeof TextField>;
 
 export default meta;

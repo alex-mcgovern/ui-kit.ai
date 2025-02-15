@@ -1,4 +1,4 @@
-import { Globe } from "lucide-react";
+import { GlobeIcon } from "lucide-react";
 
 import type { OptionsSchema } from "../types/options";
 
@@ -9,32 +9,32 @@ type Options = {
 
 const getItems = ({ withIcon }: Options) => ({
     france: {
-        icon: withIcon === true ? <Globe /> : undefined,
+        icon: withIcon === true ? <GlobeIcon /> : undefined,
         id: "france",
         textValue: "France",
     },
     germany: {
-        icon: withIcon === true ? <Globe /> : undefined,
+        icon: withIcon === true ? <GlobeIcon /> : undefined,
         id: "germany",
         textValue: "Germany",
     },
     oman: {
-        icon: withIcon === true ? <Globe /> : undefined,
+        icon: withIcon === true ? <GlobeIcon /> : undefined,
         id: "oman",
         textValue: "Oman",
     },
     saudi_arabia: {
-        icon: withIcon === true ? <Globe /> : undefined,
+        icon: withIcon === true ? <GlobeIcon /> : undefined,
         id: "saudi_arabia",
         textValue: "Saudi Arabia",
     },
     spain: {
-        icon: withIcon === true ? <Globe /> : undefined,
+        icon: withIcon === true ? <GlobeIcon /> : undefined,
         id: "spain",
         textValue: "Spain",
     },
     uae: {
-        icon: withIcon === true ? <Globe /> : undefined,
+        icon: withIcon === true ? <GlobeIcon /> : undefined,
         id: "uae",
         textValue: "United Arab Emirates",
     },

@@ -28,7 +28,8 @@ export const fieldVariants = tv({
                     "pressed:border-gray-400",
                     "pressed:forced-colors:border-[Highlight]",
                     // invalid
-                    "invalid:!border-red-400 invalid:text-error invalid:!outline-red-500",
+                    "invalid:!border-red-400 invalid:!text-error invalid:!outline-red-500",
+                    "invalid:!bg-red-50",
                     "invalid:forced-colors:!border-[Mark]",
                     "invalid:forced-colors:bg-[MarkBackground]",
                     // focus visible

@@ -31,6 +31,86 @@ const selectButtonStyles = tv({
     extend: fieldVariants,
 });
 
+/**
+ * A select displays a collapsible list of options and allows a user to select one of them. [Built with React Aria Select component](https://react-spectrum.adobe.com/react-aria/Select.html)
+ *
+ * ### Usage
+ *
+ * ```tsx
+ * import { Select, Label } from "boondoggle";
+ *
+ * const ITEMS: OptionsSchema<"listbox"> = [
+ *    {
+ *        "id": "france",
+ *        "textValue": "France"
+ *    },
+ *    {
+ *        "id": "uae",
+ *        "textValue": "United Arab Emirates"
+ *    },
+ *    // ... more items
+ * ];
+ *
+ * <Select
+ *     items={ITEMS} // See below for guidance on composing items
+ * >
+ *     <Label>Choose a country</Label>
+ *     <SelectButton />
+ * </Select>
+ * ```
+ *
+ * ### Items
+ *
+ * `Select` accepts an `items` prop, which expects an iterable of type `OptionsSchema<"listbox">`.
+ *
+ * `OptionsSchema` is a generic type describing either a single list item, or a
+ * section containing multiple items.
+ *
+ * A "flat" list, containing only items might be composed like this:
+ *
+ * ```tsx
+ * const ITEMS: OptionsSchema<"listbox"> = [
+ *    {
+ *        "id": "france",
+ *        "textValue": "France"
+ *    },
+ *    {
+ *        "id": "uae",
+ *        "textValue": "United Arab Emirates"
+ *    },
+ *    // ... more items
+ *];
+ * ```
+ *
+ * A more complex list, broken up into sections, might be composed like this:
+ *
+ * ```tsx
+ * const ITEMS: OptionsSchema<"listbox"> = [
+ *     {
+ *         "id": "europe",
+ *         "items": [
+ *             {
+ *                 "id": "france",
+ *                 "textValue": "France"
+ *             },
+ *             // ... more items
+ *         ],
+ *         "textValue": "Europe"
+ *     },
+ *     {
+ *         "id": "mena",
+ *         "items": [
+ *             {
+ *                 "id": "uae",
+ *                 "textValue": "United Arab Emirates"
+ *             },
+ *            // ... more items
+ *         ],
+ *         "textValue": "MENA"
+ *     }
+ * ];
+ * ```
+ */
 export function Select<
     T extends OptionsSchema<"listbox"> = OptionsSchema<"listbox">,
 >({

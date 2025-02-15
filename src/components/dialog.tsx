@@ -68,6 +68,7 @@ const dialogStyles = tv({
         "outline outline-0",
         "relative",
         "text-left",
+        "bg-base bg-clip-padding",
         // height
         "h-dvh max-h-dvh",
         "md:h-[unset] md:max-h-[inherit]",
@@ -76,7 +77,6 @@ const dialogStyles = tv({
         "md:rounded md:border md:border-gray-200",
         "[[data-placement]>&]:p-4",
     ],
-    extend: bgGlass,
     variants: {
         width: {
             lg: "md:max-w-[max(50rem,50dvw)]",

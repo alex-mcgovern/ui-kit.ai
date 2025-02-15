@@ -13,10 +13,8 @@ const meta: Meta<typeof EmptyState> = {
         title: 'No search results for "foo-bar"',
     },
     component: EmptyState,
-    parameters: {
-        layout: "centered",
-    },
-    title: "EmptyState",
+
+    title: "Components/EmptyState",
 };
 
 export default meta;

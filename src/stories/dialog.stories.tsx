@@ -121,7 +121,7 @@ const meta: Meta<typeof Dialog> = {
         DialogTitle: DialogTitle as ComponentType<unknown>,
         DialogTrigger: DialogTrigger as ComponentType<unknown>,
     },
-    title: "Dialog",
+    title: "Components/Dialog",
 };
 
 export default meta;

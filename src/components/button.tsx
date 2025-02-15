@@ -50,13 +50,13 @@ const buttonStyle = tv({
         {
             className: [
                 "border-red-700 text-error",
-                "hover:border-red-800 hover:bg-red-50 pressed:bg-red-200",
+                "hover:border-red-600 hover:bg-red-50 pressed:bg-red-100",
             ],
             isDestructive: true,
             variant: "secondary",
         },
         {
-            className: "text-red-900 hover:bg-red-100 pressed:bg-red-200",
+            className: ["text-error", "hover:bg-red-50 pressed:bg-red-100"],
             isDestructive: true,
             variant: "tertiary",
         },
@@ -101,7 +101,7 @@ const buttonStyle = tv({
 
 type ButtonCommonProps = {
     /**
-     * When set to `true` the Button will styled in red, to denote a destructive action.
+     * When `isDestructive` is set to `true` the Button will styled in red, to denote a destructive action.
      */
     isDestructive?: boolean;
     /**
@@ -156,24 +156,6 @@ const ButtonLoadingState = ({
         children
     );
 
-/**
- * A button allows a user to perform an action, with mouse, touch, and keyboard interactions.
- * [Built with React Aria Button](https://react-spectrum.adobe.com/react-aria/Button.html)
- *
- * ## Install
- *
- * ```sh
- * npm i boondoggle
- * ```
- *
- * ## Usage
- *
- * ```tsx
- * import { Button } from "boondoggle";
- *
- * <Button>Button</Button>
- * ```
- */
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     (
         {

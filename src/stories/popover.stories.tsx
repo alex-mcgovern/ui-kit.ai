@@ -6,28 +6,57 @@ import { Button } from "../components/button";
 import { DialogTrigger } from "../components/dialog";
 import { Heading } from "../components/heading";
 import { Popover, PopoverDialog } from "../components/popover";
+import type { ComponentProps } from "react";
+import { StoryArgsListTemplate, type StoryArgsList } from "../types/storybook";
 
-const meta: Meta<typeof Popover> = {
-    args: {},
-    component: Popover,
-    parameters: {
-        layout: "centered",
+type ArgsList = StoryArgsList<Omit<ComponentProps<typeof Popover>, "children">>;
+
+const ARGS_LIST: ArgsList = {
+    "Placement bottom right": {
+        placement: "bottom right",
     },
-    render: (args) => (
-        <DialogTrigger>
-            <Button aria-label="Help" isIcon variant="tertiary">
-                <IconHelpCircle className="size-4" />
-            </Button>
-            <Popover {...args} className="max-w-[250px]"></Popover>
-        </DialogTrigger>
-    ),
-    title: "Popover",
+    "Placement top left": {
+        placement: "top left",
+    },
+    "Show arrow bottom right": {
+        placement: "bottom right",
+        showArrow: true,
+    },
+    "Show arrow top left": {
+        placement: "top left",
+        showArrow: true,
+    },
 };
+
+const Template = (args: ComponentProps<typeof Popover>) => {
+    return (
+        <div>
+            {Object.entries(STORIES).map(([name, props]) => {
+                return (
+                    <div className="mb-4 grid grid-cols-[12rem_14rem] items-center gap-4">
+                        <div>{name}</div>
+                        <DialogTrigger>
+                            <Button aria-label="Help" isIcon variant="tertiary">
+                                <IconHelpCircle className="size-4" />
+                            </Button>
+                            <Popover {...args} {...props} />
+                        </DialogTrigger>
+                    </div>
+                );
+            })}
+        </div>
+    );
+};
+
+const meta = {
+    component: Popover,
+    title: "Components/Popover",
+} satisfies Meta<typeof Popover>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const PlacementBottomRight: Story = {
+export const Default: Story = {
     args: {
         children: (
             <PopoverDialog>
@@ -39,89 +68,21 @@ export const PlacementBottomRight: Story = {
                 </p>
             </PopoverDialog>
         ),
-        placement: "bottom right",
     },
-};
-
-export const WithArrow: Story = {
-    args: {
-        children: (
-            <PopoverDialog>
-                <Heading className="mb-2" level={3} slot="title">
-                    Help
-                </Heading>
-                <p className="text-sm">
-                    For help accessing your account, please contact support.
-                </p>
-            </PopoverDialog>
-        ),
-        showArrow: true,
-    },
-};
-
-export const WithArrowTop: Story = {
-    args: {
-        children: (
-            <PopoverDialog>
-                <Heading className="mb-2" level={3} slot="title">
-                    Help
-                </Heading>
-                <p className="text-sm">
-                    For help accessing your account, please contact support.
-                </p>
-            </PopoverDialog>
-        ),
-        placement: "top",
-        showArrow: true,
-    },
-};
-export const WithArrowRight: Story = {
-    args: {
-        children: (
-            <PopoverDialog>
-                <Heading className="mb-2" level={3} slot="title">
-                    Help
-                </Heading>
-                <p className="text-sm">
-                    For help accessing your account, please contact support.
-                </p>
-            </PopoverDialog>
-        ),
-        placement: "right",
-        showArrow: true,
-    },
-};
-
-export const WithArrowBottom: Story = {
-    args: {
-        children: (
-            <PopoverDialog>
-                <Heading className="mb-2" level={3} slot="title">
-                    Help
-                </Heading>
-                <p className="text-sm">
-                    For help accessing your account, please contact support.
-                </p>
-            </PopoverDialog>
-        ),
-        placement: "bottom",
-        showArrow: true,
-    },
-};
-
-export const WithArrowLeft: Story = {
-    args: {
-        children: (
-            <PopoverDialog>
-                <Heading className="mb-2" level={3} slot="title">
-                    Help
-                </Heading>
-                <p className="text-sm">
-                    For help accessing your account, please contact support.
-                </p>
-            </PopoverDialog>
-        ),
-        placement: "left",
-        showArrow: true,
-    },
+    render: (args) => (
+        <StoryArgsListTemplate<ComponentProps<typeof Popover>, ArgsList>
+            args={args}
+            argsList={ARGS_LIST}
+            renderComponent={({ args, storyArgs }) => (
+                <>
+                    <DialogTrigger>
+                        <Button aria-label="Help" isIcon variant="tertiary">
+                            <IconHelpCircle className="size-4" />
+                        </Button>
+                        <Popover {...args} {...storyArgs} />
+                    </DialogTrigger>
+                </>
+            )}
+        />
+    ),
 };

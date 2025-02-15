@@ -10,7 +10,7 @@ initializeMsw();
 const preview = {
     parameters: {
         docs: {
-            theme
+            theme,
         },
         actions: { argTypesRegex: "^on[A-Z].*" },
         controls: {
@@ -19,23 +19,6 @@ const preview = {
     },
     loaders: [mswLoader],
     decorators: [
-        (Story) => {
-            return (
-                <div>
-                    <Story />
-                    <div
-                        style={{
-                            position: "absolute",
-                            zIndex: -1,
-                            backgroundImage:
-                                "linear-gradient(to right, #ddd 1px, transparent 1px), linear-gradient(to bottom, #ddd 1px, transparent 1px)",
-                            backgroundSize: "16px 16px",
-                            inset: 0,
-                        }}
-                    />
-                </div>
-            );
-        },
         (Story) => {
             return (
                 <QueryClientProvider client={new QueryClient()}>

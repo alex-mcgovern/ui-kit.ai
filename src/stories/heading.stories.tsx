@@ -1,50 +1,42 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { Heading } from "../components/heading";
+import type { ComponentProps } from "react";
+import { StoryArgsListTemplate, type StoryArgsList } from "../types/storybook";
 
-const TEXT = "The swift fox jumped over the lazy dog";
+const TEXT = "The swift brown fox jumped over the lazy dog";
+
+type ArgsList = StoryArgsList<ComponentProps<typeof Heading>>;
 
 const meta = {
     args: {
         children: TEXT,
     },
     component: Heading,
-    title: "Heading",
+    title: "Components/Heading",
 } satisfies Meta<typeof Heading>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const H1: Story = {
-    args: { children: `H1 ${TEXT}`, level: 1 },
-    name: "h1",
-};
-export const H2: Story = {
-    args: { children: `H2 ${TEXT}`, level: 2 },
-    name: "h2",
-};
-export const H3: Story = {
-    args: { children: `H3 ${TEXT}`, level: 3 },
-    name: "h3",
-};
-export const H4: Story = {
-    args: { children: `H4 ${TEXT}`, level: 4 },
-    name: "h4",
-};
-export const H5: Story = {
-    args: { children: `H5 ${TEXT}`, level: 5 },
-    name: "h5",
-};
-export const H6: Story = {
-    args: { children: `H6 ${TEXT}`, level: 6 },
-    name: "h6",
-};
+const ARGS_LIST = {
+    h1: { children: TEXT, level: 1 },
+    h2: { children: TEXT, level: 2 },
+    h3: { children: TEXT, level: 3 },
+    h4: { children: TEXT, level: 4 },
+    h5: { children: TEXT, level: 5 },
+    h6: { children: TEXT, level: 6 },
+} satisfies ArgsList;
 
-export const OverridesCode: Story = {
-    args: {
-        children: `\`code text-sm\` ${TEXT}`,
-        className: "code text-sm",
-        level: 1,
-    },
-    name: "overrides: code",
+export const Default: Story = {
+    args: {},
+    render: (args) => (
+        <StoryArgsListTemplate<ComponentProps<typeof Heading>, ArgsList>
+            args={args}
+            argsList={ARGS_LIST}
+            renderComponent={({ args, storyArgs }) => (
+                <Heading {...args} {...storyArgs} className="mb-0 truncate" />
+            )}
+        />
+    ),
 };

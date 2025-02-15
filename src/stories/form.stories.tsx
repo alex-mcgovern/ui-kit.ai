@@ -5,10 +5,8 @@ import { Form } from "../components/form";
 
 const meta = {
     component: Form,
-    parameters: {
-        layout: "centered",
-    },
-    title: "Form",
+
+    title: "Components/Form",
 } satisfies Meta<typeof Form>;
 
 export default meta;

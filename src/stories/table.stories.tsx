@@ -185,8 +185,7 @@ const meta: Meta<typeof Table<StockWatchlistItem>> = {
             handlers: [getStocksHandler],
         },
     },
-    // tags: ["autodocs"],
-    title: "Table",
+    title: "Components/Table",
 };
 
 export default meta;
@@ -369,7 +368,7 @@ function Template({
 
     return (
         <section className="bg-base px-6 py-4">
-            <div className="mb-2 flex items-center gap-2">
+            <div className="mb-4 flex items-center gap-2">
                 <SearchFieldWatchlist search={search} setSearch={setSearch} />
                 <MenuTrigger>
                     <Button isIcon variant="secondary">
@@ -395,7 +394,9 @@ function Template({
                 renderEmptyState={renderEmptyState}
                 rows={sortedItems}
                 showLoadingOverlayUI={isPlaceholderData}
-                showSkeleton={isLoading}
+                showSkeleton={
+                    isLoading ? [isLoading, { skeletonRowCount: 5 }] : false
+                }
                 sortDescriptor={sortDescriptor}
             />
 

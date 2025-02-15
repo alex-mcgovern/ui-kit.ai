@@ -10,6 +10,7 @@ export function Label(props: LabelProps) {
             className={twMerge(
                 "mb-1 block w-fit cursor-default",
                 "text-sm font-medium text-secondary",
+                "[[data-invalid]>&]:text-red-700",
                 props.className,
             )}
         />

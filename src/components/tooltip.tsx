@@ -25,7 +25,7 @@ const tooltipStyles = tv({
         [
             "inline-flex items-center gap-1",
             "px-2 py-1",
-            "text-xs font-medium",
+            "text-sm font-medium",
             "bg-gray-800 text-gray-50",
             "group rounded drop-shadow-lg",
             // transition

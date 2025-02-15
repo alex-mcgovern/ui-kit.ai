@@ -19,7 +19,7 @@ const meta = {
         actions: "disable",
         layout: "centered",
     },
-    title: "FieldGroup",
+    title: "Components/FieldGroup",
 } satisfies Meta<typeof FieldGroup>;
 
 export default meta;

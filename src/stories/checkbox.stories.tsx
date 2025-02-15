@@ -2,15 +2,13 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Checkbox } from "../components/checkbox";
 
 const meta = {
-    title: "Checkbox",
+    title: "Components/Checkbox",
     component: Checkbox,
-    parameters: {
-        layout: "centered",
-    },
+
     argTypes: {},
     args: {
         isDisabled: false,
-        children: "Checkbox",
+        children: "Forms/Checkbox",
         textPosition: "right",
     },
 } satisfies Meta<typeof Checkbox>;

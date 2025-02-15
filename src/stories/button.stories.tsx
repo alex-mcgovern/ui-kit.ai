@@ -1,216 +1,76 @@
+import type { ComponentProps, ReactNode } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { Star as IconStar } from "lucide-react";
 
 import { Button } from "../components/button";
 
-const buttonMeta = {
+const meta = {
     component: Button,
-    parameters: {
-        layout: "centered",
-    },
-    title: "Button",
+    title: "Components/Button",
 } satisfies Meta<typeof Button>;
 
-export default buttonMeta;
-type Story = StoryObj<typeof buttonMeta>;
+export default meta;
+type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
-    args: {
-        children: "Button",
-    },
+type Variant = Exclude<ComponentProps<typeof Button>["variant"], undefined>;
+
+const VARIANTS = {
+    primary: "Primary",
+    secondary: "Secondary",
+    tertiary: "Tertiary",
+} as const satisfies Record<Variant, string>;
+
+const Template = (args: ComponentProps<typeof Button>) => (
+    <div className="flex items-center gap-2">
+        {Object.entries(VARIANTS).map(([variant, variantName]) => (
+            <Button {...args} variant={variant as Variant} key={variant}>
+                {args.children ?? variantName}
+            </Button>
+        ))}
+    </div>
+);
+
+export const variant: Story = {
+    args: {},
+    render: Template,
 };
-
-export const Primary: Story = {
+export const isDestructive: Story = {
     args: {
-        children: "Primary",
-        variant: "primary",
+        isDestructive: true,
     },
+    render: Template,
 };
-
-export const PrimaryDisabled: Story = {
+export const isDisabled: Story = {
     args: {
-        children: "Primary",
-        variant: "primary",
         isDisabled: true,
     },
+    render: Template,
 };
-
-export const PrimaryIsIcon: Story = {
+export const isDestructiveIsDisabled: Story = {
     args: {
-        "aria-label": "Button",
-        children: <IconStar />,
+        isDestructive: true,
+        isDisabled: true,
+    },
+    render: Template,
+};
+export const isIcon: Story = {
+    args: {
         isIcon: true,
-        variant: "primary",
-    },
-};
-
-export const PrimarySlotLeft: Story = {
-    args: {
-        children: "Primary",
-        slotLeft: <IconStar />,
-        variant: "primary",
-    },
-};
-
-export const PrimarySlotRight: Story = {
-    args: {
-        children: "Primary",
-        slotRight: <IconStar />,
-        variant: "primary",
-    },
-};
-
-export const PrimaryPending: Story = {
-    args: {
-        children: <>I am pending</>,
-        isPending: true,
-        variant: "primary",
-    },
-};
-
-export const PrimaryDestructive: Story = {
-    args: {
-        children: "Primary",
-        isDestructive: true,
-        variant: "primary",
-    },
-};
-export const PrimaryDestructiveDisabled: Story = {
-    args: {
-        children: "Primary",
-        isDestructive: true,
-        variant: "primary",
-        isDisabled: true,
-    },
-};
-
-export const Secondary: Story = {
-    args: {
-        children: "Secondary",
-        variant: "secondary",
-    },
-};
-
-export const SecondaryDisabled: Story = {
-    args: {
-        children: "Secondary",
-        variant: "secondary",
-        isDisabled: true,
-    },
-};
-
-export const SecondaryIsIcon: Story = {
-    args: {
-        "aria-label": "Button",
         children: <IconStar />,
-        isIcon: true,
-        variant: "secondary",
+        "aria-label": "button",
     },
+    render: Template,
 };
-
-export const SecondarySlotLeft: Story = {
+export const slotLeft: Story = {
     args: {
-        children: "Secondary",
         slotLeft: <IconStar />,
-        variant: "secondary",
     },
+    render: Template,
 };
-
-export const SecondarySlotRight: Story = {
+export const slotRight: Story = {
     args: {
-        children: "Secondary",
         slotRight: <IconStar />,
-        variant: "secondary",
     },
-};
-
-export const SecondaryDestructive: Story = {
-    args: {
-        children: "Secondary",
-        isDestructive: true,
-        variant: "secondary",
-    },
-};
-
-export const SecondaryDestructiveDisabled: Story = {
-    args: {
-        children: "Secondary",
-        isDestructive: true,
-        variant: "secondary",
-        isDisabled: true,
-    },
-};
-
-export const SecondaryPending: Story = {
-    args: {
-        children: <>I am pending</>,
-        isPending: true,
-        variant: "secondary",
-    },
-};
-
-export const Tertiary: Story = {
-    args: {
-        children: "Tertiary",
-        variant: "tertiary",
-    },
-};
-
-export const TertiaryDisabled: Story = {
-    args: {
-        children: "Tertiary",
-        variant: "tertiary",
-        isDisabled: true,
-    },
-};
-
-export const TertiaryIsIcon: Story = {
-    args: {
-        "aria-label": "Button",
-        children: <IconStar />,
-        isIcon: true,
-        variant: "tertiary",
-    },
-};
-
-export const TertiarySlotLeft: Story = {
-    args: {
-        children: "Tertiary",
-        slotLeft: <IconStar />,
-        variant: "tertiary",
-    },
-};
-
-export const TertiarySlotRight: Story = {
-    args: {
-        children: "Tertiary",
-        slotRight: <IconStar />,
-        variant: "tertiary",
-    },
-};
-
-export const TertiaryDestructive: Story = {
-    args: {
-        children: "Tertiary",
-        isDestructive: true,
-        variant: "tertiary",
-    },
-};
-
-export const TertiaryDestructiveDisabled: Story = {
-    args: {
-        children: "Tertiary",
-        isDestructive: true,
-        variant: "tertiary",
-        isDisabled: true,
-    },
-};
-
-export const TertiaryPending: Story = {
-    args: {
-        children: <>I am pending</>,
-        isPending: true,
-        variant: "tertiary",
-    },
+    render: Template,
 };

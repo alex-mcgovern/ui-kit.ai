@@ -1,0 +1,75 @@
+import { Story, ArgTypes, Canvas, Unstyled, Meta } from "@storybook/blocks";
+import { Button } from "../components/button";
+import { StarIcon } from "lucide-react"
+import * as examples from "./listbox.stories"
+
+<Meta title="Types/Options" />
+
+# Button
+
+`OptionsSchema` is a generic type describing either a single list item, or a section containing multiple items.
+
+[source code](https://github.com/alex-mcgovern/boondoggle/tree/main/src/types/options.ts)
+
+## Usage
+
+### Without sections
+
+A "flat" list, containing only items might be composed like this:
+
+<div class="grid grid-cols-2 gap-4">
+        ```tsx
+        import type { OptionsSchema } from "boondoggle";
+    
+        const ITEMS: OptionsSchema<"listbox"> = [
+           {
+               "id": "france",
+               "textValue": "France",
+               "icon": <GlobeIcon />
+           },
+           {
+               "id": "uae",
+               "textValue": "United Arab Emirates",
+               "icon": <GlobeIcon />
+           },
+           // ... more items
+        ];
+        ```
+    <Canvas of={examples.flatList} sourceState="none" />
+</div>
+
+### With sections
+
+A more complex list, broken up into sections, might be composed like this:
+
+<div class="grid grid-cols-2 gap-4">
+        ```tsx
+        const ITEMS: OptionsSchema<"listbox"> = [
+            {
+                "id": "europe",
+                "items": [
+                    {
+                        "id": "france",
+                        "textValue": "France",
+                        "icon": <GlobeIcon />
+                    },
+                    // ... more items
+                ],
+                "textValue": "Europe"
+            },
+            {
+                "id": "mena",
+                "items": [
+                    {
+                        "id": "uae",
+                        "textValue": "United Arab Emirates",
+                        "icon": <GlobeIcon />
+                    },
+                // ... more items
+                ],
+                "textValue": "MENA"
+            }
+        ];
+        ```
+    <Canvas of={examples.withSections} sourceState="none" />
+</div>
