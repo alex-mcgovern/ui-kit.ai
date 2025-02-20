@@ -17,7 +17,6 @@ const meta = {
     component: FieldGroup,
     parameters: {
         actions: "disable",
-        layout: "centered",
     },
     title: "Components/FieldGroup",
 } satisfies Meta<typeof FieldGroup>;

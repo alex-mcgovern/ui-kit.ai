@@ -23,6 +23,7 @@ const config = {
         "@storybook/addon-onboarding",
         "@storybook/addon-interactions",
         "@storybook/addon-themes",
+        "storycap",
     ],
     babelDefault: {},
 

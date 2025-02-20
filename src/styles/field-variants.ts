@@ -5,9 +5,10 @@ export const fieldVariants = tv({
         "h-8",
         "text-base text-primary",
         "rounded",
-        "outline outline-0 outline-offset-2 outline-brand-500",
+        "outline outline-0 outline-offset-2 outline-brand-400",
         "disabled:text-disabled",
         "placeholder:text-placeholder",
+        "placeholder:invalid:text-red-400",
         "forced-colors:outline-[Highlight]",
     ],
     defaultVariants: {
@@ -23,15 +24,19 @@ export const fieldVariants = tv({
                     // hover
                     "hover:[&:not(:is([data-disabled],[data-focus-visible]))]:border-gray-400",
                     "hover:[&:not(:is([data-disabled],[data-focus-visible]))]:forced-colors:border-[Highlight]",
-                    "hover:[&:not([data-disabled])]:bg-gray-50",
+                    "hover:[&:not([data-disabled])]:bg-base",
                     // pressed
                     "pressed:border-gray-400",
                     "pressed:forced-colors:border-[Highlight]",
                     // invalid
-                    "invalid:!border-red-400 invalid:!text-error invalid:!outline-red-500",
-                    "invalid:!bg-red-50",
-                    "invalid:forced-colors:!border-[Mark]",
-                    "invalid:forced-colors:bg-[MarkBackground]",
+                    "invalid:bg-red-50 group-invalid:bg-red-50",
+                    "invalid:border-red-300 group-invalid:border-red-300",
+                    "invalid:hover:border-red-400 group-invalid:hover:border-red-400",
+                    "invalid:outline-red-400 group-invalid:outline-red-400",
+                    // "[:is([data-invalid],[data-invalid]_&)]:border-red-400",
+                    // "[:is([data-invalid],[data-invalid]_&)]:text-invalid",
+                    // "[:is([data-invalid],[data-invalid]_&)]:forced-colors:!border-[Mark]",
+                    // "[:is([data-invalid],[data-invalid]_&)]:forced-colors:bg-[MarkBackground]",
                     // focus visible
                     "focus-visible:border-brand-500 focus-visible:outline-2",
                     "focus-visible:forced-colors:border-[ButtonBorder]",

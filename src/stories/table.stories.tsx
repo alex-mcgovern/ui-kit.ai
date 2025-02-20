@@ -179,8 +179,6 @@ const meta: Meta<typeof Table<StockWatchlistItem>> = {
     },
     component: Table,
     parameters: {
-        layout: "fullscreen",
-
         msw: {
             handlers: [getStocksHandler],
         },

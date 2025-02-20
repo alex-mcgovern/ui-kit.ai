@@ -1,0 +1,128 @@
+import { Story, ArgTypes, Canvas, Unstyled, Meta } from "@storybook/blocks";
+import { Checkbox, CheckboxGroup } from "../components/checkbox";
+import { Label } from "../components/label";
+import { Description } from "../components/description";
+import { StarIcon } from "lucide-react";
+import * as checkboxExamples from "../stories/checkbox.stories";
+import * as checkboxGroupExamples from "../stories/checkbox-group.stories";
+
+<Meta title="Components/Checkbox" />
+
+# Checkbox
+
+[source code](https://github.com/alex-mcgovern/boondoggle/tree/main/src/components/checkbox)
+&nbsp;|&nbsp;
+[react aria](https://react-spectrum.adobe.com/react-aria/Checkbox.html)
+
+A `<Checkbox />` allows a user to perform an action, with mouse, touch, and keyboard
+interactions.
+
+<hr />
+
+<br />
+<Unstyled>
+    <CheckboxGroup defaultValue={["account-updates"]}>
+        <Label>Communication preferences</Label>
+        <Checkbox
+            value="account-updates"
+            isDisabled
+            isRequired
+            label="Account updates"
+            description="Necessary emails about your account & account security."
+        />
+        <Checkbox
+            value="newsletter"
+            label="Newsletter"
+            description="No more than one email per month with updates from our team."
+        />
+        <Checkbox
+            value="promotions"
+            label="Promotions and Offers"
+            description="Deals, discounts and suggestions we think you'll love."
+        />
+        <Description>
+            Your preferences can be updated at any time in your account
+            settings.
+        </Description>
+    </CheckboxGroup>
+</Unstyled>
+<br />
+
+## CheckboxGroup
+
+A `<CheckboxGroup />` allows a user to select multiple items from a list of
+options.
+
+It can be composed with a `<Label />` and `<Description />` to correctly label
+the input to assistive technologies, and provide extra context.
+
+
+<Unstyled>
+<div className="grid grid-cols-1 gap-2 md:grid-cols-[2fr_1fr] items-center">
+    ```tsx
+    import { Checkbox, CheckboxGroup,Description, Label } from "boondoggle";
+
+    <CheckboxGroup>
+        <Label>This is the label</Label>
+        <Checkbox value="option_1" label="Option 1" />
+        <Checkbox value="option_2" label="Option 2" />
+        <Checkbox value="option_3" label="Option 3" />
+        <Description>This is the description</Description>
+    </CheckboxGroup>
+    ```
+    <Canvas of={checkboxGroupExamples.example} sourceState="none" />
+</div>
+</Unstyled>
+
+When used in this way, the `<CheckboxGroup />` will manage the state of the
+selected items, and provide a way to access the selected values. Each `<Checkbox
+/>` should have a `value` prop that is unique to the group, this is what will be
+provided via the `onChange` callback.
+
+<ArgTypes of={CheckboxGroup} include={["onChange"]} />
+
+### CheckboxGroup `isInvalid`
+
+When `isInvalid` is set to `true`, the group will be styled to indicate that the
+user has not selected a valid option.
+
+<Canvas of={checkboxGroupExamples.isInvalid} />
+
+### CheckboxGroup `isDisabled`
+
+When `isDisabled` is set to `true`, 
+
+<Canvas of={checkboxGroupExamples.isDisabled} />
+
+### Component API
+
+<ArgTypes of={CheckboxGroup} />
+
+
+## Checkbox
+
+### Checkbox `textPosition`
+
+Text can be positioned to the left or right of the checkbox.
+
+<div className="grid grid-cols-1 gap-2 md:grid-cols-2">
+    <Canvas
+        className="!my-2"
+        of={checkboxExamples.textPositionRight}
+    />
+    <Canvas
+        className="!my-2"
+        of={checkboxExamples.textPositionLeft}
+    />
+</div>
+
+### Checkbox `isInvalid`
+
+Boondoggle has three variants of checkboxs, `primary`, `secondary`, and `tertiary`. If
+no `variant` is specified, a `primary` checkbox will be rendered.
+
+<Canvas of={checkboxExamples.isInvalid} />
+
+### Component API
+
+<ArgTypes of={Checkbox} />

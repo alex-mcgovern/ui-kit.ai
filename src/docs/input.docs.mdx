@@ -1,0 +1,47 @@
+import { Story, ArgTypes, Canvas, Unstyled, Meta } from "@storybook/blocks";
+import { Input } from "../components/input";
+import { Label } from "../components/label";
+import { FieldGroup } from "../components/field-group";
+import * as stories from "../stories/input.stories";
+
+<Meta title="Components/Input" />
+
+# Input
+
+[source code](https://github.com/alex-mcgovern/boondoggle/tree/main/src/components/input)
+&nbsp;|&nbsp;
+[react aria](https://react-spectrum.adobe.com/react-aria/Input.html)
+
+An `<Input />` allows a user to input text, with mouse, touch, and keyboard interactions.
+
+<Canvas of={stories.example} />
+
+## Usage
+
+### Input with Icon
+
+An Input can include an icon inside the input field.
+
+<Canvas of={stories.withIcon} />
+
+### Input `isDisabled`
+
+When `isDisabled` is set to `true`, the Input will be disabled and cannot be interacted with.
+
+<Canvas of={stories.isDisabled} />
+
+### Input `isInvalid`
+
+When `isInvalid` is set to `true`, the Input will be styled to indicate that the input is invalid.
+
+<Canvas of={stories.isInvalid} />
+
+### Input `isBorderless`
+
+When `isBorderless` is set to `true`, the Input will be rendered without a border.
+
+<Canvas of={stories.isBorderless} />
+
+## Component API
+
+<ArgTypes of={Input} />

@@ -32,7 +32,7 @@ export const Input = forwardRef<
                         "absolute inset-x-0 top-0",
                         "flex items-center justify-center",
                         "pointer-events-none",
-                        "[&_svg]:size-4 [&_svg]:shrink-0",
+                        "[&_svg]:size-3 [&_svg]:shrink-0",
                     )}
                 >
                     {icon}

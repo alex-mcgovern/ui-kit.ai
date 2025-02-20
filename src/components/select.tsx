@@ -25,7 +25,7 @@ const selectButtonStyles = tv({
         "py-2 pl-3 pr-2",
         "text-sm",
         "w-full cursor-pointer text-start",
-        `group-data-[invalid]:!border-red-400 group-data-[invalid]:!text-error
+        `group-data-[invalid]:!text-invalid group-data-[invalid]:!border-red-400
         group-data-[invalid]:forced-colors:text-[Mark]`,
     ],
     extend: fieldVariants,
@@ -179,7 +179,7 @@ export function SelectButton({
                     "inline-flex flex-1 items-center gap-2",
                     "truncate",
                     "placeholder-shown:text-placeholder",
-                    "group-data-[invalid]:placeholder-shown:text-error",
+                    "group-data-[invalid]:placeholder-shown:text-invalid",
                 ])}
             />
             <ChevronsUpDown aria-hidden className={"size-3"} />

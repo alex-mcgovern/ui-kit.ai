@@ -1,9 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Button } from "../components/button";
-import { FieldError } from "../components/field-error";
 import { FieldGroup } from "../components/field-group";
-import { Form } from "../components/form";
 import { Input } from "../components/input";
 import { Label } from "../components/label";
 import {
@@ -12,75 +9,59 @@ import {
     TextFieldCopyButton,
     TextFieldVisibilityButton,
 } from "../components/text-field";
+import { Description } from "../components/description";
+import type { ComponentProps } from "react";
 
 const meta = {
     component: TextField,
-
     title: "Components/TextField",
+    decorators: [
+        (Story) => (
+            <div className="w-96">
+                <Story />
+            </div>
+        ),
+    ],
 } satisfies Meta<typeof TextField>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Example: Story = {
-    args: {
-        children: (
-            <>
-                <Label>TextField</Label>
-                <Input />
-            </>
-        ),
-    },
-};
+const Template = (props: ComponentProps<typeof TextField>) => (
+    <TextField {...props}>
+        <Label>Label</Label>
+        <FieldGroup>
+            <Input isBorderless placeholder="This is a placeholder" />
+            <TextFieldClearButton />
+            <TextFieldVisibilityButton />
+            <TextFieldCopyButton />
+        </FieldGroup>
+        <Description>This is a short description</Description>
+    </TextField>
+);
 
-export const IsDisabled: Story = {
+export const examples: Story = {
+    render: Template,
+};
+export const isDisabled: Story = {
     args: {
-        children: (
-            <>
-                <Label>TextField (disabled)</Label>
-                <Input />
-            </>
-        ),
         isDisabled: true,
     },
+    render: Template,
 };
-
-export const IsInvalid: Story = {
+export const isInvalid: Story = {
     args: {
-        children: (
-            <>
-                <Label>TextField (invalid)</Label>
-                <Input />
-            </>
-        ),
         isInvalid: true,
     },
+    render: Template,
 };
-
-export const IsReadOnly: Story = {
+export const isReadOnly: Story = {
     args: {
-        children: (
-            <>
-                <Label>TextField (read-only)</Label>
-                <Input />
-            </>
-        ),
         isReadOnly: true,
     },
+    render: Template,
 };
-
-export const Borderless: Story = {
-    args: {
-        children: (
-            <>
-                <Label>TextField (borderless)</Label>
-                <Input isBorderless />
-            </>
-        ),
-    },
-};
-
-export const Copy: Story = {
+export const copy: Story = {
     args: {
         children: (
             <>
@@ -94,8 +75,7 @@ export const Copy: Story = {
         defaultValue: "Click the button to copy me",
     },
 };
-
-export const Clear: Story = {
+export const clear: Story = {
     args: {
         children: (
             <>
@@ -109,8 +89,7 @@ export const Clear: Story = {
         defaultValue: "Click the button to clear me",
     },
 };
-
-export const Visibility: Story = {
+export const visibility: Story = {
     args: {
         children: (
             <>
@@ -124,42 +103,4 @@ export const Visibility: Story = {
         defaultValue: "my-s3cur3-p@ssw0rd",
         type: "password",
     },
-};
-
-export const KitchenSink: Story = {
-    args: {
-        children: (
-            <>
-                <Label>TextField with kitchen sink</Label>
-                <FieldGroup>
-                    <Input isBorderless />
-                    <TextFieldClearButton />
-                    <TextFieldVisibilityButton />
-                    <TextFieldCopyButton />
-                </FieldGroup>
-            </>
-        ),
-        defaultValue: "Do whatever with me",
-    },
-};
-
-export const Validation: Story = {
-    args: {
-        children: (
-            <>
-                <Label>Full name</Label>
-                <Input />
-                <FieldError />
-            </>
-        ),
-        isRequired: true,
-    },
-    render: (args) => (
-        <Form className="flex flex-col items-start gap-2">
-            <TextField {...args} />
-            <Button type="submit" variant="secondary">
-                Submit
-            </Button>
-        </Form>
-    ),
 };

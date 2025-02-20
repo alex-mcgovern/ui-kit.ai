@@ -68,10 +68,6 @@ const meta: Meta<typeof Dialog> = {
             );
         },
     ],
-    parameters: {
-        layout: "centered",
-        viewport: { defaultViewport: "desktop" },
-    },
     render: (props) => (
         <DialogTrigger>
             <Button>Open dialog</Button>

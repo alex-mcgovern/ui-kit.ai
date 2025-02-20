@@ -35,7 +35,7 @@ const buttonStyle = tv({
         "[&_svg]:size-3 [&_svg]:shrink-0",
         // disabled
         "disabled:cursor-not-allowed",
-        "disabled:opacity-25",
+        "disabled:opacity-50",
     ],
     compoundVariants: [
         {
@@ -49,14 +49,14 @@ const buttonStyle = tv({
         },
         {
             className: [
-                "border-red-700 text-error",
+                "text-invalid border-red-700",
                 "hover:border-red-600 hover:bg-red-50 pressed:bg-red-100",
             ],
             isDestructive: true,
             variant: "secondary",
         },
         {
-            className: ["text-error", "hover:bg-red-50 pressed:bg-red-100"],
+            className: ["text-invalid", "hover:bg-red-50 pressed:bg-red-100"],
             isDestructive: true,
             variant: "tertiary",
         },

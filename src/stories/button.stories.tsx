@@ -1,9 +1,11 @@
 import type { ComponentProps, ReactNode } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
+import { withScreenshot } from "storycap";
 
-import { Star as IconStar } from "lucide-react";
+import { Star as IconStar, StarIcon } from "lucide-react";
 
 import { Button } from "../components/button";
+import type { DecoratorFunction } from "storybook/internal/types";
 
 const meta = {
     component: Button,
@@ -31,6 +33,21 @@ const Template = (args: ComponentProps<typeof Button>) => (
     </div>
 );
 
+export const example: Story = {
+    args: {},
+    render: () => (
+        <div className="flex flex-col justify-center gap-2">
+            <Template />
+            <Template isDisabled />
+            <Template isDestructive />
+            <Template slotLeft={<StarIcon />} />
+            <Template slotRight={<StarIcon />} />
+            <Template isIcon>
+                <StarIcon />
+            </Template>
+        </div>
+    ),
+};
 export const variant: Story = {
     args: {},
     render: Template,

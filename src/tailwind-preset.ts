@@ -49,9 +49,9 @@ export default {
             minHeight: { ...height, ["ui-element"]: spacing[9] },
             textColor: {
                 disabled: colors.gray[300],
-                error: colors.red[600],
+                invalid: colors.red[600],
                 inverted: colors.black,
-                placeholder: colors.gray[600],
+                placeholder: colors.gray[400],
                 ["primary"]: colors.gray[700],
                 ["secondary"]: colors.gray[500],
             },

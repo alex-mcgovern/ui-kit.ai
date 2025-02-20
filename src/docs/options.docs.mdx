@@ -42,33 +42,33 @@ A "flat" list, containing only items might be composed like this:
 A more complex list, broken up into sections, might be composed like this:
 
 <div class="grid grid-cols-2 gap-4">
-        ```tsx
-        const ITEMS: OptionsSchema<"listbox"> = [
-            {
-                "id": "europe",
-                "items": [
-                    {
-                        "id": "france",
-                        "textValue": "France",
-                        "icon": <GlobeIcon />
-                    },
-                    // ... more items
-                ],
-                "textValue": "Europe"
-            },
-            {
-                "id": "mena",
-                "items": [
-                    {
-                        "id": "uae",
-                        "textValue": "United Arab Emirates",
-                        "icon": <GlobeIcon />
-                    },
+    ```tsx
+    const ITEMS: OptionsSchema<"listbox"> = [
+        {
+            "id": "europe",
+            "items": [
+                {
+                    "id": "france",
+                    "textValue": "France",
+                    "icon": <GlobeIcon />
+                },
                 // ... more items
-                ],
-                "textValue": "MENA"
-            }
-        ];
-        ```
+            ],
+            "textValue": "Europe"
+        },
+        {
+            "id": "mena",
+            "items": [
+                {
+                    "id": "uae",
+                    "textValue": "United Arab Emirates",
+                    "icon": <GlobeIcon />
+                },
+            // ... more items
+            ],
+            "textValue": "MENA"
+        }
+    ];
+    ```
     <Canvas of={examples.withSections} sourceState="none" />
 </div>

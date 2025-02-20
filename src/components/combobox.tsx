@@ -6,7 +6,7 @@ import type {
 } from "react";
 import type { ComboBoxProps as AriaComboBoxProps } from "react-aria-components";
 
-import { ChevronDown as IconChevronDown, X as IconX } from "lucide-react";
+import { ChevronsUpDown as IconChevronsUpDown, X as IconX } from "lucide-react";
 import React, {
     createContext,
     useContext,
@@ -30,21 +30,13 @@ import { Input } from "./input";
 import { OptionRenderer } from "./options";
 import { Popover } from "./popover";
 
-///////////////////////////////////////////////////
-// ComboBox button
-///////////////////////////////////////////////////
-
 export function ComboBoxButton() {
     return (
         <FieldButton>
-            <IconChevronDown aria-hidden />
+            <IconChevronsUpDown aria-hidden />
         </FieldButton>
     );
 }
-
-///////////////////////////////////////////////////
-// ComboBox clear button
-///////////////////////////////////////////////////
 
 export function ComboBoxClearButton() {
     const state = useContext(ComboBoxStateContext);
@@ -68,19 +60,11 @@ export function ComboBoxClearButton() {
     );
 }
 
-///////////////////////////////////////////////////
-// Combobox group
-///////////////////////////////////////////////////
-
 export function ComboBoxFieldGroup(props: ComponentProps<typeof FieldGroup>) {
     const ref = useContext(ComboBoxRefContext);
     if (!ref) throw Error("ComboBoxFieldGroup must be used within a ComboBox");
     return <FieldGroup {...props} ref={ref} />;
 }
-
-///////////////////////////////////////////////////
-// Combobox input
-///////////////////////////////////////////////////
 
 export const ComboBoxInput = forwardRef<
     HTMLInputElement,
@@ -107,10 +91,6 @@ export const ComboBoxInput = forwardRef<
     );
 });
 
-///////////////////////////////////////////////////
-// ComboBox
-///////////////////////////////////////////////////
-
 const ComboBoxRefContext = createContext<null | RefObject<HTMLDivElement>>(
     null,
 );
@@ -135,7 +115,7 @@ function BaseComboBox<
                 {...props}
                 className={(renderProps) =>
                     twMerge(
-                        "relative w-full grow",
+                        "group relative w-full grow",
                         typeof props.className === "function"
                             ? props.className(renderProps)
                             : props.className,

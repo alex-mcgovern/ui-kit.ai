@@ -26,7 +26,9 @@ export function FieldButton({
             className={(rp) =>
                 twMerge(
                     "!size-6",
-                    "align-middle text-secondary",
+                    "align-middle",
+                    "group-invalid:text-invalid text-secondary",
+                    "group-invalid:hover:bg-red-50 group-invalid:pressed:bg-red-50",
                     "last-of-type:mr-1 [&:not(:last-of-type)]:mr-px",
                     "[&_svg]:size-3 [&_svg]:shrink-0",
                     typeof props.className === "function"

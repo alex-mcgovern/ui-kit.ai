@@ -4,16 +4,26 @@ import { Checkbox } from "../components/checkbox";
 const meta = {
     title: "Components/Checkbox",
     component: Checkbox,
-
-    argTypes: {},
     args: {
-        isDisabled: false,
-        children: "Forms/Checkbox",
-        textPosition: "right",
+        label: "This is the checkbox",
     },
 } satisfies Meta<typeof Checkbox>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Example: Story = {};
+export const textPositionRight: Story = {
+    args: {
+        textPosition: "right",
+    },
+};
+export const textPositionLeft: Story = {
+    args: {
+        textPosition: "left",
+    },
+};
+export const isInvalid: Story = {
+    args: {
+        isInvalid: true,
+    },
+};

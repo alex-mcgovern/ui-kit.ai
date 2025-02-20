@@ -109,7 +109,10 @@ export const TextField = forwardRef<HTMLInputElement, AriaTextFieldProps>(
             return {
                 slots: {
                     clear: {
-                        isDisabled: value == null,
+                        isDisabled:
+                            value == null ||
+                            props.isDisabled ||
+                            props.isReadOnly,
                         onPress: clearValue,
                     },
                     copy: {
@@ -130,7 +133,7 @@ export const TextField = forwardRef<HTMLInputElement, AriaTextFieldProps>(
                     {...props}
                     className={(rp) =>
                         twMerge(
-                            "relative w-full grow",
+                            "group relative w-full grow",
                             typeof props.className === "function"
                                 ? props.className(rp)
                                 : props.className,

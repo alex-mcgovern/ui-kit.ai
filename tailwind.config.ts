@@ -4,5 +4,5 @@ import preset from "./src/tailwind-preset";
 
 export default {
     presets: [preset],
-    content: ["./src/**/*"],
+    content: ["./src/**/*", "./.storybook/**/*"],
 } satisfies Config;

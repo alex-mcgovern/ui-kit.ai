@@ -7,7 +7,7 @@
         "prettier-plugin-merge"
     ],
     "semi": true,
-    "printWidth": 80,
+    "printWidth": 60,
     "singleQuote": false,
     "tabWidth": 4,
     "tailwindConfig": "./tailwind.config.ts",

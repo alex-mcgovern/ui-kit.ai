@@ -11,7 +11,7 @@ export const FieldError = forwardRef<HTMLDivElement, RACFieldErrorProps>(
                 {...props}
                 className={(renderProps) =>
                     twMerge(
-                        "block text-sm font-medium text-error",
+                        "text-invalid block text-sm font-medium",
                         "mt-1",
                         typeof props.className === "function"
                             ? props.className(renderProps)

@@ -39,7 +39,7 @@ const optionStyle = tv({
         `focus:bg-gray-400 focus:text-white focus:open:bg-gray-400
         focus:forced-colors:bg-[Highlight] focus:forced-colors:text-[HighlightText]`,
         // destructive
-        "data-[destructive]:text-error",
+        "data-[destructive]:text-invalid",
         "data-[destructive]:focus:bg-red-400",
     ],
 });
@@ -143,7 +143,7 @@ function OptionsSection<TType extends OptionType>({
 function OptionsSectionHeader(props: HeadingProps) {
     return (
         <Header
-            className="px-2.5 py-1 text-[10px] font-medium uppercase text-secondary"
+            className="px-2.5 py-1 text-xs font-medium uppercase text-secondary"
             {...props}
         />
     );
