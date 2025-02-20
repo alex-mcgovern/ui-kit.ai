@@ -3,6 +3,7 @@
     "version": "5.0.0",
     "description": "",
     "main": "index.js",
+    "type": "module",
     "scripts": {
         "check": "concurrently -n PRETTIER,ESLINT,TSC,JEST -c \"bgYellow.bold,bgRed.bold,bgBlue.bold,bgGreen.bold\" \"npm:check-prettier\" \"npm:check-eslint\" \"npm:check-tsc\" \"npm:check-jest\"",
         "check-eslint": "eslint .",
