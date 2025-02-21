@@ -41,19 +41,20 @@ export function ComboBoxButton() {
 export function ComboBoxClearButton() {
     const state = useContext(ComboBoxStateContext);
 
-    if (state?.inputValue == null) {
-        return null;
-    }
+    const isEmpty = state?.inputValue == null || state.inputValue === "";
 
     return (
         <FieldButton
             aria-label="Clear"
             onPress={() => {
-                state.setInputValue("");
-                state.setSelectedKey(null);
+                state?.setInputValue("");
+                state?.setSelectedKey(null);
             }}
-            // Don't inherit default Button behavior from ComboBox.
-            slot={null}
+            className={twMerge(
+                "transition-opacity",
+                isEmpty ? "opacity-0" : "opacity-100",
+            )}
+            slot={null} // Don't inherit default Button behavior from ComboBox.
         >
             <IconX aria-hidden className="size-4" />
         </FieldButton>
