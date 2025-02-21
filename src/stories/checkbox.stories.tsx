@@ -12,6 +12,11 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
+export const example: Story = {
+    args: {
+        textPosition: "right",
+    },
+};
 export const textPositionRight: Story = {
     args: {
         textPosition: "right",
