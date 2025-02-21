@@ -43,8 +43,14 @@ const tagStyles = tv({
             false: "border-solid",
         },
         variant: {
-            default: `border-gray-400 bg-base text-secondary [&:is(a,button)]:hover:border-gray-500
-            [&:is(a,button)]:hover:bg-gray-100 [&:is(a,button)]:pressed:bg-gray-200`,
+            default: [
+                "border-gray-400 bg-base text-secondary",
+                "[&:is(a,button)]:hover:border-gray-500 [&:is(a,button)]:hover:bg-gray-100",
+                "[&:is(a,button)]:pressed:bg-gray-200",
+                "group-invalid:text-invalid group-invalid:border-red-900 group-invalid:bg-red-50",
+                "group-invalid:[&:is(a,button)]:hover:bg-red-100",
+                "group-invalid:[&:is(a,button)]:pressed:bg-red-200",
+            ],
             warning: `border-red-900 bg-red-50 text-red-900 [&:is(a,button)]:hover:bg-red-100
             [&:is(a,button)]:pressed:bg-red-200`,
             caution: `border-yellow-800 bg-yellow-50 text-yellow-900
