@@ -15,6 +15,7 @@ import { Label } from "../components/label";
 import { getMockOptions } from "../mocks/options";
 import { TextField } from "../components/text-field";
 import { Description } from "../components/description";
+import { SearchIcon } from "lucide-react";
 
 const meta = {
     component: ComboBox,
@@ -31,7 +32,11 @@ const Template = (
     <ComboBox {...props}>
         <Label>Label</Label>
         <ComboBoxFieldGroup>
-            <ComboBoxInput isBorderless />
+            <ComboBoxInput
+                isBorderless
+                icon={<SearchIcon />}
+                placeholder="Type to search..."
+            />
             <ComboBoxClearButton />
             <ComboBoxButton />
         </ComboBoxFieldGroup>
