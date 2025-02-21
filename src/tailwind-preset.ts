@@ -9,6 +9,7 @@ import {
     height,
     spacing,
     transitionDuration,
+    opacity,
 } from "tailwindcss/defaultTheme";
 
 export default {
@@ -36,6 +37,10 @@ export default {
                 gray: colors.neutral,
                 inherit: "inherit",
                 transparent: "transparent",
+            },
+            opacity: {
+                ...opacity,
+                disabled: opacity[50],
             },
             fontSize: {
                 ...fontSize,

@@ -35,7 +35,7 @@ const buttonStyle = tv({
         "[&_svg]:size-3 [&_svg]:shrink-0",
         // disabled
         "disabled:cursor-not-allowed",
-        "disabled:opacity-50",
+        "disabled:opacity-disabled",
     ],
     compoundVariants: [
         {
