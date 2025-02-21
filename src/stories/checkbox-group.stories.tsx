@@ -5,7 +5,7 @@ import { Label } from "../components/label";
 import { Description } from "../components/description";
 
 const Template = (args: ComponentProps<typeof CheckboxGroup>) => (
-    <CheckboxGroup defaultValue={["account-updates"]}>
+    <CheckboxGroup defaultValue={["account-updates"]} {...args}>
         <Label>Communication preferences</Label>
         <Checkbox
             value="account-updates"

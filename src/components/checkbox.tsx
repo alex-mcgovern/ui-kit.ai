@@ -40,7 +40,7 @@ const checkboxContainerStyles = tv({
         "has-[[slot='description']]:items-start",
         // "[:has([slot=description])]:items-start",
         "-mx-1 px-1",
-        "group/checkbox",
+        "group",
         "[[role=group]_&]:mb-1",
         "[[role=group]_&]:last-of-type:mb-2",
         "hover:cursor-pointer disabled:cursor-not-allowed",
@@ -64,37 +64,37 @@ const boxStyles = tv({
         "flex flex-shrink-0 items-center justify-center",
         "rounded-sm",
         // disabled
-        "group-disabled/checkbox:opacity-50",
+        "group-disabled:opacity-disabled",
         // hover
-        "group-hover/checkbox:bg-gray-100",
-        "group-hover/checkbox:border-gray-400",
+        "group-hover:bg-gray-100",
+        "group-hover:border-gray-400",
 
         // selected
-        "group-selected/checkbox:bg-gray-700",
-        "group-selected/checkbox:group-hover/checkbox:bg-gray-600",
-        "group-selected/checkbox:border-gray-700",
-        "group-selected/checkbox:group-hover/checkbox:border-gray-600",
+        "group-selected:bg-gray-700",
+        "group-selected:group-hover:bg-gray-600",
+        "group-selected:border-gray-700",
+        "group-selected:group-hover:border-gray-600",
         // indeterminate
-        "group-indeterminate/checkbox:bg-gray-700",
-        "group-indeterminate/checkbox:group-hover/checkbox:bg-gray-600",
-        "group-indeterminate/checkbox:border-gray-700",
-        "group-indeterminate/checkbox:group-hover/checkbox:border-gray-600",
+        "group-indeterminate:bg-gray-700",
+        "group-indeterminate:group-hover:bg-gray-600",
+        "group-indeterminate:border-gray-700",
+        "group-indeterminate:group-hover:border-gray-600",
         // invalid
-        "group-invalid/checkbox:border-red-600",
-        "group-hover/checkbox:group-invalid/checkbox:bg-red-100",
-        "group-hover/checkbox:group-invalid/checkbox:border-red-700",
+        "group-invalid:border-red-600",
+        "group-hover:group-invalid:bg-red-100",
+        "group-hover:group-invalid:border-red-700",
         // invalid selected
-        "group-selected/checkbox:group-invalid/checkbox:bg-red-700",
-        "group-selected/checkbox:group-invalid/checkbox:group-hover/checkbox:bg-red-600",
-        "group-selected/checkbox:group-invalid/checkbox:border-red-700",
-        "group-selected/checkbox:group-invalid/checkbox:group-hover/checkbox:border-red-600",
+        "group-selected:group-invalid:bg-red-700",
+        "group-selected:group-invalid:group-hover:bg-red-600",
+        "group-selected:group-invalid:border-red-700",
+        "group-selected:group-invalid:group-hover:border-red-600",
         // invalid indeterminate
-        "group-indeterminate/checkbox:group-invalid/checkbox:bg-red-700",
-        "group-indeterminate/checkbox:group-invalid/checkbox:group-hover/checkbox:bg-red-600",
-        "group-indeterminate/checkbox:group-invalid/checkbox:border-red-700",
-        "group-indeterminate/checkbox:group-invalid/checkbox:group-hover/checkbox:border-red-600",
+        "group-indeterminate:group-invalid:bg-red-700",
+        "group-indeterminate:group-invalid:group-hover:bg-red-600",
+        "group-indeterminate:group-invalid:border-red-700",
+        "group-indeterminate:group-invalid:group-hover:border-red-600",
         // w. description
-        "group-has-[[slot='description']]/checkbox:mt-1",
+        "group-has-[[slot='description']]:mt-1",
     ],
 });
 
@@ -104,15 +104,15 @@ const iconStyles = tv({
         "transition-colors",
         "stroke-transparent",
         // hover
-        "group-hover/checkbox:stroke-gray-400",
+        "group-hover:stroke-gray-400",
         "group-hover/row:stroke-gray-400",
-        "group-selected/checkbox:stroke-gray-50",
-        "group-indeterminate/checkbox:stroke-gray-50",
+        "group-selected:stroke-gray-50",
+        "group-indeterminate:stroke-gray-50",
         // invalid
-        "group-hover/checkbox:group-invalid/checkbox:stroke-red-400",
-        "group-hover/row:group-invalid/checkbox:stroke-red-400",
-        "group-selected/checkbox:group-invalid/checkbox:stroke-red-50",
-        "group-indeterminate/checkbox:group-invalid/checkbox:stroke-red-50",
+        "group-hover:group-invalid:stroke-red-400",
+        "group-hover/row:group-invalid:stroke-red-400",
+        "group-selected:group-invalid:stroke-red-50",
+        "group-indeterminate:group-invalid:stroke-red-50",
     ],
 });
 
@@ -122,7 +122,7 @@ export function CheckboxGroup(props: AriaCheckboxGroupProps) {
             {...props}
             className={(renderProps) =>
                 twMerge(
-                    "group/checkbox-group",
+                    "group",
                     typeof props.className === "function"
                         ? props.className(renderProps)
                         : props.className,
@@ -149,7 +149,9 @@ function CheckboxLabel({
                 {label}
                 {isRequired ? <Tag size="sm">{i18n.form.required}</Tag> : null}
             </Label>
-            {description ? <Description>{description}</Description> : null}
+            {description ? (
+                <Description className="!mt-0">{description}</Description>
+            ) : null}
         </div>
     );
 }
