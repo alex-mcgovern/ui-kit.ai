@@ -10,8 +10,9 @@ export function Description(props: LabelProps) {
             slot="description"
             className={twMerge(
                 "mb-1 block w-fit cursor-default last:mt-2",
-                "text-sm font-normal",
-                "group-invalid:text-invalid text-secondary",
+                "text-sm font-normal text-secondary",
+                "group-invalid:text-invalid",
+                "group-disabled:opacity-disabled group-disabled:cursor-not-allowed",
                 props.className,
             )}
         />
