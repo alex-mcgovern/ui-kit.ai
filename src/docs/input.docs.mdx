@@ -1,18 +1,39 @@
-import { Story, ArgTypes, Canvas, Unstyled, Meta } from "@storybook/blocks";
+import { Story, ArgTypes, Unstyled, Meta } from "@storybook/blocks";
+import { Canvas } from "../../.storybook/components/canvas"
 import { Input } from "../components/input";
 import { Label } from "../components/label";
 import { FieldGroup } from "../components/field-group";
 import * as stories from "../stories/input.stories";
+import { Alert } from "../components/alert";
+import { Lightbulb } from "lucide-react"
 
 <Meta title="Components/Input" />
 
 # Input
 
+An `<Input />` allows a user to input text, with mouse, touch, and keyboard
+interactions.
+
 [source code](https://github.com/alex-mcgovern/boondoggle/tree/main/src/components/input)
 &nbsp;|&nbsp;
 [react aria](https://react-spectrum.adobe.com/react-aria/Input.html)
 
-An `<Input />` allows a user to input text, with mouse, touch, and keyboard interactions.
+<hr />
+
+<Unstyled>
+    <Alert
+        variant="default"
+        title="Note"
+        icon={Lightbulb}
+        className="!my-4"
+        description={
+            <>
+                The <b>Input</b> component is a primitive component used when
+                composing more complex components like <b>TextField</b>, <b>NumberField</b> or <b>SearchField</b>.
+            </>
+        }
+    />
+</Unstyled>
 
 <Canvas of={stories.example} />
 

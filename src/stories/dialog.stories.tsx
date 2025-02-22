@@ -39,7 +39,10 @@ const LongContent = () => (
         </p>
         {Array.from({ length: 10 }, () => {
             return (
-                <p className="mb-2" key={faker.string.alphanumeric(4)}>
+                <p
+                    className="mb-2"
+                    key={faker.string.alphanumeric(4)}
+                >
                     {faker.lorem.paragraphs(1)}
                 </p>
             );
@@ -76,7 +79,9 @@ const meta: Meta<typeof Dialog> = {
                     return (
                         <>
                             <DialogHeader>
-                                <DialogTitle>Hello there</DialogTitle>
+                                <DialogTitle>
+                                    Hello there
+                                </DialogTitle>
                                 <DialogCloseButton />
                             </DialogHeader>
 
@@ -110,12 +115,17 @@ const meta: Meta<typeof Dialog> = {
     ),
     // Storybook's typescript is a bit sh*t, hence the type-casting
     subcomponents: {
-        DialogCloseButton: DialogCloseButton as ComponentType<unknown>,
-        DialogContent: DialogContent as ComponentType<unknown>,
-        DialogFooter: DialogFooter as ComponentType<unknown>,
-        DialogHeader: DialogHeader as ComponentType<unknown>,
+        DialogCloseButton:
+            DialogCloseButton as ComponentType<unknown>,
+        DialogContent:
+            DialogContent as ComponentType<unknown>,
+        DialogFooter:
+            DialogFooter as ComponentType<unknown>,
+        DialogHeader:
+            DialogHeader as ComponentType<unknown>,
         DialogTitle: DialogTitle as ComponentType<unknown>,
-        DialogTrigger: DialogTrigger as ComponentType<unknown>,
+        DialogTrigger:
+            DialogTrigger as ComponentType<unknown>,
     },
     title: "Components/Dialog",
 };
@@ -123,13 +133,15 @@ const meta: Meta<typeof Dialog> = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
+export const example: Story = {
     args: {
         children: ({ close }) => {
             return (
                 <>
                     <DialogHeader>
-                        <DialogTitle>Hello there</DialogTitle>
+                        <DialogTitle>
+                            Hello there
+                        </DialogTitle>
                         <DialogCloseButton />
                     </DialogHeader>
 
@@ -167,7 +179,9 @@ export const WithShortContent: Story = {
             return (
                 <>
                     <DialogHeader>
-                        <DialogTitle>Hello there</DialogTitle>
+                        <DialogTitle>
+                            Hello there
+                        </DialogTitle>
                         <DialogCloseButton />
                     </DialogHeader>
 
@@ -205,7 +219,9 @@ export const WidthMd: Story = {
             return (
                 <>
                     <DialogHeader>
-                        <DialogTitle>Hello there</DialogTitle>
+                        <DialogTitle>
+                            Hello there
+                        </DialogTitle>
                         <DialogCloseButton />
                     </DialogHeader>
 
@@ -244,7 +260,9 @@ export const WidthLg: Story = {
             return (
                 <>
                     <DialogHeader>
-                        <DialogTitle>Hello there</DialogTitle>
+                        <DialogTitle>
+                            Hello there
+                        </DialogTitle>
                         <DialogCloseButton />
                     </DialogHeader>
 
@@ -309,11 +327,15 @@ const ITEMS = [
     { id: "praline", name: "Praline" },
 ];
 
-const FilterTemplate = (props: ComponentProps<typeof Dialog>) => {
+const FilterTemplate = (
+    props: ComponentProps<typeof Dialog>,
+) => {
     const [searchString, setSearchString] = useState("");
 
     const filtered = ITEMS.filter((item) => {
-        return item.name.toLowerCase().includes(searchString.toLowerCase());
+        return item.name
+            .toLowerCase()
+            .includes(searchString.toLowerCase());
     });
 
     return (
@@ -373,35 +395,6 @@ const FilterTemplate = (props: ComponentProps<typeof Dialog>) => {
     );
 };
 
-export const FilterableDialog: Story = {
-    args: {
-        className: "min-h-[75dvh]",
-        width: "lg",
-    },
-    decorators: [
-        (Story) => (
-            <div className="flex flex-col items-center justify-center gap-8">
-                <Story />
-                <div className="w-[30rem] rounded border border-gray-200 bg-white p-2 shadow-lg">
-                    <p className="mb-2">
-                        This is designed to be similar to the &quot;package
-                        versions dialog&quot; in trusty-frontend.
-                    </p>
-                    <p className="mb-2">
-                        Note that the min-height on the `Dialog` has been
-                        overriden using a className.
-                    </p>
-                    <p className="mb-2">
-                        Also note that at the time of writing (2024-08-28), the
-                        styling on the inner content is not correct.
-                    </p>
-                </div>
-            </div>
-        ),
-    ],
-    render: FilterTemplate,
-};
-
 const CONFIRMATION_TEXT = "DELETE";
 
 const strLabel = (v: string) => `Type "${v}" to confirm`;
@@ -412,18 +405,28 @@ export const ConfirmationDialog: Story = {
             return (
                 <>
                     <DialogHeader>
-                        <DialogTitle>Delete account</DialogTitle>
+                        <DialogTitle>
+                            Delete account
+                        </DialogTitle>
                         <DialogCloseButton />
                     </DialogHeader>
                     <DialogContent>
                         <p>
-                            <strong>Warning</strong>: Deleting your account
-                            will:
+                            <strong>Warning</strong>:
+                            Deleting your account will:
                         </p>
                         <ul className="list-inside list-disc">
-                            <li>Delete all personal data.</li>
-                            <li>Delete all favorites and settings.</li>
-                            <li>Anonymise all of your contributions.</li>
+                            <li>
+                                Delete all personal data.
+                            </li>
+                            <li>
+                                Delete all favorites and
+                                settings.
+                            </li>
+                            <li>
+                                Anonymise all of your
+                                contributions.
+                            </li>
                         </ul>
                     </DialogContent>
                     <DialogFooter>
@@ -464,12 +467,17 @@ export const ConfirmationDialog: Story = {
         (Story) => (
             <div className="flex flex-col items-center justify-center gap-8">
                 <Story />
-                <div className="w-[30rem] rounded border border-gray-200 bg-white p-2 shadow-lg">
+                <div
+                    className="w-[30rem] rounded border border-gray-200 bg-white p-2
+                        shadow-lg"
+                >
                     <p className="mb-2">
-                        This is a typical &quot;type X to confirm&quot; dialog.
+                        This is a typical &quot;type X to
+                        confirm&quot; dialog.
                     </p>
                     <p className="mb-2">
-                        Note that it uses a non-standard footer.
+                        Note that it uses a non-standard
+                        footer.
                     </p>
                 </div>
             </div>

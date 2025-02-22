@@ -182,6 +182,7 @@ const meta: Meta<typeof Table<StockWatchlistItem>> = {
         msw: {
             handlers: [getStocksHandler],
         },
+        layout: "fullscreen",
     },
     title: "Components/Table",
 };
@@ -365,7 +366,7 @@ function Template({
     }, [search]);
 
     return (
-        <section className="bg-base px-6 py-4">
+        <section className="w-full bg-base px-6 py-4">
             <div className="mb-4 flex items-center gap-2">
                 <SearchFieldWatchlist search={search} setSearch={setSearch} />
                 <MenuTrigger>
@@ -417,7 +418,7 @@ function Template({
     );
 }
 
-export const Example: Story = {
+export const example: Story = {
     args: {},
     name: "Table",
     render: Template,

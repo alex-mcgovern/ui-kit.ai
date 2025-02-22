@@ -41,12 +41,17 @@ export const Example: Story = {
             <>
                 <Select
                     aria-label="Package type"
-                    className="min-w-[104px] border-r border-r-gray-400"
+                    className="min-w-64 border-r border-r-gray-400"
                     defaultSelectedKey="pypi"
                     items={getMockOptions()}
                     name="packageManager"
                 >
-                    {(rp) => <SelectButton {...rp} isBorderless />}
+                    {(rp) => (
+                        <SelectButton
+                            {...rp}
+                            isBorderless
+                        />
+                    )}
                 </Select>
 
                 <ComboBox items={getMockOptions()}>
@@ -60,18 +65,5 @@ export const Example: Story = {
                 </ComboBox>
             </>
         ),
-    },
-    decorators: (Story) => {
-        return (
-            <div>
-                <Story />
-                <div className="text-sm text-gray-500">
-                    <p>
-                        This composition is similar to the &quot;package
-                        search&quot; in Trusty
-                    </p>
-                </div>
-            </div>
-        );
     },
 };

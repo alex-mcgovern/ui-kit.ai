@@ -32,7 +32,7 @@ export default {
                 DEFAULT: "0.5px",
             },
             colors: {
-                brand: colors.indigo,
+                brand: colors.slate,
                 current: "currentColor",
                 gray: colors.neutral,
                 inherit: "inherit",
@@ -44,19 +44,28 @@ export default {
             },
             fontSize: {
                 ...fontSize,
-                xs: ["0.6875rem", { lineHeight: "0.875rem" }],
+                xs: [
+                    "0.6875rem",
+                    { lineHeight: "0.875rem" },
+                ],
             },
             height: {
                 ...height,
                 ["ui-element"]: spacing[8],
             },
-            maxHeight: { ...height, ["ui-element"]: spacing[9] },
-            minHeight: { ...height, ["ui-element"]: spacing[9] },
+            maxHeight: {
+                ...height,
+                ["ui-element"]: spacing[9],
+            },
+            minHeight: {
+                ...height,
+                ["ui-element"]: spacing[9],
+            },
             textColor: {
                 disabled: colors.gray[300],
                 invalid: colors.red[600],
                 inverted: colors.black,
-                placeholder: colors.gray[400],
+                placeholder: colors.gray[500],
                 ["primary"]: colors.gray[700],
                 ["secondary"]: colors.gray[500],
             },

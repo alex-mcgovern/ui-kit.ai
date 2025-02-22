@@ -31,7 +31,7 @@ const ARGS_LIST: ArgsList = {
 const Template = (args: ComponentProps<typeof Popover>) => {
     return (
         <div>
-            {Object.entries(STORIES).map(([name, props]) => {
+            {Object.entries(ARGS_LIST).map(([name, props]) => {
                 return (
                     <div className="mb-4 grid grid-cols-[12rem_14rem] items-center gap-4">
                         <div>{name}</div>

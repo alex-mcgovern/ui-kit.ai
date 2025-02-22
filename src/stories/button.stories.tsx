@@ -15,7 +15,10 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-type Variant = Exclude<ComponentProps<typeof Button>["variant"], undefined>;
+type Variant = Exclude<
+    ComponentProps<typeof Button>["variant"],
+    undefined
+>;
 
 const VARIANTS = {
     primary: "Primary",
@@ -25,26 +28,50 @@ const VARIANTS = {
 
 const Template = (args: ComponentProps<typeof Button>) => (
     <div className="flex items-center gap-2">
-        {Object.entries(VARIANTS).map(([variant, variantName]) => (
-            <Button {...args} variant={variant as Variant} key={variant}>
-                {args.children ?? variantName}
-            </Button>
-        ))}
+        {Object.entries(VARIANTS).map(
+            ([variant, variantName]) => (
+                <Button
+                    {...args}
+                    variant={variant as Variant}
+                    key={variant}
+                >
+                    {args.children ?? variantName}
+                </Button>
+            ),
+        )}
     </div>
 );
 
 export const example: Story = {
     args: {},
     render: () => (
-        <div className="flex flex-col justify-center gap-2">
-            <Template />
-            <Template isDisabled />
-            <Template isDestructive />
-            <Template slotLeft={<StarIcon />} />
-            <Template slotRight={<StarIcon />} />
-            <Template isIcon>
-                <StarIcon />
-            </Template>
+        <div className="flex flex-col justify-center gap-1">
+            <div className="px-2 py-1">
+                <Template />
+            </div>
+            <div className="px-2 py-1">
+                <Template isDisabled />
+            </div>
+            <div className="px-2 py-1">
+                <Template isDestructive />
+            </div>
+            <div className="px-2 py-1">
+                <Template slotLeft={<StarIcon />} />
+            </div>
+            <div className="px-2 py-1">
+                <Template slotRight={<StarIcon />} />
+            </div>
+            <div className="px-2 py-1">
+                <Template isIcon>
+                    <StarIcon />
+                </Template>
+            </div>
+            <div className="rounded-lg bg-gray-900 px-2 py-2">
+                <Template isInverted />
+            </div>
+            <div className="rounded-lg bg-red-700 px-2 py-2">
+                <Template isDestructive isInverted />
+            </div>
         </div>
     ),
 };

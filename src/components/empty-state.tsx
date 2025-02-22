@@ -28,7 +28,8 @@ export function EmptyState({
     body: ReactNode;
     className?: string;
     icon: React.ForwardRefExoticComponent<
-        Omit<LucideProps, "ref"> & React.RefAttributes<SVGSVGElement>
+        Omit<LucideProps, "ref"> &
+            React.RefAttributes<SVGSVGElement>
     >;
     title: string;
 }) {
@@ -42,15 +43,27 @@ export function EmptyState({
                 className,
             )}
         >
-            <Icon className="mb-2 block text-secondary" size={48} />
+            <Icon
+                className="mb-2 block text-secondary"
+                size={48}
+            />
 
-            <Heading className="mb-1 text-xl text-primary" level={2}>
+            <Heading
+                className="mb-1 text-xl text-primary"
+                level={2}
+            >
                 {title}
             </Heading>
-            <p className="mb-4 max-w-lg text-balance">{body}</p>
+            <p className="mb-4 max-w-lg text-balance">
+                {body}
+            </p>
 
             {actions && actions.length > 0 ? (
-                <div className={actionsStyle({ actions: actions.length })}>
+                <div
+                    className={actionsStyle({
+                        actions: actions.length,
+                    })}
+                >
                     {actions}
                 </div>
             ) : null}

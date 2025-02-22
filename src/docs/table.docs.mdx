@@ -1,0 +1,50 @@
+import {
+    Story,
+    ArgTypes,
+    Unstyled,
+    Meta,
+} from "@storybook/blocks";
+import { Canvas } from "../../.storybook/components/canvas"
+import { Table } from "../components/table";
+import { Alert } from "../components/alert";
+import { Description } from "../components/description";
+import { StarIcon } from "lucide-react";
+import * as stories from "../stories/table.stories";
+
+<Meta title="Components/Table" />
+
+# Table
+
+A table allows a user to perform an action, with mouse, touch, and keyboard
+interactions.
+
+[source code](https://github.com/alex-mcgovern/boondoggle/tree/main/src/components/table)
+&nbsp;|&nbsp;
+[react aria](https://react-spectrum.adobe.com/react-aria/Table.html)
+
+<hr />
+
+<Unstyled>
+    <Alert
+        variant="default"
+        title="Note"
+        className="!my-4"
+        description={
+            <>
+                The examples on this page used a mocked data
+                source created with{" "}
+                <a href="https://mswjs.io">MSW</a>.
+            </>
+        }
+    />
+</Unstyled>
+<Canvas
+    of={stories.example}
+    layout="fullscreen"
+    sourceState="none"
+/>
+
+## Component API
+
+<ArgTypes of={Table} />
+description

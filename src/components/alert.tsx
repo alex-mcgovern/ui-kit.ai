@@ -1,0 +1,121 @@
+import { InfoIcon, type LucideProps } from "lucide-react";
+import type { ReactNode } from "react";
+import { twMerge } from "tailwind-merge";
+import { tv } from "tailwind-variants";
+import {
+    renderActionNodes,
+    type ActionNodes,
+} from "../types/action-nodes";
+import { Description } from "./description";
+
+const alertStyles = tv({
+    base: [
+        "rounded-xl shadow-sm",
+        "px-3 py-2",
+        "flex items-center gap-4",
+    ],
+    defaultVariants: {
+        variant: "default",
+    },
+    variants: {
+        variant: {
+            inverted: "bg-gray-800 text-white",
+            default:
+                "border border-gray-200 bg-base text-primary",
+            invalid: "bg-red-700 text-white",
+        },
+    },
+});
+
+const titleStyles = tv({
+    base: "font-title mb-0 block text-sm font-bold",
+});
+
+const iconStyles = tv({
+    base: "ml-1 size-7 shrink-0 stroke-[1.75px] text-secondary",
+});
+
+/**
+ * An alert is a message that is displayed to the user.
+ *
+ * It makes use of the ARIA role "alert" to highlight the importance of the
+ * message to assistive technologies.
+ *
+ * @see https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/alert_role
+ */
+export function Alert({
+    description,
+    className,
+    title,
+    variant,
+    actions,
+    icon: Icon = InfoIcon,
+    ...props
+}: {
+    description?: ReactNode;
+    className?: string;
+    actions?: ActionNodes;
+    title: string;
+    variant: "invalid" | "default" | "inverted";
+    icon?: React.ForwardRefExoticComponent<
+        Omit<LucideProps, "ref"> &
+            React.RefAttributes<SVGSVGElement>
+    >;
+}) {
+    return (
+        <div
+            {...props}
+            className={twMerge(
+                alertStyles({ variant }),
+                className,
+            )}
+        >
+            <Icon
+                className={twMerge(
+                    iconStyles(),
+                    variant === "inverted" ||
+                        variant === "invalid"
+                        ? "text-gray-100"
+                        : "",
+                )}
+            />
+            <div>
+                {/*
+                 * Note: A heading element should *not* be used here,
+                 * as it may appear on page before the H1, breaking
+                 * the semantic flow of headings on the page and
+                 * messing with a11y and SEO.
+                 */}
+                <span
+                    role="alert"
+                    className={titleStyles()}
+                >
+                    {title}
+                </span>
+                {description ? (
+                    <Description
+                        className={twMerge(
+                            "!my-0",
+                            variant === "inverted" ||
+                                variant === "invalid"
+                                ? "text-gray-300"
+                                : "",
+                        )}
+                    >
+                        {description}
+                    </Description>
+                ) : null}
+            </div>
+            {renderActionNodes({
+                actions,
+                props: {
+                    isInverted:
+                        variant === "inverted" ||
+                        variant === "invalid",
+                    isDestructive: variant === "invalid",
+                },
+                className: "ml-auto",
+            })}
+        </div>
+    );
+}

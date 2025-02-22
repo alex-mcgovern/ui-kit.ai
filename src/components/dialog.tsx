@@ -23,13 +23,12 @@ import { Heading } from "./heading";
 
 const modalOverlayStyles = tv({
     base: [
-        "fixed inset-0 isolate z-50",
+        "fixed inset-0 z-50",
         "h-dvh w-dvw",
         "flex items-center justify-center text-center",
-        "bg-black/20 backdrop-saturate-100",
+        "bg-black/20",
         // transition properties
-        "opacity-100",
-        "transition-all duration-300",
+        "transition-opacity duration-500",
         // entering
         "entering:opacity-0",
         // exiting
@@ -40,23 +39,14 @@ const modalOverlayStyles = tv({
 
 const modalStyles = tv({
     base: [
-        "h-dvh w-dvw md:max-h-[75dvh]",
+        "h-dvh w-dvw md:h-[unset] md:max-h-[75dvh] md:w-[unset]",
         "flex items-center justify-center",
         "relative",
         "forced-colors:bg-[Canvas]",
-        // transition properties
-        "opacity-100",
-        "transform-none",
-        "transition-all duration-300",
-        "will-change-transform",
-        // entering
-        // "entering:ease-out",
-        "entering:opacity-0",
-        "entering:translate-y-4",
-        // exiting
-        // "exiting:ease-in",
-        "exiting:opacity-0",
-        "exiting:translate-y-4",
+        // transition
+        "transition-transform duration-500",
+        "md:entering:translate-y-4",
+        "md:exiting:translate-y-4",
         "exiting:pointer-events-none", // ensure content behind is immediately interactive
     ],
 });
@@ -74,7 +64,7 @@ const dialogStyles = tv({
         "md:h-[unset] md:max-h-[inherit]",
         "w-full sm:max-w-[100dvw]",
         // border
-        "md:rounded md:border md:border-gray-200",
+        "md:rounded-lg md:border md:border-gray-200",
         "[[data-placement]>&]:p-4",
     ],
     variants: {
@@ -84,9 +74,13 @@ const dialogStyles = tv({
             sm: "md:max-w-96",
         },
     },
+    extend: bgGlass,
 });
 
-function DialogModal({ isDismissable = true, ...props }: RACModalOverlayProps) {
+function DialogModal({
+    isDismissable = true,
+    ...props
+}: RACModalOverlayProps) {
     return (
         <RACModal
             {...props}
@@ -144,7 +138,8 @@ export function DialogCloseButton(
         "aria-label" | "name" | "type" | "variant"
     >,
 ) {
-    const { close } = useContext(RACOverlayTriggerStateContext) ?? {};
+    const { close } =
+        useContext(RACOverlayTriggerStateContext) ?? {};
     return (
         <Button
             {...props}
@@ -174,7 +169,9 @@ export function DialogCloseButton(
 /**
  * Wrapper to render the dialog header.
  */
-export function DialogHeader(props: HTMLProps<HTMLElement>) {
+export function DialogHeader(
+    props: HTMLProps<HTMLElement>,
+) {
     return (
         <header
             {...props}
@@ -204,7 +201,10 @@ export function DialogTitle({
     return (
         <Heading
             {...props}
-            className={twMerge("mb-0 truncate text-sm", props.className)}
+            className={twMerge(
+                "mb-0 truncate text-sm",
+                props.className,
+            )}
             level={3}
             slot="title"
         >
@@ -216,7 +216,9 @@ export function DialogTitle({
 /**
  * A DialogTrigger opens a dialog when a trigger element is pressed.
  */
-export function DialogTrigger(props: RACDialogTriggerProps) {
+export function DialogTrigger(
+    props: RACDialogTriggerProps,
+) {
     return <RACDialogTrigger {...props} />;
 }
 
@@ -245,12 +247,15 @@ export const DialogContent = forwardRef<
 /**
  * Wrapper to pin content to the bottom of the dialog.
  */
-export function DialogFooter({ children, ...props }: HTMLProps<HTMLElement>) {
+export function DialogFooter({
+    children,
+    ...props
+}: HTMLProps<HTMLElement>) {
     return (
         <footer
             {...props}
             className={twMerge(
-                "min-h-8",
+                "min-h-10",
                 "flex shrink-0 items-center justify-between gap-2",
                 "border-t border-t-gray-200",
                 "py-2 pl-4 pr-2",

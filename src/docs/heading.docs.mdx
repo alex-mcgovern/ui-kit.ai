@@ -1,0 +1,28 @@
+import { Story, ArgTypes, Canvas, Unstyled, Meta } from "@storybook/blocks";
+import { Heading } from "../components/heading";
+import * as stories from "../stories/heading.stories";
+
+<Meta title="Components/Heading" />
+
+# Heading
+
+A `<Heading />` component allows you to create semantic headings with different
+levels and styles.
+
+[source code](https://github.com/alex-mcgovern/boondoggle/tree/main/src/components/heading)
+
+<hr />
+
+<Canvas of={stories.example} sourceState="none" />
+
+## Props
+
+### `level`
+
+The `level` prop determines the semantic level of the heading. It can be a value from `1` to `6`.
+
+<Canvas of={stories.example} />
+
+## Component API
+
+<ArgTypes of={Heading} />

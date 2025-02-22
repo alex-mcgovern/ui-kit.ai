@@ -28,7 +28,7 @@ const preview = {
         },
         (Story) => {
             return (
-                <div className="flex items-center justify-center px-4 py-6">
+                <div className="flex items-center justify-center py-6">
                     <Story />
                     <div
                         className="absolute inset-0 z-[-1] h-full w-full bg-white

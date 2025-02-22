@@ -12,10 +12,17 @@ import {
 import { tv } from "tailwind-variants";
 
 import { focusRing } from "../styles/focus-ring";
-import { renderSlot, type SlotNode } from "../types/slotted-node";
+import {
+    renderSlot,
+    type SlotNode,
+} from "../types/slotted-node";
 import { Loader } from "./loader";
 
-export const BUTTON_VARIANTS = ["primary", "secondary", "tertiary"] as const;
+export const BUTTON_VARIANTS = [
+    "primary",
+    "secondary",
+    "tertiary",
+] as const;
 type ButtonVariantType = (typeof BUTTON_VARIANTS)[number];
 
 const buttonStyle = tv({
@@ -38,6 +45,9 @@ const buttonStyle = tv({
         "disabled:opacity-disabled",
     ],
     compoundVariants: [
+        ///////////////////////////////////////////////////
+        // Primary
+        ///////////////////////////////////////////////////
         {
             className: [
                 "border-red-700 bg-red-700",
@@ -49,14 +59,91 @@ const buttonStyle = tv({
         },
         {
             className: [
-                "text-invalid border-red-700",
+                "text-primary",
+                "border-brand-50 bg-brand-50",
+                // hover
+                "hover:border-brand-200 hover:bg-brand-200",
+                // pressed
+                "pressed:border-brand-300 pressed:bg-brand-300",
+            ],
+            isInverted: true,
+            variant: "primary",
+        },
+        {
+            className: [
+                "text-invalid",
+                "border-red-50 bg-red-50",
+                "hover:border-red-50/90 hover:bg-red-50/90",
+                "pressed:border-red-50/80 pressed:bg-red-50/80",
+            ],
+            isInverted: true,
+            isDestructive: true,
+            variant: "primary",
+        },
+        ///////////////////////////////////////////////////
+        // Secondary
+        ///////////////////////////////////////////////////
+        {
+            className: [
+                "border-red-700 text-invalid",
                 "hover:border-red-600 hover:bg-red-50 pressed:bg-red-100",
             ],
             isDestructive: true,
             variant: "secondary",
         },
         {
-            className: ["text-invalid", "hover:bg-red-50 pressed:bg-red-100"],
+            className: [
+                // base
+                "border-brand-400 bg-transparent text-brand-50",
+                // hover
+                "hover:border-brand-300 hover:bg-brand-50/10",
+                // pressed
+                "pressed:border-brand-600 pressed:bg-brand-900",
+            ],
+            isInverted: true,
+            variant: "secondary",
+        },
+        {
+            className: [
+                "border-red-50/50 bg-transparent text-red-50",
+                "hover:border-red-50/60 hover:bg-red-50/10",
+                "pressed:border-red-50/50 pressed:bg-transparent",
+            ],
+            isInverted: true,
+            isDestructive: true,
+            variant: "secondary",
+        },
+        ///////////////////////////////////////////////////
+        // Tertiary
+        ///////////////////////////////////////////////////
+        {
+            className: [
+                "text-invalid",
+                "hover:bg-red-50 pressed:bg-red-100",
+            ],
+            isDestructive: true,
+            variant: "tertiary",
+        },
+        {
+            className: [
+                "border-transparent bg-transparent text-brand-50",
+                // hover
+                "hover:border-brand-800 hover:bg-brand-800",
+                // pressed
+                "pressed:bg-transparent",
+            ],
+            isInverted: true,
+            variant: "tertiary",
+        },
+        {
+            className: [
+                "border-transparent bg-transparent text-red-50",
+                // hover
+                "hover:border-red-800 hover:bg-red-800",
+                // pressed
+                "pressed:bg-transparent",
+            ],
+            isInverted: true,
             isDestructive: true,
             variant: "tertiary",
         },
@@ -69,18 +156,22 @@ const buttonStyle = tv({
         isDestructive: {
             true: null,
         },
+        isInverted: {
+            true: null,
+        },
         isIcon: {
-            true: "aspect-square w-[theme(height.ui-element)] px-2 [&_svg]:mx-auto",
+            true: `aspect-square w-[theme(height.ui-element)] px-2
+            [&_svg]:mx-auto`,
         },
         variant: {
             primary: [
-                "text-white",
+                "text-gray-50",
                 "shadow-sm",
-                "border-gray-800 bg-gray-800",
+                "border-brand-800 bg-brand-800",
                 // hover
-                "hover:border-gray-700 hover:bg-gray-700",
+                "hover:border-brand-700 hover:bg-brand-700",
                 // pressed
-                "pressed:border-gray-900 pressed:bg-gray-900",
+                "pressed:border-brand-900 pressed:bg-brand-900",
             ],
             secondary: [
                 // base
@@ -89,11 +180,14 @@ const buttonStyle = tv({
                 // hover
                 "hover:border-gray-300 hover:bg-gray-100",
                 // pressed
-                "pressed:border-gray-300 pressed:bg-gray-100",
+                "pressed:border-gray-300 pressed:bg-gray-200",
             ],
             tertiary: [
-                "border-transparent bg-transparent text-primary hover:bg-gray-100",
-                "pressed:bg-gray-100",
+                "border-transparent bg-transparent text-primary",
+                // hover
+                "hover:bg-gray-100",
+                // pressed
+                "pressed:bg-gray-200",
             ],
         },
     },
@@ -104,6 +198,10 @@ type ButtonCommonProps = {
      * When `isDestructive` is set to `true` the Button will styled in red, to denote a destructive action.
      */
     isDestructive?: boolean;
+    /**
+     * When `isInverted` is set to `true` light colors are dark, and vice/versa.
+     */
+    isInverted?: boolean;
     /**
      * When set to `true` the Button will be styled to be square with a fixed
      * height & width. This should be used in conjunction with passing an icon
@@ -156,10 +254,14 @@ const ButtonLoadingState = ({
         children
     );
 
-export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
+export const Button = forwardRef<
+    HTMLButtonElement,
+    ButtonProps
+>(
     (
         {
             isDestructive,
+            isInverted,
             isIcon = false,
             isPending,
             slotLeft,
@@ -180,6 +282,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
                             // isLink,
                             className,
                             isDestructive,
+                            isInverted,
                             isIcon,
                             variant,
                         }),
@@ -188,13 +291,16 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
                 ref={ref}
             >
                 {(renderProps) => (
-                    <ButtonLoadingState isPending={isPending}>
+                    <ButtonLoadingState
+                        isPending={isPending}
+                    >
                         {renderSlot(slotLeft, {
                             // className: "max-h-5 min-w-5",
                             "data-slot": "slot-left",
                         })}
 
-                        {typeof props.children === "function"
+                        {typeof props.children ===
+                        "function"
                             ? props.children(renderProps)
                             : props.children}
 
@@ -211,27 +317,35 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 
 export const LinkButton = forwardRef<
     HTMLAnchorElement,
-    RACLinkProps & {
-        isDestructive?: boolean;
-        isIcon?: boolean;
-        variant?: ButtonVariantType;
-    }
->(({ isDestructive, isIcon, variant, ...props }, ref) => {
-    return (
-        <RACLink
-            {...props}
-            className={composeRenderProps(
-                props.className,
-                (className, renderProps) =>
-                    buttonStyle({
-                        ...renderProps,
-                        className,
-                        isDestructive,
-                        isIcon,
-                        variant,
-                    }),
-            )}
-            ref={ref}
-        />
-    );
-});
+    RACLinkProps & ButtonCommonProps
+>(
+    (
+        {
+            isDestructive,
+            isIcon,
+            variant,
+            isInverted,
+            ...props
+        },
+        ref,
+    ) => {
+        return (
+            <RACLink
+                {...props}
+                className={composeRenderProps(
+                    props.className,
+                    (className, renderProps) =>
+                        buttonStyle({
+                            ...renderProps,
+                            className,
+                            isDestructive,
+                            isInverted,
+                            isIcon,
+                            variant,
+                        }),
+                )}
+                ref={ref}
+            />
+        );
+    },
+);
