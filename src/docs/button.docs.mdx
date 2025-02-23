@@ -1,7 +1,9 @@
-import { Story, ArgTypes, Canvas, Unstyled, Meta } from "@storybook/blocks";
+import { Story, ArgTypes, Unstyled, Meta } from "@storybook/blocks";
+import { Canvas } from "../../.storybook/components/canvas"
 import { Button } from "../components/button";
 import { StarIcon } from "lucide-react"
 import * as examples from "../stories/button.stories"
+import { Alert } from "../components/alert";
 
 <Meta title="Components/Button" />
 
@@ -18,61 +20,56 @@ interactions.
 
 <Canvas of={examples.example} sourceState="none" />
 
-## Button `variant`
+## Usage
+
+### `variant`
 
 Boondoggle has three variants of buttons, `primary`, `secondary`, and `tertiary`. If
 no `variant` is specified, a `primary` button will be rendered.
 
 <Canvas of={examples.variant} />
 
-## Button `isDestructive`
+### `isDestructive`
 
 When `isDestructive` is set to `true` the Button will styled in red, to denote a destructive action.
 
 <Canvas of={examples.isDestructive} />
 
-## Button `isDisabled`
+### `isDisabled`
 
 A button can be disabled by setting the `isDisabled` prop to `true`. This will
 prevent the button from being interacted with. Opacity is reduced to provide
 some visual feedback that the button is disabled.
 
-<div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-    <Canvas className="!my-2" of={examples.isDisabled} />
-    <Canvas className="!my-2" of={examples.isDestructiveIsDisabled} />
-</div>
+<Unstyled>
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+        <Canvas className="!my-2" of={examples.isDisabled} />
+        <Canvas className="!my-2" of={examples.isDestructiveIsDisabled} />
+    </div>
+</Unstyled>
 
-## Button `isIcon`
+### `isIcon`
 
 When `isIcon` is set to `true` the Button will be styled to be square with a fixed
 height & width. This should be used in conjunction with passing an icon
 component to the `children` prop.
 
+If you aren't passing text to the `children` prop, ensure you are passing an `aria-label` attribute, so the Button is correctly labelled to assistive technologies
+
 <Canvas of={examples.isIcon} />
 
-**Note**: If you aren't passing text to the `children` prop, ensure you
-are passing an `aria-label` attribute, so the Button is correctly
-labelled to assistive technologies, e.g:
-
-```tsx
-<Button
-    isIcon
-    aria-label="Add to favorites" // ⬅️ Assistive technology label
->
-    <StarIcon />
-</Button>
-```
-
-## Button `slotLeft` & `slotRight`
+### `slotLeft` / `slotRight`
 
 A decorative node (e.g. an icon) to render on the left or right side of the
 Button. When a node is passed, the padding on the corresponding side is
 slightly reduced to maintain visual balance.
 
-<div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-    <Canvas className="!my-2" of={examples.slotLeft} />
-    <Canvas className="!my-2" of={examples.slotRight} />
-</div>
+<Unstyled>
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+        <Canvas className="!my-2" of={examples.slotLeft} />
+        <Canvas className="!my-2" of={examples.slotRight} />
+    </div>
+</Unstyled>
 
 ## Component API
 

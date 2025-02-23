@@ -1,46 +1,36 @@
-import { Story, ArgTypes, Canvas, Unstyled, Meta } from "@storybook/blocks";
+import { Story, ArgTypes, Unstyled, Meta, Description as StorybookDescription } from "@storybook/blocks";
+import { Canvas } from "../../.storybook/components/canvas"
 import { Checkbox, CheckboxGroup } from "../components/checkbox";
 import { Label } from "../components/label";
 import { Description } from "../components/description";
-import * as checkboxGroupExamples from "../stories/checkbox-group.stories";
+import * as stories from "../stories/checkbox-group.stories";
 
 <Meta title="Components/CheckboxGroup" />
 
 # CheckboxGroup
 
-A CheckboxGroup allows a user to select multiple items from a list of options.
+<Canvas of={stories.example} sourceState="none" />
 
-It can be composed with a Label and Description to correctly label the input to
-assistive technologies, and provide extra context.
-
-[source code](https://github.com/alex-mcgovern/boondoggle/tree/main/src/components/checkbox)
-&nbsp;|&nbsp;
-[react aria](https://react-spectrum.adobe.com/react-aria/CheckboxGroup.html)
+<StorybookDescription of={stories} />
 
 <hr />
 
-<Canvas of={checkboxGroupExamples.example} source="none" />
 
-When used in this way, the CheckboxGroup will manage the state of the selected
-items, and provide a way to access the selected values. Each `<Checkbox />`
-should have a `value` prop that is unique to the group, this is what will be
-provided via the `onChange` callback.
+## Usage
 
-<ArgTypes of={CheckboxGroup} include={["onChange"]} />
-
-### CheckboxGroup `isInvalid`
+### `isInvalid`
 
 When `isInvalid` is set to `true`, the group will be styled to indicate that the
 user has not selected a valid option.
 
-<Canvas of={checkboxGroupExamples.isInvalid} />
+<Canvas of={stories.isInvalid} />
 
-### CheckboxGroup `isDisabled`
+### `isDisabled`
 
 When `isDisabled` is set to `true`, the group will be styled to indicate that
 the user cannot interact with the options.
 
-<Canvas of={checkboxGroupExamples.isDisabled} />
+<Canvas of={stories.isDisabled} />
 
 ## Component API
 

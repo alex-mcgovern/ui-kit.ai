@@ -2,22 +2,33 @@ import type { Meta, StoryObj } from "@storybook/react";
 
 import { Alert } from "../components/alert";
 import { Button } from "../components/button";
+import type { ComponentProps } from "react";
+
+export function Example(
+    args: ComponentProps<typeof Alert>,
+) {
+    return (
+        <Alert
+            {...args}
+            title="Account verification required"
+            description="Please verify your email so we can make sure your account is secure. A link has been sent to foo@bar.com."
+            actions={[
+                <Button key="verify" variant="secondary">
+                    Dismiss
+                </Button>,
+                <Button key="resend" variant="primary">
+                    Resend email
+                </Button>,
+            ]}
+        />
+    );
+}
 
 const meta = {
     title: "Components/Alert",
     component: Alert,
     args: {
-        description:
-            "Please verify your email so we can make sure your account is secure. A link has been sent to foo@bar.com.",
         title: "Account verification required",
-        actions: [
-            <Button key="verify" variant="secondary">
-                Dismiss
-            </Button>,
-            <Button key="resend" variant="primary">
-                Resend email
-            </Button>,
-        ],
     },
     decorators: [
         (Story) => (
@@ -26,6 +37,7 @@ const meta = {
             </div>
         ),
     ],
+    render: Example,
 } satisfies Meta<typeof Alert>;
 
 export default meta;

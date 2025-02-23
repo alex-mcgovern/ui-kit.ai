@@ -1,4 +1,5 @@
-import { Story, ArgTypes, Canvas, Unstyled, Meta } from "@storybook/blocks";
+import { Story, ArgTypes, Unstyled, Meta } from "@storybook/blocks";
+import { Canvas } from "../../.storybook/components/canvas"
 import { Checkbox, CheckboxGroup } from "../components/checkbox";
 import { Label } from "../components/label";
 import { Description } from "../components/description";
@@ -19,7 +20,7 @@ interactions.
 
 <hr />
 
-<Canvas of={checkboxExamples.example} />
+<Canvas of={checkboxExamples.example} sourceState="none" />
 
 ### Checkbox `textPosition`
 

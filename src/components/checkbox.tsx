@@ -3,7 +3,10 @@ import type {
     CheckboxGroupProps as AriaCheckboxGroupProps,
 } from "react-aria-components";
 
-import { Check as IconCheck, Minus as IconMinus } from "lucide-react";
+import {
+    Check as IconCheck,
+    Minus as IconMinus,
+} from "lucide-react";
 import React from "react";
 import {
     Checkbox as AriaCheckbox,
@@ -81,7 +84,7 @@ const boxStyles = tv({
         "group-indeterminate:group-hover:border-gray-600",
         // invalid
         "group-invalid:border-red-600",
-        "group-hover:group-invalid:bg-red-100",
+        "group-hover:group-invalid:bg-red-50",
         "group-hover:group-invalid:border-red-700",
         // invalid selected
         "group-selected:group-invalid:bg-red-700",
@@ -116,7 +119,48 @@ const iconStyles = tv({
     ],
 });
 
-export function CheckboxGroup(props: AriaCheckboxGroupProps) {
+/**
+ * A checkbox group allows a user to select multiple items from a list of options.
+ *
+ * It can be composed with a Label and Description to correctly label the input
+ * to assistive technologies, and provide extra context.
+ *
+ * [source code](https://github.com/alex-mcgovern/boondoggle/tree/main/src/components/checkbox)
+ * &nbsp;|&nbsp;
+ * [react aria](https://react-spectrum.adobe.com/react-aria/CheckboxGroup.html)
+ *
+ * ## Usage
+ *
+ * ```tsx
+ * <CheckboxGroup defaultValue={["account-updates"]} {...args}>
+ *     <Label>Communication preferences</Label>
+ *     <Checkbox
+ *         value="account-updates"
+ *         isDisabled
+ *         isRequired
+ *         label="Account updates"
+ *         description="Necessary emails about your account & account security."
+ *     />
+ *     <Checkbox
+ *         value="newsletter"
+ *         label="Newsletter"
+ *         description="No more than one email per month with updates from our team."
+ *     />
+ *     <Checkbox
+ *         value="promotions"
+ *         label="Promotions and Offers"
+ *         description="Deals, discounts and suggestions we think you'll love."
+ *     />
+ *     <Description>
+ *         Your preferences can be updated at any time in your account
+ *         settings.
+ *     </Description>
+ * </CheckboxGroup>
+ * ```
+ */
+export function CheckboxGroup(
+    props: AriaCheckboxGroupProps,
+) {
     return (
         <AriaCheckboxGroup
             {...props}
@@ -147,10 +191,16 @@ function CheckboxLabel({
         <div>
             <Label className="mb-0 flex items-center gap-1">
                 {label}
-                {isRequired ? <Tag size="sm">{i18n.form.required}</Tag> : null}
+                {isRequired ? (
+                    <Tag size="sm">
+                        {i18n.form.required}
+                    </Tag>
+                ) : null}
             </Label>
             {description ? (
-                <Description className="!mt-0">{description}</Description>
+                <Description className="!mt-0">
+                    {description}
+                </Description>
             ) : null}
         </div>
     );
@@ -168,31 +218,46 @@ export function Checkbox({
             className={composeRenderProps(
                 props.className,
                 (className, renderProps) =>
-                    checkboxContainerStyles({ ...renderProps, className }),
+                    checkboxContainerStyles({
+                        ...renderProps,
+                        className,
+                    }),
             )}
         >
             {(renderProps) => (
                 <>
-                    {textPosition === "left" && label != null ? (
+                    {textPosition === "left" &&
+                    label != null ? (
                         <CheckboxLabel
                             label={label}
-                            isRequired={renderProps.isRequired}
+                            isRequired={
+                                renderProps.isRequired
+                            }
                             description={description}
                         />
                     ) : null}
 
                     <div className={boxStyles()}>
                         {renderProps.isIndeterminate ? (
-                            <IconMinus aria-hidden className={iconStyles()} />
+                            <IconMinus
+                                aria-hidden
+                                className={iconStyles()}
+                            />
                         ) : (
-                            <IconCheck aria-hidden className={iconStyles()} />
+                            <IconCheck
+                                aria-hidden
+                                className={iconStyles()}
+                            />
                         )}
                     </div>
 
-                    {textPosition === "right" && label != null ? (
+                    {textPosition === "right" &&
+                    label != null ? (
                         <CheckboxLabel
                             label={label}
-                            isRequired={renderProps.isRequired}
+                            isRequired={
+                                renderProps.isRequired
+                            }
                             description={description}
                         />
                     ) : null}

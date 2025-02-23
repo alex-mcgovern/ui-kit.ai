@@ -13,7 +13,9 @@ export default defineConfig({
     plugins: [
         react({
             babel: {
-                plugins: ["@babel/plugin-syntax-import-attributes"],
+                plugins: [
+                    "@babel/plugin-syntax-import-attributes",
+                ],
             },
         }),
         dts({
@@ -27,7 +29,9 @@ export default defineConfig({
     },
     build: {
         lib: {
-            entry: [path.resolve(__dirname, "src/index.ts")],
+            entry: [
+                path.resolve(__dirname, "src/index.ts"),
+            ],
             name: "UIKIT",
             formats: ["es"],
             // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -49,7 +53,8 @@ export default defineConfig({
                 globals: {
                     react: "React",
                     "react-dom": "ReactDOM",
-                    "react/jsx-runtime": "react/jsx-runtime",
+                    "react/jsx-runtime":
+                        "react/jsx-runtime",
                 },
             },
         },
@@ -62,10 +67,15 @@ export default defineConfig({
         globals: true,
         include: ["**/*test.ts?(x)"],
         includeSource: ["**/*.ts?(x)"],
-        setupFiles: ["./test/setup.ts"],
+        // setupFiles: ["./test/setup.ts"],
         coverage: {
             include: ["src/**/*"],
-            reporter: ["text", "json", "html", "json-summary"],
+            reporter: [
+                "text",
+                "json",
+                "html",
+                "json-summary",
+            ],
         },
     },
 });

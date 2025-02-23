@@ -1,11 +1,19 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Checkbox, CheckboxGroup } from "../components/checkbox";
+import {
+    Checkbox,
+    CheckboxGroup,
+} from "../components/checkbox";
 import React, { type ComponentProps } from "react";
 import { Label } from "../components/label";
 import { Description } from "../components/description";
 
-const Template = (args: ComponentProps<typeof CheckboxGroup>) => (
-    <CheckboxGroup defaultValue={["account-updates"]} {...args}>
+export const Example = (
+    args: ComponentProps<typeof CheckboxGroup>,
+) => (
+    <CheckboxGroup
+        defaultValue={["account-updates"]}
+        {...args}
+    >
         <Label>Communication preferences</Label>
         <Checkbox
             value="account-updates"
@@ -25,8 +33,8 @@ const Template = (args: ComponentProps<typeof CheckboxGroup>) => (
             description="Deals, discounts and suggestions we think you'll love."
         />
         <Description>
-            Your preferences can be updated at any time in your account
-            settings.
+            Your preferences can be updated at any time in
+            your account settings.
         </Description>
     </CheckboxGroup>
 );
@@ -34,7 +42,7 @@ const Template = (args: ComponentProps<typeof CheckboxGroup>) => (
 const meta = {
     title: "Components/CheckboxGroup",
     component: CheckboxGroup,
-    render: Template,
+    render: Example,
 } satisfies Meta<typeof CheckboxGroup>;
 
 export default meta;

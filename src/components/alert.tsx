@@ -11,7 +11,7 @@ import { Description } from "./description";
 const alertStyles = tv({
     base: [
         "rounded-xl shadow-sm",
-        "px-3 py-2",
+        "px-4 py-2",
         "flex items-center gap-4",
     ],
     defaultVariants: {
@@ -32,7 +32,7 @@ const titleStyles = tv({
 });
 
 const iconStyles = tv({
-    base: "ml-1 size-7 shrink-0 stroke-[1.75px] text-secondary",
+    base: "size-7 shrink-0 stroke-[1.75px] text-secondary",
 });
 
 /**

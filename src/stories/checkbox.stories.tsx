@@ -1,12 +1,20 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Checkbox } from "../components/checkbox";
+import type { ComponentProps } from "react";
+
+export function Example(
+    args: ComponentProps<typeof Checkbox>,
+) {
+    return (
+        <Checkbox {...args} label="This is the checkbox" />
+    );
+}
 
 const meta = {
     title: "Components/Checkbox",
     component: Checkbox,
-    args: {
-        label: "This is the checkbox",
-    },
+    args: {},
+    render: Example,
 } satisfies Meta<typeof Checkbox>;
 
 export default meta;
