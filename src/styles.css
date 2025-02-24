@@ -22,7 +22,7 @@
 
 body {
     @apply text-base;
-    font-family: "Inter", serif;
+    font-family: "Inter", sans-serif;
 }
 
 .code,

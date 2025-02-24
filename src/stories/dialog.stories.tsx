@@ -463,24 +463,4 @@ export const ConfirmationDialog: Story = {
             );
         },
     },
-    decorators: [
-        (Story) => (
-            <div className="flex flex-col items-center justify-center gap-8">
-                <Story />
-                <div
-                    className="w-[30rem] rounded border border-gray-200 bg-white p-2
-                        shadow-lg"
-                >
-                    <p className="mb-2">
-                        This is a typical &quot;type X to
-                        confirm&quot; dialog.
-                    </p>
-                    <p className="mb-2">
-                        Note that it uses a non-standard
-                        footer.
-                    </p>
-                </div>
-            </div>
-        ),
-    ],
 };

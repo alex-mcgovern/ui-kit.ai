@@ -1,0 +1,14 @@
+import { Unstyled, Meta } from "@storybook/blocks";
+import { StockWatchlistExample } from "../../examples/saas-dashboard";
+import {
+    QueryClient,
+    QueryClientProvider,
+} from "@tanstack/react-query";
+
+<Meta title="Examples/Financial application" />
+
+<Unstyled>
+    <QueryClientProvider client={new QueryClient()}>
+        <StockWatchlistExample />
+    </QueryClientProvider>
+</Unstyled>

@@ -15,9 +15,7 @@ import { getMockOptions } from "../mocks/options";
 const meta = {
     args: {},
     component: FieldGroup,
-    parameters: {
-        actions: "disable",
-    },
+    parameters: { actions: "disable" },
     title: "Components/FieldGroup",
 } satisfies Meta<typeof FieldGroup>;
 
@@ -58,7 +56,7 @@ export const Example: Story = {
                     <ComboBoxFieldGroup isBorderless>
                         <ComboBoxInput
                             isBorderless
-                            placeholder="Search for a package..."
+                            placeholder="Type to search..."
                         />
                         <ComboBoxClearButton />
                     </ComboBoxFieldGroup>

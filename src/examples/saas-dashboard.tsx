@@ -4,6 +4,8 @@ import type { SortDirection } from "react-aria-components";
 
 import {
     keepPreviousData,
+    QueryClient,
+    QueryClientProvider,
     useQuery,
 } from "@tanstack/react-query";
 import {
@@ -155,60 +157,6 @@ const CellRenderer: TableCellRenderer<
     }
 };
 
-const meta: Meta<typeof Table<StockWatchlistItem>> = {
-    args: {
-        "aria-label": "Watchlist",
-        cellRenderer: CellRenderer,
-        columns: COLUMNS,
-        disabledKeys: ["TWTR", "AMZN"],
-        getRowOptions: ({ row }) => [
-            {
-                id: "buy-sell",
-                items: [
-                    {
-                        id: "buy",
-                        textValue: `Buy ${row.id}`,
-                    },
-                    {
-                        id: "sell",
-                        textValue: `Sell ${row.id}`,
-                    },
-                ],
-                textValue: "Buy/Sell",
-            },
-            {
-                id: "watchlist",
-                items: [
-                    {
-                        id: "create-alert",
-                        textValue: `Create alert for ${row.id}`,
-                    },
-                    {
-                        id: "remove",
-                        isDestructive: true,
-                        textValue: `Remove ${row.id} from watchlist`,
-                    },
-                ],
-                textValue: "Watchlist",
-            },
-        ],
-        rows: [],
-        selectionBehavior: "toggle",
-        selectionMode: "multiple",
-    },
-    component: Table,
-    parameters: {
-        msw: {
-            handlers: [getStocksHandler],
-        },
-        layout: "fullscreen",
-    },
-    title: "Components/Table",
-};
-
-export default meta;
-type Story = StoryObj<typeof meta>;
-
 const sortItems = (
     a: StockWatchlistItem,
     b: StockWatchlistItem,
@@ -232,7 +180,7 @@ const sortItems = (
     return 0;
 };
 
-const useGetStocklistWatchItems = (
+const useGetStockWatchlistItems = (
     options: GetStockWatchlistItemsData,
 ) => {
     return useQuery({
@@ -372,7 +320,7 @@ function SearchFieldWatchlist({
     );
 }
 
-function Template({
+export function StockWatchlistExample({
     rows,
     ...args
 }: ComponentProps<typeof Table<StockWatchlistItem>>) {
@@ -385,7 +333,7 @@ function Template({
     };
 
     const { data, isLoading, isPlaceholderData } =
-        useGetStocklistWatchItems({
+        useGetStockWatchlistItems({
             page: page.toString(),
             search,
         });
@@ -442,7 +390,8 @@ function Template({
                 <DialogAddToWatchList />
             </div>
             <Table<StockWatchlistItem>
-                {...args}
+                columns={COLUMNS}
+                cellRenderer={CellRenderer}
                 onSortChange={setSortDescriptor}
                 renderEmptyState={renderEmptyState}
                 rows={sortedItems}
@@ -481,9 +430,3 @@ function Template({
         </section>
     );
 }
-
-export const example: Story = {
-    args: {},
-    name: "Table",
-    render: Template,
-};

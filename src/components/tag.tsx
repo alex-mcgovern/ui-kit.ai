@@ -3,14 +3,34 @@ import type {
     ButtonProps as RACButtonProps,
     LinkProps as RACLinkProps,
 } from "react-aria-components";
-import { Button as RACButton, Link as RACLink } from "react-aria-components";
+import {
+    Button as RACButton,
+    Link as RACLink,
+} from "react-aria-components";
 import { tv } from "tailwind-variants";
 import { focusRing } from "../styles/focus-ring";
 import { forwardRef } from "../lib/forward-ref";
+import {
+    renderSlot,
+    type SlotNode,
+} from "../types/slotted-node";
 
-type Variant = "default" | "warning" | "caution" | "inverted";
+type Variant =
+    | "default"
+    | "yellow"
+    | "red"
+    | "inverted"
+    | "green";
 
 type TagProps = {
+    /**
+     * Whether the tag is a Button.
+     */
+    isButton?: boolean;
+    /**
+     * Whether the tag is a Link.
+     */
+    isLink?: boolean;
     /**
      * The visual appearance of the tag.
      */
@@ -19,23 +39,47 @@ type TagProps = {
      * Adds an optional dashed border to the tag.
      */
     isDashed?: boolean;
-
     /**
-     * The size of the tag.
+     * A decorative node (e.g. an icon) to render on the left side of the
+     * Tag. When a node is passed, the padding on the corresponding side is
+     * slightly reduced to maintain visual balance.
      */
-    size?: "sm" | "md";
+    slotLeft?: SlotNode;
+    /**
+     * A decorative node (e.g. an icon) to render on the right side of the
+     * Tag. When a node is passed, the padding on the corresponding side is
+     * slightly reduced to maintain visual balance.
+     */
+    slotRight?: SlotNode;
 };
 
 const tagStyles = tv({
     extend: focusRing,
     base: [
-        `inline-flex shrink-0 items-center justify-center gap-1.5 rounded-full border
-        text-center text-sm font-medium [&_svg]:size-4 [&_svg]:shrink-0`,
+        "h-ui-element min-w-6 text-sm",
+        "shadow-sm",
+        `inline-flex shrink-0 items-center justify-center gap-1.5
+        rounded-full border text-center font-medium [&_svg]:size-4
+        [&_svg]:shrink-0`,
+        // padding
+        "px-3 py-1.5",
+        "[&:has([data-slot=slot-left])]:pl-2.5",
+        "[&:has([data-slot=slot-right])]:pr-2.5",
+        // color vars
+        "[--bg:theme(colors.gray.50)]",
+        "[--bg-hover:theme(colors.gray.100)]",
+        "[--bg-pressed:theme(colors.gray.200)]",
+        "[--border:theme(colors.gray.300)]",
+        "[--text:theme(colors.gray.500)]",
+        // assignment
+        "border-[--border] bg-[--bg] text-[--text]",
+        // interactivity
+        "[&:is(a,button)]:hover:bg-[--bg-hover]",
+        "[&:is(a,button)]:pressed:bg-[--bg-pressed]",
     ],
     defaultVariants: {
         variant: "default",
         isDashed: false,
-        size: "md",
     },
     variants: {
         isDashed: {
@@ -43,25 +87,35 @@ const tagStyles = tv({
             false: "border-solid",
         },
         variant: {
-            default: [
-                "border-gray-400 bg-base text-secondary",
-                "[&:is(a,button)]:hover:border-gray-500 [&:is(a,button)]:hover:bg-gray-100",
-                "[&:is(a,button)]:pressed:bg-gray-200",
-                "group-invalid:text-invalid group-invalid:border-red-900 group-invalid:bg-red-50",
-                "group-invalid:[&:is(a,button)]:hover:bg-red-100",
-                "group-invalid:[&:is(a,button)]:pressed:bg-red-200",
+            default: [""],
+            green: [
+                "[--bg:theme(colors.green.50)]",
+                "[--bg-hover:theme(colors.green.100)]",
+                "[--bg-pressed:theme(colors.green.200)]",
+                "[--border:theme(colors.green.300)]",
+                "[--text:theme(colors.green.600)]",
             ],
-            warning: `border-red-900 bg-red-50 text-red-900 [&:is(a,button)]:hover:bg-red-100
-            [&:is(a,button)]:pressed:bg-red-200`,
-            caution: `border-yellow-800 bg-yellow-50 text-yellow-900
-            [&:is(a,button)]:hover:bg-yellow-100 [&:is(a,button)]:pressed:bg-yellow-200`,
-            inverted: `text-inverse border-gray-900 bg-gray-900 [&:is(a,button)]:hover:border-gray-800
-            [&:is(a,button)]:hover:bg-gray-800 [&:is(a,button)]:pressed:border-gray-700
-            [&:is(a,button)]:pressed:bg-gray-700`,
-        },
-        size: {
-            sm: "h-5 min-w-6 p-1.5 text-xs",
-            md: "h-7 min-w-8 p-2.5 text-sm",
+            red: [
+                "[--bg:theme(colors.red.50)]",
+                "[--bg-hover:theme(colors.red.100)]",
+                "[--bg-pressed:theme(colors.red.200)]",
+                "[--border:theme(colors.red.300)]",
+                "[--text:theme(colors.red.600)]",
+            ],
+            yellow: [
+                "[--bg:theme(colors.yellow.50)]",
+                "[--bg-hover:theme(colors.yellow.100)]",
+                "[--bg-pressed:theme(colors.yellow.200)]",
+                "[--border:theme(colors.yellow.300)]",
+                "[--text:theme(colors.yellow.600)]",
+            ],
+            inverted: [
+                "border-gray-800 bg-gray-800 text-gray-50",
+                "[&:is(a,button)]:hover:border-gray-800",
+                "[&:is(a,button)]:hover:bg-gray-800",
+                "[&:is(a,button)]:pressed:border-gray-700",
+                "[&:is(a,button)]:pressed:bg-gray-700",
+            ],
         },
     },
 });
@@ -71,18 +125,42 @@ const tagStyles = tv({
  */
 export const Tag = forwardRef<
     HTMLDivElement,
-    TagProps & Omit<HTMLProps<HTMLDivElement>, "size">
->(({ size, children, className, variant, isDashed, ...props }, ref) => {
-    return (
-        <div
-            {...props}
-            className={tagStyles({ variant, isDashed, className, size })}
-            ref={ref}
-        >
-            {children}
-        </div>
-    );
-});
+    TagProps & HTMLProps<HTMLDivElement>
+>(
+    (
+        {
+            children,
+            className,
+            slotLeft,
+            slotRight,
+            variant,
+            isDashed,
+            ...props
+        },
+        ref,
+    ) => {
+        return (
+            <div
+                {...props}
+                className={tagStyles({
+                    variant,
+                    isDashed,
+                    className,
+                })}
+                ref={ref}
+            >
+                {renderSlot(slotLeft, {
+                    "data-slot": "slot-left",
+                })}
+                {children}
+
+                {renderSlot(slotRight, {
+                    "data-slot": "slot-right",
+                })}
+            </div>
+        );
+    },
+);
 
 /**
  * Tag button component
@@ -90,41 +168,26 @@ export const Tag = forwardRef<
 export const TagButton = forwardRef<
     HTMLButtonElement,
     TagProps & RACButtonProps
->(({ size, children, className, variant, isDashed, ...props }, ref) => {
-    return (
-        <RACButton
-            {...props}
-            className={(rp) =>
-                tagStyles({
-                    variant,
-                    isDashed,
-                    size,
-                    className:
-                        typeof className === "function"
-                            ? className(rp)
-                            : className,
-                })
-            }
-            ref={ref}
-        >
-            {children}
-        </RACButton>
-    );
-});
-
-/**
- * Tag button component
- */
-export const TagLink = forwardRef<HTMLAnchorElement, TagProps & RACLinkProps>(
-    ({ size, children, className, variant, isDashed, ...props }, ref) => {
+>(
+    (
+        {
+            children,
+            className,
+            variant,
+            isDashed,
+            slotLeft,
+            slotRight,
+            ...props
+        },
+        ref,
+    ) => {
         return (
-            <RACLink
+            <RACButton
                 {...props}
                 className={(rp) =>
                     tagStyles({
                         variant,
                         isDashed,
-                        size,
                         className:
                             typeof className === "function"
                                 ? className(rp)
@@ -133,7 +196,73 @@ export const TagLink = forwardRef<HTMLAnchorElement, TagProps & RACLinkProps>(
                 }
                 ref={ref}
             >
-                {children}
+                {(renderProps) => (
+                    <>
+                        {renderSlot(slotLeft, {
+                            "data-slot": "slot-left",
+                        })}
+                        {typeof children === "function"
+                            ? children(renderProps)
+                            : children}
+
+                        {renderSlot(slotRight, {
+                            "data-slot": "slot-right",
+                        })}
+                    </>
+                )}
+            </RACButton>
+        );
+    },
+);
+
+/**
+ * Tag button component
+ */
+export const TagLink = forwardRef<
+    HTMLAnchorElement,
+    TagProps & RACLinkProps
+>(
+    (
+        {
+            children,
+            className,
+            slotLeft,
+            slotRight,
+            variant,
+            isDashed,
+            ...props
+        },
+        ref,
+    ) => {
+        return (
+            <RACLink
+                {...props}
+                className={(rp) =>
+                    tagStyles({
+                        variant,
+                        isDashed,
+                        className:
+                            typeof className === "function"
+                                ? className(rp)
+                                : className,
+                    })
+                }
+                ref={ref}
+            >
+                {(renderProps) => (
+                    <>
+                        {renderSlot(slotLeft, {
+                            "data-slot": "slot-left",
+                        })}
+                        {typeof children === "function"
+                            ? children(renderProps)
+                            : children}
+
+                        {renderSlot(slotRight, {
+                            "data-slot": "slot-right",
+                        })}
+                    </>
+                )}
             </RACLink>
         );
     },
