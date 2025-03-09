@@ -14,7 +14,9 @@ import type { OptionsSchema } from "../types/options";
 import { getMockOptions } from "../mocks/options";
 import type { ComponentProps } from "react";
 
-type ArgsList = StoryArgsList<Omit<ComponentProps<typeof Popover>, "children">>;
+type ArgsList = StoryArgsList<
+    Omit<ComponentProps<typeof Popover>, "children">
+>;
 
 const STORIES = {
     "Flat list": {
@@ -26,13 +28,19 @@ const STORIES = {
     "With sections": {
         popoverProps: {},
         menuProps: {
-            items: getMockOptions({ withIcon: true, withSections: true }),
+            items: getMockOptions({
+                withIcon: true,
+                withSections: true,
+            }),
         },
     },
     disabledKeys: {
         popoverProps: {},
         menuProps: {
-            items: getMockOptions({ withIcon: true, withSections: true }),
+            items: getMockOptions({
+                withIcon: true,
+                withSections: true,
+            }),
             disabledKeys: ["france", "germany", "spain"],
         },
     },
@@ -41,7 +49,10 @@ const STORIES = {
             placement: "bottom right",
         },
         menuProps: {
-            items: getMockOptions({ withIcon: true, withSections: true }),
+            items: getMockOptions({
+                withIcon: true,
+                withSections: true,
+            }),
         },
     },
     "Placement top left": {
@@ -49,13 +60,19 @@ const STORIES = {
             placement: "top left",
         },
         menuProps: {
-            items: getMockOptions({ withIcon: true, withSections: true }),
+            items: getMockOptions({
+                withIcon: true,
+                withSections: true,
+            }),
         },
     },
 } satisfies Record<
     string,
     {
-        popoverProps: Omit<ComponentProps<typeof Popover>, "children">;
+        popoverProps: Omit<
+            ComponentProps<typeof Popover>,
+            "children"
+        >;
         menuProps: ComponentProps<typeof Menu>;
     }
 >;
@@ -78,7 +95,10 @@ const Template = (args: ComponentProps<typeof Menu>) => {
                                     <IconMenu />
                                 </Button>
                                 <Popover {...popoverProps}>
-                                    <Menu {...args} {...menuProps} />
+                                    <Menu
+                                        {...args}
+                                        {...menuProps}
+                                    />
                                 </Popover>
                             </MenuTrigger>
                         </div>

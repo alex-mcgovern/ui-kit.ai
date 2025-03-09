@@ -201,7 +201,6 @@ const meta: Meta<typeof Table<StockWatchlistItem>> = {
         msw: {
             handlers: [getStocksHandler],
         },
-        layout: "fullscreen",
     },
     title: "Components/Table",
 };

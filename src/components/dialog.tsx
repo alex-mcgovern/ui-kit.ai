@@ -106,7 +106,40 @@ function DialogModalOverlay({
 /**
  * A dialog is an overlay shown above other content in an application.
  *
- * @see https://react-spectrum.adobe.com/react-aria/Dialog.html
+ * [source code](https://github.com/alex-mcgovern/boondoggle/tree/main/src/components/dialog.tsx)
+ * [react aria](https://react-spectrum.adobe.com/react-aria/Dialog)
+ *
+ * ## Usage
+ * ```tsx
+ * import {
+ *     Dialog,
+ *     DialogCloseButton,
+ *     DialogContent,
+ *     DialogFooter,
+ *     DialogHeader,
+ *     DialogTitle,
+ *     DialogTrigger,
+ * } from "boondoggle";
+ * ```
+ *
+ * ```tsx
+ * <Dialog>
+ *     <DialogHeader>
+ *         <DialogTitle>
+ *             // accessible name for the dialog
+ *         </DialogTitle>
+ *         <DialogCloseButton />
+ *     </DialogHeader>
+ *
+ *     <DialogContent>
+ *         // inner, scrollable content
+ *     </DialogContent>
+ *
+ *     <DialogFooter>
+ *         // content pinned to bottom, e.g. action buttons
+ *     </DialogFooter>
+ * </Dialog>
+ * ```
  */
 export function Dialog({
     width = "sm",

@@ -1,14 +1,19 @@
 import type { ListBoxProps as AriaListBoxProps } from "react-aria-components";
 import { ListBox as AriaListBox } from "react-aria-components";
 import type { OptionsSchema } from "../types/options";
-import { OptionRenderer } from "./options";
+import { INTERNAL_OptionRenderer } from "./options";
 
 type ListBoxProps<
-    T extends OptionsSchema<"listbox"> = OptionsSchema<"listbox">,
-> = Omit<AriaListBoxProps<T>, "layout" | "orientation" | "children">;
+    T extends
+        OptionsSchema<"listbox"> = OptionsSchema<"listbox">,
+> = Omit<
+    AriaListBoxProps<T>,
+    "layout" | "orientation" | "children"
+>;
 
 export function ListBox<
-    T extends OptionsSchema<"listbox"> = OptionsSchema<"listbox">,
+    T extends
+        OptionsSchema<"listbox"> = OptionsSchema<"listbox">,
 >(props: ListBoxProps<T>) {
     return (
         <AriaListBox
@@ -20,7 +25,12 @@ export function ListBox<
                 "outline-0"
             )}
         >
-            {(props) => <OptionRenderer {...props} type="listbox" />}
+            {(props) => (
+                <INTERNAL_OptionRenderer
+                    {...props}
+                    type="listbox"
+                />
+            )}
         </AriaListBox>
     );
 }

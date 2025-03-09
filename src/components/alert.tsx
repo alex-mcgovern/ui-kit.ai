@@ -36,12 +36,32 @@ const iconStyles = tv({
 });
 
 /**
- * An alert is a message that is displayed to the user.
+ * An alert is a message that is displayed to the user. It makes use of the ARIA
+ * role "alert" to highlight the importance of the message to assistive
+ * technologies.
  *
- * It makes use of the ARIA role "alert" to highlight the importance of the
- * message to assistive technologies.
+ * [source code](https://github.com/alex-mcgovern/boondoggle/tree/main/src/components/checkbox)
+ * [mdn web docs](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/alert_role)
  *
- * @see https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/alert_role
+ * ## Usage
+ * ```tsx
+ * import { Alert } from "boondoggle"
+ * ```
+ * ```tsx
+ * <Alert
+ *     {...args}
+ *     title="Account verification required"
+ *     description="Please verify your email so we can make sure your account is secure. A link has been sent to foo@bar.com."
+ *     actions={[
+ *         <Button key="verify" variant="secondary">
+ *             Dismiss
+ *         </Button>,
+ *         <Button key="resend" variant="primary">
+ *             Resend email
+ *         </Button>,
+ *     ]}
+ * />
+ * ```
  */
 export function Alert({
     description,

@@ -254,6 +254,21 @@ const ButtonLoadingState = ({
         children
     );
 
+/**
+ * A button allows a user to perform an action, with mouse, touch, and
+ * keyboard interactions.
+ *
+ * [source code](https://github.com/alex-mcgovern/boondoggle/tree/main/src/components/button)
+ * [react-aria](https://react-spectrum.adobe.com/react-aria/Button.html)
+ *
+ * ## Usage
+ * ```tsx
+ * import { Button } from "boondoggle"
+ * ```
+ * ```tsx
+ * <Button>Press me</Button>
+ * ```
+ */
 export const Button = forwardRef<
     HTMLButtonElement,
     ButtonProps
@@ -295,7 +310,6 @@ export const Button = forwardRef<
                         isPending={isPending}
                     >
                         {renderSlot(slotLeft, {
-                            // className: "max-h-5 min-w-5",
                             "data-slot": "slot-left",
                         })}
 
@@ -305,7 +319,6 @@ export const Button = forwardRef<
                             : props.children}
 
                         {renderSlot(slotRight, {
-                            // className: "max-h-5 min-w-5",
                             "data-slot": "slot-right",
                         })}
                     </ButtonLoadingState>

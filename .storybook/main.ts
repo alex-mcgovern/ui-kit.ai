@@ -1,4 +1,5 @@
 import { withoutVitePlugins } from "@storybook/builder-vite";
+import { StorybookConfig } from "@storybook/react-vite";
 
 const excludedProps = new Set([
     "id",
@@ -14,9 +15,11 @@ const excludedProps = new Set([
     "onInput",
 ]);
 
-/** @type { import('@storybook/react-vite').StorybookConfig } */
-const config = {
-    stories: ["../src/stories/**/*.tsx", "../src/docs/**/*.docs.mdx"],
+const config: StorybookConfig = {
+    stories: [
+        "../src/stories/**/*.tsx",
+        "../src/docs/**/*.docs.mdx",
+    ],
     addons: [
         "@storybook/addon-links",
         "@storybook/addon-essentials",
@@ -36,12 +39,15 @@ const config = {
         return {
             ...config,
             plugins: [
-                ...(await withoutVitePlugins(config.plugins, ["vite:dts"])),
+                ...(await withoutVitePlugins(
+                    config.plugins,
+                    ["vite:dts"],
+                )),
             ],
         };
     },
     docs: {
-        autodocs: false,
+        autodocs: true,
     },
     typescript: {
         reactDocgen: "react-docgen-typescript",

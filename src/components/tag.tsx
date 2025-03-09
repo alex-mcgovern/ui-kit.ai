@@ -9,7 +9,7 @@ import {
 } from "react-aria-components";
 import { tv } from "tailwind-variants";
 import { focusRing } from "../styles/focus-ring";
-import { forwardRef } from "../lib/forward-ref";
+import { genericForwardRef } from "../lib/forward-ref";
 import {
     renderSlot,
     type SlotNode,
@@ -123,7 +123,7 @@ const tagStyles = tv({
 /**
  * Tag component
  */
-export const Tag = forwardRef<
+export const Tag = genericForwardRef<
     HTMLDivElement,
     TagProps & HTMLProps<HTMLDivElement>
 >(
@@ -165,7 +165,7 @@ export const Tag = forwardRef<
 /**
  * Tag button component
  */
-export const TagButton = forwardRef<
+export const TagButton = genericForwardRef<
     HTMLButtonElement,
     TagProps & RACButtonProps
 >(
@@ -218,7 +218,7 @@ export const TagButton = forwardRef<
 /**
  * Tag button component
  */
-export const TagLink = forwardRef<
+export const TagLink = genericForwardRef<
     HTMLAnchorElement,
     TagProps & RACLinkProps
 >(

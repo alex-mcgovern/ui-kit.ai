@@ -17,20 +17,43 @@ export const flatList: Story = {
     args: { items: getMockOptions({ withIcon: true }) },
 };
 export const withSections: Story = {
-    args: { items: getMockOptions({ withIcon: true, withSections: true }) },
+    args: {
+        items: getMockOptions({
+            withIcon: true,
+            withSections: true,
+        }),
+    },
 };
 export const isInvalid: Story = {
-    args: { items: getMockOptions({ withIcon: true, withSections: true }) },
+    args: {
+        items: getMockOptions({
+            withIcon: true,
+            withSections: true,
+        }),
+    },
 };
 export const isDisabled: Story = {
-    args: { items: getMockOptions({ withIcon: true, withSections: true }) },
+    args: {
+        items: getMockOptions({
+            withIcon: true,
+            withSections: true,
+        }),
+    },
 };
 export const isBorderless: Story = {
-    args: { items: getMockOptions({ withIcon: true, withSections: true }) },
+    args: {
+        items: getMockOptions({
+            withIcon: true,
+            withSections: true,
+        }),
+    },
 };
 export const disabledKeys: Story = {
     args: {
-        items: getMockOptions({ withIcon: true, withSections: true }),
+        items: getMockOptions({
+            withIcon: true,
+            withSections: true,
+        }),
         disabledKeys: ["france", "germany", "spain"],
     },
 };

@@ -15,12 +15,19 @@ export type SlotNode = ReactElement<
     JSXElementConstructor<SlotNodeProps> | string
 >;
 
-export function renderSlot(node: SlotNode | undefined, props: SlotNodeProps) {
+export function renderSlot(
+    node: SlotNode | undefined,
+    props: SlotNodeProps,
+) {
     if (!node) return null;
 
     return cloneElement(node, {
         ...node.props,
         ...props,
-        className: twMerge(node.props.className, props.className),
+        className: twMerge(
+            "h-3 min-w-3",
+            node.props.className,
+            props.className,
+        ),
     });
 }

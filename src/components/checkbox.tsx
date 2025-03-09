@@ -1,7 +1,4 @@
-import type {
-    CheckboxProps as AriaCheckboxProps,
-    CheckboxGroupProps as AriaCheckboxGroupProps,
-} from "react-aria-components";
+import type { CheckboxProps as AriaCheckboxProps } from "react-aria-components";
 
 import {
     Check as IconCheck,
@@ -11,11 +8,9 @@ import React from "react";
 import {
     Checkbox as AriaCheckbox,
     composeRenderProps,
-    CheckboxGroup as AriaCheckboxGroup,
 } from "react-aria-components";
 import { tv } from "tailwind-variants";
 import { focusRing } from "../styles/focus-ring";
-import { twMerge } from "tailwind-merge";
 import { Label } from "./label";
 import { i18n } from "../i18n";
 import { Tag } from "./tag";
@@ -119,65 +114,6 @@ const iconStyles = tv({
     ],
 });
 
-/**
- * A checkbox group allows a user to select multiple items from a list of options.
- *
- * It can be composed with a Label and Description to correctly label the input
- * to assistive technologies, and provide extra context.
- *
- * [source code](https://github.com/alex-mcgovern/boondoggle/tree/main/src/components/checkbox)
- * &nbsp;|&nbsp;
- * [react aria](https://react-spectrum.adobe.com/react-aria/CheckboxGroup.html)
- *
- * ## Usage
- *
- * ```tsx
- * <CheckboxGroup defaultValue={["account-updates"]} {...args}>
- *     <Label>Communication preferences</Label>
- *     <Checkbox
- *         value="account-updates"
- *         isDisabled
- *         isRequired
- *         label="Account updates"
- *         description="Necessary emails about your account & account security."
- *     />
- *     <Checkbox
- *         value="newsletter"
- *         label="Newsletter"
- *         description="No more than one email per month with updates from our team."
- *     />
- *     <Checkbox
- *         value="promotions"
- *         label="Promotions and Offers"
- *         description="Deals, discounts and suggestions we think you'll love."
- *     />
- *     <Description>
- *         Your preferences can be updated at any time in your account
- *         settings.
- *     </Description>
- * </CheckboxGroup>
- * ```
- */
-export function CheckboxGroup(
-    props: AriaCheckboxGroupProps,
-) {
-    return (
-        <AriaCheckboxGroup
-            {...props}
-            className={(renderProps) =>
-                twMerge(
-                    "group",
-                    typeof props.className === "function"
-                        ? props.className(renderProps)
-                        : props.className,
-                )
-            }
-        >
-            {props.children}
-        </AriaCheckboxGroup>
-    );
-}
-
 function CheckboxLabel({
     label,
     isRequired,
@@ -192,9 +128,7 @@ function CheckboxLabel({
             <Label className="mb-0 flex items-center gap-1">
                 {label}
                 {isRequired ? (
-                    <Tag size="sm">
-                        {i18n.form.required}
-                    </Tag>
+                    <Tag>{i18n.form.required}</Tag>
                 ) : null}
             </Label>
             {description ? (
@@ -206,6 +140,23 @@ function CheckboxLabel({
     );
 }
 
+/**
+ * A checkbox allows a user to select multiple items from a list of individual
+ * items, or to mark one individual item as selected.
+ *
+ * [source code](https://github.com/alex-mcgovern/boondoggle/tree/main/src/components/checkbox)
+ * [react-aria](https://react-spectrum.adobe.com/react-aria/Checkbox.html)
+ *
+ * ## Usage
+ * ```tsx
+ * import { Checkbox } from "boondoggle"
+ * ```
+ * ```tsx
+ * <Checkbox
+ *     label="Checkbox item"
+ * />
+ * ```
+ */
 export function Checkbox({
     textPosition = "right",
     label,

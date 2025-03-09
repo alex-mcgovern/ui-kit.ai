@@ -4,7 +4,7 @@ import { Heading } from "../components/heading";
 import type { ComponentProps } from "react";
 import { type StoryArgsList } from "../types/storybook";
 
-const TEXT = "The swift brown fox jumped over the lazy dog";
+const TEXT = "Lorem ipsum dolor sit amet...";
 
 type ArgsList = StoryArgsList<
     ComponentProps<typeof Heading>

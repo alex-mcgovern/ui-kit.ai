@@ -6,7 +6,10 @@ import type {
 } from "react";
 import type { ComboBoxProps as AriaComboBoxProps } from "react-aria-components";
 
-import { ChevronsUpDown as IconChevronsUpDown, X as IconX } from "lucide-react";
+import {
+    ChevronsUpDown as IconChevronsUpDown,
+    X as IconX,
+} from "lucide-react";
 import React, {
     createContext,
     useContext,
@@ -23,11 +26,11 @@ import { twMerge } from "tailwind-merge";
 
 import type { OptionsSchema } from "../types/options";
 
-import { forwardRef } from "../lib/forward-ref";
+import { genericForwardRef } from "../lib/forward-ref";
 import { FieldButton } from "./field-button";
 import { FieldGroup } from "./field-group";
 import { Input } from "./input";
-import { OptionRenderer } from "./options";
+import { INTERNAL_OptionRenderer } from "./options";
 import { Popover } from "./popover";
 
 export function ComboBoxButton() {
@@ -41,7 +44,9 @@ export function ComboBoxButton() {
 export function ComboBoxClearButton() {
     const state = useContext(ComboBoxStateContext);
 
-    const isEmpty = state?.inputValue == null || state.inputValue === "";
+    const isEmpty =
+        state?.inputValue == null ||
+        state.inputValue === "";
 
     return (
         <FieldButton
@@ -52,7 +57,9 @@ export function ComboBoxClearButton() {
             }}
             className={twMerge(
                 "transition-opacity",
-                isEmpty ? "opacity-0" : "opacity-100",
+                isEmpty
+                    ? "invisible hidden opacity-0"
+                    : "opacity-100",
             )}
             slot={null} // Don't inherit default Button behavior from ComboBox.
         >
@@ -61,13 +68,18 @@ export function ComboBoxClearButton() {
     );
 }
 
-export function ComboBoxFieldGroup(props: ComponentProps<typeof FieldGroup>) {
+export function ComboBoxFieldGroup(
+    props: ComponentProps<typeof FieldGroup>,
+) {
     const ref = useContext(ComboBoxRefContext);
-    if (!ref) throw Error("ComboBoxFieldGroup must be used within a ComboBox");
+    if (!ref)
+        throw Error(
+            "ComboBoxFieldGroup must be used within a ComboBox",
+        );
     return <FieldGroup {...props} ref={ref} />;
 }
 
-export const ComboBoxInput = forwardRef<
+export const ComboBoxInput = genericForwardRef<
     HTMLInputElement,
     ComponentProps<typeof Input>
 >((props, ref) => {
@@ -86,18 +98,22 @@ export const ComboBoxInput = forwardRef<
                 toggle?.(null, "focus");
                 props.onClick?.(e);
             }}
-            placeholder={selectedItem?.value.name ?? props.placeholder ?? ""}
+            placeholder={
+                selectedItem?.value.name ??
+                props.placeholder ??
+                ""
+            }
             ref={ref}
         />
     );
 });
 
-const ComboBoxRefContext = createContext<null | RefObject<HTMLDivElement>>(
-    null,
-);
+const ComboBoxRefContext =
+    createContext<null | RefObject<HTMLDivElement>>(null);
 
 function BaseComboBox<
-    T extends OptionsSchema<"listbox"> = OptionsSchema<"listbox">,
+    T extends
+        OptionsSchema<"listbox"> = OptionsSchema<"listbox">,
 >(
     {
         children,
@@ -105,7 +121,10 @@ function BaseComboBox<
         renderEmptyState,
         ...props
     }: AriaComboBoxProps<T> &
-        Pick<ComponentProps<typeof ListBox>, "renderEmptyState">,
+        Pick<
+            ComponentProps<typeof ListBox>,
+            "renderEmptyState"
+        >,
     ref: ForwardedRef<HTMLDivElement>,
 ) {
     const [groupRef, groupWidth] = usePopoverWidth();
@@ -117,7 +136,8 @@ function BaseComboBox<
                 className={(renderProps) =>
                     twMerge(
                         "group relative w-full grow",
-                        typeof props.className === "function"
+                        typeof props.className ===
+                            "function"
                             ? props.className(renderProps)
                             : props.className,
                     )
@@ -142,10 +162,15 @@ function BaseComboBox<
                                 className="max-h-[inherit] overflow-auto p-1 outline-0
                                     [clip-path:inset(0_0_0_0_round_.25rem)]"
                                 items={items}
-                                renderEmptyState={renderEmptyState}
+                                renderEmptyState={
+                                    renderEmptyState
+                                }
                             >
                                 {(props) => (
-                                    <OptionRenderer {...props} type="listbox" />
+                                    <INTERNAL_OptionRenderer
+                                        {...props}
+                                        type="listbox"
+                                    />
                                 )}
                             </ListBox>
                         </Popover>
@@ -190,4 +215,4 @@ function usePopoverWidth() {
     return [ref, width] as const;
 }
 
-export const ComboBox = forwardRef(BaseComboBox);
+export const ComboBox = genericForwardRef(BaseComboBox);

@@ -27,7 +27,8 @@ type OptionsSectionProps<TType extends OptionType> =
 const optionStyle = tv({
     base: [
         "group/options-item",
-        "disabled:text-disabled disabled:forced-colors:text-[GrayText]",
+        `disabled:text-disabled
+        disabled:forced-colors:text-[GrayText]`,
         "flex items-center gap-2",
         "cursor-default",
         "text-sm text-primary",
@@ -37,18 +38,23 @@ const optionStyle = tv({
         // focus
         "forced-color-adjust-none",
         `focus:bg-gray-400 focus:text-white focus:open:bg-gray-400
-        focus:forced-colors:bg-[Highlight] focus:forced-colors:text-[HighlightText]`,
+        focus:forced-colors:bg-[Highlight]
+        focus:forced-colors:text-[HighlightText]`,
         // destructive
         "data-[destructive]:text-invalid",
         "data-[destructive]:focus:bg-red-400",
     ],
 });
 
-export function OptionRenderer<
+export function INTERNAL_OptionRenderer<
     TType extends OptionType,
     TItemId extends string = string,
     TValue extends object = object,
->(props: OptionsSchema<TType, TItemId, TValue> & { type: TType }) {
+>(
+    props: OptionsSchema<TType, TItemId, TValue> & {
+        type: TType;
+    },
+) {
     if (isItem(props)) {
         return <OptionsItem {...props} />;
     } else if (isSection(props)) {
@@ -77,7 +83,8 @@ function OptionsItem<TType extends OptionType>({
 }: OptionsSchema<TType> & {
     type: TType;
 }) {
-    const Component = type === "listbox" ? AriaListBoxItem : AriaMenuItem;
+    const Component =
+        type === "listbox" ? AriaListBoxItem : AriaMenuItem;
 
     return (
         <Component
@@ -106,15 +113,21 @@ function OptionsItem<TType extends OptionType>({
                                 "group-selected/options-item:font-semibold",
                             )}
                         >
-                            {props.children ?? props.textValue}
+                            {props.children ??
+                                props.textValue}
                         </span>
                         {props.description != null ? (
-                            <span className="truncate text-sm font-normal text-secondary group-focus/options-item:text-white">
+                            <span
+                                className="truncate text-sm font-normal text-secondary
+                                    group-focus/options-item:text-white"
+                            >
                                 {props.description}
                             </span>
                         ) : null}
                     </div>
-                    {isSelected ? <IconCheck className="size-3" /> : null}
+                    {isSelected ? (
+                        <IconCheck className="size-3" />
+                    ) : null}
                 </>
             )}
         </Component>
@@ -125,16 +138,23 @@ function OptionsSection<TType extends OptionType>({
     type,
     ...props
 }: OptionsSectionProps<TType>) {
-    const Component = type === "listbox" ? AriaListBoxSection : AriaMenuSection;
+    const Component =
+        type === "listbox"
+            ? AriaListBoxSection
+            : AriaMenuSection;
 
     return (
         <Component className="mb-2 last:mb-0">
             {props.textValue != null ? (
-                <OptionsSectionHeader>{props.textValue}</OptionsSectionHeader>
+                <OptionsSectionHeader>
+                    {props.textValue}
+                </OptionsSectionHeader>
             ) : null}
 
             <Collection items={props.items}>
-                {(props) => <OptionsItem {...props} type={type} />}
+                {(props) => (
+                    <OptionsItem {...props} type={type} />
+                )}
             </Collection>
         </Component>
     );

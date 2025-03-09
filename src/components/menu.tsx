@@ -11,7 +11,7 @@ import {
 
 import type { OptionsSchema } from "../types/options";
 
-import { OptionRenderer } from "./options";
+import { INTERNAL_OptionRenderer } from "./options";
 
 /**
  * A menu displays a list of actions or options that a user can choose.
@@ -24,11 +24,14 @@ export function Menu<T extends OptionsSchema<"menu">>(
     return (
         <RACMenu
             {...props}
-            className="scrollbar-thin max-h-[inherit] overflow-auto p-1 outline outline-0
-                [clip-path:inset(0_0_0_0_round_.75rem)]"
+            className="scrollbar-thin max-h-[inherit] overflow-auto p-1 outline
+                outline-0 [clip-path:inset(0_0_0_0_round_.75rem)]"
         >
             {(renderProps) => (
-                <OptionRenderer<"menu"> {...renderProps} type="menu" />
+                <INTERNAL_OptionRenderer<"menu">
+                    {...renderProps}
+                    type="menu"
+                />
             )}
         </RACMenu>
     );
@@ -41,7 +44,9 @@ export function Menu<T extends OptionsSchema<"menu">>(
  *
  * **Note** Compose this in the `Dropdown`, not in the `DropdownMenu`
  */
-export function MenuDecorativeSection(props: { children: ReactNode }) {
+export function MenuDecorativeSection(props: {
+    children: ReactNode;
+}) {
     return <div className="p-1" {...props} />;
 }
 

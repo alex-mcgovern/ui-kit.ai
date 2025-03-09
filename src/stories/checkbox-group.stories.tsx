@@ -1,11 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import {
-    Checkbox,
-    CheckboxGroup,
-} from "../components/checkbox";
+import { Checkbox } from "../components/checkbox";
 import React, { type ComponentProps } from "react";
 import { Label } from "../components/label";
 import { Description } from "../components/description";
+import { CheckboxGroup } from "../components/checkbox-group";
 
 export const Example = (
     args: ComponentProps<typeof CheckboxGroup>,
