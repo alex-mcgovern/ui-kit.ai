@@ -3,6 +3,21 @@ import type { LabelProps } from "react-aria-components";
 import { Text as RACText } from "react-aria-components";
 import { twMerge } from "tailwind-merge";
 
+/**
+ * A Description is text with attributes that improve screen reader
+ * announcements, usually used to provide more context on a field or control.
+ *
+ * [source code](https://github.com/alex-mcgovern/boondoggle/tree/main/src/components/description)
+ * [react-aria](https://react-spectrum.adobe.com/react-aria/accessibility.html)
+ *
+ * ## Usage
+ * ```tsx
+ * import { Description } from "boondoggle"
+ * ```
+ * ```tsx
+ * <Description>Your description here</Description>
+ * ```
+ */
 export function Description(props: LabelProps) {
     return (
         <RACText
@@ -12,7 +27,8 @@ export function Description(props: LabelProps) {
                 "mb-1 block w-fit cursor-default last:mt-2",
                 "text-sm font-normal text-secondary",
                 "group-invalid:text-invalid",
-                "group-disabled:opacity-disabled group-disabled:cursor-not-allowed",
+                `group-disabled:cursor-not-allowed
+                group-disabled:opacity-disabled`,
                 props.className,
             )}
         />

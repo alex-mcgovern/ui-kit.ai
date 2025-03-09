@@ -5,7 +5,7 @@ import { Label } from "../components/label";
 import { Description } from "../components/description";
 import { CheckboxGroup } from "../components/checkbox-group";
 
-export const Example = (
+const Template = (
     args: ComponentProps<typeof CheckboxGroup>,
 ) => (
     <CheckboxGroup
@@ -40,19 +40,19 @@ export const Example = (
 const meta = {
     title: "Components/CheckboxGroup",
     component: CheckboxGroup,
-    render: Example,
+    render: Template,
 } satisfies Meta<typeof CheckboxGroup>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const example: Story = {};
-export const isInvalid: Story = {
+export const Primary: Story = {};
+export const IsInvalid: Story = {
     args: {
         isInvalid: true,
     },
 };
-export const isDisabled: Story = {
+export const IsDisabled: Story = {
     args: {
         isDisabled: true,
     },

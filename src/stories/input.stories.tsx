@@ -22,27 +22,27 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const example: Story = {
+export const Primary: Story = {
     args: {
         icon: <SearchIcon />,
     },
 };
-export const withIcon: Story = {
+export const Icon: Story = {
     args: {
         icon: <SearchIcon />,
     },
 };
-export const isDisabled: Story = {
+export const Disabled: Story = {
     args: {
         ["aria-disabled"]: true,
     },
 };
-export const isInvalid: Story = {
+export const Invalid: Story = {
     args: {
         ["aria-invalid"]: true,
     },
 };
-export const isBorderless: Story = {
+export const Borderless: Story = {
     args: {
         isBorderless: true,
     },

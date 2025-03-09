@@ -11,6 +11,20 @@ type ListBoxProps<
     "layout" | "orientation" | "children"
 >;
 
+/**
+ * A listbox displays a list of options and allows a user to select one or more of them.
+ *
+ * [source code](https://github.com/alex-mcgovern/boondoggle/tree/main/src/components/listbox)
+ * [react-aria](https://react-spectrum.adobe.com/react-aria/ListBox.html)
+ *
+ * ## Usage
+ * ```tsx
+ * import { ListBox } from "boondoggle"
+ * ```
+ * ```tsx
+ * <ListBox items={[{ id: "item-1", textValue: "Item 1"}]} />
+ * ```
+ */
 export function ListBox<
     T extends
         OptionsSchema<"listbox"> = OptionsSchema<"listbox">,

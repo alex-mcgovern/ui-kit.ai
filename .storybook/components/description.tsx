@@ -7,6 +7,7 @@ import type { FC } from "react";
 import React from "react";
 import { TagLink } from "../../src/components/tag";
 import { ExternalLinkIcon } from "lucide-react";
+import { twMerge } from "tailwind-merge";
 export enum DescriptionType {
     INFO = "info",
     NOTES = "notes",
@@ -94,6 +95,17 @@ const DescriptionContainer: FC<DescriptionProps> = (
         <Markdown
             options={{
                 overrides: {
+                    p: {
+                        component: (props) => (
+                            <p
+                                {...props}
+                                className={twMerge(
+                                    props.className,
+                                    "max-w-[40rem]",
+                                )}
+                            />
+                        ),
+                    },
                     a: {
                         component: (props) => (
                             <TagLink
@@ -101,6 +113,7 @@ const DescriptionContainer: FC<DescriptionProps> = (
                                 slotRight={
                                     <ExternalLinkIcon />
                                 }
+                                target="_blank"
                             />
                         ),
                     },

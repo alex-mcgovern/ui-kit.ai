@@ -4,7 +4,7 @@ import {
     useFormContext,
 } from "react-hook-form";
 import type { OptionsSchema } from "../types/options";
-import { ComboBox } from "./combobox";
+import { ComboBox } from "./combo-box";
 import { FieldError } from "./field-error";
 
 /**

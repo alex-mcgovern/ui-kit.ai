@@ -107,7 +107,7 @@ function DialogModalOverlay({
  * A dialog is an overlay shown above other content in an application.
  *
  * [source code](https://github.com/alex-mcgovern/boondoggle/tree/main/src/components/dialog.tsx)
- * [react aria](https://react-spectrum.adobe.com/react-aria/Dialog)
+ * [react aria](https://react-spectrum.adobe.com/react-aria/Dialog.html)
  *
  * ## Usage
  * ```tsx

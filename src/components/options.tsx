@@ -46,6 +46,10 @@ const optionStyle = tv({
     ],
 });
 
+/**
+ * An OptionRenderer is an internal implementation detail, that handles
+ * rendering ListBox items or Menu items consistently.
+ */
 export function INTERNAL_OptionRenderer<
     TType extends OptionType,
     TItemId extends string = string,

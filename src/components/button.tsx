@@ -18,13 +18,6 @@ import {
 } from "../types/slotted-node";
 import { Loader } from "./loader";
 
-export const BUTTON_VARIANTS = [
-    "primary",
-    "secondary",
-    "tertiary",
-] as const;
-type ButtonVariantType = (typeof BUTTON_VARIANTS)[number];
-
 const buttonStyle = tv({
     base: [
         "rounded",
@@ -229,7 +222,7 @@ type ButtonCommonProps = {
      * - **`secondary`**: A less prominent button used for secondary actions, like "Cancel" or "Go Back." It should not compete visually with primary buttons.
      * - **`tertiary`**: A minimal-styled button for low-emphasis actions. Use this for links, "Learn More" buttons, or actions that don't require strong visual weight.
      */
-    variant?: ButtonVariantType;
+    variant?: "primary" | "secondary" | "tertiary";
 };
 
 type ButtonProps = ButtonCommonProps & RACButtonProps;

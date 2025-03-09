@@ -5,7 +5,7 @@ import {
     ComboBoxClearButton,
     ComboBoxFieldGroup,
     ComboBoxInput,
-} from "../components/combobox";
+} from "../components/combo-box";
 import { FieldGroup } from "../components/field-group";
 import { Input } from "../components/input";
 import { Kbd } from "../components/kbd";
@@ -33,7 +33,7 @@ export const WKbd: Story = {
     },
 };
 
-export const Example: Story = {
+export const Primary: Story = {
     args: {
         children: (
             <>

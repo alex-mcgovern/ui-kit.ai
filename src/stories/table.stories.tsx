@@ -481,7 +481,7 @@ function Template({
     );
 }
 
-export const example: Story = {
+export const Primary: Story = {
     args: {},
     name: "Table",
     render: Template,

@@ -20,22 +20,22 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const example: Story = {
+export const Primary: Story = {
     args: {
         textPosition: "right",
     },
 };
-export const textPositionRight: Story = {
+export const TextPositionRight: Story = {
     args: {
         textPosition: "right",
     },
 };
-export const textPositionLeft: Story = {
+export const TextPositionLeft: Story = {
     args: {
         textPosition: "left",
     },
 };
-export const isInvalid: Story = {
+export const IsInvalid: Story = {
     args: {
         isInvalid: true,
     },

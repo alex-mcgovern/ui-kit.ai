@@ -13,10 +13,10 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const flatList: Story = {
+export const Primary: Story = {
     args: { items: getMockOptions({ withIcon: true }) },
 };
-export const withSections: Story = {
+export const Sections: Story = {
     args: {
         items: getMockOptions({
             withIcon: true,
@@ -24,7 +24,7 @@ export const withSections: Story = {
         }),
     },
 };
-export const isInvalid: Story = {
+export const Invalid: Story = {
     args: {
         items: getMockOptions({
             withIcon: true,
@@ -32,7 +32,7 @@ export const isInvalid: Story = {
         }),
     },
 };
-export const isDisabled: Story = {
+export const IsDisabled: Story = {
     args: {
         items: getMockOptions({
             withIcon: true,
@@ -40,7 +40,7 @@ export const isDisabled: Story = {
         }),
     },
 };
-export const isBorderless: Story = {
+export const IsBorderless: Story = {
     args: {
         items: getMockOptions({
             withIcon: true,
@@ -48,7 +48,7 @@ export const isBorderless: Story = {
         }),
     },
 };
-export const disabledKeys: Story = {
+export const DisabledKeys: Story = {
     args: {
         items: getMockOptions({
             withIcon: true,

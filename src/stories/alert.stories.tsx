@@ -4,9 +4,7 @@ import { Alert } from "../components/alert";
 import { Button } from "../components/button";
 import type { ComponentProps } from "react";
 
-export function Example(
-    args: ComponentProps<typeof Alert>,
-) {
+function Template(args: ComponentProps<typeof Alert>) {
     return (
         <Alert
             {...args}
@@ -37,23 +35,31 @@ const meta = {
             </div>
         ),
     ],
-    render: Example,
+    render: Template,
 } satisfies Meta<typeof Alert>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const example: Story = {
+export const Primary: Story = {
     args: {
         variant: "default",
     },
 };
-export const invalid: Story = {
+/**
+ * Passing `"invalid"` to the `variant` prop will style the alert in red, to
+ * denote an error or invalid user action / scenario.
+ */
+export const Invalid: Story = {
     args: {
         variant: "invalid",
     },
 };
-export const inverted: Story = {
+/**
+ * Passing `"inverted"` to the `variant` prop will invert the colors in the
+ * alert. This can be used to add extra emphasis to the alert.
+ */
+export const Inverted: Story = {
     args: {
         variant: "inverted",
     },

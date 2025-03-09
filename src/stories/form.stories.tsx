@@ -20,7 +20,7 @@ import {
     ComboBoxClearButton,
     ComboBoxFieldGroup,
     ComboBoxInput,
-} from "../components/combobox";
+} from "../components/combo-box";
 import { Checkbox } from "../components/checkbox";
 import { Description } from "../components/description";
 import {
@@ -204,6 +204,6 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
+export const Primary: Story = {
     args: {},
 };

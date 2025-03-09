@@ -90,9 +90,31 @@ function INTERNAL_Select<
         </AriaSelect>
     );
 }
-
+/**
+ * A select displays a collapsible list of options and allows a user to select one of them.
+ *
+ * [source code](https://github.com/alex-mcgovern/boondoggle/tree/main/src/components/tooltip)
+ * [react-aria](https://react-spectrum.adobe.com/react-aria/Tooltip.html)
+ *
+ * ## Usage
+ * ```tsx
+ * import {
+ *     Select,
+ *     SelectButton
+ * } from "boondoggle"
+ * ```
+ * ```tsx
+ * <Select items={[{ id: "item-1", textValue: "Item 1"}]}>
+ *     <SelectButton />
+ * </Select>
+ * ```
+ */
 export const Select = genericForwardRef(INTERNAL_Select);
 
+/**
+ * A SelectButton triggers the Popover for a Select. It usually contains the
+ * selected item's text value.
+ */
 export function SelectButton({
     isBorderless,
     slotLeft,

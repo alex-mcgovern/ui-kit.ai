@@ -18,10 +18,27 @@ const heading = tv({
     },
 });
 
+/**
+ * A heading renders a semantic heading with pre-determined typography styles
+ *
+ * [source code](https://github.com/alex-mcgovern/boondoggle/tree/main/src/components/heading)
+ *
+ * ## Usage
+ * ```tsx
+ * import { Heading } from "boondoggle"
+ * ```
+ * ```tsx
+ * <Heading level={1}>
+ *     Lorem ipsum dolor sit amet...
+ * </Heading>
+ * ```
+ */
 export function Heading({
     level = 3,
     ...props
-}: Omit<AriaHeadingProps, "level"> & { level?: 1 | 2 | 3 | 4 | 5 | 6 }) {
+}: Omit<AriaHeadingProps, "level"> & {
+    level?: 1 | 2 | 3 | 4 | 5 | 6;
+}) {
     return (
         <AriaHeading
             {...props}

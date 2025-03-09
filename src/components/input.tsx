@@ -1,4 +1,8 @@
-import { type ComponentProps, forwardRef, type ReactNode } from "react";
+import {
+    type ComponentProps,
+    forwardRef,
+    type ReactNode,
+} from "react";
 import { Input as RACInput } from "react-aria-components";
 import { twMerge } from "tailwind-merge";
 import { tv } from "tailwind-variants";
@@ -6,7 +10,12 @@ import { tv } from "tailwind-variants";
 import { fieldVariants } from "../styles/field-variants";
 
 const inputStyles = tv({
-    base: ["px-3", "text-sm", "w-full", "text-start align-middle"],
+    base: [
+        "px-3",
+        "text-sm",
+        "w-full",
+        "text-start align-middle",
+    ],
     extend: fieldVariants,
     variants: {
         hasIcon: {
@@ -16,6 +25,20 @@ const inputStyles = tv({
     },
 });
 
+/**
+ * An Input is a primitive component used when composing fields, (e.g.
+ * TextField, SearchField, NumberField).
+ *
+ * [source code](https://github.com/alex-mcgovern/boondoggle/tree/main/src/components/description)
+ *
+ * ## Usage
+ * ```tsx
+ * import { Input } from "boondoggle"
+ * ```
+ * ```tsx
+ * <Input placeholder="Type something..." />
+ * ```
+ */
 export const Input = forwardRef<
     HTMLInputElement,
     ComponentProps<typeof RACInput> & {
@@ -47,7 +70,8 @@ export const Input = forwardRef<
                             hasIcon: Boolean(icon),
                             isBorderless,
                         }),
-                        typeof props.className === "function"
+                        typeof props.className ===
+                            "function"
                             ? props.className(rp)
                             : props.className,
                     )

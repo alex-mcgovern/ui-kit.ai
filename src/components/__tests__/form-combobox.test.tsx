@@ -3,7 +3,7 @@ import { userEvent } from "@testing-library/user-event";
 import { expect, it, vi } from "vitest";
 
 import { Button } from "../Button";
-import { ComboBoxInput } from "../ComboBox";
+import { ComboBoxInput } from "../combo-box";
 import { Label } from "../Label";
 import { Form } from "../form";
 import { FormComboBox } from "../form-combobox";

@@ -65,7 +65,9 @@ const Template = (args: ComponentProps<typeof Tooltip>) => {
                             <div>{name}</div>
                             <TooltipTrigger>
                                 {trigger}
-                                <Tooltip {...tooltipProps} />
+                                <Tooltip
+                                    {...tooltipProps}
+                                />
                             </TooltipTrigger>
                         </div>
                     );
@@ -83,7 +85,7 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
+export const Primary: Story = {
     args: {
         children: "This is the tooltip",
     },

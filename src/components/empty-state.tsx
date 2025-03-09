@@ -17,6 +17,31 @@ const actionsStyle = tv({
     },
 });
 
+/**
+ * A EmptyState is a fallback UI shown in the absence of data, e.g. for a search
+ * with no results, or before any records have been created. It accepts a list
+ * of up to 2 actions, which are React nodes.
+ *
+ * [source code](https://github.com/alex-mcgovern/boondoggle/tree/main/src/components/empty-state)
+ *
+ * ## Usage
+ * ```tsx
+ * import { EmptyState } from "boondoggle"
+ * import { SearchXIcon } from "lucide-react";
+ * ```
+ * ```tsx
+ * <EmptyState
+ *     title={'No search results for "foo-bar"'}
+ *     body="Try another search term, or clearing the search."
+ *     icon={SearchXIcon}a
+ *     actions={[
+ *         <Button key="clear-search">
+                Clear search
+            </Button>
+ *     ]}
+ * />
+ * ```
+ */
 export function EmptyState({
     actions,
     body,

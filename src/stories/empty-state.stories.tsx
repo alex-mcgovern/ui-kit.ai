@@ -7,7 +7,11 @@ import { EmptyState } from "../components/empty-state";
 
 const meta: Meta<typeof EmptyState> = {
     args: {
-        actions: [<Button key="clear-search">Clear search</Button>],
+        actions: [
+            <Button key="clear-search">
+                Clear search
+            </Button>,
+        ],
         body: "Try another search term, or clearing the search.",
         icon: SearchXIcon,
         title: 'No search results for "foo-bar"',
@@ -20,6 +24,6 @@ const meta: Meta<typeof EmptyState> = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Example: Story = {
+export const Primary: Story = {
     name: "EmptyState",
 };

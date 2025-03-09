@@ -1,9 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import type { ComponentProps, ComponentType } from "react";
+import type { ComponentType } from "react";
 
 import { faker } from "@faker-js/faker";
-import { Search as IconSearch } from "lucide-react";
-import { useState } from "react";
 
 import { Button } from "../components/button";
 import {
@@ -15,19 +13,6 @@ import {
     DialogTitle,
     DialogTrigger,
 } from "../components/dialog";
-import { Form } from "../components/form";
-import { Input } from "../components/input";
-import { Label } from "../components/label";
-import { SearchField } from "../components/search-field";
-
-const ShortContent = () => (
-    <p className="mb-2">
-        A modal dialog component powered by{" "}
-        <a href="https://react-spectrum.adobe.com/react-aria/Dialoghtml">
-            React Aria Components
-        </a>
-    </p>
-);
 
 const LongContent = () => (
     <>
@@ -133,7 +118,7 @@ const meta: Meta<typeof Dialog> = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const example: Story = {
+export const Primary: Story = {
     args: {
         children: ({ close }) => {
             return (
@@ -147,46 +132,6 @@ export const example: Story = {
 
                     <DialogContent>
                         <LongContent />
-                    </DialogContent>
-
-                    <DialogFooter>
-                        <Button
-                            className="ml-auto"
-                            onPress={() => close()}
-                            variant="secondary"
-                        >
-                            Cancel
-                        </Button>
-                        <Button
-                            onPress={() => {
-                                alert("Confirmed");
-                                close();
-                            }}
-                            type="submit"
-                        >
-                            Confirm
-                        </Button>
-                    </DialogFooter>
-                </>
-            );
-        },
-    },
-};
-
-export const WithShortContent: Story = {
-    args: {
-        children: ({ close }) => {
-            return (
-                <>
-                    <DialogHeader>
-                        <DialogTitle>
-                            Hello there
-                        </DialogTitle>
-                        <DialogCloseButton />
-                    </DialogHeader>
-
-                    <DialogContent>
-                        <ShortContent />
                     </DialogContent>
 
                     <DialogFooter>
@@ -292,175 +237,5 @@ export const WidthLg: Story = {
             );
         },
         width: "lg",
-    },
-};
-
-export const LgPhone: Story = {
-    parameters: {
-        viewport: { defaultViewport: "mobile2" },
-    },
-};
-
-export const SmPhone: Story = {
-    parameters: {
-        viewport: { defaultViewport: "mobile1" },
-    },
-};
-
-const ITEMS = [
-    { id: "chocolate", name: "Chocolate" },
-    { id: "mint", name: "Mint" },
-    { id: "strawberry", name: "Strawberry" },
-    { id: "vanilla", name: "Vanilla" },
-    { id: "caramel", name: "Caramel" },
-    { id: "peanut-butter", name: "Peanut Butter" },
-    { id: "coffee", name: "Coffee" },
-    { id: "rocky-road", name: "Rocky Road" },
-    { id: "cookies-and-cream", name: "Cookies and Cream" },
-    { id: "neapolitan", name: "Neapolitan" },
-    { id: "pistachio", name: "Pistachio" },
-    { id: "black-raspberry", name: "Black Raspberry" },
-    { id: "butter-pecan", name: "Butter Pecan" },
-    { id: "cherry", name: "Cherry" },
-    { id: "maple-walnut", name: "Maple Walnut" },
-    { id: "peach", name: "Peach" },
-    { id: "praline", name: "Praline" },
-];
-
-const FilterTemplate = (
-    props: ComponentProps<typeof Dialog>,
-) => {
-    const [searchString, setSearchString] = useState("");
-
-    const filtered = ITEMS.filter((item) => {
-        return item.name
-            .toLowerCase()
-            .includes(searchString.toLowerCase());
-    });
-
-    return (
-        <DialogTrigger>
-            <Button>Open dialog</Button>
-            <Dialog {...props}>
-                <DialogHeader>
-                    <DialogTitle>Filter me</DialogTitle>
-                    <SearchField
-                        aria-label="search"
-                        autoFocus
-                        className="-mr-3 ml-auto w-60"
-                        onChange={setSearchString}
-                    >
-                        <Input icon={<IconSearch />} />
-                    </SearchField>
-                </DialogHeader>
-
-                <DialogContent>
-                    {/* <ListBox
-                                renderEmptyState={() => {
-                                    return (
-                                        <p className="my-auto text-center">
-                                            No items found
-                                        </p>
-                                    );
-                                }}
-                            >
-                                {filtered.map((item) => (
-                                    <ListBoxItem key={item.id}>
-                                        {item.name}
-                                    </ListBoxItem>
-                                ))}
-                            </ListBox> */}
-                </DialogContent>
-
-                <DialogFooter>
-                    <Button
-                        className="ml-auto"
-                        onPress={() => close()}
-                        variant="secondary"
-                    >
-                        Cancel
-                    </Button>
-                    <Button
-                        onPress={() => {
-                            alert("Confirmed");
-                            close();
-                        }}
-                        type="submit"
-                    >
-                        Confirm
-                    </Button>
-                </DialogFooter>
-            </Dialog>
-        </DialogTrigger>
-    );
-};
-
-const CONFIRMATION_TEXT = "DELETE";
-
-const strLabel = (v: string) => `Type "${v}" to confirm`;
-
-export const ConfirmationDialog: Story = {
-    args: {
-        children: ({ close }) => {
-            return (
-                <>
-                    <DialogHeader>
-                        <DialogTitle>
-                            Delete account
-                        </DialogTitle>
-                        <DialogCloseButton />
-                    </DialogHeader>
-                    <DialogContent>
-                        <p>
-                            <strong>Warning</strong>:
-                            Deleting your account will:
-                        </p>
-                        <ul className="list-inside list-disc">
-                            <li>
-                                Delete all personal data.
-                            </li>
-                            <li>
-                                Delete all favorites and
-                                settings.
-                            </li>
-                            <li>
-                                Anonymise all of your
-                                contributions.
-                            </li>
-                        </ul>
-                    </DialogContent>
-                    <DialogFooter>
-                        <Form
-                            className="mb-4 w-full"
-                            onSubmit={() => {
-                                alert("Account deleted");
-                                close();
-                            }}
-                        >
-                            {/* <TextField
-                                className="mb-2"
-                                isRequired
-                                name="confirmation_text"
-                                validate={(v) =>
-                                    v === CONFIRMATION_TEXT
-                                        ? true
-                                        : "The text you entered doesn't match"
-                                }
-                            >
-                                <Label>{strLabel(CONFIRMATION_TEXT)}</Label>
-                                <Input />
-                            </TextField> */}
-                            <Button
-                                className="w-full"
-                                isDestructive
-                                type="submit"
-                            >
-                                Submit
-                            </Button>
-                        </Form>
-                    </DialogFooter>
-                </>
-            );
-        },
     },
 };

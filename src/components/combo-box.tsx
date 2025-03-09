@@ -33,15 +33,34 @@ import { Input } from "./input";
 import { INTERNAL_OptionRenderer } from "./options";
 import { Popover } from "./popover";
 
-export function ComboBoxButton() {
+/**
+ * A button that triggers the ComboBox Popover. Props such as onPress and
+ * isDisabled will be set by the ComboBox.
+ */
+export function ComboBoxButton(
+    props: Omit<
+        ComponentProps<typeof FieldButton>,
+        "onPress" | "isDisabled" | "children"
+    >,
+) {
     return (
-        <FieldButton>
+        <FieldButton {...props}>
             <IconChevronsUpDown aria-hidden />
         </FieldButton>
     );
 }
 
-export function ComboBoxClearButton() {
+/**
+ * A button that clears the selected key from the ComboBox. Only visible when
+ * the ComboBox has a selected key. Props such as onPress and isDisabled will be
+ * set by the ComboBox.
+ */
+export function ComboBoxClearButton(
+    props: Omit<
+        ComponentProps<typeof FieldButton>,
+        "onPress" | "isDisabled" | "children" | "slot"
+    >,
+) {
     const state = useContext(ComboBoxStateContext);
 
     const isEmpty =
@@ -50,17 +69,24 @@ export function ComboBoxClearButton() {
 
     return (
         <FieldButton
+            {...props}
             aria-label="Clear"
+            isDisabled={isEmpty}
             onPress={() => {
                 state?.setInputValue("");
                 state?.setSelectedKey(null);
             }}
-            className={twMerge(
-                "transition-opacity",
-                isEmpty
-                    ? "invisible hidden opacity-0"
-                    : "opacity-100",
-            )}
+            className={(renderProps) =>
+                twMerge(
+                    "transition-opacity",
+                    isEmpty
+                        ? "invisible hidden opacity-0"
+                        : "opacity-100",
+                    typeof props.className === "function"
+                        ? props.className(renderProps)
+                        : props.className,
+                )
+            }
             slot={null} // Don't inherit default Button behavior from ComboBox.
         >
             <IconX aria-hidden className="size-4" />
@@ -68,6 +94,11 @@ export function ComboBoxClearButton() {
     );
 }
 
+/**
+ * A group that holds a ComboBoxInput and the related button controls.
+ * Responsible for setting a ref used to measure the input and size the Popover
+ * correctly.
+ */
 export function ComboBoxFieldGroup(
     props: ComponentProps<typeof FieldGroup>,
 ) {
@@ -79,6 +110,10 @@ export function ComboBoxFieldGroup(
     return <FieldGroup {...props} ref={ref} />;
 }
 
+/**
+ * An input that is used to interact with a ComboBox. Is customized to
+ * toggle the ComboBox on click.
+ */
 export const ComboBoxInput = genericForwardRef<
     HTMLInputElement,
     ComponentProps<typeof Input>
@@ -215,4 +250,35 @@ function usePopoverWidth() {
     return [ref, width] as const;
 }
 
+/**
+ * A combo box combines a text input with a listbox, allowing users to filter a
+ * list of options to items matching a query.
+ *
+ * [source code](https://github.com/alex-mcgovern/boondoggle/tree/main/src/components/combobox)
+ * [react-aria](https://react-spectrum.adobe.com/react-aria/ComboBox.html)
+ *
+ * ## Usage
+ * ```tsx
+ * import {
+ *     ComboBox,
+ *     ComboBoxFieldGroup,
+ *     ComboBoxButton,
+ *     ComboBoxInput,
+ *     ComboBoxClearButton
+ * } from "boondoggle"
+ * ```
+ * ```tsx
+ * <ComboBox items={[{ id: "item-1", textValue: "Item 1"}]}>
+ *     <ComboBoxFieldGroup>
+ *         <ComboBoxInput
+ *             isBorderless
+ *             icon={<SearchIcon />}
+ *             placeholder="Type to search..."
+ *         />
+ *         <ComboBoxClearButton />
+ *         <ComboBoxButton />
+ *     </ComboBoxFieldGroup>
+ * </ComboBox>
+ * ```
+ */
 export const ComboBox = genericForwardRef(BaseComboBox);

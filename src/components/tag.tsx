@@ -56,11 +56,12 @@ type TagProps = {
 const tagStyles = tv({
     extend: focusRing,
     base: [
-        "h-ui-element min-w-6 text-sm",
+        "h-6 min-w-6",
+        "text-center text-sm font-normal",
         "shadow-sm",
-        `inline-flex shrink-0 items-center justify-center gap-1.5
-        rounded-full border text-center font-medium [&_svg]:size-4
-        [&_svg]:shrink-0`,
+        "inline-flex shrink-0 items-center justify-center gap-1.5",
+        "rounded-full border",
+        "[&_svg]:size-4 [&_svg]:shrink-0",
         // padding
         "px-3 py-1.5",
         "[&:has([data-slot=slot-left])]:pl-2.5",

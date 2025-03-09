@@ -25,7 +25,7 @@ const LEVELS = [1, 2, 3, 4, 5, 6] satisfies ComponentProps<
     typeof Heading
 >["level"][];
 
-export const example: Story = {
+export const Primary: Story = {
     args: {
         children: TEXT,
     },

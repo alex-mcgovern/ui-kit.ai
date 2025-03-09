@@ -9,8 +9,17 @@ import { Button } from "./button";
  * to add additional functionality to a field. The `slot` prop is used to connect the
  * button to the field.
  *
- * @see https://react-spectrum.adobe.com/react-aria/Button.html
- * @see https://react-spectrum.adobe.com/react-aria/advanced.html#slots
+ * [react-aria](https://react-spectrum.adobe.com/react-aria/Button.html)
+ *
+ * ## Usage
+ * ```tsx
+ * import { FieldButton } from "boondoggle"
+ * import { XIcon } from "lucide-react"
+ * ```
+ * ```tsx
+ * <FieldButton>
+ *     <XIcon />
+ * </FieldButton>
  */
 export function FieldButton({
     ...props
@@ -27,8 +36,9 @@ export function FieldButton({
                 twMerge(
                     "!size-6",
                     "align-middle",
-                    "group-invalid:text-invalid text-secondary",
-                    "group-invalid:hover:bg-red-50 group-invalid:pressed:bg-red-50",
+                    "text-secondary group-invalid:text-invalid",
+                    `group-invalid:hover:bg-red-50
+                    group-invalid:pressed:bg-red-50`,
                     "last-of-type:mr-1 [&:not(:last-of-type)]:mr-px",
                     "[&_svg]:size-3 [&_svg]:shrink-0",
                     typeof props.className === "function"

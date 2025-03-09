@@ -16,7 +16,8 @@ import { tv } from "tailwind-variants";
 
 import { Button } from "./button";
 
-interface TooltipProps extends Omit<RACTooltipProps, "children"> {
+interface TooltipProps
+    extends Omit<RACTooltipProps, "children"> {
     children: React.ReactNode;
 }
 
@@ -53,6 +54,9 @@ const tooltipStyles = tv({
     ],
 });
 
+/**
+ * A wrapper around an element that can receive focus that controls the tooltip.
+ */
 export function TooltipTrigger({
     delay = 0,
     ...props
@@ -65,7 +69,10 @@ export function TooltipTrigger({
  */
 export const TooltipInfoButton = forwardRef<
     HTMLButtonElement,
-    Omit<ComponentProps<typeof Button>, "children" | "isIcon" | "variant">
+    Omit<
+        ComponentProps<typeof Button>,
+        "children" | "isIcon" | "variant"
+    >
 >((props, ref) => {
     return (
         <Button
@@ -89,27 +96,50 @@ export const TooltipInfoButton = forwardRef<
 
 /**
  * A tooltip displays a description of an element on hover or focus.
- * @see https://react-spectrum.adobe.com/react-aria/Tooltip.html
  *
- * NOTE: Tooltips cannot contain a focusable element. That would break accessibility.
- * Because the tooltip itself never receives focus and is not in the tabbing order, a tooltip can not contain interactive elements like links, inputs, or buttons.
- * @see https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/tooltip_role#description
+ * NOTE: Tooltips cannot contain a focusable element. That would break
+ * accessibility. Because the tooltip itself never receives focus and is not in
+ * the tabbing order, a tooltip can not contain interactive elements like links,
+ * inputs, or buttons.
+ *
+ * [source code](https://github.com/alex-mcgovern/boondoggle/tree/main/src/components/tooltip)
+ * [react-aria](https://react-spectrum.adobe.com/react-aria/Tooltip.html)
+ * [mdn-web-docs](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/tooltip_role#description)
+ *
+ * ## Usage
+ * ```tsx
+ * import { TooltipTrigger, TooltipInfoButton, Tooltip } from "boondoggle"
+ * ```
+ * ```tsx
+ * <TooltipTrigger>
+ *     <TooltipInfoButton />
+ *     <Tooltip>Extra content shown on hover</Tooltip>
+ * </TooltipTrigger>
+ * ```
  */
-export function Tooltip({ children, ...props }: TooltipProps) {
+export function Tooltip({
+    children,
+    ...props
+}: TooltipProps) {
     return (
         <RACTooltip
             {...props}
             className={composeRenderProps(
                 props.className,
                 (className, renderProps) =>
-                    tooltipStyles({ ...renderProps, className }),
+                    tooltipStyles({
+                        ...renderProps,
+                        className,
+                    }),
             )}
             offset={10}
         >
             <OverlayArrow>
                 <svg
-                    className="fill-gray-800 group-placement-left:-rotate-90 group-placement-right:rotate-90
-                        group-placement-bottom:rotate-180 forced-colors:fill-[Canvas]
+                    className="fill-gray-800 group-placement-left:-rotate-90
+                        group-placement-right:rotate-90
+                        group-placement-bottom:rotate-180
+                        forced-colors:fill-[Canvas]
                         forced-colors:stroke-[ButtonBorder]"
                     height={8}
                     viewBox="0 0 8 8"

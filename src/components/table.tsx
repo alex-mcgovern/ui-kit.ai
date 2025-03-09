@@ -14,7 +14,11 @@ import {
     ArrowUpDown as IconArrowsUpDown,
     ArrowUp as IconArrowUp,
 } from "lucide-react";
-import React, { type ComponentProps, type ReactNode, useMemo } from "react";
+import React, {
+    type ComponentProps,
+    type ReactNode,
+    useMemo,
+} from "react";
 import {
     Button as AriaButton,
     Cell as AriaCell,
@@ -82,26 +86,32 @@ type TableProps = AriaTableProps & {
     isCompact?: boolean;
 };
 
-export type GetRowOptionsFn<T extends BaseRow = BaseRow> = (props: {
-    columns: TableColumnSchema<T>[];
-    row: T;
-}) => OptionsSchema<"menu">[];
+export type GetRowOptionsFn<T extends BaseRow = BaseRow> =
+    (props: {
+        columns: TableColumnSchema<T>[];
+        row: T;
+    }) => OptionsSchema<"menu">[];
 
-export type TableCellRenderer<TRow extends BaseRow = BaseRow> = (props: {
+export type TableCellRenderer<
+    TRow extends BaseRow = BaseRow,
+> = (props: {
     column: TableColumnSchema<TRow>;
     row: TRow;
 }) => ReactNode;
 
-export type TableColumnSchema<T extends BaseRow = BaseRow> = Omit<
-    AriaColumnProps,
-    "children" | "id" | "textValue"
-> & {
-    alignment?: "center" | "end" | "start";
-    id: keyof T;
-    textValue: string;
-};
+export type TableColumnSchema<T extends BaseRow = BaseRow> =
+    Omit<
+        AriaColumnProps,
+        "children" | "id" | "textValue"
+    > & {
+        alignment?: "center" | "end" | "start";
+        id: keyof T;
+        textValue: string;
+    };
 
-export type TableRendererProps<TRow extends BaseRow = BaseRow> = Omit<
+export type TableRendererProps<
+    TRow extends BaseRow = BaseRow,
+> = Omit<
     TableProps,
     "aria-label" | "children" | "className" | "items"
 > & {
@@ -115,7 +125,9 @@ export type TableRendererProps<TRow extends BaseRow = BaseRow> = Omit<
      *
      * @note This behavior interacts with the `showSkeleton` prop.
      */
-    renderEmptyState: ComponentProps<typeof TableBody>["renderEmptyState"];
+    renderEmptyState: ComponentProps<
+        typeof TableBody
+    >["renderEmptyState"];
     rows: TRow[];
     /**
      * If set to true, will render an overlay containing a loading "spinner" and
@@ -155,7 +167,8 @@ const columnStyles = tv({
         "h-6 text-sm",
         "text-start",
         "px-2 py-1",
-        "group-data-[compact]/table:first:pl-0 group-data-[compact]/table:last:pr-0",
+        `group-data-[compact]/table:first:pl-0
+        group-data-[compact]/table:last:pr-0`,
         "font-semibold",
         "flex flex-1 items-center gap-1",
         "-outline-offset-2",
@@ -176,7 +189,8 @@ const cellStyles = tv({
         "px-2",
         "transition-colors",
         "-outline-offset-2",
-        "group-data-[compact]/table:first:pl-0 group-data-[compact]/table:last:pr-0",
+        `group-data-[compact]/table:first:pl-0
+        group-data-[compact]/table:last:pr-0`,
         // border styles
         "border-b border-gray-200",
     ],
@@ -227,9 +241,10 @@ const cellSkeletonStyles = tv({
 });
 
 const resizerStyles = tv({
-    base: `box-content h-5 w-px translate-x-[8px] cursor-col-resize rounded bg-gray-400
-    bg-clip-content px-[8px] py-1 -outline-offset-2 resizing:w-[2px]
-    resizing:bg-brand-600 resizing:pl-[7px] forced-colors:bg-[ButtonBorder]
+    base: `box-content h-5 w-px translate-x-[8px] cursor-col-resize
+    rounded bg-gray-400 bg-clip-content px-[8px] py-1
+    -outline-offset-2 resizing:w-[2px] resizing:bg-brand-600
+    resizing:pl-[7px] forced-colors:bg-[ButtonBorder]
     forced-colors:resizing:bg-[Highlight]`,
     extend: focusRing,
 });
@@ -250,7 +265,9 @@ function Cell({
             className={(rp) =>
                 twMerge(
                     cellStyles({ alignment }),
-                    typeof className === "function" ? className(rp) : className,
+                    typeof className === "function"
+                        ? className(rp)
+                        : className,
                 )
             }
         >
@@ -283,7 +300,9 @@ function Column({
             className={(rp) =>
                 twMerge(
                     columnWrapperStyles(),
-                    typeof className === "function" ? className(rp) : className,
+                    typeof className === "function"
+                        ? className(rp)
+                        : className,
                 )
             }
             textValue={textValue}
@@ -291,7 +310,9 @@ function Column({
             {({ allowsSorting, sortDirection }) => (
                 <div className="flex items-center">
                     <Group
-                        className={() => columnStyles({ alignment })}
+                        className={() =>
+                            columnStyles({ alignment })
+                        }
                         role="presentation"
                         tabIndex={-1}
                     >
@@ -300,12 +321,18 @@ function Column({
                         </span>
 
                         {allowsSorting ? (
-                            <ColumnSortControl sortDirection={sortDirection} />
+                            <ColumnSortControl
+                                sortDirection={
+                                    sortDirection
+                                }
+                            />
                         ) : null}
                     </Group>
 
                     {props.width != null && (
-                        <ColumnResizer className={resizerStyles()} />
+                        <ColumnResizer
+                            className={resizerStyles()}
+                        />
                     )}
                 </div>
             )}
@@ -325,7 +352,9 @@ function ColumnSortControl({
                 "size-3",
                 "transition-opacity",
                 "forced-colors:text-[ButtonText]",
-                sortDirection === "descending" ? "rotate-180" : null,
+                sortDirection === "descending"
+                    ? "rotate-180"
+                    : null,
                 !sortDirection ? "opacity-disabled" : null,
             )}
         >
@@ -353,7 +382,9 @@ function getSkeletonRows(count: number = 15) {
         id: i.toString(),
     }));
 }
-function ResizableTableContainer(props: ResizableTableContainerProps) {
+function ResizableTableContainer(
+    props: ResizableTableContainerProps,
+) {
     return (
         <AriaTableContainer
             {...props}
@@ -367,7 +398,10 @@ function ResizableTableContainer(props: ResizableTableContainerProps) {
     );
 }
 
-function Row<T extends BaseRow, TColumn extends TableColumnSchema<T>>({
+function Row<
+    T extends BaseRow,
+    TColumn extends TableColumnSchema<T>,
+>({
     children,
     className,
     columns,
@@ -375,7 +409,8 @@ function Row<T extends BaseRow, TColumn extends TableColumnSchema<T>>({
     rowOptions = [],
     ...props
 }: RowProps<T, TColumn>) {
-    const { allowsDragging, selectionBehavior } = useTableOptions();
+    const { allowsDragging, selectionBehavior } =
+        useTableOptions();
 
     return (
         <AriaRow
@@ -384,7 +419,9 @@ function Row<T extends BaseRow, TColumn extends TableColumnSchema<T>>({
             className={(rp) =>
                 twMerge(
                     rowStyles(),
-                    typeof className === "function" ? className(rp) : className,
+                    typeof className === "function"
+                        ? className(rp)
+                        : className,
                 )
             }
         >
@@ -399,7 +436,9 @@ function Row<T extends BaseRow, TColumn extends TableColumnSchema<T>>({
                     <Checkbox slot="selection" />
                 </Cell>
             )}
-            <Collection items={columns}>{children}</Collection>
+            <Collection items={columns}>
+                {children}
+            </Collection>
 
             {rowOptions.length > 0 && (
                 <Cell alignment="center" className="px-0">
@@ -421,14 +460,21 @@ function Row<T extends BaseRow, TColumn extends TableColumnSchema<T>>({
     );
 }
 
-function TableBase({ className, isCompact, ...props }: TableProps) {
+function TableBase({
+    className,
+    isCompact,
+    ...props
+}: TableProps) {
     return (
         <AriaTable
             {...props}
             className={(rp) =>
                 twMerge(
-                    "group/table w-full border-separate border-spacing-0 focus:outline-0",
-                    typeof className === "function" ? className(rp) : className,
+                    `group/table w-full border-separate border-spacing-0
+                    focus:outline-0`,
+                    typeof className === "function"
+                        ? className(rp)
+                        : className,
                 )
             }
             data-compact={isCompact}
@@ -436,16 +482,24 @@ function TableBase({ className, isCompact, ...props }: TableProps) {
     );
 }
 
-function TableBody<T extends object>(props: TableBodyProps<T>) {
+function TableBody<T extends object>(
+    props: TableBodyProps<T>,
+) {
     return <RACTableBody<T> {...props} />;
 }
 
-function TableHeader<TColumn extends object, TRow extends BaseRow>({
+function TableHeader<
+    TColumn extends object,
+    TRow extends BaseRow,
+>({
     getRowOptions,
     ...props
 }: TableHeaderProps<TColumn, TRow>) {
-    const { allowsDragging, selectionBehavior, selectionMode } =
-        useTableOptions();
+    const {
+        allowsDragging,
+        selectionBehavior,
+        selectionMode,
+    } = useTableOptions();
 
     return (
         <AriaTableHeader {...props}>
@@ -473,7 +527,9 @@ function TableHeader<TColumn extends object, TRow extends BaseRow>({
                 </Column>
             ) : null}
 
-            <Collection items={props.columns}>{props.children}</Collection>
+            <Collection items={props.columns}>
+                {props.children}
+            </Collection>
 
             {getRowOptions != null ? (
                 <Column
@@ -490,7 +546,11 @@ function TableHeader<TColumn extends object, TRow extends BaseRow>({
     );
 }
 
-function TableLoadingOverlay({ showOverlay }: { showOverlay: boolean }) {
+function TableLoadingOverlay({
+    showOverlay,
+}: {
+    showOverlay: boolean;
+}) {
     return (
         <div
             className={twMerge(
@@ -499,7 +559,9 @@ function TableLoadingOverlay({ showOverlay }: { showOverlay: boolean }) {
                 "absolute inset-0 z-10",
                 "transition-opacity",
                 "flex items-center justify-center",
-                showOverlay === true ? "opacity-100" : "opacity-0",
+                showOverlay === true
+                    ? "opacity-100"
+                    : "opacity-0",
             )}
         >
             <Loader className="size-[theme(height.ui-element)] stroke-1" />
@@ -508,19 +570,32 @@ function TableLoadingOverlay({ showOverlay }: { showOverlay: boolean }) {
 }
 
 function useSkeleton(
-    _showSkeleton: BoolOptsTuple<{ skeletonRowCount?: number }> | undefined,
+    _showSkeleton:
+        | BoolOptsTuple<{ skeletonRowCount?: number }>
+        | undefined,
 ): [boolean, BaseRow[]] {
     const [showSkeleton, { skeletonRowCount }] =
         evalBoolOptsTuple(_showSkeleton);
 
     const skeletonRows = useMemo(
-        () => (showSkeleton === true ? getSkeletonRows(skeletonRowCount) : []),
+        () =>
+            showSkeleton === true
+                ? getSkeletonRows(skeletonRowCount)
+                : [],
         [showSkeleton, skeletonRowCount],
     );
 
     return [showSkeleton, skeletonRows];
 }
 
+/**
+ * A table displays data in rows and columns and enables a user to navigate its
+ * contents via directional navigation keys, and optionally supports row
+ * selection and sorting.
+ *
+ * [source code](https://github.com/alex-mcgovern/boondoggle/tree/main/src/components/table)
+ * [react-aria](https://react-spectrum.adobe.com/react-aria/Table.html#tooltip)
+ */
 export function Table<TRow extends BaseRow = BaseRow>({
     "aria-label": ariaLabel,
     cellRenderer: CellRenderer = DefaultCellRenderer<TRow>,
@@ -533,7 +608,8 @@ export function Table<TRow extends BaseRow = BaseRow>({
     showSkeleton: _showSkeleton,
     ...rest
 }: TableRendererProps<TRow>) {
-    const [showSkeleton, skeletonRows] = useSkeleton(_showSkeleton);
+    const [showSkeleton, skeletonRows] =
+        useSkeleton(_showSkeleton);
 
     const rowsToRender = useMemo(() => {
         return showSkeleton === true ? skeletonRows : rows;
@@ -541,17 +617,25 @@ export function Table<TRow extends BaseRow = BaseRow>({
 
     return (
         <ResizableTableContainer className={className}>
-            <TableLoadingOverlay showOverlay={showLoadingOverlayUI === true} />
+            <TableLoadingOverlay
+                showOverlay={showLoadingOverlayUI === true}
+            />
             <TableBase aria-label={ariaLabel} {...rest}>
                 <TableHeader<(typeof columns)[number], TRow>
                     columns={columns}
                     getRowOptions={getRowOptions}
                 >
-                    {(column) => <Column {...column} id={column.id} />}
+                    {(column) => (
+                        <Column
+                            {...column}
+                            id={column.id}
+                        />
+                    )}
                 </TableHeader>
                 <TableBody
                     items={rowsToRender}
-                    {...(showSkeleton !== true && renderEmptyState != null
+                    {...(showSkeleton !== true &&
+                    renderEmptyState != null
                         ? { renderEmptyState }
                         : {})}
                 >
@@ -565,10 +649,14 @@ export function Table<TRow extends BaseRow = BaseRow>({
                                 : [];
 
                         return (
-                            <Row<TRow, (typeof columns)[number]>
+                            <Row<
+                                TRow,
+                                (typeof columns)[number]
+                            >
                                 className={twMerge(
                                     showSkeleton === true ||
-                                        showLoadingOverlayUI === true
+                                        showLoadingOverlayUI ===
+                                            true
                                         ? "cursor-progress"
                                         : "",
                                 )}
@@ -579,14 +667,19 @@ export function Table<TRow extends BaseRow = BaseRow>({
                             >
                                 {(column) => (
                                     <Cell
-                                        alignment={column.alignment}
+                                        alignment={
+                                            column.alignment
+                                        }
                                         className={
-                                            typeof column.className === "string"
+                                            typeof column.className ===
+                                            "string"
                                                 ? column.className
                                                 : undefined
                                         }
                                         id={column.id}
-                                        showSkeleton={showSkeleton}
+                                        showSkeleton={
+                                            showSkeleton
+                                        }
                                     >
                                         <CellRenderer<TRow>
                                             column={column}

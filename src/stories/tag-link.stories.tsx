@@ -72,7 +72,7 @@ type Variant = Exclude<
     undefined
 >;
 
-export const example: Story = {
+export const Primary: Story = {
     args: {},
     render: Example,
 };
