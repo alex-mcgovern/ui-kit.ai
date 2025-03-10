@@ -21,6 +21,7 @@ import { Usage } from "./components/usage";
 import { MDXProvider } from "@mdx-js/react";
 
 import { DocsContainer as StorybookDocsContainer } from "@storybook/blocks";
+import { type Preview } from "@storybook/react";
 
 const DocsContainer = (props) => (
     <MDXProvider
@@ -39,13 +40,14 @@ const DocsContainer = (props) => (
 
 initializeMsw();
 
-const preview = {
+const preview: Preview = {
     parameters: {
         docs: {
             theme,
             toc: {
                 headingSelector: "h2, h3",
             },
+
             page: () => (
                 <>
                     <Title />
