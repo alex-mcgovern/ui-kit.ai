@@ -48,7 +48,7 @@ const checkboxContainerStyles = tv({
     variants: {
         isDisabled: {
             false: "",
-            true: "text-gray-600",
+            true: "text-muted-600",
         },
     },
 });
@@ -56,7 +56,7 @@ const checkboxContainerStyles = tv({
 const boxStyles = tv({
     base: [
         "bg-base",
-        "border border-gray-400",
+        "border-muted-400 border",
         "size-4",
         "transition-colors",
         "flex flex-shrink-0 items-center justify-center",
@@ -64,19 +64,19 @@ const boxStyles = tv({
         // disabled
         "group-disabled:opacity-disabled",
         // hover
-        "group-hover:bg-gray-100",
-        "group-hover:border-gray-400",
+        "group-hover:bg-muted-100",
+        "group-hover:border-muted-400",
 
         // selected
-        "group-selected:bg-gray-700",
-        "group-selected:group-hover:bg-gray-600",
-        "group-selected:border-gray-700",
-        "group-selected:group-hover:border-gray-600",
+        "group-selected:bg-muted-700",
+        "group-selected:group-hover:bg-muted-600",
+        "group-selected:border-muted-700",
+        "group-selected:group-hover:border-muted-600",
         // indeterminate
-        "group-indeterminate:bg-gray-700",
-        "group-indeterminate:group-hover:bg-gray-600",
-        "group-indeterminate:border-gray-700",
-        "group-indeterminate:group-hover:border-gray-600",
+        "group-indeterminate:bg-muted-700",
+        "group-indeterminate:group-hover:bg-muted-600",
+        "group-indeterminate:border-muted-700",
+        "group-indeterminate:group-hover:border-muted-600",
         // invalid
         "group-invalid:border-red-600",
         "group-hover:group-invalid:bg-red-50",
@@ -102,10 +102,10 @@ const iconStyles = tv({
         "transition-colors",
         "stroke-transparent",
         // hover
-        "group-hover:stroke-gray-400",
-        "group-hover/row:stroke-gray-400",
-        "group-selected:stroke-gray-50",
-        "group-indeterminate:stroke-gray-50",
+        "group-hover:stroke-muted-400",
+        "group-hover/row:stroke-muted-400",
+        "group-selected:stroke-muted-50",
+        "group-indeterminate:stroke-muted-50",
         // invalid
         "group-hover:group-invalid:stroke-red-400",
         "group-hover/row:group-invalid:stroke-red-400",

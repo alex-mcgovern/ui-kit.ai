@@ -10,7 +10,7 @@ export function Canvas(
             {...props}
             className={twMerge(
                 props.className,
-                "!my-4 !rounded !border !border-gray-200 !shadow-xl",
+                "!border-muted-200 !my-4 !rounded !border",
             )}
         />
     );

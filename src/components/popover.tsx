@@ -24,20 +24,20 @@ interface PopoverProps
 
 const popoverStyles = tv({
     base: [
-        `rounded border border-gray-200 text-primary shadow-2xl
+        `border-muted-200 rounded border text-primary shadow-2xl
         transition-none forced-colors:bg-[Canvas]`,
     ],
     extend: bgGlass,
     variants: {
         isEntering: {
-            true: `ease-out animate-in fade-in
+            true: `duration-300 ease-out animate-in fade-in
             placement-left:slide-in-from-right-1
             placement-right:slide-in-from-left-1
             placement-top:slide-in-from-bottom-1
             placement-bottom:slide-in-from-top-1`,
         },
         isExiting: {
-            true: `duration-150 ease-in animate-out fade-out
+            true: `duration-300 ease-out animate-out fade-out
             placement-left:slide-out-to-right-1
             placement-right:slide-out-to-left-1
             placement-top:slide-out-to-bottom-1
@@ -100,7 +100,7 @@ export function Popover({
             {(showArrow ?? false) && (
                 <OverlayArrow className="group">
                     <svg
-                        className="block fill-[theme(backgroundColor.base)] stroke-gray-200
+                        className="stroke-muted-200 block fill-[theme(backgroundColor.base)]
                             stroke-1 group-placement-left:-rotate-90
                             group-placement-right:rotate-90
                             group-placement-bottom:rotate-180

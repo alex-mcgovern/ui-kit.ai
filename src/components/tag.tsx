@@ -64,14 +64,14 @@ const tagStyles = tv({
         "[&_svg]:size-4 [&_svg]:shrink-0",
         // padding
         "px-3 py-1.5",
-        "[&:has([data-slot=slot-left])]:pl-2.5",
-        "[&:has([data-slot=slot-right])]:pr-2.5",
+        "[&:has([data-slot=slot-left])]:pl-1.5",
+        "[&:has([data-slot=slot-right])]:pr-1.5",
         // color vars
-        "[--bg:theme(colors.gray.50)]",
-        "[--bg-hover:theme(colors.gray.100)]",
-        "[--bg-pressed:theme(colors.gray.200)]",
-        "[--border:theme(colors.gray.300)]",
-        "[--text:theme(colors.gray.500)]",
+        "[--bg:theme(colors.muted.50)]",
+        "[--bg-hover:theme(colors.muted.100)]",
+        "[--bg-pressed:theme(colors.muted.200)]",
+        "[--border:theme(colors.muted.300)]",
+        "[--text:theme(colors.muted.500)]",
         // assignment
         "border-[--border] bg-[--bg] text-[--text]",
         // interactivity
@@ -111,11 +111,11 @@ const tagStyles = tv({
                 "[--text:theme(colors.yellow.600)]",
             ],
             inverted: [
-                "border-gray-800 bg-gray-800 text-gray-50",
-                "[&:is(a,button)]:hover:border-gray-800",
-                "[&:is(a,button)]:hover:bg-gray-800",
-                "[&:is(a,button)]:pressed:border-gray-700",
-                "[&:is(a,button)]:pressed:bg-gray-700",
+                "border-muted-800 bg-muted-800 text-muted-50",
+                "[&:is(a,button)]:hover:border-muted-800",
+                "[&:is(a,button)]:hover:bg-muted-800",
+                "[&:is(a,button)]:pressed:border-muted-700",
+                "[&:is(a,button)]:pressed:bg-muted-700",
             ],
         },
     },

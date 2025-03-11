@@ -3,8 +3,8 @@ import {
     useController,
     useFormContext,
 } from "react-hook-form";
-import { CheckboxGroup } from "./checkbox";
 import { FieldError } from "./field-error";
+import { CheckboxGroup } from "./checkbox-group";
 
 /**
  * A `FormCheckboxGroup` connects a `CheckboxGroup` to a `Form` component using `react-hook-form`.

@@ -28,7 +28,7 @@ const modalOverlayStyles = tv({
         "flex items-center justify-center text-center",
         "bg-black/20",
         // transition properties
-        "transition-opacity duration-500",
+        "transition-opacity duration-300 ease-out",
         // entering
         "entering:opacity-0",
         // exiting
@@ -44,7 +44,7 @@ const modalStyles = tv({
         "relative",
         "forced-colors:bg-[Canvas]",
         // transition
-        "transition-transform duration-500",
+        "transition-transform duration-300 ease-out",
         "md:entering:translate-y-4",
         "md:exiting:translate-y-4",
         "exiting:pointer-events-none", // ensure content behind is immediately interactive
@@ -64,7 +64,7 @@ const dialogStyles = tv({
         "md:h-[unset] md:max-h-[inherit]",
         "w-full sm:max-w-[100dvw]",
         // border
-        "md:rounded-lg md:border md:border-gray-200",
+        "md:border-muted-200 md:rounded-lg md:border",
         "[[data-placement]>&]:p-4",
     ],
     variants: {
@@ -212,7 +212,7 @@ export function DialogHeader(
                 "h-10",
                 "px-4",
                 "flex shrink-0 items-center justify-between gap-4",
-                "border-b border-b-gray-200",
+                "border-b-muted-200 border-b",
                 props.className,
             )}
         />
@@ -290,7 +290,7 @@ export function DialogFooter({
             className={twMerge(
                 "min-h-10",
                 "flex shrink-0 items-center justify-between gap-2",
-                "border-t border-t-gray-200",
+                "border-t-muted-200 border-t",
                 "py-2 pl-4 pr-2",
                 props.className,
             )}

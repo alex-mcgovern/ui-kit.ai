@@ -37,7 +37,7 @@ const optionStyle = tv({
         "px-2.5 py-0.5",
         // focus
         "forced-color-adjust-none",
-        `focus:bg-gray-400 focus:text-white focus:open:bg-gray-400
+        `focus:bg-muted-400 focus:open:bg-muted-400 focus:text-white
         focus:forced-colors:bg-[Highlight]
         focus:forced-colors:text-[HighlightText]`,
         // destructive

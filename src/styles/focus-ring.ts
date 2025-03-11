@@ -1,7 +1,7 @@
 import { tv } from "tailwind-variants";
 
 export const focusRing = tv({
-    base: `outline outline-0 outline-offset-2 outline-gray-400
+    base: `outline-muted-400 outline outline-0 outline-offset-2
     forced-colors:outline-[Highlight]`,
     defaultVariants: {
         isBorderless: false,
@@ -9,8 +9,8 @@ export const focusRing = tv({
     },
     variants: {
         isBorderless: {
-            false: `focus-within:&:has([data-focus-visible]):outline-2 invalid:!outline-red-700
-            focus-visible:outline-2`,
+            false: `focus-within:&:has([data-focus-visible]):outline-2
+            invalid:!outline-red-700 focus-visible:outline-2`,
             true: "",
         },
         isDestructive: {

@@ -38,6 +38,13 @@ const meta = {
     component: Button,
     title: "Components/Button",
     render: Template,
+    decorators: [
+        (Story) => (
+            <div className="flex gap-2">
+                <Story />
+            </div>
+        ),
+    ],
 } satisfies Meta<typeof Button>;
 
 export default meta;

@@ -1,7 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { HelpCircle as IconHelpCircle } from "lucide-react";
-
 import { Button } from "../components/button";
 import { DialogTrigger } from "../components/dialog";
 import { Heading } from "../components/heading";
@@ -10,70 +8,48 @@ import {
     PopoverDialog,
 } from "../components/popover";
 import type { ComponentProps } from "react";
-import {
-    StoryArgsListTemplate,
-    type StoryArgsList,
-} from "../types/storybook";
 
-type ArgsList = StoryArgsList<
-    Omit<ComponentProps<typeof Popover>, "children">
->;
+type Placement = ComponentProps<
+    typeof Popover
+>["placement"];
 
-const ARGS_LIST: ArgsList = {
-    "Placement bottom right": {
-        placement: "bottom right",
-    },
-    "Placement top left": {
-        placement: "top left",
-    },
-    "Show arrow bottom right": {
-        placement: "bottom right",
-        showArrow: true,
-    },
-    "Show arrow top left": {
-        placement: "top left",
-        showArrow: true,
-    },
-};
+const PLACEMENTS = [
+    "bottom",
+    "bottom left",
+    "bottom right",
+    "top",
+    "top left",
+    "top right",
+    "left",
+    "left top",
+    "left bottom",
+    "right",
+    "right top",
+    "right bottom",
+] satisfies Placement[];
 
 const Template = (args: ComponentProps<typeof Popover>) => {
     return (
-        <div>
-            {Object.entries(ARGS_LIST).map(
-                ([name, props]) => {
-                    return (
-                        <div className="mb-4 grid grid-cols-[12rem_14rem] items-center gap-4">
-                            <div>{name}</div>
-                            <DialogTrigger>
-                                <Button
-                                    aria-label="Help"
-                                    isIcon
-                                    variant="tertiary"
-                                >
-                                    <IconHelpCircle className="size-4" />
-                                </Button>
-                                <Popover
-                                    {...args}
-                                    {...props}
-                                />
-                            </DialogTrigger>
-                        </div>
-                    );
-                },
-            )}
-        </div>
+        <DialogTrigger>
+            <Button>Show popover</Button>
+            <Popover {...args} />
+        </DialogTrigger>
     );
+};
+
+const PlacementTemplate = (
+    args: ComponentProps<typeof Popover>,
+) => {
+    return PLACEMENTS.map((placement) => (
+        <DialogTrigger>
+            <Button>{placement}</Button>
+            <Popover {...args} placement={placement} />
+        </DialogTrigger>
+    ));
 };
 
 const meta = {
     component: Popover,
-    title: "Components/Popover",
-} satisfies Meta<typeof Popover>;
-
-export default meta;
-type Story = StoryObj<typeof meta>;
-
-export const Primary: Story = {
     args: {
         children: (
             <PopoverDialog>
@@ -91,27 +67,28 @@ export const Primary: Story = {
             </PopoverDialog>
         ),
     },
-    render: (args) => (
-        <StoryArgsListTemplate<
-            ComponentProps<typeof Popover>,
-            ArgsList
-        >
-            args={args}
-            argsList={ARGS_LIST}
-            renderComponent={({ args, storyArgs }) => (
-                <>
-                    <DialogTrigger>
-                        <Button
-                            aria-label="Help"
-                            isIcon
-                            variant="tertiary"
-                        >
-                            <IconHelpCircle className="size-4" />
-                        </Button>
-                        <Popover {...args} {...storyArgs} />
-                    </DialogTrigger>
-                </>
-            )}
-        />
-    ),
+    title: "Components/Popover",
+    render: Template,
+} satisfies Meta<typeof Popover>;
+
+export default meta;
+type Story = StoryObj<typeof meta>;
+
+export const Primary: Story = {};
+
+/**
+ * react-aria supports a pretty comprehensive range of placement options, some
+ * of which are shown here. It is important to note that the Popover may flip
+ * when it detects a collision with a parent or window edge.
+ */
+export const Placement: Story = {
+    // @ts-expect-error - coerce ReactNode[] where ReactNode expected
+    render: PlacementTemplate,
+    decorators: [
+        (Story) => (
+            <div className="grid grid-cols-3 gap-2">
+                <Story />
+            </div>
+        ),
+    ],
 };

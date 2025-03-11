@@ -18,20 +18,21 @@ export const fieldVariants = tv({
         isBorderless: {
             false: [
                 [
-                    "border border-gray-300",
-                    "bg-gray-50",
+                    "border-muted-300 border",
+                    "bg-muted-50",
                     "transition-colors",
                     // hover
-                    "hover:[&:not(:is([data-disabled],[data-focus-visible]))]:border-gray-400",
+                    "hover:[&:not(:is([data-disabled],[data-focus-visible]))]:border-muted-400",
                     "hover:[&:not(:is([data-disabled],[data-focus-visible]))]:forced-colors:border-[Highlight]",
                     "hover:[&:not([data-disabled])]:bg-base",
                     // pressed
-                    "pressed:border-gray-400",
+                    "pressed:border-muted-400",
                     "pressed:forced-colors:border-[Highlight]",
                     // invalid
                     "invalid:bg-red-50 group-invalid:bg-red-50",
                     "invalid:border-red-300 group-invalid:border-red-300",
-                    "invalid:hover:border-red-400 group-invalid:hover:border-red-400",
+                    `invalid:hover:border-red-400
+                    group-invalid:hover:border-red-400`,
                     "invalid:outline-red-400 group-invalid:outline-red-400",
                     // "[:is([data-invalid],[data-invalid]_&)]:border-red-400",
                     // "[:is([data-invalid],[data-invalid]_&)]:text-invalid",
@@ -42,7 +43,8 @@ export const fieldVariants = tv({
                     "focus-visible:forced-colors:border-[ButtonBorder]",
                     "focus-within:[&:has([data-focus-visible])]:outline-2",
                     // disabled
-                    "disabled:border-gray-200 disabled:forced-colors:border-[GrayText]",
+                    `disabled:border-muted-200
+                    disabled:forced-colors:border-[GrayText]`,
                     "forced-colors:border-[Highlight]",
                 ],
             ],

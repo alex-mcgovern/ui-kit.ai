@@ -17,6 +17,11 @@ const meta = {
     component: FieldGroup,
     parameters: { actions: "disable" },
     title: "Components/FieldGroup",
+    decorators: [
+        (Story) => (
+            <div className="mx-auto w-96">{Story()}</div>
+        ),
+    ],
 } satisfies Meta<typeof FieldGroup>;
 
 export default meta;
@@ -39,7 +44,7 @@ export const Primary: Story = {
             <>
                 <Select
                     aria-label="Package type"
-                    className="min-w-64 border-r border-r-gray-400"
+                    className="border-r-muted-400 min-w-64 border-r"
                     defaultSelectedKey="pypi"
                     items={getMockOptions()}
                     name="packageManager"

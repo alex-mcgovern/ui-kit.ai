@@ -8,81 +8,26 @@ import { Select, SelectButton } from "../components/select";
 import { Label } from "../components/label";
 import { getMockOptions } from "../mocks/options";
 import type { ComponentProps, ComponentType } from "react";
-import {
-    StoryArgsListTemplate,
-    type StoryArgsList,
-} from "../types/storybook";
+import { type StoryArgsList } from "../types/storybook";
+import { Description } from "../components/description";
 
-type ArgsList = StoryArgsList<{
-    Select: ComponentProps<typeof Select>;
-    SelectButton?: Partial<
-        ComponentProps<typeof SelectButton>
-    >;
-}>;
-
-const ARGS_LIST: ArgsList = {
-    "Flat list": {
-        Select: {
-            items: getMockOptions({ withIcon: true }),
-        },
-    },
-    "With sections": {
-        Select: {
-            items: getMockOptions({
-                withIcon: true,
-                withSections: true,
-            }),
-        },
-    },
-    isInvalid: {
-        Select: {
-            items: getMockOptions({
-                withIcon: true,
-                withSections: true,
-            }),
-            isInvalid: true,
-        },
-    },
-    isDisabled: {
-        Select: {
-            items: getMockOptions({
-                withIcon: true,
-                withSections: true,
-            }),
-            isDisabled: true,
-        },
-    },
-    isBorderless: {
-        Select: {
-            items: getMockOptions({
-                withIcon: true,
-                withSections: true,
-            }),
-        },
-        SelectButton: {
-            isBorderless: true,
-        },
-    },
-    disabledKeys: {
-        Select: {
-            items: getMockOptions({
-                withIcon: true,
-                withSections: true,
-            }),
-            disabledKeys: ["france", "germany", "spain"],
-        },
-    },
-};
+const Template = (
+    props: ComponentProps<
+        typeof Select<OptionsSchema<"listbox">>
+    >,
+) => (
+    <Select {...props}>
+        <Label>Label</Label>
+        <SelectButton />
+        <Description>
+            This is a short description
+        </Description>
+    </Select>
+);
 
 const meta = {
     args: {
-        children: (
-            <>
-                <Label>Select</Label>
-                <SelectButton />
-            </>
-        ),
-        items: getMockOptions(),
+        items: getMockOptions({ withIcon: true }),
     },
     component: Select,
     title: "Components/Select",
@@ -90,35 +35,63 @@ const meta = {
         SelectButton:
             SelectButton as ComponentType<unknown>,
     },
+    render: Template,
+    decorators: [
+        (Story) => (
+            <div className="mx-auto w-96">{Story()}</div>
+        ),
+    ],
 } satisfies Meta<typeof Select<OptionsSchema<"listbox">>>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
-    args: {},
-    render: (args) => (
-        <StoryArgsListTemplate<
-            ComponentProps<typeof Select>,
-            ArgsList
-        >
-            args={args}
-            argsList={ARGS_LIST}
-            renderComponent={({
-                args,
-                storyArgs: {
-                    Select: selectArgs,
-                    SelectButton: selectButtonArgs,
-                },
-            }) => (
-                <>
-                    <Select {...args} {...selectArgs}>
-                        <SelectButton
-                            {...selectButtonArgs}
-                        />
-                    </Select>
-                </>
-            )}
-        />
+    args: {
+        items: getMockOptions({ withIcon: true }),
+    },
+};
+export const IsInvalid: Story = {
+    args: {
+        items: getMockOptions({
+            withIcon: true,
+            withSections: true,
+        }),
+        isInvalid: true,
+    },
+};
+export const IsDisabled: Story = {
+    args: {
+        items: getMockOptions({
+            withIcon: true,
+            withSections: true,
+        }),
+        isDisabled: true,
+    },
+};
+export const IsBorderless: Story = {
+    args: {
+        items: getMockOptions({
+            withIcon: true,
+            withSections: true,
+        }),
+    },
+    render: (props) => (
+        <Select {...props}>
+            <Label>Label</Label>
+            <SelectButton />
+            <Description>
+                This is a short description
+            </Description>
+        </Select>
     ),
+};
+export const DisabledKeys: Story = {
+    args: {
+        items: getMockOptions({
+            withIcon: true,
+            withSections: true,
+        }),
+        disabledKeys: ["france", "germany", "spain"],
+    },
 };

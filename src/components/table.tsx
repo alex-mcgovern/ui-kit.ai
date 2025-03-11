@@ -155,7 +155,7 @@ export type TableRendererProps<
 
 const columnWrapperStyles = tv({
     base: [
-        "border-b border-gray-200",
+        "border-muted-200 border-b",
         "[&:focus-within]:z-20 [&:hover]:z-20",
         "text-secondary hover:text-primary",
         "cursor-default hover:cursor-pointer",
@@ -192,7 +192,7 @@ const cellStyles = tv({
         `group-data-[compact]/table:first:pl-0
         group-data-[compact]/table:last:pr-0`,
         // border styles
-        "border-b border-gray-200",
+        "border-muted-200 border-b",
     ],
     defaultVariants: {
         alignment: "start",
@@ -211,16 +211,16 @@ const rowStyles = tv({
     base: [
         "group/row",
         "relative -outline-offset-2",
-        "text-primary disabled:text-gray-300",
+        "disabled:text-muted-300 text-primary",
         "transition-colors",
         // hover styles
-        "hover:select-none hover:bg-gray-50",
+        "hover:bg-muted-50 hover:select-none",
         "hover:cursor-pointer hover:disabled:cursor-not-allowed",
         // pressed styles
-        "pressed:bg-gray-100",
+        "pressed:bg-muted-100",
         // selected styles
         "selected:select-none",
-        "selected:bg-gray-100",
+        "selected:bg-muted-100",
     ],
     extend: focusRing,
 });
@@ -241,8 +241,8 @@ const cellSkeletonStyles = tv({
 });
 
 const resizerStyles = tv({
-    base: `box-content h-5 w-px translate-x-[8px] cursor-col-resize
-    rounded bg-gray-400 bg-clip-content px-[8px] py-1
+    base: `bg-muted-400 box-content h-5 w-px translate-x-[8px]
+    cursor-col-resize rounded bg-clip-content px-[8px] py-1
     -outline-offset-2 resizing:w-[2px] resizing:bg-brand-600
     resizing:pl-[7px] forced-colors:bg-[ButtonBorder]
     forced-colors:resizing:bg-[Highlight]`,

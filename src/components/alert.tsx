@@ -19,9 +19,9 @@ const alertStyles = tv({
     },
     variants: {
         variant: {
-            inverted: "bg-gray-800 text-white",
+            inverted: "bg-muted-800 text-white",
             default:
-                "border border-gray-200 bg-base text-primary",
+                "border-muted-200 border bg-base text-primary",
             invalid: "bg-red-700 text-white",
         },
     },
@@ -95,7 +95,7 @@ export function Alert({
                     iconStyles(),
                     variant === "inverted" ||
                         variant === "invalid"
-                        ? "text-gray-100"
+                        ? "text-muted-100"
                         : "",
                 )}
             />
@@ -118,7 +118,7 @@ export function Alert({
                             "!my-0",
                             variant === "inverted" ||
                                 variant === "invalid"
-                                ? "text-gray-300"
+                                ? "text-muted-300"
                                 : "",
                         )}
                     >

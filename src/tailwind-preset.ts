@@ -22,6 +22,16 @@ export default {
     ],
     plugins: [TailwindReactAria, TailwindAnimate],
     theme: {
+        colors: {
+            brand: colors.stone,
+            muted: colors.stone,
+            red: colors.red,
+            green: colors.emerald,
+            yellow: colors.amber,
+            current: "currentColor",
+            inherit: "inherit",
+            transparent: "transparent",
+        },
         extend: {
             backgroundColor: {
                 base: colors.white,
@@ -31,13 +41,7 @@ export default {
                 ...borderWidth,
                 DEFAULT: "0.5px",
             },
-            colors: {
-                brand: colors.slate,
-                current: "currentColor",
-                gray: colors.neutral,
-                inherit: "inherit",
-                transparent: "transparent",
-            },
+
             opacity: {
                 ...opacity,
                 disabled: opacity[50],
@@ -62,12 +66,12 @@ export default {
                 ["ui-element"]: spacing[9],
             },
             textColor: {
-                disabled: colors.gray[300],
+                disabled: colors.stone[300],
                 invalid: colors.red[600],
                 inverted: colors.black,
                 placeholder: colors.gray[500],
-                ["primary"]: colors.gray[700],
-                ["secondary"]: colors.gray[500],
+                ["primary"]: colors.stone[700],
+                ["secondary"]: colors.stone[500],
             },
             transitionDuration: {
                 ...transitionDuration,

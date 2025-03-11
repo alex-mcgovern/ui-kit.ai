@@ -1,10 +1,8 @@
-import {
-    Markdown,
-    type Of,
-    useOf,
-} from "@storybook/blocks";
+import { type Of, useOf } from "@storybook/blocks";
 import type { FC } from "react";
 import React from "react";
+import { Heading } from "../../src/components/heading";
+import { Markdown } from "./markdown";
 
 export enum DescriptionType {
     INFO = "info",
@@ -72,7 +70,7 @@ const getDescriptionFromResolvedOf = (
     }
 };
 
-const UsageContainer: FC<DescriptionProps> = (props) => {
+export const Usage: FC<DescriptionProps> = (props) => {
     const { of } = props;
 
     if ("of" in props && of === undefined) {
@@ -90,5 +88,3 @@ const UsageContainer: FC<DescriptionProps> = (props) => {
         <Markdown>{markdown}</Markdown>
     ) : null;
 };
-
-export { UsageContainer as Usage };

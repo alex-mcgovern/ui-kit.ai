@@ -32,7 +32,7 @@ code {
 
 /* Global colors for highlighted text */
 ::selection {
-    @apply bg-[theme(colors.gray.100)] text-[theme(colors.gray.600)];
+    @apply bg-[theme(colors.muted.100)] text-[theme(colors.muted.600)];
 }
 
 /* Hide the user agent default clear button on search inputs */

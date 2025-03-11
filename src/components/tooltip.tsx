@@ -27,7 +27,7 @@ const tooltipStyles = tv({
             "inline-flex items-center gap-1",
             "px-2 py-1",
             "text-sm font-medium",
-            "bg-gray-800 text-gray-50",
+            "bg-muted-800 text-muted-50",
             "group rounded drop-shadow-lg",
             // transition
             "transition-all will-change-transform",
@@ -97,10 +97,7 @@ export const TooltipInfoButton = forwardRef<
 /**
  * A tooltip displays a description of an element on hover or focus.
  *
- * NOTE: Tooltips cannot contain a focusable element. That would break
- * accessibility. Because the tooltip itself never receives focus and is not in
- * the tabbing order, a tooltip can not contain interactive elements like links,
- * inputs, or buttons.
+
  *
  * [source code](https://github.com/alex-mcgovern/boondoggle/tree/main/src/components/tooltip)
  * [react-aria](https://react-spectrum.adobe.com/react-aria/Tooltip.html)
@@ -116,6 +113,11 @@ export const TooltipInfoButton = forwardRef<
  *     <Tooltip>Extra content shown on hover</Tooltip>
  * </TooltipTrigger>
  * ```
+ * 
+ * **Note**: Tooltips cannot contain a focusable element. That would break
+ * accessibility. Because the tooltip itself never receives focus and is not in
+ * the tabbing order, a tooltip can not contain interactive elements like links,
+ * inputs, or buttons.
  */
 export function Tooltip({
     children,
@@ -136,7 +138,7 @@ export function Tooltip({
         >
             <OverlayArrow>
                 <svg
-                    className="fill-gray-800 group-placement-left:-rotate-90
+                    className="fill-muted-800 group-placement-left:-rotate-90
                         group-placement-right:rotate-90
                         group-placement-bottom:rotate-180
                         forced-colors:fill-[Canvas]

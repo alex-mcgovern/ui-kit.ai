@@ -158,29 +158,29 @@ const buttonStyle = tv({
         },
         variant: {
             primary: [
-                "text-gray-50",
+                "text-muted-50",
                 "shadow-sm",
-                "border-brand-800 bg-brand-800",
+                "border-brand-700 bg-brand-700",
                 // hover
-                "hover:border-brand-700 hover:bg-brand-700",
+                "hover:border-brand-600 hover:bg-brand-600",
                 // pressed
-                "pressed:border-brand-900 pressed:bg-brand-900",
+                "pressed:border-brand-800 pressed:bg-brand-800",
             ],
             secondary: [
                 // base
                 "shadow-sm",
-                "border-gray-200 bg-base text-primary",
+                "border-muted-200 bg-base text-primary",
                 // hover
-                "hover:border-gray-300 hover:bg-gray-100",
+                "hover:border-muted-300 hover:bg-muted-100",
                 // pressed
-                "pressed:border-gray-300 pressed:bg-gray-200",
+                "pressed:border-muted-300 pressed:bg-muted-200",
             ],
             tertiary: [
                 "border-transparent bg-transparent text-primary",
                 // hover
-                "hover:bg-gray-100",
+                "hover:bg-muted-100",
                 // pressed
-                "pressed:bg-gray-200",
+                "pressed:bg-muted-200",
             ],
         },
     },

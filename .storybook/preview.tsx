@@ -9,19 +9,20 @@ import {
     mswLoader,
 } from "msw-storybook-addon";
 import theme from "./theme";
-import {
-    Title,
-    Primary,
-    Stories,
-    ArgTypes,
-} from "@storybook/blocks";
+import { Title, ArgTypes } from "@storybook/blocks";
 import { Heading } from "../src/components/heading";
 import { Description } from "./components/description";
 import { Usage } from "./components/usage";
 import { MDXProvider } from "@mdx-js/react";
 
 import { DocsContainer as StorybookDocsContainer } from "@storybook/blocks";
-import { type Preview } from "@storybook/react";
+import {
+    type Preview,
+    type ArgTypes as TArgTypes,
+} from "@storybook/react";
+import { Primary } from "./components/primary";
+import { Stories } from "./components/stories";
+import { Source } from "./components/source";
 
 const DocsContainer = (props) => (
     <MDXProvider
@@ -47,18 +48,19 @@ const preview: Preview = {
             toc: {
                 headingSelector: "h2, h3",
             },
-
+            // components: {
+            //     source: Source,
+            // },
             page: () => (
                 <>
                     <Title />
                     <Description />
                     <Primary />
                     <Usage />
-                    <Stories
-                        title="Examples"
-                        includePrimary={false}
-                    />
-                    <Heading level={2}>Props</Heading>
+                    <Stories includePrimary={false} />
+                    <Heading id="props" level={2}>
+                        Props
+                    </Heading>
                     <ArgTypes />
                 </>
             ),
@@ -83,7 +85,7 @@ const preview: Preview = {
         },
         (Story) => {
             return (
-                <div className="flex w-full items-center justify-center p-10">
+                <div className="flex min-h-48 w-full items-center justify-center p-6">
                     <Story />
                     <div
                         className="absolute inset-0 z-[-1] h-full w-full bg-white

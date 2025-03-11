@@ -149,24 +149,20 @@ export function SelectButton({
                 )
             }
         >
-            {({}) => (
-                <>
-                    {renderSlot(slotLeft, {
-                        "data-slot": "slot-left",
-                    })}
-                    <AriaSelectValue
-                        className={twMerge([
-                            "inline-flex flex-1 items-center gap-2",
-                            "truncate",
-                            "placeholder-shown:text-placeholder",
-                            "group-data-[invalid]:placeholder-shown:text-invalid",
-                        ])}
-                    />
-                    {renderSlot(slotRight, {
-                        "data-slot": "slot-right",
-                    })}
-                </>
-            )}
+            {renderSlot(slotLeft, {
+                "data-slot": "slot-left",
+            })}
+            <AriaSelectValue
+                className={twMerge([
+                    "inline-flex flex-1 items-center gap-2",
+                    "truncate",
+                    "placeholder-shown:text-placeholder",
+                    "group-data-[invalid]:placeholder-shown:text-invalid",
+                ])}
+            />
+            {renderSlot(slotRight, {
+                "data-slot": "slot-right",
+            })}
         </AriaButton>
     );
 }

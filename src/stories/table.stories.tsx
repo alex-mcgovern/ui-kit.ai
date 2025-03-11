@@ -74,7 +74,7 @@ const COLUMNS: TableColumnSchema<StockWatchlistItem>[] = [
         alignment: "end",
         allowsSorting: true,
         className:
-            "border-l border-l-gray-200 tabular-nums",
+            "border-l border-l-muted-200 tabular-nums",
         id: "price_high",
         maxWidth: 100,
         minWidth: 100,
@@ -93,7 +93,7 @@ const COLUMNS: TableColumnSchema<StockWatchlistItem>[] = [
         alignment: "end",
         allowsSorting: true,
         className:
-            "border-r border-r-gray-200 tabular-nums",
+            "border-r border-r-muted-200 tabular-nums",
         id: "price_close",
         maxWidth: 100,
         minWidth: 100,
