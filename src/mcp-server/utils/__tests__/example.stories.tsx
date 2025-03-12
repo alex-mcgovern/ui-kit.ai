@@ -33,6 +33,9 @@ function Example(props: ComponentProps<typeof TextField>) {
 }
 
 const meta = {
+    args: {
+        name: "text field",
+    },
     component: TextField,
     title: "Components/TextField",
     decorators: [
@@ -51,6 +54,7 @@ type Story = StoryObj<typeof meta>;
 export const Primary: Story = {};
 /**
  * You can pass `isDisabled` to the `TextField` to disable it.
+ * This will prevent any user input.
  */
 export const IsDisabled: Story = {
     args: {
