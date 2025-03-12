@@ -14,6 +14,10 @@ import { Heading } from "../src/components/heading";
 import { Description } from "./components/description";
 import { Usage } from "./components/usage";
 import { MDXProvider } from "@mdx-js/react";
+import {
+    type ScreenshotOptions,
+    withScreenshot,
+} from "storycap";
 
 import { DocsContainer as StorybookDocsContainer } from "@storybook/blocks";
 import {
@@ -41,8 +45,19 @@ const DocsContainer = (props) => (
 
 initializeMsw();
 
+const screenshotOptions: ScreenshotOptions = {
+    captureBeyondViewport: false,
+    fullPage: false,
+    viewport: {
+        deviceScaleFactor: 3,
+        height: 300,
+        width: 600,
+    },
+};
+
 const preview: Preview = {
     parameters: {
+        screenshot: screenshotOptions,
         docs: {
             theme,
             toc: {
@@ -70,10 +85,12 @@ const preview: Preview = {
         controls: {
             matchers: {},
         },
-        layout: "fullscreen",
+        layout: "centered",
     },
     loaders: [mswLoader],
     decorators: [
+        // @ts-expect-error
+        withScreenshot,
         (Story) => {
             return (
                 <QueryClientProvider

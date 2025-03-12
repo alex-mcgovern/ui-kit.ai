@@ -8,14 +8,14 @@ function Template(args: ComponentProps<typeof Alert>) {
     return (
         <Alert
             {...args}
-            title="Account verification required"
-            description="Please verify your email so we can make sure your account is secure. A link has been sent to foo@bar.com."
+            title="Title"
+            description="Description"
             actions={[
-                <Button key="verify" variant="secondary">
-                    Dismiss
+                <Button key="secondary" variant="secondary">
+                    Secondary
                 </Button>,
-                <Button key="resend" variant="primary">
-                    Resend email
+                <Button key="primary" variant="primary">
+                    Primary
                 </Button>,
             ]}
         />
@@ -30,7 +30,7 @@ const meta = {
     },
     decorators: [
         (Story) => (
-            <div className="w-full max-w-[64rem]">
+            <div className="w-full min-w-32 max-w-[64rem]">
                 <Story />
             </div>
         ),

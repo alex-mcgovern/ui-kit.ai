@@ -10,6 +10,7 @@ import { Description } from "./description";
 
 const alertStyles = tv({
     base: [
+        "w-full",
         "rounded-xl shadow-sm",
         "px-4 py-2",
         "flex items-center gap-4",

@@ -12,7 +12,8 @@
         "check-tsc": "tsc",
         "dev": "storybook dev -p 65534",
         "dev:docs": "storybook dev --docs -p 65534",
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "storycap": "storycap --serverCmd \"storybook dev -p 65534\" http://localhost:65534 --include \"**/Primary\" --flat --outDir \"assets\""
     },
     "keywords": [],
     "author": "",
@@ -28,7 +29,6 @@
         "react-dom": "^18.3.1",
         "react-hook-form": "^7.54.2",
         "sonner": "^1.7.0",
-        "storycap": "^5.0.1",
         "tailwind-merge": "^2.5.2",
         "tailwind-variants": "^0.2.1",
         "tailwindcss": "^3.4.14",
@@ -89,6 +89,7 @@
         "prettier-plugin-tailwindcss": "^0.6.8",
         "storybook": "^8.3.6",
         "storybook-dark-mode": "^4.0.2",
+        "storycap": "^5.0.1",
         "tsx": "^4.19.2",
         "typescript": "^5.5.4",
         "unplugin-macros": "^0.13.3",
