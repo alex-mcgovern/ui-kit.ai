@@ -49,10 +49,11 @@ async function main() {
                     formatComponentName(file);
                 const docsUrl = generateDocsUrl(file);
                 return `<div style="margin: 2rem 0">
-  <a href="${docsUrl}">
-    <h3>${componentName}</h3>
+  
+    <h3>
+      <a href="${docsUrl}">${componentName}</a>
+    </h3>
     <img src="assets/${file}" alt="${componentName} component" />
-  </a>
 </div>`;
             })
             .join("\n");
