@@ -1,33 +1,22 @@
 import { readdir, readFile, writeFile } from "fs/promises";
-import path from "path";
 
-const SCREENSHOTS_START =
-    "<!-- BEGIN-COMPONENT-SCREENSHOTS -->";
-const SCREENSHOTS_END =
-    "<!-- END-COMPONENT-SCREENSHOTS -->";
+const SCREENSHOTS_START = "<!-- BEGIN-COMPONENT-LINKS -->";
+const SCREENSHOTS_END = "<!-- END-COMPONENT-LINKS -->";
 
-function pascalToKebab(str: string): string {
-    return str
-        .replace(/([a-z0-9])([A-Z])/g, "$1-$2")
+function generateDocsUrl(filename: string): string {
+    const componentName = filename
+        .replace(".png", "")
+        .replace("Components_", "")
+        .replace("_Primary", "")
         .toLowerCase();
+    return `https://boondoggle.design/?path=/docs/components-${componentName}--docs`;
 }
 
-function extractJsDocComment(
-    fileContent: string,
-    componentName: string,
-): string {
-    const regex = new RegExp(
-        `\\/\\*\\*(.*?)\\*\\/\\s*export\\s+const\\s+${componentName}`,
-        "s",
-    );
-    const match = fileContent.match(regex);
-    if (!match) return "";
-
-    return match[1]
-        .split("\n")
-        .map((line) => line.replace(/^\s*\*\s?/, ""))
-        .filter((line) => line.trim())
-        .join("\n");
+function formatComponentName(filename: string): string {
+    return filename
+        .replace(".png", "")
+        .replace("Components_", "")
+        .replace("_Primary", "");
 }
 
 async function main() {
@@ -37,69 +26,11 @@ async function main() {
             file.endsWith(".png"),
         );
 
-        const components = await Promise.all(
-            pngFiles.map(async (file) => {
-                // Extract component name in PascalCase
-                const componentNameMatch = file.match(
-                    /Components_(\w+)_Primary/,
-                );
-                if (!componentNameMatch) return null;
-
-                const componentName = componentNameMatch[1];
-                const kebabName =
-                    pascalToKebab(componentName);
-                const componentPath = path.join(
-                    "src/components",
-                    `${kebabName}.tsx`,
-                );
-
-                try {
-                    const componentFile = await readFile(
-                        componentPath,
-                        "utf-8",
-                    );
-                    const jsDocContent =
-                        extractJsDocComment(
-                            componentFile,
-                            componentName,
-                        );
-
-                    return {
-                        name: componentName,
-                        imagePath: `assets/${file}`,
-                        jsDoc: jsDocContent,
-                    };
-                } catch (err) {
-                    console.warn(
-                        `Could not process component ${componentName}`,
-                    );
-                    return null;
-                }
-            }),
-        );
-
-        const validComponents = components.filter(
-            (c) => c !== null,
-        );
-
-        // Generate markdown content
-        const markdownContent = validComponents
-            .map(
-                (comp) => `
-### ${comp!.name}
-
-<img src="${comp!.imagePath}" alt="${comp!.name} component" />
-
-${comp!.jsDoc}
-`,
-            )
-            .join("\n\n");
-
-        // Update README
         const readmeContent = await readFile(
             "README.md",
             "utf-8",
         );
+
         const startIndex = readmeContent.indexOf(
             SCREENSHOTS_START,
         );
@@ -112,11 +43,23 @@ ${comp!.jsDoc}
             );
         }
 
+        const componentDivs = pngFiles
+            .map((file) => {
+                const componentName =
+                    formatComponentName(file);
+                const docsUrl = generateDocsUrl(file);
+                return `  <div style="margin: 2rem 0">
+    <h3><a href="${docsUrl}">${componentName}</a></h3>
+    <img src="assets/${file}" alt="${componentName} component" />
+  </div>`;
+            })
+            .join("\n");
+
         const newContent =
             readmeContent.substring(0, startIndex) +
             SCREENSHOTS_START +
-            "\n\n" +
-            markdownContent +
+            "\n" +
+            componentDivs +
             "\n" +
             SCREENSHOTS_END +
             readmeContent.substring(
@@ -125,7 +68,7 @@ ${comp!.jsDoc}
 
         await writeFile("README.md", newContent, "utf-8");
         console.log(
-            "Successfully updated README.md with component documentation",
+            "Successfully updated README.md with screenshot images",
         );
     } catch (error) {
         console.error("Error:", error);
