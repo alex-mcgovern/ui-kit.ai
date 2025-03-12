@@ -1,8 +1,14 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import React from "react";
+import React, { type ComponentProps } from "react";
 
 import { Input } from "../components/input";
 import { SearchIcon } from "lucide-react";
+
+export function Example(
+    props: ComponentProps<typeof Input>,
+) {
+    return <Input {...props} />;
+}
 
 const meta = {
     component: Input,

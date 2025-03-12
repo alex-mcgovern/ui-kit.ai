@@ -4,7 +4,7 @@ import { z } from "zod";
 
 import { Form } from "../components/form";
 import { FormCheckboxGroup } from "../components/form-checkbox-group";
-import { FormComboBox } from "../components/form-combobox";
+import { FormComboBox } from "../components/form-combo-box";
 // import { FormRadioGroup } from "../components/form-radio-group";
 import { FormSelect } from "../components/form-select";
 import { FormSubmitButton } from "../components/form-submit-button";
@@ -28,6 +28,7 @@ import {
     FlagIcon,
     GlobeIcon,
 } from "lucide-react";
+import type { ComponentProps } from "react";
 
 const communicationPreferencesSchema = z.enum([
     "account_updates",
@@ -62,6 +63,93 @@ const IMMIGRATION_STATUS =
 const COMMUNICATION_PREFERENCE =
     communicationPreferencesSchema.Enum;
 
+export function Example(
+    props: ComponentProps<typeof Form<FieldValues>>,
+) {
+    return (
+        <Form<FieldValues> {...props}>
+            <FormTextField
+                name={FIELD_NAME.email}
+                className="mb-4"
+                type="email"
+            >
+                <Label>Email address (Text field)</Label>
+                <FieldGroup>
+                    <Input
+                        isBorderless
+                        icon={<AtSignIcon />}
+                        placeholder="Enter your email address"
+                    />
+                    <TextFieldClearButton />
+                </FieldGroup>
+            </FormTextField>
+
+            <FormSelect
+                items={getMockOptions({
+                    withIcon: true,
+                })}
+                name={FIELD_NAME.country_of_birth}
+                className="mb-4"
+            >
+                <Label>Country of birth (Select)</Label>
+                <SelectButton slotLeft={<GlobeIcon />} />
+            </FormSelect>
+
+            <FormComboBox
+                items={getMockOptions()}
+                name={FIELD_NAME.country_of_residence}
+                className="mb-4"
+            >
+                <Label>
+                    Country of residence (ComboBox)
+                </Label>
+                <ComboBoxFieldGroup>
+                    <ComboBoxInput
+                        isBorderless
+                        icon={<GlobeIcon />}
+                        placeholder="Type to search..."
+                    />
+                    <ComboBoxClearButton />
+                    <ComboBoxButton />
+                </ComboBoxFieldGroup>
+            </FormComboBox>
+
+            <FormCheckboxGroup
+                name={FIELD_NAME.communication_preference}
+                className="mb-4"
+                defaultValue={[
+                    COMMUNICATION_PREFERENCE.account_updates,
+                ]}
+            >
+                <Label>Communication preferences</Label>
+                <Checkbox
+                    value="account-updates"
+                    isDisabled
+                    isRequired
+                    label="Account updates"
+                    description="Necessary emails about your account & account security."
+                />
+                <Checkbox
+                    value="newsletter"
+                    label="Newsletter"
+                    description="No more than one email per month with updates from our team."
+                />
+                <Checkbox
+                    value="promotions"
+                    label="Promotions and Offers"
+                    description="Deals, discounts and suggestions we think you'll love."
+                />
+                <Description>
+                    Your preferences can be updated at any
+                    time in your account settings.
+                </Description>
+            </FormCheckboxGroup>
+
+            <FormSubmitButton />
+        </Form>
+    );
+}
+
 const meta = {
     component: Form,
     title: "Components/Form",
@@ -82,128 +170,14 @@ const meta = {
         options: {
             resolver: zodResolver(schema),
         },
-        children: (
-            <>
-                <FormTextField
-                    name={FIELD_NAME.email}
-                    className="mb-4"
-                    type="email"
-                >
-                    <Label>
-                        Email address (Text field)
-                    </Label>
-                    <FieldGroup>
-                        <Input
-                            isBorderless
-                            icon={<AtSignIcon />}
-                            placeholder="Enter your email address"
-                        />
-                        <TextFieldClearButton />
-                    </FieldGroup>
-                </FormTextField>
-
-                <FormSelect
-                    items={getMockOptions({
-                        withIcon: true,
-                    })}
-                    name={FIELD_NAME.country_of_birth}
-                    className="mb-4"
-                >
-                    <Label>Country of birth (Select)</Label>
-                    <SelectButton
-                        slotLeft={<GlobeIcon />}
-                    />
-                </FormSelect>
-
-                <FormComboBox
-                    items={getMockOptions()}
-                    name={FIELD_NAME.country_of_residence}
-                    className="mb-4"
-                >
-                    <Label>
-                        Country of residence (ComboBox)
-                    </Label>
-                    <ComboBoxFieldGroup>
-                        <ComboBoxInput
-                            isBorderless
-                            icon={<GlobeIcon />}
-                            placeholder="Type to search..."
-                        />
-                        <ComboBoxClearButton />
-                        <ComboBoxButton />
-                    </ComboBoxFieldGroup>
-                </FormComboBox>
-
-                {/* <FormRadioGroup
-                    name={FIELD_NAME.immigration_status}
-                    className="mb-4"
-                >
-                    <Label>
-                        Immigration status (RadioGroup)
-                    </Label>
-                    <Radio
-                        value={IMMIGRATION_STATUS.citizen}
-                    >
-                        Citizen
-                    </Radio>
-                    <Radio
-                        value={
-                            IMMIGRATION_STATUS.permanent_resident
-                        }
-                    >
-                        Permanent resident
-                    </Radio>
-                    <Radio
-                        value={
-                            IMMIGRATION_STATUS.visa_holder
-                        }
-                    >
-                        Visa holder
-                    </Radio>
-                </FormRadioGroup> */}
-
-                <FormCheckboxGroup
-                    name={
-                        FIELD_NAME.communication_preference
-                    }
-                    className="mb-4"
-                    defaultValue={[
-                        COMMUNICATION_PREFERENCE.account_updates,
-                    ]}
-                >
-                    <Label>Communication preferences</Label>
-                    <Checkbox
-                        value="account-updates"
-                        isDisabled
-                        isRequired
-                        label="Account updates"
-                        description="Necessary emails about your account & account security."
-                    />
-                    <Checkbox
-                        value="newsletter"
-                        label="Newsletter"
-                        description="No more than one email per month with updates from our team."
-                    />
-                    <Checkbox
-                        value="promotions"
-                        label="Promotions and Offers"
-                        description="Deals, discounts and suggestions we think you'll love."
-                    />
-                    <Description>
-                        Your preferences can be updated at
-                        any time in your account settings.
-                    </Description>
-                </FormCheckboxGroup>
-
-                <FormSubmitButton />
-            </>
-        ),
     },
+    render: Example,
 } satisfies Meta<typeof Form<FieldValues>>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
+    // @ts-expect-error - we're not passing children and that's alright
     args: {},
 };

@@ -23,14 +23,16 @@ const PLACEMENTS = [
     "right",
 ] satisfies Placement[];
 
-const Template = (args: ComponentProps<typeof Tooltip>) => {
+export function Example(
+    args: ComponentProps<typeof Tooltip>,
+) {
     return (
         <TooltipTrigger>
             <TooltipInfoButton />
             <Tooltip {...args} />
         </TooltipTrigger>
     );
-};
+}
 
 const meta = {
     component: Tooltip,

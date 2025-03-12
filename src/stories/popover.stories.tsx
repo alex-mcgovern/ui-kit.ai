@@ -28,14 +28,16 @@ const PLACEMENTS = [
     "right bottom",
 ] satisfies Placement[];
 
-const Template = (args: ComponentProps<typeof Popover>) => {
+export function Example(
+    args: ComponentProps<typeof Popover>,
+) {
     return (
         <DialogTrigger>
             <Button>Show popover</Button>
             <Popover {...args} />
         </DialogTrigger>
     );
-};
+}
 
 const PlacementTemplate = (
     args: ComponentProps<typeof Popover>,
@@ -68,7 +70,7 @@ const meta = {
         ),
     },
     title: "Components/Popover",
-    render: Template,
+    render: Example,
 } satisfies Meta<typeof Popover>;
 
 export default meta;

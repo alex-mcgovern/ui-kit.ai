@@ -5,15 +5,15 @@ import type { ComponentProps } from "react";
 export function Example(
     args: ComponentProps<typeof Checkbox>,
 ) {
-    return (
-        <Checkbox {...args} label="This is the checkbox" />
-    );
+    return <Checkbox {...args} />;
 }
 
 const meta = {
     title: "Components/Checkbox",
     component: Checkbox,
-    args: {},
+    args: {
+        label: "This is the label",
+    },
     render: Example,
 } satisfies Meta<typeof Checkbox>;
 

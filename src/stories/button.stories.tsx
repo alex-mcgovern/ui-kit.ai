@@ -1,3 +1,5 @@
+import * as React from "react";
+
 import type { ComponentProps, ReactNode } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 
@@ -16,7 +18,14 @@ const variants: Variant[] = [
     "tertiary",
 ];
 
-function Template({
+export function Example({
+    children = "Button",
+    ...args
+}: ComponentProps<typeof Button>) {
+    return <Button {...args}>{children}</Button>;
+}
+
+function VariantsTemplate({
     children = "Button",
     ...args
 }: ComponentProps<typeof Button>) {
@@ -37,7 +46,7 @@ function Template({
 const meta = {
     component: Button,
     title: "Components/Button",
-    render: Template,
+    render: VariantsTemplate,
     decorators: [
         (Story) => (
             <div className="flex gap-2">

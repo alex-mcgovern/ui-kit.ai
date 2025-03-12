@@ -6,6 +6,24 @@ import { type StoryArgsList } from "../types/storybook";
 
 const TEXT = "Lorem ipsum dolor sit amet...";
 
+export function Example(
+    props: ComponentProps<typeof Heading>,
+) {
+    return (
+        <div>
+            {LEVELS.map((level) => (
+                <Heading
+                    {...props}
+                    level={level}
+                    children={`H${level} ${TEXT} `}
+                    key={level}
+                    className="truncate"
+                />
+            ))}
+        </div>
+    );
+}
+
 type ArgsList = StoryArgsList<
     ComponentProps<typeof Heading>
 >;

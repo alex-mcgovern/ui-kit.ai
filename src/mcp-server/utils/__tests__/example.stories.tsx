@@ -1,20 +1,18 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { FieldGroup } from "../components/field-group";
-import { Input } from "../components/input";
-import { Label } from "../components/label";
+import type { ComponentProps } from "react";
 import {
     TextField,
     TextFieldClearButton,
     TextFieldCopyButton,
     TextFieldVisibilityButton,
-} from "../components/text-field";
-import { Description } from "../components/description";
-import type { ComponentProps } from "react";
+} from "../../../components/text-field";
+import { Label } from "../../../components/label";
+import { FieldGroup } from "../../../components/field-group";
+import { Input } from "../../../components/input";
+import { Description } from "../../../components/description";
 
-export function Example(
-    props: ComponentProps<typeof TextField>,
-) {
+function Example(props: ComponentProps<typeof TextField>) {
     return (
         <TextField {...props}>
             <Label>Label</Label>
@@ -51,6 +49,9 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {};
+/**
+ * You can pass `isDisabled` to the `TextField` to disable it.
+ */
 export const IsDisabled: Story = {
     args: {
         isDisabled: true,

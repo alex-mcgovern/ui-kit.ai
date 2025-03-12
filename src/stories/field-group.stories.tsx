@@ -1,16 +1,38 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import {
-    ComboBox,
-    ComboBoxClearButton,
-    ComboBoxFieldGroup,
-    ComboBoxInput,
-} from "../components/combo-box";
 import { FieldGroup } from "../components/field-group";
 import { Input } from "../components/input";
 import { Kbd } from "../components/kbd";
 import { Select, SelectButton } from "../components/select";
 import { getMockOptions } from "../mocks/options";
+import { TextField } from "../components/text-field";
+import type { ComponentProps } from "react";
+
+export function Example(
+    props: ComponentProps<typeof FieldGroup>,
+) {
+    return (
+        <FieldGroup {...props}>
+            <Select
+                aria-label="Country"
+                className="min-w-64 border-r border-r-muted-400"
+                items={getMockOptions({
+                    withIcon: true,
+                    withSections: true,
+                })}
+                name="country"
+            >
+                {(rp) => (
+                    <SelectButton {...rp} isBorderless />
+                )}
+            </Select>
+
+            <TextField aria-label="City">
+                <Input placeholder="Enter your city..." />
+            </TextField>
+        </FieldGroup>
+    );
+}
 
 const meta = {
     args: {},
@@ -43,11 +65,13 @@ export const Primary: Story = {
         children: (
             <>
                 <Select
-                    aria-label="Package type"
-                    className="border-r-muted-400 min-w-64 border-r"
-                    defaultSelectedKey="pypi"
-                    items={getMockOptions()}
-                    name="packageManager"
+                    aria-label="Country"
+                    className="min-w-64 border-r border-r-muted-400"
+                    items={getMockOptions({
+                        withIcon: true,
+                        withSections: true,
+                    })}
+                    name="country"
                 >
                     {(rp) => (
                         <SelectButton
@@ -57,15 +81,9 @@ export const Primary: Story = {
                     )}
                 </Select>
 
-                <ComboBox items={getMockOptions()}>
-                    <ComboBoxFieldGroup isBorderless>
-                        <ComboBoxInput
-                            isBorderless
-                            placeholder="Type to search..."
-                        />
-                        <ComboBoxClearButton />
-                    </ComboBoxFieldGroup>
-                </ComboBox>
+                <TextField aria-label="City">
+                    <Input placeholder="Enter your city..." />
+                </TextField>
             </>
         ),
     },

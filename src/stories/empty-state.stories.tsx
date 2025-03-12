@@ -4,20 +4,31 @@ import { SearchXIcon } from "lucide-react";
 
 import { Button } from "../components/button";
 import { EmptyState } from "../components/empty-state";
+import type { ComponentProps } from "react";
+
+export function Example(
+    args: ComponentProps<typeof EmptyState>,
+) {
+    return (
+        <EmptyState
+            {...args}
+            icon={SearchXIcon}
+            title="This is the title"
+            body="This is the body"
+            actions={[
+                <Button key="secondary">Secondary</Button>,
+                <Button key="primary">Primary</Button>,
+            ]}
+        />
+    );
+}
 
 const meta: Meta<typeof EmptyState> = {
     args: {
-        actions: [
-            <Button key="clear-search">
-                Clear search
-            </Button>,
-        ],
-        body: "Try another search term, or clearing the search.",
-        icon: SearchXIcon,
-        title: 'No search results for "foo-bar"',
+        title: "This is the title",
     },
     component: EmptyState,
-
+    render: Example,
     title: "Components/EmptyState",
 };
 

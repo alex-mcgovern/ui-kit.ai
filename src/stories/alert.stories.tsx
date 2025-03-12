@@ -4,7 +4,9 @@ import { Alert } from "../components/alert";
 import { Button } from "../components/button";
 import type { ComponentProps } from "react";
 
-function Template(args: ComponentProps<typeof Alert>) {
+export function Example(
+    args: ComponentProps<typeof Alert>,
+) {
     return (
         <Alert
             {...args}
@@ -35,7 +37,7 @@ const meta = {
             </div>
         ),
     ],
-    render: Template,
+    render: Example,
 } satisfies Meta<typeof Alert>;
 
 export default meta;

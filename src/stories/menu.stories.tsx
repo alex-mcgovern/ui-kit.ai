@@ -14,7 +14,7 @@ import type { OptionsSchema } from "../types/options";
 import { getMockOptions } from "../mocks/options";
 import type { ComponentProps } from "react";
 
-const Template = (args: ComponentProps<typeof Menu>) => {
+export function Example(args: ComponentProps<typeof Menu>) {
     return (
         <MenuTrigger>
             <Button
@@ -29,7 +29,7 @@ const Template = (args: ComponentProps<typeof Menu>) => {
             </Popover>
         </MenuTrigger>
     );
-};
+}
 
 const meta = {
     component: Menu,
@@ -46,7 +46,7 @@ export const Primary: Story = {
             withSections: false,
         }),
     },
-    render: Template,
+    render: Example,
 };
 
 export const WithSections: Story = {

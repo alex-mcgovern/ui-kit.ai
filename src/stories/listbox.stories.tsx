@@ -4,6 +4,13 @@ import type { OptionsSchema } from "../types/options";
 
 import { ListBox } from "../components/listbox";
 import { getMockOptions } from "../mocks/options";
+import type { ComponentProps } from "react";
+
+export function Example(
+    props: ComponentProps<typeof ListBox>,
+) {
+    return <ListBox {...props} />;
+}
 
 const meta = {
     component: ListBox,

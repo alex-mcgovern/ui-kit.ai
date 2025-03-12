@@ -11,19 +11,21 @@ import type { ComponentProps, ComponentType } from "react";
 import { type StoryArgsList } from "../types/storybook";
 import { Description } from "../components/description";
 
-const Template = (
+export function Example(
     props: ComponentProps<
         typeof Select<OptionsSchema<"listbox">>
     >,
-) => (
-    <Select {...props}>
-        <Label>Label</Label>
-        <SelectButton />
-        <Description>
-            This is a short description
-        </Description>
-    </Select>
-);
+) {
+    return (
+        <Select {...props}>
+            <Label>Label</Label>
+            <SelectButton />
+            <Description>
+                This is a short description
+            </Description>
+        </Select>
+    );
+}
 
 const meta = {
     args: {
@@ -35,7 +37,7 @@ const meta = {
         SelectButton:
             SelectButton as ComponentType<unknown>,
     },
-    render: Template,
+    render: Example,
     decorators: [
         (Story) => (
             <div className="mx-auto w-96">{Story()}</div>

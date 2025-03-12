@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import type { ComponentType } from "react";
+import type { ComponentProps, ComponentType } from "react";
 
 import { faker } from "@faker-js/faker";
 
@@ -13,6 +13,51 @@ import {
     DialogTitle,
     DialogTrigger,
 } from "../components/dialog";
+
+export const Example = (
+    props: ComponentProps<typeof Dialog>,
+) => (
+    <DialogTrigger>
+        <Button>Open dialog</Button>
+        <Dialog {...props}>
+            {({ close }) => {
+                return (
+                    <>
+                        <DialogHeader>
+                            <DialogTitle>
+                                Hello there
+                            </DialogTitle>
+                            <DialogCloseButton />
+                        </DialogHeader>
+
+                        <DialogContent>
+                            <LongContent />
+                        </DialogContent>
+
+                        <DialogFooter>
+                            <Button
+                                className="ml-auto"
+                                onPress={() => close()}
+                                variant="secondary"
+                            >
+                                Cancel
+                            </Button>
+                            <Button
+                                onPress={() => {
+                                    alert("Confirmed");
+                                    close();
+                                }}
+                                type="submit"
+                            >
+                                Confirm
+                            </Button>
+                        </DialogFooter>
+                    </>
+                );
+            }}
+        </Dialog>
+    </DialogTrigger>
+);
 
 const LongContent = () => (
     <>
@@ -56,48 +101,7 @@ const meta: Meta<typeof Dialog> = {
             );
         },
     ],
-    render: (props) => (
-        <DialogTrigger>
-            <Button>Open dialog</Button>
-            <Dialog {...props}>
-                {({ close }) => {
-                    return (
-                        <>
-                            <DialogHeader>
-                                <DialogTitle>
-                                    Hello there
-                                </DialogTitle>
-                                <DialogCloseButton />
-                            </DialogHeader>
-
-                            <DialogContent>
-                                <LongContent />
-                            </DialogContent>
-
-                            <DialogFooter>
-                                <Button
-                                    className="ml-auto"
-                                    onPress={() => close()}
-                                    variant="secondary"
-                                >
-                                    Cancel
-                                </Button>
-                                <Button
-                                    onPress={() => {
-                                        alert("Confirmed");
-                                        close();
-                                    }}
-                                    type="submit"
-                                >
-                                    Confirm
-                                </Button>
-                            </DialogFooter>
-                        </>
-                    );
-                }}
-            </Dialog>
-        </DialogTrigger>
-    ),
+    render: Example,
     // Storybook's typescript is a bit sh*t, hence the type-casting
     subcomponents: {
         DialogCloseButton:

@@ -5,42 +5,41 @@ import { Label } from "../components/label";
 import { Description } from "../components/description";
 import { CheckboxGroup } from "../components/checkbox-group";
 
-const Template = (
+export function Example(
     args: ComponentProps<typeof CheckboxGroup>,
-) => (
-    <CheckboxGroup
-        defaultValue={["account-updates"]}
-        {...args}
-    >
-        <Label>Communication preferences</Label>
-        <Checkbox
-            value="account-updates"
-            isDisabled
-            isRequired
-            label="Account updates"
-            description="Necessary emails about your account & account security."
-        />
-        <Checkbox
-            value="newsletter"
-            label="Newsletter"
-            description="No more than one email per month with updates from our team."
-        />
-        <Checkbox
-            value="promotions"
-            label="Promotions and Offers"
-            description="Deals, discounts and suggestions we think you'll love."
-        />
-        <Description>
-            Your preferences can be updated at any time in
-            your account settings.
-        </Description>
-    </CheckboxGroup>
-);
+) {
+    return (
+        <CheckboxGroup
+            defaultValue={["account-updates"]}
+            {...args}
+        >
+            <Label>This is a label for the field</Label>
+            <Checkbox
+                value="item-a"
+                label="Item A"
+                description="Optional description"
+            />
+            <Checkbox
+                value="item-b"
+                label="Item B"
+                description="Optional description"
+            />
+            <Checkbox
+                value="item-c"
+                label="Item B"
+                description="Optional description"
+            />
+            <Description>
+                This is a description for the field group.
+            </Description>
+        </CheckboxGroup>
+    );
+}
 
 const meta = {
     title: "Components/CheckboxGroup",
     component: CheckboxGroup,
-    render: Template,
+    render: Example,
 } satisfies Meta<typeof CheckboxGroup>;
 
 export default meta;

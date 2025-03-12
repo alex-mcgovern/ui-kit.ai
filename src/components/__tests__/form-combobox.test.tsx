@@ -6,7 +6,7 @@ import { Button } from "../Button";
 import { ComboBoxInput } from "../combo-box";
 import { Label } from "../Label";
 import { Form } from "../form";
-import { FormComboBox } from "../form-combobox";
+import { FormComboBox } from "../form-combo-box";
 import { FormResetOnSubmit } from "../form-reset-on-submit";
 
 it("submits form with `Form.ComboBox`", async () => {
