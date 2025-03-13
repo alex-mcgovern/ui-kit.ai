@@ -1,4 +1,4 @@
-import type { HTMLProps } from "react";
+import { forwardRef, type HTMLProps } from "react";
 import type {
     ButtonProps as RACButtonProps,
     LinkProps as RACLinkProps,
@@ -9,7 +9,6 @@ import {
 } from "react-aria-components";
 import { tv } from "tailwind-variants";
 import { focusRing } from "../styles/focus-ring";
-import { genericForwardRef } from "../lib/forward-ref";
 import {
     renderSlot,
     type SlotNode,
@@ -124,7 +123,7 @@ const tagStyles = tv({
 /**
  * Tag component
  */
-export const Tag = genericForwardRef<
+export const Tag = forwardRef<
     HTMLDivElement,
     TagProps & HTMLProps<HTMLDivElement>
 >(
@@ -162,11 +161,12 @@ export const Tag = genericForwardRef<
         );
     },
 );
+Tag.displayName = "Tag";
 
 /**
  * Tag button component
  */
-export const TagButton = genericForwardRef<
+export const TagButton = forwardRef<
     HTMLButtonElement,
     TagProps & RACButtonProps
 >(
@@ -215,11 +215,12 @@ export const TagButton = genericForwardRef<
         );
     },
 );
+TagButton.displayName = "TagButton";
 
 /**
  * Tag button component
  */
-export const TagLink = genericForwardRef<
+export const TagLink = forwardRef<
     HTMLAnchorElement,
     TagProps & RACLinkProps
 >(
@@ -268,3 +269,4 @@ export const TagLink = genericForwardRef<
         );
     },
 );
+TagLink.displayName = "TagLink";

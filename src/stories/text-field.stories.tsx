@@ -12,9 +12,7 @@ import {
 import { Description } from "../components/description";
 import type { ComponentProps } from "react";
 
-export function Example(
-    props: ComponentProps<typeof TextField>,
-) {
+function Template(props: ComponentProps<typeof TextField>) {
     return (
         <TextField {...props}>
             <Label>Label</Label>
@@ -44,24 +42,24 @@ const meta = {
             </div>
         ),
     ],
-    render: Example,
+    render: Template,
 } satisfies Meta<typeof TextField>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Primary: Story = {};
-export const IsDisabled: Story = {
+export const primary: Story = {};
+export const isDisabled: Story = {
     args: {
         isDisabled: true,
     },
 };
-export const IsInvalid: Story = {
+export const isInvalid: Story = {
     args: {
         isInvalid: true,
     },
 };
-export const IsReadOnly: Story = {
+export const isReadOnly: Story = {
     args: {
         isReadOnly: true,
     },

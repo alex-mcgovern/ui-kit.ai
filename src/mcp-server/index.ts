@@ -4,13 +4,6 @@ import AvailableComponents from "./data/available-components.json";
 import ComponentUsage from "./data/component-usage.json";
 import { z } from "zod";
 
-const componentNameSchema = z.custom<
-    keyof typeof ComponentUsage
->((v) => {
-    if (v in ComponentUsage) return v;
-    else return false;
-});
-
 const server = new McpServer({
     name: "Boondoggle component library assistant",
     version: "1.0.0",
@@ -36,7 +29,7 @@ server.tool(
     {
         componentName: z.string(),
     },
-    async ({ componentName }) => {
+    ({ componentName }) => {
         const example =
             componentName in ComponentUsage
                 ? ComponentUsage[
@@ -48,7 +41,9 @@ server.tool(
             content: [
                 {
                     type: "text",
-                    text: example ?? "No example found.",
+                    text: example
+                        ? JSON.stringify(example, null, 2)
+                        : "No example found.",
                 },
             ],
         };

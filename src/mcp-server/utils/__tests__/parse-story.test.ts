@@ -1,43 +1,117 @@
-import { describe, it, expect } from "vitest";
-import { parseStoryExports } from "../parse-story";
+import { it, expect } from "vitest";
+import { parseStory } from "../parse-story";
 import path from "path";
 import { fileURLToPath } from "url";
 
-it("parseStoryExports", async () => {
+it("getArgsForStories", async () => {
     const storyPath = path.resolve(
         path.dirname(fileURLToPath(import.meta.url)),
         "./example.stories.tsx",
     );
-    const exports = await parseStoryExports(storyPath);
+    const exports = await parseStory(storyPath);
 
-    expect(exports).toEqual({
-        Primary: {
-            description: "",
-            args: {
-                name: "text field",
-            },
-        },
-        IsDisabled: {
-            description:
-                "You can pass `isDisabled` to the `TextField` to disable it.\nThis will prevent any user input.",
-            args: {
-                name: "text field",
-                isDisabled: true,
-            },
-        },
-        IsInvalid: {
-            description: "",
-            args: {
-                name: "text field",
-                isInvalid: true,
-            },
-        },
-        IsReadOnly: {
-            description: "",
-            args: {
-                name: "text field",
-                isReadOnly: true,
-            },
-        },
-    });
+    expect(exports.Primary).toBe(
+        `<TextField name="text field">
+  <Label>
+    Label
+  </Label>
+  <FieldGroup>
+    <Input
+      isBorderless
+      placeholder="This is a placeholder"
+    />
+    <TextFieldClearButton />
+    <TextFieldVisibilityButton />
+    <TextFieldCopyButton />
+  </FieldGroup>
+  <Description>
+    This is a short description
+  </Description>
+</TextField>`,
+    );
+
+    expect(exports.IsDisabled).toBe(
+        `<TextField
+  isDisabled
+  name="text field"
+>
+  <Label>
+    Label
+  </Label>
+  <FieldGroup>
+    <Input
+      isBorderless
+      placeholder="This is a placeholder"
+    />
+    <TextFieldClearButton />
+    <TextFieldVisibilityButton />
+    <TextFieldCopyButton />
+  </FieldGroup>
+  <Description>
+    This is a short description
+  </Description>
+</TextField>`,
+    );
+
+    expect(exports.IsInvalid).toBe(
+        `<TextField
+  isInvalid
+  name="text field"
+>
+  <Label>
+    Label
+  </Label>
+  <FieldGroup>
+    <Input
+      isBorderless
+      placeholder="This is a placeholder"
+    />
+    <TextFieldClearButton />
+    <TextFieldVisibilityButton />
+    <TextFieldCopyButton />
+  </FieldGroup>
+  <Description>
+    This is a short description
+  </Description>
+</TextField>`,
+    );
+
+    expect(exports.IsReadOnly).toBe(
+        `<TextField
+  isReadOnly
+  name="text field"
+>
+  <Label>
+    Label
+  </Label>
+  <FieldGroup>
+    <Input
+      isBorderless
+      placeholder="This is a placeholder"
+    />
+    <TextFieldClearButton />
+    <TextFieldVisibilityButton />
+    <TextFieldCopyButton />
+  </FieldGroup>
+  <Description>
+    This is a short description
+  </Description>
+</TextField>`,
+    );
+
+    // expect(exports).toEqual({
+    //     Primary: "<TextField {...props}><Label>Label</Label><FieldGroup><Input isBorderless placeholder="This is a placeholder" /><TextFieldClearButton /><TextFieldVisibilityButton /><TextFieldCopyButton /></FieldGroup><Description>This is a short description</Description></TextField>",
+    //     // IsDisabled: {
+    //     //     name: "text field",
+    //     //     isDisabled: true,
+    //     // },
+    //     // IsInvalid: {
+    //     //     name: "text field",
+    //     //     isInvalid: true,
+    //     // },
+    //     // IsReadOnly: {
+    //     //     name: "text field",
+    //     //     isReadOnly: true,
+    //     // },
+    // });
 });

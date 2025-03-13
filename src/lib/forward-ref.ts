@@ -6,7 +6,9 @@ export function genericForwardRef<T, P = {}>(
         props: P,
         ref: React.Ref<T>,
     ) => React.ReactNode,
-): (props: P & React.RefAttributes<T>) => React.ReactNode {
+): (
+    props: P & React.RefAttributes<T>,
+) => ReturnType<typeof React.forwardRef> {
     // @ts-expect-error - This is a hack to make the types work
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     return React.forwardRef(render) as any;

@@ -1,6 +1,6 @@
 import type { CheckboxGroupProps as AriaCheckboxGroupProps } from "react-aria-components";
 
-import React from "react";
+import React, { forwardRef } from "react";
 import { CheckboxGroup as AriaCheckboxGroup } from "react-aria-components";
 import { twMerge } from "tailwind-merge";
 import { genericForwardRef } from "../lib/forward-ref";
@@ -31,7 +31,7 @@ import { genericForwardRef } from "../lib/forward-ref";
  * </CheckboxGroup>
  * ```
  */
-export const CheckboxGroup = genericForwardRef<
+export const CheckboxGroup = forwardRef<
     HTMLDivElement,
     AriaCheckboxGroupProps
 >((props) => {
@@ -51,3 +51,4 @@ export const CheckboxGroup = genericForwardRef<
         </AriaCheckboxGroup>
     );
 });
+CheckboxGroup.displayName = "CheckboxGroup";

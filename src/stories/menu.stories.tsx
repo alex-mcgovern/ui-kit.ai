@@ -1,10 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { Menu as IconMenu } from "lucide-react";
-import { MenuTrigger } from "react-aria-components";
 
 import { Button } from "../components/button";
-import { Menu } from "../components/menu";
+import { Menu, MenuTrigger } from "../components/menu";
 import { Popover } from "../components/popover";
 
 import React from "react";

@@ -81,3 +81,4 @@ export const Input = forwardRef<
         </div>
     );
 });
+Input.displayName = "Input";

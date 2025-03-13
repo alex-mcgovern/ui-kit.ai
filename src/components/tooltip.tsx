@@ -63,6 +63,7 @@ export function TooltipTrigger({
 }: RACTooltipTriggerProps) {
     return <RACTooltipTrigger {...props} delay={delay} />;
 }
+TooltipTrigger.displayName = "TooltipTrigger";
 
 /**
  * A button with an info icon that triggers a tooltip.
@@ -93,6 +94,7 @@ export const TooltipInfoButton = forwardRef<
         </Button>
     );
 });
+TooltipInfoButton.displayName = "TooltipInfoButton";
 
 /**
  * A tooltip displays a description of an element on hover or focus.
@@ -155,3 +157,4 @@ export function Tooltip({
         </RACTooltip>
     );
 }
+Tooltip.displayName = "Tooltip";

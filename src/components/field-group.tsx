@@ -1,7 +1,10 @@
 import type { GroupProps as RACGroupProps } from "react-aria-components";
 
 import { forwardRef } from "react";
-import { composeRenderProps, Group as RACGroup } from "react-aria-components";
+import {
+    composeRenderProps,
+    Group as RACGroup,
+} from "react-aria-components";
 import { tv } from "tailwind-variants";
 
 import { fieldVariants } from "../styles/field-variants";
@@ -37,3 +40,4 @@ export const FieldGroup = forwardRef<
         />
     );
 });
+FieldGroup.displayName = "FieldGroup";

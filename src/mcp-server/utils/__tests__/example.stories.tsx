@@ -12,7 +12,9 @@ import { FieldGroup } from "../../../components/field-group";
 import { Input } from "../../../components/input";
 import { Description } from "../../../components/description";
 
-function Example(props: ComponentProps<typeof TextField>) {
+const Example = (
+    props: ComponentProps<typeof TextField>,
+) => {
     return (
         <TextField {...props}>
             <Label>Label</Label>
@@ -30,7 +32,7 @@ function Example(props: ComponentProps<typeof TextField>) {
             </Description>
         </TextField>
     );
-}
+};
 
 const meta = {
     args: {

@@ -155,7 +155,7 @@ export type TableRendererProps<
 
 const columnWrapperStyles = tv({
     base: [
-        "border-muted-200 border-b",
+        "border-b border-muted-200",
         "[&:focus-within]:z-20 [&:hover]:z-20",
         "text-secondary hover:text-primary",
         "cursor-default hover:cursor-pointer",
@@ -192,7 +192,7 @@ const cellStyles = tv({
         `group-data-[compact]/table:first:pl-0
         group-data-[compact]/table:last:pr-0`,
         // border styles
-        "border-muted-200 border-b",
+        "border-b border-muted-200",
     ],
     defaultVariants: {
         alignment: "start",
@@ -211,10 +211,10 @@ const rowStyles = tv({
     base: [
         "group/row",
         "relative -outline-offset-2",
-        "disabled:text-muted-300 text-primary",
+        "text-primary disabled:text-muted-300",
         "transition-colors",
         // hover styles
-        "hover:bg-muted-50 hover:select-none",
+        "hover:select-none hover:bg-muted-50",
         "hover:cursor-pointer hover:disabled:cursor-not-allowed",
         // pressed styles
         "pressed:bg-muted-100",
@@ -241,8 +241,8 @@ const cellSkeletonStyles = tv({
 });
 
 const resizerStyles = tv({
-    base: `bg-muted-400 box-content h-5 w-px translate-x-[8px]
-    cursor-col-resize rounded bg-clip-content px-[8px] py-1
+    base: `box-content h-5 w-px translate-x-[8px] cursor-col-resize
+    rounded bg-muted-400 bg-clip-content px-[8px] py-1
     -outline-offset-2 resizing:w-[2px] resizing:bg-brand-600
     resizing:pl-[7px] forced-colors:bg-[ButtonBorder]
     forced-colors:resizing:bg-[Highlight]`,
@@ -695,3 +695,4 @@ export function Table<TRow extends BaseRow = BaseRow>({
         </ResizableTableContainer>
     );
 }
+Table.displayName = "Table";

@@ -320,6 +320,7 @@ export const Button = forwardRef<
         );
     },
 );
+Button.displayName = "Button";
 
 export const LinkButton = forwardRef<
     HTMLAnchorElement,

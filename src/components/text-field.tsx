@@ -11,6 +11,7 @@ import {
     XIcon,
 } from "lucide-react";
 import {
+    forwardRef,
     useCallback,
     useEffect,
     useMemo,
@@ -45,6 +46,7 @@ export function TextFieldClearButton(
         </TooltipTrigger>
     );
 }
+TextFieldClearButton.displayName = "TextFieldClearButton";
 
 /**
  * A `FieldButton` to copy the text field value to the clipboard.
@@ -66,6 +68,7 @@ export function TextFieldCopyButton(
         </TooltipTrigger>
     );
 }
+TextFieldCopyButton.displayName = "TextFieldCopyButton";
 
 /**
  * A `FieldButton` to toggle the visibility of the text field value.
@@ -98,8 +101,10 @@ export function TextFieldVisibilityButton(
         </TooltipTrigger>
     );
 }
+TextFieldVisibilityButton.displayName =
+    "TextFieldVisibilityButton";
 
-export const TextField = genericForwardRef<
+export const TextField = forwardRef<
     HTMLInputElement,
     AriaTextFieldProps
 >((props, ref) => {
@@ -193,3 +198,4 @@ export const TextField = genericForwardRef<
         </FieldButtonContext.Provider>
     );
 });
+TextField.displayName = "TextField";

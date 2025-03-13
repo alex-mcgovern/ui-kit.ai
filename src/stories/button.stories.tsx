@@ -34,7 +34,11 @@ function VariantsTemplate({
             {variants.map(
                 (variant) =>
                     (
-                        <Button {...args} variant={variant}>
+                        <Button
+                            {...args}
+                            key={variant}
+                            variant={variant}
+                        >
                             {children}
                         </Button>
                     ) as ReactNode,
