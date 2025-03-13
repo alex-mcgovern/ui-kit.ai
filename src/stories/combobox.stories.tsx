@@ -16,27 +16,29 @@ import { getMockOptions } from "../mocks/options";
 import { Description } from "../components/description";
 import { SearchIcon } from "lucide-react";
 
-export const Example = (
+function Template(
     props: ComponentProps<
         typeof ComboBox<OptionsSchema<"listbox">>
     >,
-) => (
-    <ComboBox {...props}>
-        <Label>Label</Label>
-        <ComboBoxFieldGroup>
-            <ComboBoxInput
-                isBorderless
-                icon={<SearchIcon />}
-                placeholder="Type to search..."
-            />
-            <ComboBoxClearButton />
-            <ComboBoxButton />
-        </ComboBoxFieldGroup>
-        <Description>
-            This is a short description
-        </Description>
-    </ComboBox>
-);
+) {
+    return (
+        <ComboBox {...props}>
+            <Label>Label</Label>
+            <ComboBoxFieldGroup>
+                <ComboBoxInput
+                    isBorderless
+                    icon={<SearchIcon />}
+                    placeholder="Type to search..."
+                />
+                <ComboBoxClearButton />
+                <ComboBoxButton />
+            </ComboBoxFieldGroup>
+            <Description>
+                This is a short description
+            </Description>
+        </ComboBox>
+    );
+}
 
 const meta = {
     component: ComboBox,
@@ -53,7 +55,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
     args: { items: getMockOptions({ withIcon: true }) },
-    render: Example,
+    render: Template,
 };
 export const WithSections: Story = {
     args: {
@@ -62,7 +64,7 @@ export const WithSections: Story = {
             withSections: true,
         }),
     },
-    render: Example,
+    render: Template,
 };
 export const IsInvalid: Story = {
     args: {
@@ -72,7 +74,7 @@ export const IsInvalid: Story = {
         }),
         isInvalid: true,
     },
-    render: Example,
+    render: Template,
 };
 export const IsDisabled: Story = {
     args: {
@@ -82,7 +84,7 @@ export const IsDisabled: Story = {
         }),
         isDisabled: true,
     },
-    render: Example,
+    render: Template,
 };
 export const IsBorderless: Story = {
     args: {
@@ -92,7 +94,7 @@ export const IsBorderless: Story = {
         }),
         isDisabled: true,
     },
-    render: Example,
+    render: Template,
 };
 export const DisabledKeys: Story = {
     args: {
@@ -102,5 +104,5 @@ export const DisabledKeys: Story = {
         }),
         disabledKeys: ["france", "germany", "spain"],
     },
-    render: Example,
+    render: Template,
 };

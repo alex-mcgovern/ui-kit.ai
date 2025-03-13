@@ -26,7 +26,6 @@ import { twMerge } from "tailwind-merge";
 
 import type { OptionsSchema } from "../types/options";
 
-import { genericForwardRef } from "../lib/forward-ref";
 import { FieldButton } from "./field-button";
 import { FieldGroup } from "./field-group";
 import { Input } from "./input";
@@ -49,6 +48,7 @@ export function ComboBoxButton(
         </FieldButton>
     );
 }
+ComboBoxButton.displayName = "ComboBoxButton";
 
 /**
  * A button that clears the selected key from the ComboBox. Only visible when
@@ -114,10 +114,12 @@ export function ComboBoxFieldGroup(
  * An input that is used to interact with a ComboBox. Is customized to
  * toggle the ComboBox on click.
  */
-export const ComboBoxInput = genericForwardRef<
-    HTMLInputElement,
-    ComponentProps<typeof Input>
->((props, ref) => {
+export const ComboBoxInput = ({
+    ref,
+    ...props
+}: ComponentProps<typeof Input> & {
+    ref?: ForwardedRef<HTMLInputElement>;
+}) => {
     const state = useContext(ComboBoxStateContext);
 
     const { selectedItem, toggle } = state ?? {};
@@ -141,27 +143,56 @@ export const ComboBoxInput = genericForwardRef<
             ref={ref}
         />
     );
-});
+};
 
 const ComboBoxRefContext =
     createContext<null | RefObject<HTMLDivElement>>(null);
 
-function BaseComboBox<
+/**
+ * A combo box combines a text input with a listbox, allowing users to filter a
+ * list of options to items matching a query.
+ *
+ * [source code](https://github.com/alex-mcgovern/boondoggle/tree/main/src/components/combobox)
+ * [react-aria](https://react-spectrum.adobe.com/react-aria/ComboBox.html)
+ *
+ * ## Usage
+ * ```tsx
+ * import {
+ *     ComboBox,
+ *     ComboBoxFieldGroup,
+ *     ComboBoxButton,
+ *     ComboBoxInput,
+ *     ComboBoxClearButton
+ * } from "boondoggle"
+ * ```
+ * ```tsx
+ * <ComboBox items={[{ id: "item-1", textValue: "Item 1"}]}>
+ *     <ComboBoxFieldGroup>
+ *         <ComboBoxInput
+ *             isBorderless
+ *             icon={<SearchIcon />}
+ *             placeholder="Type to search..."
+ *         />
+ *         <ComboBoxClearButton />
+ *         <ComboBoxButton />
+ *     </ComboBoxFieldGroup>
+ * </ComboBox>
+ * ```
+ */
+export function ComboBox<
     T extends
         OptionsSchema<"listbox"> = OptionsSchema<"listbox">,
->(
-    {
-        children,
-        items,
-        renderEmptyState,
-        ...props
-    }: AriaComboBoxProps<T> &
-        Pick<
-            ComponentProps<typeof ListBox>,
-            "renderEmptyState"
-        >,
-    ref: ForwardedRef<HTMLDivElement>,
-) {
+>({
+    children,
+    items,
+    renderEmptyState,
+    ref,
+    ...props
+}: AriaComboBoxProps<T> &
+    Pick<
+        ComponentProps<typeof ListBox>,
+        "renderEmptyState"
+    > & { ref?: ForwardedRef<HTMLDivElement> }) {
     const [groupRef, groupWidth] = usePopoverWidth();
 
     return (
@@ -249,36 +280,3 @@ function usePopoverWidth() {
 
     return [ref, width] as const;
 }
-
-/**
- * A combo box combines a text input with a listbox, allowing users to filter a
- * list of options to items matching a query.
- *
- * [source code](https://github.com/alex-mcgovern/boondoggle/tree/main/src/components/combobox)
- * [react-aria](https://react-spectrum.adobe.com/react-aria/ComboBox.html)
- *
- * ## Usage
- * ```tsx
- * import {
- *     ComboBox,
- *     ComboBoxFieldGroup,
- *     ComboBoxButton,
- *     ComboBoxInput,
- *     ComboBoxClearButton
- * } from "boondoggle"
- * ```
- * ```tsx
- * <ComboBox items={[{ id: "item-1", textValue: "Item 1"}]}>
- *     <ComboBoxFieldGroup>
- *         <ComboBoxInput
- *             isBorderless
- *             icon={<SearchIcon />}
- *             placeholder="Type to search..."
- *         />
- *         <ComboBoxClearButton />
- *         <ComboBoxButton />
- *     </ComboBoxFieldGroup>
- * </ComboBox>
- * ```
- */
-export const ComboBox = genericForwardRef(BaseComboBox);

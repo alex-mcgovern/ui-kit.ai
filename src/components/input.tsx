@@ -1,6 +1,6 @@
 import {
     type ComponentProps,
-    forwardRef,
+    type ForwardedRef,
     type ReactNode,
 } from "react";
 import { Input as RACInput } from "react-aria-components";
@@ -39,13 +39,16 @@ const inputStyles = tv({
  * <Input placeholder="Type something..." />
  * ```
  */
-export const Input = forwardRef<
-    HTMLInputElement,
-    ComponentProps<typeof RACInput> & {
-        icon?: ReactNode;
-        isBorderless?: boolean;
-    }
->(({ icon, isBorderless, ...props }, ref) => {
+export const Input = ({
+    icon,
+    isBorderless,
+    ref,
+    ...props
+}: ComponentProps<typeof RACInput> & {
+    icon?: ReactNode;
+    isBorderless?: boolean;
+    ref?: ForwardedRef<HTMLInputElement>;
+}) => {
     return (
         <div className="relative inline-flex w-full items-center">
             {icon != null ? (
@@ -80,5 +83,5 @@ export const Input = forwardRef<
             />
         </div>
     );
-});
+};
 Input.displayName = "Input";

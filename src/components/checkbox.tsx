@@ -217,3 +217,4 @@ export function Checkbox({
         </AriaCheckbox>
     );
 }
+Checkbox.displayName = "Checkbox";

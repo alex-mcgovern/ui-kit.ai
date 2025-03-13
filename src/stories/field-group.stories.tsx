@@ -8,7 +8,7 @@ import { getMockOptions } from "../mocks/options";
 import { TextField } from "../components/text-field";
 import type { ComponentProps } from "react";
 
-export function Example(
+function Template(
     props: ComponentProps<typeof FieldGroup>,
 ) {
     return (

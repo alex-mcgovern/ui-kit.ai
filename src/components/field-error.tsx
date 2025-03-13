@@ -1,6 +1,6 @@
 import type { FieldErrorProps as RACFieldErrorProps } from "react-aria-components";
 
-import { forwardRef } from "react";
+import { type ForwardedRef } from "react";
 import { FieldError as RACFieldError } from "react-aria-components";
 import { twMerge } from "tailwind-merge";
 
@@ -17,10 +17,12 @@ import { twMerge } from "tailwind-merge";
  * <FieldError>Your error message here</FieldError>
  * ```
  */
-export const FieldError = forwardRef<
-    HTMLDivElement,
-    RACFieldErrorProps
->((props, ref) => {
+export function FieldError({
+    ref,
+    ...props
+}: RACFieldErrorProps & {
+    ref?: ForwardedRef<HTMLDivElement>;
+}) {
     return (
         <RACFieldError
             {...props}
@@ -36,4 +38,4 @@ export const FieldError = forwardRef<
             ref={ref}
         />
     );
-});
+}

@@ -2,9 +2,9 @@ import { render, waitFor } from "@testing-library/react";
 import { userEvent } from "@testing-library/user-event";
 import { expect, it, vi } from "vitest";
 
-import { Button } from "../Button";
+import { Button } from "../button";
 import { ComboBoxInput } from "../combo-box";
-import { Label } from "../Label";
+import { Label } from "../label";
 import { Form } from "../form";
 import { FormComboBox } from "../form-combo-box";
 import { FormResetOnSubmit } from "../form-reset-on-submit";

@@ -11,7 +11,7 @@ import type { ComponentProps, ComponentType } from "react";
 import { type StoryArgsList } from "../types/storybook";
 import { Description } from "../components/description";
 
-export function Example(
+function Template(
     props: ComponentProps<
         typeof Select<OptionsSchema<"listbox">>
     >,
@@ -37,7 +37,7 @@ const meta = {
         SelectButton:
             SelectButton as ComponentType<unknown>,
     },
-    render: Example,
+    render: Template,
     decorators: [
         (Story) => (
             <div className="mx-auto w-96">{Story()}</div>

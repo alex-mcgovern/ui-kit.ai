@@ -3,7 +3,6 @@ import type {
     ButtonProps,
 } from "react-aria-components";
 
-import { ChevronsUpDown } from "lucide-react";
 import {
     Button as AriaButton,
     ListBox as AriaListBox,
@@ -19,7 +18,6 @@ import { fieldVariants } from "../styles/field-variants";
 import { INTERNAL_OptionRenderer } from "./options";
 import { Popover } from "./popover";
 import type { ForwardedRef } from "react";
-import { genericForwardRef } from "../lib/forward-ref";
 import {
     renderSlot,
     type SlotNode,
@@ -38,19 +36,37 @@ const selectButtonStyles = tv({
     extend: fieldVariants,
 });
 
-function INTERNAL_Select<
+/**
+ * A select displays a collapsible list of options and allows a user to select one of them.
+ *
+ * [source code](https://github.com/alex-mcgovern/boondoggle/tree/main/src/components/tooltip)
+ * [react-aria](https://react-spectrum.adobe.com/react-aria/Tooltip.html)
+ *
+ * ## Usage
+ * ```tsx
+ * import {
+ *     Select,
+ *     SelectButton
+ * } from "boondoggle"
+ * ```
+ * ```tsx
+ * <Select items={[{ id: "item-1", textValue: "Item 1"}]}>
+ *     <SelectButton />
+ * </Select>
+ * ```
+ */
+export function Select<
     T extends
         OptionsSchema<"listbox"> = OptionsSchema<"listbox">,
->(
-    {
-        children = SelectButton,
-        items,
-        ...props
-    }: AriaSelectProps<T> & {
-        items?: Iterable<T>;
-    },
-    ref: ForwardedRef<HTMLDivElement>,
-) {
+>({
+    children = SelectButton,
+    items,
+    ref,
+    ...props
+}: AriaSelectProps<T> & {
+    items?: Iterable<T>;
+    ref?: ForwardedRef<HTMLDivElement>;
+}) {
     return (
         <AriaSelect
             {...props}
@@ -90,26 +106,7 @@ function INTERNAL_Select<
         </AriaSelect>
     );
 }
-/**
- * A select displays a collapsible list of options and allows a user to select one of them.
- *
- * [source code](https://github.com/alex-mcgovern/boondoggle/tree/main/src/components/tooltip)
- * [react-aria](https://react-spectrum.adobe.com/react-aria/Tooltip.html)
- *
- * ## Usage
- * ```tsx
- * import {
- *     Select,
- *     SelectButton
- * } from "boondoggle"
- * ```
- * ```tsx
- * <Select items={[{ id: "item-1", textValue: "Item 1"}]}>
- *     <SelectButton />
- * </Select>
- * ```
- */
-export const Select = genericForwardRef(INTERNAL_Select);
+Select.displayName = "Select";
 
 /**
  * A SelectButton triggers the Popover for a Select. It usually contains the

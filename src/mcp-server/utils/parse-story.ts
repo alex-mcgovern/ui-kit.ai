@@ -5,6 +5,9 @@ const JSX_STRING_OPTIONS = {
     useBooleanShorthandSyntax: true,
     useFragmentShortSyntax: true,
     showFunctions: true,
+    filterProps(value, key) {
+        return key !== "data-testid" && key !== "key";
+    },
 
     functionValue: (fn: Function) => fn.toString(),
 } as const satisfies Options;

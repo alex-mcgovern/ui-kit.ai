@@ -2,9 +2,9 @@ import { render } from "@testing-library/react";
 import { userEvent } from "@testing-library/user-event";
 import { expect, it, vi } from "vitest";
 
-import { Button } from "../Button";
-import { Checkbox } from "../Checkbox";
-import { Label } from "../Label";
+import { Button } from "../button";
+import { Checkbox } from "../checkbox";
+import { Label } from "../label";
 import { Form } from "../form";
 import { FormCheckboxGroup } from "../form-checkbox-group";
 import { FormResetOnSubmit } from "../form-reset-on-submit";
@@ -17,15 +17,18 @@ it("submits form with `FormCheckboxGroup`", async () => {
         <Form onSubmit={onSubmit}>
             <FormCheckboxGroup name="communication_preference">
                 <Label>Communication preference</Label>
-                <Checkbox value="account_updates">
-                    Account updates
-                </Checkbox>
-                <Checkbox value="newsletter">
-                    Newsletter
-                </Checkbox>
-                <Checkbox value="advertising">
-                    Advertising
-                </Checkbox>
+                <Checkbox
+                    value="account_updates"
+                    label="Account updates"
+                ></Checkbox>
+                <Checkbox
+                    value="newsletter"
+                    label="Newsletter"
+                ></Checkbox>
+                <Checkbox
+                    value="advertising"
+                    label="Advertising"
+                ></Checkbox>
             </FormCheckboxGroup>
             <Button type="submit">Submit</Button>
         </Form>,
@@ -59,15 +62,18 @@ it("`FormCheckboxGroup` clears when reset after submission", async () => {
             <FormResetOnSubmit />
             <FormCheckboxGroup name="communication_preference">
                 <Label>Communication preference</Label>
-                <Checkbox value="account_updates">
-                    Account updates
-                </Checkbox>
-                <Checkbox value="newsletter">
-                    Newsletter
-                </Checkbox>
-                <Checkbox value="advertising">
-                    Advertising
-                </Checkbox>
+                <Checkbox
+                    value="account_updates"
+                    label="Account updates"
+                ></Checkbox>
+                <Checkbox
+                    value="newsletter"
+                    label="Newsletter"
+                ></Checkbox>
+                <Checkbox
+                    value="advertising"
+                    label="Advertising"
+                ></Checkbox>
             </FormCheckboxGroup>
             <Button type="submit">Submit</Button>
         </Form>,
@@ -113,15 +119,18 @@ it("handles `defaultValues` prop passed to `Form` correctly with `FormCheckboxGr
         >
             <FormCheckboxGroup name="communication_preference">
                 <Label>Communication preference</Label>
-                <Checkbox value="account_updates">
-                    Account updates
-                </Checkbox>
-                <Checkbox value="newsletter">
-                    Newsletter
-                </Checkbox>
-                <Checkbox value="advertising">
-                    Advertising
-                </Checkbox>
+                <Checkbox
+                    value="account_updates"
+                    label="Account updates"
+                ></Checkbox>
+                <Checkbox
+                    value="newsletter"
+                    label="Newsletter"
+                ></Checkbox>
+                <Checkbox
+                    value="advertising"
+                    label="Advertising"
+                ></Checkbox>
             </FormCheckboxGroup>
             <Button type="submit">Submit</Button>
         </Form>,
@@ -165,15 +174,18 @@ it("handles `values` prop passed to `Form` correctly with `FormCheckboxGroup`", 
         >
             <FormCheckboxGroup name="communication_preference">
                 <Label>Communication preference</Label>
-                <Checkbox value="account_updates">
-                    Account updates
-                </Checkbox>
-                <Checkbox value="newsletter">
-                    Newsletter
-                </Checkbox>
-                <Checkbox value="advertising">
-                    Advertising
-                </Checkbox>
+                <Checkbox
+                    value="account_updates"
+                    label="Account updates"
+                ></Checkbox>
+                <Checkbox
+                    value="newsletter"
+                    label="Newsletter"
+                ></Checkbox>
+                <Checkbox
+                    value="advertising"
+                    label="Advertising"
+                ></Checkbox>
             </FormCheckboxGroup>
             <Button type="submit">Submit</Button>
         </Form>,
@@ -213,15 +225,18 @@ it("handles `defaultValue` prop passed to `FormCheckboxGroup`", async () => {
                 ]}
             >
                 <Label>Communication preference</Label>
-                <Checkbox value="account_updates">
-                    Account updates
-                </Checkbox>
-                <Checkbox value="newsletter">
-                    Newsletter
-                </Checkbox>
-                <Checkbox value="advertising">
-                    Advertising
-                </Checkbox>
+                <Checkbox
+                    value="account_updates"
+                    label="Account updates"
+                ></Checkbox>
+                <Checkbox
+                    value="newsletter"
+                    label="Newsletter"
+                ></Checkbox>
+                <Checkbox
+                    value="advertising"
+                    label="Advertising"
+                ></Checkbox>
             </FormCheckboxGroup>
             <Button type="submit">Submit</Button>
         </Form>,

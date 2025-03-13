@@ -63,7 +63,7 @@ const IMMIGRATION_STATUS =
 const COMMUNICATION_PREFERENCE =
     communicationPreferencesSchema.Enum;
 
-export function Example(
+function Template(
     props: ComponentProps<typeof Form<FieldValues>>,
 ) {
     return (
@@ -171,7 +171,7 @@ const meta = {
             resolver: zodResolver(schema),
         },
     },
-    render: Example,
+    render: Template,
 } satisfies Meta<typeof Form<FieldValues>>;
 
 export default meta;

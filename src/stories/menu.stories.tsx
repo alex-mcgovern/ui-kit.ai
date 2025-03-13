@@ -13,7 +13,7 @@ import type { OptionsSchema } from "../types/options";
 import { getMockOptions } from "../mocks/options";
 import type { ComponentProps } from "react";
 
-export function Example(args: ComponentProps<typeof Menu>) {
+function Template(args: ComponentProps<typeof Menu>) {
     return (
         <MenuTrigger>
             <Button
@@ -45,7 +45,7 @@ export const Primary: Story = {
             withSections: false,
         }),
     },
-    render: Example,
+    render: Template,
 };
 
 export const WithSections: Story = {

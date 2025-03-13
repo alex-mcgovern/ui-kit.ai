@@ -6,9 +6,7 @@ import { ListBox } from "../components/listbox";
 import { getMockOptions } from "../mocks/options";
 import type { ComponentProps } from "react";
 
-export function Example(
-    props: ComponentProps<typeof ListBox>,
-) {
+function Template(props: ComponentProps<typeof ListBox>) {
     return <ListBox {...props} />;
 }
 

@@ -18,3 +18,4 @@ export function Autocomplete(props: AriaAutocompleteProps) {
         />
     );
 }
+Autocomplete.displayName = "Autocomplete";

@@ -1,4 +1,8 @@
-import type { ComponentProps, HTMLProps } from "react";
+import type {
+    ComponentProps,
+    ForwardedRef,
+    HTMLProps,
+} from "react";
 import type {
     DialogProps as RACDialogProps,
     DialogTriggerProps as RACDialogTriggerProps,
@@ -6,7 +10,7 @@ import type {
 } from "react-aria-components";
 
 import { X as IconX } from "lucide-react";
-import { forwardRef, useContext } from "react";
+import { useContext } from "react";
 import {
     Dialog as RACDialog,
     DialogTrigger as RACDialogTrigger,
@@ -64,7 +68,7 @@ const dialogStyles = tv({
         "md:h-[unset] md:max-h-[inherit]",
         "w-full sm:max-w-[100dvw]",
         // border
-        "md:border-muted-200 md:rounded-lg md:border",
+        "md:rounded-lg md:border md:border-muted-200",
         "[[data-placement]>&]:p-4",
     ],
     variants: {
@@ -212,7 +216,7 @@ export function DialogHeader(
                 "h-10",
                 "px-4",
                 "flex shrink-0 items-center justify-between gap-4",
-                "border-b-muted-200 border-b",
+                "border-b border-b-muted-200",
                 props.className,
             )}
         />
@@ -258,10 +262,12 @@ export function DialogTrigger(
 /**
  * Wrapper to render scrollable content within the dialog.
  */
-export const DialogContent = forwardRef<
-    HTMLDivElement,
-    HTMLProps<HTMLDivElement>
->((props, ref) => {
+export function DialogContent({
+    ref,
+    ...props
+}: HTMLProps<HTMLDivElement> & {
+    ref?: ForwardedRef<HTMLDivElement>;
+}) {
     return (
         <div
             {...props}
@@ -275,7 +281,7 @@ export const DialogContent = forwardRef<
             ref={ref}
         />
     );
-});
+}
 
 /**
  * Wrapper to pin content to the bottom of the dialog.
@@ -290,7 +296,7 @@ export function DialogFooter({
             className={twMerge(
                 "min-h-10",
                 "flex shrink-0 items-center justify-between gap-2",
-                "border-t-muted-200 border-t",
+                "border-t border-t-muted-200",
                 "py-2 pl-4 pr-2",
                 props.className,
             )}

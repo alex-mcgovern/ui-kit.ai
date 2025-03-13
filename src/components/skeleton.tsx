@@ -21,3 +21,4 @@ export function Skeleton(props: HTMLProps<HTMLDivElement>) {
         />
     );
 }
+Skeleton.displayName = "Skeleton";

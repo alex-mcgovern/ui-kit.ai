@@ -4,7 +4,7 @@ import path from "path";
 
 const storiesDir = path.join(__dirname, "../..", "stories");
 
-test.only("all Storybook stories export a named export with name `Example`", async () => {
+test.only("all Storybook stories export a named export with name `Template`", async () => {
     const files = fs.readdirSync(storiesDir);
 
     const storyFiles = files.filter((file) =>
@@ -17,8 +17,8 @@ test.only("all Storybook stories export a named export with name `Example`", asy
 
         expect(
             module,
-            `expected ${file} to have named export \`Example\``,
-        ).toHaveProperty("Example");
+            `expected ${file} to have named export \`Template\``,
+        ).toHaveProperty("Template");
     }
 });
 

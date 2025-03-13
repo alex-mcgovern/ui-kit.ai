@@ -14,50 +14,50 @@ import {
     DialogTrigger,
 } from "../components/dialog";
 
-export const Example = (
-    props: ComponentProps<typeof Dialog>,
-) => (
-    <DialogTrigger>
-        <Button>Open dialog</Button>
-        <Dialog {...props}>
-            {({ close }) => {
-                return (
-                    <>
-                        <DialogHeader>
-                            <DialogTitle>
-                                Hello there
-                            </DialogTitle>
-                            <DialogCloseButton />
-                        </DialogHeader>
+function Template(props: ComponentProps<typeof Dialog>) {
+    return (
+        <DialogTrigger>
+            <Button>Open dialog</Button>
+            <Dialog {...props}>
+                {({ close }) => {
+                    return (
+                        <>
+                            <DialogHeader>
+                                <DialogTitle>
+                                    Hello there
+                                </DialogTitle>
+                                <DialogCloseButton />
+                            </DialogHeader>
 
-                        <DialogContent>
-                            <LongContent />
-                        </DialogContent>
+                            <DialogContent>
+                                <LongContent />
+                            </DialogContent>
 
-                        <DialogFooter>
-                            <Button
-                                className="ml-auto"
-                                onPress={() => close()}
-                                variant="secondary"
-                            >
-                                Cancel
-                            </Button>
-                            <Button
-                                onPress={() => {
-                                    alert("Confirmed");
-                                    close();
-                                }}
-                                type="submit"
-                            >
-                                Confirm
-                            </Button>
-                        </DialogFooter>
-                    </>
-                );
-            }}
-        </Dialog>
-    </DialogTrigger>
-);
+                            <DialogFooter>
+                                <Button
+                                    className="ml-auto"
+                                    onPress={() => close()}
+                                    variant="secondary"
+                                >
+                                    Cancel
+                                </Button>
+                                <Button
+                                    onPress={() => {
+                                        alert("Confirmed");
+                                        close();
+                                    }}
+                                    type="submit"
+                                >
+                                    Confirm
+                                </Button>
+                            </DialogFooter>
+                        </>
+                    );
+                }}
+            </Dialog>
+        </DialogTrigger>
+    );
+}
 
 const LongContent = () => (
     <>
@@ -101,7 +101,7 @@ const meta: Meta<typeof Dialog> = {
             );
         },
     ],
-    render: Example,
+    render: Template,
     // Storybook's typescript is a bit sh*t, hence the type-casting
     subcomponents: {
         DialogCloseButton:

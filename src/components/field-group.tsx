@@ -1,6 +1,6 @@
 import type { GroupProps as RACGroupProps } from "react-aria-components";
 
-import { forwardRef } from "react";
+import { type ForwardedRef } from "react";
 import {
     composeRenderProps,
     Group as RACGroup,
@@ -20,10 +20,14 @@ const fieldGroupStyles = tv({
  *
  * @see https://react-spectrum.adobe.com/react-aria/Group.html
  */
-export const FieldGroup = forwardRef<
-    HTMLDivElement,
-    RACGroupProps & { isBorderless?: boolean }
->(({ isBorderless, ...props }, ref) => {
+export function FieldGroup({
+    isBorderless,
+    ref,
+    ...props
+}: RACGroupProps & {
+    isBorderless?: boolean;
+    ref?: ForwardedRef<HTMLDivElement>;
+}) {
     return (
         <RACGroup
             {...props}
@@ -39,5 +43,5 @@ export const FieldGroup = forwardRef<
             ref={ref}
         />
     );
-});
+}
 FieldGroup.displayName = "FieldGroup";

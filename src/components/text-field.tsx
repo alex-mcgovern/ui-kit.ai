@@ -1,6 +1,7 @@
 import type {
     ComponentProps,
     ComponentPropsWithoutRef,
+    ForwardedRef,
 } from "react";
 import type { TextFieldProps as AriaTextFieldProps } from "react-aria-components";
 
@@ -11,7 +12,6 @@ import {
     XIcon,
 } from "lucide-react";
 import {
-    forwardRef,
     useCallback,
     useEffect,
     useMemo,
@@ -24,7 +24,6 @@ import {
 } from "react-aria-components";
 import { twMerge } from "tailwind-merge";
 
-import { genericForwardRef } from "../lib/forward-ref";
 import { FieldButton } from "./field-button";
 import { Tooltip, TooltipTrigger } from "./tooltip";
 
@@ -104,10 +103,12 @@ export function TextFieldVisibilityButton(
 TextFieldVisibilityButton.displayName =
     "TextFieldVisibilityButton";
 
-export const TextField = forwardRef<
-    HTMLInputElement,
-    AriaTextFieldProps
->((props, ref) => {
+export function TextField({
+    ref,
+    ...props
+}: AriaTextFieldProps & {
+    ref?: ForwardedRef<HTMLInputElement>;
+}) {
     const [value, setValue] = useState<
         AriaTextFieldProps["value"]
     >(props.value ?? props.defaultValue ?? "");
@@ -197,5 +198,5 @@ export const TextField = forwardRef<
             />
         </FieldButtonContext.Provider>
     );
-});
+}
 TextField.displayName = "TextField";

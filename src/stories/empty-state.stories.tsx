@@ -6,9 +6,7 @@ import { Button } from "../components/button";
 import { EmptyState } from "../components/empty-state";
 import type { ComponentProps } from "react";
 
-export function Example(
-    args: ComponentProps<typeof EmptyState>,
-) {
+function Template(args: ComponentProps<typeof EmptyState>) {
     return (
         <EmptyState
             {...args}
@@ -28,7 +26,7 @@ const meta: Meta<typeof EmptyState> = {
         title: "This is the title",
     },
     component: EmptyState,
-    render: Example,
+    render: Template,
     title: "Components/EmptyState",
 };
 

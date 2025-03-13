@@ -18,7 +18,7 @@ const variants: Variant[] = [
     "tertiary",
 ];
 
-export function Example({
+function Template({
     children = "Button",
     ...args
 }: ComponentProps<typeof Button>) {

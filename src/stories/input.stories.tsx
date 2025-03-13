@@ -4,9 +4,7 @@ import React, { type ComponentProps } from "react";
 import { Input } from "../components/input";
 import { SearchIcon } from "lucide-react";
 
-export function Example(
-    props: ComponentProps<typeof Input>,
-) {
+function Template(props: ComponentProps<typeof Input>) {
     return <Input {...props} />;
 }
 

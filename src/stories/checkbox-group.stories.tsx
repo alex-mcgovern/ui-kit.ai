@@ -5,7 +5,7 @@ import { Label } from "../components/label";
 import { Description } from "../components/description";
 import { CheckboxGroup } from "../components/checkbox-group";
 
-export function Example(
+function Template(
     args: ComponentProps<typeof CheckboxGroup>,
 ) {
     return (
@@ -39,7 +39,7 @@ export function Example(
 const meta = {
     title: "Components/CheckboxGroup",
     component: CheckboxGroup,
-    render: Example,
+    render: Template,
 } satisfies Meta<typeof CheckboxGroup>;
 
 export default meta;

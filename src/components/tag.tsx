@@ -1,4 +1,4 @@
-import { forwardRef, type HTMLProps } from "react";
+import { type ForwardedRef, type HTMLProps } from "react";
 import type {
     ButtonProps as RACButtonProps,
     LinkProps as RACLinkProps,
@@ -123,150 +123,138 @@ const tagStyles = tv({
 /**
  * Tag component
  */
-export const Tag = forwardRef<
-    HTMLDivElement,
-    TagProps & HTMLProps<HTMLDivElement>
->(
-    (
-        {
-            children,
-            className,
-            slotLeft,
-            slotRight,
-            variant,
-            isDashed,
-            ...props
-        },
-        ref,
-    ) => {
-        return (
-            <div
-                {...props}
-                className={tagStyles({
-                    variant,
-                    isDashed,
-                    className,
-                })}
-                ref={ref}
-            >
-                {renderSlot(slotLeft, {
-                    "data-slot": "slot-left",
-                })}
-                {children}
+export const Tag = ({
+    children,
+    className,
+    slotLeft,
+    slotRight,
+    variant,
+    isDashed,
+    ref,
+    ...props
+}: TagProps &
+    HTMLProps<HTMLDivElement> & {
+        ref?: ForwardedRef<HTMLDivElement>;
+    }) => {
+    return (
+        <div
+            {...props}
+            className={tagStyles({
+                variant,
+                isDashed,
+                className,
+            })}
+            ref={ref}
+        >
+            {renderSlot(slotLeft, {
+                "data-slot": "slot-left",
+            })}
+            {children}
 
-                {renderSlot(slotRight, {
-                    "data-slot": "slot-right",
-                })}
-            </div>
-        );
-    },
-);
+            {renderSlot(slotRight, {
+                "data-slot": "slot-right",
+            })}
+        </div>
+    );
+};
 Tag.displayName = "Tag";
 
 /**
  * Tag button component
  */
-export const TagButton = forwardRef<
-    HTMLButtonElement,
-    TagProps & RACButtonProps
->(
-    (
-        {
-            children,
-            className,
-            variant,
-            isDashed,
-            slotLeft,
-            slotRight,
-            ...props
-        },
-        ref,
-    ) => {
-        return (
-            <RACButton
-                {...props}
-                className={(rp) =>
-                    tagStyles({
-                        variant,
-                        isDashed,
-                        className:
-                            typeof className === "function"
-                                ? className(rp)
-                                : className,
-                    })
-                }
-                ref={ref}
-            >
-                {(renderProps) => (
-                    <>
-                        {renderSlot(slotLeft, {
-                            "data-slot": "slot-left",
-                        })}
-                        {typeof children === "function"
-                            ? children(renderProps)
-                            : children}
+export function TagButton({
+    children,
+    className,
+    variant,
+    isDashed,
+    slotLeft,
+    slotRight,
+    ref,
+    ...props
+}: TagProps &
+    RACButtonProps & {
+        ref?: ForwardedRef<HTMLButtonElement>;
+    }) {
+    return (
+        <RACButton
+            {...props}
+            className={(rp) =>
+                tagStyles({
+                    variant,
+                    isDashed,
+                    className:
+                        typeof className === "function"
+                            ? className(rp)
+                            : className,
+                })
+            }
+            ref={ref}
+        >
+            {(renderProps) => (
+                <>
+                    {renderSlot(slotLeft, {
+                        "data-slot": "slot-left",
+                    })}
+                    {typeof children === "function"
+                        ? children(renderProps)
+                        : children}
 
-                        {renderSlot(slotRight, {
-                            "data-slot": "slot-right",
-                        })}
-                    </>
-                )}
-            </RACButton>
-        );
-    },
-);
+                    {renderSlot(slotRight, {
+                        "data-slot": "slot-right",
+                    })}
+                </>
+            )}
+        </RACButton>
+    );
+}
 TagButton.displayName = "TagButton";
 
 /**
  * Tag button component
  */
-export const TagLink = forwardRef<
-    HTMLAnchorElement,
-    TagProps & RACLinkProps
->(
-    (
-        {
-            children,
-            className,
-            slotLeft,
-            slotRight,
-            variant,
-            isDashed,
-            ...props
-        },
-        ref,
-    ) => {
-        return (
-            <RACLink
-                {...props}
-                className={(rp) =>
-                    tagStyles({
-                        variant,
-                        isDashed,
-                        className:
-                            typeof className === "function"
-                                ? className(rp)
-                                : className,
-                    })
-                }
-                ref={ref}
-            >
-                {(renderProps) => (
-                    <>
-                        {renderSlot(slotLeft, {
-                            "data-slot": "slot-left",
-                        })}
-                        {typeof children === "function"
-                            ? children(renderProps)
-                            : children}
+export const TagLink = ({
+    children,
+    className,
+    slotLeft,
+    slotRight,
+    variant,
+    ref,
+    isDashed,
+    ...props
+}: TagProps &
+    RACLinkProps & {
+        ref?: ForwardedRef<HTMLAnchorElement>;
+    }) => {
+    return (
+        <RACLink
+            {...props}
+            className={(rp) =>
+                tagStyles({
+                    variant,
+                    isDashed,
+                    className:
+                        typeof className === "function"
+                            ? className(rp)
+                            : className,
+                })
+            }
+            ref={ref}
+        >
+            {(renderProps) => (
+                <>
+                    {renderSlot(slotLeft, {
+                        "data-slot": "slot-left",
+                    })}
+                    {typeof children === "function"
+                        ? children(renderProps)
+                        : children}
 
-                        {renderSlot(slotRight, {
-                            "data-slot": "slot-right",
-                        })}
-                    </>
-                )}
-            </RACLink>
-        );
-    },
-);
+                    {renderSlot(slotRight, {
+                        "data-slot": "slot-right",
+                    })}
+                </>
+            )}
+        </RACLink>
+    );
+};
 TagLink.displayName = "TagLink";

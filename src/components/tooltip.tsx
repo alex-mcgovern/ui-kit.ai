@@ -4,7 +4,10 @@ import type {
 } from "react-aria-components";
 
 import { Info as InfoIcon } from "lucide-react";
-import { type ComponentProps, forwardRef } from "react";
+import {
+    type ComponentProps,
+    type ForwardedRef,
+} from "react";
 import {
     composeRenderProps,
     OverlayArrow,
@@ -68,13 +71,13 @@ TooltipTrigger.displayName = "TooltipTrigger";
 /**
  * A button with an info icon that triggers a tooltip.
  */
-export const TooltipInfoButton = forwardRef<
-    HTMLButtonElement,
-    Omit<
-        ComponentProps<typeof Button>,
-        "children" | "isIcon" | "variant"
-    >
->((props, ref) => {
+export function TooltipInfoButton({
+    ref,
+    ...props
+}: Omit<
+    ComponentProps<typeof Button>,
+    "children" | "isIcon" | "variant"
+> & { ref?: ForwardedRef<HTMLButtonElement> }) {
     return (
         <Button
             {...props}
@@ -93,7 +96,7 @@ export const TooltipInfoButton = forwardRef<
             <InfoIcon />
         </Button>
     );
-});
+}
 TooltipInfoButton.displayName = "TooltipInfoButton";
 
 /**

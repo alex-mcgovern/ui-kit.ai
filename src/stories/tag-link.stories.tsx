@@ -10,9 +10,7 @@ import {
 
 import { TagLink } from "../components/tag";
 
-export function Example(
-    args: ComponentProps<typeof TagLink>,
-) {
+function Template(args: ComponentProps<typeof TagLink>) {
     return (
         <div className="flex items-center gap-2">
             <TagLink
@@ -74,5 +72,5 @@ type Variant = Exclude<
 
 export const Primary: Story = {
     args: {},
-    render: Example,
+    render: Template,
 };

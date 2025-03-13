@@ -3,7 +3,7 @@ import type {
     LinkProps as RACLinkProps,
 } from "react-aria-components";
 
-import { forwardRef } from "react";
+import { type ForwardedRef } from "react";
 import {
     composeRenderProps,
     Button as RACButton,
@@ -262,97 +262,88 @@ const ButtonLoadingState = ({
  * <Button>Press me</Button>
  * ```
  */
-export const Button = forwardRef<
-    HTMLButtonElement,
-    ButtonProps
->(
-    (
-        {
-            isDestructive,
-            isInverted,
-            isIcon = false,
-            isPending,
-            slotLeft,
-            slotRight,
-            variant = "primary",
-            ...props
-        },
-        ref,
-    ) => {
-        return (
-            <RACButton
-                {...props}
-                className={composeRenderProps(
-                    props.className,
-                    (className, renderProps) =>
-                        buttonStyle({
-                            ...renderProps,
-                            // isLink,
-                            className,
-                            isDestructive,
-                            isInverted,
-                            isIcon,
-                            variant,
-                        }),
-                )}
-                isPending={isPending}
-                ref={ref}
-            >
-                {(renderProps) => (
-                    <ButtonLoadingState
-                        isPending={isPending}
-                    >
-                        {renderSlot(slotLeft, {
-                            "data-slot": "slot-left",
-                        })}
+export function Button({
+    isDestructive,
+    isInverted,
+    isIcon = false,
+    isPending,
+    slotLeft,
+    slotRight,
+    ref,
+    variant = "primary",
+    ...props
+}: ButtonProps & {
+    ref?: ForwardedRef<HTMLButtonElement>;
+}) {
+    return (
+        <RACButton
+            {...props}
+            className={composeRenderProps(
+                props.className,
+                (className, renderProps) =>
+                    buttonStyle({
+                        ...renderProps,
+                        // isLink,
+                        className,
+                        isDestructive,
+                        isInverted,
+                        isIcon,
+                        variant,
+                    }),
+            )}
+            isPending={isPending}
+            ref={ref}
+        >
+            {(renderProps) => (
+                <ButtonLoadingState isPending={isPending}>
+                    {renderSlot(slotLeft, {
+                        "data-slot": "slot-left",
+                    })}
 
-                        {typeof props.children ===
-                        "function"
-                            ? props.children(renderProps)
-                            : props.children}
+                    {typeof props.children === "function"
+                        ? props.children(renderProps)
+                        : props.children}
 
-                        {renderSlot(slotRight, {
-                            "data-slot": "slot-right",
-                        })}
-                    </ButtonLoadingState>
-                )}
-            </RACButton>
-        );
-    },
-);
+                    {renderSlot(slotRight, {
+                        "data-slot": "slot-right",
+                    })}
+                </ButtonLoadingState>
+            )}
+        </RACButton>
+    );
+}
 Button.displayName = "Button";
 
-export const LinkButton = forwardRef<
-    HTMLAnchorElement,
-    RACLinkProps & ButtonCommonProps
->(
-    (
-        {
-            isDestructive,
-            isIcon,
-            variant,
-            isInverted,
-            ...props
-        },
-        ref,
-    ) => {
-        return (
-            <RACLink
-                {...props}
-                className={composeRenderProps(
-                    props.className,
-                    (className, renderProps) =>
-                        buttonStyle({
-                            ...renderProps,
-                            className,
-                            isDestructive,
-                            isInverted,
-                            isIcon,
-                            variant,
-                        }),
-                )}
-                ref={ref}
-            />
-        );
-    },
-);
+type LinkButtonProps = ButtonCommonProps &
+    RACLinkProps & {
+        ref?: ForwardedRef<HTMLAnchorElement>;
+    };
+
+export const LinkButton = ({
+    isDestructive,
+    isIcon,
+    variant,
+    isInverted,
+    ref,
+    ...props
+}: LinkButtonProps) => {
+    return (
+        <RACLink
+            {...props}
+            className={composeRenderProps(
+                props.className,
+                (className, renderProps) =>
+                    buttonStyle({
+                        ...renderProps,
+                        className,
+                        isDestructive,
+                        isInverted,
+                        isIcon,
+                        variant,
+                    }),
+            )}
+            ref={ref}
+        />
+    );
+};
+LinkButton.displayName = "LinkButton";

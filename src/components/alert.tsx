@@ -140,3 +140,4 @@ export function Alert({
         </div>
     );
 }
+Alert.displayName = "Alert";

@@ -371,7 +371,7 @@ function SearchFieldWatchlist({
     );
 }
 
-function Example({
+function Template({
     rows,
     ...args
 }: ComponentProps<typeof Table<StockWatchlistItem>>) {
@@ -484,5 +484,5 @@ function Example({
 export const Primary: Story = {
     args: {},
     name: "Table",
-    render: Example,
+    render: Template,
 };

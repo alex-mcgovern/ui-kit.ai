@@ -10,9 +10,7 @@ import {
 
 import { TagButton } from "../components/tag";
 
-export function Example(
-    args: ComponentProps<typeof TagButton>,
-) {
+function Template(args: ComponentProps<typeof TagButton>) {
     return (
         <div className="flex items-center gap-2">
             <TagButton
@@ -69,5 +67,5 @@ type Variant = Exclude<
 
 export const Primary: Story = {
     args: {},
-    render: Example,
+    render: Template,
 };

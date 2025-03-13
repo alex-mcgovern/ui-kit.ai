@@ -6,9 +6,7 @@ import { type StoryArgsList } from "../types/storybook";
 
 const TEXT = "Lorem ipsum dolor sit amet...";
 
-export function Example(
-    props: ComponentProps<typeof Heading>,
-) {
+function Template(props: ComponentProps<typeof Heading>) {
     return (
         <div>
             {LEVELS.map((level) => (
@@ -23,10 +21,6 @@ export function Example(
         </div>
     );
 }
-
-type ArgsList = StoryArgsList<
-    ComponentProps<typeof Heading>
->;
 
 const meta = {
     args: {
@@ -47,17 +41,5 @@ export const Primary: Story = {
     args: {
         children: TEXT,
     },
-    render: (args) => (
-        <div>
-            {LEVELS.map((level) => (
-                <Heading
-                    {...args}
-                    level={level}
-                    children={`H${level} ${TEXT} `}
-                    key={level}
-                    className="truncate"
-                />
-            ))}
-        </div>
-    ),
+    render: Template,
 };
