@@ -54,8 +54,8 @@ type FieldValues = z.infer<typeof schema>;
 /** You can dynamically create an enum from your zod schema, which can be used
  * to name fields and ensure that they stay in sync with the schema. */
 const FIELD_NAME = schema.keyof().Enum;
-const IMMIGRATION_STATUS =
-    schema.shape.immigration_status.Enum;
+// const IMMIGRATION_STATUS =
+//     schema.shape.immigration_status.Enum;
 const COMMUNICATION_PREFERENCE =
     communicationPreferencesSchema.Enum;
 

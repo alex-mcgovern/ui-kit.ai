@@ -32,6 +32,7 @@ import { twMerge } from "tailwind-merge";
  * ```
  */
 export const CheckboxGroup = ({
+    ref,
     ...props
 }: AriaCheckboxGroupProps & {
     ref?: ForwardedRef<HTMLDivElement>;
@@ -47,6 +48,7 @@ export const CheckboxGroup = ({
                         : props.className,
                 )
             }
+            ref={ref}
         >
             {props.children}
         </AriaCheckboxGroup>

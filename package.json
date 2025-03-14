@@ -12,7 +12,7 @@
         "check-tsc": "tsc",
         "dev": "storybook dev -p 65534",
         "dev:docs": "storybook dev --docs -p 65534",
-        "test": "echo \"Error: no test specified\" && exit 1",
+        "test": "vitest",
         "build-mcp-dataset": "tsx ./src/scripts/build-mcp-dataset.ts",
         "start-mcp-server": "tsx ./src/mcp-server/index.ts",
         "storycap": "storycap --serverCmd \"storybook dev -p 65534\" http://localhost:65534 --include \"**/Primary\" --flat --outDir \"assets\""
