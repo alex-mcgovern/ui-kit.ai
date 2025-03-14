@@ -24,7 +24,7 @@ interface PopoverProps
 
 const popoverStyles = tv({
     base: [
-        `border-muted-200 rounded border text-primary shadow-2xl
+        `rounded border border-muted-200 text-primary shadow-2xl
         transition-none forced-colors:bg-[Canvas]`,
     ],
     extend: bgGlass,
@@ -53,6 +53,7 @@ const popoverStyles = tv({
  * [react-aria](https://react-spectrum.adobe.com/react-aria/Popover.html)
  *
  * ## Usage
+ *
  * ```tsx
  * import {
  *     DialogTrigger,
@@ -100,7 +101,7 @@ export function Popover({
             {(showArrow ?? false) && (
                 <OverlayArrow className="group">
                     <svg
-                        className="stroke-muted-200 block fill-[theme(backgroundColor.base)]
+                        className="block fill-[theme(backgroundColor.base)] stroke-muted-200
                             stroke-1 group-placement-left:-rotate-90
                             group-placement-right:rotate-90
                             group-placement-bottom:rotate-180

@@ -11,6 +11,7 @@ import { Button } from "./button";
  * [react-hook-form](https://react-hook-form.com/)
  *
  * ## Usage
+ *
  * ```tsx
  * import { FormSubmitButton } from "boondoggle"
  * ```

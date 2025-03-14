@@ -14,6 +14,7 @@ import { twMerge } from "tailwind-merge";
  * [react-aria](https://react-spectrum.adobe.com/react-aria/CheckboxGroup.html)
  *
  * ## Usage
+ *
  * ```tsx
  * import { Checkbox, CheckboxGroup } from "boondoggle"
  * ```

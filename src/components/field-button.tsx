@@ -12,6 +12,7 @@ import { Button } from "./button";
  * [react-aria](https://react-spectrum.adobe.com/react-aria/Button.html)
  *
  * ## Usage
+ *
  * ```tsx
  * import { FieldButton } from "boondoggle"
  * import { XIcon } from "lucide-react"

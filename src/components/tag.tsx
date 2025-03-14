@@ -21,7 +21,7 @@ type Variant =
     | "inverted"
     | "green";
 
-type TagProps = {
+export type TagProps = {
     /**
      * Whether the tag is a Button.
      */
@@ -121,9 +121,43 @@ const tagStyles = tv({
 });
 
 /**
- * Tag component
+ * A Tag is a presentational component used to display short snippets of
+ * information, often in a group of tags.
+ *
+ * [source code](https://github.com/alex-mcgovern/boondoggle/tree/main/src/components/tag)
+ * [react-aria](https://react-spectrum.adobe.com/react-aria/Tooltip.html)
+ *
+ * ## Usage
+ * ```tsx
+ * import { Tag } from "boondoggle"
+ * ```
+ * ```tsx
+ * <Tag>Short label</Tag>
+ * ```
+ *
+ * ### Button
+ *
+ * You can use TagButton when a tag needs to be a button.
+ *
+ * ```tsx
+ * import { TagButton } from "boondoggle"
+ * ```
+ * ```tsx
+ * <TagButton>Short label</TagButton>
+ * ```
+ *
+ * ### Link
+ *
+ * You can use TagLink when a tag needs to be a link.
+ *
+ * ```tsx
+ * import { TagLink } from "boondoggle"
+ * ```
+ * ```tsx
+ * <TagLink>Short label</TagLink>
+ * ```
  */
-export const Tag = ({
+export function Tag({
     children,
     className,
     slotLeft,
@@ -135,7 +169,7 @@ export const Tag = ({
 }: TagProps &
     HTMLProps<HTMLDivElement> & {
         ref?: ForwardedRef<HTMLDivElement>;
-    }) => {
+    }) {
     return (
         <div
             {...props}
@@ -156,11 +190,24 @@ export const Tag = ({
             })}
         </div>
     );
-};
+}
 Tag.displayName = "Tag";
 
 /**
- * Tag button component
+ * A TagButton is a button used to display short snippets of
+ * information, often in a group of tags.
+ *
+ * [source code](https://github.com/alex-mcgovern/boondoggle/tree/main/src/components/tag)
+ * [react-aria](https://react-spectrum.adobe.com/react-aria/Button.html)
+ *
+ * ## Usage
+ *
+ * ```tsx
+ * import { TagButton } from "boondoggle"
+ * ```
+ * ```tsx
+ * <TagButton>Short label</TagButton>
+ * ```
  */
 export function TagButton({
     children,
@@ -210,7 +257,20 @@ export function TagButton({
 TagButton.displayName = "TagButton";
 
 /**
- * Tag button component
+ * A TagLink is a link used to display short snippets of
+ * information, often in a group of tags.
+ *
+ * [source code](https://github.com/alex-mcgovern/boondoggle/tree/main/src/components/tag)
+ * [react-aria](https://react-spectrum.adobe.com/react-aria/Link.html)
+ *
+ * ## Usage
+ *
+ * ```tsx
+ * import { TagLink } from "boondoggle"
+ * ```
+ * ```tsx
+ * <TagLink>Short label</TagLink>
+ * ```
  */
 export const TagLink = ({
     children,

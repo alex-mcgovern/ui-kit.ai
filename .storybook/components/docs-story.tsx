@@ -1,11 +1,13 @@
 import {
     Anchor,
-    Canvas,
+    Description,
     useOf,
     type DocsStoryProps,
 } from "@storybook/blocks";
 import type { FC } from "react";
 import React from "react";
+import { Canvas } from "./canvas";
+import { Heading } from "../../src/components/heading";
 
 const removeEmptyEventHandlers = (code: string): string => {
     const withoutEmptyHandlers = code
@@ -37,15 +39,28 @@ const removeEmptyEventHandlers = (code: string): string => {
     return withoutEmptyHandlers;
 };
 
-export const DocsStory: FC<DocsStoryProps> = ({
+export const DocsStory: FC<
+    DocsStoryProps & {
+        showTitle: boolean;
+        showDescription: boolean;
+    }
+> = ({
     of,
     __forceInitialArgs = false,
     __primary = false,
+    showTitle,
+    showDescription,
 }) => {
     const { story } = useOf(of || "story", ["story"]);
 
     return (
         <Anchor storyId={story.id}>
+            {showTitle ? (
+                <Heading level={3}>{story.name}</Heading>
+            ) : null}
+            {showDescription ? (
+                <Description of={of} />
+            ) : null}
             <Canvas
                 of={of}
                 story={{ __forceInitialArgs, __primary }}

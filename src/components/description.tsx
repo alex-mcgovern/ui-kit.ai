@@ -11,6 +11,7 @@ import { twMerge } from "tailwind-merge";
  * [react-aria](https://react-spectrum.adobe.com/react-aria/accessibility.html)
  *
  * ## Usage
+ *
  * ```tsx
  * import { Description } from "boondoggle"
  * ```

@@ -1,6 +1,7 @@
 import {
     Markdown,
     type Of,
+    Unstyled,
     useOf,
 } from "@storybook/blocks";
 import type { FC } from "react";
@@ -108,13 +109,21 @@ const DescriptionContainer: FC<DescriptionProps> = (
                     },
                     a: {
                         component: (props) => (
-                            <TagLink
-                                {...props}
-                                slotRight={
-                                    <ExternalLinkIcon />
-                                }
-                                target="_blank"
-                            />
+                            <Unstyled
+                                style={{
+                                    display: "inline",
+                                    width: "min-content",
+                                }}
+                            >
+                                <TagLink
+                                    {...props}
+                                    slotRight={
+                                        <ExternalLinkIcon />
+                                    }
+                                    target="_blank"
+                                    className="mr-1"
+                                />
+                            </Unstyled>
                         ),
                     },
                 },

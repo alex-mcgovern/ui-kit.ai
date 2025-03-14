@@ -109,6 +109,7 @@ TooltipInfoButton.displayName = "TooltipInfoButton";
  * [mdn-web-docs](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/tooltip_role#description)
  *
  * ## Usage
+ * 
  * ```tsx
  * import { TooltipTrigger, TooltipInfoButton, Tooltip } from "boondoggle"
  * ```

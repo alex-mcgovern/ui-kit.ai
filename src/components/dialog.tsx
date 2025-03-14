@@ -114,6 +114,7 @@ function DialogModalOverlay({
  * [react aria](https://react-spectrum.adobe.com/react-aria/Dialog.html)
  *
  * ## Usage
+ *
  * ```tsx
  * import {
  *     Dialog,

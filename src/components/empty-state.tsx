@@ -25,6 +25,7 @@ const actionsStyle = tv({
  * [source code](https://github.com/alex-mcgovern/boondoggle/tree/main/src/components/empty-state)
  *
  * ## Usage
+ * 
  * ```tsx
  * import { EmptyState } from "boondoggle"
  * import { SearchXIcon } from "lucide-react";

@@ -11,6 +11,7 @@ import { twMerge } from "tailwind-merge";
  * [react-aria](https://react-spectrum.adobe.com/react-aria/forms.html#labels-and-help-text)
  *
  * ## Usage
+ *
  * ```tsx
  * import { Label } from "boondoggle"
  * ```

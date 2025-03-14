@@ -255,6 +255,7 @@ const ButtonLoadingState = ({
  * [react-aria](https://react-spectrum.adobe.com/react-aria/Button.html)
  *
  * ## Usage
+ *
  * ```tsx
  * import { Button } from "boondoggle"
  * ```

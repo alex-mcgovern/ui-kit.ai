@@ -20,10 +20,10 @@ const alertStyles = tv({
     },
     variants: {
         variant: {
-            inverted: "bg-muted-800 text-white",
+            inverted: "text-white bg-muted-800",
             default:
-                "border-muted-200 border bg-base text-primary",
-            invalid: "bg-red-700 text-white",
+                "border border-muted-200 bg-base text-primary",
+            invalid: "text-white bg-red-700",
         },
     },
 });
@@ -45,6 +45,7 @@ const iconStyles = tv({
  * [mdn web docs](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/alert_role)
  *
  * ## Usage
+ *
  * ```tsx
  * import { Alert } from "boondoggle"
  * ```

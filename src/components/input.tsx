@@ -32,6 +32,7 @@ const inputStyles = tv({
  * [source code](https://github.com/alex-mcgovern/boondoggle/tree/main/src/components/description)
  *
  * ## Usage
+ *
  * ```tsx
  * import { Input } from "boondoggle"
  * ```

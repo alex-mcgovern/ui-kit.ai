@@ -102,10 +102,10 @@ const preview: Preview = {
         },
         (Story) => {
             return (
-                <div className="flex min-h-48 w-full items-center justify-center p-6">
+                <div className="flex min-h-24 w-full items-center justify-center p-6">
                     <Story />
                     <div
-                        className="absolute inset-0 z-[-1] h-full w-full bg-white
+                        className="bg-white absolute inset-0 z-[-1] h-full w-full
                             bg-[radial-gradient(#e5e7eb_1px,transparent_1px)]
                             [background-size:16px_16px]"
                     />

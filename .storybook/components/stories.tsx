@@ -1,8 +1,19 @@
-import { DocsContext, DocsStory } from "@storybook/blocks";
+import {
+    Description,
+    DocsContext,
+    Unstyled,
+} from "@storybook/blocks";
 import type { FC } from "react";
 import React, { useContext } from "react";
 import { Heading } from "../../src/components/heading";
-
+import lodash from "lodash-es";
+import { DocsStory } from "./docs-story";
+import {
+    Tab,
+    TabList,
+    TabPanel,
+    Tabs,
+} from "../../src/components/tabs";
 interface StoriesProps {
     includePrimary?: boolean;
 }
@@ -51,22 +62,93 @@ export const Stories: FC<StoriesProps> = ({
     if (!stories || stories.length === 0) {
         return null;
     }
+
+    const groupedStories = lodash.groupBy(
+        stories,
+        (story) => {
+            const groupTag = story.tags?.find((tag) =>
+                tag.startsWith("group-"),
+            );
+            return groupTag || story.id;
+        },
+    );
+
+    const groups = Object.entries(groupedStories);
+
     return (
         <>
             <Heading id="examples" level={2}>
                 Examples
             </Heading>
-            {stories.map(
-                (story) =>
-                    story && (
+            {groups.map((group) => {
+                if (group[1].length === 1) {
+                    return (
                         <DocsStory
-                            key={story.id}
-                            of={story.moduleExport}
+                            showDescription
+                            showTitle
+                            key={group[1][0].id}
+                            of={group[1][0].moduleExport}
                             expanded
                             __forceInitialArgs
                         />
-                    ),
-            )}
+                    );
+                } else {
+                    const name = group[0].replace(
+                        "group-",
+                        "",
+                    );
+
+                    return (
+                        <>
+                            <Heading
+                                id={name.toLowerCase()}
+                                className="capitalize"
+                            >
+                                {name}
+                            </Heading>
+                            <Description of={group[1][0]} />
+                            <Tabs>
+                                <Unstyled>
+                                    <TabList>
+                                        {group[1].map(
+                                            (story) => (
+                                                <Tab
+                                                    id={
+                                                        story.id
+                                                    }
+                                                >
+                                                    {
+                                                        story.name
+                                                    }
+                                                </Tab>
+                                            ),
+                                        )}
+                                    </TabList>
+                                </Unstyled>
+
+                                {group[1].map((story) => (
+                                    <TabPanel id={story.id}>
+                                        <DocsStory
+                                            showDescription={
+                                                false
+                                            }
+                                            showTitle={
+                                                false
+                                            }
+                                            key={story.id}
+                                            of={
+                                                story.moduleExport
+                                            }
+                                            expanded
+                                            __forceInitialArgs
+                                        />
+                                    </TabPanel>
+                                ))}
+                            </Tabs>
+                        </>
+                    );
+                }
+            })}
         </>
     );
 };

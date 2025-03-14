@@ -1,63 +1,17 @@
 import * as React from "react";
 
-import type { ComponentProps, ReactNode } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { StarIcon } from "lucide-react";
 
 import { Button } from "../components/button";
 
-type Variant = Exclude<
-    ComponentProps<typeof Button>["variant"],
-    undefined
->;
-
-const variants: Variant[] = [
-    "primary",
-    "secondary",
-    "tertiary",
-];
-
-function Template({
-    children = "Button",
-    ...args
-}: ComponentProps<typeof Button>) {
-    return <Button {...args}>{children}</Button>;
-}
-
-function VariantsTemplate({
-    children = "Button",
-    ...args
-}: ComponentProps<typeof Button>) {
-    return (
-        <>
-            {variants.map(
-                (variant) =>
-                    (
-                        <Button
-                            {...args}
-                            key={variant}
-                            variant={variant}
-                        >
-                            {children}
-                        </Button>
-                    ) as ReactNode,
-            )}
-        </>
-    );
-}
-
 const meta = {
     component: Button,
+    args: {
+        children: "Button",
+    },
     title: "Components/Button",
-    render: VariantsTemplate,
-    decorators: [
-        (Story) => (
-            <div className="flex gap-2">
-                <Story />
-            </div>
-        ),
-    ],
 } satisfies Meta<typeof Button>;
 
 export default meta;
@@ -66,12 +20,52 @@ type Story = StoryObj<typeof meta>;
 export const Primary: Story = {
     args: {},
 };
+export const VariantPrimary: Story = {
+    tags: ["group-variant"],
+    name: "Primary",
+    args: {
+        variant: "primary",
+    },
+};
+export const VariantSecondary: Story = {
+    tags: ["group-variant"],
+    name: "Secondary",
+    args: {
+        variant: "secondary",
+    },
+};
+export const VariantTertiary: Story = {
+    tags: ["group-variant"],
+    name: "Tertiary",
+    args: {
+        variant: "tertiary",
+    },
+};
 /**
  * The `isDestructive` prop will style the button in red, to denote a
  * potentially destructive action the user should consider carefully.
  */
-export const Destructive: Story = {
+export const DestructivePrimary: Story = {
+    tags: ["group-destructive"],
+    name: "Primary",
     args: {
+        variant: "primary",
+        isDestructive: true,
+    },
+};
+export const DestructiveSecondary: Story = {
+    tags: ["group-destructive"],
+    name: "Secondary",
+    args: {
+        variant: "secondary",
+        isDestructive: true,
+    },
+};
+export const DestructiveTertiary: Story = {
+    tags: ["group-destructive"],
+    name: "Tertiary",
+    args: {
+        variant: "tertiary",
         isDestructive: true,
     },
 };
@@ -102,6 +96,7 @@ export const IconButton: Story = {
  * slightly adjust the left padding to maintain visual balance.
  */
 export const SlotLeft: Story = {
+    tags: ["group-slot"],
     args: {
         slotLeft: <StarIcon />,
     },
@@ -111,6 +106,7 @@ export const SlotLeft: Story = {
  * slightly adjust the left padding to maintain visual balance.
  */
 export const SlotRight: Story = {
+    tags: ["group-slot"],
     args: {
         slotRight: <StarIcon />,
     },

@@ -56,7 +56,7 @@ const checkboxContainerStyles = tv({
 const boxStyles = tv({
     base: [
         "bg-base",
-        "border-muted-400 border",
+        "border border-muted-400",
         "size-4",
         "transition-colors",
         "flex flex-shrink-0 items-center justify-center",
@@ -148,6 +148,7 @@ function CheckboxLabel({
  * [react-aria](https://react-spectrum.adobe.com/react-aria/Checkbox.html)
  *
  * ## Usage
+ *
  * ```tsx
  * import { Checkbox } from "boondoggle"
  * ```

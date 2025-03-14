@@ -18,6 +18,7 @@ type ListBoxProps<
  * [react-aria](https://react-spectrum.adobe.com/react-aria/ListBox.html)
  *
  * ## Usage
+ *
  * ```tsx
  * import { ListBox } from "boondoggle"
  * ```

@@ -24,6 +24,7 @@ const heading = tv({
  * [source code](https://github.com/alex-mcgovern/boondoggle/tree/main/src/components/heading)
  *
  * ## Usage
+ *
  * ```tsx
  * import { Heading } from "boondoggle"
  * ```

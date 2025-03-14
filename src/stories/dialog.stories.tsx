@@ -82,25 +82,6 @@ const LongContent = () => (
 
 const meta: Meta<typeof Dialog> = {
     component: Dialog,
-    decorators: [
-        (Story) => {
-            return (
-                <div>
-                    <Story />
-                    <div
-                        style={{
-                            backgroundImage:
-                                "linear-gradient(to right, #ddd 1px, transparent 1px), linear-gradient(to bottom, #ddd 1px, transparent 1px)",
-                            backgroundSize: "100px 100px",
-                            inset: 0,
-                            position: "absolute",
-                            zIndex: -1,
-                        }}
-                    />
-                </div>
-            );
-        },
-    ],
     render: Template,
     // Storybook's typescript is a bit sh*t, hence the type-casting
     subcomponents: {
