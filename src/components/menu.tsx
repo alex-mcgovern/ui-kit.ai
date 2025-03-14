@@ -11,7 +11,7 @@ import {
 
 import type { OptionsSchema } from "../types/options";
 
-import { INTERNAL_OptionRenderer } from "./options";
+import { OptionRenderer } from "./options";
 
 /**
  * A menu displays a list of actions or options that a user can choose.
@@ -28,7 +28,7 @@ export function Menu<T extends OptionsSchema<"menu">>(
                 outline-0 [clip-path:inset(0_0_0_0_round_.75rem)]"
         >
             {(renderProps) => (
-                <INTERNAL_OptionRenderer<"menu">
+                <OptionRenderer<"menu">
                     {...renderProps}
                     type="menu"
                 />

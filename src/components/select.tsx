@@ -20,7 +20,7 @@ import {
     renderSlot,
     type SlotNode,
 } from "../types/slotted-node";
-import { INTERNAL_OptionRenderer } from "./options";
+import { OptionRenderer } from "./options";
 import { Popover } from "./popover";
 
 const selectButtonStyles = tv({
@@ -94,7 +94,7 @@ export function Select<
                                 items={items}
                             >
                                 {(props) => (
-                                    <INTERNAL_OptionRenderer
+                                    <OptionRenderer
                                         {...props}
                                         type="listbox"
                                     />

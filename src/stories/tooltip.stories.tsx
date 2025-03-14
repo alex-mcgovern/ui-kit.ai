@@ -36,20 +36,14 @@ const meta = {
         children: "This is the tooltip",
     },
     component: Tooltip,
+    render: Template,
     title: "Components/Tooltip",
 } satisfies Meta<typeof Tooltip>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Primary: Story = {
-    render: (args) => (
-        <TooltipTrigger>
-            <TooltipInfoButton />
-            <Tooltip {...args} />
-        </TooltipTrigger>
-    ),
-};
+export const Primary: Story = {};
 /**
  * react-aria supports a pretty comprehensive range of placement options, some
  * of which are shown here. It is important to note that the Tooltip may flip
@@ -66,10 +60,7 @@ export const Placement: Story = {
     // @ts-expect-error - coerce ReactNode[] where ReactNode expected
     render: (args) =>
         PLACEMENTS.map((placement) => (
-            <TooltipTrigger>
-                <TooltipInfoButton />
-                <Tooltip {...args} placement={placement} />
-            </TooltipTrigger>
+            <Template {...args} placement={placement} />
         )),
 };
 /**
@@ -97,10 +88,5 @@ export const WithKbd: Story = {
             </>
         ),
     },
-    render: (args) => (
-        <TooltipTrigger>
-            <TooltipInfoButton />
-            <Tooltip {...args} />
-        </TooltipTrigger>
-    ),
+    render: Template,
 };

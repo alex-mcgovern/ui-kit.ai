@@ -1,14 +1,15 @@
-import { type Of, useOf } from "@storybook/blocks";
 import type { FC } from "react";
+
+import { type Of, useOf } from "@storybook/blocks";
 import React from "react";
-import { Heading } from "../../src/components/heading";
+
 import { Markdown } from "./markdown";
 
 export enum DescriptionType {
+    AUTO = "auto",
+    DOCGEN = "docgen",
     INFO = "info",
     NOTES = "notes",
-    DOCGEN = "docgen",
-    AUTO = "auto",
 }
 
 interface DescriptionProps {
@@ -21,38 +22,15 @@ interface DescriptionProps {
 
 const getDescriptionFromResolvedOf = (
     resolvedOf: ReturnType<typeof useOf>,
-): string | null => {
+): null | string => {
     switch (resolvedOf.type) {
-        case "story": {
-            return (
-                resolvedOf.story.parameters.docs
-                    ?.description?.story || null
-            );
-        }
-        case "meta": {
-            const { parameters, component } =
-                resolvedOf.preparedMeta;
-            const metaDescription =
-                parameters.docs?.description?.component;
-            if (metaDescription) {
-                return metaDescription;
-            }
-            return (
-                parameters.docs?.extractComponentDescription?.(
-                    component,
-                    {
-                        component,
-                        parameters,
-                    },
-                ) || null
-            );
-        }
         case "component": {
             const {
                 component,
                 projectAnnotations: { parameters },
             } = resolvedOf;
             return (
+                // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
                 parameters?.docs?.extractComponentDescription?.(
                     component,
                     {
@@ -62,9 +40,35 @@ const getDescriptionFromResolvedOf = (
                 ) || null
             );
         }
+        case "meta": {
+            const { component, parameters } =
+                resolvedOf.preparedMeta;
+            const metaDescription =
+                parameters.docs?.description?.component;
+            if (metaDescription != null) {
+                return metaDescription;
+            }
+            return (
+                // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
+                parameters.docs?.extractComponentDescription?.(
+                    component,
+                    {
+                        component,
+                        parameters,
+                    },
+                ) || null
+            );
+        }
+        case "story": {
+            return (
+                // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
+                resolvedOf.story.parameters.docs
+                    ?.description?.story || null
+            );
+        }
         default: {
             throw new Error(
-                `Unrecognized module type resolved from 'useOf', got: ${(resolvedOf as any).type}`,
+                `Unrecognized module type resolved from 'useOf', got: ${(resolvedOf as { type: string }).type}`,
             );
         }
     }
@@ -78,13 +82,15 @@ export const Usage: FC<DescriptionProps> = (props) => {
             "Unexpected `of={undefined}`, did you mistype a CSF file reference?",
         );
     }
+    // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
     const resolvedOf = useOf(of || "meta");
     const markdown =
+        // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
         getDescriptionFromResolvedOf(resolvedOf)
             ?.match(/^## Usage\n?((?:(?!^#)[\s\S])*)/m)?.[0]
-            ?.trim() || null;
+            ?.trim() ?? null;
 
-    return markdown ? (
+    return markdown != null ? (
         <Markdown>{markdown}</Markdown>
     ) : null;
 };

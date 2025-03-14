@@ -37,6 +37,7 @@ export function FieldButton({
                 twMerge(
                     "!size-6",
                     "align-middle",
+                    "-outline-offset-1",
                     "text-secondary group-invalid:text-invalid",
                     `group-invalid:hover:bg-red-50
                     group-invalid:pressed:bg-red-50`,

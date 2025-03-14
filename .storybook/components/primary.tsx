@@ -1,10 +1,12 @@
+import type { FC } from "react";
+
 import {
     DocsContext,
     type Of,
     useOf,
 } from "@storybook/blocks";
-import type { FC } from "react";
 import React, { useContext } from "react";
+
 import { DocsStory } from "./docs-story";
 
 interface PrimaryProps {
@@ -20,18 +22,20 @@ export const Primary: FC<PrimaryProps> = (props) => {
         );
     }
 
-    const { csfFile } = useOf(of || "meta", ["meta"]);
+    const { csfFile } = useOf(of ?? "meta", ["meta"]);
     const context = useContext(DocsContext);
 
     const primaryStory =
         context.componentStoriesFromCSFFile(csfFile)[0];
 
-    return primaryStory ? (
+    return primaryStory != null ? (
         <DocsStory
-            of={primaryStory.moduleExport}
-            expanded={false}
-            __primary
             __forceInitialArgs
+            __primary
+            expanded={false}
+            of={primaryStory.moduleExport}
+            showDescription={false}
+            showTitle={false}
 
             // withToolbar
         />

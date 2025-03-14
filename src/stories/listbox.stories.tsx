@@ -1,14 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import type { ComponentProps } from "react";
 
 import type { OptionsSchema } from "../types/options";
 
 import { ListBox } from "../components/listbox";
 import { getMockOptions } from "../mocks/options";
-
-function Template(props: ComponentProps<typeof ListBox>) {
-    return <ListBox {...props} />;
-}
 
 const meta = {
     component: ListBox,

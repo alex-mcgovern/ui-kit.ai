@@ -1,5 +1,7 @@
+import type { ComponentProps } from "react";
+
 import { Source as SbSource } from "@storybook/blocks";
-import React, { ComponentProps } from "react";
+import React from "react";
 
 const removeEmptyEventHandlers = (code: string): string => {
     return code

@@ -37,8 +37,8 @@ const optionStyle = tv({
         "px-2.5 py-0.5",
         // focus
         "forced-color-adjust-none",
-        `focus:bg-muted-400 focus:open:bg-muted-400 focus:text-white
-        focus:forced-colors:bg-[Highlight]
+        `focus:bg-brand-400 focus:text-brand-50
+        focus:open:bg-brand-400 focus:forced-colors:bg-[Highlight]
         focus:forced-colors:text-[HighlightText]`,
         // destructive
         "data-[destructive]:text-invalid",
@@ -50,7 +50,7 @@ const optionStyle = tv({
  * An OptionRenderer is an internal implementation detail, that handles
  * rendering ListBox items or Menu items consistently.
  */
-export function INTERNAL_OptionRenderer<
+export function OptionRenderer<
     TType extends OptionType,
     TItemId extends string = string,
     TValue extends object = object,
@@ -123,7 +123,7 @@ function OptionsItem<TType extends OptionType>({
                         {props.description != null ? (
                             <span
                                 className="truncate text-sm font-normal text-secondary
-                                    group-focus/options-item:text-white"
+                                    group-focus/options-item:text-brand-50"
                             >
                                 {props.description}
                             </span>

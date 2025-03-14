@@ -1,19 +1,21 @@
+import type { FC } from "react";
+
 import {
     Description,
     DocsContext,
     Unstyled,
 } from "@storybook/blocks";
-import type { FC } from "react";
-import React, { useContext } from "react";
-import { Heading } from "../../src/components/heading";
 import lodash from "lodash-es";
-import { DocsStory } from "./docs-story";
+import React, { useContext } from "react";
+
+import { Heading } from "../../src/components/heading";
 import {
     Tab,
     TabList,
     TabPanel,
     Tabs,
 } from "../../src/components/tabs";
+import { DocsStory } from "./docs-story";
 interface StoriesProps {
     includePrimary?: boolean;
 }
@@ -23,14 +25,15 @@ export const Stories: FC<StoriesProps> = ({
 }) => {
     const {
         componentStories,
-        projectAnnotations,
         getStoryContext,
+        projectAnnotations,
     } = useContext(DocsContext);
 
     let stories = componentStories();
     const { stories: { filter } = { filter: undefined } } =
+        // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
         projectAnnotations.parameters?.docs || {};
-    if (filter) {
+    if (filter != null) {
         stories = stories.filter((story) =>
             filter(story, getStoryContext(story)),
         );
@@ -43,14 +46,14 @@ export const Stories: FC<StoriesProps> = ({
     // with 'autodocs', we show all stories. If ANY of the stories have autodocs then we use
     // the new behavior.
     const hasAutodocsTaggedStory = stories.some((story) =>
-        story.tags?.includes("autodocs"),
+        story.tags.includes("autodocs"),
     );
     if (hasAutodocsTaggedStory) {
         // Don't show stories where mount is used in docs.
         // As the play function is not running in docs, and when mount is used, the mounting is happening in play itself.
         stories = stories.filter(
             (story) =>
-                story.tags?.includes("autodocs") &&
+                story.tags.includes("autodocs") &&
                 !story.usesMount,
         );
     }
@@ -59,17 +62,17 @@ export const Stories: FC<StoriesProps> = ({
         stories = stories.slice(1);
     }
 
-    if (!stories || stories.length === 0) {
+    if (stories.length === 0) {
         return null;
     }
 
     const groupedStories = lodash.groupBy(
         stories,
         (story) => {
-            const groupTag = story.tags?.find((tag) =>
+            const groupTag = story.tags.find((tag) =>
                 tag.startsWith("group-"),
             );
-            return groupTag || story.id;
+            return groupTag ?? story.id;
         },
     );
 
@@ -84,12 +87,12 @@ export const Stories: FC<StoriesProps> = ({
                 if (group[1].length === 1) {
                     return (
                         <DocsStory
+                            __forceInitialArgs
+                            expanded
+                            key={group[1][0]?.id}
+                            of={group[1][0]?.moduleExport}
                             showDescription
                             showTitle
-                            key={group[1][0].id}
-                            of={group[1][0].moduleExport}
-                            expanded
-                            __forceInitialArgs
                         />
                     );
                 } else {
@@ -101,14 +104,12 @@ export const Stories: FC<StoriesProps> = ({
                     return (
                         <>
                             <Heading
-                                id={name.toLowerCase()}
                                 className="capitalize"
+                                id={name.toLowerCase()}
                             >
                                 {name}
                             </Heading>
-                            <Description
-                                of={group[1][0].id}
-                            />
+                            <Description of={group[1][0]} />
                             <Tabs>
                                 <Unstyled>
                                     <TabList>
@@ -131,18 +132,18 @@ export const Stories: FC<StoriesProps> = ({
                                 {group[1].map((story) => (
                                     <TabPanel id={story.id}>
                                         <DocsStory
+                                            __forceInitialArgs
+                                            expanded
+                                            key={story.id}
+                                            of={
+                                                story.moduleExport
+                                            }
                                             showDescription={
                                                 false
                                             }
                                             showTitle={
                                                 false
                                             }
-                                            key={story.id}
-                                            of={
-                                                story.moduleExport
-                                            }
-                                            expanded
-                                            __forceInitialArgs
                                         />
                                     </TabPanel>
                                 ))}

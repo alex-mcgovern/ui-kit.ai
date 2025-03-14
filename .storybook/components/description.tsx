@@ -1,19 +1,21 @@
+import type { FC } from "react";
+
 import {
     Markdown,
     type Of,
     Unstyled,
     useOf,
 } from "@storybook/blocks";
-import type { FC } from "react";
-import React from "react";
-import { TagLink } from "../../src/components/tag";
 import { ExternalLinkIcon } from "lucide-react";
+import React from "react";
 import { twMerge } from "tailwind-merge";
+
+import { TagLink } from "../../src/components/tag";
 export enum DescriptionType {
+    AUTO = "auto",
+    DOCGEN = "docgen",
     INFO = "info",
     NOTES = "notes",
-    DOCGEN = "docgen",
-    AUTO = "auto",
 }
 
 interface DescriptionProps {
@@ -26,38 +28,15 @@ interface DescriptionProps {
 
 const getDescriptionFromResolvedOf = (
     resolvedOf: ReturnType<typeof useOf>,
-): string | null => {
+): null | string => {
     switch (resolvedOf.type) {
-        case "story": {
-            return (
-                resolvedOf.story.parameters.docs
-                    ?.description?.story || null
-            );
-        }
-        case "meta": {
-            const { parameters, component } =
-                resolvedOf.preparedMeta;
-            const metaDescription =
-                parameters.docs?.description?.component;
-            if (metaDescription) {
-                return metaDescription;
-            }
-            return (
-                parameters.docs?.extractComponentDescription?.(
-                    component,
-                    {
-                        component,
-                        parameters,
-                    },
-                ) || null
-            );
-        }
         case "component": {
             const {
                 component,
                 projectAnnotations: { parameters },
             } = resolvedOf;
             return (
+                // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
                 parameters?.docs?.extractComponentDescription?.(
                     component,
                     {
@@ -67,9 +46,34 @@ const getDescriptionFromResolvedOf = (
                 ) || null
             );
         }
+        case "meta": {
+            const { component, parameters } =
+                resolvedOf.preparedMeta;
+            const metaDescription =
+                parameters.docs?.description?.component;
+            if (metaDescription != null) {
+                return metaDescription;
+            }
+            return (
+                // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
+                parameters.docs?.extractComponentDescription?.(
+                    component,
+                    {
+                        component,
+                        parameters,
+                    },
+                ) || null
+            );
+        }
+        case "story": {
+            return (
+                resolvedOf.story.parameters.docs
+                    ?.description?.story ?? null
+            );
+        }
         default: {
             throw new Error(
-                `Unrecognized module type resolved from 'useOf', got: ${(resolvedOf as any).type}`,
+                `Unrecognized module type resolved from 'useOf', got: ${(resolvedOf as { type: string }).type}`,
             );
         }
     }
@@ -85,28 +89,17 @@ const DescriptionContainer: FC<DescriptionProps> = (
             "Unexpected `of={undefined}`, did you mistype a CSF file reference?",
         );
     }
-    const resolvedOf = useOf(of || "meta");
+    const resolvedOf = useOf(of ?? "meta");
     const markdown =
         getDescriptionFromResolvedOf(resolvedOf)
             // split at the first heading, which will be usage examples
             ?.split(/^#+ /m)[0]
-            ?.trim() || null;
+            ?.trim() ?? null;
 
-    return markdown ? (
+    return markdown != null ? (
         <Markdown
             options={{
                 overrides: {
-                    p: {
-                        component: (props) => (
-                            <p
-                                {...props}
-                                className={twMerge(
-                                    props.className,
-                                    "max-w-[40rem]",
-                                )}
-                            />
-                        ),
-                    },
                     a: {
                         component: (props) => (
                             <Unstyled
@@ -117,13 +110,24 @@ const DescriptionContainer: FC<DescriptionProps> = (
                             >
                                 <TagLink
                                     {...props}
+                                    className="mr-1"
                                     slotRight={
                                         <ExternalLinkIcon />
                                     }
                                     target="_blank"
-                                    className="mr-1"
                                 />
                             </Unstyled>
+                        ),
+                    },
+                    p: {
+                        component: (props) => (
+                            <p
+                                {...props}
+                                className={twMerge(
+                                    props.className,
+                                    "max-w-[40rem]",
+                                )}
+                            />
                         ),
                     },
                 },

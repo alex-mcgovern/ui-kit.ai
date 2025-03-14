@@ -22,7 +22,10 @@ async function main() {
         .readdirSync(storiesDir)
         .filter((file) => file.endsWith(".stories.tsx"));
 
-    const examples: Record<string, any> = {};
+    const examples: Record<
+        string,
+        Record<string, string>
+    > = {};
 
     for (const file of storyFiles) {
         try {
@@ -32,7 +35,7 @@ async function main() {
             const fullPath = path.join(storiesDir, file);
             examples[componentName] =
                 await parseStory(fullPath);
-        } catch (e) {
+        } catch {
             console.error(`Error processing ${file}`);
         }
     }
@@ -42,8 +45,8 @@ async function main() {
         JSON.stringify(examples, null, 2),
         "utf-8",
     );
-    console.log(
-        "Component usage JSON generated successfully.",
+    console.info(
+        "✅ Component usage JSON generated successfully.",
     );
 }
 

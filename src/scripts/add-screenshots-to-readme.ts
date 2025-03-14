@@ -67,8 +67,8 @@ async function main() {
             );
 
         await writeFile("README.md", newContent, "utf-8");
-        console.log(
-            "Successfully updated README.md with screenshot images",
+        console.info(
+            "✅ Successfully updated README.md with screenshot images",
         );
     } catch (error) {
         console.error("Error:", error);

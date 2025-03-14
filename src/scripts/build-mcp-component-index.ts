@@ -49,4 +49,4 @@ function writeJsonFile(
 const exports = parseIndexFile(indexPath);
 writeJsonFile(exports, jsonOutputPath);
 
-console.log("Component JSON generated successfully.");
+console.info("✅ Component JSON generated successfully.");

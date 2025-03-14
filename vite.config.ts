@@ -1,6 +1,5 @@
-import path from "node:path";
-
 import react from "@vitejs/plugin-react";
+import path from "node:path";
 import Macros from "unplugin-macros/vite";
 import { defineConfig } from "vite";
 import dts from "vite-plugin-dts";
@@ -10,32 +9,15 @@ import pkg from "./package.json";
 const __dirname = path.resolve();
 
 export default defineConfig({
-    plugins: [
-        react({
-            babel: {
-                plugins: [
-                    "@babel/plugin-syntax-import-attributes",
-                ],
-            },
-        }),
-        dts({
-            rollupTypes: true,
-            insertTypesEntry: true,
-        }),
-        Macros(),
-    ],
-    define: {
-        "import.meta.vitest": "undefined",
-    },
     build: {
         lib: {
             entry: [
                 path.resolve(__dirname, "src/index.ts"),
             ],
-            name: "UIKIT",
-            formats: ["es"],
             // eslint-disable-next-line @typescript-eslint/no-unused-vars
             fileName: (_, n) => `${n}.js`,
+            formats: ["es"],
+            name: "UIKIT",
         },
         rollupOptions: {
             external: [
@@ -49,24 +31,38 @@ export default defineConfig({
             ],
             output: {
                 banner: '"use client";',
-                preserveModules: true,
                 globals: {
                     react: "React",
                     "react-dom": "ReactDOM",
                     "react/jsx-runtime":
                         "react/jsx-runtime",
                 },
+                preserveModules: true,
             },
         },
     },
+    define: {
+        "import.meta.vitest": "undefined",
+    },
+    plugins: [
+        react({
+            babel: {
+                plugins: [
+                    "@babel/plugin-syntax-import-attributes",
+                ],
+            },
+        }),
+        dts({
+            insertTypesEntry: true,
+            rollupTypes: true,
+            tsconfigPath: path.resolve(
+                __dirname,
+                "tsconfig.build.json",
+            ),
+        }),
+        Macros(),
+    ],
     test: {
-        environmentMatchGlobs: [
-            ["**/*.tsx", "jsdom"],
-            ["**/*.ts", "node"],
-        ],
-        globals: true,
-        include: ["**/*test.ts?(x)"],
-        includeSource: ["**/*.ts?(x)"],
         // setupFiles: ["./test/setup.ts"],
         coverage: {
             include: ["src/**/*"],
@@ -77,5 +73,12 @@ export default defineConfig({
                 "json-summary",
             ],
         },
+        environmentMatchGlobs: [
+            ["**/*.tsx", "jsdom"],
+            ["**/*.ts", "node"],
+        ],
+        globals: true,
+        include: ["**/*test.ts?(x)"],
+        includeSource: ["**/*.ts?(x)"],
     },
 });

@@ -80,16 +80,13 @@ const tabStyles = tv({
         "cursor-pointer",
         // "border-transparent",
         // pressed
-        "pressed:text-tertiary",
+        "pressed:text-secondary",
         // selected
         "selected:!border-brand-600 selected:text-brand-600",
-        `hover:text-tertiary disabled:selected:text-gray-600
-        forced-color-adjust-none
+        `forced-color-adjust-none
         group-orientation-vertical/tabs:w-full
         group-orientation-vertical/tabs:border-r
-        selected:forced-colors:text-[HighlightText]
-        disabled:forced-colors:text-[GrayText]
-        disabled:forced-colors:selected:text-[HighlightText]`,
+        hover:text-secondary disabled:selected:text-muted-600`,
         "disabled:text-disabled",
         // horizontal - border bottom
         `group-orientation-horizontal/tabs:!border-b

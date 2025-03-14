@@ -33,15 +33,39 @@ const config = [
     ),
     eslintConfigPrettier,
     {
-        ignores: ["node_modules/**/*"],
+        ignores: [
+            "public/mockServiceWorker.js",
+            "node_modules/**/*",
+        ],
     },
     {
-        files: [
-            "src/stories/**/*.tsx",
-            "src/test/**/*.tsx",
-        ],
-        rules: {
-            "sonarjs/no-duplicate-string": "off",
+        settings: {
+            // "import/resolver": {
+            //     node: true,
+            //     typescript: true,
+            // },
+            tailwindcss: {
+                callees: ["tv", "twMerge"],
+                config: join(
+                    import.meta.dirname,
+                    "./tailwind.config.ts",
+                ),
+            },
+        },
+    },
+    {
+        languageOptions: {
+            globals: {
+                ...globals.browser,
+                ...globals.node,
+            },
+            parserOptions: {
+                ecmaFeatures: {
+                    jsx: true,
+                },
+                projectService: true,
+                tsconfigRootDir: __dirname,
+            },
         },
     },
     {
@@ -220,34 +244,15 @@ const config = [
             ],
         },
     },
+    // Ignore duplicate strings in tests
     {
-        settings: {
-            // "import/resolver": {
-            //     node: true,
-            //     typescript: true,
-            // },
-            tailwindcss: {
-                callees: ["tv", "twMerge"],
-                config: join(
-                    import.meta.dirname,
-                    "./tailwind.config.ts",
-                ),
-            },
-        },
-    },
-    {
-        languageOptions: {
-            globals: {
-                ...globals.browser,
-                ...globals.node,
-            },
-            parserOptions: {
-                ecmaFeatures: {
-                    jsx: true,
-                },
-                projectService: true,
-                tsconfigRootDir: __dirname,
-            },
+        files: [
+            "src/stories/**/*.tsx",
+            "src/test/**/*.tsx",
+            "**/*.test.*",
+        ],
+        rules: {
+            "sonarjs/no-duplicate-string": "off",
         },
     },
 ];

@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import type { ComponentProps } from "react";
 
 import { FieldGroup } from "../components/field-group";
 import { Input } from "../components/input";
@@ -7,32 +6,6 @@ import { Kbd } from "../components/kbd";
 import { Select, SelectButton } from "../components/select";
 import { TextField } from "../components/text-field";
 import { getMockOptions } from "../mocks/options";
-
-function Template(
-    props: ComponentProps<typeof FieldGroup>,
-) {
-    return (
-        <FieldGroup {...props}>
-            <Select
-                aria-label="Country"
-                className="min-w-64 border-r border-r-muted-400"
-                items={getMockOptions({
-                    withIcon: true,
-                    withSections: true,
-                })}
-                name="country"
-            >
-                {(rp) => (
-                    <SelectButton {...rp} isBorderless />
-                )}
-            </Select>
-
-            <TextField aria-label="City">
-                <Input placeholder="Enter your city..." />
-            </TextField>
-        </FieldGroup>
-    );
-}
 
 const meta = {
     args: {},

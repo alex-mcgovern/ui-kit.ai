@@ -1,13 +1,15 @@
+import type { FC } from "react";
+
 import {
     Anchor,
     Description,
-    useOf,
     type DocsStoryProps,
+    useOf,
 } from "@storybook/blocks";
-import type { FC } from "react";
 import React from "react";
-import { Canvas } from "./canvas";
+
 import { Heading } from "../../src/components/heading";
+import { Canvas } from "./canvas";
 
 const removeEmptyEventHandlers = (code: string): string => {
     const withoutEmptyHandlers = code
@@ -17,7 +19,7 @@ const removeEmptyEventHandlers = (code: string): string => {
                 !line
                     .trim()
                     .match(
-                        /^on\w+={\(\) \=\> \{\}}\s*,?\s*$/,
+                        /^on\w+={\(\) => \{\}}\s*,?\s*$/,
                     ),
         )
         .map((line) =>
@@ -41,17 +43,17 @@ const removeEmptyEventHandlers = (code: string): string => {
 
 export const DocsStory: FC<
     DocsStoryProps & {
-        showTitle: boolean;
         showDescription: boolean;
+        showTitle: boolean;
     }
 > = ({
-    of,
     __forceInitialArgs = false,
     __primary = false,
-    showTitle,
+    of,
     showDescription,
+    showTitle,
 }) => {
-    const { story } = useOf(of || "story", ["story"]);
+    const { story } = useOf(of ?? "story", ["story"]);
 
     return (
         <Anchor storyId={story.id}>
@@ -63,11 +65,11 @@ export const DocsStory: FC<
             ) : null}
             <Canvas
                 of={of}
-                story={{ __forceInitialArgs, __primary }}
                 source={{
                     __forceInitialArgs,
                     transform: removeEmptyEventHandlers,
                 }}
+                story={{ __forceInitialArgs, __primary }}
             />
         </Anchor>
     );

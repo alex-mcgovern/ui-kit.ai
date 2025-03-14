@@ -77,4 +77,6 @@ storyFiles.forEach((file) => {
 
 writeJsonFile(allExamples, jsonOutputPath);
 
-console.log("Component usage JSON generated successfully.");
+console.info(
+    "Component usage JSON generated successfully.",
+);

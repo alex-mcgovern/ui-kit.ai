@@ -104,7 +104,7 @@ function Template(
 
 const meta = {
     args: {
-        onError: (errors: any) => {
+        onError: (errors: Record<string, unknown>) => {
             alert(
                 `Errors:\n\n${JSON.stringify(errors, null, 4)}`,
             );
@@ -146,9 +146,9 @@ export const WithValidationErrors: Story = {
     args: {
         options: {
             defaultValues: {
-                email: "invalid-email", // Invalid email format
-                password: "short", // Too short
-                username: "a", // Too short
+                email: "invalid-email",
+                password: "short",
+                username: "a",
             },
             errors: {
                 email: {

@@ -1,25 +1,22 @@
+import type { StorybookConfig } from "@storybook/react-vite";
+
 import { withoutVitePlugins } from "@storybook/builder-vite";
-import { StorybookConfig } from "@storybook/react-vite";
 
 const excludedProps = new Set([
     "id",
-    "slot",
+    "onBeforeInput",
+    "onCompositionEnd",
+    "onCompositionStart",
+    "onCompositionUpdate",
     "onCopy",
     "onCut",
-    "onPaste",
-    "onCompositionStart",
-    "onCompositionEnd",
-    "onCompositionUpdate",
-    "onSelect",
-    "onBeforeInput",
     "onInput",
+    "onPaste",
+    "onSelect",
+    "slot",
 ]);
 
 const config: StorybookConfig = {
-    stories: [
-        "../src/stories/**/*.tsx",
-        "../src/docs/**/*.docs.mdx",
-    ],
     addons: [
         "@storybook/addon-links",
         "@storybook/addon-essentials",
@@ -29,31 +26,22 @@ const config: StorybookConfig = {
         "storycap",
     ],
     babelDefault: {},
+    docs: {
+        autodocs: true,
+    },
 
     framework: {
         name: "@storybook/react-vite",
         options: {},
     },
 
-    async viteFinal(config) {
-        return {
-            ...config,
-            plugins: [
-                ...(await withoutVitePlugins(
-                    config.plugins,
-                    ["vite:dts"],
-                )),
-            ],
-        };
-    },
-    docs: {
-        autodocs: true,
-    },
+    stories: [
+        "../src/stories/**/*.tsx",
+        "../src/docs/**/*.docs.mdx",
+    ],
     typescript: {
         reactDocgen: "react-docgen-typescript",
         reactDocgenTypescriptOptions: {
-            shouldExtractLiteralValuesFromEnum: true,
-            shouldIncludeExpression: false,
             compilerOptions: {
                 allowSyntheticDefaultImports: false,
                 esModuleInterop: false,
@@ -64,7 +52,20 @@ const config: StorybookConfig = {
                     !excludedProps.has(prop.name)
                 );
             },
+            shouldExtractLiteralValuesFromEnum: true,
+            shouldIncludeExpression: false,
         },
+    },
+    async viteFinal(config) {
+        return {
+            ...config,
+            plugins: [
+                ...(await withoutVitePlugins(
+                    config.plugins,
+                    ["vite:dts"],
+                )),
+            ],
+        };
     },
 };
 export default config;

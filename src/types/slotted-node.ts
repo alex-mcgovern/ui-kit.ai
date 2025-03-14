@@ -6,6 +6,11 @@ import {
 } from "react";
 import { twMerge } from "tailwind-merge";
 
+export enum Slot {
+    LEFT = "slot-left",
+    RIGHT = "slot-right",
+}
+
 export type SlotNode = ReactElement<
     SlotNodeProps,
     JSXElementConstructor<SlotNodeProps> | string

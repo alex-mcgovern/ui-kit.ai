@@ -23,6 +23,7 @@ export default {
     plugins: [TailwindReactAria, TailwindAnimate],
     theme: {
         colors: {
+            black: colors.black,
             brand: colors.stone,
             current: "currentColor",
             green: colors.emerald,

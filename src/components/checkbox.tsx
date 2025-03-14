@@ -211,7 +211,7 @@ function CheckboxLabel({
                     <Tag>{i18n.form.required}</Tag>
                 ) : null}
             </Label>
-            {description ? (
+            {description != null ? (
                 <Description className="!mt-0">
                     {description}
                 </Description>

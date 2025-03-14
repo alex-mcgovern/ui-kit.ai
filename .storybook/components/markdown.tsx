@@ -1,10 +1,12 @@
+import type { ComponentProps } from "react";
+
 import {
     AnchorMdx,
     CodeOrSourceMdx,
     Markdown as SbMarkdown,
 } from "@storybook/blocks";
-import type { ComponentProps } from "react";
 import React from "react";
+
 import { Heading } from "../../src/components/heading";
 
 export const Markdown = (
@@ -17,8 +19,8 @@ export const Markdown = (
                 options={{
                     forceBlock: true,
                     overrides: {
-                        code: CodeOrSourceMdx,
                         a: AnchorMdx,
+                        code: CodeOrSourceMdx,
                         h1: (props) => (
                             <Heading {...props} level={1} />
                         ),
@@ -37,9 +39,9 @@ export const Markdown = (
                         h6: (props) => (
                             <Heading {...props} level={6} />
                         ),
-                        ...props?.options?.overrides,
+                        ...props.options?.overrides,
                     },
-                    ...props?.options,
+                    ...props.options,
                 }}
             />
         </>

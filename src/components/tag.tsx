@@ -13,6 +13,7 @@ import { tv } from "tailwind-variants";
 import { focusRing } from "../styles/focus-ring";
 import {
     renderSlot,
+    Slot,
     type SlotNode,
 } from "../types/slotted-node";
 
@@ -183,12 +184,12 @@ export function Tag({
             ref={ref}
         >
             {renderSlot(slotLeft, {
-                "data-slot": "slot-left",
+                "data-slot": Slot.LEFT,
             })}
             {children}
 
             {renderSlot(slotRight, {
-                "data-slot": "slot-right",
+                "data-slot": Slot.RIGHT,
             })}
         </div>
     );
@@ -242,14 +243,14 @@ export function TagButton({
             {(renderProps) => (
                 <>
                     {renderSlot(slotLeft, {
-                        "data-slot": "slot-left",
+                        "data-slot": Slot.LEFT,
                     })}
                     {typeof children === "function"
                         ? children(renderProps)
                         : children}
 
                     {renderSlot(slotRight, {
-                        "data-slot": "slot-right",
+                        "data-slot": Slot.RIGHT,
                     })}
                 </>
             )}
@@ -305,14 +306,14 @@ export const TagLink = ({
             {(renderProps) => (
                 <>
                     {renderSlot(slotLeft, {
-                        "data-slot": "slot-left",
+                        "data-slot": Slot.LEFT,
                     })}
                     {typeof children === "function"
                         ? children(renderProps)
                         : children}
 
                     {renderSlot(slotRight, {
-                        "data-slot": "slot-right",
+                        "data-slot": Slot.RIGHT,
                     })}
                 </>
             )}

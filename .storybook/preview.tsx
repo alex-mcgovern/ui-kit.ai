@@ -1,5 +1,10 @@
-import React from "react";
+import { MDXProvider } from "@mdx-js/react";
+
 import "./storybook.css";
+
+import { ArgTypes, Title } from "@storybook/blocks";
+import { DocsContainer as StorybookDocsContainer } from "@storybook/blocks";
+import { type Preview } from "@storybook/react";
 import {
     QueryClient,
     QueryClientProvider,
@@ -8,27 +13,22 @@ import {
     initialize as initializeMsw,
     mswLoader,
 } from "msw-storybook-addon";
-import theme from "./theme";
-import { Title, ArgTypes } from "@storybook/blocks";
-import { Heading } from "../src/components/heading";
-import { Description } from "./components/description";
-import { Usage } from "./components/usage";
-import { MDXProvider } from "@mdx-js/react";
+import React, { type ComponentProps } from "react";
 import {
     type ScreenshotOptions,
     withScreenshot,
 } from "storycap";
 
-import { DocsContainer as StorybookDocsContainer } from "@storybook/blocks";
-import {
-    type Preview,
-    type ArgTypes as TArgTypes,
-} from "@storybook/react";
+import { Heading } from "../src/components/heading";
+import { Description } from "./components/description";
 import { Primary } from "./components/primary";
 import { Stories } from "./components/stories";
-import { Source } from "./components/source";
+import { Usage } from "./components/usage";
+import theme from "./theme";
 
-const DocsContainer = (props) => (
+const DocsContainer = (
+    props: ComponentProps<typeof StorybookDocsContainer>,
+) => (
     <MDXProvider
         components={{
             h1: (props) => <Heading {...props} level={1} />,
@@ -56,13 +56,39 @@ const screenshotOptions: ScreenshotOptions = {
 };
 
 const preview: Preview = {
+    decorators: [
+        // @ts-expect-error - the types seem out of date
+        withScreenshot,
+        (Story) => {
+            return (
+                <QueryClientProvider
+                    client={new QueryClient()}
+                >
+                    <Story />
+                </QueryClientProvider>
+            );
+        },
+        (Story) => {
+            return (
+                <div className="flex min-h-24 w-full items-center justify-center p-6">
+                    <Story />
+                    <div
+                        className="absolute inset-0 z-[-1] size-full bg-muted-50
+                            bg-[radial-gradient(#e5e7eb_1px,transparent_1px)]
+                            [background-size:16px_16px]"
+                    />
+                </div>
+            );
+        },
+    ],
+    loaders: [mswLoader],
     parameters: {
-        screenshot: screenshotOptions,
+        actions: { argTypesRegex: "^on[A-Z].*" },
+        controls: {
+            matchers: {},
+        },
         docs: {
-            theme,
-            toc: {
-                headingSelector: "h2, h3",
-            },
+            container: DocsContainer,
             // components: {
             //     source: Source,
             // },
@@ -79,40 +105,14 @@ const preview: Preview = {
                     <ArgTypes />
                 </>
             ),
-            container: DocsContainer,
-        },
-        actions: { argTypesRegex: "^on[A-Z].*" },
-        controls: {
-            matchers: {},
+            theme,
+            toc: {
+                headingSelector: "h2, h3",
+            },
         },
         layout: "centered",
+        screenshot: screenshotOptions,
     },
-    loaders: [mswLoader],
-    decorators: [
-        // @ts-expect-error
-        withScreenshot,
-        (Story) => {
-            return (
-                <QueryClientProvider
-                    client={new QueryClient()}
-                >
-                    <Story />
-                </QueryClientProvider>
-            );
-        },
-        (Story) => {
-            return (
-                <div className="flex min-h-24 w-full items-center justify-center p-6">
-                    <Story />
-                    <div
-                        className="bg-white absolute inset-0 z-[-1] h-full w-full
-                            bg-[radial-gradient(#e5e7eb_1px,transparent_1px)]
-                            [background-size:16px_16px]"
-                    />
-                </div>
-            );
-        },
-    ],
 };
 
 export default preview;

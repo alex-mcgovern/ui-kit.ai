@@ -4,7 +4,7 @@ import { ListBox as AriaListBox } from "react-aria-components";
 
 import type { OptionsSchema } from "../types/options";
 
-import { INTERNAL_OptionRenderer } from "./options";
+import { OptionRenderer } from "./options";
 
 type ListBoxProps<
     T extends
@@ -44,10 +44,7 @@ export function ListBox<
             )}
         >
             {(props) => (
-                <INTERNAL_OptionRenderer
-                    {...props}
-                    type="listbox"
-                />
+                <OptionRenderer {...props} type="listbox" />
             )}
         </AriaListBox>
     );

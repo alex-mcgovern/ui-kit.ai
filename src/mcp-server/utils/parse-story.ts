@@ -3,9 +3,10 @@ import type { ReactNode } from "react";
 import { type Options } from "react-element-to-jsx-string";
 
 const JSX_STRING_OPTIONS = {
-    filterProps(value, key) {
+    filterProps(_value, key) {
         return key !== "data-testid" && key !== "key";
     },
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-function-type
     functionValue: (fn: Function) => fn.toString(),
     showFunctions: true,
     useBooleanShorthandSyntax: true,

@@ -29,7 +29,7 @@ import type { OptionsSchema } from "../types/options";
 import { FieldButton } from "./field-button";
 import { FieldGroup } from "./field-group";
 import { Input } from "./input";
-import { INTERNAL_OptionRenderer } from "./options";
+import { OptionRenderer } from "./options";
 import { Popover } from "./popover";
 
 /**
@@ -234,7 +234,7 @@ export function ComboBox<
                                 }
                             >
                                 {(props) => (
-                                    <INTERNAL_OptionRenderer
+                                    <OptionRenderer
                                         {...props}
                                         type="listbox"
                                     />

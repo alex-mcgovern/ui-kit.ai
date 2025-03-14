@@ -150,7 +150,7 @@ export function TextField({
                 clear: {
                     isDisabled:
                         value == null ||
-                        props.isDisabled ||
+                        props.isDisabled === true ||
                         props.isReadOnly,
                     onPress: clearValue,
                 },
@@ -168,10 +168,12 @@ export function TextField({
             },
         };
     }, [
+        value,
+        props.isDisabled,
+        props.isReadOnly,
         clearValue,
         copyValue,
         toggleVisibility,
-        value,
         type,
     ]);
 

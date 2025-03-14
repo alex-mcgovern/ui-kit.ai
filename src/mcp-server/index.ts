@@ -10,7 +10,7 @@ const server = new McpServer({
     version: "1.0.0",
 });
 
-server.tool("getComponentIndex", {}, async () => {
+server.tool("getComponentIndex", {}, () => {
     return {
         content: [
             {

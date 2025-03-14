@@ -24,8 +24,8 @@ const alertStyles = tv({
         variant: {
             default:
                 "border border-muted-200 bg-base text-primary",
-            invalid: "text-white bg-red-700",
-            inverted: "text-white bg-muted-800",
+            invalid: "bg-red-700 text-muted-50",
+            inverted: "bg-muted-800 text-muted-50",
         },
     },
 });
@@ -116,7 +116,7 @@ export function Alert({
                 >
                     {title}
                 </span>
-                {description ? (
+                {description != null ? (
                     <Description
                         className={twMerge(
                             "!my-0",
@@ -134,8 +134,8 @@ export function Alert({
                 actions,
                 className: "ml-auto",
                 props: {
-                    isDestructive: variant === "invalid",
                     // @ts-expect-error - TODO: type-aware action nodes
+                    isDestructive: variant === "invalid",
                     isInverted:
                         variant === "inverted" ||
                         variant === "invalid",

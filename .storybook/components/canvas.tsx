@@ -1,5 +1,6 @@
-import { Canvas as StorybookCanvas } from "@storybook/blocks";
 import type { ComponentProps } from "react";
+
+import { Canvas as StorybookCanvas } from "@storybook/blocks";
 import { twMerge } from "tailwind-merge";
 
 export function Canvas(

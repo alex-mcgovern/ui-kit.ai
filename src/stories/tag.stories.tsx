@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 
 import { CircleDot } from "lucide-react";
 
-import { Tag, type TagProps } from "../components/tag";
+import { Tag } from "../components/tag";
 
 const meta = {
     args: {

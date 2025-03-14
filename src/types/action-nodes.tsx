@@ -1,11 +1,6 @@
-import {
-    cloneElement,
-    type HTMLAttributes,
-    isValidElement,
-    type JSXElementConstructor,
-    type ReactElement,
-    type ReactNode,
-} from "react";
+import type { HTMLAttributes, ReactNode } from "react";
+
+import { cloneElement, isValidElement } from "react";
 import { twMerge } from "tailwind-merge";
 import { tv } from "tailwind-variants";
 
@@ -53,7 +48,6 @@ export function renderActionNodes({
                         ),
                     });
                 }
-                console.log("Invalid action node:", action);
                 return action;
             })}
         </div>
