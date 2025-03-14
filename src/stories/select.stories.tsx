@@ -8,7 +8,6 @@ import { Select, SelectButton } from "../components/select";
 import { Label } from "../components/label";
 import { getMockOptions } from "../mocks/options";
 import type { ComponentProps, ComponentType } from "react";
-import { type StoryArgsList } from "../types/storybook";
 import { Description } from "../components/description";
 
 function Template(

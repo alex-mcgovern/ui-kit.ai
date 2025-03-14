@@ -40,7 +40,7 @@ it("submits form with `Form.ComboBox`", async () => {
 
     const option = getAllByRole("option")[0];
     expect(option).toBeInTheDocument();
-    await user.click(option);
+    await user.click(option as HTMLElement);
 
     const button = getByText("Submit");
     await user.click(button);
@@ -83,7 +83,7 @@ it("`Form.ComboBox` clears when reset after submission", async () => {
 
     const option = getAllByRole("option")[0];
     expect(option).toBeInTheDocument();
-    await user.click(option);
+    await user.click(option as HTMLElement);
 
     expect(field).toHaveValue("abc123");
 
@@ -237,7 +237,7 @@ it("Filters with typeahead when filtering", async () => {
 
     const options = getAllByRole("option");
     expect(options.length).toBe(1);
-    await user.click(options[0]);
+    await user.click(options[0] as HTMLElement);
 
     const button = getByText("Submit");
     await user.click(button);
@@ -285,7 +285,7 @@ it("Clearing combobox doesn't throw", async () => {
 
     const options = getAllByRole("option");
     expect(options.length).toBe(1);
-    await user.click(options[0]);
+    await user.click(options[0] as HTMLElement);
 
     const button = getByText("Submit");
     await user.click(button);

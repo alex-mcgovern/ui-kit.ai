@@ -16,7 +16,8 @@
       "skipLibCheck": true,
       "strict": true,
       "target": "es2022",
-      "verbatimModuleSyntax": true
+      "verbatimModuleSyntax": true,
+      "types": ["@testing-library/jest-dom"]
     },
     "include": ["src/**/*", "eslint.config.js"]
   }

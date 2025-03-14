@@ -2,7 +2,6 @@ import type { Meta, StoryObj } from "@storybook/react";
 
 import { Heading } from "../components/heading";
 import type { ComponentProps } from "react";
-import { type StoryArgsList } from "../types/storybook";
 
 const TEXT = "Lorem ipsum dolor sit amet...";
 

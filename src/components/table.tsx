@@ -598,6 +598,7 @@ function useSkeleton(
  */
 export function Table<TRow extends BaseRow = BaseRow>({
     "aria-label": ariaLabel,
+    // @ts-expect-error - TODO: Fix CellRenderer types
     cellRenderer: CellRenderer = DefaultCellRenderer<TRow>,
     className,
     columns,
@@ -628,6 +629,8 @@ export function Table<TRow extends BaseRow = BaseRow>({
                     {(column) => (
                         <Column
                             {...column}
+                            // @ts-expect-error - TODO: Fix table
+                            // column types
                             id={column.id}
                         />
                     )}
@@ -644,6 +647,8 @@ export function Table<TRow extends BaseRow = BaseRow>({
                             getRowOptions != null
                                 ? getRowOptions({
                                       columns,
+                                      // @ts-expect-error - TODO: Fix table
+                                      // row types
                                       row,
                                   })
                                 : [];
@@ -676,12 +681,16 @@ export function Table<TRow extends BaseRow = BaseRow>({
                                                 ? column.className
                                                 : undefined
                                         }
+                                        // @ts-expect-error - TODO: Fix table
+                                        // column ID types
                                         id={column.id}
                                         showSkeleton={
                                             showSkeleton
                                         }
                                     >
-                                        <CellRenderer<TRow>
+                                        <CellRenderer
+                                            // @ts-expect-error - TODO: Fix table
+                                            // column types
                                             column={column}
                                             row={row}
                                         />

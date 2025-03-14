@@ -181,7 +181,7 @@ const searchParamsSchema = z.object({
         .string()
         .pipe(z.coerce.number())
         .optional()
-        .default(0),
+        .default("0"),
     search: z.string().optional(),
 });
 

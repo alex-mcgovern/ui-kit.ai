@@ -106,7 +106,9 @@ export const Stories: FC<StoriesProps> = ({
                             >
                                 {name}
                             </Heading>
-                            <Description of={group[1][0]} />
+                            <Description
+                                of={group[1][0].id}
+                            />
                             <Tabs>
                                 <Unstyled>
                                     <TabList>

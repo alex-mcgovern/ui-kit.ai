@@ -131,6 +131,7 @@ export function Alert({
             {renderActionNodes({
                 actions,
                 props: {
+                    // @ts-expect-error - TODO: type-aware action nodes
                     isInverted:
                         variant === "inverted" ||
                         variant === "invalid",

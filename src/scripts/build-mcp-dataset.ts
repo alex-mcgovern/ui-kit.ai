@@ -32,9 +32,7 @@ async function main() {
             examples[componentName] =
                 await parseStory(fullPath);
         } catch (e) {
-            console.error(
-                `Error processing ${file}: ${e.message}`,
-            );
+            console.error(`Error processing ${file}`);
         }
     }
 

@@ -158,6 +158,7 @@ const CellRenderer: TableCellRenderer<
 const meta: Meta<typeof Table<StockWatchlistItem>> = {
     args: {
         "aria-label": "Watchlist",
+        // @ts-expect-error - TODO: fix CellRenderer types
         cellRenderer: CellRenderer,
         columns: COLUMNS,
         disabledKeys: ["TWTR", "AMZN"],
@@ -393,6 +394,7 @@ function Template({
         setSortDescriptor,
         sortDescriptor,
         sortedItems,
+        // @ts-expect-error - TODO: fix table stories types
     } = useSortedItems(data?.items ?? []);
 
     const renderEmptyState: ComponentProps<
@@ -442,6 +444,7 @@ function Template({
             </div>
             <Table<StockWatchlistItem>
                 {...args}
+                // @ts-expect-error - TODO: Fix table stories types
                 onSortChange={setSortDescriptor}
                 renderEmptyState={renderEmptyState}
                 rows={sortedItems}

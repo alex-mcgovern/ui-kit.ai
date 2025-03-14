@@ -2,9 +2,9 @@ import { render } from "@testing-library/react";
 import { userEvent } from "@testing-library/user-event";
 import { expect, it, vi } from "vitest";
 
-import { Button } from "../Button";
-import { Label } from "../Label";
-import { SelectButton } from "../Select";
+import { Button } from "../button";
+import { Label } from "../label";
+import { SelectButton } from "../select";
 import { Form } from "../form";
 import { FormResetOnSubmit } from "../form-reset-on-submit";
 import { FormSelect } from "../form-select";
@@ -42,7 +42,7 @@ it("submits form with `FormSelect`", async () => {
 
     const option = getAllByRole("option")[0];
     expect(option).toBeInTheDocument();
-    await user.click(option);
+    await user.click(option as HTMLElement);
 
     const button = getByText("Submit");
     await user.click(button);
@@ -87,7 +87,7 @@ it("`FormSelect` clears when reset after submission", async () => {
 
     const option = getAllByRole("option")[0];
     expect(option).toBeInTheDocument();
-    await user.click(option);
+    await user.click(option as HTMLElement);
 
     expect(field).toHaveTextContent("abc123");
 
