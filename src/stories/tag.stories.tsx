@@ -5,11 +5,11 @@ import { CircleDot } from "lucide-react";
 import { Tag, type TagProps } from "../components/tag";
 
 const meta = {
-    component: Tag,
-    title: "Components/Tag",
     args: {
         children: "Tag",
     },
+    component: Tag,
+    title: "Components/Tag",
 } satisfies Meta<typeof Tag>;
 
 export default meta;
@@ -19,44 +19,44 @@ export const Default: Story = {
     args: {},
 };
 export const SlotLeft: Story = {
-    name: "Left",
-    tags: ["group-slot"],
     args: {
         slotLeft: <CircleDot />,
     },
+    name: "Left",
+    tags: ["group-slot"],
 };
 export const SlotRight: Story = {
-    name: "Right",
-    tags: ["group-slot"],
     args: {
         slotRight: <CircleDot />,
     },
+    name: "Right",
+    tags: ["group-slot"],
 };
 export const VariantGreen: Story = {
-    tags: ["group-variant"],
-    name: "Green",
     args: {
         variant: "green",
     },
+    name: "Green",
+    tags: ["group-variant"],
 };
 export const VariantYellow: Story = {
-    tags: ["group-variant"],
-    name: "Yellow",
     args: {
         variant: "yellow",
     },
+    name: "Yellow",
+    tags: ["group-variant"],
 };
 export const VariantRed: Story = {
-    tags: ["group-variant"],
-    name: "Red",
     args: {
         variant: "red",
     },
+    name: "Red",
+    tags: ["group-variant"],
 };
 export const VariantInverted: Story = {
-    tags: ["group-variant"],
-    name: "Inverted",
     args: {
         variant: "inverted",
     },
+    name: "Inverted",
+    tags: ["group-variant"],
 };

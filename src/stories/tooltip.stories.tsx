@@ -1,16 +1,15 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import type { ComponentProps } from "react";
 
+import React from "react";
+
+import { Button } from "../components/button";
+import { Kbd } from "../components/kbd";
 import {
     Tooltip,
     TooltipInfoButton,
     TooltipTrigger,
 } from "../components/tooltip";
-
-import { Button } from "../components/button";
-
-import React from "react";
-import { Kbd } from "../components/kbd";
 
 type Placement = ComponentProps<
     typeof Tooltip
@@ -33,10 +32,10 @@ function Template(args: ComponentProps<typeof Tooltip>) {
 }
 
 const meta = {
-    component: Tooltip,
     args: {
         children: "This is the tooltip",
     },
+    component: Tooltip,
     title: "Components/Tooltip",
 } satisfies Meta<typeof Tooltip>;
 
@@ -57,6 +56,13 @@ export const Primary: Story = {
  * when it detects a collision with a parent or window edge.
  */
 export const Placement: Story = {
+    decorators: [
+        (Story) => (
+            <div className="grid grid-cols-4 gap-2">
+                <Story />
+            </div>
+        ),
+    ],
     // @ts-expect-error - coerce ReactNode[] where ReactNode expected
     render: (args) =>
         PLACEMENTS.map((placement) => (
@@ -65,13 +71,6 @@ export const Placement: Story = {
                 <Tooltip {...args} placement={placement} />
             </TooltipTrigger>
         )),
-    decorators: [
-        (Story) => (
-            <div className="grid grid-cols-4 gap-2">
-                <Story />
-            </div>
-        ),
-    ],
 };
 /**
  * The Tooltip can be composed with a number of different components,
@@ -91,12 +90,6 @@ export const Trigger: Story = {
  * supports keyboard shortcuts. You can use the `Kbd` component for this.
  */
 export const WithKbd: Story = {
-    render: (args) => (
-        <TooltipTrigger>
-            <TooltipInfoButton />
-            <Tooltip {...args} />
-        </TooltipTrigger>
-    ),
     args: {
         children: (
             <>
@@ -104,4 +97,10 @@ export const WithKbd: Story = {
             </>
         ),
     },
+    render: (args) => (
+        <TooltipTrigger>
+            <TooltipInfoButton />
+            <Tooltip {...args} />
+        </TooltipTrigger>
+    ),
 };

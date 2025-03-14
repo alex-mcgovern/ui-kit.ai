@@ -6,14 +6,14 @@ import {
 } from "react";
 import { twMerge } from "tailwind-merge";
 
-type SlotNodeProps = HTMLAttributes<HTMLElement> & {
-    [key: `data-${string}`]: unknown;
-};
-
 export type SlotNode = ReactElement<
     SlotNodeProps,
     JSXElementConstructor<SlotNodeProps> | string
 >;
+
+type SlotNodeProps = HTMLAttributes<HTMLElement> & {
+    [key: `data-${string}`]: unknown;
+};
 
 export function renderSlot(
     node: SlotNode | undefined,

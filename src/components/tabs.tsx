@@ -4,6 +4,7 @@ import type {
     TabProps,
     TabsProps,
 } from "react-aria-components";
+
 import {
     composeRenderProps,
     Tab as RACTab,
@@ -13,6 +14,7 @@ import {
 } from "react-aria-components";
 import { twMerge } from "tailwind-merge";
 import { tv } from "tailwind-variants";
+
 import { focusRing } from "../styles/focus-ring";
 
 const tabsStyles = tv({
@@ -70,7 +72,6 @@ export function TabList<T extends object>(
 }
 
 const tabStyles = tv({
-    extend: focusRing,
     base: [
         "px-4 py-1.5",
         "whitespace-nowrap text-sm text-secondary",
@@ -94,6 +95,7 @@ const tabStyles = tv({
         `group-orientation-horizontal/tabs:!border-b
         group-orientation-horizontal/tabs:border-muted-200`,
     ],
+    extend: focusRing,
 });
 
 export function Tab(props: TabProps) {

@@ -1,10 +1,12 @@
 import type { ComponentProps } from "react";
+
 import {
     useController,
     useFormContext,
 } from "react-hook-form";
-import { TextField } from "./text-field";
+
 import { FieldError } from "./field-error";
+import { TextField } from "./text-field";
 
 /**
  * A form text field connects a `TextField` to a `Form` component using `react-hook-form`.

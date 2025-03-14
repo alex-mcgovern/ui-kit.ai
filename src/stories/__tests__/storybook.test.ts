@@ -1,6 +1,6 @@
-import { test, expect } from "vitest";
 import fs from "fs";
 import path from "path";
+import { expect, test } from "vitest";
 
 const storiesDir = path.join(__dirname, "../..", "stories");
 

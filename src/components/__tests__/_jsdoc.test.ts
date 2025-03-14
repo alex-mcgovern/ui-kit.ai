@@ -1,6 +1,6 @@
-import { test, expect, describe } from "vitest";
 import fs from "fs";
 import path from "path";
+import { describe, expect, test } from "vitest";
 
 const componentsDir = path.join(__dirname, "..");
 

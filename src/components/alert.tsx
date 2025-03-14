@@ -1,10 +1,12 @@
-import { InfoIcon, type LucideProps } from "lucide-react";
 import type { ReactNode } from "react";
+
+import { InfoIcon, type LucideProps } from "lucide-react";
 import { twMerge } from "tailwind-merge";
 import { tv } from "tailwind-variants";
+
 import {
-    renderActionNodes,
     type ActionNodes,
+    renderActionNodes,
 } from "../types/action-nodes";
 import { Description } from "./description";
 
@@ -20,10 +22,10 @@ const alertStyles = tv({
     },
     variants: {
         variant: {
-            inverted: "text-white bg-muted-800",
             default:
                 "border border-muted-200 bg-base text-primary",
             invalid: "text-white bg-red-700",
+            inverted: "text-white bg-muted-800",
         },
     },
 });
@@ -66,23 +68,23 @@ const iconStyles = tv({
  * ```
  */
 export function Alert({
-    description,
+    actions,
     className,
+    description,
+    icon: Icon = InfoIcon,
     title,
     variant,
-    actions,
-    icon: Icon = InfoIcon,
     ...props
 }: {
-    description?: ReactNode;
-    className?: string;
     actions?: ActionNodes;
-    title: string;
-    variant: "invalid" | "default" | "inverted";
+    className?: string;
+    description?: ReactNode;
     icon?: React.ForwardRefExoticComponent<
         Omit<LucideProps, "ref"> &
             React.RefAttributes<SVGSVGElement>
     >;
+    title: string;
+    variant: "default" | "invalid" | "inverted";
 }) {
     return (
         <div
@@ -109,8 +111,8 @@ export function Alert({
                  * messing with a11y and SEO.
                  */}
                 <span
-                    role="alert"
                     className={titleStyles()}
+                    role="alert"
                 >
                     {title}
                 </span>
@@ -130,14 +132,14 @@ export function Alert({
             </div>
             {renderActionNodes({
                 actions,
+                className: "ml-auto",
                 props: {
+                    isDestructive: variant === "invalid",
                     // @ts-expect-error - TODO: type-aware action nodes
                     isInverted:
                         variant === "inverted" ||
                         variant === "invalid",
-                    isDestructive: variant === "invalid",
                 },
-                className: "ml-auto",
             })}
         </div>
     );

@@ -69,8 +69,8 @@ const buttonStyle = tv({
                 "hover:border-red-50/90 hover:bg-red-50/90",
                 "pressed:border-red-50/80 pressed:bg-red-50/80",
             ],
-            isInverted: true,
             isDestructive: true,
+            isInverted: true,
             variant: "primary",
         },
         ///////////////////////////////////////////////////
@@ -102,8 +102,8 @@ const buttonStyle = tv({
                 "hover:border-red-50/60 hover:bg-red-50/10",
                 "pressed:border-red-50/50 pressed:bg-transparent",
             ],
-            isInverted: true,
             isDestructive: true,
+            isInverted: true,
             variant: "secondary",
         },
         ///////////////////////////////////////////////////
@@ -136,8 +136,8 @@ const buttonStyle = tv({
                 // pressed
                 "pressed:bg-transparent",
             ],
-            isInverted: true,
             isDestructive: true,
+            isInverted: true,
             variant: "tertiary",
         },
     ],
@@ -149,12 +149,12 @@ const buttonStyle = tv({
         isDestructive: {
             true: null,
         },
-        isInverted: {
-            true: null,
-        },
         isIcon: {
             true: `aspect-square w-[theme(height.ui-element)] px-2
             [&_svg]:mx-auto`,
+        },
+        isInverted: {
+            true: null,
         },
         variant: {
             primary: [
@@ -192,10 +192,6 @@ type ButtonCommonProps = {
      */
     isDestructive?: boolean;
     /**
-     * When `isInverted` is set to `true` light colors are dark, and vice/versa.
-     */
-    isInverted?: boolean;
-    /**
      * When set to `true` the Button will be styled to be square with a fixed
      * height & width. This should be used in conjunction with passing an icon
      * component to the `children` prop.
@@ -205,6 +201,10 @@ type ButtonCommonProps = {
      * labelled to assistive technologies.
      */
     isIcon?: boolean;
+    /**
+     * When `isInverted` is set to `true` light colors are dark, and vice/versa.
+     */
+    isInverted?: boolean;
     /**
      * A decorative node (e.g. an icon) to render on the left side of the
      * Button. When a node is passed, the padding on the corresponding side is
@@ -265,12 +265,12 @@ const ButtonLoadingState = ({
  */
 export function Button({
     isDestructive,
-    isInverted,
     isIcon = false,
+    isInverted,
     isPending,
+    ref,
     slotLeft,
     slotRight,
-    ref,
     variant = "primary",
     ...props
 }: ButtonProps & {
@@ -287,8 +287,8 @@ export function Button({
                         // isLink,
                         className,
                         isDestructive,
-                        isInverted,
                         isIcon,
+                        isInverted,
                         variant,
                     }),
             )}
@@ -323,9 +323,9 @@ type LinkButtonProps = ButtonCommonProps &
 export const LinkButton = ({
     isDestructive,
     isIcon,
-    variant,
     isInverted,
     ref,
+    variant,
     ...props
 }: LinkButtonProps) => {
     return (
@@ -338,8 +338,8 @@ export const LinkButton = ({
                         ...renderProps,
                         className,
                         isDestructive,
-                        isInverted,
                         isIcon,
+                        isInverted,
                         variant,
                     }),
             )}

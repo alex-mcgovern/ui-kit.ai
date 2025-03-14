@@ -1,7 +1,23 @@
-import { zodResolver } from "@hookform/resolvers/zod";
 import type { Meta, StoryObj } from "@storybook/react";
+import type { ComponentProps } from "react";
+
+import { zodResolver } from "@hookform/resolvers/zod";
+import {
+    AtSignIcon,
+    FlagIcon,
+    GlobeIcon,
+} from "lucide-react";
 import { z } from "zod";
 
+import { Checkbox } from "../components/checkbox";
+import {
+    ComboBoxButton,
+    ComboBoxClearButton,
+    ComboBoxFieldGroup,
+    ComboBoxInput,
+} from "../components/combo-box";
+import { Description } from "../components/description";
+import { FieldGroup } from "../components/field-group";
 import { Form } from "../components/form";
 import { FormCheckboxGroup } from "../components/form-checkbox-group";
 import { FormComboBox } from "../components/form-combo-box";
@@ -9,26 +25,11 @@ import { FormComboBox } from "../components/form-combo-box";
 import { FormSelect } from "../components/form-select";
 import { FormSubmitButton } from "../components/form-submit-button";
 import { FormTextField } from "../components/form-text-field";
-import { Label } from "../components/label";
-import { FieldGroup } from "../components/field-group";
 import { Input } from "../components/input";
+import { Label } from "../components/label";
+import { SelectButton } from "../components/select";
 import { TextFieldClearButton } from "../components/text-field";
 import { getMockOptions } from "../mocks/options";
-import { SelectButton } from "../components/select";
-import {
-    ComboBoxButton,
-    ComboBoxClearButton,
-    ComboBoxFieldGroup,
-    ComboBoxInput,
-} from "../components/combo-box";
-import { Checkbox } from "../components/checkbox";
-import { Description } from "../components/description";
-import {
-    AtSignIcon,
-    FlagIcon,
-    GlobeIcon,
-} from "lucide-react";
-import type { ComponentProps } from "react";
 
 const communicationPreferencesSchema = z.enum([
     "account_updates",
@@ -37,17 +38,17 @@ const communicationPreferencesSchema = z.enum([
 ]);
 
 const schema = z.object({
-    email: z.string().email().nonempty(),
+    communication_preference: z.array(
+        communicationPreferencesSchema,
+    ),
     country_of_birth: z.string().nonempty(),
     country_of_residence: z.string().nonempty(),
+    email: z.string().email().nonempty(),
     immigration_status: z.enum([
         "citizen",
         "permanent_resident",
         "visa_holder",
     ]),
-    communication_preference: z.array(
-        communicationPreferencesSchema,
-    ),
 });
 
 /** You can infer the type of your field values from the schema, and pass it as
@@ -69,15 +70,15 @@ function Template(
     return (
         <Form<FieldValues> {...props}>
             <FormTextField
-                name={FIELD_NAME.email}
                 className="mb-4"
+                name={FIELD_NAME.email}
                 type="email"
             >
                 <Label>Email address (Text field)</Label>
                 <FieldGroup>
                     <Input
-                        isBorderless
                         icon={<AtSignIcon />}
+                        isBorderless
                         placeholder="Enter your email address"
                     />
                     <TextFieldClearButton />
@@ -85,28 +86,28 @@ function Template(
             </FormTextField>
 
             <FormSelect
+                className="mb-4"
                 items={getMockOptions({
                     withIcon: true,
                 })}
                 name={FIELD_NAME.country_of_birth}
-                className="mb-4"
             >
                 <Label>Country of birth (Select)</Label>
                 <SelectButton slotLeft={<GlobeIcon />} />
             </FormSelect>
 
             <FormComboBox
+                className="mb-4"
                 items={getMockOptions()}
                 name={FIELD_NAME.country_of_residence}
-                className="mb-4"
             >
                 <Label>
                     Country of residence (ComboBox)
                 </Label>
                 <ComboBoxFieldGroup>
                     <ComboBoxInput
-                        isBorderless
                         icon={<GlobeIcon />}
+                        isBorderless
                         placeholder="Type to search..."
                     />
                     <ComboBoxClearButton />
@@ -115,29 +116,29 @@ function Template(
             </FormComboBox>
 
             <FormCheckboxGroup
-                name={FIELD_NAME.communication_preference}
                 className="mb-4"
                 defaultValue={[
                     COMMUNICATION_PREFERENCE.account_updates,
                 ]}
+                name={FIELD_NAME.communication_preference}
             >
                 <Label>Communication preferences</Label>
                 <Checkbox
-                    value="account-updates"
+                    description="Necessary emails about your account & account security."
                     isDisabled
                     isRequired
                     label="Account updates"
-                    description="Necessary emails about your account & account security."
+                    value="account-updates"
                 />
                 <Checkbox
-                    value="newsletter"
-                    label="Newsletter"
                     description="No more than one email per month with updates from our team."
+                    label="Newsletter"
+                    value="newsletter"
                 />
                 <Checkbox
-                    value="promotions"
-                    label="Promotions and Offers"
                     description="Deals, discounts and suggestions we think you'll love."
+                    label="Promotions and Offers"
+                    value="promotions"
                 />
                 <Description>
                     Your preferences can be updated at any
@@ -151,9 +152,12 @@ function Template(
 }
 
 const meta = {
-    component: Form,
-    title: "Components/Form",
     args: {
+        onError: (errors) => {
+            alert(
+                `Errors:\n\n${JSON.stringify(errors, null, 4)}`,
+            );
+        },
         onSubmit: async (data) => {
             await new Promise((resolve) =>
                 setTimeout(resolve, 1_000),
@@ -162,16 +166,13 @@ const meta = {
                 `Submitted:\n\n${JSON.stringify(data, null, 4)}`,
             );
         },
-        onError: (errors) => {
-            alert(
-                `Errors:\n\n${JSON.stringify(errors, null, 4)}`,
-            );
-        },
         options: {
             resolver: zodResolver(schema),
         },
     },
+    component: Form,
     render: Template,
+    title: "Components/Form",
 } satisfies Meta<typeof Form<FieldValues>>;
 
 export default meta;

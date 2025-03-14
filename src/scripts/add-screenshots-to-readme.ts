@@ -3,6 +3,13 @@ import { readdir, readFile, writeFile } from "fs/promises";
 const SCREENSHOTS_START = "<!-- BEGIN-COMPONENT-LINKS -->";
 const SCREENSHOTS_END = "<!-- END-COMPONENT-LINKS -->";
 
+function formatComponentName(filename: string): string {
+    return filename
+        .replace(".png", "")
+        .replace("Components_", "")
+        .replace("_Primary", "");
+}
+
 function generateDocsUrl(filename: string): string {
     const componentName = filename
         .replace(".png", "")
@@ -10,13 +17,6 @@ function generateDocsUrl(filename: string): string {
         .replace("_Primary", "")
         .toLowerCase();
     return `https://boondoggle.design/?path=/docs/components-${componentName}--docs`;
-}
-
-function formatComponentName(filename: string): string {
-    return filename
-        .replace(".png", "")
-        .replace("Components_", "")
-        .replace("_Primary", "");
 }
 
 async function main() {

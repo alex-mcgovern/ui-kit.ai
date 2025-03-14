@@ -1,8 +1,9 @@
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
+import { z } from "zod";
+
 import AvailableComponents from "./data/available-components.json";
 import ComponentUsage from "./data/component-usage.json";
-import { z } from "zod";
 
 const server = new McpServer({
     name: "Boondoggle component library assistant",
@@ -13,12 +14,12 @@ server.tool("getComponentIndex", {}, async () => {
     return {
         content: [
             {
-                type: "text",
                 text: JSON.stringify(
                     AvailableComponents,
                     null,
                     2,
                 ),
+                type: "text",
             },
         ],
     };
@@ -40,10 +41,10 @@ server.tool(
         return {
             content: [
                 {
-                    type: "text",
                     text: example
                         ? JSON.stringify(example, null, 2)
                         : "No example found.",
+                    type: "text",
                 },
             ],
         };

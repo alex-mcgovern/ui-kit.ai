@@ -1,17 +1,15 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import type { ComponentProps } from "react";
 
 import { Menu as IconMenu } from "lucide-react";
-
-import { Button } from "../components/button";
-import { Menu, MenuTrigger } from "../components/menu";
-import { Popover } from "../components/popover";
-
 import React from "react";
 
 import type { OptionsSchema } from "../types/options";
 
+import { Button } from "../components/button";
+import { Menu, MenuTrigger } from "../components/menu";
+import { Popover } from "../components/popover";
 import { getMockOptions } from "../mocks/options";
-import type { ComponentProps } from "react";
 
 function Template(args: ComponentProps<typeof Menu>) {
     return (
@@ -58,10 +56,10 @@ export const WithSections: Story = {
 };
 export const DisabledKeys: Story = {
     args: {
+        disabledKeys: ["france", "germany", "spain"],
         items: getMockOptions({
             withIcon: true,
             withSections: true,
         }),
-        disabledKeys: ["france", "germany", "spain"],
     },
 };

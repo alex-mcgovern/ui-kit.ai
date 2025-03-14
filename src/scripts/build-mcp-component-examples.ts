@@ -15,12 +15,6 @@ function getStoryFiles(dir: string): string[] {
     );
 }
 
-function toPascalCase(str: string): string {
-    return str.replace(/(^\w|-\w)/g, (match) =>
-        match.replace("-", "").toUpperCase(),
-    );
-}
-
 function parseStoryFile(filePath: string): {
     [key: string]: string;
 } {
@@ -53,6 +47,12 @@ function parseStoryFile(filePath: string): {
     });
 
     return examples;
+}
+
+function toPascalCase(str: string): string {
+    return str.replace(/(^\w|-\w)/g, (match) =>
+        match.replace("-", "").toUpperCase(),
+    );
 }
 
 function writeJsonFile(

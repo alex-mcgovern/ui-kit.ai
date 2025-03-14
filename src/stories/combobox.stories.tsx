@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
+import { SearchIcon } from "lucide-react";
 import React, { type ComponentProps } from "react";
 
 import type { OptionsSchema } from "../types/options";
@@ -11,10 +12,9 @@ import {
     ComboBoxFieldGroup,
     ComboBoxInput,
 } from "../components/combo-box";
+import { Description } from "../components/description";
 import { Label } from "../components/label";
 import { getMockOptions } from "../mocks/options";
-import { Description } from "../components/description";
-import { SearchIcon } from "lucide-react";
 
 function Template(
     props: ComponentProps<
@@ -26,8 +26,8 @@ function Template(
             <Label>Label</Label>
             <ComboBoxFieldGroup>
                 <ComboBoxInput
-                    isBorderless
                     icon={<SearchIcon />}
+                    isBorderless
                     placeholder="Type to search..."
                 />
                 <ComboBoxClearButton />
@@ -42,12 +42,12 @@ function Template(
 
 const meta = {
     component: ComboBox,
-    title: "Components/ComboBox",
     decorators: [
         (Story) => (
             <div className="mx-auto w-96">{Story()}</div>
         ),
     ],
+    title: "Components/ComboBox",
 } satisfies Meta<typeof ComboBox<OptionsSchema<"listbox">>>;
 
 export default meta;
@@ -68,41 +68,41 @@ export const WithSections: Story = {
 };
 export const IsInvalid: Story = {
     args: {
+        isInvalid: true,
         items: getMockOptions({
             withIcon: true,
             withSections: true,
         }),
-        isInvalid: true,
     },
     render: Template,
 };
 export const IsDisabled: Story = {
     args: {
+        isDisabled: true,
         items: getMockOptions({
             withIcon: true,
             withSections: true,
         }),
-        isDisabled: true,
     },
     render: Template,
 };
 export const IsBorderless: Story = {
     args: {
+        isDisabled: true,
         items: getMockOptions({
             withIcon: true,
             withSections: true,
         }),
-        isDisabled: true,
     },
     render: Template,
 };
 export const DisabledKeys: Story = {
     args: {
+        disabledKeys: ["france", "germany", "spain"],
         items: getMockOptions({
             withIcon: true,
             withSections: true,
         }),
-        disabledKeys: ["france", "germany", "spain"],
     },
     render: Template,
 };

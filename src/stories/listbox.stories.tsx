@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import type { ComponentProps } from "react";
 
 import type { OptionsSchema } from "../types/options";
 
 import { ListBox } from "../components/listbox";
 import { getMockOptions } from "../mocks/options";
-import type { ComponentProps } from "react";
 
 function Template(props: ComponentProps<typeof ListBox>) {
     return <ListBox {...props} />;
@@ -55,10 +55,10 @@ export const IsBorderless: Story = {
 };
 export const DisabledKeys: Story = {
     args: {
+        disabledKeys: ["france", "germany", "spain"],
         items: getMockOptions({
             withIcon: true,
             withSections: true,
         }),
-        disabledKeys: ["france", "germany", "spain"],
     },
 };

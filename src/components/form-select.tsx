@@ -1,11 +1,14 @@
 import type { ComponentProps } from "react";
+
 import {
     useController,
     useFormContext,
 } from "react-hook-form";
+
 import type { OptionsSchema } from "../types/options";
-import { Select } from "./select";
+
 import { FieldError } from "./field-error";
+import { Select } from "./select";
 
 /**
  * A `FormSelect` connects a `Select` to a `Form` component using `react-hook-form`.

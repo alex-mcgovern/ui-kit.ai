@@ -1,16 +1,15 @@
-import * as React from "react";
-
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { StarIcon } from "lucide-react";
+import * as React from "react";
 
 import { Button } from "../components/button";
 
 const meta = {
-    component: Button,
     args: {
         children: "Button",
     },
+    component: Button,
     title: "Components/Button",
 } satisfies Meta<typeof Button>;
 
@@ -21,53 +20,53 @@ export const Primary: Story = {
     args: {},
 };
 export const VariantPrimary: Story = {
-    tags: ["group-variant"],
-    name: "Primary",
     args: {
         variant: "primary",
     },
+    name: "Primary",
+    tags: ["group-variant"],
 };
 export const VariantSecondary: Story = {
-    tags: ["group-variant"],
-    name: "Secondary",
     args: {
         variant: "secondary",
     },
+    name: "Secondary",
+    tags: ["group-variant"],
 };
 export const VariantTertiary: Story = {
-    tags: ["group-variant"],
-    name: "Tertiary",
     args: {
         variant: "tertiary",
     },
+    name: "Tertiary",
+    tags: ["group-variant"],
 };
 /**
  * The `isDestructive` prop will style the button in red, to denote a
  * potentially destructive action the user should consider carefully.
  */
 export const DestructivePrimary: Story = {
-    tags: ["group-destructive"],
-    name: "Primary",
     args: {
-        variant: "primary",
         isDestructive: true,
+        variant: "primary",
     },
+    name: "Primary",
+    tags: ["group-destructive"],
 };
 export const DestructiveSecondary: Story = {
-    tags: ["group-destructive"],
-    name: "Secondary",
     args: {
-        variant: "secondary",
         isDestructive: true,
+        variant: "secondary",
     },
+    name: "Secondary",
+    tags: ["group-destructive"],
 };
 export const DestructiveTertiary: Story = {
-    tags: ["group-destructive"],
-    name: "Tertiary",
     args: {
-        variant: "tertiary",
         isDestructive: true,
+        variant: "tertiary",
     },
+    name: "Tertiary",
+    tags: ["group-destructive"],
 };
 /**
  * The `isDisabled` prop will "gray out" the button, and prevent focus and interaction.
@@ -86,9 +85,9 @@ export const Disabled: Story = {
  */
 export const IconButton: Story = {
     args: {
-        isIcon: true,
-        children: <StarIcon />,
         "aria-label": "button",
+        children: <StarIcon />,
+        isIcon: true,
     },
 };
 /**
@@ -96,18 +95,18 @@ export const IconButton: Story = {
  * slightly adjust the left padding to maintain visual balance.
  */
 export const SlotLeft: Story = {
-    tags: ["group-slot"],
     args: {
         slotLeft: <StarIcon />,
     },
+    tags: ["group-slot"],
 };
 /**
  * The `slotRight` prop accepts a react node rendered on the right side. This will
  * slightly adjust the left padding to maintain visual balance.
  */
 export const SlotRight: Story = {
-    tags: ["group-slot"],
     args: {
         slotRight: <StarIcon />,
     },
+    tags: ["group-slot"],
 };

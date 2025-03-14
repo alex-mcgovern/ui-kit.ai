@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import type { ComponentProps } from "react";
 
 import { Heading } from "../components/heading";
-import type { ComponentProps } from "react";
 
 const TEXT = "Lorem ipsum dolor sit amet...";
 
@@ -11,10 +11,10 @@ function Template(props: ComponentProps<typeof Heading>) {
             {LEVELS.map((level) => (
                 <Heading
                     {...props}
-                    level={level}
                     children={`H${level} ${TEXT} `}
-                    key={level}
                     className="truncate"
+                    key={level}
+                    level={level}
                 />
             ))}
         </div>

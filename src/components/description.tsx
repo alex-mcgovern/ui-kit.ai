@@ -23,7 +23,6 @@ export function Description(props: LabelProps) {
     return (
         <RACText
             {...props}
-            slot="description"
             className={twMerge(
                 "mb-1 block w-fit cursor-default last:mt-2",
                 "text-sm font-normal text-secondary",
@@ -32,6 +31,7 @@ export function Description(props: LabelProps) {
                 group-disabled:opacity-disabled`,
                 props.className,
             )}
+            slot="description"
         />
     );
 }

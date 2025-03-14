@@ -1,6 +1,9 @@
 import type { ListBoxProps as AriaListBoxProps } from "react-aria-components";
+
 import { ListBox as AriaListBox } from "react-aria-components";
+
 import type { OptionsSchema } from "../types/options";
+
 import { INTERNAL_OptionRenderer } from "./options";
 
 type ListBoxProps<
@@ -8,7 +11,7 @@ type ListBoxProps<
         OptionsSchema<"listbox"> = OptionsSchema<"listbox">,
 > = Omit<
     AriaListBoxProps<T>,
-    "layout" | "orientation" | "children"
+    "children" | "layout" | "orientation"
 >;
 
 /**

@@ -1,7 +1,8 @@
 import * as fs from "fs";
 import * as path from "path";
-import { parseStory } from "../mcp-server/utils/parse-story";
 import React from "react";
+
+import { parseStory } from "../mcp-server/utils/parse-story";
 
 const storiesDir = path.resolve("src", "stories");
 const outputPath = path.resolve(

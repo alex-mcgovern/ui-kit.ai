@@ -1,3 +1,4 @@
+import type { ForwardedRef } from "react";
 import type {
     SelectProps as AriaSelectProps,
     ButtonProps,
@@ -15,13 +16,12 @@ import { tv } from "tailwind-variants";
 import type { OptionsSchema } from "../types/options";
 
 import { fieldVariants } from "../styles/field-variants";
-import { INTERNAL_OptionRenderer } from "./options";
-import { Popover } from "./popover";
-import type { ForwardedRef } from "react";
 import {
     renderSlot,
     type SlotNode,
 } from "../types/slotted-node";
+import { INTERNAL_OptionRenderer } from "./options";
+import { Popover } from "./popover";
 
 const selectButtonStyles = tv({
     base: [
@@ -119,6 +119,7 @@ export function SelectButton({
     slotRight,
     ...props
 }: ButtonProps & {
+    isBorderless?: boolean;
     /**
      * A decorative node (e.g. an icon) to render on the left side of the
      * Button. When a node is passed, the padding on the corresponding side is
@@ -131,7 +132,6 @@ export function SelectButton({
      * slightly reduced to maintain visual balance.
      */
     slotRight?: SlotNode;
-    isBorderless?: boolean;
 }) {
     return (
         <AriaButton

@@ -49,43 +49,6 @@ import { Menu, MenuTrigger } from "./menu";
 import { Popover } from "./popover";
 import { Skeleton } from "./skeleton";
 
-type BaseRow = {
-    [id: string]: unknown;
-    id: string;
-};
-
-type ColumnProps = Omit<TableColumnSchema, "textValue"> &
-    (
-        | {
-              children: ReactNode;
-              textValue?: never;
-          }
-        | {
-              children?: never;
-              textValue: string;
-          }
-    );
-
-type RowProps<
-    T extends BaseRow,
-    TColumn extends TableColumnSchema<T>,
-> = AriaRowProps<TColumn> & {
-    rowOptions: OptionsSchema<"menu">[] | undefined;
-};
-
-type TableBodyProps<T> = AriaTableBodyProps<T>;
-
-type TableHeaderProps<
-    TColumn extends object,
-    TRow extends BaseRow,
-> = AriaTableHeaderProps<TColumn> & {
-    getRowOptions: GetRowOptionsFn<TRow> | undefined;
-};
-
-type TableProps = AriaTableProps & {
-    isCompact?: boolean;
-};
-
 export type GetRowOptionsFn<T extends BaseRow = BaseRow> =
     (props: {
         columns: TableColumnSchema<T>[];
@@ -151,6 +114,43 @@ export type TableRendererProps<
     showSkeleton?: BoolOptsTuple<{
         skeletonRowCount?: number;
     }>;
+};
+
+type BaseRow = {
+    [id: string]: unknown;
+    id: string;
+};
+
+type ColumnProps = Omit<TableColumnSchema, "textValue"> &
+    (
+        | {
+              children: ReactNode;
+              textValue?: never;
+          }
+        | {
+              children?: never;
+              textValue: string;
+          }
+    );
+
+type RowProps<
+    T extends BaseRow,
+    TColumn extends TableColumnSchema<T>,
+> = AriaRowProps<TColumn> & {
+    rowOptions: OptionsSchema<"menu">[] | undefined;
+};
+
+type TableBodyProps<T> = AriaTableBodyProps<T>;
+
+type TableHeaderProps<
+    TColumn extends object,
+    TRow extends BaseRow,
+> = AriaTableHeaderProps<TColumn> & {
+    getRowOptions: GetRowOptionsFn<TRow> | undefined;
+};
+
+type TableProps = AriaTableProps & {
+    isCompact?: boolean;
 };
 
 const columnWrapperStyles = tv({
@@ -248,6 +248,123 @@ const resizerStyles = tv({
     forced-colors:resizing:bg-[Highlight]`,
     extend: focusRing,
 });
+
+/**
+ * A table displays data in rows and columns and enables a user to navigate its
+ * contents via directional navigation keys, and optionally supports row
+ * selection and sorting.
+ *
+ * [source code](https://github.com/alex-mcgovern/boondoggle/tree/main/src/components/table)
+ * [react-aria](https://react-spectrum.adobe.com/react-aria/Table.html#tooltip)
+ */
+export function Table<TRow extends BaseRow = BaseRow>({
+    "aria-label": ariaLabel,
+    // @ts-expect-error - TODO: Fix CellRenderer types
+    cellRenderer: CellRenderer = DefaultCellRenderer<TRow>,
+    className,
+    columns,
+    getRowOptions,
+    renderEmptyState,
+    rows,
+    showLoadingOverlayUI,
+    showSkeleton: _showSkeleton,
+    ...rest
+}: TableRendererProps<TRow>) {
+    const [showSkeleton, skeletonRows] =
+        useSkeleton(_showSkeleton);
+
+    const rowsToRender = useMemo(() => {
+        return showSkeleton === true ? skeletonRows : rows;
+    }, [rows, showSkeleton, skeletonRows]);
+
+    return (
+        <ResizableTableContainer className={className}>
+            <TableLoadingOverlay
+                showOverlay={showLoadingOverlayUI === true}
+            />
+            <TableBase aria-label={ariaLabel} {...rest}>
+                <TableHeader<(typeof columns)[number], TRow>
+                    columns={columns}
+                    getRowOptions={getRowOptions}
+                >
+                    {(column) => (
+                        <Column
+                            {...column}
+                            // @ts-expect-error - TODO: Fix table
+                            // column types
+                            id={column.id}
+                        />
+                    )}
+                </TableHeader>
+                <TableBody
+                    items={rowsToRender}
+                    {...(showSkeleton !== true &&
+                    renderEmptyState != null
+                        ? { renderEmptyState }
+                        : {})}
+                >
+                    {(row) => {
+                        const rowOptions: OptionsSchema<"menu">[] =
+                            getRowOptions != null
+                                ? getRowOptions({
+                                      columns,
+                                      // @ts-expect-error - TODO: Fix table
+                                      // row types
+                                      row,
+                                  })
+                                : [];
+
+                        return (
+                            <Row<
+                                TRow,
+                                (typeof columns)[number]
+                            >
+                                className={twMerge(
+                                    showSkeleton === true ||
+                                        showLoadingOverlayUI ===
+                                            true
+                                        ? "cursor-progress"
+                                        : "",
+                                )}
+                                columns={columns}
+                                id={row.id}
+                                isDisabled={showSkeleton}
+                                rowOptions={rowOptions}
+                            >
+                                {(column) => (
+                                    <Cell
+                                        alignment={
+                                            column.alignment
+                                        }
+                                        className={
+                                            typeof column.className ===
+                                            "string"
+                                                ? column.className
+                                                : undefined
+                                        }
+                                        // @ts-expect-error - TODO: Fix table
+                                        // column ID types
+                                        id={column.id}
+                                        showSkeleton={
+                                            showSkeleton
+                                        }
+                                    >
+                                        <CellRenderer
+                                            // @ts-expect-error - TODO: Fix table
+                                            // column types
+                                            column={column}
+                                            row={row}
+                                        />
+                                    </Cell>
+                                )}
+                            </Row>
+                        );
+                    }}
+                </TableBody>
+            </TableBase>
+        </ResizableTableContainer>
+    );
+}
 
 function Cell({
     alignment,
@@ -376,12 +493,12 @@ function DefaultCellRenderer<TRow extends BaseRow>({
 }) {
     return row[column.id] as ReactNode;
 }
-
 function getSkeletonRows(count: number = 15) {
     return Array.from({ length: count }).map((_, i) => ({
         id: i.toString(),
     }));
 }
+
 function ResizableTableContainer(
     props: ResizableTableContainerProps,
 ) {
@@ -586,122 +703,5 @@ function useSkeleton(
     );
 
     return [showSkeleton, skeletonRows];
-}
-
-/**
- * A table displays data in rows and columns and enables a user to navigate its
- * contents via directional navigation keys, and optionally supports row
- * selection and sorting.
- *
- * [source code](https://github.com/alex-mcgovern/boondoggle/tree/main/src/components/table)
- * [react-aria](https://react-spectrum.adobe.com/react-aria/Table.html#tooltip)
- */
-export function Table<TRow extends BaseRow = BaseRow>({
-    "aria-label": ariaLabel,
-    // @ts-expect-error - TODO: Fix CellRenderer types
-    cellRenderer: CellRenderer = DefaultCellRenderer<TRow>,
-    className,
-    columns,
-    getRowOptions,
-    renderEmptyState,
-    rows,
-    showLoadingOverlayUI,
-    showSkeleton: _showSkeleton,
-    ...rest
-}: TableRendererProps<TRow>) {
-    const [showSkeleton, skeletonRows] =
-        useSkeleton(_showSkeleton);
-
-    const rowsToRender = useMemo(() => {
-        return showSkeleton === true ? skeletonRows : rows;
-    }, [rows, showSkeleton, skeletonRows]);
-
-    return (
-        <ResizableTableContainer className={className}>
-            <TableLoadingOverlay
-                showOverlay={showLoadingOverlayUI === true}
-            />
-            <TableBase aria-label={ariaLabel} {...rest}>
-                <TableHeader<(typeof columns)[number], TRow>
-                    columns={columns}
-                    getRowOptions={getRowOptions}
-                >
-                    {(column) => (
-                        <Column
-                            {...column}
-                            // @ts-expect-error - TODO: Fix table
-                            // column types
-                            id={column.id}
-                        />
-                    )}
-                </TableHeader>
-                <TableBody
-                    items={rowsToRender}
-                    {...(showSkeleton !== true &&
-                    renderEmptyState != null
-                        ? { renderEmptyState }
-                        : {})}
-                >
-                    {(row) => {
-                        const rowOptions: OptionsSchema<"menu">[] =
-                            getRowOptions != null
-                                ? getRowOptions({
-                                      columns,
-                                      // @ts-expect-error - TODO: Fix table
-                                      // row types
-                                      row,
-                                  })
-                                : [];
-
-                        return (
-                            <Row<
-                                TRow,
-                                (typeof columns)[number]
-                            >
-                                className={twMerge(
-                                    showSkeleton === true ||
-                                        showLoadingOverlayUI ===
-                                            true
-                                        ? "cursor-progress"
-                                        : "",
-                                )}
-                                columns={columns}
-                                id={row.id}
-                                isDisabled={showSkeleton}
-                                rowOptions={rowOptions}
-                            >
-                                {(column) => (
-                                    <Cell
-                                        alignment={
-                                            column.alignment
-                                        }
-                                        className={
-                                            typeof column.className ===
-                                            "string"
-                                                ? column.className
-                                                : undefined
-                                        }
-                                        // @ts-expect-error - TODO: Fix table
-                                        // column ID types
-                                        id={column.id}
-                                        showSkeleton={
-                                            showSkeleton
-                                        }
-                                    >
-                                        <CellRenderer
-                                            // @ts-expect-error - TODO: Fix table
-                                            // column types
-                                            column={column}
-                                            row={row}
-                                        />
-                                    </Cell>
-                                )}
-                            </Row>
-                        );
-                    }}
-                </TableBody>
-            </TableBase>
-        </ResizableTableContainer>
-    );
 }
 Table.displayName = "Table";

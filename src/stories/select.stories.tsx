@@ -1,14 +1,14 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import type { ComponentProps, ComponentType } from "react";
 
 import React from "react";
 
 import type { OptionsSchema } from "../types/options";
 
-import { Select, SelectButton } from "../components/select";
-import { Label } from "../components/label";
-import { getMockOptions } from "../mocks/options";
-import type { ComponentProps, ComponentType } from "react";
 import { Description } from "../components/description";
+import { Label } from "../components/label";
+import { Select, SelectButton } from "../components/select";
+import { getMockOptions } from "../mocks/options";
 
 function Template(
     props: ComponentProps<
@@ -31,17 +31,17 @@ const meta = {
         items: getMockOptions({ withIcon: true }),
     },
     component: Select,
-    title: "Components/Select",
-    subcomponents: {
-        SelectButton:
-            SelectButton as ComponentType<unknown>,
-    },
-    render: Template,
     decorators: [
         (Story) => (
             <div className="mx-auto w-96">{Story()}</div>
         ),
     ],
+    render: Template,
+    subcomponents: {
+        SelectButton:
+            SelectButton as ComponentType<unknown>,
+    },
+    title: "Components/Select",
 } satisfies Meta<typeof Select<OptionsSchema<"listbox">>>;
 
 export default meta;
@@ -54,20 +54,20 @@ export const Primary: Story = {
 };
 export const IsInvalid: Story = {
     args: {
+        isInvalid: true,
         items: getMockOptions({
             withIcon: true,
             withSections: true,
         }),
-        isInvalid: true,
     },
 };
 export const IsDisabled: Story = {
     args: {
+        isDisabled: true,
         items: getMockOptions({
             withIcon: true,
             withSections: true,
         }),
-        isDisabled: true,
     },
 };
 export const IsBorderless: Story = {
@@ -89,10 +89,10 @@ export const IsBorderless: Story = {
 };
 export const DisabledKeys: Story = {
     args: {
+        disabledKeys: ["france", "germany", "spain"],
         items: getMockOptions({
             withIcon: true,
             withSections: true,
         }),
-        disabledKeys: ["france", "germany", "spain"],
     },
 };

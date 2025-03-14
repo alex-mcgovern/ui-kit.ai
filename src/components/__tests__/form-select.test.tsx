@@ -3,11 +3,11 @@ import { userEvent } from "@testing-library/user-event";
 import { expect, it, vi } from "vitest";
 
 import { Button } from "../button";
-import { Label } from "../label";
-import { SelectButton } from "../select";
 import { Form } from "../form";
 import { FormResetOnSubmit } from "../form-reset-on-submit";
 import { FormSelect } from "../form-select";
+import { Label } from "../label";
+import { SelectButton } from "../select";
 
 it("submits form with `FormSelect`", async () => {
     const user = userEvent.setup();

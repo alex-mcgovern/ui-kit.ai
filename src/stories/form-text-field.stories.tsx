@@ -1,33 +1,34 @@
-import { zodResolver } from "@hookform/resolvers/zod";
 import type { Meta, StoryObj } from "@storybook/react";
-import { z } from "zod";
+import type { ComponentProps } from "react";
+
+import { zodResolver } from "@hookform/resolvers/zod";
 import {
     AtSignIcon,
     KeyIcon,
     UserIcon,
 } from "lucide-react";
+import { z } from "zod";
 
-import { Form } from "../components/form";
-import { FormTextField } from "../components/form-text-field";
-import { Label } from "../components/label";
+import { Description } from "../components/description";
 import { FieldGroup } from "../components/field-group";
-import { Input } from "../components/input";
+import { Form } from "../components/form";
 import { FormSubmitButton } from "../components/form-submit-button";
+import { FormTextField } from "../components/form-text-field";
+import { Input } from "../components/input";
+import { Label } from "../components/label";
 import {
     TextFieldClearButton,
     TextFieldVisibilityButton,
 } from "../components/text-field";
-import { Description } from "../components/description";
-import type { ComponentProps } from "react";
 
 const schema = z.object({
-    username: z
-        .string()
-        .min(3, "Username must be at least 3 characters"),
     email: z.string().email("Please enter a valid email"),
     password: z
         .string()
         .min(8, "Password must be at least 8 characters"),
+    username: z
+        .string()
+        .min(3, "Username must be at least 3 characters"),
 });
 
 /** You can infer the type of your field values from the schema */
@@ -42,14 +43,14 @@ function Template(
     return (
         <Form<FieldValues> {...props}>
             <FormTextField
-                name={FIELD_NAME.username}
                 className="mb-4"
+                name={FIELD_NAME.username}
             >
                 <Label>Username</Label>
                 <FieldGroup>
                     <Input
-                        isBorderless
                         icon={<UserIcon />}
+                        isBorderless
                         placeholder="Enter your username"
                     />
                     <TextFieldClearButton />
@@ -61,15 +62,15 @@ function Template(
             </FormTextField>
 
             <FormTextField
-                name={FIELD_NAME.email}
                 className="mb-4"
+                name={FIELD_NAME.email}
                 type="email"
             >
                 <Label>Email address</Label>
                 <FieldGroup>
                     <Input
-                        isBorderless
                         icon={<AtSignIcon />}
+                        isBorderless
                         placeholder="Enter your email address"
                     />
                     <TextFieldClearButton />
@@ -77,15 +78,15 @@ function Template(
             </FormTextField>
 
             <FormTextField
-                name={FIELD_NAME.password}
                 className="mb-4"
+                name={FIELD_NAME.password}
                 type="password"
             >
                 <Label>Password</Label>
                 <FieldGroup>
                     <Input
-                        isBorderless
                         icon={<KeyIcon />}
+                        isBorderless
                         placeholder="Enter your password"
                     />
                     <TextFieldVisibilityButton />
@@ -102,16 +103,12 @@ function Template(
 }
 
 const meta = {
-    component: FormTextField,
-    title: "Components/FormTextField",
-    decorators: [
-        (Story) => (
-            <div className="w-96">
-                <Story />
-            </div>
-        ),
-    ],
     args: {
+        onError: (errors: any) => {
+            alert(
+                `Errors:\n\n${JSON.stringify(errors, null, 4)}`,
+            );
+        },
         onSubmit: async (data: FieldValues) => {
             await new Promise((resolve) =>
                 setTimeout(resolve, 1_000),
@@ -120,16 +117,20 @@ const meta = {
                 `Submitted:\n\n${JSON.stringify(data, null, 4)}`,
             );
         },
-        onError: (errors: any) => {
-            alert(
-                `Errors:\n\n${JSON.stringify(errors, null, 4)}`,
-            );
-        },
         options: {
             resolver: zodResolver(schema),
         },
     },
+    component: FormTextField,
+    decorators: [
+        (Story) => (
+            <div className="w-96">
+                <Story />
+            </div>
+        ),
+    ],
     render: Template,
+    title: "Components/FormTextField",
 } satisfies Meta<typeof Form<FieldValues>>;
 
 export default meta;
@@ -144,26 +145,26 @@ export const WithValidationErrors: Story = {
     // @ts-expect-error - we're not passing children and that's alright
     args: {
         options: {
-            resolver: zodResolver(schema),
-            errors: {
-                email: {
-                    type: "required",
-                    message: "Email address is required",
-                },
-                password: {
-                    type: "required",
-                    message: "Password is required",
-                },
-                username: {
-                    type: "required",
-                    message: "Username is required",
-                },
-            },
             defaultValues: {
-                username: "a", // Too short
                 email: "invalid-email", // Invalid email format
                 password: "short", // Too short
+                username: "a", // Too short
             },
+            errors: {
+                email: {
+                    message: "Email address is required",
+                    type: "required",
+                },
+                password: {
+                    message: "Password is required",
+                    type: "required",
+                },
+                username: {
+                    message: "Username is required",
+                    type: "required",
+                },
+            },
+            resolver: zodResolver(schema),
         },
     },
 };

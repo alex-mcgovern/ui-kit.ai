@@ -39,7 +39,7 @@ import { Popover } from "./popover";
 export function ComboBoxButton(
     props: Omit<
         ComponentProps<typeof FieldButton>,
-        "onPress" | "isDisabled" | "children"
+        "children" | "isDisabled" | "onPress"
     >,
 ) {
     return (
@@ -58,7 +58,7 @@ ComboBoxButton.displayName = "ComboBoxButton";
 export function ComboBoxClearButton(
     props: Omit<
         ComponentProps<typeof FieldButton>,
-        "onPress" | "isDisabled" | "children" | "slot"
+        "children" | "isDisabled" | "onPress" | "slot"
     >,
 ) {
     const state = useContext(ComboBoxStateContext);
@@ -71,11 +71,6 @@ export function ComboBoxClearButton(
         <FieldButton
             {...props}
             aria-label="Clear"
-            isDisabled={isEmpty}
-            onPress={() => {
-                state?.setInputValue("");
-                state?.setSelectedKey(null);
-            }}
             className={(renderProps) =>
                 twMerge(
                     "transition-opacity",
@@ -87,6 +82,11 @@ export function ComboBoxClearButton(
                         : props.className,
                 )
             }
+            isDisabled={isEmpty}
+            onPress={() => {
+                state?.setInputValue("");
+                state?.setSelectedKey(null);
+            }}
             slot={null} // Don't inherit default Button behavior from ComboBox.
         >
             <IconX aria-hidden className="size-4" />
@@ -186,8 +186,8 @@ export function ComboBox<
 >({
     children,
     items,
-    renderEmptyState,
     ref,
+    renderEmptyState,
     ...props
 }: AriaComboBoxProps<T> &
     Pick<

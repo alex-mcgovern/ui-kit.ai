@@ -10,23 +10,24 @@ import {
     composeRenderProps,
 } from "react-aria-components";
 import { tv } from "tailwind-variants";
-import { focusRing } from "../styles/focus-ring";
-import { Label } from "./label";
+
 import { i18n } from "../i18n";
-import { Tag } from "./tag";
+import { focusRing } from "../styles/focus-ring";
 import { Description } from "./description";
+import { Label } from "./label";
+import { Tag } from "./tag";
 
 type CheckboxProps = Omit<AriaCheckboxProps, "children"> &
     (
         | {
-              textPosition?: "left" | "right";
-              label: string;
               description?: string;
+              label: string;
+              textPosition?: "left" | "right";
           }
         | {
-              textPosition?: never;
-              label?: never;
               description?: string;
+              label?: never;
+              textPosition?: never;
           }
     );
 
@@ -114,32 +115,6 @@ const iconStyles = tv({
     ],
 });
 
-function CheckboxLabel({
-    label,
-    isRequired,
-    description,
-}: {
-    label: string;
-    isRequired: boolean;
-    description?: string;
-}) {
-    return (
-        <div>
-            <Label className="mb-0 flex items-center gap-1">
-                {label}
-                {isRequired ? (
-                    <Tag>{i18n.form.required}</Tag>
-                ) : null}
-            </Label>
-            {description ? (
-                <Description className="!mt-0">
-                    {description}
-                </Description>
-            ) : null}
-        </div>
-    );
-}
-
 /**
  * A checkbox allows a user to select multiple items from a list of individual
  * items, or to mark one individual item as selected.
@@ -159,9 +134,9 @@ function CheckboxLabel({
  * ```
  */
 export function Checkbox({
-    textPosition = "right",
-    label,
     description,
+    label,
+    textPosition = "right",
     ...props
 }: CheckboxProps) {
     return (
@@ -181,11 +156,11 @@ export function Checkbox({
                     {textPosition === "left" &&
                     label != null ? (
                         <CheckboxLabel
-                            label={label}
+                            description={description}
                             isRequired={
                                 renderProps.isRequired
                             }
-                            description={description}
+                            label={label}
                         />
                     ) : null}
 
@@ -206,16 +181,42 @@ export function Checkbox({
                     {textPosition === "right" &&
                     label != null ? (
                         <CheckboxLabel
-                            label={label}
+                            description={description}
                             isRequired={
                                 renderProps.isRequired
                             }
-                            description={description}
+                            label={label}
                         />
                     ) : null}
                 </>
             )}
         </AriaCheckbox>
+    );
+}
+
+function CheckboxLabel({
+    description,
+    isRequired,
+    label,
+}: {
+    description?: string;
+    isRequired: boolean;
+    label: string;
+}) {
+    return (
+        <div>
+            <Label className="mb-0 flex items-center gap-1">
+                {label}
+                {isRequired ? (
+                    <Tag>{i18n.form.required}</Tag>
+                ) : null}
+            </Label>
+            {description ? (
+                <Description className="!mt-0">
+                    {description}
+                </Description>
+            ) : null}
+        </div>
     );
 }
 Checkbox.displayName = "Checkbox";

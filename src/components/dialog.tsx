@@ -43,7 +43,7 @@ const modalOverlayStyles = tv({
 
 const modalStyles = tv({
     base: [
-        "h-dvh w-dvw md:h-[unset] md:max-h-[75dvh] md:w-[unset]",
+        "h-dvh w-dvw md:size-[unset] md:max-h-[75dvh]",
         "flex items-center justify-center",
         "relative",
         "forced-colors:bg-[Canvas]",
@@ -71,6 +71,7 @@ const dialogStyles = tv({
         "md:rounded-lg md:border md:border-muted-200",
         "[[data-placement]>&]:p-4",
     ],
+    extend: bgGlass,
     variants: {
         width: {
             lg: "md:max-w-[max(50rem,50dvw)]",
@@ -78,34 +79,7 @@ const dialogStyles = tv({
             sm: "md:max-w-96",
         },
     },
-    extend: bgGlass,
 });
-
-function DialogModal({
-    isDismissable = true,
-    ...props
-}: RACModalOverlayProps) {
-    return (
-        <RACModal
-            {...props}
-            className={modalStyles}
-            isDismissable={isDismissable}
-        />
-    );
-}
-
-function DialogModalOverlay({
-    isDismissable = true,
-    ...props
-}: Omit<RACModalOverlayProps, "className">) {
-    return (
-        <RACModalOverlay
-            {...props}
-            className={modalOverlayStyles()}
-            isDismissable={isDismissable}
-        />
-    );
-}
 
 /**
  * A dialog is an overlay shown above other content in an application.
@@ -205,6 +179,53 @@ export function DialogCloseButton(
 }
 
 /**
+ * Wrapper to render scrollable content within the dialog.
+ */
+export function DialogContent({
+    ref,
+    ...props
+}: HTMLProps<HTMLDivElement> & {
+    ref?: ForwardedRef<HTMLDivElement>;
+}) {
+    return (
+        <div
+            {...props}
+            className={twMerge(
+                "scrollbar-thin overflow-y-auto",
+                "px-4 py-3",
+                "text-sm",
+                "shrink grow",
+                props.className,
+            )}
+            ref={ref}
+        />
+    );
+}
+
+/**
+ * Wrapper to pin content to the bottom of the dialog.
+ */
+export function DialogFooter({
+    children,
+    ...props
+}: HTMLProps<HTMLElement>) {
+    return (
+        <footer
+            {...props}
+            className={twMerge(
+                "min-h-10",
+                "flex shrink-0 items-center justify-between gap-2",
+                "border-t border-t-muted-200",
+                "py-2 pl-4 pr-2",
+                props.className,
+            )}
+        >
+            {children}
+        </footer>
+    );
+}
+
+/**
  * Wrapper to render the dialog header.
  */
 export function DialogHeader(
@@ -260,49 +281,28 @@ export function DialogTrigger(
     return <RACDialogTrigger {...props} />;
 }
 
-/**
- * Wrapper to render scrollable content within the dialog.
- */
-export function DialogContent({
-    ref,
+function DialogModal({
+    isDismissable = true,
     ...props
-}: HTMLProps<HTMLDivElement> & {
-    ref?: ForwardedRef<HTMLDivElement>;
-}) {
+}: RACModalOverlayProps) {
     return (
-        <div
+        <RACModal
             {...props}
-            className={twMerge(
-                "scrollbar-thin overflow-y-auto",
-                "px-4 py-3",
-                "text-sm",
-                "shrink grow",
-                props.className,
-            )}
-            ref={ref}
+            className={modalStyles}
+            isDismissable={isDismissable}
         />
     );
 }
 
-/**
- * Wrapper to pin content to the bottom of the dialog.
- */
-export function DialogFooter({
-    children,
+function DialogModalOverlay({
+    isDismissable = true,
     ...props
-}: HTMLProps<HTMLElement>) {
+}: Omit<RACModalOverlayProps, "className">) {
     return (
-        <footer
+        <RACModalOverlay
             {...props}
-            className={twMerge(
-                "min-h-10",
-                "flex shrink-0 items-center justify-between gap-2",
-                "border-t border-t-muted-200",
-                "py-2 pl-4 pr-2",
-                props.className,
-            )}
-        >
-            {children}
-        </footer>
+            className={modalOverlayStyles()}
+            isDismissable={isDismissable}
+        />
     );
 }

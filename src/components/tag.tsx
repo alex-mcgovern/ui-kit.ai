@@ -1,25 +1,20 @@
-import { type ForwardedRef, type HTMLProps } from "react";
 import type {
     ButtonProps as RACButtonProps,
     LinkProps as RACLinkProps,
 } from "react-aria-components";
+
+import { type ForwardedRef, type HTMLProps } from "react";
 import {
     Button as RACButton,
     Link as RACLink,
 } from "react-aria-components";
 import { tv } from "tailwind-variants";
+
 import { focusRing } from "../styles/focus-ring";
 import {
     renderSlot,
     type SlotNode,
 } from "../types/slotted-node";
-
-type Variant =
-    | "default"
-    | "yellow"
-    | "red"
-    | "inverted"
-    | "green";
 
 export type TagProps = {
     /**
@@ -27,17 +22,13 @@ export type TagProps = {
      */
     isButton?: boolean;
     /**
-     * Whether the tag is a Link.
-     */
-    isLink?: boolean;
-    /**
-     * The visual appearance of the tag.
-     */
-    variant?: Variant;
-    /**
      * Adds an optional dashed border to the tag.
      */
     isDashed?: boolean;
+    /**
+     * Whether the tag is a Link.
+     */
+    isLink?: boolean;
     /**
      * A decorative node (e.g. an icon) to render on the left side of the
      * Tag. When a node is passed, the padding on the corresponding side is
@@ -50,10 +41,20 @@ export type TagProps = {
      * slightly reduced to maintain visual balance.
      */
     slotRight?: SlotNode;
+    /**
+     * The visual appearance of the tag.
+     */
+    variant?: Variant;
 };
 
+type Variant =
+    | "default"
+    | "green"
+    | "inverted"
+    | "red"
+    | "yellow";
+
 const tagStyles = tv({
-    extend: focusRing,
     base: [
         "h-6 min-w-6",
         "text-center text-sm font-normal",
@@ -78,13 +79,14 @@ const tagStyles = tv({
         "[&:is(a,button)]:pressed:bg-[--bg-pressed]",
     ],
     defaultVariants: {
-        variant: "default",
         isDashed: false,
+        variant: "default",
     },
+    extend: focusRing,
     variants: {
         isDashed: {
-            true: "border-dashed",
             false: "border-solid",
+            true: "border-dashed",
         },
         variant: {
             default: [""],
@@ -94,6 +96,13 @@ const tagStyles = tv({
                 "[--bg-pressed:theme(colors.green.200)]",
                 "[--border:theme(colors.green.300)]",
                 "[--text:theme(colors.green.600)]",
+            ],
+            inverted: [
+                "border-muted-800 bg-muted-800 text-muted-50",
+                "[&:is(a,button)]:hover:border-muted-800",
+                "[&:is(a,button)]:hover:bg-muted-800",
+                "[&:is(a,button)]:pressed:border-muted-700",
+                "[&:is(a,button)]:pressed:bg-muted-700",
             ],
             red: [
                 "[--bg:theme(colors.red.50)]",
@@ -108,13 +117,6 @@ const tagStyles = tv({
                 "[--bg-pressed:theme(colors.yellow.200)]",
                 "[--border:theme(colors.yellow.300)]",
                 "[--text:theme(colors.yellow.600)]",
-            ],
-            inverted: [
-                "border-muted-800 bg-muted-800 text-muted-50",
-                "[&:is(a,button)]:hover:border-muted-800",
-                "[&:is(a,button)]:hover:bg-muted-800",
-                "[&:is(a,button)]:pressed:border-muted-700",
-                "[&:is(a,button)]:pressed:bg-muted-700",
             ],
         },
     },
@@ -160,23 +162,23 @@ const tagStyles = tv({
 export function Tag({
     children,
     className,
+    isDashed,
+    ref,
     slotLeft,
     slotRight,
     variant,
-    isDashed,
-    ref,
     ...props
-}: TagProps &
-    HTMLProps<HTMLDivElement> & {
+}: HTMLProps<HTMLDivElement> &
+    TagProps & {
         ref?: ForwardedRef<HTMLDivElement>;
     }) {
     return (
         <div
             {...props}
             className={tagStyles({
-                variant,
-                isDashed,
                 className,
+                isDashed,
+                variant,
             })}
             ref={ref}
         >
@@ -212,14 +214,14 @@ Tag.displayName = "Tag";
 export function TagButton({
     children,
     className,
-    variant,
     isDashed,
+    ref,
     slotLeft,
     slotRight,
-    ref,
+    variant,
     ...props
-}: TagProps &
-    RACButtonProps & {
+}: RACButtonProps &
+    TagProps & {
         ref?: ForwardedRef<HTMLButtonElement>;
     }) {
     return (
@@ -227,12 +229,12 @@ export function TagButton({
             {...props}
             className={(rp) =>
                 tagStyles({
-                    variant,
-                    isDashed,
                     className:
                         typeof className === "function"
                             ? className(rp)
                             : className,
+                    isDashed,
+                    variant,
                 })
             }
             ref={ref}
@@ -275,14 +277,14 @@ TagButton.displayName = "TagButton";
 export const TagLink = ({
     children,
     className,
+    isDashed,
+    ref,
     slotLeft,
     slotRight,
     variant,
-    ref,
-    isDashed,
     ...props
-}: TagProps &
-    RACLinkProps & {
+}: RACLinkProps &
+    TagProps & {
         ref?: ForwardedRef<HTMLAnchorElement>;
     }) => {
     return (
@@ -290,12 +292,12 @@ export const TagLink = ({
             {...props}
             className={(rp) =>
                 tagStyles({
-                    variant,
-                    isDashed,
                     className:
                         typeof className === "function"
                             ? className(rp)
                             : className,
+                    isDashed,
+                    variant,
                 })
             }
             ref={ref}

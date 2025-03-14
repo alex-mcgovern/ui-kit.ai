@@ -4,10 +4,10 @@ import { expect, it, vi } from "vitest";
 
 import { Button } from "../button";
 import { Checkbox } from "../checkbox";
-import { Label } from "../label";
 import { Form } from "../form";
 import { FormCheckboxGroup } from "../form-checkbox-group";
 import { FormResetOnSubmit } from "../form-reset-on-submit";
+import { Label } from "../label";
 
 it("submits form with `FormCheckboxGroup`", async () => {
     const user = userEvent.setup();
@@ -18,16 +18,16 @@ it("submits form with `FormCheckboxGroup`", async () => {
             <FormCheckboxGroup name="communication_preference">
                 <Label>Communication preference</Label>
                 <Checkbox
-                    value="account_updates"
                     label="Account updates"
+                    value="account_updates"
                 ></Checkbox>
                 <Checkbox
-                    value="newsletter"
                     label="Newsletter"
+                    value="newsletter"
                 ></Checkbox>
                 <Checkbox
-                    value="advertising"
                     label="Advertising"
+                    value="advertising"
                 ></Checkbox>
             </FormCheckboxGroup>
             <Button type="submit">Submit</Button>
@@ -63,16 +63,16 @@ it("`FormCheckboxGroup` clears when reset after submission", async () => {
             <FormCheckboxGroup name="communication_preference">
                 <Label>Communication preference</Label>
                 <Checkbox
-                    value="account_updates"
                     label="Account updates"
+                    value="account_updates"
                 ></Checkbox>
                 <Checkbox
-                    value="newsletter"
                     label="Newsletter"
+                    value="newsletter"
                 ></Checkbox>
                 <Checkbox
-                    value="advertising"
                     label="Advertising"
+                    value="advertising"
                 ></Checkbox>
             </FormCheckboxGroup>
             <Button type="submit">Submit</Button>
@@ -120,16 +120,16 @@ it("handles `defaultValues` prop passed to `Form` correctly with `FormCheckboxGr
             <FormCheckboxGroup name="communication_preference">
                 <Label>Communication preference</Label>
                 <Checkbox
-                    value="account_updates"
                     label="Account updates"
+                    value="account_updates"
                 ></Checkbox>
                 <Checkbox
-                    value="newsletter"
                     label="Newsletter"
+                    value="newsletter"
                 ></Checkbox>
                 <Checkbox
-                    value="advertising"
                     label="Advertising"
+                    value="advertising"
                 ></Checkbox>
             </FormCheckboxGroup>
             <Button type="submit">Submit</Button>
@@ -175,16 +175,16 @@ it("handles `values` prop passed to `Form` correctly with `FormCheckboxGroup`", 
             <FormCheckboxGroup name="communication_preference">
                 <Label>Communication preference</Label>
                 <Checkbox
-                    value="account_updates"
                     label="Account updates"
+                    value="account_updates"
                 ></Checkbox>
                 <Checkbox
-                    value="newsletter"
                     label="Newsletter"
+                    value="newsletter"
                 ></Checkbox>
                 <Checkbox
-                    value="advertising"
                     label="Advertising"
+                    value="advertising"
                 ></Checkbox>
             </FormCheckboxGroup>
             <Button type="submit">Submit</Button>
@@ -218,24 +218,24 @@ it("handles `defaultValue` prop passed to `FormCheckboxGroup`", async () => {
     const { getByLabelText, getByText } = render(
         <Form onSubmit={onSubmit}>
             <FormCheckboxGroup
-                name="communication_preference"
                 defaultValue={[
                     "account_updates",
                     "newsletter",
                 ]}
+                name="communication_preference"
             >
                 <Label>Communication preference</Label>
                 <Checkbox
-                    value="account_updates"
                     label="Account updates"
+                    value="account_updates"
                 ></Checkbox>
                 <Checkbox
-                    value="newsletter"
                     label="Newsletter"
+                    value="newsletter"
                 ></Checkbox>
                 <Checkbox
-                    value="advertising"
                     label="Advertising"
+                    value="advertising"
                 ></Checkbox>
             </FormCheckboxGroup>
             <Button type="submit">Submit</Button>

@@ -1,5 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import type { ComponentProps } from "react";
 
+import { Description } from "../components/description";
 import { FieldGroup } from "../components/field-group";
 import { Input } from "../components/input";
 import { Label } from "../components/label";
@@ -9,8 +11,6 @@ import {
     TextFieldCopyButton,
     TextFieldVisibilityButton,
 } from "../components/text-field";
-import { Description } from "../components/description";
-import type { ComponentProps } from "react";
 
 function Template(props: ComponentProps<typeof TextField>) {
     return (
@@ -34,7 +34,6 @@ function Template(props: ComponentProps<typeof TextField>) {
 
 const meta = {
     component: TextField,
-    title: "Components/TextField",
     decorators: [
         (Story) => (
             <div className="w-96">
@@ -43,6 +42,7 @@ const meta = {
         ),
     ],
     render: Template,
+    title: "Components/TextField",
 } satisfies Meta<typeof TextField>;
 
 export default meta;

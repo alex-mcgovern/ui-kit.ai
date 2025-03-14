@@ -1,10 +1,12 @@
 import type { ComponentProps } from "react";
+
 import {
     useController,
     useFormContext,
 } from "react-hook-form";
-import { FieldError } from "./field-error";
+
 import { CheckboxGroup } from "./checkbox-group";
+import { FieldError } from "./field-error";
 
 /**
  * A `FormCheckboxGroup` connects a `CheckboxGroup` to a `Form` component using `react-hook-form`.
@@ -51,8 +53,8 @@ export function FormCheckboxGroup({
                 props.onChange?.(k);
             }}
             ref={ref}
-            value={value}
             validationBehavior="aria" // Let React Hook Form handle validation instead of the browser.
+            value={value}
         >
             {(renderProps) => {
                 return (

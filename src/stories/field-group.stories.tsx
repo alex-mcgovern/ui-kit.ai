@@ -1,12 +1,12 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import type { ComponentProps } from "react";
 
 import { FieldGroup } from "../components/field-group";
 import { Input } from "../components/input";
 import { Kbd } from "../components/kbd";
 import { Select, SelectButton } from "../components/select";
-import { getMockOptions } from "../mocks/options";
 import { TextField } from "../components/text-field";
-import type { ComponentProps } from "react";
+import { getMockOptions } from "../mocks/options";
 
 function Template(
     props: ComponentProps<typeof FieldGroup>,
@@ -37,13 +37,13 @@ function Template(
 const meta = {
     args: {},
     component: FieldGroup,
-    parameters: { actions: "disable" },
-    title: "Components/FieldGroup",
     decorators: [
         (Story) => (
             <div className="mx-auto w-96">{Story()}</div>
         ),
     ],
+    parameters: { actions: "disable" },
+    title: "Components/FieldGroup",
 } satisfies Meta<typeof FieldGroup>;
 
 export default meta;

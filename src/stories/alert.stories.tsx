@@ -1,15 +1,13 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import type { ComponentProps } from "react";
 
 import { Alert } from "../components/alert";
 import { Button } from "../components/button";
-import type { ComponentProps } from "react";
 
 function Template(args: ComponentProps<typeof Alert>) {
     return (
         <Alert
             {...args}
-            title="Title"
-            description="Description"
             actions={[
                 <Button key="secondary" variant="secondary">
                     Secondary
@@ -18,24 +16,26 @@ function Template(args: ComponentProps<typeof Alert>) {
                     Primary
                 </Button>,
             ]}
+            description="Description"
+            title="Title"
         />
     );
 }
 
 const meta = {
-    title: "Components/Alert",
-    component: Alert,
     args: {
         title: "Account verification required",
     },
+    component: Alert,
     decorators: [
         (Story) => (
-            <div className="w-full min-w-32 max-w-[64rem]">
+            <div className="w-full min-w-32 max-w-5xl">
                 <Story />
             </div>
         ),
     ],
     render: Template,
+    title: "Components/Alert",
 } satisfies Meta<typeof Alert>;
 
 export default meta;

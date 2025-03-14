@@ -1,19 +1,19 @@
 import type { Meta, StoryObj } from "@storybook/react";
+
+import { SearchIcon } from "lucide-react";
 import React, { type ComponentProps } from "react";
 
 import { Input } from "../components/input";
-import { SearchIcon } from "lucide-react";
 
 function Template(props: ComponentProps<typeof Input>) {
     return <Input {...props} />;
 }
 
 const meta = {
-    component: Input,
-    title: "Components/Input",
     args: {
         placeholder: "This is a placeholder",
     },
+    component: Input,
     decorators: [
         (Story) => (
             <div className="w-96">
@@ -21,6 +21,7 @@ const meta = {
             </div>
         ),
     ],
+    title: "Components/Input",
 } satisfies Meta<typeof Input>;
 
 export default meta;

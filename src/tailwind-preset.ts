@@ -7,9 +7,9 @@ import {
     borderWidth,
     fontSize,
     height,
+    opacity,
     spacing,
     transitionDuration,
-    opacity,
 } from "tailwindcss/defaultTheme";
 
 export default {
@@ -24,13 +24,13 @@ export default {
     theme: {
         colors: {
             brand: colors.stone,
+            current: "currentColor",
+            green: colors.emerald,
+            inherit: "inherit",
             muted: colors.stone,
             red: colors.red,
-            green: colors.emerald,
-            yellow: colors.amber,
-            current: "currentColor",
-            inherit: "inherit",
             transparent: "transparent",
+            yellow: colors.amber,
         },
         extend: {
             backgroundColor: {
@@ -42,10 +42,6 @@ export default {
                 DEFAULT: "0.5px",
             },
 
-            opacity: {
-                ...opacity,
-                disabled: opacity[50],
-            },
             fontSize: {
                 ...fontSize,
                 xs: [
@@ -64,6 +60,10 @@ export default {
             minHeight: {
                 ...height,
                 ["ui-element"]: spacing[9],
+            },
+            opacity: {
+                ...opacity,
+                disabled: opacity[50],
             },
             textColor: {
                 disabled: colors.stone[300],

@@ -1,16 +1,16 @@
 import type { Meta, StoryObj } from "@storybook/react";
-
 import type { ComponentProps } from "react";
+
+import { Description } from "../../../components/description";
+import { FieldGroup } from "../../../components/field-group";
+import { Input } from "../../../components/input";
+import { Label } from "../../../components/label";
 import {
     TextField,
     TextFieldClearButton,
     TextFieldCopyButton,
     TextFieldVisibilityButton,
 } from "../../../components/text-field";
-import { Label } from "../../../components/label";
-import { FieldGroup } from "../../../components/field-group";
-import { Input } from "../../../components/input";
-import { Description } from "../../../components/description";
 
 const Example = (
     props: ComponentProps<typeof TextField>,
@@ -39,7 +39,6 @@ const meta = {
         name: "text field",
     },
     component: TextField,
-    title: "Components/TextField",
     decorators: [
         (Story) => (
             <div className="w-96">
@@ -48,6 +47,7 @@ const meta = {
         ),
     ],
     render: Example,
+    title: "Components/TextField",
 } satisfies Meta<typeof TextField>;
 
 export default meta;

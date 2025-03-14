@@ -1,15 +1,16 @@
 import type { ReactNode } from "react";
+
 import { type Options } from "react-element-to-jsx-string";
 
 const JSX_STRING_OPTIONS = {
-    useBooleanShorthandSyntax: true,
-    useFragmentShortSyntax: true,
-    showFunctions: true,
     filterProps(value, key) {
         return key !== "data-testid" && key !== "key";
     },
-
     functionValue: (fn: Function) => fn.toString(),
+    showFunctions: true,
+    useBooleanShorthandSyntax: true,
+
+    useFragmentShortSyntax: true,
 } as const satisfies Options;
 
 export async function parseStory(
@@ -32,7 +33,7 @@ export async function parseStory(
     });
 
     const entries = Object.entries(composedStories);
-    const result = Object.fromEntries(
+    return Object.fromEntries(
         entries.map(([storyName, Story]) => [
             storyName,
             reactElementToJSXString(
@@ -41,6 +42,4 @@ export async function parseStory(
             ),
         ]),
     );
-
-    return result;
 }

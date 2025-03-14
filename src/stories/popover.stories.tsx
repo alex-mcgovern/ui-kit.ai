@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import type { ComponentProps } from "react";
 
 import { Button } from "../components/button";
 import { DialogTrigger } from "../components/dialog";
@@ -7,7 +8,6 @@ import {
     Popover,
     PopoverDialog,
 } from "../components/popover";
-import type { ComponentProps } from "react";
 
 type Placement = ComponentProps<
     typeof Popover
@@ -28,15 +28,6 @@ const PLACEMENTS = [
     "right bottom",
 ] satisfies Placement[];
 
-function Template(args: ComponentProps<typeof Popover>) {
-    return (
-        <DialogTrigger>
-            <Button>Show popover</Button>
-            <Popover {...args} />
-        </DialogTrigger>
-    );
-}
-
 function PlacementTemplate(
     args: ComponentProps<typeof Popover>,
 ) {
@@ -48,8 +39,16 @@ function PlacementTemplate(
     ));
 }
 
+function Template(args: ComponentProps<typeof Popover>) {
+    return (
+        <DialogTrigger>
+            <Button>Show popover</Button>
+            <Popover {...args} />
+        </DialogTrigger>
+    );
+}
+
 const meta = {
-    component: Popover,
     args: {
         children: (
             <PopoverDialog>
@@ -67,8 +66,9 @@ const meta = {
             </PopoverDialog>
         ),
     },
-    title: "Components/Popover",
+    component: Popover,
     render: Template,
+    title: "Components/Popover",
 } satisfies Meta<typeof Popover>;
 
 export default meta;
@@ -82,8 +82,6 @@ export const Primary: Story = {};
  * when it detects a collision with a parent or window edge.
  */
 export const Placement: Story = {
-    // @ts-expect-error - coerce ReactNode[] where ReactNode expected
-    render: PlacementTemplate,
     decorators: [
         (Story) => (
             <div className="grid grid-cols-3 gap-2">
@@ -91,4 +89,6 @@ export const Placement: Story = {
             </div>
         ),
     ],
+    // @ts-expect-error - coerce ReactNode[] where ReactNode expected
+    render: PlacementTemplate,
 };

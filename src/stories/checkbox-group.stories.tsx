@@ -1,9 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Checkbox } from "../components/checkbox";
+
 import React, { type ComponentProps } from "react";
-import { Label } from "../components/label";
-import { Description } from "../components/description";
+
+import { Checkbox } from "../components/checkbox";
 import { CheckboxGroup } from "../components/checkbox-group";
+import { Description } from "../components/description";
+import { Label } from "../components/label";
 
 function Template(
     args: ComponentProps<typeof CheckboxGroup>,
@@ -15,19 +17,19 @@ function Template(
         >
             <Label>This is a label for the field</Label>
             <Checkbox
-                value="item-a"
+                description="Optional description"
                 label="Item A"
-                description="Optional description"
+                value="item-a"
             />
             <Checkbox
+                description="Optional description"
+                label="Item B"
                 value="item-b"
-                label="Item B"
-                description="Optional description"
             />
             <Checkbox
-                value="item-c"
-                label="Item B"
                 description="Optional description"
+                label="Item B"
+                value="item-c"
             />
             <Description>
                 This is a description for the field group.
@@ -37,9 +39,9 @@ function Template(
 }
 
 const meta = {
-    title: "Components/CheckboxGroup",
     component: CheckboxGroup,
     render: Template,
+    title: "Components/CheckboxGroup",
 } satisfies Meta<typeof CheckboxGroup>;
 
 export default meta;

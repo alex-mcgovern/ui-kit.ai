@@ -3,14 +3,12 @@ import { userEvent } from "@testing-library/user-event";
 import { expect, it, vi } from "vitest";
 
 import { Button } from "../button";
-
-import { Input } from "../input";
-import { Label } from "../label";
-
+import { FieldGroup } from "../field-group";
 import { Form } from "../form";
 import { FormResetOnSubmit } from "../form-reset-on-submit";
 import { FormTextField } from "../form-text-field";
-import { FieldGroup } from "../field-group";
+import { Input } from "../input";
+import { Label } from "../label";
 import { TextFieldClearButton } from "../text-field";
 
 it("submits form with `FormTextField`", async () => {
@@ -20,8 +18,8 @@ it("submits form with `FormTextField`", async () => {
     const { getByLabelText, getByText } = render(
         <Form onSubmit={onSubmit}>
             <FormTextField
-                name="email"
                 className="mb-4"
+                name="email"
                 type="email"
             >
                 <Label>Email address (Text field)</Label>
@@ -59,8 +57,8 @@ it("`FormTextField` clears when reset after submission", async () => {
         <Form onSubmit={onSubmit}>
             <FormResetOnSubmit />
             <FormTextField
-                name="email"
                 className="mb-4"
+                name="email"
                 type="email"
             >
                 <Label>Email address (Text field)</Label>
@@ -108,8 +106,8 @@ it("handles `defaultValues` prop passed to `Form` correctly with `FormTextField`
             }}
         >
             <FormTextField
-                name="email"
                 className="mb-4"
+                name="email"
                 type="email"
             >
                 <Label>Email address (Text field)</Label>
@@ -146,10 +144,10 @@ it("handles `value` prop passed to `FormTextField`", async () => {
     const { getByLabelText, getByText } = render(
         <Form onSubmit={onSubmit}>
             <FormTextField
-                name="email"
-                value="test@example.com"
                 className="mb-4"
+                name="email"
                 type="email"
+                value="test@example.com"
             >
                 <Label>Email address (Text field)</Label>
                 <FieldGroup>
@@ -185,9 +183,9 @@ it("handles `defaultValue` prop passed to `FormTextField`", async () => {
     const { getByLabelText, getByText } = render(
         <Form onSubmit={onSubmit}>
             <FormTextField
-                name="email"
-                defaultValue="test@example.com"
                 className="mb-4"
+                defaultValue="test@example.com"
+                name="email"
                 type="email"
             >
                 <Label>Email address (Text field)</Label>

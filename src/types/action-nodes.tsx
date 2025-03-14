@@ -1,7 +1,7 @@
 import {
     cloneElement,
-    isValidElement,
     type HTMLAttributes,
+    isValidElement,
     type JSXElementConstructor,
     type ReactElement,
     type ReactNode,
@@ -23,8 +23,8 @@ const actionsStyle = tv({
 
 export function renderActionNodes({
     actions,
-    props,
     className,
+    props,
 }: {
     actions: ActionNodes | undefined;
     className?: string;
