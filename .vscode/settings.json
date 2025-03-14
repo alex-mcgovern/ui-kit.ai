@@ -1,3 +1,7 @@
 {
-    "editor.formatOnSave": true
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "prettier.configPath": ".prettierrc.mjs",
+    // "prettier.prettierPath": "./node_modules/prettier",
+    "prettier.requireConfig": true,
+    "typescript.tsdk": "node_modules/typescript/lib"
 }

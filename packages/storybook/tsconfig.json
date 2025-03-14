@@ -1,0 +1,12 @@
+{
+   "extends": "@ui-kit.ai/tsconfig/react-library.json",
+    "include": [
+        ".storybook/**/*",
+        "src/**/*",
+        "tailwind.config.ts",
+        "vite.config.ts"
+    ],
+    "exclude": [
+        "node_modules"
+    ]
+}

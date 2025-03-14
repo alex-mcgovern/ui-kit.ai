@@ -1,0 +1,36 @@
+{
+    "$schema": "https://turbo.build/schema.json",
+    "tasks": {
+        "@ui-kit.ai/components#build": {
+            "outputs": ["dist/**"]
+        },
+        "@ui-kit.ai/storybook#storybook": {
+            "dependsOn": ["@ui-kit.ai/components#build"]
+        },
+        "build": {
+            "outputs": ["dist/**"]
+        },
+        "check:eslint": {
+            "dependsOn": ["^check:eslint"]
+        },
+        "check:prettier": {
+            "dependsOn": ["^check:prettier"]
+        },
+        "check:tsc": {
+            "dependsOn": ["^check:tsc"]
+        },
+        "check:vitest": {
+            "dependsOn": ["check:tsc", "^check:vitest"]
+        },
+        "fix:prettier": {
+            "dependsOn": ["^fix:prettier"]
+        },
+        "dev": {
+            "cache": false,
+            "persistent": true
+        },
+        "storybook": {
+            "dependsOn": ["^storybook"]
+        }
+    }
+}
