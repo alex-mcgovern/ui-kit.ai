@@ -29,12 +29,12 @@ const inputStyles = tv({
  * An Input is a primitive component used when composing fields, (e.g.
  * TextField, SearchField, NumberField).
  *
- * [source code](https://github.com/alex-mcgovern/boondoggle/tree/main/src/components/description)
+ * [source code](https://github.com/alex-mcgovern/ui-kit.ai/tree/main/src/components/description)
  *
  * ## Usage
  *
  * ```tsx
- * import { Input } from "boondoggle"
+ * import { Input } from "ui-kit.ai"
  * ```
  * ```tsx
  * <Input placeholder="Type something..." />

@@ -104,14 +104,14 @@ TooltipInfoButton.displayName = "TooltipInfoButton";
  *
 
  *
- * [source code](https://github.com/alex-mcgovern/boondoggle/tree/main/src/components/tooltip)
+ * [source code](https://github.com/alex-mcgovern/ui-kit.ai/tree/main/src/components/tooltip)
  * [react-aria](https://react-spectrum.adobe.com/react-aria/Tooltip.html)
  * [mdn-web-docs](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/tooltip_role#description)
  *
  * ## Usage
  * 
  * ```tsx
- * import { TooltipTrigger, TooltipInfoButton, Tooltip } from "boondoggle"
+ * import { TooltipTrigger, TooltipInfoButton, Tooltip } from "ui-kit.ai"
  * ```
  * ```tsx
  * <TooltipTrigger>

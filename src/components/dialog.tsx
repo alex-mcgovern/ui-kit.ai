@@ -84,7 +84,7 @@ const dialogStyles = tv({
 /**
  * A dialog is an overlay shown above other content in an application.
  *
- * [source code](https://github.com/alex-mcgovern/boondoggle/tree/main/src/components/dialog.tsx)
+ * [source code](https://github.com/alex-mcgovern/ui-kit.ai/tree/main/src/components/dialog.tsx)
  * [react aria](https://react-spectrum.adobe.com/react-aria/Dialog.html)
  *
  * ## Usage
@@ -98,7 +98,7 @@ const dialogStyles = tv({
  *     DialogHeader,
  *     DialogTitle,
  *     DialogTrigger,
- * } from "boondoggle";
+ * } from "ui-kit.ai";
  * ```
  *
  * ```tsx

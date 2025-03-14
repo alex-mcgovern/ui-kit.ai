@@ -14,7 +14,7 @@ import { Button } from "./button";
  * ## Usage
  *
  * ```tsx
- * import { FieldButton } from "boondoggle"
+ * import { FieldButton } from "ui-kit.ai"
  * import { XIcon } from "lucide-react"
  * ```
  * ```tsx

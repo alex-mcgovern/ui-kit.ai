@@ -127,12 +127,12 @@ const tagStyles = tv({
  * A Tag is a presentational component used to display short snippets of
  * information, often in a group of tags.
  *
- * [source code](https://github.com/alex-mcgovern/boondoggle/tree/main/src/components/tag)
+ * [source code](https://github.com/alex-mcgovern/ui-kit.ai/tree/main/src/components/tag)
  * [react-aria](https://react-spectrum.adobe.com/react-aria/Tooltip.html)
  *
  * ## Usage
  * ```tsx
- * import { Tag } from "boondoggle"
+ * import { Tag } from "ui-kit.ai"
  * ```
  * ```tsx
  * <Tag>Short label</Tag>
@@ -143,7 +143,7 @@ const tagStyles = tv({
  * You can use TagButton when a tag needs to be a button.
  *
  * ```tsx
- * import { TagButton } from "boondoggle"
+ * import { TagButton } from "ui-kit.ai"
  * ```
  * ```tsx
  * <TagButton>Short label</TagButton>
@@ -154,7 +154,7 @@ const tagStyles = tv({
  * You can use TagLink when a tag needs to be a link.
  *
  * ```tsx
- * import { TagLink } from "boondoggle"
+ * import { TagLink } from "ui-kit.ai"
  * ```
  * ```tsx
  * <TagLink>Short label</TagLink>
@@ -200,13 +200,13 @@ Tag.displayName = "Tag";
  * A TagButton is a button used to display short snippets of
  * information, often in a group of tags.
  *
- * [source code](https://github.com/alex-mcgovern/boondoggle/tree/main/src/components/tag)
+ * [source code](https://github.com/alex-mcgovern/ui-kit.ai/tree/main/src/components/tag)
  * [react-aria](https://react-spectrum.adobe.com/react-aria/Button.html)
  *
  * ## Usage
  *
  * ```tsx
- * import { TagButton } from "boondoggle"
+ * import { TagButton } from "ui-kit.ai"
  * ```
  * ```tsx
  * <TagButton>Short label</TagButton>
@@ -263,13 +263,13 @@ TagButton.displayName = "TagButton";
  * A TagLink is a link used to display short snippets of
  * information, often in a group of tags.
  *
- * [source code](https://github.com/alex-mcgovern/boondoggle/tree/main/src/components/tag)
+ * [source code](https://github.com/alex-mcgovern/ui-kit.ai/tree/main/src/components/tag)
  * [react-aria](https://react-spectrum.adobe.com/react-aria/Link.html)
  *
  * ## Usage
  *
  * ```tsx
- * import { TagLink } from "boondoggle"
+ * import { TagLink } from "ui-kit.ai"
  * ```
  * ```tsx
  * <TagLink>Short label</TagLink>

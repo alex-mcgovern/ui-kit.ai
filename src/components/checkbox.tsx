@@ -119,13 +119,13 @@ const iconStyles = tv({
  * A checkbox allows a user to select multiple items from a list of individual
  * items, or to mark one individual item as selected.
  *
- * [source code](https://github.com/alex-mcgovern/boondoggle/tree/main/src/components/checkbox)
+ * [source code](https://github.com/alex-mcgovern/ui-kit.ai/tree/main/src/components/checkbox)
  * [react-aria](https://react-spectrum.adobe.com/react-aria/Checkbox.html)
  *
  * ## Usage
  *
  * ```tsx
- * import { Checkbox } from "boondoggle"
+ * import { Checkbox } from "ui-kit.ai"
  * ```
  * ```tsx
  * <Checkbox

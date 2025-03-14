@@ -7,12 +7,12 @@ import { twMerge } from "tailwind-merge";
 /**
  * A FieldError displays validation errors.
  *
- * [source code](https://github.com/alex-mcgovern/boondoggle/tree/main/src/components/description)
+ * [source code](https://github.com/alex-mcgovern/ui-kit.ai/tree/main/src/components/description)
  *
  * ## Usage
  *
  * ```tsx
- * import { FieldError } from "boondoggle"
+ * import { FieldError } from "ui-kit.ai"
  * ```
  * ```tsx
  * <FieldError>Your error message here</FieldError>

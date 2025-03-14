@@ -22,12 +22,12 @@ const actionsStyle = tv({
  * with no results, or before any records have been created. It accepts a list
  * of up to 2 actions, which are React nodes.
  *
- * [source code](https://github.com/alex-mcgovern/boondoggle/tree/main/src/components/empty-state)
+ * [source code](https://github.com/alex-mcgovern/ui-kit.ai/tree/main/src/components/empty-state)
  *
  * ## Usage
  * 
  * ```tsx
- * import { EmptyState } from "boondoggle"
+ * import { EmptyState } from "ui-kit.ai"
  * import { SearchXIcon } from "lucide-react";
  * ```
  * ```tsx

@@ -10,13 +10,13 @@ import { twMerge } from "tailwind-merge";
  * It can be composed with a Label and Description to correctly label the input
  * to assistive technologies, and provide extra context.
  *
- * [source code](https://github.com/alex-mcgovern/boondoggle/tree/main/src/components/checkbox-group)
+ * [source code](https://github.com/alex-mcgovern/ui-kit.ai/tree/main/src/components/checkbox-group)
  * [react-aria](https://react-spectrum.adobe.com/react-aria/CheckboxGroup.html)
  *
  * ## Usage
  *
  * ```tsx
- * import { Checkbox, CheckboxGroup } from "boondoggle"
+ * import { Checkbox, CheckboxGroup } from "ui-kit.ai"
  * ```
  * ```tsx
  * <CheckboxGroup>

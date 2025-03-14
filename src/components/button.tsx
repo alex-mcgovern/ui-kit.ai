@@ -251,13 +251,13 @@ const ButtonLoadingState = ({
  * A button allows a user to perform an action, with mouse, touch, and
  * keyboard interactions.
  *
- * [source code](https://github.com/alex-mcgovern/boondoggle/tree/main/src/components/button)
+ * [source code](https://github.com/alex-mcgovern/ui-kit.ai/tree/main/src/components/button)
  * [react-aria](https://react-spectrum.adobe.com/react-aria/Button.html)
  *
  * ## Usage
  *
  * ```tsx
- * import { Button } from "boondoggle"
+ * import { Button } from "ui-kit.ai"
  * ```
  * ```tsx
  * <Button>Press me</Button>

@@ -43,13 +43,13 @@ const iconStyles = tv({
  * role "alert" to highlight the importance of the message to assistive
  * technologies.
  *
- * [source code](https://github.com/alex-mcgovern/boondoggle/tree/main/src/components/checkbox)
+ * [source code](https://github.com/alex-mcgovern/ui-kit.ai/tree/main/src/components/checkbox)
  * [mdn web docs](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/alert_role)
  *
  * ## Usage
  *
  * ```tsx
- * import { Alert } from "boondoggle"
+ * import { Alert } from "ui-kit.ai"
  * ```
  * ```tsx
  * <Alert

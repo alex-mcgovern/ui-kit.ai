@@ -7,13 +7,13 @@ import { twMerge } from "tailwind-merge";
  * A Description is text with attributes that improve screen reader
  * announcements, usually used to provide more context on a field or control.
  *
- * [source code](https://github.com/alex-mcgovern/boondoggle/tree/main/src/components/description)
+ * [source code](https://github.com/alex-mcgovern/ui-kit.ai/tree/main/src/components/description)
  * [react-aria](https://react-spectrum.adobe.com/react-aria/accessibility.html)
  *
  * ## Usage
  *
  * ```tsx
- * import { Description } from "boondoggle"
+ * import { Description } from "ui-kit.ai"
  * ```
  * ```tsx
  * <Description>Your description here</Description>

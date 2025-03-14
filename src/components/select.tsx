@@ -39,7 +39,7 @@ const selectButtonStyles = tv({
 /**
  * A select displays a collapsible list of options and allows a user to select one of them.
  *
- * [source code](https://github.com/alex-mcgovern/boondoggle/tree/main/src/components/tooltip)
+ * [source code](https://github.com/alex-mcgovern/ui-kit.ai/tree/main/src/components/tooltip)
  * [react-aria](https://react-spectrum.adobe.com/react-aria/Tooltip.html)
  *
  * ## Usage
@@ -48,7 +48,7 @@ const selectButtonStyles = tv({
  * import {
  *     Select,
  *     SelectButton
- * } from "boondoggle"
+ * } from "ui-kit.ai"
  * ```
  * ```tsx
  * <Select items={[{ id: "item-1", textValue: "Item 1"}]}>

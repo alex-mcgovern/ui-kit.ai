@@ -254,7 +254,7 @@ const resizerStyles = tv({
  * contents via directional navigation keys, and optionally supports row
  * selection and sorting.
  *
- * [source code](https://github.com/alex-mcgovern/boondoggle/tree/main/src/components/table)
+ * [source code](https://github.com/alex-mcgovern/ui-kit.ai/tree/main/src/components/table)
  * [react-aria](https://react-spectrum.adobe.com/react-aria/Table.html#tooltip)
  */
 export function Table<TRow extends BaseRow = BaseRow>({

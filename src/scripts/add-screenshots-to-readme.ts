@@ -16,7 +16,7 @@ function generateDocsUrl(filename: string): string {
         .replace("Components_", "")
         .replace("_Primary", "")
         .toLowerCase();
-    return `https://boondoggle.design/?path=/docs/components-${componentName}--docs`;
+    return `https://ui-kit.ai/?path=/docs/components-${componentName}--docs`;
 }
 
 async function main() {

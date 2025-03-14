@@ -6,7 +6,7 @@ import AvailableComponents from "./data/available-components.json";
 import ComponentUsage from "./data/component-usage.json";
 
 const server = new McpServer({
-    name: "Boondoggle component library assistant",
+    name: "ui-kit.ai component library assistant",
     version: "1.0.0",
 });
 

@@ -152,7 +152,7 @@ const ComboBoxRefContext =
  * A combo box combines a text input with a listbox, allowing users to filter a
  * list of options to items matching a query.
  *
- * [source code](https://github.com/alex-mcgovern/boondoggle/tree/main/src/components/combobox)
+ * [source code](https://github.com/alex-mcgovern/ui-kit.ai/tree/main/src/components/combobox)
  * [react-aria](https://react-spectrum.adobe.com/react-aria/ComboBox.html)
  *
  * ## Usage
@@ -164,7 +164,7 @@ const ComboBoxRefContext =
  *     ComboBoxButton,
  *     ComboBoxInput,
  *     ComboBoxClearButton
- * } from "boondoggle"
+ * } from "ui-kit.ai"
  * ```
  * ```tsx
  * <ComboBox items={[{ id: "item-1", textValue: "Item 1"}]}>

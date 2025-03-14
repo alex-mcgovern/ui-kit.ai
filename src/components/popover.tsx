@@ -49,7 +49,7 @@ const popoverStyles = tv({
 /**
  * A popover is an overlay element positioned relative to a trigger.
  *
- * [source code](https://github.com/alex-mcgovern/boondoggle/tree/main/src/components/popover)
+ * [source code](https://github.com/alex-mcgovern/ui-kit.ai/tree/main/src/components/popover)
  * [react-aria](https://react-spectrum.adobe.com/react-aria/Popover.html)
  *
  * ## Usage
@@ -60,7 +60,7 @@ const popoverStyles = tv({
  *     Button,
  *     Popover,
  *     PopoverDialog
- * } from "boondoggle"
+ * } from "ui-kit.ai"
  * ```
  * ```tsx
  * <DialogTrigger>
