@@ -26,5 +26,8 @@
         "commitlint.config.js",
         "tailwind.config.ts",
         "vite.config.ts"
+    ],
+    "exclude": [
+        "dist"
     ]
 }

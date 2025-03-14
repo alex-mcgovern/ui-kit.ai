@@ -2,9 +2,26 @@
     "name": "ui-kit.ai",
     "version": "0.0.0",
     "description": "",
-    "main": "index.js",
+    "keywords": [],
+    "author": "",
+    "license": "MIT",
+    "sideEffects": [
+        "**/*.css"
+    ],
+    "files": [
+        "dist"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/alex-mcgovern/ui-kit.ai"
+    },
+    "source": "src/index.ts",
+    "types": "dist/types.d.ts",
     "type": "module",
+    "main": "dist/index.js",
     "scripts": {
+        "build": "vite build",
+        "build-mcp-dataset": "tsx ./src/scripts/build-mcp-dataset.ts",
         "check": "concurrently -n PRETTIER,ESLINT,TSC,JEST -c \"bgYellow.bold,bgRed.bold,bgBlue.bold,bgGreen.bold\" \"npm:check-prettier\" \"npm:check-eslint\" \"npm:check-tsc\" \"npm:check-jest\"",
         "check-eslint": "eslint .",
         "check-jest": "jest",
@@ -12,16 +29,11 @@
         "check-tsc": "tsc",
         "dev": "storybook dev -p 65534",
         "dev:docs": "storybook dev --docs -p 65534",
-        "test": "vitest",
-        "build-mcp-dataset": "tsx ./src/scripts/build-mcp-dataset.ts",
         "start-mcp-server": "tsx ./src/mcp-server/index.ts",
-        "storycap": "storycap --serverCmd \"storybook dev -p 65534\" http://localhost:65534 --include \"**/Primary\" --flat --outDir \"assets\""
+        "storycap": "storycap --serverCmd \"storybook dev -p 65534\" http://localhost:65534 --include \"**/Primary\" --flat --outDir \"assets\"",
+        "test": "vitest"
     },
-    "keywords": [],
-    "author": "",
-    "license": "ISC",
     "dependencies": {
-        "@hookform/resolvers": "^4.1.2",
         "@modelcontextprotocol/sdk": "^1.7.0",
         "@prettier/sync": "^0.5.2",
         "@tanstack/react-query": "^5.66.0",
@@ -41,6 +53,7 @@
         "zod": "^3.24.1"
     },
     "devDependencies": {
+        "@hookform/resolvers": "^4.1.2",
         "@babel/plugin-syntax-import-attributes": "^7.26.0",
         "@commitlint/config-conventional": "^19.7.1",
         "@eslint/js": "^9.19.0",
