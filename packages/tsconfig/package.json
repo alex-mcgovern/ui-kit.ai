@@ -3,6 +3,9 @@
     "version": "1.0.0",
     "private": true,
     "files": [
-      "*.json"
-    ]
-  }
+        "*.json"
+    ],
+    "peerDependencies": {
+        "@types/node": "^22.13.10"
+    }
+}

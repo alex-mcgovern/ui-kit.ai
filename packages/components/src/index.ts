@@ -30,7 +30,6 @@ export { FormComboBox } from "./components/form-combo-box";
 export { FormResetOnSubmit } from "./components/form-reset-on-submit";
 export { FormSelect } from "./components/form-select";
 export { FormSubmitButton } from "./components/form-submit-button";
-export { useKbd } from "./hooks/use-kbd";
 export { FormTextField } from "./components/form-text-field";
 export { Heading } from "./components/heading";
 export { Input } from "./components/input";
@@ -43,17 +42,31 @@ export { Popover, PopoverDialog } from "./components/popover";
 export { SearchField, SearchFieldClearButton } from "./components/search-field";
 export { Select, SelectButton } from "./components/select";
 export { Skeleton } from "./components/skeleton";
-export {TextField, TextFieldClearButton, TextFieldCopyButton, TextFieldVisibilityButton} from "./components/text-field";
 export {
-    Table,
     type GetRowOptionsFn,
+    Table,
     type TableCellRenderer,
     type TableColumnSchema,
     type TableRendererProps,
 } from "./components/table";
+export { Tab, TabList, TabPanel, Tabs } from "./components/tabs";
 export { Tag, TagButton, TagLink } from "./components/tag";
+export {
+    TextField,
+    TextFieldClearButton,
+    TextFieldCopyButton,
+    TextFieldVisibilityButton,
+} from "./components/text-field";
 export {
     Tooltip,
     TooltipInfoButton,
     TooltipTrigger,
 } from "./components/tooltip";
+export { useKbd } from "./hooks/use-kbd";
+export { default as tailwindPreset } from "./tailwind-preset";
+export type {
+    OptionsItemSchema,
+    OptionsSchema,
+    OptionsSectionSchema,
+    OptionType,
+} from "./types/options";

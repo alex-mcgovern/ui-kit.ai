@@ -5,38 +5,40 @@ import "./storybook.css";
 import { ArgTypes, Title } from "@storybook/blocks";
 import { DocsContainer as StorybookDocsContainer } from "@storybook/blocks";
 import { type Preview } from "@storybook/react";
-import {
-    QueryClient,
-    QueryClientProvider,
-} from "@tanstack/react-query";
-import {
-    initialize as initializeMsw,
-    mswLoader,
-} from "msw-storybook-addon";
-import React, { type ComponentProps } from "react";
-import {
-    type ScreenshotOptions,
-    withScreenshot,
-} from "storycap";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { initialize as initializeMsw, mswLoader } from "msw-storybook-addon";
+import React, { type ComponentProps, type HTMLProps } from "react";
+import { type ScreenshotOptions, withScreenshot } from "storycap";
 
-import { Heading } from "../src/components/heading";
+import { Heading } from "@ui-kit.ai/components";
 import { Description } from "./components/description";
 import { Primary } from "./components/primary";
 import { Stories } from "./components/stories";
 import { Usage } from "./components/usage";
-import theme from "./theme";
 
 const DocsContainer = (
     props: ComponentProps<typeof StorybookDocsContainer>,
 ) => (
     <MDXProvider
         components={{
-            h1: (props) => <Heading {...props} level={1} />,
-            h2: (props) => <Heading {...props} level={2} />,
-            h3: (props) => <Heading {...props} level={3} />,
-            h4: (props) => <Heading {...props} level={4} />,
-            h5: (props) => <Heading {...props} level={5} />,
-            h6: (props) => <Heading {...props} level={6} />,
+            h1: (props: HTMLProps<HTMLHeadingElement>) => (
+                <Heading {...props} level={1} />
+            ),
+            h2: (props: HTMLProps<HTMLHeadingElement>) => (
+                <Heading {...props} level={2} />
+            ),
+            h3: (props: HTMLProps<HTMLHeadingElement>) => (
+                <Heading {...props} level={3} />
+            ),
+            h4: (props: HTMLProps<HTMLHeadingElement>) => (
+                <Heading {...props} level={4} />
+            ),
+            h5: (props: HTMLProps<HTMLHeadingElement>) => (
+                <Heading {...props} level={5} />
+            ),
+            h6: (props: HTMLProps<HTMLHeadingElement>) => (
+                <Heading {...props} level={6} />
+            ),
         }}
     >
         <StorybookDocsContainer {...props} />
@@ -61,9 +63,7 @@ const preview: Preview = {
         withScreenshot,
         (Story) => {
             return (
-                <QueryClientProvider
-                    client={new QueryClient()}
-                >
+                <QueryClientProvider client={new QueryClient()}>
                     <Story />
                 </QueryClientProvider>
             );
@@ -105,7 +105,6 @@ const preview: Preview = {
                     <ArgTypes />
                 </>
             ),
-            theme,
             toc: {
                 headingSelector: "h2, h3",
             },

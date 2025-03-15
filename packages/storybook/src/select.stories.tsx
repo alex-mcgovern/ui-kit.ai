@@ -3,46 +3,37 @@ import type { ComponentProps, ComponentType } from "react";
 
 import React from "react";
 
-import type { OptionsSchema } from "../types/options";
+import type { OptionsSchema } from "@ui-kit.ai/components";
 
 import { Description } from "@ui-kit.ai/components";
 import { Label } from "@ui-kit.ai/components";
 import { Select, SelectButton } from "@ui-kit.ai/components";
-import { getMockOptions } from "../mocks/options";
+import { getMockOptions } from "@ui-kit.ai/mocks";
 
 function Template(
-    props: ComponentProps<
-        typeof Select<OptionsSchema<"listbox">>
-    >,
+    props: ComponentProps<typeof Select<OptionsSchema<"listbox">>>,
 ) {
     return (
         <Select {...props}>
             <Label>Label</Label>
             <SelectButton />
-            <Description>
-                This is a short description
-            </Description>
+            <Description>This is a short description</Description>
         </Select>
     );
 }
 
-const meta = {
+const meta: Meta<typeof Select<OptionsSchema<"listbox">>> = {
     args: {
         items: getMockOptions({ withIcon: true }),
     },
     component: Select,
-    decorators: [
-        (Story) => (
-            <div className="mx-auto w-96">{Story()}</div>
-        ),
-    ],
+    decorators: [(Story) => <div className="mx-auto w-96">{Story()}</div>],
     render: Template,
     subcomponents: {
-        SelectButton:
-            SelectButton as ComponentType<unknown>,
+        SelectButton: SelectButton as ComponentType<unknown>,
     },
     title: "Components/Select",
-} satisfies Meta<typeof Select<OptionsSchema<"listbox">>>;
+};
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -81,9 +72,7 @@ export const IsBorderless: Story = {
         <Select {...props}>
             <Label>Label</Label>
             <SelectButton />
-            <Description>
-                This is a short description
-            </Description>
+            <Description>This is a short description</Description>
         </Select>
     ),
 };

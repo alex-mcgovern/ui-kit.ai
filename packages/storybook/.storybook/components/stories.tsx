@@ -1,33 +1,19 @@
 import type { FC } from "react";
 
-import {
-    Description,
-    DocsContext,
-    Unstyled,
-} from "@storybook/blocks";
-import lodash from "lodash-es";
+import { Description, DocsContext, Unstyled } from "@storybook/blocks";
+import { groupBy } from "lodash-es";
 import React, { useContext } from "react";
 
-import { Heading } from "../../src/components/heading";
-import {
-    Tab,
-    TabList,
-    TabPanel,
-    Tabs,
-} from "../../src/components/tabs";
+import { Heading } from "@ui-kit.ai/components";
+import { Tab, TabList, TabPanel, Tabs } from "@ui-kit.ai/components";
 import { DocsStory } from "./docs-story";
 interface StoriesProps {
     includePrimary?: boolean;
 }
 
-export const Stories: FC<StoriesProps> = ({
-    includePrimary = true,
-}) => {
-    const {
-        componentStories,
-        getStoryContext,
-        projectAnnotations,
-    } = useContext(DocsContext);
+export const Stories: FC<StoriesProps> = ({ includePrimary = true }) => {
+    const { componentStories, getStoryContext, projectAnnotations } =
+        useContext(DocsContext);
 
     let stories = componentStories();
     const { stories: { filter } = { filter: undefined } } =
@@ -52,9 +38,7 @@ export const Stories: FC<StoriesProps> = ({
         // Don't show stories where mount is used in docs.
         // As the play function is not running in docs, and when mount is used, the mounting is happening in play itself.
         stories = stories.filter(
-            (story) =>
-                story.tags.includes("autodocs") &&
-                !story.usesMount,
+            (story) => story.tags.includes("autodocs") && !story.usesMount,
         );
     }
 
@@ -66,15 +50,10 @@ export const Stories: FC<StoriesProps> = ({
         return null;
     }
 
-    const groupedStories = lodash.groupBy(
-        stories,
-        (story) => {
-            const groupTag = story.tags.find((tag) =>
-                tag.startsWith("group-"),
-            );
-            return groupTag ?? story.id;
-        },
-    );
+    const groupedStories = groupBy(stories, (story) => {
+        const groupTag = story.tags.find((tag) => tag.startsWith("group-"));
+        return groupTag ?? story.id;
+    });
 
     const groups = Object.entries(groupedStories);
 
@@ -96,10 +75,7 @@ export const Stories: FC<StoriesProps> = ({
                         />
                     );
                 } else {
-                    const name = group[0].replace(
-                        "group-",
-                        "",
-                    );
+                    const name = group[0].replace("group-", "");
 
                     return (
                         <>
@@ -113,19 +89,11 @@ export const Stories: FC<StoriesProps> = ({
                             <Tabs>
                                 <Unstyled>
                                     <TabList>
-                                        {group[1].map(
-                                            (story) => (
-                                                <Tab
-                                                    id={
-                                                        story.id
-                                                    }
-                                                >
-                                                    {
-                                                        story.name
-                                                    }
-                                                </Tab>
-                                            ),
-                                        )}
+                                        {group[1].map((story) => (
+                                            <Tab id={story.id}>
+                                                {story.name}
+                                            </Tab>
+                                        ))}
                                     </TabList>
                                 </Unstyled>
 
@@ -135,15 +103,9 @@ export const Stories: FC<StoriesProps> = ({
                                             __forceInitialArgs
                                             expanded
                                             key={story.id}
-                                            of={
-                                                story.moduleExport
-                                            }
-                                            showDescription={
-                                                false
-                                            }
-                                            showTitle={
-                                                false
-                                            }
+                                            of={story.moduleExport}
+                                            showDescription={false}
+                                            showTitle={false}
                                         />
                                     </TabPanel>
                                 ))}

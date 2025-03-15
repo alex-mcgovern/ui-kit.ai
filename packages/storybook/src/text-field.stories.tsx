@@ -17,22 +17,17 @@ function Template(props: ComponentProps<typeof TextField>) {
         <TextField {...props}>
             <Label>Label</Label>
             <FieldGroup>
-                <Input
-                    isBorderless
-                    placeholder="This is a placeholder"
-                />
+                <Input isBorderless placeholder="This is a placeholder" />
                 <TextFieldClearButton />
                 <TextFieldVisibilityButton />
                 <TextFieldCopyButton />
             </FieldGroup>
-            <Description>
-                This is a short description
-            </Description>
+            <Description>This is a short description</Description>
         </TextField>
     );
 }
 
-const meta = {
+const meta: Meta<typeof TextField> = {
     component: TextField,
     decorators: [
         (Story) => (
@@ -43,7 +38,7 @@ const meta = {
     ],
     render: Template,
     title: "Components/TextField",
-} satisfies Meta<typeof TextField>;
+};
 
 export default meta;
 type Story = StoryObj<typeof meta>;

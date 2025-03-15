@@ -35,7 +35,7 @@ import { tv } from "tailwind-variants";
 import type { BoolOptsTuple } from "../types/boolean-prop-options";
 import type { OptionsSchema } from "../types/options";
 
-import { getRandomNumber } from "../lib/get-random-number";
+import { getRandomNumber } from "../../../utils/src/get-random-number";
 import { focusRing } from "../styles/focus-ring";
 import { evalBoolOptsTuple } from "../types/boolean-prop-options";
 import { Button } from "./button";

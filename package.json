@@ -6,22 +6,26 @@
     "private": true,
     "type": "module",
     "engines": {
-      "node": "22.x"
+        "node": "22.x"
     },
     "homepage": "https://github.com/alex-mcgovern/ui-kit.ai#readme",
     "main": "commitlint.config.js",
     "packageManager": "pnpm@10.6.3",
     "devDependencies": {
         "@ui-kit.ai/prettier": "workspace:*",
+        "sherif": "^1.1.1",
         "turbo": "^2.4.4"
     },
     "scripts": {
         "build": "turbo build",
+        "check": "turbo check",
         "check:eslint": "turbo check:eslint",
         "check:prettier": "turbo check:prettier",
         "check:tsc": "turbo check:tsc",
         "check:vitest": "turbo check:vitest",
-        "storybook": "turbo storybook"
+        "fix": "turbo fix",
+        "storybook": "turbo storybook",
+        "sherif": "sherif"
     },
     "repository": {
         "type": "git",

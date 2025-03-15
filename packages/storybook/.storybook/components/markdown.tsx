@@ -7,11 +7,9 @@ import {
 } from "@storybook/blocks";
 import React from "react";
 
-import { Heading } from "../../src/components/heading";
+import { Heading } from "@ui-kit.ai/components";
 
-export const Markdown = (
-    props: ComponentProps<typeof SbMarkdown>,
-) => {
+export const Markdown = (props: ComponentProps<typeof SbMarkdown>) => {
     return (
         <>
             <SbMarkdown
@@ -21,24 +19,12 @@ export const Markdown = (
                     overrides: {
                         a: AnchorMdx,
                         code: CodeOrSourceMdx,
-                        h1: (props) => (
-                            <Heading {...props} level={1} />
-                        ),
-                        h2: (props) => (
-                            <Heading {...props} level={2} />
-                        ),
-                        h3: (props) => (
-                            <Heading {...props} level={3} />
-                        ),
-                        h4: (props) => (
-                            <Heading {...props} level={4} />
-                        ),
-                        h5: (props) => (
-                            <Heading {...props} level={5} />
-                        ),
-                        h6: (props) => (
-                            <Heading {...props} level={6} />
-                        ),
+                        h1: (props) => <Heading {...props} level={1} />,
+                        h2: (props) => <Heading {...props} level={2} />,
+                        h3: (props) => <Heading {...props} level={3} />,
+                        h4: (props) => <Heading {...props} level={4} />,
+                        h5: (props) => <Heading {...props} level={5} />,
+                        h6: (props) => <Heading {...props} level={6} />,
                         ...props.options?.overrides,
                     },
                     ...props.options,

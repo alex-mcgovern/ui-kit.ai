@@ -22,7 +22,7 @@ function Template(args: ComponentProps<typeof Alert>) {
     );
 }
 
-const meta = {
+const meta: Meta<typeof Alert> = {
     args: {
         title: "Account verification required",
     },
@@ -36,7 +36,7 @@ const meta = {
     ],
     render: Template,
     title: "Components/Alert",
-} satisfies Meta<typeof Alert>;
+};
 
 export default meta;
 type Story = StoryObj<typeof meta>;

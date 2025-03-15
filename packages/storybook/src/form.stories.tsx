@@ -24,7 +24,7 @@ import { Input } from "@ui-kit.ai/components";
 import { Label } from "@ui-kit.ai/components";
 import { SelectButton } from "@ui-kit.ai/components";
 import { TextFieldClearButton } from "@ui-kit.ai/components";
-import { getMockOptions } from "../mocks/options";
+import { getMockOptions } from "@ui-kit.ai/mocks";
 
 const communicationPreferencesSchema = z.enum([
     "account_updates",
@@ -33,9 +33,7 @@ const communicationPreferencesSchema = z.enum([
 ]);
 
 const schema = z.object({
-    communication_preference: z.array(
-        communicationPreferencesSchema,
-    ),
+    communication_preference: z.array(communicationPreferencesSchema),
     country_of_birth: z.string().nonempty(),
     country_of_residence: z.string().nonempty(),
     email: z.string().email().nonempty(),
@@ -56,12 +54,9 @@ type FieldValues = z.infer<typeof schema>;
 const FIELD_NAME = schema.keyof().Enum;
 // const IMMIGRATION_STATUS =
 //     schema.shape.immigration_status.Enum;
-const COMMUNICATION_PREFERENCE =
-    communicationPreferencesSchema.Enum;
+const COMMUNICATION_PREFERENCE = communicationPreferencesSchema.Enum;
 
-function Template(
-    props: ComponentProps<typeof Form<FieldValues>>,
-) {
+function Template(props: ComponentProps<typeof Form<FieldValues>>) {
     return (
         <Form<FieldValues> {...props}>
             <FormTextField
@@ -96,9 +91,7 @@ function Template(
                 items={getMockOptions()}
                 name={FIELD_NAME.country_of_residence}
             >
-                <Label>
-                    Country of residence (ComboBox)
-                </Label>
+                <Label>Country of residence (ComboBox)</Label>
                 <ComboBoxFieldGroup>
                     <ComboBoxInput
                         icon={<GlobeIcon />}
@@ -112,9 +105,7 @@ function Template(
 
             <FormCheckboxGroup
                 className="mb-4"
-                defaultValue={[
-                    COMMUNICATION_PREFERENCE.account_updates,
-                ]}
+                defaultValue={[COMMUNICATION_PREFERENCE.account_updates]}
                 name={FIELD_NAME.communication_preference}
             >
                 <Label>Communication preferences</Label>
@@ -136,8 +127,8 @@ function Template(
                     value="promotions"
                 />
                 <Description>
-                    Your preferences can be updated at any
-                    time in your account settings.
+                    Your preferences can be updated at any time in your account
+                    settings.
                 </Description>
             </FormCheckboxGroup>
 
@@ -149,17 +140,11 @@ function Template(
 const meta = {
     args: {
         onError: (errors) => {
-            alert(
-                `Errors:\n\n${JSON.stringify(errors, null, 4)}`,
-            );
+            alert(`Errors:\n\n${JSON.stringify(errors, null, 4)}`);
         },
         onSubmit: async (data) => {
-            await new Promise((resolve) =>
-                setTimeout(resolve, 1_000),
-            );
-            alert(
-                `Submitted:\n\n${JSON.stringify(data, null, 4)}`,
-            );
+            await new Promise((resolve) => setTimeout(resolve, 1_000));
+            alert(`Submitted:\n\n${JSON.stringify(data, null, 4)}`);
         },
         options: {
             resolver: zodResolver(schema),

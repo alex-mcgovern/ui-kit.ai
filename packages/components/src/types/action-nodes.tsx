@@ -40,11 +40,11 @@ export function renderActionNodes({
             {actions.map((action) => {
                 if (isValidElement(action)) {
                     return cloneElement(action, {
-                        // @ts-expect-error
+                        // @ts-expect-error - TODO: Fix action props types
                         ...action.props,
                         ...props,
                         className: twMerge(
-                            // @ts-expect-error
+                            // @ts-expect-error - TODO: Fix action props types
                             action.props.className,
                             props.className,
                         ),

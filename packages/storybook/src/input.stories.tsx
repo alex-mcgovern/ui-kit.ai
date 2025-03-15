@@ -5,7 +5,7 @@ import React from "react";
 
 import { Input } from "@ui-kit.ai/components";
 
-const meta = {
+const meta: Meta<typeof Input> = {
     args: {
         placeholder: "This is a placeholder",
     },
@@ -18,7 +18,7 @@ const meta = {
         ),
     ],
     title: "Components/Input",
-} satisfies Meta<typeof Input>;
+};
 
 export default meta;
 type Story = StoryObj<typeof meta>;

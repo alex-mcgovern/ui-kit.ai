@@ -5,19 +5,15 @@ import { Input } from "@ui-kit.ai/components";
 import { Kbd } from "@ui-kit.ai/components";
 import { Select, SelectButton } from "@ui-kit.ai/components";
 import { TextField } from "@ui-kit.ai/components";
-import { getMockOptions } from "../mocks/options";
+import { getMockOptions } from "@ui-kit.ai/mocks";
 
-const meta = {
+const meta: Meta<typeof FieldGroup> = {
     args: {},
     component: FieldGroup,
-    decorators: [
-        (Story) => (
-            <div className="mx-auto w-96">{Story()}</div>
-        ),
-    ],
+    decorators: [(Story) => <div className="mx-auto w-96">{Story()}</div>],
     parameters: { actions: "disable" },
     title: "Components/FieldGroup",
-} satisfies Meta<typeof FieldGroup>;
+};
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -46,12 +42,7 @@ export const Primary: Story = {
                     })}
                     name="country"
                 >
-                    {(rp) => (
-                        <SelectButton
-                            {...rp}
-                            isBorderless
-                        />
-                    )}
+                    {(rp) => <SelectButton {...rp} isBorderless />}
                 </Select>
 
                 <TextField aria-label="City">

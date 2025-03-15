@@ -2,10 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import type { ComponentProps } from "react";
 import type { SortDirection } from "react-aria-components";
 
-import {
-    keepPreviousData,
-    useQuery,
-} from "@tanstack/react-query";
+import { keepPreviousData, useQuery } from "@tanstack/react-query";
 import {
     ArrowDownRight,
     ArrowUpRight,
@@ -14,12 +11,7 @@ import {
     Search,
     SearchXIcon,
 } from "lucide-react";
-import {
-    useCallback,
-    useMemo,
-    useRef,
-    useState,
-} from "react";
+import { useCallback, useMemo, useRef, useState } from "react";
 import { twMerge } from "tailwind-merge";
 
 import type {
@@ -30,7 +22,7 @@ import type {
     GetStockWatchlistItemsData,
     ListStockWatchlistItemsResponse,
     StockWatchlistItem,
-} from "../mocks/api/stocks";
+} from "@ui-kit.ai/mocks";
 
 import { Button } from "@ui-kit.ai/components";
 import {
@@ -48,13 +40,10 @@ import { Input } from "@ui-kit.ai/components";
 import { Kbd } from "@ui-kit.ai/components";
 import { Menu, MenuTrigger } from "@ui-kit.ai/components";
 import { Popover } from "@ui-kit.ai/components";
-import {
-    SearchField,
-    SearchFieldClearButton,
-} from "@ui-kit.ai/components";
+import { SearchField, SearchFieldClearButton } from "@ui-kit.ai/components";
 import { Table } from "@ui-kit.ai/components";
-import { useKbd } from "../hooks/use-kbd";
-import { getStocksHandler } from "../mocks/api/stocks";
+import { useKbd } from "@ui-kit.ai/components";
+import { getStocksHandler } from "@ui-kit.ai/mocks";
 
 const COLUMNS: TableColumnSchema<StockWatchlistItem>[] = [
     {
@@ -73,8 +62,7 @@ const COLUMNS: TableColumnSchema<StockWatchlistItem>[] = [
     {
         alignment: "end",
         allowsSorting: true,
-        className:
-            "border-l border-l-muted-200 tabular-nums",
+        className: "border-l border-l-muted-200 tabular-nums",
         id: "price_high",
         maxWidth: 100,
         minWidth: 100,
@@ -92,8 +80,7 @@ const COLUMNS: TableColumnSchema<StockWatchlistItem>[] = [
     {
         alignment: "end",
         allowsSorting: true,
-        className:
-            "border-r border-r-muted-200 tabular-nums",
+        className: "border-r border-r-muted-200 tabular-nums",
         id: "price_close",
         maxWidth: 100,
         minWidth: 100,
@@ -109,34 +96,28 @@ const COLUMNS: TableColumnSchema<StockWatchlistItem>[] = [
     },
 ];
 
-const CellRenderer: TableCellRenderer<
-    StockWatchlistItem
-> = ({ column, row }) => {
+const CellRenderer: TableCellRenderer<StockWatchlistItem> = ({
+    column,
+    row,
+}) => {
     switch (column.id) {
         case "id":
         case "name":
             return row[column.id];
         case "percent_change": {
-            const formatted = new Intl.NumberFormat(
-                "en-US",
-                {
-                    minimumFractionDigits: 2,
-                    signDisplay: "always",
-                },
-            ).format(row[column.id]);
+            const formatted = new Intl.NumberFormat("en-US", {
+                minimumFractionDigits: 2,
+                signDisplay: "always",
+            }).format(row[column.id]);
 
             const isPositive = row[column.id] > 0;
-            const Icon = isPositive
-                ? ArrowUpRight
-                : ArrowDownRight;
+            const Icon = isPositive ? ArrowUpRight : ArrowDownRight;
 
             return (
                 <div
                     className={twMerge(
                         "flex items-center justify-end gap-1",
-                        isPositive
-                            ? "text-green-600"
-                            : "text-red-600",
+                        isPositive ? "text-green-600" : "text-red-600",
                     )}
                 >
                     <Icon className="size-4" />
@@ -214,39 +195,25 @@ const sortItems = (
     b: StockWatchlistItem,
     column: keyof StockWatchlistItem,
 ) => {
-    if (
-        typeof a[column] === "string" &&
-        typeof b[column] === "string"
-    ) {
-        return a[column]
-            .toString()
-            .localeCompare(b[column].toString());
+    if (typeof a[column] === "string" && typeof b[column] === "string") {
+        return a[column].toString().localeCompare(b[column].toString());
     }
-    if (
-        typeof a[column] === "number" &&
-        typeof b[column] === "number"
-    ) {
+    if (typeof a[column] === "number" && typeof b[column] === "number") {
         return a[column] - b[column];
     }
 
     return 0;
 };
 
-const useGetStocklistWatchItems = (
-    options: GetStockWatchlistItemsData,
-) => {
+const useGetStocklistWatchItems = (options: GetStockWatchlistItemsData) => {
     return useQuery({
         placeholderData: keepPreviousData,
         queryFn: async (): Promise<
             ListStockWatchlistItemsResponse | undefined
         > => {
-            const searchParams = new URLSearchParams(
-                options,
-            );
+            const searchParams = new URLSearchParams(options);
 
-            const resp = await fetch(
-                `/stocks?${searchParams.toString()}`,
-            );
+            const resp = await fetch(`/stocks?${searchParams.toString()}`);
             if (!resp.ok) {
                 throw new Error("Failed to fetch stocks");
             }
@@ -260,9 +227,7 @@ const useGetStocklistWatchItems = (
     });
 };
 
-const useSortedItems = (
-    rows: StockWatchlistItem[] = [],
-) => {
+const useSortedItems = (rows: StockWatchlistItem[] = []) => {
     const [sortDescriptor, setSortDescriptor] = useState<{
         column: keyof StockWatchlistItem;
         direction: SortDirection;
@@ -274,18 +239,12 @@ const useSortedItems = (
     const sortedItems = useMemo(() => {
         const sorted = rows
             .slice() // copy the array
-            .sort((a, b) =>
-                sortItems(a, b, sortDescriptor.column),
-            );
+            .sort((a, b) => sortItems(a, b, sortDescriptor.column));
         if (sortDescriptor.direction === "descending") {
             sorted.reverse();
         }
         return sorted;
-    }, [
-        rows,
-        sortDescriptor.column,
-        sortDescriptor.direction,
-    ]);
+    }, [rows, sortDescriptor.column, sortDescriptor.direction]);
 
     return {
         setSortDescriptor,
@@ -353,11 +312,7 @@ function SearchFieldWatchlist({
     useKbd([["/", () => ref.current?.focus()]]);
 
     return (
-        <SearchField
-            className="max-w-64"
-            onChange={setSearch}
-            value={search}
-        >
+        <SearchField className="max-w-64" onChange={setSearch} value={search}>
             <FieldGroup>
                 <Input
                     icon={<Search />}
@@ -384,11 +339,10 @@ function Template({
         setPage(0);
     };
 
-    const { data, isLoading, isPlaceholderData } =
-        useGetStocklistWatchItems({
-            page: page.toString(),
-            search,
-        });
+    const { data, isLoading, isPlaceholderData } = useGetStocklistWatchItems({
+        page: page.toString(),
+        search,
+    });
 
     const {
         setSortDescriptor,
@@ -403,10 +357,7 @@ function Template({
         return (
             <EmptyState
                 actions={[
-                    <Button
-                        key="clear-search"
-                        onPress={() => setSearch("")}
-                    >
+                    <Button key="clear-search" onPress={() => setSearch("")}>
                         Clear search
                     </Button>,
                 ]}
@@ -420,10 +371,7 @@ function Template({
     return (
         <section className="w-full bg-base px-6 py-4">
             <div className="mb-4 flex items-center gap-2">
-                <SearchFieldWatchlist
-                    search={search}
-                    setSearch={setSearch}
-                />
+                <SearchFieldWatchlist search={search} setSearch={setSearch} />
                 <MenuTrigger>
                     <Button isIcon variant="secondary">
                         <FilterIcon />
@@ -450,12 +398,7 @@ function Template({
                 rows={sortedItems}
                 showLoadingOverlayUI={isPlaceholderData}
                 showSkeleton={
-                    isLoading
-                        ? [
-                              isLoading,
-                              { skeletonRowCount: 10 },
-                          ]
-                        : false
+                    isLoading ? [isLoading, { skeletonRowCount: 10 }] : false
                 }
                 sortDescriptor={sortDescriptor}
             />
@@ -463,18 +406,13 @@ function Template({
             <div className="ml-auto mt-4 flex items-center justify-center gap-2">
                 {Array.from({
                     length: Math.ceil(
-                        (data?.meta.total ?? 0) /
-                            (data?.meta.perPage ?? 0),
+                        (data?.meta.total ?? 0) / (data?.meta.perPage ?? 0),
                     ),
                 }).map((_, i) => (
                     <Button
                         isIcon
                         onPress={() => setPage(i)}
-                        variant={
-                            i === page
-                                ? "primary"
-                                : "secondary"
-                        }
+                        variant={i === page ? "primary" : "secondary"}
                     >
                         {i + 1}
                     </Button>

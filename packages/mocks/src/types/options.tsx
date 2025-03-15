@@ -1,6 +1,6 @@
-import { GlobeIcon } from "lucide-react";
+import type { OptionsSchema } from "@ui-kit.ai/components";
 
-import type { OptionsSchema } from "../types/options";
+import { GlobeIcon } from "lucide-react";
 
 type Options = {
     withIcon?: boolean;

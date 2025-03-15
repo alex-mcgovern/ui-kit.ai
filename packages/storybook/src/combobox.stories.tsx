@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { SearchIcon } from "lucide-react";
 import React, { type ComponentProps } from "react";
 
-import type { OptionsSchema } from "../types/options";
+import type { OptionsSchema } from "@ui-kit.ai/components";
 
 import {
     ComboBox,
@@ -14,12 +14,10 @@ import {
 } from "@ui-kit.ai/components";
 import { Description } from "@ui-kit.ai/components";
 import { Label } from "@ui-kit.ai/components";
-import { getMockOptions } from "../mocks/options";
+import { getMockOptions } from "@ui-kit.ai/mocks";
 
 function Template(
-    props: ComponentProps<
-        typeof ComboBox<OptionsSchema<"listbox">>
-    >,
+    props: ComponentProps<typeof ComboBox<OptionsSchema<"listbox">>>,
 ) {
     return (
         <ComboBox {...props}>
@@ -33,22 +31,16 @@ function Template(
                 <ComboBoxClearButton />
                 <ComboBoxButton />
             </ComboBoxFieldGroup>
-            <Description>
-                This is a short description
-            </Description>
+            <Description>This is a short description</Description>
         </ComboBox>
     );
 }
 
-const meta = {
+const meta: Meta<typeof ComboBox<OptionsSchema<"listbox">>> = {
     component: ComboBox,
-    decorators: [
-        (Story) => (
-            <div className="mx-auto w-96">{Story()}</div>
-        ),
-    ],
+    decorators: [(Story) => <div className="mx-auto w-96">{Story()}</div>],
     title: "Components/ComboBox",
-} satisfies Meta<typeof ComboBox<OptionsSchema<"listbox">>>;
+};
 
 export default meta;
 type Story = StoryObj<typeof meta>;

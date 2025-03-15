@@ -1,7 +1,6 @@
+import { getRandomNumber } from "@ui-kit.ai/utils";
 import { delay, http, HttpResponse } from "msw";
 import { z } from "zod";
-
-import { getRandomNumber } from "../../storybook/src/lib/get-random-number";
 
 export type ListStockWatchlistItemsResponse = {
     items: {
@@ -177,60 +176,40 @@ const DATA = [
 ] as const satisfies StockWatchlistItem[];
 
 const searchParamsSchema = z.object({
-    page: z
-        .string()
-        .pipe(z.coerce.number())
-        .optional()
-        .default("0"),
+    page: z.string().pipe(z.coerce.number()).optional().default("0"),
     search: z.string().optional(),
 });
 
-export type GetStockWatchlistItemsData = z.input<
-    typeof searchParamsSchema
->;
+export type GetStockWatchlistItemsData = z.input<typeof searchParamsSchema>;
 
-export const getStocksHandler = http.get(
-    "/stocks",
-    async ({ request }) => {
-        await delay(getRandomNumber(300, 1200));
+export const getStocksHandler = http.get("/stocks", async ({ request }) => {
+    await delay(getRandomNumber(300, 1200));
 
-        const url = new URL(request.url);
+    const url = new URL(request.url);
 
-        const { page, search } = await searchParamsSchema
-            .parseAsync(
-                Object.fromEntries(
-                    url.searchParams.entries(),
-                ),
-            )
-            .catch(() => {
-                throw new Error("Invalid search params");
-            });
-
-        let items: StockWatchlistItem[] = [...DATA];
-
-        if (search != null && search !== "") {
-            items = items.filter((i) =>
-                Object.values(i).some(
-                    (e: number | string) =>
-                        e
-                            .toString()
-                            .toLowerCase()
-                            .includes(search.toLowerCase()),
-                ),
-            );
-        }
-
-        const itemsInPage = items.slice(
-            page * PAGE_SIZE,
-            (page + 1) * PAGE_SIZE,
-        );
-
-        return HttpResponse.json({
-            items: itemsInPage,
-            meta: {
-                perPage: PAGE_SIZE,
-                total: items.length,
-            },
+    const { page, search } = await searchParamsSchema
+        .parseAsync(Object.fromEntries(url.searchParams.entries()))
+        .catch(() => {
+            throw new Error("Invalid search params");
         });
-    },
-);
+
+    let items: StockWatchlistItem[] = [...DATA];
+
+    if (search != null && search !== "") {
+        items = items.filter((i) =>
+            Object.values(i).some((e: number | string) =>
+                e.toString().toLowerCase().includes(search.toLowerCase()),
+            ),
+        );
+    }
+
+    const itemsInPage = items.slice(page * PAGE_SIZE, (page + 1) * PAGE_SIZE);
+
+    return HttpResponse.json({
+        items: itemsInPage,
+        meta: {
+            perPage: PAGE_SIZE,
+            total: items.length,
+        },
+    });
+});

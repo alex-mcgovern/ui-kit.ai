@@ -8,23 +8,14 @@ import {
 } from "@storybook/blocks";
 import React from "react";
 
-import { Heading } from "../../src/components/heading";
+import { Heading } from "@ui-kit.ai/components";
 import { Canvas } from "./canvas";
 
 const removeEmptyEventHandlers = (code: string): string => {
     const withoutEmptyHandlers = code
         .split("\n")
-        .filter(
-            (line) =>
-                !line
-                    .trim()
-                    .match(
-                        /^on\w+={\(\) => \{\}}\s*,?\s*$/,
-                    ),
-        )
-        .map((line) =>
-            line.replace(/\s*on\w+={}\s*,?\s*/g, ""),
-        )
+        .filter((line) => !line.trim().match(/^on\w+={\(\) => \{\}}\s*,?\s*$/))
+        .map((line) => line.replace(/\s*on\w+={}\s*,?\s*/g, ""))
         .join("\n");
 
     const hasNeedlessFragment =
@@ -57,12 +48,8 @@ export const DocsStory: FC<
 
     return (
         <Anchor storyId={story.id}>
-            {showTitle ? (
-                <Heading level={3}>{story.name}</Heading>
-            ) : null}
-            {showDescription ? (
-                <Description of={of} />
-            ) : null}
+            {showTitle ? <Heading level={3}>{story.name}</Heading> : null}
+            {showDescription ? <Description of={of} /> : null}
             <Canvas
                 of={of}
                 source={{

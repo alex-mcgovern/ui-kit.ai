@@ -1,16 +1,11 @@
 import type { FC } from "react";
 
-import {
-    Markdown,
-    type Of,
-    Unstyled,
-    useOf,
-} from "@storybook/blocks";
+import { Markdown, type Of, Unstyled, useOf } from "@storybook/blocks";
 import { ExternalLinkIcon } from "lucide-react";
 import React from "react";
 import { twMerge } from "tailwind-merge";
 
-import { TagLink } from "../../src/components/tag";
+import { TagLink } from "@ui-kit.ai/components";
 export enum DescriptionType {
     AUTO = "auto",
     DOCGEN = "docgen",
@@ -37,39 +32,28 @@ const getDescriptionFromResolvedOf = (
             } = resolvedOf;
             return (
                 // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
-                parameters?.docs?.extractComponentDescription?.(
+                parameters?.docs?.extractComponentDescription?.(component, {
                     component,
-                    {
-                        component,
-                        parameters,
-                    },
-                ) || null
+                    parameters,
+                }) || null
             );
         }
         case "meta": {
-            const { component, parameters } =
-                resolvedOf.preparedMeta;
-            const metaDescription =
-                parameters.docs?.description?.component;
+            const { component, parameters } = resolvedOf.preparedMeta;
+            const metaDescription = parameters.docs?.description?.component;
             if (metaDescription != null) {
                 return metaDescription;
             }
             return (
                 // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
-                parameters.docs?.extractComponentDescription?.(
+                parameters.docs?.extractComponentDescription?.(component, {
                     component,
-                    {
-                        component,
-                        parameters,
-                    },
-                ) || null
+                    parameters,
+                }) || null
             );
         }
         case "story": {
-            return (
-                resolvedOf.story.parameters.docs
-                    ?.description?.story ?? null
-            );
+            return resolvedOf.story.parameters.docs?.description?.story ?? null;
         }
         default: {
             throw new Error(
@@ -79,9 +63,7 @@ const getDescriptionFromResolvedOf = (
     }
 };
 
-const DescriptionContainer: FC<DescriptionProps> = (
-    props,
-) => {
+const DescriptionContainer: FC<DescriptionProps> = (props) => {
     const { of } = props;
 
     if ("of" in props && of === undefined) {
@@ -111,9 +93,7 @@ const DescriptionContainer: FC<DescriptionProps> = (
                                 <TagLink
                                     {...props}
                                     className="mr-1"
-                                    slotRight={
-                                        <ExternalLinkIcon />
-                                    }
+                                    slotRight={<ExternalLinkIcon />}
                                     target="_blank"
                                 />
                             </Unstyled>

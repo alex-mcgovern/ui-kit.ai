@@ -1,10 +1,10 @@
-import { prettierConfig } from "@ui-kit.ai/prettier";
+import { prettierTailwind } from "@ui-kit.ai/prettier/tailwind";
 
 /**
  * @type {import("prettier").Config}
  */
 const config = {
-    ...prettierConfig,
+    ...prettierTailwind,
     tailwindConfig: "./tailwind.config.ts",
 };
 

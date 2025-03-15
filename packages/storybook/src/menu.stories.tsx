@@ -4,21 +4,17 @@ import type { ComponentProps } from "react";
 import { Menu as IconMenu } from "lucide-react";
 import React from "react";
 
-import type { OptionsSchema } from "../types/options";
+import type { OptionsSchema } from "@ui-kit.ai/components";
 
 import { Button } from "@ui-kit.ai/components";
 import { Menu, MenuTrigger } from "@ui-kit.ai/components";
 import { Popover } from "@ui-kit.ai/components";
-import { getMockOptions } from "../mocks/options";
+import { getMockOptions } from "@ui-kit.ai/mocks";
 
 function Template(args: ComponentProps<typeof Menu>) {
     return (
         <MenuTrigger>
-            <Button
-                className="px-2"
-                isIcon
-                variant="secondary"
-            >
+            <Button className="px-2" isIcon variant="secondary">
                 <IconMenu />
             </Button>
             <Popover>
