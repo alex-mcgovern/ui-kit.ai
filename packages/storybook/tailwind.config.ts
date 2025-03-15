@@ -1,8 +1,12 @@
 import type { Config } from "tailwindcss";
 
-import preset from "@ui-kit.ai/components";
+import { tailwindPreset } from "@ui-kit.ai/components";
 
 export default {
-    content: ["./src/**/*", "./.storybook/**/*"],
-    presets: [preset],
+    content: [
+        "node_modules/@ui-kit.ai/components/dist/**/*",
+        "./src/**/*",
+        "./.storybook/**/*",
+    ],
+    presets: [tailwindPreset],
 } satisfies Config;

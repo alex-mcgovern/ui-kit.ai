@@ -1,8 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import type { ComponentProps } from "react";
 
-import { Alert } from "@ui-kit.ai/components";
-import { Button } from "@ui-kit.ai/components";
+import { Alert, Button } from "@ui-kit.ai/components";
 
 function Template(args: ComponentProps<typeof Alert>) {
     return (

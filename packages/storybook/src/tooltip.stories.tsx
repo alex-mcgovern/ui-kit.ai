@@ -3,24 +3,17 @@ import type { ComponentProps } from "react";
 
 import React from "react";
 
-import { Button } from "@ui-kit.ai/components";
-import { Kbd } from "@ui-kit.ai/components";
 import {
     Tooltip,
     TooltipInfoButton,
     TooltipTrigger,
+    Button,
+    Kbd,
 } from "@ui-kit.ai/components";
 
-type Placement = ComponentProps<
-    typeof Tooltip
->["placement"];
+type Placement = ComponentProps<typeof Tooltip>["placement"];
 
-const PLACEMENTS = [
-    "bottom",
-    "top",
-    "left",
-    "right",
-] satisfies Placement[];
+const PLACEMENTS = ["bottom", "top", "left", "right"] satisfies Placement[];
 
 function Template(args: ComponentProps<typeof Tooltip>) {
     return (

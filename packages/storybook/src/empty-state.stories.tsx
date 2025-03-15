@@ -3,8 +3,7 @@ import type { ComponentProps } from "react";
 
 import { SearchXIcon } from "lucide-react";
 
-import { Button } from "@ui-kit.ai/components";
-import { EmptyState } from "@ui-kit.ai/components";
+import { EmptyState, Button } from "@ui-kit.ai/components";
 
 function Template(args: ComponentProps<typeof EmptyState>) {
     return (

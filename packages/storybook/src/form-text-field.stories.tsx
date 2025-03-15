@@ -5,14 +5,14 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { AtSignIcon, KeyIcon, UserIcon } from "lucide-react";
 import { z } from "zod";
 
-import { Description } from "@ui-kit.ai/components";
-import { FieldGroup } from "@ui-kit.ai/components";
-import { Form } from "@ui-kit.ai/components";
-import { FormSubmitButton } from "@ui-kit.ai/components";
-import { FormTextField } from "@ui-kit.ai/components";
-import { Input } from "@ui-kit.ai/components";
-import { Label } from "@ui-kit.ai/components";
 import {
+    Description,
+    FieldGroup,
+    Form,
+    FormSubmitButton,
+    FormTextField,
+    Input,
+    Label,
     TextFieldClearButton,
     TextFieldVisibilityButton,
 } from "@ui-kit.ai/components";

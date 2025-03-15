@@ -3,17 +3,17 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { SearchIcon } from "lucide-react";
 import React, { type ComponentProps } from "react";
 
-import type { OptionsSchema } from "@ui-kit.ai/components";
-
 import {
     ComboBox,
     ComboBoxButton,
     ComboBoxClearButton,
     ComboBoxFieldGroup,
     ComboBoxInput,
+    Description,
+    Label,
+    type OptionsSchema,
 } from "@ui-kit.ai/components";
-import { Description } from "@ui-kit.ai/components";
-import { Label } from "@ui-kit.ai/components";
+
 import { getMockOptions } from "@ui-kit.ai/mocks";
 
 function Template(

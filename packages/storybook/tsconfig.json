@@ -4,7 +4,7 @@
         ".storybook/**/*",
         "src/**/*",
         "tailwind.config.ts",
-        "vite.config.ts"
+        "vite.config.js"
     ],
     "exclude": ["node_modules", ".storybook/theme.ts"]
 }

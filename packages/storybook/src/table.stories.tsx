@@ -14,18 +14,10 @@ import {
 import { useCallback, useMemo, useRef, useState } from "react";
 import { twMerge } from "tailwind-merge";
 
-import type {
-    TableCellRenderer,
-    TableColumnSchema,
-} from "@ui-kit.ai/components";
-import type {
-    GetStockWatchlistItemsData,
-    ListStockWatchlistItemsResponse,
-    StockWatchlistItem,
-} from "@ui-kit.ai/mocks";
-
-import { Button } from "@ui-kit.ai/components";
 import {
+    type TableCellRenderer,
+    type TableColumnSchema,
+    EmptyState,
     Dialog,
     DialogCloseButton,
     DialogContent,
@@ -33,17 +25,24 @@ import {
     DialogHeader,
     DialogTitle,
     DialogTrigger,
+    FieldGroup,
+    Input,
+    Kbd,
+    Menu,
+    MenuTrigger,
+    Popover,
+    Table,
+    useKbd,
+    SearchField,
+    SearchFieldClearButton,
+    Button,
 } from "@ui-kit.ai/components";
-import { EmptyState } from "@ui-kit.ai/components";
-import { FieldGroup } from "@ui-kit.ai/components";
-import { Input } from "@ui-kit.ai/components";
-import { Kbd } from "@ui-kit.ai/components";
-import { Menu, MenuTrigger } from "@ui-kit.ai/components";
-import { Popover } from "@ui-kit.ai/components";
-import { SearchField, SearchFieldClearButton } from "@ui-kit.ai/components";
-import { Table } from "@ui-kit.ai/components";
-import { useKbd } from "@ui-kit.ai/components";
-import { getStocksHandler } from "@ui-kit.ai/mocks";
+import {
+    getStocksHandler,
+    type GetStockWatchlistItemsData,
+    type ListStockWatchlistItemsResponse,
+    type StockWatchlistItem,
+} from "@ui-kit.ai/mocks";
 
 const COLUMNS: TableColumnSchema<StockWatchlistItem>[] = [
     {

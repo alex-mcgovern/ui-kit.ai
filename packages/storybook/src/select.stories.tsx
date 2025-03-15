@@ -3,11 +3,13 @@ import type { ComponentProps, ComponentType } from "react";
 
 import React from "react";
 
-import type { OptionsSchema } from "@ui-kit.ai/components";
-
-import { Description } from "@ui-kit.ai/components";
-import { Label } from "@ui-kit.ai/components";
-import { Select, SelectButton } from "@ui-kit.ai/components";
+import {
+    Description,
+    type OptionsSchema,
+    Select,
+    SelectButton,
+    Label,
+} from "@ui-kit.ai/components";
 import { getMockOptions } from "@ui-kit.ai/mocks";
 
 function Template(

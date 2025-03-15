@@ -1,10 +1,13 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { FieldGroup } from "@ui-kit.ai/components";
-import { Input } from "@ui-kit.ai/components";
-import { Kbd } from "@ui-kit.ai/components";
-import { Select, SelectButton } from "@ui-kit.ai/components";
-import { TextField } from "@ui-kit.ai/components";
+import {
+    Select,
+    SelectButton,
+    FieldGroup,
+    Input,
+    Kbd,
+    TextField,
+} from "@ui-kit.ai/components";
 import { getMockOptions } from "@ui-kit.ai/mocks";
 
 const meta: Meta<typeof FieldGroup> = {

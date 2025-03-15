@@ -11,19 +11,19 @@ import {
     ComboBoxClearButton,
     ComboBoxFieldGroup,
     ComboBoxInput,
+    Description,
+    FieldGroup,
+    Form,
+    FormCheckboxGroup,
+    FormComboBox,
+    FormSelect,
+    FormSubmitButton,
+    FormTextField,
+    Input,
+    Label,
+    SelectButton,
+    TextFieldClearButton,
 } from "@ui-kit.ai/components";
-import { Description } from "@ui-kit.ai/components";
-import { FieldGroup } from "@ui-kit.ai/components";
-import { Form } from "@ui-kit.ai/components";
-import { FormCheckboxGroup } from "@ui-kit.ai/components";
-import { FormComboBox } from "@ui-kit.ai/components";
-import { FormSelect } from "@ui-kit.ai/components";
-import { FormSubmitButton } from "@ui-kit.ai/components";
-import { FormTextField } from "@ui-kit.ai/components";
-import { Input } from "@ui-kit.ai/components";
-import { Label } from "@ui-kit.ai/components";
-import { SelectButton } from "@ui-kit.ai/components";
-import { TextFieldClearButton } from "@ui-kit.ai/components";
 import { getMockOptions } from "@ui-kit.ai/mocks";
 
 const communicationPreferencesSchema = z.enum([

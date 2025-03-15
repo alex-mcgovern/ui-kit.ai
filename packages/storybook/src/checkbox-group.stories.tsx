@@ -2,19 +2,16 @@ import type { Meta, StoryObj } from "@storybook/react";
 
 import React, { type ComponentProps } from "react";
 
-import { Checkbox } from "@ui-kit.ai/components";
-import { CheckboxGroup } from "@ui-kit.ai/components";
-import { Description } from "@ui-kit.ai/components";
-import { Label } from "@ui-kit.ai/components";
+import {
+    Label,
+    Checkbox,
+    CheckboxGroup,
+    Description,
+} from "@ui-kit.ai/components";
 
-function Template(
-    args: ComponentProps<typeof CheckboxGroup>,
-) {
+function Template(args: ComponentProps<typeof CheckboxGroup>) {
     return (
-        <CheckboxGroup
-            defaultValue={["account-updates"]}
-            {...args}
-        >
+        <CheckboxGroup defaultValue={["account-updates"]} {...args}>
             <Label>This is a label for the field</Label>
             <Checkbox
                 description="Optional description"

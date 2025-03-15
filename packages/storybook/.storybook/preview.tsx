@@ -1,10 +1,9 @@
 import { MDXProvider } from "@mdx-js/react";
-
 import "./storybook.css";
 
 import { ArgTypes, Title } from "@storybook/blocks";
 import { DocsContainer as StorybookDocsContainer } from "@storybook/blocks";
-import { type Preview } from "@storybook/react";
+import type { Preview } from "@storybook/react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { initialize as initializeMsw, mswLoader } from "msw-storybook-addon";
 import React, { type ComponentProps, type HTMLProps } from "react";
@@ -15,6 +14,8 @@ import { Description } from "./components/description";
 import { Primary } from "./components/primary";
 import { Stories } from "./components/stories";
 import { Usage } from "./components/usage";
+
+import "@ui-kit.ai/components/style.css";
 
 const DocsContainer = (
     props: ComponentProps<typeof StorybookDocsContainer>,

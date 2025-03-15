@@ -1,11 +1,12 @@
 import type { Meta, StoryObj } from "@storybook/react";
+
 import type { ComponentProps } from "react";
 
-import { Description } from "@ui-kit.ai/components";
-import { FieldGroup } from "@ui-kit.ai/components";
-import { Input } from "@ui-kit.ai/components";
-import { Label } from "@ui-kit.ai/components";
 import {
+    Description,
+    FieldGroup,
+    Input,
+    Label,
     TextField,
     TextFieldClearButton,
     TextFieldCopyButton,
@@ -41,20 +42,24 @@ const meta: Meta<typeof TextField> = {
 };
 
 export default meta;
+
 type Story = StoryObj<typeof meta>;
 
-export const primary: Story = {};
-export const isDisabled: Story = {
+export const Primary: Story = {};
+
+export const IsDisabled: Story = {
     args: {
         isDisabled: true,
     },
 };
-export const isInvalid: Story = {
+
+export const IsInvalid: Story = {
     args: {
         isInvalid: true,
     },
 };
-export const isReadOnly: Story = {
+
+export const IsReadOnly: Story = {
     args: {
         isReadOnly: true,
     },

@@ -3,8 +3,8 @@ import type { ComponentProps, ComponentType } from "react";
 
 import { faker } from "@faker-js/faker";
 
-import { Button } from "@ui-kit.ai/components";
 import {
+    Button,
     Dialog,
     DialogCloseButton,
     DialogContent,
@@ -23,9 +23,7 @@ function Template(props: ComponentProps<typeof Dialog>) {
                     return (
                         <>
                             <DialogHeader>
-                                <DialogTitle>
-                                    Hello there
-                                </DialogTitle>
+                                <DialogTitle>Hello there</DialogTitle>
                                 <DialogCloseButton />
                             </DialogHeader>
 
@@ -69,10 +67,7 @@ const LongContent = () => (
         </p>
         {Array.from({ length: 10 }, () => {
             return (
-                <p
-                    className="mb-2"
-                    key={faker.string.alphanumeric(4)}
-                >
+                <p className="mb-2" key={faker.string.alphanumeric(4)}>
                     {faker.lorem.paragraphs(1)}
                 </p>
             );
@@ -85,17 +80,12 @@ const meta: Meta<typeof Dialog> = {
     render: Template,
     // Storybook's typescript is a bit sh*t, hence the type-casting
     subcomponents: {
-        DialogCloseButton:
-            DialogCloseButton as ComponentType<unknown>,
-        DialogContent:
-            DialogContent as ComponentType<unknown>,
-        DialogFooter:
-            DialogFooter as ComponentType<unknown>,
-        DialogHeader:
-            DialogHeader as ComponentType<unknown>,
+        DialogCloseButton: DialogCloseButton as ComponentType<unknown>,
+        DialogContent: DialogContent as ComponentType<unknown>,
+        DialogFooter: DialogFooter as ComponentType<unknown>,
+        DialogHeader: DialogHeader as ComponentType<unknown>,
         DialogTitle: DialogTitle as ComponentType<unknown>,
-        DialogTrigger:
-            DialogTrigger as ComponentType<unknown>,
+        DialogTrigger: DialogTrigger as ComponentType<unknown>,
     },
     title: "Components/Dialog",
 };
@@ -109,9 +99,7 @@ export const Primary: Story = {
             return (
                 <>
                     <DialogHeader>
-                        <DialogTitle>
-                            Hello there
-                        </DialogTitle>
+                        <DialogTitle>Hello there</DialogTitle>
                         <DialogCloseButton />
                     </DialogHeader>
 
@@ -149,9 +137,7 @@ export const WidthMd: Story = {
             return (
                 <>
                     <DialogHeader>
-                        <DialogTitle>
-                            Hello there
-                        </DialogTitle>
+                        <DialogTitle>Hello there</DialogTitle>
                         <DialogCloseButton />
                     </DialogHeader>
 
@@ -190,9 +176,7 @@ export const WidthLg: Story = {
             return (
                 <>
                     <DialogHeader>
-                        <DialogTitle>
-                            Hello there
-                        </DialogTitle>
+                        <DialogTitle>Hello there</DialogTitle>
                         <DialogCloseButton />
                     </DialogHeader>
 

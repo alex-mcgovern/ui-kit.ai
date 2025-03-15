@@ -1,17 +1,15 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import type { ComponentProps } from "react";
 
-import { Button } from "@ui-kit.ai/components";
-import { DialogTrigger } from "@ui-kit.ai/components";
-import { Heading } from "@ui-kit.ai/components";
 import {
     Popover,
     PopoverDialog,
+    Button,
+    DialogTrigger,
+    Heading,
 } from "@ui-kit.ai/components";
 
-type Placement = ComponentProps<
-    typeof Popover
->["placement"];
+type Placement = ComponentProps<typeof Popover>["placement"];
 
 const PLACEMENTS = [
     "bottom",
@@ -28,9 +26,7 @@ const PLACEMENTS = [
     "right bottom",
 ] satisfies Placement[];
 
-function PlacementTemplate(
-    args: ComponentProps<typeof Popover>,
-) {
+function PlacementTemplate(args: ComponentProps<typeof Popover>) {
     return PLACEMENTS.map((placement) => (
         <DialogTrigger>
             <Button>{placement}</Button>
@@ -52,16 +48,11 @@ const meta = {
     args: {
         children: (
             <PopoverDialog>
-                <Heading
-                    className="mb-2 text-base"
-                    level={3}
-                    slot="title"
-                >
+                <Heading className="mb-2 text-base" level={3} slot="title">
                     Help
                 </Heading>
                 <p className="text-sm">
-                    For help accessing your account, please
-                    contact support.
+                    For help accessing your account, please contact support.
                 </p>
             </PopoverDialog>
         ),

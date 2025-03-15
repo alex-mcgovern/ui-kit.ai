@@ -1,8 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import type { OptionsSchema } from "@ui-kit.ai/components";
-
-import { ListBox } from "@ui-kit.ai/components";
+import { ListBox, type OptionsSchema } from "@ui-kit.ai/components";
 import { getMockOptions } from "@ui-kit.ai/mocks";
 
 const meta = {
