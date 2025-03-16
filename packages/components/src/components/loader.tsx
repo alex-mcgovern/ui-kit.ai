@@ -9,3 +9,4 @@ import { twMerge } from "tailwind-merge";
 export function Loader({ className, ...rest }: SVGProps<SVGSVGElement>) {
     return <Loader2 {...rest} className={twMerge("animate-spin", className)} />;
 }
+Loader.displayName = "Loader";

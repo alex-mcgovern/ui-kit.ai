@@ -33,3 +33,4 @@ export function Label(props: LabelProps) {
         />
     );
 }
+Label.displayName = "Label";

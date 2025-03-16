@@ -43,3 +43,4 @@ export function FormSubmitButton({
         </Button>
     );
 }
+FormSubmitButton.displayName = "FormSubmitButton";

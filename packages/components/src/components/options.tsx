@@ -65,6 +65,7 @@ export function OptionRenderer<
 
     return null;
 }
+OptionRenderer.displayName = "OptionRenderer";
 
 function isItem<TType extends OptionType>(
     props: OptionsSchema<TType>,
@@ -131,6 +132,7 @@ function OptionsItem<TType extends OptionType>({
         </Component>
     );
 }
+OptionsItem.displayName = "OptionsItem";
 
 function OptionsSection<TType extends OptionType>({
     type,
@@ -150,6 +152,7 @@ function OptionsSection<TType extends OptionType>({
         </Component>
     );
 }
+OptionsSection.displayName = "OptionsSection";
 
 function OptionsSectionHeader(props: HeadingProps) {
     return (
@@ -159,3 +162,4 @@ function OptionsSectionHeader(props: HeadingProps) {
         />
     );
 }
+OptionsSectionHeader.displayName = "OptionsSectionHeader";

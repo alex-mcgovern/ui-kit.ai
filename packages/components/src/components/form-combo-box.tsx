@@ -58,3 +58,4 @@ export function FormComboBox<
         </ComboBox>
     );
 }
+FormComboBox.displayName = "FormComboBox";

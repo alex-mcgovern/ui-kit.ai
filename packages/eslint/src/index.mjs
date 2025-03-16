@@ -9,6 +9,7 @@ import perfectionist from "eslint-plugin-perfectionist";
 import sonarjsPlugin from "eslint-plugin-sonarjs";
 // @ts-expect-error - no .dts
 import tailwindPlugin from "eslint-plugin-tailwindcss";
+import react from "eslint-plugin-react";
 import globals from "globals";
 import { join } from "path";
 
@@ -33,6 +34,9 @@ export default function getEslintConfig(rootDir) {
         ),
         eslintConfigPrettier,
         {
+            plugins: {
+                react,
+            },
             settings: {
                 // "import/resolver": {
                 //     node: true,
@@ -43,8 +47,6 @@ export default function getEslintConfig(rootDir) {
                     config: join(rootDir, "./tailwind.config.ts"),
                 },
             },
-        },
-        {
             languageOptions: {
                 globals: {
                     ...globals.browser,

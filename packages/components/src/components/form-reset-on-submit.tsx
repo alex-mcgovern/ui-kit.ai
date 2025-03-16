@@ -21,3 +21,4 @@ export function FormResetOnSubmit() {
 
     return null;
 }
+FormResetOnSubmit.displayName = "FormResetOnSubmit";

@@ -18,3 +18,4 @@ export function Autocomplete(props: AriaAutocompleteProps) {
 
     return <AriaAutocomplete {...props} filter={props.filter ?? filter} />;
 }
+Autocomplete.displayName = "Autocomplete";

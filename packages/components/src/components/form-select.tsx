@@ -64,3 +64,4 @@ export function FormSelect<
         </Select>
     );
 }
+FormSelect.displayName = "FormSelect";

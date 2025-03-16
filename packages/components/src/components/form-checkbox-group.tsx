@@ -63,3 +63,4 @@ export function FormCheckboxGroup({
         </CheckboxGroup>
     );
 }
+FormCheckboxGroup.displayName = "FormCheckboxGroup";

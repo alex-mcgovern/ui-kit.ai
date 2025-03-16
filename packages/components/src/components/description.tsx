@@ -34,3 +34,4 @@ export function Description(props: LabelProps) {
         />
     );
 }
+Description.displayName = "Description";

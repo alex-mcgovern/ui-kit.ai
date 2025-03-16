@@ -182,6 +182,7 @@ export function Tag({
         </div>
     );
 }
+Tag.displayName = "Tag";
 
 /**
  * A TagButton is a button used to display short snippets of
@@ -244,6 +245,7 @@ export function TagButton({
         </RACButton>
     );
 }
+TagButton.displayName = "TagButton";
 
 /**
  * A TagLink is a link used to display short snippets of
@@ -306,3 +308,4 @@ export const TagLink = ({
         </RACLink>
     );
 };
+TagLink.displayName = "TagLink";

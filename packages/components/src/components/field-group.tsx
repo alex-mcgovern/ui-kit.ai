@@ -41,3 +41,4 @@ export function FieldGroup({
         />
     );
 }
+FieldGroup.displayName = "FieldGroup";

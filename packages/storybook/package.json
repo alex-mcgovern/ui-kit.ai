@@ -6,8 +6,8 @@
         "type": "git",
         "url": "https://github.com/alex-mcgovern/ui-kit.ai"
     },
-    "author": "Alex McGovern",
     "license": "MIT",
+    "author": "Alex McGovern",
     "type": "module",
     "main": "dist/index.js",
     "source": "src/index.ts",

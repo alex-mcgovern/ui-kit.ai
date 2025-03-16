@@ -337,6 +337,7 @@ export function Table<TRow extends BaseRow = BaseRow>({
         </ResizableTableContainer>
     );
 }
+Table.displayName = "Table";
 
 function Cell({
     alignment,
@@ -373,6 +374,7 @@ function Cell({
         </AriaCell>
     );
 }
+Cell.displayName = "Cell";
 
 function Column({
     alignment,
@@ -416,6 +418,7 @@ function Column({
         </AriaColumn>
     );
 }
+Column.displayName = "Column";
 
 function ColumnSortControl({
     sortDirection,
@@ -441,6 +444,7 @@ function ColumnSortControl({
         </span>
     );
 }
+ColumnSortControl.displayName = "ColumnSortControl";
 
 function DefaultCellRenderer<TRow extends BaseRow>({
     column,
@@ -470,6 +474,7 @@ function ResizableTableContainer(props: ResizableTableContainerProps) {
         ></AriaTableContainer>
     );
 }
+ResizableTableContainer.displayName = "ResizableTableContainer";
 
 function Row<T extends BaseRow, TColumn extends TableColumnSchema<T>>({
     children,
@@ -524,6 +529,7 @@ function Row<T extends BaseRow, TColumn extends TableColumnSchema<T>>({
         </AriaRow>
     );
 }
+Row.displayName = "Row";
 
 function TableBase({ className, isCompact, ...props }: TableProps) {
     return (
@@ -539,10 +545,12 @@ function TableBase({ className, isCompact, ...props }: TableProps) {
         />
     );
 }
+TableBase.displayName = "TableBase";
 
 function TableBody<T extends object>(props: TableBodyProps<T>) {
     return <RACTableBody<T> {...props} />;
 }
+TableBody.displayName = "TableBody";
 
 function TableHeader<TColumn extends object, TRow extends BaseRow>({
     getRowOptions,
@@ -593,6 +601,7 @@ function TableHeader<TColumn extends object, TRow extends BaseRow>({
         </AriaTableHeader>
     );
 }
+TableHeader.displayName = "TableHeader";
 
 function TableLoadingOverlay({ showOverlay }: { showOverlay: boolean }) {
     return (
@@ -610,6 +619,7 @@ function TableLoadingOverlay({ showOverlay }: { showOverlay: boolean }) {
         </div>
     );
 }
+TableLoadingOverlay.displayName = "TableLoadingOverlay";
 
 function useSkeleton(
     _showSkeleton: BoolOptsTuple<{ skeletonRowCount?: number }> | undefined,

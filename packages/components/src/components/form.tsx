@@ -62,3 +62,4 @@ export function Form<TFieldValues extends FieldValues = FieldValues>({
         </FormProvider>
     );
 }
+Form.displayName = "Form";

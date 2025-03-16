@@ -28,3 +28,4 @@ export function Kbd(props: HTMLProps<HTMLDivElement>) {
         </div>
     );
 }
+Kbd.displayName = "Kbd";

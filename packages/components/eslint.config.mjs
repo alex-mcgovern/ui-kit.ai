@@ -11,6 +11,14 @@ const config = [
             "vite.config.mjs.timestamp-*.mjs",
         ],
     },
+    {
+        rules: {
+            "react/display-name": [
+                "error",
+                { checkContextObjects: true, ignoreTranspilerName: true },
+            ],
+        },
+    },
 ];
 
 export default config;

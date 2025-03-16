@@ -2,8 +2,8 @@ import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { z } from "zod";
 
-import AvailableComponents from "./data/available-components.json";
-import ComponentUsage from "./data/component-usage.json";
+import AvailableComponents from "../data/available-components.json";
+import ComponentUsage from "../data/component-usage.json";
 
 const server = new McpServer({
     name: "ui-kit.ai component library assistant",

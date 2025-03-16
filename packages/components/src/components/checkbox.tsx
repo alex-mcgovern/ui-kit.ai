@@ -178,6 +178,7 @@ export function Checkbox({
         </AriaCheckbox>
     );
 }
+Checkbox.displayName = "Checkbox";
 
 function CheckboxLabel({
     description,
@@ -200,3 +201,4 @@ function CheckboxLabel({
         </div>
     );
 }
+CheckboxLabel.displayName = "CheckboxLabel";

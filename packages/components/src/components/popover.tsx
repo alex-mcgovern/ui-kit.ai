@@ -108,6 +108,7 @@ export function Popover({
         </AriaPopover>
     );
 }
+Popover.displayName = "Popover";
 
 export function PopoverDialog(props: RACDialogProps) {
     return (
@@ -117,3 +118,4 @@ export function PopoverDialog(props: RACDialogProps) {
         />
     );
 }
+PopoverDialog.displayName = "PopoverDialog";

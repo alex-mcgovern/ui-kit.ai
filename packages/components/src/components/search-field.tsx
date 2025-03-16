@@ -31,6 +31,7 @@ export function SearchField({
         </RACSearchField>
     );
 }
+SearchField.displayName = "SearchField";
 
 /**
  * A `FieldButton` to clear the text field.
@@ -57,3 +58,4 @@ export function SearchFieldClearButton(
         </TooltipTrigger>
     );
 }
+SearchFieldClearButton.displayName = "SearchFieldClearButton";

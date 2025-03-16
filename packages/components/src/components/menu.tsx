@@ -33,6 +33,7 @@ export function Menu<T extends OptionsSchema<"menu">>(
         </RACMenu>
     );
 }
+Menu.displayName = "Menu";
 
 /**
  * A <MenuDecorativeSection> defines a section within a
@@ -44,6 +45,7 @@ export function Menu<T extends OptionsSchema<"menu">>(
 export function MenuDecorativeSection(props: { children: ReactNode }) {
     return <div className="p-1" {...props} />;
 }
+MenuDecorativeSection.displayName = "MenuDecorativeSection";
 
 /**
  * A `Trigger` component, for use with a `Menu` component.
@@ -53,3 +55,4 @@ export function MenuDecorativeSection(props: { children: ReactNode }) {
 export function MenuTrigger(props: AriaMenuTriggerProps) {
     return <RACMenuTrigger {...props} />;
 }
+MenuTrigger.displayName = "MenuTrigger";

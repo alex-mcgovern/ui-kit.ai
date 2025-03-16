@@ -1,8 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import type {
-    TableCellRenderer,
-    TableColumnSchema,
-} from "@ui-kit.ai/components";
+import type { TableColumnSchema } from "@ui-kit.ai/components";
 import type {
     GetStockWatchlistItemsData,
     ListStockWatchlistItemsResponse,
@@ -96,10 +93,13 @@ const COLUMNS: TableColumnSchema<StockWatchlistItem>[] = [
     },
 ];
 
-const CellRenderer: TableCellRenderer<StockWatchlistItem> = ({
+function CellRenderer({
     column,
     row,
-}) => {
+}: {
+    column: TableColumnSchema<StockWatchlistItem>;
+    row: StockWatchlistItem;
+}) {
     switch (column.id) {
         case "id":
         case "name":
@@ -134,7 +134,7 @@ const CellRenderer: TableCellRenderer<StockWatchlistItem> = ({
         default:
             return column.id satisfies never;
     }
-};
+}
 
 const meta = {
     args: {

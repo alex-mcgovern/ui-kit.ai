@@ -45,6 +45,7 @@ export function ComboBoxButton(
         </FieldButton>
     );
 }
+ComboBoxButton.displayName = "ComboBoxButton";
 
 /**
  * A button that clears the selected key from the ComboBox. Only visible when
@@ -85,6 +86,7 @@ export function ComboBoxClearButton(
         </FieldButton>
     );
 }
+ComboBoxClearButton.displayName = "ComboBoxClearButton";
 
 /**
  * A group that holds a ComboBoxInput and the related button controls.
@@ -96,6 +98,7 @@ export function ComboBoxFieldGroup(props: ComponentProps<typeof FieldGroup>) {
     if (!ref) throw Error("ComboBoxFieldGroup must be used within a ComboBox");
     return <FieldGroup {...props} ref={ref} />;
 }
+ComboBoxFieldGroup.displayName = "ComboBoxFieldGroup";
 
 /**
  * An input that is used to interact with a ComboBox. Is customized to
@@ -127,9 +130,11 @@ export const ComboBoxInput = ({
         />
     );
 };
+ComboBoxInput.displayName = "ComboBoxInput";
 
 const ComboBoxRefContext =
     createContext<null | RefObject<HTMLDivElement | null>>(null);
+ComboBoxRefContext.displayName = "ComboBoxRefContext";
 
 /**
  * A combo box combines a text input with a listbox, allowing users to filter a
@@ -222,6 +227,7 @@ export function ComboBox<
         </ComboBoxRefContext.Provider>
     );
 }
+ComboBox.displayName = "ComboBox";
 
 /**
  * React Aria components provides a `trigger-width` CSS variable that can be used to

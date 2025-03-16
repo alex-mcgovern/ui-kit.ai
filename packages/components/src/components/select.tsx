@@ -99,6 +99,7 @@ export function Select<
         </AriaSelect>
     );
 }
+Select.displayName = "Select";
 
 /**
  * A SelectButton triggers the Popover for a Select. It usually contains the
@@ -155,3 +156,4 @@ export function SelectButton({
         </AriaButton>
     );
 }
+SelectButton.displayName = "SelectButton";

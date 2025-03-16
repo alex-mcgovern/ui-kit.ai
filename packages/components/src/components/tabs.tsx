@@ -48,6 +48,7 @@ export function Tabs(props: TabsProps) {
         />
     );
 }
+Tabs.displayName = "Tabs";
 
 const tabListStyles = tv({
     base: "no-scrollbar relative flex max-w-full",
@@ -80,6 +81,7 @@ export function TabList<T extends object>(props: TabListProps<T>) {
         />
     );
 }
+TabList.displayName = "TabList";
 
 const tabStyles = tv({
     base: [
@@ -125,6 +127,7 @@ export function Tab(props: TabProps) {
         />
     );
 }
+Tab.displayName = "Tab";
 
 /**
  * A TabPanel contains the content for a single tab.
@@ -147,3 +150,4 @@ export function TabPanel(props: TabPanelProps) {
         />
     );
 }
+TabPanel.displayName = "TabPanel";

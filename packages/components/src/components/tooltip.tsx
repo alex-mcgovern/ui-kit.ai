@@ -110,6 +110,7 @@ export function Tooltip({ children, ...props }: TooltipProps) {
         </RACTooltip>
     );
 }
+Tooltip.displayName = "Tooltip";
 
 /**
  * A button with an info icon that triggers a tooltip.
@@ -139,6 +140,7 @@ export function TooltipInfoButton({
         </Button>
     );
 }
+TooltipInfoButton.displayName = "TooltipInfoButton";
 
 /**
  * A wrapper around an element that can receive focus that controls the tooltip.
@@ -149,3 +151,4 @@ export function TooltipTrigger({
 }: RACTooltipTriggerProps) {
     return <RACTooltipTrigger {...props} delay={delay} />;
 }
+TooltipTrigger.displayName = "TooltipTrigger";

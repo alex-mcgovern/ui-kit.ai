@@ -42,3 +42,4 @@ export function ListBox<
         </AriaListBox>
     );
 }
+ListBox.displayName = "ListBox";

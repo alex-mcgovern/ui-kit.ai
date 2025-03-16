@@ -54,3 +54,4 @@ export const CheckboxGroup = ({
         </AriaCheckboxGroup>
     );
 };
+CheckboxGroup.displayName = "CheckboxGroup";

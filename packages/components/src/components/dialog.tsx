@@ -134,6 +134,7 @@ export function Dialog({
         </DialogModalOverlay>
     );
 }
+Dialog.displayName = "Dialog";
 
 /**
  * A button to close the dialog.
@@ -172,6 +173,7 @@ export function DialogCloseButton(
         </Button>
     );
 }
+DialogCloseButton.displayName = "DialogCloseButton";
 
 /**
  * Wrapper to render scrollable content within the dialog.
@@ -191,6 +193,7 @@ export function DialogContent({ ref, ...props }: HTMLProps<HTMLDivElement>) {
         />
     );
 }
+DialogContent.displayName = "DialogContent";
 
 /**
  * Wrapper to pin content to the bottom of the dialog.
@@ -211,6 +214,7 @@ export function DialogFooter({ children, ...props }: HTMLProps<HTMLElement>) {
         </footer>
     );
 }
+DialogFooter.displayName = "DialogFooter";
 
 /**
  * Wrapper to render the dialog header.
@@ -229,6 +233,7 @@ export function DialogHeader(props: HTMLProps<HTMLElement>) {
         />
     );
 }
+DialogHeader.displayName = "DialogHeader";
 
 /**
  * Wraps a {@link Heading} component and adds the `title` slot which accessibly labels
@@ -253,6 +258,7 @@ export function DialogTitle({
         </Heading>
     );
 }
+DialogTitle.displayName = "DialogTitle";
 
 /**
  * A DialogTrigger opens a dialog when a trigger element is pressed.
@@ -260,6 +266,7 @@ export function DialogTitle({
 export function DialogTrigger(props: RACDialogTriggerProps) {
     return <RACDialogTrigger {...props} />;
 }
+DialogTrigger.displayName = "DialogTrigger";
 
 function DialogModal({ isDismissable = true, ...props }: RACModalOverlayProps) {
     return (
@@ -270,6 +277,7 @@ function DialogModal({ isDismissable = true, ...props }: RACModalOverlayProps) {
         />
     );
 }
+DialogModal.displayName = "DialogModal";
 
 function DialogModalOverlay({
     isDismissable = true,
@@ -283,3 +291,4 @@ function DialogModalOverlay({
         />
     );
 }
+DialogModalOverlay.displayName = "DialogModalOverlay";

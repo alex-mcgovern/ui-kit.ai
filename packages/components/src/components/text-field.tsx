@@ -104,6 +104,7 @@ export function TextField({
         </FieldButtonContext.Provider>
     );
 }
+TextField.displayName = "TextField";
 
 /**
  * A `FieldButton` to clear the text field.
@@ -123,6 +124,7 @@ export function TextFieldClearButton(
         </TooltipTrigger>
     );
 }
+TextFieldClearButton.displayName = "TextFieldClearButton";
 
 /**
  * A `FieldButton` to copy the text field value to the clipboard.
@@ -140,6 +142,7 @@ export function TextFieldCopyButton(props: ComponentProps<typeof FieldButton>) {
         </TooltipTrigger>
     );
 }
+TextFieldCopyButton.displayName = "TextFieldCopyButton";
 
 /**
  * A `FieldButton` to toggle the visibility of the text field value.
@@ -163,3 +166,4 @@ export function TextFieldVisibilityButton(
         </TooltipTrigger>
     );
 }
+TextFieldVisibilityButton.displayName = "TextFieldVisibilityButton";

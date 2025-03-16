@@ -2,7 +2,13 @@
     "$schema": "https://turbo.build/schema.json",
     "tasks": {
         "@ui-kit.ai/components#build": {
-            "outputLogs": "new-only"
+            "outputLogs": "new-only",
+            "dependsOn": [
+                "@ui-kit.ai/components#check:eslint",
+                "@ui-kit.ai/components#check:prettier",
+                "@ui-kit.ai/components#check:tsc",
+                "@ui-kit.ai/components#check:vitest"
+            ]
         },
         "@ui-kit.ai/storybook#check:eslint": {
             "dependsOn": ["@ui-kit.ai/components#build"],

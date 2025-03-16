@@ -52,3 +52,4 @@ export function Heading({
         />
     );
 }
+Heading.displayName = "Heading";

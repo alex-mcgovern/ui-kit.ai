@@ -239,6 +239,7 @@ const ButtonLoadingState = ({
     ) : (
         children
     );
+ButtonLoadingState.displayName = "ButtonLoadingState";
 
 type LinkButtonProps = ButtonCommonProps &
     RACLinkProps & {
@@ -311,6 +312,7 @@ export function Button({
         </RACButton>
     );
 }
+Button.displayName = "Button";
 
 export const LinkButton = ({
     isDestructive,
@@ -339,3 +341,4 @@ export const LinkButton = ({
         />
     );
 };
+LinkButton.displayName = "LinkButton";
