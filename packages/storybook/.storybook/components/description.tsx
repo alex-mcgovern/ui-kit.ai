@@ -5,12 +5,6 @@ import { TagLink } from "@ui-kit.ai/components";
 import { ExternalLinkIcon } from "lucide-react";
 import React from "react";
 import { twMerge } from "tailwind-merge";
-export enum DescriptionType {
-    AUTO = "auto",
-    DOCGEN = "docgen",
-    INFO = "info",
-    NOTES = "notes",
-}
 
 interface DescriptionProps {
     /**

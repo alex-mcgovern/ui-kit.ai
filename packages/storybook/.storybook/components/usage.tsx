@@ -5,13 +5,6 @@ import React from "react";
 
 import { Markdown } from "./markdown";
 
-export enum DescriptionType {
-    AUTO = "auto",
-    DOCGEN = "docgen",
-    INFO = "info",
-    NOTES = "notes",
-}
-
 interface DescriptionProps {
     /**
      * Specify where to get the description from. Can be a component, a CSF file or a story. If not

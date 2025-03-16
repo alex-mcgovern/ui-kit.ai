@@ -3,40 +3,19 @@ import type { KnipConfig } from "knip";
 const config: KnipConfig = {
     ignore: [".prettierrc.mjs"],
     workspaces: {
-        "packages/components": {
-            entry: ["src/index.ts"],
-            includeEntryExports: true,
-            project: ["**/*"],
+        ".": {
+            entry: "scripts/*.{js,cjs,mjs,jsx,ts,cts,mts,tsx}",
+            project: "scripts/**/*.{js,cjs,mjs,jsx,ts,cts,mts,tsx}",
         },
-        "packages/eslint": {
-            entry: ["src/index.ts"],
-            includeEntryExports: true,
-            project: ["**/*"],
-        },
-        "packages/mocks": {
-            entry: ["src/index.ts"],
-            includeEntryExports: true,
-            project: ["**/*"],
-        },
-        "packages/prettier": {
-            entry: ["src/index.ts"],
-            includeEntryExports: true,
-            project: ["**/*"],
-        },
-        "packages/storybook": {
-            entry: ["src/index.ts"],
-            includeEntryExports: true,
-            project: ["**/*"],
-        },
-        "packages/utils": {
-            entry: ["src/index.ts"],
-            includeEntryExports: true,
-            project: ["**/*"],
-        },
-        "packages/vite": {
-            entry: ["src/index.ts"],
-            includeEntryExports: true,
-            project: ["**/*"],
+        "packages/*": {
+            entry: [
+                ".prettierrc.{js,cjs,mjs,ts}",
+                "eslint.config.{js,cjs,mjs,ts}",
+                "src/index.{js,cjs,mjs,jsx,ts,cts,mts,tsx}",
+                "vite.config.{js,cjs,mjs,ts}",
+                "vitest.config.{js,cjs,mjs,ts}",
+            ],
+            project: "**/*.{js,cjs,mjs,jsx,ts,cts,mts,tsx}",
         },
     },
 };

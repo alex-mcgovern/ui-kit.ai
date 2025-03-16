@@ -3,7 +3,6 @@
     "include": [
         ".prettierrc.mjs",
         "eslint.config.mjs",
-        "knip.ts",
         "src/**/*",
         "tailwind.config.ts",
         "vite.config.mjs",

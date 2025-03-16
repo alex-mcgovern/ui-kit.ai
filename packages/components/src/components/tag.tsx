@@ -10,7 +10,7 @@ import { tv } from "tailwind-variants";
 import { focusRing } from "../styles/focus-ring";
 import { renderSlot, Slot, type SlotNode } from "../types/slotted-node";
 
-export type TagProps = {
+type TagProps = {
     /**
      * Whether the tag is a Button.
      */
