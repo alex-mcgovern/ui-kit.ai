@@ -13,8 +13,8 @@ type ListBoxProps<
 /**
  * A listbox displays a list of options and allows a user to select one or more of them.
  *
- * [source code](https://github.com/alex-mcgovern/ui-kit.ai/tree/main/src/components/listbox)
- * [react-aria](https://react-spectrum.adobe.com/react-aria/ListBox.html)
+ * [source code](https://github.com/alex-mcgovern/ui-kit.ai/tree/main/packages/components/src/listbox)
+ * [react-aria](https://react-spectrum.adobe.com/react-aria/ListBox)
  *
  * ## Usage
  *

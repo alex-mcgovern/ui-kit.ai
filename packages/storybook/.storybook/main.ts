@@ -35,10 +35,7 @@ const config: StorybookConfig = {
         options: {},
     },
 
-    stories: [
-        "../src/**/*.stories.tsx",
-        "../src/**/*.mdx",
-    ],
+    stories: ["../src/**/*.stories.tsx", "../src/**/*.mdx"],
     typescript: {
         reactDocgen: "react-docgen-typescript",
         reactDocgenTypescriptOptions: {
@@ -60,10 +57,7 @@ const config: StorybookConfig = {
         return {
             ...config,
             plugins: [
-                ...(await withoutVitePlugins(
-                    config.plugins,
-                    ["vite:dts"],
-                )),
+                ...(await withoutVitePlugins(config.plugins, ["vite:dts"])),
             ],
         };
     },

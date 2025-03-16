@@ -8,7 +8,7 @@ import { FieldError } from "./field-error";
 /**
  * A `FormCheckboxGroup` connects a `CheckboxGroup` to a `Form` component using `react-hook-form`.
  *
- * [React Aria Documentation](https://react-spectrum.adobe.com/react-aria/CheckboxGroup.html)
+ * [React Aria Documentation](https://react-spectrum.adobe.com/react-aria/CheckboxGroup)
  */
 export function FormCheckboxGroup({
     children,

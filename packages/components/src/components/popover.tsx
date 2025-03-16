@@ -44,8 +44,8 @@ const popoverStyles = tv({
 /**
  * A popover is an overlay element positioned relative to a trigger.
  *
- * [source code](https://github.com/alex-mcgovern/ui-kit.ai/tree/main/src/components/popover)
- * [react-aria](https://react-spectrum.adobe.com/react-aria/Popover.html)
+ * [source code](https://github.com/alex-mcgovern/ui-kit.ai/tree/main/packages/components/src/popover)
+ * [react-aria](https://react-spectrum.adobe.com/react-aria/Popover)
  *
  * ## Usage
  *

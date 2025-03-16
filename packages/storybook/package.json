@@ -10,14 +10,16 @@
         "url": "https://github.com/alex-mcgovern/ui-kit.ai"
     },
     "source": "src/index.ts",
-    "types": "dist/types.d.ts",
+    "types": "dist/index.d.ts",
     "type": "module",
     "main": "dist/index.js",
     "scripts": {
         "check:eslint": "eslint .",
         "check:prettier": "prettier . --check",
         "check:tsc": "tsc",
-        "check:vitest": "vitest",
+        "check:vitest": "vitest run",
+        "fix:prettier": "prettier . --write",
+        "fix:eslint": "eslint . --fix",
         "storybook": "storybook dev -p 65534",
         "storybook:docs": "storybook dev --docs -p 65534",
         "storycap": "storycap --serverCmd \"storybook dev -p 65534\" http://localhost:65534 --include \"**/Primary\" --flat --outDir \"assets\""

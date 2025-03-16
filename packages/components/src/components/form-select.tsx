@@ -10,7 +10,7 @@ import { Select } from "./select";
 /**
  * A `FormSelect` connects a `Select` to a `Form` component using `react-hook-form`.
  *
- * [React Aria Documentation](https://react-spectrum.adobe.com/react-aria/Select.html)
+ * [React Aria Documentation](https://react-spectrum.adobe.com/react-aria/Select)
  */
 export function FormSelect<
     T extends OptionsSchema<"listbox"> = OptionsSchema<"listbox">,

@@ -27,6 +27,12 @@ const tabsStyles = tv({
     },
 });
 
+/**
+ * Tabs organize content into multiple sections and allow users to navigate between them.
+ *
+ * [source code](https://github.com/alex-mcgovern/ui-kit.ai/tree/main/packages/components/src/tabs)
+ * [react-aria](https://react-spectrum.adobe.com/react-aria/Tabs)
+ */
 export function Tabs(props: TabsProps) {
     return (
         <RACTabs
@@ -53,6 +59,12 @@ const tabListStyles = tv({
     },
 });
 
+/**
+ * A TabList renders a list of tabs that can be used to switch between panels.
+ *
+ * [source code](https://github.com/alex-mcgovern/ui-kit.ai/tree/main/packages/components/src/tabs)
+ * [react-aria](https://react-spectrum.adobe.com/react-aria/Tabs)
+ */
 export function TabList<T extends object>(props: TabListProps<T>) {
     return (
         <RACTabList
@@ -92,6 +104,12 @@ const tabStyles = tv({
     extend: focusRing,
 });
 
+/**
+ * A Tab can be clicked, tapped, or navigated to via arrow keys to switch between panels.
+ *
+ * [source code](https://github.com/alex-mcgovern/ui-kit.ai/tree/main/packages/components/src/tabs)
+ * [react-aria](https://react-spectrum.adobe.com/react-aria/Tabs)
+ */
 export function Tab(props: TabProps) {
     return (
         <RACTab
@@ -108,6 +126,12 @@ export function Tab(props: TabProps) {
     );
 }
 
+/**
+ * A TabPanel contains the content for a single tab.
+ *
+ * [source code](https://github.com/alex-mcgovern/ui-kit.ai/tree/main/packages/components/src/tabs)
+ * [react-aria](https://react-spectrum.adobe.com/react-aria/Tabs)
+ */
 export function TabPanel(props: TabPanelProps) {
     return (
         <RACTabPanel

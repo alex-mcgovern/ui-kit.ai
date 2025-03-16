@@ -9,6 +9,7 @@ import type {
     SortDirection,
 } from "react-aria-components";
 
+import { getRandomNumber } from "@ui-kit.ai/utils";
 import {
     EllipsisVertical,
     ArrowUpDown as IconArrowsUpDown,
@@ -35,7 +36,6 @@ import { tv } from "tailwind-variants";
 import type { BoolOptsTuple } from "../types/boolean-prop-options";
 import type { OptionsSchema } from "../types/options";
 
-import { getRandomNumber } from "../../../utils/src/get-random-number";
 import { focusRing } from "../styles/focus-ring";
 import { evalBoolOptsTuple } from "../types/boolean-prop-options";
 import { Button } from "./button";
@@ -239,8 +239,8 @@ const resizerStyles = tv({
  * contents via directional navigation keys, and optionally supports row
  * selection and sorting.
  *
- * [source code](https://github.com/alex-mcgovern/ui-kit.ai/tree/main/src/components/table)
- * [react-aria](https://react-spectrum.adobe.com/react-aria/Table.html#tooltip)
+ * [source code](https://github.com/alex-mcgovern/ui-kit.ai/tree/main/packages/components/src/table)
+ * [react-aria](https://react-spectrum.adobe.com/react-aria/Table#tooltip)
  */
 export function Table<TRow extends BaseRow = BaseRow>({
     "aria-label": ariaLabel,
@@ -624,4 +624,3 @@ function useSkeleton(
 
     return [showSkeleton, skeletonRows];
 }
-Table.displayName = "Table";

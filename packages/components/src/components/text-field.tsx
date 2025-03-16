@@ -20,7 +20,7 @@ import { Tooltip, TooltipTrigger } from "./tooltip";
 /**
  * A `FieldButton` to clear the text field.
  *
- * @see https://react-spectrum.adobe.com/react-aria/Button.html
+ * @see https://react-spectrum.adobe.com/react-aria/Button
  */
 export function TextFieldClearButton(
     props: ComponentProps<typeof FieldButton>,
@@ -35,12 +35,11 @@ export function TextFieldClearButton(
         </TooltipTrigger>
     );
 }
-TextFieldClearButton.displayName = "TextFieldClearButton";
 
 /**
  * A `FieldButton` to copy the text field value to the clipboard.
  *
- * @see https://react-spectrum.adobe.com/react-aria/Button.html
+ * @see https://react-spectrum.adobe.com/react-aria/Button
  */
 export function TextFieldCopyButton(props: ComponentProps<typeof FieldButton>) {
     return (
@@ -53,12 +52,11 @@ export function TextFieldCopyButton(props: ComponentProps<typeof FieldButton>) {
         </TooltipTrigger>
     );
 }
-TextFieldCopyButton.displayName = "TextFieldCopyButton";
 
 /**
  * A `FieldButton` to toggle the visibility of the text field value.
  *
- * @see https://react-spectrum.adobe.com/react-aria/Button.html
+ * @see https://react-spectrum.adobe.com/react-aria/Button
  */
 export function TextFieldVisibilityButton(
     props: ComponentProps<typeof FieldButton>,
@@ -77,7 +75,6 @@ export function TextFieldVisibilityButton(
         </TooltipTrigger>
     );
 }
-TextFieldVisibilityButton.displayName = "TextFieldVisibilityButton";
 
 export function TextField({
     ref,
@@ -166,4 +163,3 @@ export function TextField({
         </FieldButtonContext.Provider>
     );
 }
-TextField.displayName = "TextField";

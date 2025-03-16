@@ -1,13 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import type { OptionsSchema } from "@ui-kit.ai/components";
 import type { ComponentProps } from "react";
 
+import { Button, Menu, MenuTrigger, Popover } from "@ui-kit.ai/components";
+import { getMockOptions } from "@ui-kit.ai/mocks";
 import { MenuIcon } from "lucide-react";
 import React from "react";
-
-import type { OptionsSchema } from "@ui-kit.ai/components";
-
-import { Menu, MenuTrigger, Button, Popover } from "@ui-kit.ai/components";
-import { getMockOptions } from "@ui-kit.ai/mocks";
 
 function Template(args: ComponentProps<typeof Menu>) {
     return (

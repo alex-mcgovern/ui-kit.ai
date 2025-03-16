@@ -228,7 +228,7 @@ export default function getEslintConfig(rootDir) {
         },
         // Ignore duplicate strings in tests
         {
-            files: ["src/stories/**/*.tsx", "src/test/**/*.tsx", "**/*.test.*"],
+            files: ["src/test/**/*.tsx", "**/*.test.*"],
             rules: {
                 "sonarjs/no-duplicate-string": "off",
             },

@@ -1,13 +1,12 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import React, { type ComponentProps } from "react";
-
 import {
-    Label,
     Checkbox,
     CheckboxGroup,
     Description,
+    Label,
 } from "@ui-kit.ai/components";
+import React, { type ComponentProps } from "react";
 
 function Template(args: ComponentProps<typeof CheckboxGroup>) {
     return (

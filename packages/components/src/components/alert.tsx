@@ -39,7 +39,7 @@ const iconStyles = tv({
  * role "alert" to highlight the importance of the message to assistive
  * technologies.
  *
- * [source code](https://github.com/alex-mcgovern/ui-kit.ai/tree/main/src/components/checkbox)
+ * [source code](https://github.com/alex-mcgovern/ui-kit.ai/tree/main/packages/components/src/checkbox)
  * [mdn web docs](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/alert_role)
  *
  * ## Usage
@@ -129,4 +129,3 @@ export function Alert({
         </div>
     );
 }
-Alert.displayName = "Alert";

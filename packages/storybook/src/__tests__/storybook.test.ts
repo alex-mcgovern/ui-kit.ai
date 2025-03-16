@@ -2,14 +2,12 @@ import fs from "fs";
 import path from "path";
 import { expect, test } from "vitest";
 
-const storiesDir = path.join(__dirname, "../..", "stories");
+const storiesDir = path.join(__dirname, "..");
 
 test("all Storybook stories export a named export with name `Primary`", async () => {
     const files = fs.readdirSync(storiesDir);
 
-    const storyFiles = files.filter((file) =>
-        file.endsWith("stories.tsx"),
-    );
+    const storyFiles = files.filter((file) => file.endsWith("stories.tsx"));
 
     for (const file of storyFiles) {
         const filePath = path.join(storiesDir, file);
@@ -24,9 +22,7 @@ test("all Storybook stories export a named export with name `Primary`", async ()
 
 test("all exports in story files begin with a capital letter", async () => {
     const files = fs.readdirSync(storiesDir);
-    const storyFiles = files.filter((file) =>
-        file.endsWith("stories.tsx"),
-    );
+    const storyFiles = files.filter((file) => file.endsWith("stories.tsx"));
 
     for (const file of storyFiles) {
         const filePath = path.join(storiesDir, file);

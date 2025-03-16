@@ -8,7 +8,7 @@ import { Button } from "./button";
  * A FormSubmitButton handles form submission, and listen's to
  * `react-hook-form`'s state to handle disabled * pending states appropriately.
  *
- * [source code](https://github.com/alex-mcgovern/ui-kit.ai/tree/main/src/components/form)
+ * [source code](https://github.com/alex-mcgovern/ui-kit.ai/tree/main/packages/components/src/form)
  * [react-hook-form](https://react-hook-form.com/)
  *
  * ## Usage

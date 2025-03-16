@@ -2,11 +2,11 @@ import type { Meta, StoryObj } from "@storybook/react";
 import type { ComponentProps } from "react";
 
 import {
-    Popover,
-    PopoverDialog,
     Button,
     DialogTrigger,
     Heading,
+    Popover,
+    PopoverDialog,
 } from "@ui-kit.ai/components";
 
 type Placement = ComponentProps<typeof Popover>["placement"];

@@ -2,7 +2,6 @@ import type { Meta, StoryObj } from "@storybook/react";
 import type { ComponentProps, ComponentType } from "react";
 
 import { faker } from "@faker-js/faker";
-
 import {
     Button,
     Dialog,
@@ -75,7 +74,7 @@ const LongContent = () => (
     </>
 );
 
-const meta: Meta<typeof Dialog> = {
+const meta = {
     component: Dialog,
     render: Template,
     // Storybook's typescript is a bit sh*t, hence the type-casting
@@ -88,7 +87,7 @@ const meta: Meta<typeof Dialog> = {
         DialogTrigger: DialogTrigger as ComponentType<unknown>,
     },
     title: "Components/Dialog",
-};
+} satisfies Meta<typeof Dialog>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -148,7 +147,7 @@ export const WidthMd: Story = {
                     <DialogFooter>
                         <Button
                             className="ml-auto"
-                            onPress={() => close()}
+                            slot="close"
                             variant="secondary"
                         >
                             Cancel

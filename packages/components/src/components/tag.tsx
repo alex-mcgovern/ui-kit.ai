@@ -115,8 +115,8 @@ const tagStyles = tv({
  * A Tag is a presentational component used to display short snippets of
  * information, often in a group of tags.
  *
- * [source code](https://github.com/alex-mcgovern/ui-kit.ai/tree/main/src/components/tag)
- * [react-aria](https://react-spectrum.adobe.com/react-aria/Tooltip.html)
+ * [source code](https://github.com/alex-mcgovern/ui-kit.ai/tree/main/packages/components/src/tag)
+ * [react-aria](https://react-spectrum.adobe.com/react-aria/Tooltip)
  *
  * ## Usage
  * ```tsx
@@ -182,14 +182,13 @@ export function Tag({
         </div>
     );
 }
-Tag.displayName = "Tag";
 
 /**
  * A TagButton is a button used to display short snippets of
  * information, often in a group of tags.
  *
- * [source code](https://github.com/alex-mcgovern/ui-kit.ai/tree/main/src/components/tag)
- * [react-aria](https://react-spectrum.adobe.com/react-aria/Button.html)
+ * [source code](https://github.com/alex-mcgovern/ui-kit.ai/tree/main/packages/components/src/tag)
+ * [react-aria](https://react-spectrum.adobe.com/react-aria/Button)
  *
  * ## Usage
  *
@@ -245,14 +244,13 @@ export function TagButton({
         </RACButton>
     );
 }
-TagButton.displayName = "TagButton";
 
 /**
  * A TagLink is a link used to display short snippets of
  * information, often in a group of tags.
  *
- * [source code](https://github.com/alex-mcgovern/ui-kit.ai/tree/main/src/components/tag)
- * [react-aria](https://react-spectrum.adobe.com/react-aria/Link.html)
+ * [source code](https://github.com/alex-mcgovern/ui-kit.ai/tree/main/packages/components/src/tag)
+ * [react-aria](https://react-spectrum.adobe.com/react-aria/Link)
  *
  * ## Usage
  *
@@ -308,4 +306,3 @@ export const TagLink = ({
         </RACLink>
     );
 };
-TagLink.displayName = "TagLink";

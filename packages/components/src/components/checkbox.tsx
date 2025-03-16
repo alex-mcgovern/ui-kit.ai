@@ -116,8 +116,8 @@ const iconStyles = tv({
  * A checkbox allows a user to select multiple items from a list of individual
  * items, or to mark one individual item as selected.
  *
- * [source code](https://github.com/alex-mcgovern/ui-kit.ai/tree/main/src/components/checkbox)
- * [react-aria](https://react-spectrum.adobe.com/react-aria/Checkbox.html)
+ * [source code](https://github.com/alex-mcgovern/ui-kit.ai/tree/main/packages/components/src/checkbox)
+ * [react-aria](https://react-spectrum.adobe.com/react-aria/Checkbox)
  *
  * ## Usage
  *
@@ -200,4 +200,3 @@ function CheckboxLabel({
         </div>
     );
 }
-Checkbox.displayName = "Checkbox";

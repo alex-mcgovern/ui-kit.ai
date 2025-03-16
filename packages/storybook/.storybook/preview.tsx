@@ -1,15 +1,16 @@
-import { MDXProvider } from "@mdx-js/react";
+import type { Preview } from "@storybook/react";
+
 import "./storybook.css";
 
+import { MDXProvider } from "@mdx-js/react";
 import { ArgTypes, Title } from "@storybook/blocks";
 import { DocsContainer as StorybookDocsContainer } from "@storybook/blocks";
-import type { Preview } from "@storybook/react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { Heading } from "@ui-kit.ai/components";
 import { initialize as initializeMsw, mswLoader } from "msw-storybook-addon";
 import React, { type ComponentProps, type HTMLProps } from "react";
 import { type ScreenshotOptions, withScreenshot } from "storycap";
 
-import { Heading } from "@ui-kit.ai/components";
 import { Description } from "./components/description";
 import { Primary } from "./components/primary";
 import { Stories } from "./components/stories";
@@ -75,8 +76,7 @@ const preview: Preview = {
                     <Story />
                     <div
                         className="absolute inset-0 z-[-1] size-full bg-muted-50
-                            bg-[radial-gradient(#e5e7eb_1px,transparent_1px)]
-                            [background-size:16px_16px]"
+                            bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px]"
                     />
                 </div>
             );

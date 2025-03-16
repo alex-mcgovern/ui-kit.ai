@@ -7,8 +7,8 @@ import { twMerge } from "tailwind-merge";
  * A Description is text with attributes that improve screen reader
  * announcements, usually used to provide more context on a field or control.
  *
- * [source code](https://github.com/alex-mcgovern/ui-kit.ai/tree/main/src/components/description)
- * [react-aria](https://react-spectrum.adobe.com/react-aria/accessibility.html)
+ * [source code](https://github.com/alex-mcgovern/ui-kit.ai/tree/main/packages/components/src/description)
+ * [react-aria](https://react-spectrum.adobe.com/react-aria/accessibility)
  *
  * ## Usage
  *

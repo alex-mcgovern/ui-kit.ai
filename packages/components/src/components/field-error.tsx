@@ -7,7 +7,7 @@ import { twMerge } from "tailwind-merge";
 /**
  * A FieldError displays validation errors.
  *
- * [source code](https://github.com/alex-mcgovern/ui-kit.ai/tree/main/src/components/description)
+ * [source code](https://github.com/alex-mcgovern/ui-kit.ai/tree/main/packages/components/src/description)
  *
  * ## Usage
  *

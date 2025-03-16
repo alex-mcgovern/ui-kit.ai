@@ -15,7 +15,7 @@ const fieldGroupStyles = tv({
  * A group represents a set of related UI controls, and supports interactive
  * states for styling.
  *
- * @see https://react-spectrum.adobe.com/react-aria/Group.html
+ * @see https://react-spectrum.adobe.com/react-aria/Group
  */
 export function FieldGroup({
     isBorderless,
@@ -41,4 +41,3 @@ export function FieldGroup({
         />
     );
 }
-FieldGroup.displayName = "FieldGroup";

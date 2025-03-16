@@ -9,7 +9,7 @@
         "url": "https://github.com/alex-mcgovern/ui-kit.ai"
     },
     "source": "src/index.ts",
-    "types": "dist/types.d.ts",
+    "types": "dist/index.d.ts",
     "type": "module",
     "main": "dist/index.js",
     "scripts": {

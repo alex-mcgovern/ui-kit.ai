@@ -1,9 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
+import { Button } from "@ui-kit.ai/components";
 import { StarIcon } from "lucide-react";
 import * as React from "react";
-
-import { Button } from "@ui-kit.ai/components";
 
 const meta = {
     args: {

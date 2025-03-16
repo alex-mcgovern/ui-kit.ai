@@ -1,9 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import type { ComponentProps } from "react";
 
+import { Button, EmptyState } from "@ui-kit.ai/components";
 import { SearchXIcon } from "lucide-react";
-
-import { EmptyState, Button } from "@ui-kit.ai/components";
 
 function Template(args: ComponentProps<typeof EmptyState>) {
     return (

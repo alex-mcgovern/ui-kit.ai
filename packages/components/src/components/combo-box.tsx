@@ -45,7 +45,6 @@ export function ComboBoxButton(
         </FieldButton>
     );
 }
-ComboBoxButton.displayName = "ComboBoxButton";
 
 /**
  * A button that clears the selected key from the ComboBox. Only visible when
@@ -136,8 +135,8 @@ const ComboBoxRefContext =
  * A combo box combines a text input with a listbox, allowing users to filter a
  * list of options to items matching a query.
  *
- * [source code](https://github.com/alex-mcgovern/ui-kit.ai/tree/main/src/components/combobox)
- * [react-aria](https://react-spectrum.adobe.com/react-aria/ComboBox.html)
+ * [source code](https://github.com/alex-mcgovern/ui-kit.ai/tree/main/packages/components/src/combobox)
+ * [react-aria](https://react-spectrum.adobe.com/react-aria/ComboBox)
  *
  * ## Usage
  *

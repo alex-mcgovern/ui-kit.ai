@@ -240,12 +240,17 @@ const ButtonLoadingState = ({
         children
     );
 
+type LinkButtonProps = ButtonCommonProps &
+    RACLinkProps & {
+        ref?: ForwardedRef<HTMLAnchorElement>;
+    };
+
 /**
  * A button allows a user to perform an action, with mouse, touch, and
  * keyboard interactions.
  *
- * [source code](https://github.com/alex-mcgovern/ui-kit.ai/tree/main/src/components/button)
- * [react-aria](https://react-spectrum.adobe.com/react-aria/Button.html)
+ * [source code](https://github.com/alex-mcgovern/ui-kit.ai/tree/main/packages/components/src/button)
+ * [react-aria](https://react-spectrum.adobe.com/react-aria/Button)
  *
  * ## Usage
  *
@@ -306,12 +311,6 @@ export function Button({
         </RACButton>
     );
 }
-Button.displayName = "Button";
-
-type LinkButtonProps = ButtonCommonProps &
-    RACLinkProps & {
-        ref?: ForwardedRef<HTMLAnchorElement>;
-    };
 
 export const LinkButton = ({
     isDestructive,
@@ -340,4 +339,3 @@ export const LinkButton = ({
         />
     );
 };
-LinkButton.displayName = "LinkButton";

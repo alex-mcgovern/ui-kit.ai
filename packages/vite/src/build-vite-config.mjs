@@ -1,18 +1,17 @@
 import react from "@vitejs/plugin-react";
-import path from "node:path";
 import { defineConfig } from "vite";
 import dts from "vite-plugin-dts";
 
-const __dirname = path.resolve();
-
 /**
  * Build the Vite config.
- * @param {string} name - The name of the package.
- * @param {string[]} entrypoints - The package entrypoint(s)
- * @param {Record<String, unknown>} pkg - The package.json object.
- * @returns {import('vite').UserConfig} The Vite configuration object.
+ *
+ * @param   {string}                    name            - The name of the package.
+ * @param   {string}                    tsConfigPath    - The tsconfig used when building types.
+ * @param   {string[]}                  entrypoints     - The package entrypoint(s)
+ * @param   {Record<String, unknown>}   pkg             - The package.json object.
+ * @returns {import('vite').UserConfig}                 - The Vite configuration object.
  */
-export function buildViteConfig(name, entrypoints, pkg) {
+export function buildViteConfig(name, tsConfigPath, entrypoints, pkg) {
     return defineConfig({
         build: {
             lib: {
@@ -47,7 +46,7 @@ export function buildViteConfig(name, entrypoints, pkg) {
             dts({
                 insertTypesEntry: true,
                 rollupTypes: true,
-                tsconfigPath: path.resolve(__dirname, "tsconfig.json"),
+                tsconfigPath: tsConfigPath,
             }),
         ],
     });

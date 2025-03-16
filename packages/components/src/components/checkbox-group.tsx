@@ -10,8 +10,8 @@ import { twMerge } from "tailwind-merge";
  * It can be composed with a Label and Description to correctly label the input
  * to assistive technologies, and provide extra context.
  *
- * [source code](https://github.com/alex-mcgovern/ui-kit.ai/tree/main/src/components/checkbox-group)
- * [react-aria](https://react-spectrum.adobe.com/react-aria/CheckboxGroup.html)
+ * [source code](https://github.com/alex-mcgovern/ui-kit.ai/tree/main/packages/components/src/checkbox-group)
+ * [react-aria](https://react-spectrum.adobe.com/react-aria/CheckboxGroup)
  *
  * ## Usage
  *
@@ -54,4 +54,3 @@ export const CheckboxGroup = ({
         </AriaCheckboxGroup>
     );
 };
-CheckboxGroup.displayName = "CheckboxGroup";

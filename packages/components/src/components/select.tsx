@@ -35,8 +35,8 @@ const selectButtonStyles = tv({
 /**
  * A select displays a collapsible list of options and allows a user to select one of them.
  *
- * [source code](https://github.com/alex-mcgovern/ui-kit.ai/tree/main/src/components/tooltip)
- * [react-aria](https://react-spectrum.adobe.com/react-aria/Tooltip.html)
+ * [source code](https://github.com/alex-mcgovern/ui-kit.ai/tree/main/packages/components/src/tooltip)
+ * [react-aria](https://react-spectrum.adobe.com/react-aria/Tooltip)
  *
  * ## Usage
  *
@@ -99,7 +99,6 @@ export function Select<
         </AriaSelect>
     );
 }
-Select.displayName = "Select";
 
 /**
  * A SelectButton triggers the Popover for a Select. It usually contains the

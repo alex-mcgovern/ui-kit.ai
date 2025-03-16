@@ -8,7 +8,7 @@ import { TextField } from "./text-field";
 /**
  * A form text field connects a `TextField` to a `Form` component using `react-hook-form`.
  *
- * [React Aria Documentation](https://react-spectrum.adobe.com/react-aria/TextField.html)
+ * [React Aria Documentation](https://react-spectrum.adobe.com/react-aria/TextField)
  */
 export function FormTextField({
     children,

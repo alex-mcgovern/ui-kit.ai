@@ -5,6 +5,7 @@ import packageJson from "./package.json";
 
 export default buildViteConfig(
     packageJson.name,
+    path.resolve(import.meta.dirname, "tsconfig.json"),
     [path.resolve(import.meta.dirname, "src/index.ts")],
     packageJson,
 );

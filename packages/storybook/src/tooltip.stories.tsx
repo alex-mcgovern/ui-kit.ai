@@ -1,15 +1,14 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import type { ComponentProps } from "react";
 
-import React from "react";
-
 import {
+    Button,
+    Kbd,
     Tooltip,
     TooltipInfoButton,
     TooltipTrigger,
-    Button,
-    Kbd,
 } from "@ui-kit.ai/components";
+import React from "react";
 
 type Placement = ComponentProps<typeof Tooltip>["placement"];
 

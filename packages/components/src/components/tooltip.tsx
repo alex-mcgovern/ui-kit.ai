@@ -62,7 +62,6 @@ export function TooltipTrigger({
 }: RACTooltipTriggerProps) {
     return <RACTooltipTrigger {...props} delay={delay} />;
 }
-TooltipTrigger.displayName = "TooltipTrigger";
 
 /**
  * A button with an info icon that triggers a tooltip.
@@ -92,15 +91,14 @@ export function TooltipInfoButton({
         </Button>
     );
 }
-TooltipInfoButton.displayName = "TooltipInfoButton";
 
 /**
  * A tooltip displays a description of an element on hover or focus.
  *
 
  *
- * [source code](https://github.com/alex-mcgovern/ui-kit.ai/tree/main/src/components/tooltip)
- * [react-aria](https://react-spectrum.adobe.com/react-aria/Tooltip.html)
+ * [source code](https://github.com/alex-mcgovern/ui-kit.ai/tree/main/packages/components/src/tooltip)
+ * [react-aria](https://react-spectrum.adobe.com/react-aria/Tooltip)
  * [mdn-web-docs](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/tooltip_role#description)
  *
  * ## Usage
@@ -151,4 +149,3 @@ export function Tooltip({ children, ...props }: TooltipProps) {
         </RACTooltip>
     );
 }
-Tooltip.displayName = "Tooltip";

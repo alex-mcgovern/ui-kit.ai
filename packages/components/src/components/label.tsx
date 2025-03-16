@@ -7,8 +7,8 @@ import { twMerge } from "tailwind-merge";
  * A Label is used when composing a form field, and handles associating the
  * label with the field via the `id` and `for` attributes on your behalf.
  *
- * [source code](https://github.com/alex-mcgovern/ui-kit.ai/tree/main/src/components/label)
- * [react-aria](https://react-spectrum.adobe.com/react-aria/forms.html#labels-and-help-text)
+ * [source code](https://github.com/alex-mcgovern/ui-kit.ai/tree/main/packages/components/src/label)
+ * [react-aria](https://react-spectrum.adobe.com/react-aria/forms#labels-and-help-text)
  *
  * ## Usage
  *

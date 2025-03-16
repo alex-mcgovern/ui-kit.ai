@@ -6,9 +6,9 @@ import {
     type DocsStoryProps,
     useOf,
 } from "@storybook/blocks";
+import { Heading } from "@ui-kit.ai/components";
 import React from "react";
 
-import { Heading } from "@ui-kit.ai/components";
 import { Canvas } from "./canvas";
 
 const removeEmptyEventHandlers = (code: string): string => {

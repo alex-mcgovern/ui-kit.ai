@@ -1,10 +1,6 @@
 import type { FC } from "react";
 
-import {
-    DocsContext,
-    type Of,
-    useOf,
-} from "@storybook/blocks";
+import { DocsContext, type Of, useOf } from "@storybook/blocks";
 import React, { useContext } from "react";
 
 import { DocsStory } from "./docs-story";
@@ -25,8 +21,7 @@ export const Primary: FC<PrimaryProps> = (props) => {
     const { csfFile } = useOf(of ?? "meta", ["meta"]);
     const context = useContext(DocsContext);
 
-    const primaryStory =
-        context.componentStoriesFromCSFFile(csfFile)[0];
+    const primaryStory = context.componentStoriesFromCSFFile(csfFile)[0];
 
     return primaryStory != null ? (
         <DocsStory

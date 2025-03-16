@@ -21,7 +21,7 @@ const heading = tv({
 /**
  * A heading renders a semantic heading with pre-determined typography styles
  *
- * [source code](https://github.com/alex-mcgovern/ui-kit.ai/tree/main/src/components/heading)
+ * [source code](https://github.com/alex-mcgovern/ui-kit.ai/tree/main/packages/components/src/heading)
  *
  * ## Usage
  *

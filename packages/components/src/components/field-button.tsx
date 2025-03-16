@@ -9,7 +9,7 @@ import { Button } from "./button";
  * to add additional functionality to a field. The `slot` prop is used to connect the
  * button to the field.
  *
- * [react-aria](https://react-spectrum.adobe.com/react-aria/Button.html)
+ * [react-aria](https://react-spectrum.adobe.com/react-aria/Button)
  *
  * ## Usage
  *

@@ -10,7 +10,7 @@ import { FieldError } from "./field-error";
 /**
  * A `FormComboBox` connects a `ComboBox` to a `Form` component using `react-hook-form`.
  *
- * [React Aria Documentation](https://react-spectrum.adobe.com/react-aria/ComboBox.html)
+ * [React Aria Documentation](https://react-spectrum.adobe.com/react-aria/ComboBox)
  */
 export function FormComboBox<
     T extends OptionsSchema<"listbox"> = OptionsSchema<"listbox">,

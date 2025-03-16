@@ -2,9 +2,6 @@ import type { Meta, StoryObj } from "@storybook/react";
 import type { ComponentProps } from "react";
 
 import { zodResolver } from "@hookform/resolvers/zod";
-import { AtSignIcon, KeyIcon, UserIcon } from "lucide-react";
-import { z } from "zod";
-
 import {
     Description,
     FieldGroup,
@@ -16,6 +13,8 @@ import {
     TextFieldClearButton,
     TextFieldVisibilityButton,
 } from "@ui-kit.ai/components";
+import { AtSignIcon, KeyIcon, UserIcon } from "lucide-react";
+import { z } from "zod";
 
 const schema = z.object({
     email: z.string().email("Please enter a valid email"),

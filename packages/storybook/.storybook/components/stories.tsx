@@ -1,11 +1,11 @@
 import type { FC } from "react";
 
 import { Description, DocsContext, Unstyled } from "@storybook/blocks";
+import { Heading } from "@ui-kit.ai/components";
+import { Tab, TabList, TabPanel, Tabs } from "@ui-kit.ai/components";
 import { groupBy } from "lodash-es";
 import React, { useContext } from "react";
 
-import { Heading } from "@ui-kit.ai/components";
-import { Tab, TabList, TabPanel, Tabs } from "@ui-kit.ai/components";
 import { DocsStory } from "./docs-story";
 interface StoriesProps {
     includePrimary?: boolean;

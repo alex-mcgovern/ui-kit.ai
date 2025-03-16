@@ -12,7 +12,7 @@ import { FormProvider, useForm } from "react-hook-form";
  * A form is a group of inputs that allows users to submit data to a server,
  * with support for providing field validation errors.
  *
- * [source code](https://github.com/alex-mcgovern/ui-kit.ai/tree/main/src/components/form)
+ * [source code](https://github.com/alex-mcgovern/ui-kit.ai/tree/main/packages/components/src/form)
  * [react-hook-form](https://react-hook-form.com/)
  */
 export function Form<TFieldValues extends FieldValues = FieldValues>({

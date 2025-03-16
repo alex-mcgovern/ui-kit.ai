@@ -1,8 +1,39 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import type {
+    TableCellRenderer,
+    TableColumnSchema,
+} from "@ui-kit.ai/components";
+import type {
+    GetStockWatchlistItemsData,
+    ListStockWatchlistItemsResponse,
+    StockWatchlistItem,
+} from "@ui-kit.ai/mocks";
 import type { ComponentProps } from "react";
 import type { SortDirection } from "react-aria-components";
 
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
+import {
+    Button,
+    Dialog,
+    DialogCloseButton,
+    DialogContent,
+    DialogFooter,
+    DialogHeader,
+    DialogTitle,
+    DialogTrigger,
+    EmptyState,
+    FieldGroup,
+    Input,
+    Kbd,
+    Menu,
+    MenuTrigger,
+    Popover,
+    SearchField,
+    SearchFieldClearButton,
+    Table,
+    useKbd,
+} from "@ui-kit.ai/components";
+import { getStocksHandler } from "@ui-kit.ai/mocks";
 import {
     ArrowDownRight,
     ArrowUpRight,
@@ -13,36 +44,6 @@ import {
 } from "lucide-react";
 import { useCallback, useMemo, useRef, useState } from "react";
 import { twMerge } from "tailwind-merge";
-
-import {
-    type TableCellRenderer,
-    type TableColumnSchema,
-    EmptyState,
-    Dialog,
-    DialogCloseButton,
-    DialogContent,
-    DialogFooter,
-    DialogHeader,
-    DialogTitle,
-    DialogTrigger,
-    FieldGroup,
-    Input,
-    Kbd,
-    Menu,
-    MenuTrigger,
-    Popover,
-    Table,
-    useKbd,
-    SearchField,
-    SearchFieldClearButton,
-    Button,
-} from "@ui-kit.ai/components";
-import {
-    getStocksHandler,
-    type GetStockWatchlistItemsData,
-    type ListStockWatchlistItemsResponse,
-    type StockWatchlistItem,
-} from "@ui-kit.ai/mocks";
 
 const COLUMNS: TableColumnSchema<StockWatchlistItem>[] = [
     {
@@ -135,7 +136,7 @@ const CellRenderer: TableCellRenderer<StockWatchlistItem> = ({
     }
 };
 
-const meta: Meta<typeof Table<StockWatchlistItem>> = {
+const meta = {
     args: {
         "aria-label": "Watchlist",
         // @ts-expect-error - TODO: fix CellRenderer types
@@ -184,7 +185,7 @@ const meta: Meta<typeof Table<StockWatchlistItem>> = {
         },
     },
     title: "Components/Table",
-};
+} satisfies Meta<typeof Table<StockWatchlistItem>>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -422,7 +423,9 @@ function Template({
 }
 
 export const Primary: Story = {
+    // @ts-expect-error - TODO: fix table stories types
     args: {},
     name: "Table",
+    // @ts-expect-error - TODO: fix table stories types
     render: Template,
 };

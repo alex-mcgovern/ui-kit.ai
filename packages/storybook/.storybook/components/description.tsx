@@ -1,11 +1,10 @@
 import type { FC } from "react";
 
 import { Markdown, type Of, Unstyled, useOf } from "@storybook/blocks";
+import { TagLink } from "@ui-kit.ai/components";
 import { ExternalLinkIcon } from "lucide-react";
 import React from "react";
 import { twMerge } from "tailwind-merge";
-
-import { TagLink } from "@ui-kit.ai/components";
 export enum DescriptionType {
     AUTO = "auto",
     DOCGEN = "docgen",

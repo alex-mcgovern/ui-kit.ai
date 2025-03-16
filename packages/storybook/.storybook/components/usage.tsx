@@ -31,39 +31,30 @@ const getDescriptionFromResolvedOf = (
             } = resolvedOf;
             return (
                 // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
-                parameters?.docs?.extractComponentDescription?.(
+                parameters?.docs?.extractComponentDescription?.(component, {
                     component,
-                    {
-                        component,
-                        parameters,
-                    },
-                ) || null
+                    parameters,
+                }) || null
             );
         }
         case "meta": {
-            const { component, parameters } =
-                resolvedOf.preparedMeta;
-            const metaDescription =
-                parameters.docs?.description?.component;
+            const { component, parameters } = resolvedOf.preparedMeta;
+            const metaDescription = parameters.docs?.description?.component;
             if (metaDescription != null) {
                 return metaDescription;
             }
             return (
                 // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
-                parameters.docs?.extractComponentDescription?.(
+                parameters.docs?.extractComponentDescription?.(component, {
                     component,
-                    {
-                        component,
-                        parameters,
-                    },
-                ) || null
+                    parameters,
+                }) || null
             );
         }
         case "story": {
             return (
                 // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
-                resolvedOf.story.parameters.docs
-                    ?.description?.story || null
+                resolvedOf.story.parameters.docs?.description?.story || null
             );
         }
         default: {
@@ -90,7 +81,5 @@ export const Usage: FC<DescriptionProps> = (props) => {
             ?.match(/^## Usage\n?((?:(?!^#)[\s\S])*)/m)?.[0]
             ?.trim() ?? null;
 
-    return markdown != null ? (
-        <Markdown>{markdown}</Markdown>
-    ) : null;
+    return markdown != null ? <Markdown>{markdown}</Markdown> : null;
 };

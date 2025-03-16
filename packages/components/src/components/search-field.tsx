@@ -35,7 +35,7 @@ export function SearchField({
 /**
  * A `FieldButton` to clear the text field.
  *
- * @see https://react-spectrum.adobe.com/react-aria/Button.html
+ * @see https://react-spectrum.adobe.com/react-aria/Button
  */
 export function SearchFieldClearButton(
     props: ComponentProps<typeof FieldButton>,

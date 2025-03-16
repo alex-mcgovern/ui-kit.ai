@@ -2,10 +2,13 @@
     "$schema": "https://turbo.build/schema.json",
     "tasks": {
         "@ui-kit.ai/components#build": {
-            "outputLogs": "new-only",
-            "outputs": ["dist/**"]
+            "outputLogs": "new-only"
         },
         "@ui-kit.ai/storybook#check:eslint": {
+            "dependsOn": ["@ui-kit.ai/components#build"],
+            "outputLogs": "new-only"
+        },
+        "@ui-kit.ai/storybook#check:prettier": {
             "dependsOn": ["@ui-kit.ai/components#build"],
             "outputLogs": "new-only"
         },
@@ -14,11 +17,16 @@
             "outputLogs": "new-only"
         },
         "@ui-kit.ai/storybook#storybook": {
-            "dependsOn": ["@ui-kit.ai/components#build"],
+            "dependsOn": [
+                "@ui-kit.ai/components#build",
+                "@ui-kit.ai/mocks#build",
+                "@ui-kit.ai/utils#build"
+            ],
             "outputLogs": "new-only"
         },
         "build": {
             "outputLogs": "new-only",
+            "dependsOn": ["check"],
             "outputs": ["dist/**"]
         },
         "check": {

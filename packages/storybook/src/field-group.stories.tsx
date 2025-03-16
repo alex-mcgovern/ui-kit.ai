@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 import {
-    Select,
-    SelectButton,
     FieldGroup,
     Input,
     Kbd,
+    Select,
+    SelectButton,
     TextField,
 } from "@ui-kit.ai/components";
 import { getMockOptions } from "@ui-kit.ai/mocks";

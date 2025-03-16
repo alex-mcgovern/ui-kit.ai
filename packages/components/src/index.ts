@@ -1,3 +1,5 @@
+import "./style.css";
+
 export { Alert } from "./components/alert";
 export { Autocomplete } from "./components/autocomplete";
 export { Button, LinkButton } from "./components/button";
@@ -63,10 +65,5 @@ export {
     TooltipTrigger,
 } from "./components/tooltip";
 export { useKbd } from "./hooks/use-kbd";
-export { default as tailwindPreset } from "./tailwind-preset";
-export type {
-    OptionsItemSchema,
-    OptionsSchema,
-    OptionsSectionSchema,
-    OptionType,
-} from "./types/options";
+export { tailwindPreset } from "./tailwind-preset";
+export { type OptionsSchema } from "./types/options";

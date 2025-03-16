@@ -2,9 +2,6 @@ import type { Meta, StoryObj } from "@storybook/react";
 import type { ComponentProps } from "react";
 
 import { zodResolver } from "@hookform/resolvers/zod";
-import { AtSignIcon, GlobeIcon } from "lucide-react";
-import { z } from "zod";
-
 import { Checkbox } from "@ui-kit.ai/components";
 import {
     ComboBoxButton,
@@ -25,6 +22,8 @@ import {
     TextFieldClearButton,
 } from "@ui-kit.ai/components";
 import { getMockOptions } from "@ui-kit.ai/mocks";
+import { AtSignIcon, GlobeIcon } from "lucide-react";
+import { z } from "zod";
 
 const communicationPreferencesSchema = z.enum([
     "account_updates",

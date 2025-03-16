@@ -16,7 +16,7 @@ import { OptionRenderer } from "./options";
 /**
  * A menu displays a list of actions or options that a user can choose.
  *
- * @see https://react-spectrum.adobe.com/react-aria/Menu.html
+ * @see https://react-spectrum.adobe.com/react-aria/Menu
  */
 export function Menu<T extends OptionsSchema<"menu">>(
     props: Omit<AriaMenuProps<T>, "children" | "className">,
@@ -48,7 +48,7 @@ export function MenuDecorativeSection(props: { children: ReactNode }) {
 /**
  * A `Trigger` component, for use with a `Menu` component.
  *
- * @see https://react-spectrum.adobe.com/react-aria/Menu.html#menutrigger
+ * @see https://react-spectrum.adobe.com/react-aria/Menu#menutrigger
  */
 export function MenuTrigger(props: AriaMenuTriggerProps) {
     return <RACMenuTrigger {...props} />;

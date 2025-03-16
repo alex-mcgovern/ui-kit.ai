@@ -5,9 +5,8 @@ import {
     CodeOrSourceMdx,
     Markdown as SbMarkdown,
 } from "@storybook/blocks";
-import React from "react";
-
 import { Heading } from "@ui-kit.ai/components";
+import React from "react";
 
 export const Markdown = (props: ComponentProps<typeof SbMarkdown>) => {
     return (

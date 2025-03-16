@@ -12,7 +12,7 @@ import {
     transitionDuration,
 } from "tailwindcss/defaultTheme";
 
-export default {
+export const tailwindPreset: Partial<Config> = {
     darkMode: [
         "variant",
         [
@@ -77,4 +77,4 @@ export default {
             },
         },
     },
-} satisfies Partial<Config>;
+};

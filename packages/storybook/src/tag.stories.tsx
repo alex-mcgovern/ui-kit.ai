@@ -1,8 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { CircleDot } from "lucide-react";
-
 import { Tag } from "@ui-kit.ai/components";
+import { CircleDot } from "lucide-react";
 
 const meta = {
     args: {
@@ -15,7 +14,7 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
+export const Primary: Story = {
     args: {},
 };
 export const SlotLeft: Story = {

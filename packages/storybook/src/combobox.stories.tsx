@@ -1,8 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { SearchIcon } from "lucide-react";
-import React, { type ComponentProps } from "react";
-
 import {
     ComboBox,
     ComboBoxButton,
@@ -13,8 +10,9 @@ import {
     Label,
     type OptionsSchema,
 } from "@ui-kit.ai/components";
-
 import { getMockOptions } from "@ui-kit.ai/mocks";
+import { SearchIcon } from "lucide-react";
+import React, { type ComponentProps } from "react";
 
 function Template(
     props: ComponentProps<typeof ComboBox<OptionsSchema<"listbox">>>,

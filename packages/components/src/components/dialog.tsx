@@ -1,4 +1,4 @@
-import type { ComponentProps, ForwardedRef, HTMLProps } from "react";
+import type { ComponentProps, HTMLProps } from "react";
 import type {
     DialogProps as RACDialogProps,
     DialogTriggerProps as RACDialogTriggerProps,
@@ -80,8 +80,8 @@ const dialogStyles = tv({
 /**
  * A dialog is an overlay shown above other content in an application.
  *
- * [source code](https://github.com/alex-mcgovern/ui-kit.ai/tree/main/src/components/dialog.tsx)
- * [react aria](https://react-spectrum.adobe.com/react-aria/Dialog.html)
+ * [source code](https://github.com/alex-mcgovern/ui-kit.ai/tree/main/packages/components/src/dialog.tsx)
+ * [react aria](https://react-spectrum.adobe.com/react-aria/Dialog)
  *
  * ## Usage
  *
@@ -138,7 +138,7 @@ export function Dialog({
 /**
  * A button to close the dialog.
  *
- * @see https://react-spectrum.adobe.com/react-aria/Dialog.html#state
+ * @see https://react-spectrum.adobe.com/react-aria/Dialog#state
  */
 export function DialogCloseButton(
     props: Omit<
@@ -176,12 +176,7 @@ export function DialogCloseButton(
 /**
  * Wrapper to render scrollable content within the dialog.
  */
-export function DialogContent({
-    ref,
-    ...props
-}: HTMLProps<HTMLDivElement> & {
-    ref?: ForwardedRef<HTMLDivElement>;
-}) {
+export function DialogContent({ ref, ...props }: HTMLProps<HTMLDivElement>) {
     return (
         <div
             {...props}
