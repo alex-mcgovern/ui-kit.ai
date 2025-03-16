@@ -2,30 +2,33 @@
     "name": "@ui-kit.ai/mocks",
     "version": "1.0.0",
     "private": true,
-    "files": [
-        "dist"
-    ],
     "repository": {
         "type": "git",
         "url": "https://github.com/alex-mcgovern/ui-kit.ai"
     },
-    "source": "src/index.ts",
-    "types": "dist/index.d.ts",
+    "license": "MIT",
+    "author": "Alex McGovern",
     "type": "module",
     "main": "dist/index.js",
+    "source": "src/index.ts",
+    "types": "dist/index.d.ts",
+    "files": [
+        "dist"
+    ],
     "scripts": {
         "build": "vite build",
         "check:eslint": "eslint .",
         "check:prettier": "prettier . --check",
         "check:tsc": "tsc",
-        "fix:prettier": "prettier . --write",
-        "fix:eslint": "eslint . --fix"
+        "check:vitest": "vitest run --passWithNoTests",
+        "fix:eslint": "eslint . --fix",
+        "fix:prettier": "prettier . --write"
     },
     "dependencies": {
-        "msw": "^2.7.0",
-        "zod": "^3.24.1",
         "@ui-kit.ai/utils": "workspace:*",
-        "lucide-react": "^0.474.0"
+        "lucide-react": "^0.474.0",
+        "msw": "^2.7.0",
+        "zod": "^3.24.1"
     },
     "devDependencies": {
         "@ui-kit.ai/components": "workspace:*",
@@ -33,5 +36,8 @@
         "@ui-kit.ai/prettier": "workspace:*",
         "@ui-kit.ai/tsconfig": "workspace:*",
         "@ui-kit.ai/vite": "workspace:*"
+    },
+    "engines": {
+        "node": "22.x"
     }
 }

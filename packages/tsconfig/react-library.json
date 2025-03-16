@@ -5,7 +5,7 @@
     "compilerOptions": {
         "lib": ["ES2022", "dom", "dom.iterable"],
         "jsx": "preserve",
-        "module": "ESNext",
+        "module": "NodeNext",
         "target": "ES2022",
         "types": ["node", "@testing-library/jest-dom"]
     }

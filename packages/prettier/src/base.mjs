@@ -2,6 +2,7 @@
  * @type {import("prettier").Config}
  */
 export const prettierBase = {
-  tabWidth: 4,
-  useTabs: false
-}
+    plugins: ["prettier-plugin-packagejson"],
+    tabWidth: 4,
+    useTabs: false,
+};

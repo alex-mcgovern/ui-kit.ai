@@ -11,18 +11,18 @@
         "forceConsistentCasingInFileNames": true,
         "inlineSources": false,
         "isolatedModules": true,
-        "moduleResolution": "bundler",
-        "module": "ESNext",
+        "moduleResolution": "nodenext",
+        "module": "NodeNext",
         "noImplicitOverride": true,
         "noUncheckedIndexedAccess": true,
+        "resolveJsonModule": true,
         "noUnusedLocals": true,
         "noEmit": true,
         "noUnusedParameters": true,
+        "verbatimModuleSyntax": true,
         "preserveWatchOutput": true,
-        "resolveJsonModule": true,
         "skipLibCheck": true,
-        "strict": true,
-        "verbatimModuleSyntax": true
+        "strict": true
     },
     "exclude": ["node_modules"]
 }

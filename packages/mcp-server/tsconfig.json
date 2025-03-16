@@ -1,0 +1,10 @@
+{
+    "extends": "@ui-kit.ai/tsconfig/node.json",
+    "include": [
+        "src/**/*",
+        "eslint.config.js",
+        ".prettierrc.js",
+        "vitest.config.js"
+    ],
+    "exclude": ["node_modules"]
+}

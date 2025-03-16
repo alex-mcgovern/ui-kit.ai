@@ -2,24 +2,26 @@
     "name": "@ui-kit.ai/storybook",
     "version": "1.0.0",
     "private": true,
-    "files": [
-        "dist"
-    ],
     "repository": {
         "type": "git",
         "url": "https://github.com/alex-mcgovern/ui-kit.ai"
     },
-    "source": "src/index.ts",
-    "types": "dist/index.d.ts",
+    "author": "Alex McGovern",
+    "license": "MIT",
     "type": "module",
     "main": "dist/index.js",
+    "source": "src/index.ts",
+    "types": "dist/index.d.ts",
+    "files": [
+        "dist"
+    ],
     "scripts": {
         "check:eslint": "eslint .",
         "check:prettier": "prettier . --check",
         "check:tsc": "tsc",
-        "check:vitest": "vitest run",
-        "fix:prettier": "prettier . --write",
+        "check:vitest": "vitest run --passWithNoTests",
         "fix:eslint": "eslint . --fix",
+        "fix:prettier": "prettier . --write",
         "storybook": "storybook dev -p 65534",
         "storybook:docs": "storybook dev --docs -p 65534",
         "storycap": "storycap --serverCmd \"storybook dev -p 65534\" http://localhost:65534 --include \"**/Primary\" --flat --outDir \"assets\""
@@ -49,11 +51,11 @@
         "@storybook/addon-onboarding": "^8.6.6",
         "@storybook/addon-themes": "^8.6.6",
         "@storybook/blocks": "^8.6.6",
+        "@storybook/builder-vite": "^8.6.6",
         "@storybook/manager-api": "^8.6.6",
         "@storybook/react": "^8.6.6",
-        "@storybook/theming": "^8.6.6",
         "@storybook/react-vite": "^8.6.6",
-        "@storybook/builder-vite": "^8.6.6",
+        "@storybook/theming": "^8.6.6",
         "@testing-library/jest-dom": "^6.6.3",
         "@testing-library/react": "^16.2.0",
         "@testing-library/user-event": "^14.6.1",
@@ -61,10 +63,10 @@
         "@types/node": "^22.13.10",
         "@types/react": "^19.0.10",
         "@types/react-dom": "^19.0.4",
+        "@ui-kit.ai/eslint": "workspace:*",
         "@ui-kit.ai/mocks": "workspace:*",
         "@ui-kit.ai/prettier": "workspace:*",
         "@ui-kit.ai/tsconfig": "workspace:*",
-        "@ui-kit.ai/eslint": "workspace:*",
         "@vitest/coverage-v8": "^2.0.5",
         "autoprefixer": "^10.4.20",
         "jsdom": "^25.0.1",
@@ -78,6 +80,9 @@
         "typescript": "^5.5.4",
         "vitest": "^2.1.9",
         "vitest-fail-on-console": "^0.7.1"
+    },
+    "engines": {
+        "node": "22.x"
     },
     "msw": {
         "workerDirectory": [

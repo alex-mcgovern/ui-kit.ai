@@ -1,11 +1,14 @@
 {
     "name": "@ui-kit.ai/vite",
     "version": "1.0.0",
-    "type": "module",
-    "engines": {
-        "node": "22.x"
-    },
     "private": true,
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/alex-mcgovern/ui-kit.ai"
+    },
+    "license": "MIT",
+    "author": "Alex McGovern",
+    "type": "module",
     "exports": {
         ".": "./src/build-vite-config.mjs"
     },
@@ -13,17 +16,21 @@
         "check:eslint": "eslint .",
         "check:prettier": "prettier . --check",
         "check:tsc": "tsc",
-        "fix:prettier": "prettier . --write",
-        "fix:eslint": "eslint . --fix"
-    },
-    "peerDependencies": {
-        "vite": "^5.4.10",
-        "@vitejs/plugin-react": "^4.3.1",
-        "vite-plugin-dts": "^4.2.4"
+        "check:vitest": "vitest run --passWithNoTests",
+        "fix:eslint": "eslint . --fix",
+        "fix:prettier": "prettier . --write"
     },
     "devDependencies": {
         "@ui-kit.ai/eslint": "workspace:*",
         "@ui-kit.ai/prettier": "workspace:*",
         "@ui-kit.ai/tsconfig": "workspace:*"
+    },
+    "peerDependencies": {
+        "@vitejs/plugin-react": "^4.3.4",
+        "vite": "^6.2.2 ",
+        "vite-plugin-dts": "^4.5.3"
+    },
+    "engines": {
+        "node": "22.x"
     }
 }

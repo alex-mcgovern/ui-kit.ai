@@ -4,11 +4,12 @@ import { prettierBase } from "./base.mjs";
  */
 export const prettierTailwind = {
     ...prettierBase,
+    customFunctions: ["tv", "twMerge", "composeTailwindRenderProps"],
     plugins: [
+        "prettier-plugin-packagejson",
         "prettier-plugin-tailwindcss",
         "prettier-plugin-classnames",
         "prettier-plugin-merge",
     ],
     tailwindFunctions: ["tv", "twMerge", "composeTailwindRenderProps"],
-    customFunctions: ["tv", "twMerge", "composeTailwindRenderProps"],
 };

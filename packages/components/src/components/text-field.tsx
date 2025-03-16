@@ -17,65 +17,6 @@ import { twMerge } from "tailwind-merge";
 import { FieldButton } from "./field-button";
 import { Tooltip, TooltipTrigger } from "./tooltip";
 
-/**
- * A `FieldButton` to clear the text field.
- *
- * @see https://react-spectrum.adobe.com/react-aria/Button
- */
-export function TextFieldClearButton(
-    props: ComponentProps<typeof FieldButton>,
-) {
-    return (
-        <TooltipTrigger delay={0}>
-            <FieldButton {...props} slot="clear">
-                <XIcon />
-            </FieldButton>
-
-            <Tooltip placement="top">Clear</Tooltip>
-        </TooltipTrigger>
-    );
-}
-
-/**
- * A `FieldButton` to copy the text field value to the clipboard.
- *
- * @see https://react-spectrum.adobe.com/react-aria/Button
- */
-export function TextFieldCopyButton(props: ComponentProps<typeof FieldButton>) {
-    return (
-        <TooltipTrigger delay={0}>
-            <FieldButton {...props} slot="copy">
-                <ClipboardIcon />
-            </FieldButton>
-
-            <Tooltip placement="top">Copy to clipboard</Tooltip>
-        </TooltipTrigger>
-    );
-}
-
-/**
- * A `FieldButton` to toggle the visibility of the text field value.
- *
- * @see https://react-spectrum.adobe.com/react-aria/Button
- */
-export function TextFieldVisibilityButton(
-    props: ComponentProps<typeof FieldButton>,
-) {
-    const context = useSlottedContext(FieldButtonContext, "visibility");
-
-    return (
-        <TooltipTrigger delay={0}>
-            <FieldButton {...props} slot="visibility">
-                {context?.value === "hidden" ? <EyeOffIcon /> : <EyeIcon />}
-            </FieldButton>
-
-            <Tooltip placement="top">
-                {context?.value === "hidden" ? "Show" : "Hide"}
-            </Tooltip>
-        </TooltipTrigger>
-    );
-}
-
 export function TextField({
     ref,
     ...props
@@ -161,5 +102,64 @@ export function TextField({
                 value={value}
             />
         </FieldButtonContext.Provider>
+    );
+}
+
+/**
+ * A `FieldButton` to clear the text field.
+ *
+ * @see https://react-spectrum.adobe.com/react-aria/Button
+ */
+export function TextFieldClearButton(
+    props: ComponentProps<typeof FieldButton>,
+) {
+    return (
+        <TooltipTrigger delay={0}>
+            <FieldButton {...props} slot="clear">
+                <XIcon />
+            </FieldButton>
+
+            <Tooltip placement="top">Clear</Tooltip>
+        </TooltipTrigger>
+    );
+}
+
+/**
+ * A `FieldButton` to copy the text field value to the clipboard.
+ *
+ * @see https://react-spectrum.adobe.com/react-aria/Button
+ */
+export function TextFieldCopyButton(props: ComponentProps<typeof FieldButton>) {
+    return (
+        <TooltipTrigger delay={0}>
+            <FieldButton {...props} slot="copy">
+                <ClipboardIcon />
+            </FieldButton>
+
+            <Tooltip placement="top">Copy to clipboard</Tooltip>
+        </TooltipTrigger>
+    );
+}
+
+/**
+ * A `FieldButton` to toggle the visibility of the text field value.
+ *
+ * @see https://react-spectrum.adobe.com/react-aria/Button
+ */
+export function TextFieldVisibilityButton(
+    props: ComponentProps<typeof FieldButton>,
+) {
+    const context = useSlottedContext(FieldButtonContext, "visibility");
+
+    return (
+        <TooltipTrigger delay={0}>
+            <FieldButton {...props} slot="visibility">
+                {context?.value === "hidden" ? <EyeOffIcon /> : <EyeIcon />}
+            </FieldButton>
+
+            <Tooltip placement="top">
+                {context?.value === "hidden" ? "Show" : "Hide"}
+            </Tooltip>
+        </TooltipTrigger>
     );
 }

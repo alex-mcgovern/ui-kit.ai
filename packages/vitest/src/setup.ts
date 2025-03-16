@@ -4,7 +4,7 @@ import { cleanup } from "@testing-library/react";
 import { afterEach, beforeAll, expect, vi } from "vitest";
 import failOnConsole from "vitest-fail-on-console";
 
-expect.extend(matchers);
+expect.extend(matchers as unknown as Parameters<typeof expect.extend>[0]);
 
 // Add missing stuff to JSDom
 beforeAll(() => {

@@ -2,14 +2,18 @@
     "name": "ui-kit.ai-monorepo",
     "description": "",
     "version": "1.0.0",
-    "license": "ISC",
+    "author": "Alex McGovern",
+    "license": "MIT",
     "private": true,
     "type": "module",
     "engines": {
         "node": "22.x"
     },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/alex-mcgovern/ui-kit.ai"
+    },
     "homepage": "https://github.com/alex-mcgovern/ui-kit.ai#readme",
-    "main": "commitlint.config.js",
     "packageManager": "pnpm@10.6.3",
     "devDependencies": {
         "@ui-kit.ai/prettier": "workspace:*",
@@ -25,14 +29,11 @@
         "check:tsc": "turbo check:tsc",
         "check:vitest": "turbo check:vitest",
         "fix": "turbo fix",
-        "storybook": "turbo storybook",
-        "sherif": "sherif"
+        "fix:eslint": "turbo fix:eslint",
+        "fix:prettier": "turbo fix:prettier",
+        "sherif": "sherif",
+        "storybook": "turbo storybook"
     },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/alex-mcgovern/ui-kit.ai.git"
-    },
-    "author": "",
     "bugs": {
         "url": "https://github.com/alex-mcgovern/ui-kit.ai/issues"
     }

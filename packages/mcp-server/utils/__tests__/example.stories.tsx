@@ -12,24 +12,17 @@ import {
     TextFieldVisibilityButton,
 } from "../../../components/text-field";
 
-const Example = (
-    props: ComponentProps<typeof TextField>,
-) => {
+const Example = (props: ComponentProps<typeof TextField>) => {
     return (
         <TextField {...props}>
             <Label>Label</Label>
             <FieldGroup>
-                <Input
-                    isBorderless
-                    placeholder="This is a placeholder"
-                />
+                <Input isBorderless placeholder="This is a placeholder" />
                 <TextFieldClearButton />
                 <TextFieldVisibilityButton />
                 <TextFieldCopyButton />
             </FieldGroup>
-            <Description>
-                This is a short description
-            </Description>
+            <Description>This is a short description</Description>
         </TextField>
     );
 };

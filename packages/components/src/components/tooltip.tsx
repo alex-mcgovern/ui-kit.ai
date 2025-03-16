@@ -54,45 +54,6 @@ const tooltipStyles = tv({
 });
 
 /**
- * A wrapper around an element that can receive focus that controls the tooltip.
- */
-export function TooltipTrigger({
-    delay = 0,
-    ...props
-}: RACTooltipTriggerProps) {
-    return <RACTooltipTrigger {...props} delay={delay} />;
-}
-
-/**
- * A button with an info icon that triggers a tooltip.
- */
-export function TooltipInfoButton({
-    ref,
-    ...props
-}: Omit<ComponentProps<typeof Button>, "children" | "isIcon" | "variant"> & {
-    ref?: ForwardedRef<HTMLButtonElement>;
-}) {
-    return (
-        <Button
-            {...props}
-            className={(rp) =>
-                twMerge(
-                    "size-7",
-                    typeof props.className === "function"
-                        ? props.className(rp)
-                        : props.className,
-                )
-            }
-            isIcon
-            ref={ref}
-            variant="tertiary"
-        >
-            <InfoIcon />
-        </Button>
-    );
-}
-
-/**
  * A tooltip displays a description of an element on hover or focus.
  *
 
@@ -148,4 +109,43 @@ export function Tooltip({ children, ...props }: TooltipProps) {
             {children}
         </RACTooltip>
     );
+}
+
+/**
+ * A button with an info icon that triggers a tooltip.
+ */
+export function TooltipInfoButton({
+    ref,
+    ...props
+}: Omit<ComponentProps<typeof Button>, "children" | "isIcon" | "variant"> & {
+    ref?: ForwardedRef<HTMLButtonElement>;
+}) {
+    return (
+        <Button
+            {...props}
+            className={(rp) =>
+                twMerge(
+                    "size-7",
+                    typeof props.className === "function"
+                        ? props.className(rp)
+                        : props.className,
+                )
+            }
+            isIcon
+            ref={ref}
+            variant="tertiary"
+        >
+            <InfoIcon />
+        </Button>
+    );
+}
+
+/**
+ * A wrapper around an element that can receive focus that controls the tooltip.
+ */
+export function TooltipTrigger({
+    delay = 0,
+    ...props
+}: RACTooltipTriggerProps) {
+    return <RACTooltipTrigger {...props} delay={delay} />;
 }

@@ -3,8 +3,8 @@ import { FlatCompat } from "@eslint/eslintrc";
 import jsPlugin from "@eslint/js";
 // @ts-expect-error - no .dts
 import eslintConfigPrettier from "eslint-config-prettier";
-// // @ts-expect-error - no .dts
 // import importPlugin from "eslint-plugin-import";
+// // @ts-expect-error - no .dts
 import perfectionist from "eslint-plugin-perfectionist";
 import sonarjsPlugin from "eslint-plugin-sonarjs";
 // @ts-expect-error - no .dts

@@ -1,13 +1,28 @@
 {
     "name": "@ui-kit.ai/eslint",
-    "version": "0.0.0",
-    "type": "module",
-    "engines": {
-        "node": "22.x"
-    },
+    "version": "1.0.0",
     "private": true,
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/alex-mcgovern/ui-kit.ai"
+    },
+    "license": "MIT",
+    "author": "Alex McGovern",
+    "type": "module",
     "exports": {
         ".": "./src/index.mjs"
+    },
+    "scripts": {
+        "check:eslint": "eslint .",
+        "check:prettier": "prettier . --check",
+        "check:tsc": "tsc",
+        "check:vitest": "vitest run --passWithNoTests",
+        "fix:eslint": "eslint . --fix",
+        "fix:prettier": "prettier . --write"
+    },
+    "devDependencies": {
+        "@ui-kit.ai/prettier": "workspace:*",
+        "@ui-kit.ai/tsconfig": "workspace:*"
     },
     "peerDependencies": {
         "@eslint/js": "^9.19.0",
@@ -27,8 +42,7 @@
         "eslint-plugin-write-good-comments": "^0.2.0",
         "globals": "^15.13.0"
     },
-    "devDependencies": {
-        "@ui-kit.ai/prettier": "workspace:*",
-        "@ui-kit.ai/tsconfig": "workspace:*"
+    "engines": {
+        "node": "22.x"
     }
 }

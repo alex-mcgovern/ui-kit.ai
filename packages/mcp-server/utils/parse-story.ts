@@ -21,9 +21,7 @@ export async function parseStory(
 
     // TODO: Add the ability to pass the renderer as an argument to the script
     // that builds the Storybook digest.
-    const { composeStories } = await import(
-        "@storybook/react"
-    );
+    const { composeStories } = await import("@storybook/react");
 
     const reactElementToJSXString = (
         await import("react-element-to-jsx-string")

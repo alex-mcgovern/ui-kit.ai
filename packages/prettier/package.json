@@ -1,19 +1,36 @@
 {
     "name": "@ui-kit.ai/prettier",
     "version": "1.0.0",
-    "type": "module",
-    "engines": {
-        "node": "22.x"
-    },
     "private": true,
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/alex-mcgovern/ui-kit.ai"
+    },
+    "license": "MIT",
+    "author": "Alex McGovern",
+    "type": "module",
     "exports": {
         ".": "./src/base.mjs",
         "./tailwind": "./src/tailwind.mjs"
     },
+    "scripts": {
+        "check:eslint": "eslint .",
+        "check:prettier": "prettier . --check",
+        "check:tsc": "tsc",
+        "check:vitest": "vitest run --passWithNoTests",
+        "fix:eslint": "eslint . --fix",
+        "fix:prettier": "prettier . --write"
+    },
     "peerDependencies": {
+        "@ui-kit.ai/eslint": "workspace:*",
+        "@ui-kit.ai/tsconfig": "workspace:*",
         "prettier": "^3.3.3",
         "prettier-plugin-classnames": "^0.7.4",
         "prettier-plugin-merge": "^0.7.1",
+        "prettier-plugin-packagejson": "^2.5.10",
         "prettier-plugin-tailwindcss": "^0.6.9"
+    },
+    "engines": {
+        "node": "22.x"
     }
 }

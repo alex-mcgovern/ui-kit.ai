@@ -14,11 +14,7 @@ server.tool("getComponentIndex", {}, () => {
     return {
         content: [
             {
-                text: JSON.stringify(
-                    AvailableComponents,
-                    null,
-                    2,
-                ),
+                text: JSON.stringify(AvailableComponents, null, 2),
                 type: "text",
             },
         ],
@@ -33,9 +29,7 @@ server.tool(
     ({ componentName }) => {
         const example =
             componentName in ComponentUsage
-                ? ComponentUsage[
-                      componentName as keyof typeof ComponentUsage
-                  ]
+                ? ComponentUsage[componentName as keyof typeof ComponentUsage]
                 : null;
 
         return {

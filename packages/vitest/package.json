@@ -1,11 +1,14 @@
 {
     "name": "@ui-kit.ai/vitest",
     "version": "1.0.0",
-    "type": "module",
-    "engines": {
-        "node": "22.x"
-    },
     "private": true,
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/alex-mcgovern/ui-kit.ai"
+    },
+    "license": "MIT",
+    "author": "Alex McGovern",
+    "type": "module",
     "exports": {
         ".": "./src/build-vitest-config.mjs"
     },
@@ -13,21 +16,25 @@
         "check:eslint": "eslint .",
         "check:prettier": "prettier . --check",
         "check:tsc": "tsc",
-        "fix:prettier": "prettier . --write",
-        "fix:eslint": "eslint . --fix"
-    },
-    "peerDependencies": {
-        "@testing-library/jest-dom": "^6.6.3",
-        "@testing-library/react": "^16.2.0",
-        "@testing-library/user-event": "^14.6.1",
-        "@vitejs/plugin-react": "^4.3.1",
-        "@vitest/coverage-v8": "^2.0.5",
-        "vitest": "^2.1.9",
-        "vitest-fail-on-console": "^0.7.1"
+        "check:vitest": "vitest run --passWithNoTests",
+        "fix:eslint": "eslint . --fix",
+        "fix:prettier": "prettier . --write"
     },
     "devDependencies": {
         "@ui-kit.ai/eslint": "workspace:*",
         "@ui-kit.ai/prettier": "workspace:*",
         "@ui-kit.ai/tsconfig": "workspace:*"
+    },
+    "peerDependencies": {
+        "@testing-library/jest-dom": "^6.6.3",
+        "@testing-library/react": "^16.2.0",
+        "@testing-library/user-event": "^14.6.1",
+        "@vitejs/plugin-react": "^4.3.4",
+        "@vitest/coverage-v8": "^3.0.8",
+        "vitest": "^3.0.8",
+        "vitest-fail-on-console": "^0.7.1"
+    },
+    "engines": {
+        "node": "22.x"
     }
 }
