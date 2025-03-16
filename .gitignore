@@ -1,4 +1,4 @@
 node_modules
 **/*/dist
 .turbo
-**/*/vite.config.js.timestamp-*
+**/*/vite.config.mjs.timestamp-*

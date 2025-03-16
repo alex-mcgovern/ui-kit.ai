@@ -1,4 +1,4 @@
 .turbo
 dist
 node_modules
-vite.config.js.timestamp-*.mjs
+vite.config.mjs.timestamp-*.mjs

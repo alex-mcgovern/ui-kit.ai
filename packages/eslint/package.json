@@ -13,12 +13,10 @@
         ".": "./src/index.mjs"
     },
     "scripts": {
-        "check:eslint": "eslint .",
         "check:prettier": "prettier . --check",
         "check:tsc": "tsc",
         "check:vitest": "vitest run --passWithNoTests",
-        "fix:eslint": "eslint . --fix",
-        "fix:prettier": "prettier . --write"
+        "fix:eslint": "eslint . --fix"
     },
     "devDependencies": {
         "@ui-kit.ai/prettier": "workspace:*",

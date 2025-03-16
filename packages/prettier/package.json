@@ -14,15 +14,10 @@
         "./tailwind": "./src/tailwind.mjs"
     },
     "scripts": {
-        "check:eslint": "eslint .",
-        "check:prettier": "prettier . --check",
         "check:tsc": "tsc",
-        "check:vitest": "vitest run --passWithNoTests",
-        "fix:eslint": "eslint . --fix",
-        "fix:prettier": "prettier . --write"
+        "check:vitest": "vitest run --passWithNoTests"
     },
     "peerDependencies": {
-        "@ui-kit.ai/eslint": "workspace:*",
         "@ui-kit.ai/tsconfig": "workspace:*",
         "prettier": "^3.3.3",
         "prettier-plugin-classnames": "^0.7.4",

@@ -9,7 +9,7 @@ const config = [
             "dist",
             "node_modules",
             "public/mockServiceWorker.js",
-            "vite.config.js.timestamp-*.mjs",
+            "vite.config.mjs.timestamp-*.mjs",
         ],
     },
     // Ignore duplicate strings in stories

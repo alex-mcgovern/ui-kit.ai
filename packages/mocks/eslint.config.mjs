@@ -8,7 +8,7 @@ const config = [
             "node_modules",
             "dist",
             ".turbo",
-            "vite.config.js.timestamp-*.mjs",
+            "vite.config.mjs.timestamp-*.mjs",
         ],
     },
 ];

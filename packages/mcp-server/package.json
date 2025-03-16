@@ -8,6 +8,7 @@
     },
     "license": "MIT",
     "author": "Alex McGovern",
+    "type": "module",
     "scripts": {
         "check:eslint": "eslint .",
         "check:prettier": "prettier . --check",
@@ -16,7 +17,13 @@
         "fix:eslint": "eslint . --fix",
         "fix:prettier": "prettier . --write"
     },
+    "dependencies": {
+        "react-element-to-jsx-string": "17.0.0"
+    },
     "devDependencies": {
+        "@storybook/react": "^8.6.6",
+        "@types/react": "^19.0.10",
+        "@ui-kit.ai/components": "workspace:*",
         "@ui-kit.ai/eslint": "workspace:*",
         "@ui-kit.ai/prettier": "workspace:*",
         "@ui-kit.ai/tsconfig": "workspace:*",

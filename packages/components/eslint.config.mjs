@@ -6,9 +6,9 @@ const config = [
     {
         ignores: [
             "node_modules",
-            ".turbo",
             "dist",
-            "vite.config.js.timestamp-*.mjs",
+            ".turbo",
+            "vite.config.mjs.timestamp-*.mjs",
         ],
     },
 ];

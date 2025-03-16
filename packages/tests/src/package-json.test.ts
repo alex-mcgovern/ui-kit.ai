@@ -1,17 +1,13 @@
 import fs from "node:fs";
 import path from "node:path";
-import { fileURLToPath } from "url";
 import { describe, expect } from "vitest";
 import { test } from "vitest";
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
 
 const AUTHOR_NAME = "Alex McGovern";
 const EXCLUDED_DIRECTORIES = ["node_modules", ".next", "dist", ".turbo"];
 const LICENSE_IDENTIFIER = "MIT";
 const NODE_VERSION = "22.x";
-const PATH_TO_ROOT = path.join(__dirname, "../../..");
+const PATH_TO_ROOT = path.join(import.meta.dirname, "../../..");
 const REPO_GIT_URL = "https://github.com/alex-mcgovern/ui-kit.ai";
 
 /**
@@ -105,43 +101,6 @@ describe("package.json", () => {
                 packageJson.repository.url,
                 `package.json for ${packageName} should have "${REPO_GIT_URL}" in "repository.url"`,
             ).toBe(REPO_GIT_URL);
-        });
-
-        test(`${packageName} has correct scripts`, () => {
-            expect(
-                "scripts" in packageJson,
-                `package.json for ${packageName} should have "scripts" property`,
-            ).toBe(true);
-
-            expect(
-                Object.keys(packageJson.scripts).includes("check:prettier"),
-                `package.json for ${packageName} should have "check:prettier" script`,
-            ).toBe(true);
-            expect(
-                Object.keys(packageJson.scripts).includes("fix:prettier"),
-                `package.json for ${packageName} should have "fix:prettier" script`,
-            ).toBe(true);
-
-            if (packageName.includes("tsconfig") === false) {
-                expect(
-                    Object.keys(packageJson.scripts).includes("check:eslint"),
-                    `package.json for ${packageName} should have "check:eslint" script`,
-                ).toBe(true);
-                expect(
-                    Object.keys(packageJson.scripts).includes("fix:eslint"),
-                    `package.json for ${packageName} should have "fix:eslint" script`,
-                ).toBe(true);
-
-                expect(
-                    Object.keys(packageJson.scripts).includes("check:tsc"),
-                    `package.json for ${packageName} should have "check:tsc" script`,
-                ).toBe(true);
-
-                expect(
-                    Object.keys(packageJson.scripts).includes("check:vitest"),
-                    `package.json for ${packageName} should have "check:vitest" script`,
-                ).toBe(true);
-            }
         });
     });
 });

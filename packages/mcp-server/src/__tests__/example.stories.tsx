@@ -1,16 +1,16 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import type { ComponentProps } from "react";
 
-import { Description } from "../../../components/description";
-import { FieldGroup } from "../../../components/field-group";
-import { Input } from "../../../components/input";
-import { Label } from "../../../components/label";
 import {
+    Description,
+    FieldGroup,
+    Input,
+    Label,
     TextField,
     TextFieldClearButton,
     TextFieldCopyButton,
     TextFieldVisibilityButton,
-} from "../../../components/text-field";
+} from "@ui-kit.ai/components";
 
 const Example = (props: ComponentProps<typeof TextField>) => {
     return (
@@ -27,7 +27,7 @@ const Example = (props: ComponentProps<typeof TextField>) => {
     );
 };
 
-const meta = {
+const meta: Meta<typeof TextField> = {
     args: {
         name: "text field",
     },
@@ -41,7 +41,7 @@ const meta = {
     ],
     render: Example,
     title: "Components/TextField",
-} satisfies Meta<typeof TextField>;
+};
 
 export default meta;
 type Story = StoryObj<typeof meta>;

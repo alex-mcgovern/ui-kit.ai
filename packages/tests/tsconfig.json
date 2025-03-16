@@ -2,9 +2,9 @@
     "extends": "@ui-kit.ai/tsconfig/node.json",
     "include": [
         "src/**/*",
-        "eslint.config.js",
-        ".prettierrc.js",
-        "vitest.config.js"
+        "eslint.config.mjs",
+        ".prettierrc.mjs",
+        "vitest.config.mjs"
     ],
     "exclude": ["node_modules"]
 }
