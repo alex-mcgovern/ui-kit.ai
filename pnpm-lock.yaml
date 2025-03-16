@@ -160,6 +160,9 @@ importers:
 
   packages/mcp-server:
     dependencies:
+      react:
+        specifier: ^19.0.0
+        version: 19.0.0
       react-element-to-jsx-string:
         specifier: 17.0.0
         version: 17.0.0(react-dom@19.0.0(react@19.0.0))(react-is@17.0.2)(react@19.0.0)

@@ -18,6 +18,7 @@
         "fix:prettier": "prettier . --write"
     },
     "dependencies": {
+        "react": "^19.0.0",
         "react-element-to-jsx-string": "17.0.0"
     },
     "devDependencies": {
