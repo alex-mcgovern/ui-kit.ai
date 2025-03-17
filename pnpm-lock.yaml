@@ -127,14 +127,26 @@ importers:
       '@types/react-dom':
         specifier: ^18
         version: 18.3.5(@types/react@18.3.18)
+      '@ui-kit.ai/eslint':
+        specifier: workspace:*
+        version: link:../eslint
+      '@ui-kit.ai/mocks':
+        specifier: workspace:*
+        version: link:../mocks
+      '@ui-kit.ai/prettier':
+        specifier: workspace:*
+        version: link:../prettier
       '@ui-kit.ai/tsconfig':
         specifier: workspace:*
         version: link:../tsconfig
+      '@ui-kit.ai/vitest':
+        specifier: workspace:*
+        version: link:../vitest
       postcss:
-        specifier: ^8
+        specifier: ^8.4.47
         version: 8.5.3
       tailwindcss:
-        specifier: ^3.4.1
+        specifier: ^3.4.14
         version: 3.4.17
       typescript:
         specifier: ^5
