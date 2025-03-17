@@ -1,26 +1,19 @@
 {
     "name": "ui-kit.ai-monorepo",
-    "description": "",
-    "version": "1.0.0",
-    "author": "Alex McGovern",
-    "license": "MIT",
+    "version": "0.0.0-alpha.0",
     "private": true,
-    "type": "module",
-    "engines": {
-        "node": "22.x"
+    "description": "",
+    "homepage": "https://github.com/alex-mcgovern/ui-kit.ai#readme",
+    "bugs": {
+        "url": "https://github.com/alex-mcgovern/ui-kit.ai/issues"
     },
     "repository": {
         "type": "git",
         "url": "https://github.com/alex-mcgovern/ui-kit.ai"
     },
-    "homepage": "https://github.com/alex-mcgovern/ui-kit.ai#readme",
-    "packageManager": "pnpm@10.6.3",
-    "devDependencies": {
-        "@ui-kit.ai/prettier": "workspace:*",
-        "knip": "^5.46.0",
-        "sherif": "^1.1.1",
-        "turbo": "^2.4.4"
-    },
+    "license": "MIT",
+    "author": "Alex McGovern",
+    "type": "module",
     "scripts": {
         "build": "turbo build",
         "check": "turbo check",
@@ -34,7 +27,14 @@
         "sherif": "sherif",
         "storybook": "turbo storybook"
     },
-    "bugs": {
-        "url": "https://github.com/alex-mcgovern/ui-kit.ai/issues"
+    "devDependencies": {
+        "@ui-kit.ai/prettier": "workspace:*",
+        "knip": "^5.46.0",
+        "sherif": "^1.1.1",
+        "turbo": "^2.4.4"
+    },
+    "packageManager": "pnpm@10.6.3",
+    "engines": {
+        "node": "22.x"
     }
 }

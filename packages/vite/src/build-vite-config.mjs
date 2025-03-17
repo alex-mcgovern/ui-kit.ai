@@ -15,6 +15,7 @@ export function buildViteConfig(name, tsConfigPath, entrypoints, pkg) {
     return defineConfig({
         build: {
             lib: {
+                cssFileName: "style",
                 entry: entrypoints,
                 fileName: (_, n) => `${n}.js`,
                 formats: ["es"],
