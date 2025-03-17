@@ -37,7 +37,7 @@ export { Heading } from "./components/heading";
 export { Input } from "./components/input";
 export { Kbd } from "./components/kbd";
 export { Label } from "./components/label";
-export { ListBox } from "./components/listbox";
+export { ListBox } from "./components/list-box";
 export { Loader } from "./components/loader";
 export { Menu, MenuDecorativeSection, MenuTrigger } from "./components/menu";
 export { Popover, PopoverDialog } from "./components/popover";

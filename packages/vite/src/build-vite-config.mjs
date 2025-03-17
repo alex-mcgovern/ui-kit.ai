@@ -78,5 +78,14 @@ function buildExternals(packageJson) {
         }
     }
 
+    if (
+        "devDependencies" in packageJson &&
+        packageJson.devDependencies != null
+    ) {
+        for (const key of Object.keys(packageJson.devDependencies)) {
+            externals.push(new RegExp(`^${key}`));
+        }
+    }
+
     return externals;
 }

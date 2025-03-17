@@ -16,6 +16,7 @@
         "dist"
     ],
     "scripts": {
+        "build": "vite build",
         "check:eslint": "eslint .",
         "check:prettier": "prettier . --check",
         "check:tsc": "tsc",
