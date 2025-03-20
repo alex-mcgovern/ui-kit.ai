@@ -2,7 +2,7 @@ import path from "path";
 import { fileURLToPath } from "url";
 import { expect, it } from "vitest";
 
-import { parseStory } from "../parse-story";
+import { parseStory } from "../../../metadata/src/utils/parse-story";
 
 it("getArgsForStories", async () => {
     const storyPath = path.resolve(

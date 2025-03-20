@@ -27,12 +27,16 @@ const PLACEMENTS = [
 ] satisfies Placement[];
 
 function PlacementTemplate(args: ComponentProps<typeof Popover>) {
-    return PLACEMENTS.map((placement) => (
-        <DialogTrigger>
-            <Button>{placement}</Button>
-            <Popover {...args} placement={placement} />
-        </DialogTrigger>
-    ));
+    return (
+        <>
+            {PLACEMENTS.map((placement) => (
+                <DialogTrigger>
+                    <Button>{placement}</Button>
+                    <Popover {...args} placement={placement} />
+                </DialogTrigger>
+            ))}
+        </>
+    );
 }
 
 function Template(args: ComponentProps<typeof Popover>) {
@@ -80,6 +84,5 @@ export const Placement: Story = {
             </div>
         ),
     ],
-    // @ts-expect-error - coerce ReactNode[] where ReactNode expected
     render: PlacementTemplate,
 };

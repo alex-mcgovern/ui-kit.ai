@@ -3,14 +3,6 @@ import type { Config } from "tailwindcss";
 import TailwindAnimate from "tailwindcss-animate";
 import TailwindReactAria from "tailwindcss-react-aria-components";
 import colors from "tailwindcss/colors";
-import {
-    borderWidth,
-    fontSize,
-    height,
-    opacity,
-    spacing,
-    transitionDuration,
-} from "tailwindcss/defaultTheme";
 
 export const tailwindPreset: Partial<Config> = {
     darkMode: [
@@ -39,29 +31,23 @@ export const tailwindPreset: Partial<Config> = {
                 "modal-overlay": `var(--bg-modal-overlay)`,
             },
             borderWidth: {
-                ...borderWidth,
                 DEFAULT: "0.5px",
             },
 
             fontSize: {
-                ...fontSize,
                 xs: ["0.6875rem", { lineHeight: "0.875rem" }],
             },
             height: {
-                ...height,
-                ["ui-element"]: spacing[8],
+                "ui-element": "2rem",
             },
             maxHeight: {
-                ...height,
-                ["ui-element"]: spacing[9],
+                "ui-element": "2rem",
             },
             minHeight: {
-                ...height,
-                ["ui-element"]: spacing[9],
+                "ui-element": "2rem",
             },
             opacity: {
-                ...opacity,
-                disabled: opacity[50],
+                disabled: "0.5",
             },
             textColor: {
                 disabled: colors.stone[300],
@@ -72,7 +58,6 @@ export const tailwindPreset: Partial<Config> = {
                 ["secondary"]: colors.stone[500],
             },
             transitionDuration: {
-                ...transitionDuration,
                 DEFAULT: "100ms",
             },
         },

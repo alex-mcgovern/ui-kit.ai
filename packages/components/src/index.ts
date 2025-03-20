@@ -4,6 +4,13 @@ export { Alert } from "./components/alert";
 export { Autocomplete } from "./components/autocomplete";
 export { Button, LinkButton } from "./components/button";
 export { Checkbox } from "./components/checkbox";
+export {
+    Card,
+    CardBody,
+    CardFooter,
+    CardHeader,
+    CardTitle,
+} from "./components/card";
 export { CheckboxGroup } from "./components/checkbox-group";
 export {
     ComboBox,

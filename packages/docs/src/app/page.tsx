@@ -2,10 +2,14 @@ import {
     FieldGroup,
     Heading,
     Input,
-    LinkButton,
+    ButtonLink,
     TagLink,
     TextField,
     TextFieldCopyButton,
+    Card,
+    CardHeader,
+    CardTitle,
+    CardBody,
 } from "@ui-kit.ai/components";
 import {
     Palette,
@@ -16,6 +20,7 @@ import {
     ArrowRight,
     Copy,
 } from "lucide-react";
+import { hrefs } from "../lib/hrefs";
 
 function HomepageCard({
     description,
@@ -29,17 +34,15 @@ function HomepageCard({
     description: string;
 }) {
     return (
-        <div className="border border-muted-300 px-6 py-4 rounded-md">
-            <div className="flex-1">
-                <div className="flex gap-2 items-center mb-2">
-                    <Icon className="bg-muted-100 p-1.5 rounded-full size-8 text-secondary -ml-1.5" />
-                    <Heading level={3} className="text-lg mb-0">
-                        {title}
-                    </Heading>
-                </div>
+        <Card>
+            <CardHeader>
+                <Icon className="bg-muted-100 p-1.5 rounded-full size-8 text-secondary -ml-1.5" />
+                <CardTitle>{title}</CardTitle>
+            </CardHeader>
+            <CardBody>
                 <p className="text-secondary">{description}</p>
-            </div>
-        </div>
+            </CardBody>
+        </Card>
     );
 }
 
@@ -64,9 +67,12 @@ export default function Home() {
                 </p>
 
                 <div className="flex gap-2 mt-6 w-min ">
-                    <LinkButton slotRight={<ArrowRight className="-ml-1.5" />}>
+                    <ButtonLink
+                        href={hrefs.docs}
+                        slotRight={<ArrowRight className="-ml-1.5" />}
+                    >
                         Docs
-                    </LinkButton>
+                    </ButtonLink>
                     <TextField
                         isReadOnly
                         className="min-w-52 shrink-0"

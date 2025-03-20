@@ -6,7 +6,8 @@
         "eslint.config.mjs",
         "src/**/*",
         "tailwind.config.ts",
-        "vite.config.mjs"
+        "vite.config.mjs",
+        "vitest.config.mjs"
     ],
     "exclude": [
         "node_modules",

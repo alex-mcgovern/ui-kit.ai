@@ -10,7 +10,7 @@ export * as FormTextField from "./stories/form-text-field.stories";
 export * as Form from "./stories/form.stories";
 export * as Heading from "./stories/heading.stories";
 export * as Input from "./stories/input.stories";
-export * as Listbox from "./stories/list-box.stories";
+export * as ListBox from "./stories/list-box.stories";
 export * as Menu from "./stories/menu.stories";
 export * as Popover from "./stories/popover.stories";
 export * as Select from "./stories/select.stories";

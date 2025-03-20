@@ -4,7 +4,7 @@ import {
     FieldGroup,
     Input,
     Kbd,
-    LinkButton,
+    ButtonLink,
     SearchField,
     SearchFieldClearButton,
     Tag,
@@ -80,9 +80,9 @@ export default function RootLayout({
                                     <Kbd className="mr-2">/</Kbd>
                                 </FieldGroup>
                             </SearchField>
-                            <LinkButton isIcon variant="tertiary">
+                            <ButtonLink isIcon variant="tertiary">
                                 <Github />
-                            </LinkButton>
+                            </ButtonLink>
                             <Button isIcon variant="tertiary">
                                 <Sun />
                             </Button>

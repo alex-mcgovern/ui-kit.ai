@@ -26,9 +26,9 @@
         "@ui-kit.ai/tsconfig": "workspace:*"
     },
     "peerDependencies": {
-        "@vitejs/plugin-react": "^4.3.4",
-        "vite": "^6.2.2 ",
-        "vite-plugin-dts": "^4.5.3"
+        "@vitejs/plugin-react": "4.3.4",
+        "vite": "6.2.2 ",
+        "vite-plugin-dts": "4.5.3"
     },
     "engines": {
         "node": "22.x"

@@ -2,7 +2,7 @@ import type { FC } from "react";
 
 import { Description, DocsContext, Unstyled } from "@storybook/blocks";
 import { Heading } from "@ui-kit.ai/components";
-import { Tab, TabList, TabPanel, Tabs } from "@ui-kit.ai/components";
+import { TabsItem, TabsList, TabsPanel, Tabs } from "@ui-kit.ai/components";
 import { groupBy } from "lodash-es";
 import React, { useContext } from "react";
 
@@ -88,17 +88,17 @@ export const Stories: FC<StoriesProps> = ({ includePrimary = true }) => {
                             <Description of={group[1][0]} />
                             <Tabs>
                                 <Unstyled>
-                                    <TabList>
+                                    <TabsList>
                                         {group[1].map((story) => (
-                                            <Tab id={story.id}>
+                                            <TabsItem id={story.id}>
                                                 {story.name}
-                                            </Tab>
+                                            </TabsItem>
                                         ))}
-                                    </TabList>
+                                    </TabsList>
                                 </Unstyled>
 
                                 {group[1].map((story) => (
-                                    <TabPanel id={story.id}>
+                                    <TabsPanel id={story.id}>
                                         <DocsStory
                                             __forceInitialArgs
                                             expanded
@@ -107,7 +107,7 @@ export const Stories: FC<StoriesProps> = ({ includePrimary = true }) => {
                                             showDescription={false}
                                             showTitle={false}
                                         />
-                                    </TabPanel>
+                                    </TabsPanel>
                                 ))}
                             </Tabs>
                         </>

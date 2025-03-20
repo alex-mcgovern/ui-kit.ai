@@ -1,6 +1,6 @@
 [
     "Button",
-    "LinkButton",
+    "ButtonLink",
     "Alert",
     "Autocomplete",
     "Checkbox",

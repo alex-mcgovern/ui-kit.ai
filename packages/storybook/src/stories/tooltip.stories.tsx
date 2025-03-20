@@ -49,15 +49,17 @@ export const Placement: Story = {
             </div>
         ),
     ],
-    // @ts-expect-error - coerce ReactNode[] where ReactNode expected
-    render: (args) =>
-        PLACEMENTS.map((placement) => (
-            <Template {...args} placement={placement} />
-        )),
+    render: (args) => (
+        <>
+            {PLACEMENTS.map((placement) => (
+                <Template {...args} placement={placement} />
+            ))}
+        </>
+    ),
 };
 /**
  * The Tooltip can be composed with a number of different components,
- * like `Button`, `Link`, `Tab` and more. The element that triggers the tooltip
+ * like `Button`, `Link`, `TabsItem` and more. The element that triggers the tooltip
  * must be able to receive focus.
  */
 export const Trigger: Story = {

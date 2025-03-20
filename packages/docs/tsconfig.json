@@ -1,6 +1,8 @@
 {
     "extends": "@ui-kit.ai/tsconfig/nextjs.json",
-    "plugins": [{ "name": "next" }],
+    "compilerOptions": {
+        "plugins": [{ "name": "next" }]
+    },
     "include": [
         ".prettierrc.mjs",
         "eslint.config.mjs",
