@@ -1,0 +1,10 @@
+{
+    "extends": "@ui-kit.ai/tsconfig/nextjs.json",
+    "include": [
+        "src/**/*",
+        "eslint.config.mjs",
+        ".prettierrc.mjs",
+        "vite.config.mjs"
+    ],
+    "exclude": ["node_modules", "dist"]
+}
