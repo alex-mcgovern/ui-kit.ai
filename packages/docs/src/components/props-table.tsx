@@ -1,4 +1,4 @@
-import type { ComponentDoc, Props } from "react-docgen-typescript";
+import type { ComponentDoc, PropItem, Props } from "react-docgen-typescript";
 
 import { Table, type TableColumnSchema } from "@ui-kit.ai/components";
 
@@ -20,12 +20,12 @@ const COLUMNS = [
         id: "description",
         textValue: "Description",
     },
-] as const satisfies TableColumnSchema<Props & { id: string }>[];
+] as const satisfies TableColumnSchema<Props & { id: keyof PropItem }>[];
 
 export function PropsTable({ docs }: { docs: ComponentDoc }) {
     console.debug("👉 docs:", Object.values(docs.props));
     return (
-        <Table<Props & { id: string }>
+        <Table
             // @ts-expect-error - TODO: fix table types
             cellRenderer={CellRenderer}
             columns={COLUMNS}
@@ -43,8 +43,8 @@ function CellRenderer({
     column,
     row,
 }: {
-    column: TableColumnSchema<Props & { id: string }>;
-    row: Props;
+    column: TableColumnSchema<PropItem & { id: keyof PropItem }>;
+    row: PropItem;
 }) {
     return row[column.id];
     console.debug("👉 row:", row);

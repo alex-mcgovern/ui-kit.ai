@@ -22,11 +22,13 @@ export default function Layout({
     const selectedLayoutSegments = useSelectedLayoutSegments();
     const selectedLayoutSegment =
         selectedLayoutSegments[selectedLayoutSegments.length - 1];
+    console.debug("👉 selectedLayoutSegment:", selectedLayoutSegment);
 
+    console.debug("👉 ITEMS:", ITEMS);
     return (
         <div className="grid grid-cols-[1fr_5fr_1fr] gap-8 min-h-screen">
             <nav className="bg-muted-50">
-                <Heading className="px-2.5 text-sm" level={3}>
+                <Heading className="text-sm" level={3}>
                     Components
                 </Heading>
                 <ListBox
@@ -37,6 +39,7 @@ export default function Layout({
                             ? [selectedLayoutSegment]
                             : []
                     }
+                    selectionMode="single"
                 />
             </nav>
             <main className="w-full px-4 mx-auto">{children}</main>

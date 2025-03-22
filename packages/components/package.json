@@ -24,6 +24,7 @@
     "scripts": {
         "build": "vite build",
         "build-mcp-dataset": "tsx ./src/scripts/build-mcp-dataset.ts",
+        "build:watch": "vite build --watch",
         "check:eslint": "eslint .",
         "check:prettier": "prettier . --check",
         "check:tsc": "tsc",

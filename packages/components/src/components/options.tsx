@@ -34,13 +34,19 @@ const optionStyle = tv({
         "outline outline-0",
         "select-none rounded",
         "px-2.5 py-0.5",
+        // hover
+        `hover:bg-brand-200 hover:open:bg-brand-200
+        hover:forced-colors:bg-[Highlight] hover:forced-colors:text-[HighlightText]`,
         // focus
-        "forced-color-adjust-none",
-        `focus:bg-brand-400 focus:text-brand-50 focus:open:bg-brand-400
+        `focus:bg-brand-200 focus:open:bg-brand-200
         focus:forced-colors:bg-[Highlight] focus:forced-colors:text-[HighlightText]`,
+        // selected
+        `selected:bg-brand-200 selected:open:bg-brand-200
+        selected:forced-colors:bg-[Highlight] selected:forced-colors:text-[HighlightText]`,
         // destructive
         "data-[destructive]:text-invalid",
-        "data-[destructive]:focus:bg-red-400",
+        "data-[destructive]:focus:bg-red-200",
+        "forced-color-adjust-none",
     ],
 });
 

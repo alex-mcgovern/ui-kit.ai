@@ -16,6 +16,7 @@
     "type": "module",
     "scripts": {
         "build": "turbo build",
+        "build:watch": "turbo build:watch",
         "check": "turbo check",
         "check:eslint": "turbo check:eslint",
         "check:prettier": "turbo check:prettier",

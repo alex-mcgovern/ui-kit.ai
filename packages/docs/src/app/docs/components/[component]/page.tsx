@@ -59,7 +59,7 @@ export default function Page({
                 </section>
             ))}
 
-            <PropsTable docs={docs} />
+            {/* <PropsTable docs={docs} /> */}
         </>
     );
 }

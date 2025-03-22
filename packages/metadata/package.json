@@ -21,6 +21,7 @@
     ],
     "scripts": {
         "build": "vite build && npm run gen-prop-types && npm run gen-usage-examples",
+        "build:watch": "vite build --watch",
         "check:eslint": "eslint .",
         "check:prettier": "prettier . --check",
         "check:tsc": "tsc",

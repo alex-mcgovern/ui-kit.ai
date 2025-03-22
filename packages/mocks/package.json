@@ -17,6 +17,7 @@
     ],
     "scripts": {
         "build": "vite build",
+        "build:watch": "vite build --watch",
         "check:eslint": "eslint .",
         "check:prettier": "prettier . --check",
         "check:tsc": "tsc",

@@ -4,3 +4,4 @@ node_modules
 .turbo
 vite.config.mjs.timestamp-*
 .DS_Store
+tsconfig.tsbuildinfo
