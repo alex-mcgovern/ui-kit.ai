@@ -2,7 +2,7 @@ import {
     FieldGroup,
     Heading,
     Input,
-    ButtonLink,
+    LinkButton,
     TagLink,
     TextField,
     TextFieldCopyButton,
@@ -67,12 +67,12 @@ export default function Home() {
                 </p>
 
                 <div className="flex gap-2 mt-6 w-min ">
-                    <ButtonLink
+                    <LinkButton
                         href={hrefs.docs}
                         slotRight={<ArrowRight className="-ml-1.5" />}
                     >
                         Docs
-                    </ButtonLink>
+                    </LinkButton>
                     <TextField
                         isReadOnly
                         className="min-w-52 shrink-0"

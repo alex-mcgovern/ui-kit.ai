@@ -1,161 +1,65 @@
 "use client";
-import type { ReactNode } from "react";
+import type { ComponentDoc } from "react-docgen-typescript";
 
-import {
-    Card,
-    CardBody,
-    CardHeader,
-    Description,
-    Heading,
-    TabsItem,
-    TabsList,
-    TabsPanel,
-    Tabs,
-} from "@ui-kit.ai/components";
-import * as components from "@ui-kit.ai/storybook";
-import { groupBy } from "lodash-es";
-import {
-    type Options,
-    default as reactElementToJSXString,
-} from "react-element-to-jsx-string";
+import { Heading, Markdown } from "@ui-kit.ai/components";
+import * as components from "@ui-kit.ai/metadata";
+import propTypes from "@ui-kit.ai/metadata/prop-types.json";
+import usage from "@ui-kit.ai/metadata/usage-examples.json";
 
-const JSX_STRING_OPTIONS = {
-    filterProps(_value, key) {
-        return key !== "data-testid" && key !== "key";
-    },
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-function-type
-    functionValue: (fn: Function) => fn.toString(),
-    showFunctions: true,
-    useBooleanShorthandSyntax: true,
+import { Code } from "../../../../components/code";
+import { PropsTable } from "../../../../components/props-table";
+import { getComponentStories } from "../../../../lib/get-story";
+import { getUsageExample } from "../../../../lib/get-usage-example";
 
-    useFragmentShortSyntax: true,
-} as const satisfies Options;
 export default function Page({
     params,
 }: {
     params: { component: keyof typeof components };
 }) {
-    if (params.component in components === false) {
-        throw new Error("Component not found");
-    }
-    const stories = components[params.component];
+    if (params.component in components === false)
+        throw new Error("Examples for component not found");
+    if (params.component in usage === false)
+        throw new Error("Code snippet for component not found");
+    if (
+        (propTypes as ComponentDoc[]).findIndex(
+            (prop) => prop.displayName === params.component,
+        ) === -1
+    )
+        throw new Error("Code snippet for component not found");
 
-    const groupedStories = groupBy(stories, (story) => {
-        const groupTag = story.tags.find((tag) => tag.startsWith("group-"));
-        return groupTag ?? story.id;
-    });
+    const stories = getComponentStories(params.component);
 
-    const groups = Object.entries(groupedStories);
-    console.debug("👉 groups:", groups);
-
-    console.debug("👉 components:", components);
+    const docs = (propTypes as ComponentDoc[]).find(
+        (prop) => prop.displayName === params.component,
+    ) as ComponentDoc;
 
     return (
         <>
-            <Heading className="text-3xl" level={1}>
-                {params.component}
+            <Heading level={1}>{docs.displayName}</Heading>
+            <Markdown>{docs.description}</Markdown>
+
+            <hr className="border-muted-200 my-12" />
+
+            <Heading id="Examples" level={2}>
+                Examples
             </Heading>
-            {groups.map((group) => {
-                if (group[1].length === 1) {
-                    const Story = group[1][0];
 
-                    return (
-                        <>
-                            <Heading
-                                className="text-lg capitalize"
-                                id={Story.storyName}
-                                level={3}
-                            >
-                                {Story.storyName}
-                            </Heading>
-                            <ExampleContainer>
-                                <Story />
-                            </ExampleContainer>
+            {stories.map((Story) => (
+                <section className="my-12" key={Story.id}>
+                    <Heading id={Story.parameters.displayName} level={3}>
+                        {Story.parameters.displayName}
+                    </Heading>
+                    <Code
+                        code={getUsageExample(
+                            params.component,
+                            Story.storyName,
+                        )}
+                        component={<Story />}
+                    />
+                </section>
+            ))}
 
-                            <code>
-                                {reactElementToJSXString(
-                                    (Story as () => ReactNode)(),
-                                    JSX_STRING_OPTIONS,
-                                )}
-                            </code>
-                        </>
-                    );
-                } else {
-                    const name = group[0].replace("group-", "");
-
-                    return (
-                        <section className="mb-12 w-full">
-                            <Heading
-                                className="text-lg capitalize"
-                                id={name.toLowerCase()}
-                                level={3}
-                            >
-                                {name}
-                            </Heading>
-                            {/* <Description of={group[1][0]} /> */}
-                            <Card>
-                                <Tabs>
-                                    <CardHeader className="p-0">
-                                        <TabsList className="w-full">
-                                            {group[1].map((story) => (
-                                                <TabsItem id={story.storyName}>
-                                                    {group[0].replace(
-                                                        "group-",
-                                                        "",
-                                                    )}
-                                                </TabsItem>
-                                            ))}
-                                        </TabsList>
-                                    </CardHeader>
-                                    {group[1].map((Story) => {
-                                        console.debug("👉 Story:", Story);
-                                        return (
-                                            <TabsPanel id={Story.storyName}>
-                                                <CardBody className="border-b border-b-muted-300 flex items-center justify-center min-h-24">
-                                                    <Story key={Story} />
-                                                </CardBody>
-                                                <CardBody>
-                                                    <code className="text-sm">
-                                                        {reactElementToJSXString(
-                                                            (
-                                                                Story as () => ReactNode
-                                                            )(),
-                                                            JSX_STRING_OPTIONS,
-                                                        )}
-                                                    </code>
-                                                </CardBody>
-                                            </TabsPanel>
-                                        );
-                                    })}
-                                </Tabs>
-                            </Card>
-                        </section>
-                    );
-                }
-            })}
+            <PropsTable docs={docs} />
         </>
-    );
-    // return (
-    //     <>
-    //         {Object.values(stories).map((Component) => {
-    //             console.debug("👉 Component:", Component);
-    //             return (
-    //                 <div>
-    //                     <Heading className="text-lg" level={3}>
-    //                         {Component.storyName}
-    //                     </Heading>
-    //                     <Component />
-    //                 </div>
-    //             );
-    //         })}
-    //     </>
-    // );
-}
-
-function ExampleContainer({ children }: { children: ReactNode }) {
-    return (
-        <div className=" bg-base shadow-sm flex min-h-24 mb-12 w-full items-center justify-center border border-muted-300 px-6 py-4 rounded-md">
-            {children}
-        </div>
     );
 }

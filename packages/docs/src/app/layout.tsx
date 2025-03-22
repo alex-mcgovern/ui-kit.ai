@@ -1,19 +1,23 @@
 import type { Metadata, Viewport } from "next";
+
 import {
     Button,
     FieldGroup,
     Input,
     Kbd,
-    ButtonLink,
+    LinkButton,
     SearchField,
     SearchFieldClearButton,
     Tag,
 } from "@ui-kit.ai/components";
 import packageJson from "@ui-kit.ai/components/package.json";
-import { Search, Github, Sun, Component } from "lucide-react";
+import "@ui-kit.ai/components/style.css";
+import { Component, Github, Search, Sun } from "lucide-react";
+
 import "./globals.css";
 
 import { Inter } from "next/font/google";
+import Link from "next/link";
 
 const inter = Inter({
     preload: true,
@@ -21,22 +25,22 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-    title: "ui-kit.ai",
     description: "A component library for the AI age.",
     icons: [
         {
+            media: "(prefers-color-scheme: light)",
             rel: "icon",
             type: "image/x-icon",
             url: "/favicon-light.ico",
-            media: "(prefers-color-scheme: light)",
         },
         {
+            media: "(prefers-color-scheme: dark)",
             rel: "icon",
             type: "image/x-icon",
             url: "/favicon-dark.ico",
-            media: "(prefers-color-scheme: dark)",
         },
     ],
+    title: "ui-kit.ai",
 };
 
 export const viewport: Viewport = {
@@ -55,15 +59,18 @@ export default function RootLayout({
         <html lang="en">
             <body
                 className={`${inter.className} antialiased bg-muted-50
-                            bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px]`}
+                            bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] relative`}
             >
-                <nav className="bg-muted-50">
-                    <div className="max-w-6xl flex items-center justify-between px-4 py-1 mx-auto">
+                <nav className="bg-muted-50/50 backdrop-blur-md sticky top-0 z-10 border-b border-b-muted-200">
+                    <div className="max-w-6xl flex items-center justify-between px-4 py-2 mx-auto ">
                         <div className="flex gap-4 items-center">
-                            <span className="font-semibold flex items-center gap-1">
+                            <Link
+                                className="font-semibold flex items-center gap-1 text-secondary hover:text-primary transition-colors"
+                                href="/"
+                            >
                                 <Component className="size-4" />
                                 ui-kit.ai
-                            </span>
+                            </Link>
                             <Tag className="h-5 text-xs px-1.5">
                                 v{packageJson.version}
                             </Tag>
@@ -80,9 +87,9 @@ export default function RootLayout({
                                     <Kbd className="mr-2">/</Kbd>
                                 </FieldGroup>
                             </SearchField>
-                            <ButtonLink isIcon variant="tertiary">
+                            <LinkButton isIcon variant="tertiary">
                                 <Github />
-                            </ButtonLink>
+                            </LinkButton>
                             <Button isIcon variant="tertiary">
                                 <Sun />
                             </Button>
