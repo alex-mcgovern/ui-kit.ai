@@ -5,7 +5,6 @@ import * as path from "node:path";
 const outputPath = path.resolve(
     import.meta.dirname,
     "..",
-    "..",
     "dist",
     "usage-examples.json",
 );
@@ -46,13 +45,16 @@ async function main() {
             );
 
             const composed = Object.fromEntries(
-                Object.entries(composedStories).map(([storyName, Story]) => [
-                    storyName,
-                    reactElementToJSXString(
+                Object.entries(composedStories).map(([storyName, Story]) => {
+                    let jsx = reactElementToJSXString(
                         (Story as () => ReactNode)(),
                         JSX_STRING_OPTIONS,
-                    ),
-                ]),
+                    );
+
+                    jsx = `function ${storyName}() {\n${jsx}\n}`;
+
+                    return [storyName, jsx];
+                }),
             );
             examples[componentName] = composed;
         } catch (e) {

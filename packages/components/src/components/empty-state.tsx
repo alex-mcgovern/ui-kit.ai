@@ -1,7 +1,7 @@
 "use client";
-import type { LucideProps } from "lucide-react";
 import type { ReactNode } from "react";
 
+import { InfoIcon, type LucideProps } from "lucide-react";
 import { twMerge } from "tailwind-merge";
 import { tv } from "tailwind-variants";
 
@@ -26,11 +26,11 @@ const actionsStyle = tv({
  *
  * ## Usage
  * 
- * ```tsx
+ * ```typescript
  * import { EmptyState } from "ui-kit.ai"
+ * 
  * import { SearchXIcon } from "lucide-react";
- * ```
- * ```tsx
+
  * <EmptyState
  *     title={'No search results for "foo-bar"'}
  *     body="Try another search term, or clearing the search."
@@ -47,13 +47,13 @@ export function EmptyState({
     actions,
     body,
     className,
-    icon: Icon,
+    icon: Icon = InfoIcon,
     title,
 }: {
     actions?: [ReactNode, ReactNode?];
-    body: ReactNode;
+    body?: ReactNode;
     className?: string;
-    icon: React.ForwardRefExoticComponent<
+    icon?: React.ForwardRefExoticComponent<
         Omit<LucideProps, "ref"> & React.RefAttributes<SVGSVGElement>
     >;
     title: string;
@@ -73,7 +73,9 @@ export function EmptyState({
             <Heading className="mb-1 text-xl text-primary" level={2}>
                 {title}
             </Heading>
-            <p className="mb-4 max-w-lg text-balance">{body}</p>
+            {body != null ? (
+                <p className="mb-4 max-w-lg text-balance">{body}</p>
+            ) : null}
 
             {actions && actions.length > 0 ? (
                 <div

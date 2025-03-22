@@ -92,7 +92,7 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Primary: Story = {
+export const Default: Story = {
     args: {
         children: ({ close }) => {
             return (
@@ -127,6 +127,9 @@ export const Primary: Story = {
                 </>
             );
         },
+    },
+    parameters: {
+        displayName: "Default",
     },
 };
 
@@ -167,6 +170,9 @@ export const WidthMd: Story = {
         },
         width: "md",
     },
+    parameters: {
+        displayName: "md",
+    },
 };
 
 export const WidthLg: Story = {
@@ -205,5 +211,8 @@ export const WidthLg: Story = {
             );
         },
         width: "lg",
+    },
+    parameters: {
+        displayName: "lg",
     },
 };

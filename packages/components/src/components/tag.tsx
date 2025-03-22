@@ -121,6 +121,7 @@ const tagStyles = tv({
  * ## Usage
  * ```tsx
  * import { Tag } from "ui-kit.ai"
+ *
  * ```
  * ```tsx
  * <Tag>Short label</Tag>
@@ -132,6 +133,7 @@ const tagStyles = tv({
  *
  * ```tsx
  * import { TagButton } from "ui-kit.ai"
+ *
  * ```
  * ```tsx
  * <TagButton>Short label</TagButton>
@@ -143,6 +145,7 @@ const tagStyles = tv({
  *
  * ```tsx
  * import { TagLink } from "ui-kit.ai"
+ *
  * ```
  * ```tsx
  * <TagLink>Short label</TagLink>
@@ -195,6 +198,7 @@ Tag.displayName = "Tag";
  *
  * ```tsx
  * import { TagButton } from "ui-kit.ai"
+ *
  * ```
  * ```tsx
  * <TagButton>Short label</TagButton>
@@ -258,6 +262,7 @@ TagButton.displayName = "TagButton";
  *
  * ```tsx
  * import { TagLink } from "ui-kit.ai"
+ *
  * ```
  * ```tsx
  * <TagLink>Short label</TagLink>

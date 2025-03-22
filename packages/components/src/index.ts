@@ -1,9 +1,9 @@
 import "./style.css";
+import "./code.css";
 
 export { Alert } from "./components/alert";
 export { Autocomplete } from "./components/autocomplete";
 export { Button, LinkButton } from "./components/button";
-export { Checkbox } from "./components/checkbox";
 export {
     Card,
     CardBody,
@@ -11,7 +11,9 @@ export {
     CardHeader,
     CardTitle,
 } from "./components/card";
+export { Checkbox } from "./components/checkbox";
 export { CheckboxGroup } from "./components/checkbox-group";
+export { CodeBlock } from "./components/code-block";
 export {
     ComboBox,
     ComboBoxButton,
@@ -46,6 +48,7 @@ export { Kbd } from "./components/kbd";
 export { Label } from "./components/label";
 export { ListBox } from "./components/list-box";
 export { Loader } from "./components/loader";
+export { Markdown } from "./components/markdown";
 export { Menu, MenuDecorativeSection, MenuTrigger } from "./components/menu";
 export { Popover, PopoverDialog } from "./components/popover";
 export { SearchField, SearchFieldClearButton } from "./components/search-field";

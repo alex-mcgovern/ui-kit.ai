@@ -15,28 +15,37 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Primary: Story = {
+export const Default: Story = {
     args: {},
+    parameters: {
+        displayName: "Default",
+    },
 };
 export const VariantPrimary: Story = {
     args: {
         variant: "primary",
     },
-    name: "Primary",
+    parameters: {
+        displayName: "Primary",
+    },
     tags: ["group-variant"],
 };
 export const VariantSecondary: Story = {
     args: {
         variant: "secondary",
     },
-    name: "Secondary",
+    parameters: {
+        displayName: "Secondary",
+    },
     tags: ["group-variant"],
 };
 export const VariantTertiary: Story = {
     args: {
         variant: "tertiary",
     },
-    name: "Tertiary",
+    parameters: {
+        displayName: "Tertiary",
+    },
     tags: ["group-variant"],
 };
 /**
@@ -48,7 +57,9 @@ export const DestructivePrimary: Story = {
         isDestructive: true,
         variant: "primary",
     },
-    name: "Primary",
+    parameters: {
+        displayName: "Primary",
+    },
     tags: ["group-destructive"],
 };
 export const DestructiveSecondary: Story = {
@@ -56,7 +67,9 @@ export const DestructiveSecondary: Story = {
         isDestructive: true,
         variant: "secondary",
     },
-    name: "Secondary",
+    parameters: {
+        displayName: "Secondary",
+    },
     tags: ["group-destructive"],
 };
 export const DestructiveTertiary: Story = {
@@ -64,7 +77,9 @@ export const DestructiveTertiary: Story = {
         isDestructive: true,
         variant: "tertiary",
     },
-    name: "Tertiary",
+    parameters: {
+        displayName: "Tertiary",
+    },
     tags: ["group-destructive"],
 };
 /**
@@ -73,6 +88,9 @@ export const DestructiveTertiary: Story = {
 export const Disabled: Story = {
     args: {
         isDisabled: true,
+    },
+    parameters: {
+        displayName: "Disabled",
     },
 };
 /**
@@ -88,6 +106,9 @@ export const IconButton: Story = {
         children: <StarIcon />,
         isIcon: true,
     },
+    parameters: {
+        displayName: "Icon button",
+    },
 };
 /**
  * The `slotLeft` prop accepts a react node rendered on the left side. This will
@@ -96,6 +117,9 @@ export const IconButton: Story = {
 export const SlotLeft: Story = {
     args: {
         slotLeft: <StarIcon />,
+    },
+    parameters: {
+        displayName: "Left",
     },
     tags: ["group-slot"],
 };
@@ -106,6 +130,9 @@ export const SlotLeft: Story = {
 export const SlotRight: Story = {
     args: {
         slotRight: <StarIcon />,
+    },
+    parameters: {
+        displayName: "Right",
     },
     tags: ["group-slot"],
 };

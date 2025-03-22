@@ -13,10 +13,9 @@ import { Button } from "./button";
  *
  * ## Usage
  *
- * ```tsx
+ * ```typescript
  * import { FormSubmitButton } from "ui-kit.ai"
- * ```
- * ```tsx
+ *
  * <FormSubmitButton>Submit</FormSubmitButton>
  * ```
  */

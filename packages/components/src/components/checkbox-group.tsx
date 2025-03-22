@@ -15,10 +15,9 @@ import { twMerge } from "tailwind-merge";
  *
  * ## Usage
  *
- * ```tsx
+ * ```typescript
  * import { Checkbox, CheckboxGroup } from "ui-kit.ai"
- * ```
- * ```tsx
+ *
  * <CheckboxGroup>
  *     <Checkbox
  *         value="item-1"

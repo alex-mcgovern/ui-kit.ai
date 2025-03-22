@@ -40,13 +40,12 @@ const selectButtonStyles = tv({
  *
  * ## Usage
  *
- * ```tsx
+ * ```typescript
  * import {
  *     Select,
  *     SelectButton
  * } from "ui-kit.ai"
- * ```
- * ```tsx
+ *
  * <Select items={[{ id: "item-1", textValue: "Item 1"}]}>
  *     <SelectButton />
  * </Select>

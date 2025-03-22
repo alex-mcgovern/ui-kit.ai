@@ -49,15 +49,14 @@ const popoverStyles = tv({
  *
  * ## Usage
  *
- * ```tsx
+ * ```typescript
  * import {
  *     DialogTrigger,
  *     Button,
  *     Popover,
  *     PopoverDialog
  * } from "ui-kit.ai"
- * ```
- * ```tsx
+ *
  * <DialogTrigger>
  *     <Button>Click me</Button>
  *     <Popover>

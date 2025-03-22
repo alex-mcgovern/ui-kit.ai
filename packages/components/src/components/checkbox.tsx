@@ -121,10 +121,9 @@ const iconStyles = tv({
  *
  * ## Usage
  *
- * ```tsx
+ * ```typescript
  * import { Checkbox } from "ui-kit.ai"
- * ```
- * ```tsx
+ *
  * <Checkbox
  *     label="Checkbox item"
  * />

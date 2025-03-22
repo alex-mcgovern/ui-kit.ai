@@ -15,9 +15,11 @@ import {
 import { twMerge } from "tailwind-merge";
 
 import { FieldButton } from "./field-button";
+import { Input } from "./input";
 import { Tooltip, TooltipTrigger } from "./tooltip";
 
 export function TextField({
+    children = <Input />,
     ref,
     ...props
 }: AriaTextFieldProps & {
@@ -100,7 +102,13 @@ export function TextField({
                 ref={ref}
                 type={type}
                 value={value}
-            />
+            >
+                {(renderProps) =>
+                    typeof children === "function"
+                        ? children(renderProps)
+                        : children
+                }
+            </AriaTextField>
         </FieldButtonContext.Provider>
     );
 }

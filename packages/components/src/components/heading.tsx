@@ -8,12 +8,12 @@ const heading = tv({
     base: "font-title",
     variants: {
         level: {
-            1: "text-5xl font-bold",
-            2: "text-4xl font-bold",
-            3: "text-3xl font-semibold",
-            4: "text-2xl font-semibold",
-            5: "text-xl font-semibold",
-            6: "text-lg font-semibold",
+            1: "text-3xl font-bold",
+            2: "text-2xl font-bold",
+            3: "text-xl font-semibold",
+            4: "text-lg font-semibold",
+            5: "text-base font-semibold",
+            6: "text-base font-semibold",
         },
     },
 });
@@ -25,10 +25,9 @@ const heading = tv({
  *
  * ## Usage
  *
- * ```tsx
+ * ```typescript
  * import { Heading } from "ui-kit.ai"
- * ```
- * ```tsx
+ *
  * <Heading level={1}>
  *     Lorem ipsum dolor sit amet...
  * </Heading>

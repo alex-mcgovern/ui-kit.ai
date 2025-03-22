@@ -145,7 +145,7 @@ ComboBoxRefContext.displayName = "ComboBoxRefContext";
  *
  * ## Usage
  *
- * ```tsx
+ * ```typescript
  * import {
  *     ComboBox,
  *     ComboBoxFieldGroup,
@@ -153,8 +153,7 @@ ComboBoxRefContext.displayName = "ComboBoxRefContext";
  *     ComboBoxInput,
  *     ComboBoxClearButton
  * } from "ui-kit.ai"
- * ```
- * ```tsx
+ *
  * <ComboBox items={[{ id: "item-1", textValue: "Item 1"}]}>
  *     <ComboBoxFieldGroup>
  *         <ComboBoxInput

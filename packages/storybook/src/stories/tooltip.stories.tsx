@@ -35,7 +35,11 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Primary: Story = {};
+export const Default: Story = {
+    parameters: {
+        displayName: "Default",
+    },
+};
 /**
  * react-aria supports a pretty comprehensive range of placement options, some
  * of which are shown here. It is important to note that the Tooltip may flip
@@ -49,6 +53,9 @@ export const Placement: Story = {
             </div>
         ),
     ],
+    parameters: {
+        displayName: "Placement",
+    },
     render: (args) => (
         <>
             {PLACEMENTS.map((placement) => (
@@ -59,10 +66,13 @@ export const Placement: Story = {
 };
 /**
  * The Tooltip can be composed with a number of different components,
- * like `Button`, `Link`, `TabsItem` and more. The element that triggers the tooltip
+ * like `Button`, `Link`, `Tab` and more. The element that triggers the tooltip
  * must be able to receive focus.
  */
 export const Trigger: Story = {
+    parameters: {
+        displayName: "Trigger",
+    },
     render: (args) => (
         <TooltipTrigger>
             <Button>Hover me</Button>
@@ -81,6 +91,9 @@ export const WithKbd: Story = {
                 This is the tooltip <Kbd>C</Kbd>
             </>
         ),
+    },
+    parameters: {
+        displayName: "With kbd",
     },
     render: Template,
 };

@@ -85,7 +85,7 @@ const dialogStyles = tv({
  *
  * ## Usage
  *
- * ```tsx
+ * ```typescript
  * import {
  *     Dialog,
  *     DialogCloseButton,
@@ -97,7 +97,7 @@ const dialogStyles = tv({
  * } from "ui-kit.ai";
  * ```
  *
- * ```tsx
+ * ```typescript
  * <Dialog>
  *     <DialogHeader>
  *         <DialogTitle>

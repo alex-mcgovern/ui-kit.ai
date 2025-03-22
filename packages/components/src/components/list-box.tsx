@@ -18,10 +18,9 @@ type ListBoxProps<
  *
  * ## Usage
  *
- * ```tsx
+ * ```typescript
  * import { ListBox } from "ui-kit.ai"
- * ```
- * ```tsx
+ *
  * <ListBox items={[{ id: "item-1", textValue: "Item 1"}]} />
  * ```
  */

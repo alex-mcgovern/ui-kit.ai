@@ -14,48 +14,65 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Primary: Story = {
+export const Default: Story = {
     args: {},
+    parameters: {
+        displayName: "Default",
+    },
 };
 export const SlotLeft: Story = {
     args: {
         slotLeft: <CircleDot />,
     },
-    name: "Left",
+    parameters: {
+        displayName: "Left",
+    },
+    storyName: "Left",
     tags: ["group-slot"],
 };
 export const SlotRight: Story = {
     args: {
         slotRight: <CircleDot />,
     },
-    name: "Right",
+    parameters: {
+        displayName: "Right",
+    },
+    storyName: "Right",
     tags: ["group-slot"],
 };
 export const VariantGreen: Story = {
     args: {
         variant: "green",
     },
-    name: "Green",
+    parameters: {
+        displayName: "Green",
+    },
     tags: ["group-variant"],
 };
 export const VariantYellow: Story = {
     args: {
         variant: "yellow",
     },
-    name: "Yellow",
+    parameters: {
+        displayName: "Yellow",
+    },
     tags: ["group-variant"],
 };
 export const VariantRed: Story = {
     args: {
         variant: "red",
     },
-    name: "Red",
+    parameters: {
+        displayName: "Red",
+    },
     tags: ["group-variant"],
 };
 export const VariantInverted: Story = {
     args: {
         variant: "inverted",
     },
-    name: "Inverted",
+    parameters: {
+        displayName: "Inverted",
+    },
     tags: ["group-variant"],
 };

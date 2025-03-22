@@ -3,6 +3,7 @@ import type { ComponentProps } from "react";
 import { useController, useFormContext } from "react-hook-form";
 
 import { FieldError } from "./field-error";
+import { Input } from "./input";
 import { TextField } from "./text-field";
 
 /**
@@ -11,9 +12,11 @@ import { TextField } from "./text-field";
  * [React Aria Documentation](https://react-spectrum.adobe.com/react-aria/TextField)
  */
 export function FormTextField({
-    children,
+    children = <Input />,
     ...props
-}: ComponentProps<typeof TextField>) {
+}: Omit<ComponentProps<typeof TextField>, "children"> & {
+    children?: ComponentProps<typeof TextField>["children"];
+}) {
     if (props.name == null)
         throw new Error("Form.TextField requires a name prop");
 

@@ -69,7 +69,11 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Primary: Story = {};
+export const Default: Story = {
+    parameters: {
+        displayName: "Default",
+    },
+};
 
 /**
  * react-aria supports a pretty comprehensive range of placement options, some
@@ -84,5 +88,8 @@ export const Placement: Story = {
             </div>
         ),
     ],
+    parameters: {
+        displayName: "Placement",
+    },
     render: PlacementTemplate,
 };

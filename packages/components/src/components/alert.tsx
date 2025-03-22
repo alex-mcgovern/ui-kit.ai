@@ -44,10 +44,9 @@ const iconStyles = tv({
  *
  * ## Usage
  *
- * ```tsx
+ * ```typescript
  * import { Alert } from "ui-kit.ai"
- * ```
- * ```tsx
+ *
  * <Alert
  *     {...args}
  *     title="Account verification required"

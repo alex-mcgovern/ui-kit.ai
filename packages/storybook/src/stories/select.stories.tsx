@@ -39,9 +39,12 @@ const meta: Meta<typeof Select<OptionsSchema<"listbox">>> = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Primary: Story = {
+export const Default: Story = {
     args: {
         items: getMockOptions({ withIcon: true }),
+    },
+    parameters: {
+        displayName: "Default",
     },
 };
 export const IsInvalid: Story = {
@@ -52,6 +55,9 @@ export const IsInvalid: Story = {
             withSections: true,
         }),
     },
+    parameters: {
+        displayName: "Invalid",
+    },
 };
 export const IsDisabled: Story = {
     args: {
@@ -61,6 +67,9 @@ export const IsDisabled: Story = {
             withSections: true,
         }),
     },
+    parameters: {
+        displayName: "Disabled",
+    },
 };
 export const IsBorderless: Story = {
     args: {
@@ -68,6 +77,9 @@ export const IsBorderless: Story = {
             withIcon: true,
             withSections: true,
         }),
+    },
+    parameters: {
+        displayName: "Borderless",
     },
     render: (props) => (
         <Select {...props}>
@@ -79,10 +91,13 @@ export const IsBorderless: Story = {
 };
 export const DisabledKeys: Story = {
     args: {
-        disabledKeys: ["france", "germany", "spain"],
+        disabledKeys: ["carrot", "spinach"],
         items: getMockOptions({
             withIcon: true,
             withSections: true,
         }),
+    },
+    parameters: {
+        displayName: "Disabled keys",
     },
 };

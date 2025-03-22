@@ -1,9 +1,9 @@
 import * as fs from "node:fs";
 import * as path from "node:path";
 import { withCustomConfig } from "react-docgen-typescript";
-const outputPath = path.resolve(
+
+const OUTPUT_PATH = path.resolve(
     import.meta.dirname,
-    "..",
     "..",
     "dist",
     "prop-types.json",
@@ -19,8 +19,8 @@ function main() {
     if (!Array.isArray(docs) || docs.length === 0) {
         throw Error(`❌ Unable to parse typedefs for ${resolvedPath}`);
     } else {
-        fs.writeFileSync(outputPath, JSON.stringify(docs, null, 2));
-        console.info(`✅  Component type data written to ${outputPath}`);
+        fs.writeFileSync(OUTPUT_PATH, JSON.stringify(docs, null, 2));
+        console.info(`✅  Component type data written to ${OUTPUT_PATH}`);
     }
 }
 

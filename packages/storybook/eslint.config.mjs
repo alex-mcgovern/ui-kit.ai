@@ -16,6 +16,20 @@ const config = [
     {
         files: ["**/*.stories.tsx"],
         rules: {
+            "no-restricted-syntax": [
+                "error",
+                {
+                    message: "Story exports must have a parameters property",
+                    selector:
+                        "ExportNamedDeclaration > VariableDeclaration > VariableDeclarator > ObjectExpression:not(:has(Property[key.name='parameters']))",
+                },
+                {
+                    message:
+                        "Story parameters must have a displayName property",
+                    selector:
+                        "Property[key.name='parameters'] > ObjectExpression:not(:has(Property[key.name='displayName']))",
+                },
+            ],
             "sonarjs/no-duplicate-string": "off",
         },
     },

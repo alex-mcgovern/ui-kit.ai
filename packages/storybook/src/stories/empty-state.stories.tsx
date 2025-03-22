@@ -19,18 +19,24 @@ function Template(args: ComponentProps<typeof EmptyState>) {
     );
 }
 
-const meta: Meta<typeof EmptyState> = {
+const meta = {
     args: {
         title: "This is the title",
     },
     component: EmptyState,
     render: Template,
     title: "Components/EmptyState",
-};
+} satisfies Meta<typeof EmptyState>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Primary: Story = {
-    name: "EmptyState",
+export const Default: Story = {
+    args: {
+        title: "This is the title",
+    },
+    parameters: {
+        displayName: "Default",
+    },
+    storyName: "EmptyState",
 };

@@ -11,10 +11,9 @@ import { twMerge } from "tailwind-merge";
  *
  * ## Usage
  *
- * ```tsx
+ * ```typescript
  * import { FieldError } from "ui-kit.ai"
- * ```
- * ```tsx
+ *
  * <FieldError>Your error message here</FieldError>
  * ```
  */

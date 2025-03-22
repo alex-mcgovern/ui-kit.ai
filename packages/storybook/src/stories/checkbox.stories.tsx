@@ -19,23 +19,35 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Primary: Story = {
+export const Default: Story = {
     args: {
         textPosition: "right",
+    },
+    parameters: {
+        displayName: "Default",
     },
 };
 export const TextPositionRight: Story = {
     args: {
         textPosition: "right",
     },
+    parameters: {
+        displayName: "Right",
+    },
 };
 export const TextPositionLeft: Story = {
     args: {
         textPosition: "left",
     },
+    parameters: {
+        displayName: "Left",
+    },
 };
 export const IsInvalid: Story = {
     args: {
         isInvalid: true,
+    },
+    parameters: {
+        displayName: "Invalid",
     },
 };

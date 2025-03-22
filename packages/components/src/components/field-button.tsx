@@ -13,11 +13,11 @@ import { Button } from "./button";
  *
  * ## Usage
  *
- * ```tsx
+ * ```typescript
  * import { FieldButton } from "ui-kit.ai"
+ * 
  * import { XIcon } from "lucide-react"
- * ```
- * ```tsx
+
  * <FieldButton>
  *     <XIcon />
  * </FieldButton>

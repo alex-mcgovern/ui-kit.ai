@@ -36,9 +36,12 @@ const LEVELS = [1, 2, 3, 4, 5, 6] satisfies ComponentProps<
     typeof Heading
 >["level"][];
 
-export const Primary: Story = {
+export const Default: Story = {
     args: {
         children: TEXT,
+    },
+    parameters: {
+        displayName: "Default",
     },
     render: Template,
 };

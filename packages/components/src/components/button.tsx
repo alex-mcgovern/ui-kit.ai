@@ -255,11 +255,10 @@ type LinkButtonProps = ButtonCommonProps &
  *
  * ## Usage
  *
- * ```tsx
+ * ```typescript
  * import { Button } from "ui-kit.ai"
- * ```
- * ```tsx
- * <Button>Press me</Button>
+ *
+ * <Button>Button</Button>
  * ```
  */
 export function Button({

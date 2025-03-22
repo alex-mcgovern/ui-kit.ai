@@ -1,6 +1,11 @@
 import type { OptionsSchema } from "@ui-kit.ai/components";
 
-import { GlobeIcon } from "lucide-react";
+import {
+    AppleIcon,
+    BananaIcon,
+    CarrotIcon,
+    LeafyGreenIcon,
+} from "lucide-react";
 
 type Options = {
     withIcon?: boolean;
@@ -8,56 +13,45 @@ type Options = {
 };
 
 const getItems = ({ withIcon }: Options) => ({
-    france: {
-        icon: withIcon === true ? <GlobeIcon /> : undefined,
-        id: "france",
-        textValue: "France",
+    apple: {
+        icon: withIcon === true ? <AppleIcon /> : undefined,
+        id: "apple",
+        textValue: "Apple",
     },
-    germany: {
-        icon: withIcon === true ? <GlobeIcon /> : undefined,
-        id: "germany",
-        textValue: "Germany",
+    banana: {
+        icon: withIcon === true ? <BananaIcon /> : undefined,
+        id: "banana",
+        textValue: "Banana",
     },
-    oman: {
-        icon: withIcon === true ? <GlobeIcon /> : undefined,
-        id: "oman",
-        textValue: "Oman",
+    carrot: {
+        icon: withIcon === true ? <CarrotIcon /> : undefined,
+        id: "carrot",
+        textValue: "Carrot",
     },
-    saudi_arabia: {
-        icon: withIcon === true ? <GlobeIcon /> : undefined,
-        id: "saudi_arabia",
-        textValue: "Saudi Arabia",
-    },
-    spain: {
-        icon: withIcon === true ? <GlobeIcon /> : undefined,
-        id: "spain",
-        textValue: "Spain",
-    },
-    uae: {
-        icon: withIcon === true ? <GlobeIcon /> : undefined,
-        id: "uae",
-        textValue: "United Arab Emirates",
+    spinach: {
+        icon: withIcon === true ? <LeafyGreenIcon /> : undefined,
+        id: "spinach",
+        textValue: "Spinach",
     },
 });
 
 export function getMockOptions<TType extends "listbox" | "menu">(
     options: Options = {},
 ): OptionsSchema<TType>[] {
-    const { france, germany, oman, saudi_arabia, spain, uae } =
-        getItems(options);
+    const { apple, banana, carrot, spinach } = getItems(options);
 
     return options.withSections === true
         ? [
               {
-                  id: "europe",
-                  items: [france, germany, spain],
-                  textValue: "Europe",
+                  id: "fruits",
+                  items: [banana, apple],
+                  textValue: "Fruits",
               },
               {
-                  id: "mena",
-                  items: [uae, saudi_arabia, oman],
-                  textValue: "MENA",
+                  id: "vegetables",
+                  items: [carrot, spinach],
+                  textValue: "Vegetables",
               },
           ]
-        : [france, germany, spain, uae, saudi_arabia, oman];
+        : [apple, banana, carrot, spinach];
 }

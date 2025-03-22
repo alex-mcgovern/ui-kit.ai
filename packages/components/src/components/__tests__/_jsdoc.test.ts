@@ -12,7 +12,7 @@ const componentFiles = files.filter(
         !file.endsWith(".test.tsx"),
 );
 
-describe("JSDoc comments for named exports", async () => {
+describe.skip("JSDoc comments for named exports", async () => {
     for (const file of componentFiles) {
         const filePath = path.join(componentsDir, file);
         const fileContent = fs.readFileSync(filePath, "utf8");

@@ -183,6 +183,9 @@ const meta = {
         msw: {
             handlers: [getStocksHandler],
         },
+        parameters: {
+            displayName: "Default",
+        },
     },
     title: "Components/Table",
 } satisfies Meta<typeof Table<StockWatchlistItem>>;
@@ -422,10 +425,12 @@ function Template({
     );
 }
 
-export const Primary: Story = {
+export const Default: Story = {
     // @ts-expect-error - TODO: fix table stories types
     args: {},
-    name: "Table",
+    parameters: {
+        displayName: "Default",
+    },
     // @ts-expect-error - TODO: fix table stories types
     render: Template,
 };

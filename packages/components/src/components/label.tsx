@@ -12,10 +12,9 @@ import { twMerge } from "tailwind-merge";
  *
  * ## Usage
  *
- * ```tsx
+ * ```typescript
  * import { Label } from "ui-kit.ai"
- * ```
- * ```tsx
+ *
  * <Label>Your label here</Label>
  * ```
  */

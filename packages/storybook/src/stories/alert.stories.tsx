@@ -21,28 +21,24 @@ function Template(args: ComponentProps<typeof Alert>) {
     );
 }
 
-const meta: Meta<typeof Alert> = {
+const meta = {
     args: {
         title: "Account verification required",
     },
     component: Alert,
-    decorators: [
-        (Story) => (
-            <div className="w-full min-w-32 max-w-5xl">
-                <Story />
-            </div>
-        ),
-    ],
     render: Template,
     title: "Components/Alert",
-};
+} satisfies Meta<typeof Alert>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Primary: Story = {
+export const Default: Story = {
     args: {
         variant: "default",
+    },
+    parameters: {
+        displayName: "Default",
     },
 };
 /**
@@ -53,6 +49,9 @@ export const Invalid: Story = {
     args: {
         variant: "invalid",
     },
+    parameters: {
+        displayName: "Invalid",
+    },
 };
 /**
  * Passing `"inverted"` to the `variant` prop will invert the colors in the
@@ -61,5 +60,8 @@ export const Invalid: Story = {
 export const Inverted: Story = {
     args: {
         variant: "inverted",
+    },
+    parameters: {
+        displayName: "Inverted",
     },
 };

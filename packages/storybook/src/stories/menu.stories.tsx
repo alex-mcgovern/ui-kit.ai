@@ -28,12 +28,15 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Primary: Story = {
+export const Default: Story = {
     args: {
         items: getMockOptions({
             withIcon: true,
             withSections: false,
         }),
+    },
+    parameters: {
+        displayName: "Default",
     },
     render: Template,
 };
@@ -45,13 +48,19 @@ export const WithSections: Story = {
             withSections: true,
         }),
     },
+    parameters: {
+        displayName: "Sections",
+    },
 };
 export const DisabledKeys: Story = {
     args: {
-        disabledKeys: ["france", "germany", "spain"],
+        disabledKeys: ["carrot", "spinach"],
         items: getMockOptions({
             withIcon: true,
             withSections: true,
         }),
+    },
+    parameters: {
+        displayName: "Disabled keys",
     },
 };

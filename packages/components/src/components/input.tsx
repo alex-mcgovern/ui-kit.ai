@@ -24,10 +24,9 @@ const inputStyles = tv({
  *
  * ## Usage
  *
- * ```tsx
+ * ```typescript
  * import { Input } from "ui-kit.ai"
- * ```
- * ```tsx
+ *
  * <Input placeholder="Type something..." />
  * ```
  */

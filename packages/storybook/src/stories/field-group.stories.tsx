@@ -14,7 +14,6 @@ const meta: Meta<typeof FieldGroup> = {
     args: {},
     component: FieldGroup,
     decorators: [(Story) => <div className="mx-auto w-96">{Story()}</div>],
-    parameters: { actions: "disable" },
     title: "Components/FieldGroup",
 };
 
@@ -30,9 +29,12 @@ export const WKbd: Story = {
             </>
         ),
     },
+    parameters: {
+        displayName: "kbd",
+    },
 };
 
-export const Primary: Story = {
+export const Default: Story = {
     args: {
         children: (
             <>
@@ -53,5 +55,8 @@ export const Primary: Story = {
                 </TextField>
             </>
         ),
+    },
+    parameters: {
+        displayName: "Default",
     },
 };

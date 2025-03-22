@@ -44,11 +44,18 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-export const Primary: Story = {};
+export const Default: Story = {
+    parameters: {
+        displayName: "Default",
+    },
+};
 
 export const IsDisabled: Story = {
     args: {
         isDisabled: true,
+    },
+    parameters: {
+        displayName: "Disabled",
     },
 };
 
@@ -56,10 +63,16 @@ export const IsInvalid: Story = {
     args: {
         isInvalid: true,
     },
+    parameters: {
+        displayName: "Invalid",
+    },
 };
 
 export const IsReadOnly: Story = {
     args: {
         isReadOnly: true,
+    },
+    parameters: {
+        displayName: "Read only",
     },
 };

@@ -2,6 +2,7 @@ export * as Alert from "./stories/alert.stories";
 export * as Button from "./stories/button.stories";
 export * as CheckboxGroup from "./stories/checkbox-group.stories";
 export * as Checkbox from "./stories/checkbox.stories";
+export * as CodeBlock from "./stories/code-block.stories";
 export * as ComboBox from "./stories/combo-box.stories";
 export * as Dialog from "./stories/dialog.stories";
 export * as EmptyState from "./stories/empty-state.stories";

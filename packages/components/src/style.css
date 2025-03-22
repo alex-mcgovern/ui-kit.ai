@@ -25,6 +25,10 @@ body {
     font-family: "Inter", sans-serif;
 }
 
+p {
+    @apply mb-2 text-secondary;
+}
+
 .code,
 code {
     @apply text-sm !font-medium;

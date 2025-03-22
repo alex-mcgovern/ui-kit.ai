@@ -16,6 +16,7 @@ export const tailwindPreset: Partial<Config> = {
     theme: {
         colors: {
             black: colors.black,
+            blue: colors.sky,
             brand: colors.stone,
             current: "currentColor",
             green: colors.emerald,

@@ -1,0 +1,101 @@
+.react-syntax-highlighter-line-number {
+    @apply text-muted-400;
+}
+
+/**
+ * Tailwind CSS adaptation of GHColors primjs theme by Avi Aryan (http://aviaryan.in)
+ */
+code[class*="language-"],
+pre[class*="language-"] {
+    @apply whitespace-pre text-left !font-mono !text-sm text-primary;
+    direction: ltr;
+    word-spacing: normal;
+    word-break: normal;
+
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+}
+
+pre > code[class*="language-"] {
+    @apply !text-sm;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+    @apply text-secondary;
+    font-style: italic;
+}
+
+.token.namespace {
+    @apply opacity-70;
+}
+
+.token.maybe-class-name {
+    @apply text-blue-600;
+}
+
+.token.string {
+    @apply text-green-600;
+}
+
+.token.attr-value {
+    @apply text-red-600;
+}
+
+.token.punctuation,
+.token.operator {
+    @apply text-primary; /* no highlight */
+}
+
+.token.entity,
+.token.url,
+.token.symbol,
+.token.number,
+.token.boolean,
+.token.variable,
+.token.constant,
+.token.property,
+.token.regex,
+.token.inserted {
+    @apply text-green-500;
+}
+
+.token.atrule,
+.token.keyword,
+.token.attr-name,
+.language-autohotkey .token.selector {
+    @apply text-blue-400;
+}
+
+.token.function,
+.token.deleted,
+.language-autohotkey .token.tag {
+    @apply text-red-800;
+}
+
+.token.tag {
+    @apply text-blue-600;
+}
+
+.token.selector,
+.language-autohotkey .token.keyword {
+    @apply text-blue-900;
+}
+
+.token.important,
+.token.function,
+.token.bold {
+    @apply font-bold;
+}
+
+.token.italic {
+    font-style: italic;
+}

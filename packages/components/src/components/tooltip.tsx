@@ -64,10 +64,9 @@ const tooltipStyles = tv({
  *
  * ## Usage
  * 
- * ```tsx
+ * ```typescript
  * import { TooltipTrigger, TooltipInfoButton, Tooltip } from "ui-kit.ai"
- * ```
- * ```tsx
+ * 
  * <TooltipTrigger>
  *     <TooltipInfoButton />
  *     <Tooltip>Extra content shown on hover</Tooltip>
