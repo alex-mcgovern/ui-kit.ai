@@ -135,6 +135,9 @@ importers:
       '@ui-kit.ai/components':
         specifier: workspace:*
         version: link:../components
+      culori:
+        specifier: ^4.0.1
+        version: 4.0.1
       lodash-es:
         specifier: 4.17.21
         version: 4.17.21
@@ -144,6 +147,12 @@ importers:
       next:
         specifier: 14.2.24
         version: 14.2.24(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      prettier:
+        specifier: 3.3.3
+        version: 3.3.3
+      radix-theme-generator:
+        specifier: ^0.1.1
+        version: 0.1.1
       react:
         specifier: 19.0.0
         version: 19.0.0
@@ -160,6 +169,9 @@ importers:
         specifier: 3.24.1
         version: 3.24.1
     devDependencies:
+      '@types/culori':
+        specifier: ^2.1.1
+        version: 2.1.1
       '@types/node':
         specifier: 22.13.10
         version: 22.13.10
@@ -1339,6 +1351,9 @@ packages:
     resolution: {integrity: sha512-fdDH1LSGfZdTH2sxdpVMw31BanV28K/Gry0cVFxaNP77neJSkd82mM8ErPNYs9e+0O7SdHBLTDzDgwUuy18RnQ==}
     engines: {node: ^12.20.0 || ^14.18.0 || >=16.0.0}
 
+  '@radix-ui/colors@3.0.0':
+    resolution: {integrity: sha512-FUOsGBkHrYJwCSEtWRCIfQbZG7q1e6DgxCIOe1SUQzDe/7rXXeA47s8yCn6fuTNQAj1Zq4oTFi9Yjp3wzElcxg==}
+
   '@react-aria/autocomplete@3.0.0-beta.1':
     resolution: {integrity: sha512-ZeVR1tKJOZK5/RTuN8eprlP1lyeihdDfDYPBkdg2iT5h775LSZyOingPux9aLtdqt/uj6JIS5amK9ErI7+axug==}
     peerDependencies:
@@ -2328,6 +2343,9 @@ packages:
   '@types/cookie@0.6.0':
     resolution: {integrity: sha512-4Kh9a6B2bQciAhf7FSuMRRkUWecJgJu9nPnx3yzpsfXX/c50REIqpHY4C82bXP90qrLtXtkDxTZosYO3UpOwlA==}
 
+  '@types/culori@2.1.1':
+    resolution: {integrity: sha512-NzLYD0vNHLxTdPp8+RlvGbR2NfOZkwxcYGFwxNtm+WH2NuUNV8785zv1h0sulFQ5aFQ9n/jNDUuJeo3Bh7+oFA==}
+
   '@types/debug@4.1.12':
     resolution: {integrity: sha512-vIChWdVG3LG1SMxEvI/AK+FWJthlrqlTu7fbrlywTkkaONwk/UAGaULXRlf8vkzFBLVm0zkMdCquhL5aOjhXPQ==}
 
@@ -2792,6 +2810,9 @@ packages:
     resolution: {integrity: sha512-aVNobHnJqLiUelTaHat9DZ1qM2w0C0Eym4LPI/3JxOnSokGVdsl1T1kN7TFvsEAD8G47A6VKQ0TVHqbBnYMJlQ==}
     engines: {node: '>=12.0.0'}
 
+  bezier-easing@2.1.0:
+    resolution: {integrity: sha512-gbIqZ/eslnUFC1tjEvtz0sgx+xTK20wDnYMIA27VA04R7w6xxXQPZDbibjA9DTWZRA2CXtwHykkVzlCaAJAZig==}
+
   binary-extensions@2.3.0:
     resolution: {integrity: sha512-Ceh+7ox5qe7LJuLHoY0feh3pHuUDHAcRUeyL2VYghZwfpkNIy/+8Ocg0a3UuSoYzavmylwuLWQOf3hl0jjMMIw==}
     engines: {node: '>=8'}
@@ -2965,6 +2986,9 @@ packages:
   color-name@1.1.4:
     resolution: {integrity: sha512-dOy+3AuW3a2wNbZHIuMZpTcgjGuLU/uBL/ubcZF9OXbDo8ff4O8yVp5Bf0efS8uEoYo5q4Fx7dY9OgQGXgAsQA==}
 
+  colorjs.io@0.5.2:
+    resolution: {integrity: sha512-twmVoizEW7ylZSN32OgKdXRmo1qg+wT5/6C3xu5b9QsWzSFAhHLn2xd8ro0diCsKfCj1RdaTP/nrcW+vAoQPIw==}
+
   combined-stream@1.0.8:
     resolution: {integrity: sha512-FQN4MRfuJeHf7cBbBMJFXhKSDq+2kAArBlmRBvcvFE5BB1HZKXtSFASDhdlz9zOYwxh8lDdnvmMOe/+5cdoEdg==}
     engines: {node: '>= 0.8'}
@@ -3046,6 +3070,10 @@ packages:
 
   csstype@3.1.3:
     resolution: {integrity: sha512-M1uQkMl8rQK/szD0LNhtqxIPLpimGm8sOBwU7lLnCpSbTyY3yeU1Vc7l4KT5zT4s/yOxHH5O7tIuuLOCnLADRw==}
+
+  culori@4.0.1:
+    resolution: {integrity: sha512-LSnjA6HuIUOlkfKVbzi2OlToZE8OjFi667JWN9qNymXVXzGDmvuP60SSgC+e92sd7B7158f7Fy3Mb6rXS5EDPw==}
+    engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
 
   data-urls@5.0.0:
     resolution: {integrity: sha512-ZYP5VBHshaDAiVZxjbRVcFJpc+4xGgT0bK3vzy1HLN8jTO975HEbuYzZJcHoQEY5K1a0z8YayJkyVETa08eNTg==}
@@ -5012,6 +5040,9 @@ packages:
   queue-microtask@1.2.3:
     resolution: {integrity: sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==}
 
+  radix-theme-generator@0.1.1:
+    resolution: {integrity: sha512-i5+uR4Xf6G9oImOqVi6O/OgZyxtON95hzKEa3QHn2Yn9fE7BzccJa6ifStC7fcGgwLiX+fAjM8L8TlisvZFD6Q==}
+
   range-parser@1.2.1:
     resolution: {integrity: sha512-Hrgsx+orqoygnmhFbKaHE6c296J+HTAQXoxEF6gNupROmmGJRoyzfG3ccAveqCBrwr/2yxQ5BVd/GTl5agOwSg==}
     engines: {node: '>= 0.6'}
@@ -6776,6 +6807,8 @@ snapshots:
 
   '@pkgr/core@0.1.2': {}
 
+  '@radix-ui/colors@3.0.0': {}
+
   '@react-aria/autocomplete@3.0.0-beta.1(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
     dependencies:
       '@react-aria/combobox': 3.12.1(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
@@ -8274,6 +8307,8 @@ snapshots:
 
   '@types/cookie@0.6.0': {}
 
+  '@types/culori@2.1.1': {}
+
   '@types/debug@4.1.12':
     dependencies:
       '@types/ms': 2.1.0
@@ -8846,6 +8881,8 @@ snapshots:
     dependencies:
       open: 8.4.2
 
+  bezier-easing@2.1.0: {}
+
   binary-extensions@2.3.0: {}
 
   bl@4.1.0:
@@ -9039,6 +9076,8 @@ snapshots:
 
   color-name@1.1.4: {}
 
+  colorjs.io@0.5.2: {}
+
   combined-stream@1.0.8:
     dependencies:
       delayed-stream: 1.0.0
@@ -9098,6 +9137,8 @@ snapshots:
       rrweb-cssom: 0.8.0
 
   csstype@3.1.3: {}
+
+  culori@4.0.1: {}
 
   data-urls@5.0.0:
     dependencies:
@@ -11444,6 +11485,12 @@ snapshots:
   querystringify@2.2.0: {}
 
   queue-microtask@1.2.3: {}
+
+  radix-theme-generator@0.1.1:
+    dependencies:
+      '@radix-ui/colors': 3.0.0
+      bezier-easing: 2.1.0
+      colorjs.io: 0.5.2
 
   range-parser@1.2.1: {}
 
