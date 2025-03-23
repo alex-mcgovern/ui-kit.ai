@@ -8,10 +8,13 @@ import {
 } from "@ui-kit.ai/components";
 import React, { type ComponentProps } from "react";
 
+import * as DescriptionStories from "./description.stories";
+import * as LabelStories from "./label.stories";
+
 function Template(args: ComponentProps<typeof CheckboxGroup>) {
     return (
         <CheckboxGroup {...args}>
-            <Label>This is a label for the field</Label>
+            <Label {...LabelStories.Default.args} />
             <Checkbox
                 description="Optional description"
                 label="Item A"
@@ -22,9 +25,7 @@ function Template(args: ComponentProps<typeof CheckboxGroup>) {
                 label="Item B"
                 value="item-b"
             />
-            <Description>
-                This is a description for the field group.
-            </Description>
+            <Description {...DescriptionStories.Default.args} />
         </CheckboxGroup>
     );
 }

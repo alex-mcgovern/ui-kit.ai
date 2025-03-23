@@ -33,7 +33,9 @@ export function CodeBlock(props: SyntaxHighlighterProps) {
             useInlineStyles={false}
             wrapLines
         >
-            {props.children}
+            {typeof props.children === "string"
+                ? props.children.trim()
+                : props.children}
         </SyntaxHighlighter>
     );
 }

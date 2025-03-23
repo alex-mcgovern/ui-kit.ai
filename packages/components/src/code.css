@@ -39,19 +39,19 @@ pre > code[class*="language-"] {
 }
 
 .token.maybe-class-name {
-    @apply text-blue-600;
+    @apply text-blue-700;
 }
 
-.token.string {
-    @apply text-green-600;
-}
-
-.token.attr-value {
+.token.keyword,
+.token.attr-value,
+.token.tag.script.language-javascript.script-punctuation.punctuation,
+.token.tag.script.language-javascript.punctuation {
     @apply text-red-600;
 }
-
+.token.tag.script.language-javascript,
 .token.punctuation,
-.token.operator {
+.token.operator,
+.token.string {
     @apply text-primary; /* no highlight */
 }
 
@@ -65,11 +65,10 @@ pre > code[class*="language-"] {
 .token.property,
 .token.regex,
 .token.inserted {
-    @apply text-green-500;
+    @apply text-green-600;
 }
 
 .token.atrule,
-.token.keyword,
 .token.attr-name,
 .language-autohotkey .token.selector {
     @apply text-blue-400;
@@ -78,20 +77,23 @@ pre > code[class*="language-"] {
 .token.function,
 .token.deleted,
 .language-autohotkey .token.tag {
-    @apply text-red-800;
 }
 
-.token.tag {
-    @apply text-blue-600;
+.token.tag,
+.token.tag.script.language-javascript.class-name {
+    @apply text-blue-700;
 }
 
 .token.selector,
 .language-autohotkey .token.keyword {
     @apply text-blue-900;
 }
+.token.function,
+.token.tag.attr-name {
+    @apply text-purple-800;
+}
 
 .token.important,
-.token.function,
 .token.bold {
     @apply font-bold;
 }

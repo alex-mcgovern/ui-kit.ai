@@ -1,7 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import type { ComponentProps } from "react";
 
 import {
     FieldGroup,
+    Form,
     FormTextField,
     Input,
     Label,
@@ -9,11 +11,13 @@ import {
 } from "@ui-kit.ai/components";
 import { AtSignIcon } from "lucide-react";
 
-const meta = {
-    args: {
-        children: (
-            <>
-                <Label>Email address</Label>
+import * as LabelStories from "./label.stories";
+
+function Template(args: ComponentProps<typeof FormTextField>) {
+    return (
+        <Form onSubmit={() => {}}>
+            <FormTextField {...args}>
+                <Label {...LabelStories.Default.args} />
                 <FieldGroup>
                     <Input
                         icon={<AtSignIcon />}
@@ -22,11 +26,17 @@ const meta = {
                     />
                     <TextFieldClearButton />
                 </FieldGroup>
-            </>
-        ),
+            </FormTextField>
+        </Form>
+    );
+}
+
+const meta = {
+    args: {
         name: "email",
     },
     component: FormTextField,
+    render: Template,
     title: "Components/FormTextField",
 } satisfies Meta<typeof FormTextField>;
 

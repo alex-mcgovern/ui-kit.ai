@@ -45,7 +45,7 @@ export function Code({
                         {component}
                     </TabPanel>
                     <TabPanel id="code">
-                        <CodeBlock language="typescript">{code}</CodeBlock>
+                        <CodeBlock language="tsx">{code}</CodeBlock>
                     </TabPanel>
                 </CardBody>
             </Tabs>

@@ -18,9 +18,12 @@ import { OptionRenderer } from "./options";
  *
  * @see https://react-spectrum.adobe.com/react-aria/Menu
  */
-export function Menu<T extends OptionsSchema<"menu">>(
-    props: Omit<AriaMenuProps<T>, "children" | "className">,
-) {
+export function Menu<T extends OptionsSchema<"menu">>({
+    showCheckmarkOnSelected = true,
+    ...props
+}: Omit<AriaMenuProps<T>, "children" | "className"> & {
+    showCheckmarkOnSelected?: boolean;
+}) {
     return (
         <RACMenu
             {...props}
@@ -28,7 +31,11 @@ export function Menu<T extends OptionsSchema<"menu">>(
                 [clip-path:inset(0_0_0_0_round_.75rem)]"
         >
             {(renderProps) => (
-                <OptionRenderer<"menu"> {...renderProps} type="menu" />
+                <OptionRenderer<"menu">
+                    {...renderProps}
+                    showCheckmarkOnSelected={showCheckmarkOnSelected}
+                    type="menu"
+                />
             )}
         </RACMenu>
     );

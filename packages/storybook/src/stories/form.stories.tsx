@@ -25,6 +25,8 @@ import { getMockOptions } from "@ui-kit.ai/mocks";
 import { AtSignIcon, GlobeIcon } from "lucide-react";
 import { z } from "zod";
 
+import * as DescriptionStories from "./description.stories";
+
 const communicationPreferencesSchema = z.enum([
     "account_updates",
     "newsletter",
@@ -125,10 +127,7 @@ function Template(props: ComponentProps<typeof Form<FieldValues>>) {
                     label="Promotions and Offers"
                     value="promotions"
                 />
-                <Description>
-                    Your preferences can be updated at any time in your account
-                    settings.
-                </Description>
+                <Description {...DescriptionStories.Default.args} />
             </FormCheckboxGroup>
 
             <FormSubmitButton />

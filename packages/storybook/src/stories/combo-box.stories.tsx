@@ -14,12 +14,15 @@ import { getMockOptions } from "@ui-kit.ai/mocks";
 import { SearchIcon } from "lucide-react";
 import React, { type ComponentProps } from "react";
 
+import * as DescriptionStories from "./description.stories";
+import * as LabelStories from "./label.stories";
+
 function Template(
     props: ComponentProps<typeof ComboBox<OptionsSchema<"listbox">>>,
 ) {
     return (
         <ComboBox {...props}>
-            <Label>Label</Label>
+            <Label {...LabelStories.Default.args} />
             <ComboBoxFieldGroup>
                 <ComboBoxInput
                     icon={<SearchIcon />}
@@ -29,7 +32,7 @@ function Template(
                 <ComboBoxClearButton />
                 <ComboBoxButton />
             </ComboBoxFieldGroup>
-            <Description>This is a short description</Description>
+            <Description {...DescriptionStories.Default.args} />
         </ComboBox>
     );
 }

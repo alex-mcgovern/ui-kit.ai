@@ -11,6 +11,7 @@ export * as FormTextField from "./stories/form-text-field.stories";
 export * as Form from "./stories/form.stories";
 export * as Heading from "./stories/heading.stories";
 export * as Input from "./stories/input.stories";
+export * as Label from "./stories/label.stories";
 export * as ListBox from "./stories/list-box.stories";
 export * as Menu from "./stories/menu.stories";
 export * as Popover from "./stories/popover.stories";

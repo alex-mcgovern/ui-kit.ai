@@ -174,10 +174,12 @@ export function ComboBox<
     items,
     ref,
     renderEmptyState,
+    showCheckmarkOnSelected = true,
     ...props
 }: AriaComboBoxProps<T> &
     Pick<ComponentProps<typeof ListBox>, "renderEmptyState"> & {
         ref?: ForwardedRef<HTMLDivElement>;
+        showCheckmarkOnSelected?: boolean;
     }) {
     const [groupRef, groupWidth] = usePopoverWidth();
 
@@ -216,7 +218,13 @@ export function ComboBox<
                                 renderEmptyState={renderEmptyState}
                             >
                                 {(props) => (
-                                    <OptionRenderer {...props} type="listbox" />
+                                    <OptionRenderer
+                                        {...props}
+                                        showCheckmarkOnSelected={
+                                            showCheckmarkOnSelected
+                                        }
+                                        type="listbox"
+                                    />
                                 )}
                             </ListBox>
                         </Popover>

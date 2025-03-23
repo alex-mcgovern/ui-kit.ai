@@ -11,14 +11,17 @@ import {
 import { getMockOptions } from "@ui-kit.ai/mocks";
 import React from "react";
 
+import * as DescriptionStories from "./description.stories";
+import * as LabelStories from "./label.stories";
+
 function Template(
     props: ComponentProps<typeof Select<OptionsSchema<"listbox">>>,
 ) {
     return (
         <Select {...props}>
-            <Label>Label</Label>
+            <Label {...LabelStories.Default.args} />
             <SelectButton />
-            <Description>This is a short description</Description>
+            <Description {...DescriptionStories.Default.args} />
         </Select>
     );
 }
@@ -83,9 +86,9 @@ export const IsBorderless: Story = {
     },
     render: (props) => (
         <Select {...props}>
-            <Label>Label</Label>
+            <Label {...LabelStories.Default.args} />
             <SelectButton />
-            <Description>This is a short description</Description>
+            <Description {...DescriptionStories.Default.args} />
         </Select>
     ),
 };

@@ -14,18 +14,6 @@ export const tailwindPreset: Partial<Config> = {
     ],
     plugins: [TailwindReactAria, TailwindAnimate],
     theme: {
-        colors: {
-            black: colors.black,
-            blue: colors.sky,
-            brand: colors.stone,
-            current: "currentColor",
-            green: colors.emerald,
-            inherit: "inherit",
-            muted: colors.stone,
-            red: colors.red,
-            transparent: "transparent",
-            yellow: colors.amber,
-        },
         extend: {
             backgroundColor: {
                 base: colors.white,
@@ -33,6 +21,10 @@ export const tailwindPreset: Partial<Config> = {
             },
             borderWidth: {
                 DEFAULT: "0.5px",
+            },
+            colors: {
+                brand: colors.stone,
+                muted: colors.stone,
             },
 
             fontSize: {

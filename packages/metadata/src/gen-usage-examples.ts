@@ -10,9 +10,9 @@ const outputPath = path.resolve(
 );
 
 import { composeStories } from "@storybook/react";
+import { format, resolveConfig, resolveConfigFile } from "prettier";
 import React, { type ReactNode } from "react";
 import { type Options as ReactElementToJsxStringOptions } from "react-element-to-jsx-string";
-
 global.React = React;
 
 const JSX_STRING_OPTIONS = {
@@ -28,6 +28,12 @@ const JSX_STRING_OPTIONS = {
 } as const satisfies ReactElementToJsxStringOptions;
 
 async function main() {
+    const prettierConfigPath = await resolveConfigFile(
+        path.resolve(import.meta.dirname, "..", ".prettierrc.mjs"),
+    );
+    if (prettierConfigPath == null) throw Error("Prettier config not found.");
+    const prettierOptions = await resolveConfig(prettierConfigPath);
+
     const examples: Record<string, Record<string, string>> = {};
 
     // NOTE: Dynamic import seems to help avoid "function does not exist" errors
@@ -44,18 +50,32 @@ async function main() {
                 },
             );
 
-            const composed = Object.fromEntries(
-                Object.entries(composedStories).map(([storyName, Story]) => {
+            const composed: Record<string, string> = {};
+
+            for (const [storyName, Story] of Object.entries(composedStories)) {
+                try {
                     let jsx = reactElementToJSXString(
                         (Story as () => ReactNode)(),
                         JSX_STRING_OPTIONS,
                     );
+                    if (jsx.includes("React.Fragment"))
+                        throw Error(
+                            `React.Fragment found in ${componentName} ${Story.storyName}`,
+                        );
+                    jsx = `export function MyComponent() {\nreturn (${jsx});\n}`;
+                    const formatted = await format(jsx, {
+                        ...prettierOptions,
+                        parser: "babel",
+                    });
 
-                    jsx = `function ${storyName}() {\n${jsx}\n}`;
+                    composed[storyName] = formatted;
+                } catch (e) {
+                    console.error(
+                        `Error while formatting story ${storyName} of ${componentName}: ${e}`,
+                    );
+                }
+            }
 
-                    return [storyName, jsx];
-                }),
-            );
             examples[componentName] = composed;
         } catch (e) {
             console.error(`Error while processing ${componentName}: ${e}`);

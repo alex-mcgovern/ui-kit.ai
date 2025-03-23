@@ -57,10 +57,12 @@ export function Select<
     children = SelectButton,
     items,
     ref,
+    showCheckmarkOnSelected = true,
     ...props
 }: AriaSelectProps<T> & {
     items?: Iterable<T>;
     ref?: ForwardedRef<HTMLDivElement>;
+    showCheckmarkOnSelected?: boolean;
 }) {
     return (
         <AriaSelect
@@ -88,7 +90,13 @@ export function Select<
                                 items={items}
                             >
                                 {(props) => (
-                                    <OptionRenderer {...props} type="listbox" />
+                                    <OptionRenderer
+                                        {...props}
+                                        showCheckmarkOnSelected={
+                                            showCheckmarkOnSelected
+                                        }
+                                        type="listbox"
+                                    />
                                 )}
                             </AriaListBox>
                         </Popover>

@@ -60,6 +60,7 @@ export function OptionRenderer<
     TValue extends object = object,
 >(
     props: OptionsSchema<TType, TItemId, TValue> & {
+        showCheckmarkOnSelected?: boolean;
         type: TType;
     },
 ) {
@@ -87,9 +88,11 @@ function isSection<TType extends OptionType>(
 
 function OptionsItem<TType extends OptionType>({
     isDestructive,
+    showCheckmarkOnSelected,
     type,
     ...props
 }: OptionsSchema<TType> & {
+    showCheckmarkOnSelected?: boolean;
     type: TType;
 }) {
     const Component = type === "listbox" ? AriaListBoxItem : AriaMenuItem;
@@ -118,7 +121,7 @@ function OptionsItem<TType extends OptionType>({
                             className={twMerge(
                                 "flex items-center gap-1",
                                 "truncate font-normal",
-                                "group-selected/options-item:font-semibold",
+                                "group-selected/options-item:font-medium",
                             )}
                         >
                             {props.children ?? props.textValue}
@@ -132,7 +135,9 @@ function OptionsItem<TType extends OptionType>({
                             </span>
                         ) : null}
                     </div>
-                    {isSelected ? <IconCheck className="size-3" /> : null}
+                    {showCheckmarkOnSelected === true && isSelected ? (
+                        <IconCheck className="size-3" />
+                    ) : null}
                 </>
             )}
         </Component>

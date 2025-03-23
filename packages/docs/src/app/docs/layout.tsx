@@ -32,7 +32,7 @@ export default function Layout({
                     Components
                 </Heading>
                 <ListBox
-                    className="max-w-64"
+                    className="w-64"
                     items={ITEMS}
                     selectedKeys={
                         selectedLayoutSegment != null
@@ -40,6 +40,7 @@ export default function Layout({
                             : []
                     }
                     selectionMode="single"
+                    showCheckmarkOnSelected={false}
                 />
             </nav>
             <main className="w-full px-4 mx-auto">{children}</main>

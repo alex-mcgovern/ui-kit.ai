@@ -12,17 +12,20 @@ import {
     TextFieldVisibilityButton,
 } from "@ui-kit.ai/components";
 
+import * as DescriptionStories from "./description.stories";
+import * as LabelStories from "./label.stories";
+
 function Template(props: ComponentProps<typeof TextField>) {
     return (
         <TextField {...props}>
-            <Label>Label</Label>
+            <Label {...LabelStories.Default.args} />
             <FieldGroup>
                 <Input isBorderless placeholder="This is a placeholder" />
                 <TextFieldClearButton />
                 <TextFieldVisibilityButton />
                 <TextFieldCopyButton />
             </FieldGroup>
-            <Description>This is a short description</Description>
+            <Description {...DescriptionStories.Default.args} />
         </TextField>
     );
 }

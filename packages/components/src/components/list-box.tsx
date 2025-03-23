@@ -26,7 +26,10 @@ type ListBoxProps<
  */
 export function ListBox<
     T extends OptionsSchema<"listbox"> = OptionsSchema<"listbox">,
->(props: ListBoxProps<T>) {
+>({
+    showCheckmarkOnSelected = true,
+    ...props
+}: ListBoxProps<T> & { showCheckmarkOnSelected?: boolean }) {
     return (
         <AriaListBox
             {...props}
@@ -37,7 +40,13 @@ export function ListBox<
                 "outline-0"
             )}
         >
-            {(props) => <OptionRenderer {...props} type="listbox" />}
+            {(props) => (
+                <OptionRenderer
+                    {...props}
+                    showCheckmarkOnSelected={showCheckmarkOnSelected}
+                    type="listbox"
+                />
+            )}
         </AriaListBox>
     );
 }
