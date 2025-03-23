@@ -1,65 +1,84 @@
-"use client";
-import type { ComponentDoc } from "react-docgen-typescript";
+'use client'
+import type { ComponentDoc } from 'react-docgen-typescript'
 
-import { Heading, Markdown } from "@ui-kit.ai/components";
-import * as components from "@ui-kit.ai/metadata";
-import propTypes from "@ui-kit.ai/metadata/prop-types.json";
-import usage from "@ui-kit.ai/metadata/usage-examples.json";
+import { Heading, Markdown } from '@ui-kit.ai/components'
+import * as components from '@ui-kit.ai/metadata'
+import propTypes from '@ui-kit.ai/metadata/prop-types.json'
+import usage from '@ui-kit.ai/metadata/usage-examples.json'
 
-import { Code } from "../../../../components/code";
-import { PropsTable } from "../../../../components/props-table";
-import { getComponentStories } from "../../../../lib/get-story";
-import { getUsageExample } from "../../../../lib/get-usage-example";
+import { Code } from '../../../../components/code'
+// import { PropsTable } from '../../../../components/props-table'
+import { getComponentStories } from '../../../../lib/get-story'
+import { getUsageExample } from '../../../../lib/get-usage-example'
 
 export default function Page({
-    params,
+  params,
 }: {
-    params: { component: keyof typeof components };
+  params: { component: keyof typeof components }
 }) {
-    if (params.component in components === false)
-        throw new Error("Examples for component not found");
-    if (params.component in usage === false)
-        throw new Error("Code snippet for component not found");
-    if (
-        (propTypes as ComponentDoc[]).findIndex(
-            (prop) => prop.displayName === params.component,
-        ) === -1
-    )
-        throw new Error("Code snippet for component not found");
+  if (params.component in components === false)
+    throw new Error('Examples for component not found')
+  if (params.component in usage === false)
+    throw new Error('Code snippet for component not found')
+  if (
+    (propTypes as ComponentDoc[]).findIndex(
+      (prop) => prop.displayName === params.component
+    ) === -1
+  )
+    throw new Error('Code snippet for component not found')
 
-    const stories = getComponentStories(params.component);
+  const stories = getComponentStories(params.component)
 
-    const docs = (propTypes as ComponentDoc[]).find(
-        (prop) => prop.displayName === params.component,
-    ) as ComponentDoc;
+  const Default = stories.find((Story) => Story.storyName === 'Default')
+  if (!Default) throw new Error('Default story not found')
 
-    return (
-        <>
-            <Heading level={1}>{docs.displayName}</Heading>
-            <Markdown>{docs.description}</Markdown>
+  const docs = (propTypes as ComponentDoc[]).find(
+    (prop) => prop.displayName === params.component
+  ) as ComponentDoc
 
-            <hr className="border-muted-200 my-12" />
+  return (
+    <>
+      <Heading level={1}>{docs.displayName}</Heading>
+      <Markdown className='mb-8'>{docs.description}</Markdown>
 
-            <Heading id="Examples" level={2}>
-                Examples
+      <Code
+        className='mb-8'
+        code={getUsageExample(params.component, 'Default')}
+        component={<Default />}
+      />
+
+      <Heading
+        id='Examples'
+        level={2}
+      >
+        Examples
+      </Heading>
+
+      {stories.map((Story) => {
+        // The `Default` story is shown outside the Examples section
+        if (Story.storyName === 'Default') return null
+
+        return (
+          <section
+            className='mb-12'
+            key={Story.id}
+          >
+            <Heading
+              className='mb-6'
+              id={Story.parameters.displayName}
+              level={3}
+            >
+              {Story.parameters.displayName}
             </Heading>
+            <Code
+              code={getUsageExample(params.component, Story.storyName)}
+              component={<Story />}
+            />
+          </section>
+        )
+      })}
 
-            {stories.map((Story) => (
-                <section className="my-12" key={Story.id}>
-                    <Heading id={Story.parameters.displayName} level={3}>
-                        {Story.parameters.displayName}
-                    </Heading>
-                    <Code
-                        code={getUsageExample(
-                            params.component,
-                            Story.storyName,
-                        )}
-                        component={<Story />}
-                    />
-                </section>
-            ))}
-
-            {/* <PropsTable docs={docs} /> */}
-        </>
-    );
+      {/* <PropsTable docs={docs} /> */}
+    </>
+  )
 }

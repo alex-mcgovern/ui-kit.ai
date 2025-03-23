@@ -1,1 +1,1 @@
-export { getRandomNumber } from "./get-random-number";
+export { getRandomNumber } from './get-random-number'

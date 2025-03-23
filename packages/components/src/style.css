@@ -1,69 +1,69 @@
 /* Scale up hit targets on high resolution mobile devices. */
 @media (min-resolution: 200dpi) {
-    :root {
-        font-size: 18px;
-    }
+  :root {
+    font-size: 18px;
+  }
 }
 
 :root {
-    @apply bg-base text-secondary;
-    color-scheme: dark light;
-    scrollbar-color: var(--gray-400) transparent;
+  @apply bg-base text-secondary;
+  color-scheme: dark light;
+  scrollbar-color: var(--gray-400) transparent;
 
-    accent-color: var(--brand-800);
+  accent-color: var(--brand-800);
 
-    font-size: 16px; /* Basis for REM units */
+  font-size: 16px; /* Basis for REM units */
 
-    font-synthesis: none;
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
-    @apply text-base;
-    font-family: "Inter", sans-serif;
+  @apply text-base;
+  font-family: 'Inter', sans-serif;
 }
 
 p {
-    @apply mb-2 text-secondary;
+  @apply mb-2 text-secondary;
 }
 
 .code,
 code {
-    @apply text-sm !font-medium;
+  @apply text-sm !font-medium;
 }
 
 /* Global colors for highlighted text */
 ::selection {
-    @apply bg-[theme(colors.muted.100)] text-[theme(colors.muted.600)];
+  @apply bg-[theme(colors.muted.100)] text-[theme(colors.muted.600)];
 }
 
 /* Hide the user agent default clear button on search inputs */
-[type="search"]::-webkit-search-cancel-button,
-[type="search"]::-webkit-search-decoration {
-    -webkit-appearance: none;
-    appearance: none;
+[type='search']::-webkit-search-cancel-button,
+[type='search']::-webkit-search-decoration {
+  -webkit-appearance: none;
+  appearance: none;
 }
 
 /* Override cursor for all disabled elements */
 [disabled],
-[aria-disabled="true"] {
-    cursor: not-allowed;
+[aria-disabled='true'] {
+  cursor: not-allowed;
 }
 
 /* Re-usable class for thing scrollbars (e.g. dialog, dropdown, etc) */
 .scrollbar-thin {
-    scrollbar-width: thin;
-    scrollbar-color: var(--gray-400) transparent;
+  scrollbar-width: thin;
+  scrollbar-color: var(--gray-400) transparent;
 }
 
 /* Chrome, Safari and Opera */
 .no-scrollbar::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 
 .no-scrollbar {
-    -ms-overflow-style: none; /* IE and Edge */
-    scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }

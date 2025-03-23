@@ -1,5 +1,5 @@
 export const i18n = {
-    form: {
-        required: "Required",
-    },
-};
+  form: {
+    required: 'Required',
+  },
+}

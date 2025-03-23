@@ -1,34 +1,34 @@
 {
-    "name": "@ui-kit.ai/mcp-server",
-    "version": "0.0.0-alpha.0",
-    "private": true,
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/alex-mcgovern/ui-kit.ai"
-    },
-    "license": "MIT",
-    "author": "Alex McGovern",
-    "type": "module",
-    "scripts": {
-        "fix:eslint": "eslint . --fix",
-        "fix:prettier": "prettier . --write"
-    },
-    "dependencies": {
-        "@modelcontextprotocol/sdk": "1.7.0",
-        "react": "19.0.0",
-        "react-element-to-jsx-string": "17.0.0",
-        "zod": "3.24.1"
-    },
-    "devDependencies": {
-        "@storybook/react": "8.6.6",
-        "@types/react": "19.0.12",
-        "@ui-kit.ai/components": "workspace:*",
-        "@ui-kit.ai/eslint": "workspace:*",
-        "@ui-kit.ai/prettier": "workspace:*",
-        "@ui-kit.ai/tsconfig": "workspace:*",
-        "@ui-kit.ai/vitest": "workspace:*"
-    },
-    "engines": {
-        "node": "22.x"
-    }
+  "name": "@ui-kit.ai/mcp-server",
+  "version": "0.0.0-alpha.0",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alex-mcgovern/ui-kit.ai"
+  },
+  "license": "MIT",
+  "author": "Alex McGovern",
+  "type": "module",
+  "scripts": {
+    "fix:eslint": "eslint . --fix",
+    "fix:prettier": "prettier . --write"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "1.7.0",
+    "react": "19.0.0",
+    "react-element-to-jsx-string": "17.0.0",
+    "zod": "3.24.1"
+  },
+  "devDependencies": {
+    "@storybook/react": "8.6.6",
+    "@types/react": "19.0.12",
+    "@ui-kit.ai/components": "workspace:*",
+    "@ui-kit.ai/eslint": "workspace:*",
+    "@ui-kit.ai/prettier": "workspace:*",
+    "@ui-kit.ai/tsconfig": "workspace:*",
+    "@ui-kit.ai/vitest": "workspace:*"
+  },
+  "engines": {
+    "node": "22.x"
+  }
 }

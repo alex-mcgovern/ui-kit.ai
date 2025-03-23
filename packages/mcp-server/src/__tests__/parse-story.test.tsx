@@ -1,18 +1,18 @@
-import path from "path";
-import { fileURLToPath } from "url";
-import { expect, it } from "vitest";
+import path from 'path'
+import { fileURLToPath } from 'url'
+import { expect, it } from 'vitest'
 
-import { parseStory } from "../../../metadata/src/utils/parse-story";
+import { parseStory } from '../../../metadata/src/utils/parse-story'
 
-it("getArgsForStories", async () => {
-    const storyPath = path.resolve(
-        path.dirname(fileURLToPath(import.meta.url)),
-        "./example.stories.tsx",
-    );
-    const exports = await parseStory(storyPath);
+it('getArgsForStories', async () => {
+  const storyPath = path.resolve(
+    path.dirname(fileURLToPath(import.meta.url)),
+    './example.stories.tsx'
+  )
+  const exports = await parseStory(storyPath)
 
-    expect(exports.Primary).toBe(
-        `<TextField name="text field">
+  expect(exports.Primary).toBe(
+    `<TextField name="text field">
   <Label>
     Label
   </Label>
@@ -28,11 +28,11 @@ it("getArgsForStories", async () => {
   <Description>
     This is a short description
   </Description>
-</TextField>`,
-    );
+</TextField>`
+  )
 
-    expect(exports.IsDisabled).toBe(
-        `<TextField
+  expect(exports.IsDisabled).toBe(
+    `<TextField
   isDisabled
   name="text field"
 >
@@ -51,11 +51,11 @@ it("getArgsForStories", async () => {
   <Description>
     This is a short description
   </Description>
-</TextField>`,
-    );
+</TextField>`
+  )
 
-    expect(exports.IsInvalid).toBe(
-        `<TextField
+  expect(exports.IsInvalid).toBe(
+    `<TextField
   isInvalid
   name="text field"
 >
@@ -74,11 +74,11 @@ it("getArgsForStories", async () => {
   <Description>
     This is a short description
   </Description>
-</TextField>`,
-    );
+</TextField>`
+  )
 
-    expect(exports.IsReadOnly).toBe(
-        `<TextField
+  expect(exports.IsReadOnly).toBe(
+    `<TextField
   isReadOnly
   name="text field"
 >
@@ -97,22 +97,22 @@ it("getArgsForStories", async () => {
   <Description>
     This is a short description
   </Description>
-</TextField>`,
-    );
+</TextField>`
+  )
 
-    // expect(exports).toEqual({
-    //     Primary: "<TextField {...props}><Label>Label</Label><FieldGroup><Input isBorderless placeholder="This is a placeholder" /><TextFieldClearButton /><TextFieldVisibilityButton /><TextFieldCopyButton /></FieldGroup><Description>This is a short description</Description></TextField>",
-    //     // IsDisabled: {
-    //     //     name: "text field",
-    //     //     isDisabled: true,
-    //     // },
-    //     // IsInvalid: {
-    //     //     name: "text field",
-    //     //     isInvalid: true,
-    //     // },
-    //     // IsReadOnly: {
-    //     //     name: "text field",
-    //     //     isReadOnly: true,
-    //     // },
-    // });
-});
+  // expect(exports).toEqual({
+  //     Primary: "<TextField {...props}><Label>Label</Label><FieldGroup><Input isBorderless placeholder="This is a placeholder" /><TextFieldClearButton /><TextFieldVisibilityButton /><TextFieldCopyButton /></FieldGroup><Description>This is a short description</Description></TextField>",
+  //     // IsDisabled: {
+  //     //     name: "text field",
+  //     //     isDisabled: true,
+  //     // },
+  //     // IsInvalid: {
+  //     //     name: "text field",
+  //     //     isInvalid: true,
+  //     // },
+  //     // IsReadOnly: {
+  //     //     name: "text field",
+  //     //     isReadOnly: true,
+  //     // },
+  // });
+})

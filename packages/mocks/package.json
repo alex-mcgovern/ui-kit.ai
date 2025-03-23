@@ -1,45 +1,45 @@
 {
-    "name": "@ui-kit.ai/mocks",
-    "version": "0.0.0-alpha.0",
-    "private": true,
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/alex-mcgovern/ui-kit.ai"
-    },
-    "license": "MIT",
-    "author": "Alex McGovern",
-    "type": "module",
-    "main": "dist/index.js",
-    "source": "src/index.ts",
-    "types": "dist/index.d.ts",
-    "files": [
-        "dist"
-    ],
-    "scripts": {
-        "build": "vite build",
-        "build:watch": "vite build --watch",
-        "check:eslint": "eslint .",
-        "check:prettier": "prettier . --check",
-        "check:tsc": "tsc",
-        "check:vitest": "vitest run --passWithNoTests",
-        "fix:eslint": "eslint . --fix",
-        "fix:prettier": "prettier . --write"
-    },
-    "dependencies": {
-        "@ui-kit.ai/utils": "workspace:*",
-        "lucide-react": "0.474.0",
-        "msw": "2.7.0",
-        "react": "19.0.0",
-        "zod": "3.24.1"
-    },
-    "devDependencies": {
-        "@ui-kit.ai/components": "workspace:*",
-        "@ui-kit.ai/eslint": "workspace:*",
-        "@ui-kit.ai/prettier": "workspace:*",
-        "@ui-kit.ai/tsconfig": "workspace:*",
-        "@ui-kit.ai/vite": "workspace:*"
-    },
-    "engines": {
-        "node": "22.x"
-    }
+  "name": "@ui-kit.ai/mocks",
+  "version": "0.0.0-alpha.0",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alex-mcgovern/ui-kit.ai"
+  },
+  "license": "MIT",
+  "author": "Alex McGovern",
+  "type": "module",
+  "main": "dist/index.js",
+  "source": "src/index.ts",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "vite build",
+    "build:watch": "vite build --watch",
+    "check:eslint": "eslint .",
+    "check:prettier": "prettier . --check",
+    "check:tsc": "tsc",
+    "check:vitest": "vitest run --passWithNoTests",
+    "fix:eslint": "eslint . --fix",
+    "fix:prettier": "prettier . --write"
+  },
+  "dependencies": {
+    "@ui-kit.ai/utils": "workspace:*",
+    "lucide-react": "0.474.0",
+    "msw": "2.7.0",
+    "react": "19.0.0",
+    "zod": "3.24.1"
+  },
+  "devDependencies": {
+    "@ui-kit.ai/components": "workspace:*",
+    "@ui-kit.ai/eslint": "workspace:*",
+    "@ui-kit.ai/prettier": "workspace:*",
+    "@ui-kit.ai/tsconfig": "workspace:*",
+    "@ui-kit.ai/vite": "workspace:*"
+  },
+  "engines": {
+    "node": "22.x"
+  }
 }

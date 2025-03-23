@@ -1,79 +1,86 @@
-import type { Meta, StoryObj } from "@storybook/react";
-import type { ComponentProps } from "react";
+import type { Meta, StoryObj } from '@storybook/react'
+import type { ComponentProps } from 'react'
 
 import {
-    Button,
-    DialogTrigger,
-    Heading,
-    Popover,
-    PopoverDialog,
-} from "@ui-kit.ai/components";
+  Button,
+  DialogTrigger,
+  Heading,
+  Popover,
+  PopoverDialog,
+} from '@ui-kit.ai/components'
 
-type Placement = ComponentProps<typeof Popover>["placement"];
+type Placement = ComponentProps<typeof Popover>['placement']
 
 const PLACEMENTS = [
-    "bottom",
-    "bottom left",
-    "bottom right",
-    "top",
-    "top left",
-    "top right",
-    "left",
-    "left top",
-    "left bottom",
-    "right",
-    "right top",
-    "right bottom",
-] satisfies Placement[];
+  'bottom',
+  'bottom left',
+  'bottom right',
+  'top',
+  'top left',
+  'top right',
+  'left',
+  'left top',
+  'left bottom',
+  'right',
+  'right top',
+  'right bottom',
+] satisfies Placement[]
 
 function PlacementTemplate(args: ComponentProps<typeof Popover>) {
-    return (
-        <>
-            {PLACEMENTS.map((placement) => (
-                <DialogTrigger>
-                    <Button>{placement}</Button>
-                    <Popover {...args} placement={placement} />
-                </DialogTrigger>
-            ))}
-        </>
-    );
+  return (
+    <>
+      {PLACEMENTS.map((placement) => (
+        <DialogTrigger>
+          <Button>{placement}</Button>
+          <Popover
+            {...args}
+            placement={placement}
+          />
+        </DialogTrigger>
+      ))}
+    </>
+  )
 }
 
 function Template(args: ComponentProps<typeof Popover>) {
-    return (
-        <DialogTrigger>
-            <Button>Show popover</Button>
-            <Popover {...args} />
-        </DialogTrigger>
-    );
+  return (
+    <DialogTrigger>
+      <Button>Show popover</Button>
+      <Popover {...args} />
+    </DialogTrigger>
+  )
 }
 
 const meta = {
-    args: {
-        children: (
-            <PopoverDialog>
-                <Heading className="mb-2 text-base" level={3} slot="title">
-                    Help
-                </Heading>
-                <p className="text-sm">
-                    For help accessing your account, please contact support.
-                </p>
-            </PopoverDialog>
-        ),
-    },
-    component: Popover,
-    render: Template,
-    title: "Components/Popover",
-} satisfies Meta<typeof Popover>;
+  args: {
+    children: (
+      <PopoverDialog>
+        <Heading
+          className='mb-2 text-base'
+          level={3}
+          slot='title'
+        >
+          Help
+        </Heading>
+        <p className='text-sm'>
+          For help accessing your account, please contact support.
+        </p>
+      </PopoverDialog>
+    ),
+  },
+  component: Popover,
+  render: Template,
+  title: 'Components/Popover',
+} satisfies Meta<typeof Popover>
 
-export default meta;
-type Story = StoryObj<typeof meta>;
+export default meta
+type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
-    parameters: {
-        displayName: "Default",
-    },
-};
+  parameters: {
+    displayName: 'Default',
+  },
+}
 
 /**
  * react-aria supports a pretty comprehensive range of placement options, some
@@ -81,15 +88,15 @@ export const Default: Story = {
  * when it detects a collision with a parent or window edge.
  */
 export const Placement: Story = {
-    decorators: [
-        (Story) => (
-            <div className="grid grid-cols-3 gap-2">
-                <Story />
-            </div>
-        ),
-    ],
-    parameters: {
-        displayName: "Placement",
-    },
-    render: PlacementTemplate,
-};
+  decorators: [
+    (Story) => (
+      <div className='grid grid-cols-3 gap-2'>
+        <Story />
+      </div>
+    ),
+  ],
+  parameters: {
+    displayName: 'Placement',
+  },
+  render: PlacementTemplate,
+}

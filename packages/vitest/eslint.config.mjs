@@ -1,11 +1,11 @@
-import uiKitEslintConfig from "@ui-kit.ai/eslint";
+import uiKitEslintConfig from '@ui-kit.ai/eslint'
 
 /** @type {import('eslint').Linter.Config[]} */
 const config = [
-    ...uiKitEslintConfig(import.meta.dirname),
-    {
-        ignores: ["node_modules", ".turbo"],
-    },
-];
+  ...uiKitEslintConfig(import.meta.dirname),
+  {
+    ignores: ['node_modules', '.turbo'],
+  },
+]
 
-export default config;
+export default config

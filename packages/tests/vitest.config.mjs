@@ -1,3 +1,3 @@
-import { buildVitestConfig } from "@ui-kit.ai/vitest";
+import { buildVitestConfig } from '@ui-kit.ai/vitest'
 
-export default buildVitestConfig();
+export default buildVitestConfig()

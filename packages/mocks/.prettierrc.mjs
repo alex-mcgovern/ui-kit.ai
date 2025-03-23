@@ -1,3 +1,3 @@
-import { prettierBase } from "@ui-kit.ai/prettier";
+import { prettierBase } from '@ui-kit.ai/prettier'
 
-export default prettierBase;
+export default prettierBase
