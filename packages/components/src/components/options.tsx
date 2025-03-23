@@ -35,13 +35,13 @@ const optionStyle = tv({
     'select-none rounded',
     'px-2.5 py-0.5',
     // hover
-    `hover:bg-brand-200 hover:open:bg-brand-200 hover:forced-colors:bg-[Highlight]
+    `hover:bg-muted-200 hover:open:bg-muted-200 hover:forced-colors:bg-[Highlight]
     hover:forced-colors:text-[HighlightText]`,
     // focus
-    `focus:bg-brand-200 focus:open:bg-brand-200 focus:forced-colors:bg-[Highlight]
+    `focus:bg-muted-200 focus:open:bg-muted-200 focus:forced-colors:bg-[Highlight]
     focus:forced-colors:text-[HighlightText]`,
     // selected
-    `selected:bg-brand-200 selected:open:bg-brand-200
+    `selected:bg-muted-200 selected:open:bg-muted-200
     selected:forced-colors:bg-[Highlight]
     selected:forced-colors:text-[HighlightText]`,
     // destructive
@@ -130,7 +130,7 @@ function OptionsItem<TType extends OptionType>({
             {props.description != null ? (
               <span
                 className='truncate text-sm font-normal text-secondary
-                  group-focus/options-item:text-brand-50'
+                  group-focus/options-item:text-muted-50'
               >
                 {props.description}
               </span>

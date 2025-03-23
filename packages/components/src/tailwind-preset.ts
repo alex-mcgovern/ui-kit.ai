@@ -23,8 +23,8 @@ export const tailwindPreset: Partial<Config> = {
         DEFAULT: '0.5px',
       },
       colors: {
-        brand: colors.stone,
-        muted: colors.stone,
+        brand: colors.blue,
+        muted: colors.slate,
       },
 
       fontSize: {

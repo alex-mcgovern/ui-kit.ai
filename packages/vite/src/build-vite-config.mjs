@@ -14,6 +14,7 @@ import dts from 'vite-plugin-dts'
 export function buildViteConfig(name, tsConfigPath, entrypoints, pkg) {
   return defineConfig({
     build: {
+      emptyOutDir: false,
       lib: {
         cssFileName: 'style',
         entry: entrypoints,

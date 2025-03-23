@@ -49,7 +49,7 @@ const tabListStyles = tv({
   base: 'no-scrollbar relative flex max-w-full',
   variants: {
     orientation: {
-      horizontal: 'flex-row after:grow',
+      horizontal: 'flex-row after:grow after:border-b after:content-[""]',
       vertical: 'flex-col items-start gap-2',
     },
   },
@@ -79,6 +79,7 @@ TabList.displayName = 'TabList'
 const tabStyles = tv({
   base: [
     'px-4 py-1.5',
+    'rounded-sm -outline-offset-4',
     'whitespace-nowrap text-sm text-secondary',
     'font-medium',
     'flex items-center',
@@ -86,15 +87,21 @@ const tabStyles = tv({
     // "border-transparent",
     // pressed
     'pressed:text-secondary',
+    // hover
+    `hover:text-primary`,
     // selected
-    'selected:!border-brand-600 selected:text-brand-600',
-    `forced-color-adjust-none group-orientation-vertical/tabs:w-full
-    group-orientation-vertical/tabs:border-r hover:text-secondary
+    'selected:text-brand-600',
+    `forced-color-adjust-none  
     disabled:selected:text-muted-600`,
     'disabled:text-disabled',
-    // horizontal - border bottom
-    `group-orientation-horizontal/tabs:!border-b
-    group-orientation-horizontal/tabs:border-muted-200`,
+    // horizontal
+    `group-orientation-horizontal/tabs:border-b`,
+    `group-orientation-horizontal/tabs:border-muted-200`,
+    // horizontal selected
+    `group-orientation-horizontal/tabs:selected:border-brand-600`,
+    // vertical
+    `group-orientation-vertical/tabs:w-full`,
+    `group-orientation-vertical/tabs:border-r`,
   ],
   extend: focusRing,
 })
