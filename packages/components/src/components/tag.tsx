@@ -41,13 +41,13 @@ type TagProps = {
   variant?: Variant
 }
 
-type Variant = 'default' | 'green' | 'inverted' | 'red' | 'yellow'
+type Variant = 'default' | 'error' | 'success' | 'warning'
 
 const tagStyles = tv({
   base: [
     'h-6 min-w-6',
     'text-center text-sm font-normal',
-    'shadow-sm',
+    'shadow-xs',
     'inline-flex shrink-0 items-center justify-center gap-1.5',
     'rounded-full border',
     '[&_svg]:size-4 [&_svg]:shrink-0',
@@ -78,34 +78,25 @@ const tagStyles = tv({
       true: 'border-dashed',
     },
     variant: {
-      default: [''],
-      green: [
-        '[--bg:theme(colors.green.50)]',
-        '[--bg-hover:theme(colors.green.100)]',
-        '[--bg-pressed:theme(colors.green.200)]',
-        '[--border:theme(colors.green.300)]',
-        '[--text:theme(colors.green.600)]',
+      default: [
+        'bg-tint border-lo-contrast text-mid-contrast',
+        'hover:bg-tint-light',
+        'pressed:bg-tint-dark',
       ],
-      inverted: [
-        'border-muted-800 bg-muted-800 text-muted-50',
-        '[&:is(a,button)]:hover:border-muted-800',
-        '[&:is(a,button)]:hover:bg-muted-800',
-        '[&:is(a,button)]:pressed:border-muted-700',
-        '[&:is(a,button)]:pressed:bg-muted-700',
+      error: [
+        'bg-error border-error text-error-fg',
+        'hover:bg-error-light',
+        'pressed:bg-error-dark',
       ],
-      red: [
-        '[--bg:theme(colors.red.50)]',
-        '[--bg-hover:theme(colors.red.100)]',
-        '[--bg-pressed:theme(colors.red.200)]',
-        '[--border:theme(colors.red.300)]',
-        '[--text:theme(colors.red.600)]',
+      success: [
+        'bg-success border-success text-success-fg',
+        'hover:bg-success-light',
+        'pressed:bg-success-dark',
       ],
-      yellow: [
-        '[--bg:theme(colors.yellow.50)]',
-        '[--bg-hover:theme(colors.yellow.100)]',
-        '[--bg-pressed:theme(colors.yellow.200)]',
-        '[--border:theme(colors.yellow.300)]',
-        '[--text:theme(colors.yellow.600)]',
+      warning: [
+        'bg-warning border-warning text-warning-fg',
+        'hover:bg-warning-light',
+        'pressed:bg-warning-dark',
       ],
     },
   },

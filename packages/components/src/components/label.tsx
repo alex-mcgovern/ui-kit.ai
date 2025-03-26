@@ -13,8 +13,8 @@ export function Label(props: LabelProps) {
       {...props}
       className={twMerge(
         'mb-2 block w-fit cursor-default',
-        'text-sm font-medium text-secondary',
-        'group-invalid:text-invalid',
+        'text-sm font-medium text-hi-contrast',
+        'group-invalid:text-error',
         'group-disabled:cursor-not-allowed group-disabled:opacity-disabled',
         props.className
       )}

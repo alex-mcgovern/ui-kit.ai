@@ -55,15 +55,15 @@ export const getScales = ({
   })
 
   return {
-    darkBrandScale,
-    darkErrorScale,
-    darkGrayScale,
-    darkSuccessScale,
-    darkWarningScale,
-    lightBrandScale,
-    lightErrorScale,
-    lightGrayScale,
-    lightSuccessScale,
-    lightWarningScale,
+    brandDark: darkBrandScale,
+    brandLight: lightBrandScale,
+    errorDark: darkErrorScale,
+    errorLight: lightErrorScale,
+    grayDark: darkGrayScale,
+    grayLight: lightGrayScale,
+    successDark: darkSuccessScale,
+    successLight: lightSuccessScale,
+    warningDark: darkWarningScale,
+    warningLight: lightWarningScale,
   }
 }

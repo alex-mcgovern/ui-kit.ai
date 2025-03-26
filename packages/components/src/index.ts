@@ -1,5 +1,4 @@
-import './style.css'
-import './code.css'
+import './index.css'
 
 export { Alert } from './components/alert'
 export { Autocomplete } from './components/autocomplete'
@@ -75,5 +74,4 @@ export {
   TooltipTrigger,
 } from './components/tooltip'
 export { useKbd } from './hooks/use-kbd'
-export { tailwindPreset } from './tailwind-preset'
 export { type OptionsSchema } from './types/options'

@@ -12,8 +12,8 @@ export function Card(props: HTMLProps<HTMLElement>) {
     <section
       {...props}
       className={twMerge(
-        `relative flex flex-col overflow-hidden rounded border border-muted-300 bg-base
-        shadow-sm`,
+        `relative flex flex-col overflow-hidden rounded border border-tint-dark bg-background-raised
+        shadow-xs`,
         props.className
       )}
     />

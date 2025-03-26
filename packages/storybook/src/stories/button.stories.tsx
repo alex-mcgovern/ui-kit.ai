@@ -12,6 +12,8 @@ const VARIANTS = ['primary', 'secondary', 'tertiary'] as const satisfies Array<
 function Template(args: Parameters<typeof Button>[0]) {
   return (
     <div className='grid grid-cols-3 gap-4'>
+      {/* <div className='bg-primary-solid h-9 w-full'></div> */}
+
       {VARIANTS.map((variant) => (
         <Button
           key={variant}

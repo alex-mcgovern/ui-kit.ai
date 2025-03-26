@@ -40,21 +40,21 @@ const checkboxContainerStyles = tv({
     '[[role=group]_&]:mb-1',
     '[[role=group]_&]:last-of-type:mb-2',
     'hover:cursor-pointer disabled:cursor-not-allowed',
-    'rounded-sm outline-offset-2 transition invalid:text-red-900',
+    'rounded-sm outline-offset-2 transition invalid:text-error-dark',
   ],
   extend: focusRing,
   variants: {
     isDisabled: {
       false: '',
-      true: 'text-muted-600',
+      true: 'text-mid-contrast',
     },
   },
 })
 
 const boxStyles = tv({
   base: [
-    'bg-base',
-    'border border-muted-400',
+    'bg-background',
+    'border border-mid-contrast',
     'size-4',
     'transition-colors',
     'flex flex-shrink-0 items-center justify-center',
@@ -62,32 +62,32 @@ const boxStyles = tv({
     // disabled
     'group-disabled:opacity-disabled',
     // hover
-    'group-hover:bg-muted-100',
-    'group-hover:border-muted-400',
+    'group-hover:bg-tint',
+    'group-hover:border-mid-contrast',
     // selected
-    'group-selected:bg-muted-700',
-    'group-selected:group-hover:bg-muted-600',
-    'group-selected:border-muted-700',
-    'group-selected:group-hover:border-muted-600',
+    'group-selected:bg-mid-contrast',
+    'group-selected:group-hover:bg-mid-contrast',
+    'group-selected:border-mid-contrast',
+    'group-selected:group-hover:border-mid-contrast',
     // indeterminate
-    'group-indeterminate:bg-muted-700',
-    'group-indeterminate:group-hover:bg-muted-600',
-    'group-indeterminate:border-muted-700',
-    'group-indeterminate:group-hover:border-muted-600',
+    'group-indeterminate:bg-mid-contrast',
+    'group-indeterminate:group-hover:bg-mid-contrast',
+    'group-indeterminate:border-mid-contrast',
+    'group-indeterminate:group-hover:border-mid-contrast',
     // invalid
-    'group-invalid:border-red-600',
-    'group-hover:group-invalid:bg-red-50',
-    'group-hover:group-invalid:border-red-700',
+    'group-invalid:border-error-light',
+    'group-hover:group-invalid:bg-error-tint-light',
+    'group-hover:group-invalid:border-error',
     // invalid selected
-    'group-selected:group-invalid:bg-red-700',
-    'group-selected:group-invalid:group-hover:bg-red-600',
-    'group-selected:group-invalid:border-red-700',
-    'group-selected:group-invalid:group-hover:border-red-600',
+    'group-selected:group-invalid:bg-error',
+    'group-selected:group-invalid:group-hover:bg-error-light',
+    'group-selected:group-invalid:border-error',
+    'group-selected:group-invalid:group-hover:border-error-light',
     // invalid indeterminate
-    'group-indeterminate:group-invalid:bg-red-700',
-    'group-indeterminate:group-invalid:group-hover:bg-red-600',
-    'group-indeterminate:group-invalid:border-red-700',
-    'group-indeterminate:group-invalid:group-hover:border-red-600',
+    'group-indeterminate:group-invalid:bg-error',
+    'group-indeterminate:group-invalid:group-hover:bg-error-light',
+    'group-indeterminate:group-invalid:border-error',
+    'group-indeterminate:group-invalid:group-hover:border-error-light',
     // w. description
     // "group-has-[[data-slot='description']]:mt-1",
   ],
@@ -99,15 +99,15 @@ const iconStyles = tv({
     'transition-colors',
     'stroke-transparent',
     // hover
-    'group-hover:stroke-muted-400',
-    'group-hover/row:stroke-muted-400',
-    'group-selected:stroke-muted-50',
-    'group-indeterminate:stroke-muted-50',
+    'group-hover:stroke-mid-contrast',
+    'group-hover/row:stroke-mid-contrast',
+    'group-selected:stroke-tint-light',
+    'group-indeterminate:stroke-tint-light',
     // invalid
-    'group-hover:group-invalid:stroke-red-400',
-    'group-hover/row:group-invalid:stroke-red-400',
-    'group-selected:group-invalid:stroke-red-50',
-    'group-indeterminate:group-invalid:stroke-red-50',
+    'group-hover:group-invalid:stroke-error',
+    'group-hover/row:group-invalid:stroke-error',
+    'group-selected:group-invalid:stroke-error-tint-light',
+    'group-indeterminate:group-invalid:stroke-error-tint-light',
   ],
 })
 

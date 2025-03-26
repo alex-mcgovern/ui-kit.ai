@@ -7,8 +7,8 @@ import eslintConfigPrettier from 'eslint-config-prettier'
 // // @ts-expect-error - no .dts
 import perfectionist from 'eslint-plugin-perfectionist'
 import sonarjsPlugin from 'eslint-plugin-sonarjs'
-// @ts-expect-error - no .dts
-import tailwindPlugin from 'eslint-plugin-tailwindcss'
+// // @ts-expect-error - no .dts
+// import tailwindPlugin from 'eslint-plugin-tailwindcss'
 import react from 'eslint-plugin-react'
 import globals from 'globals'
 import { join } from 'path'
@@ -27,7 +27,7 @@ export default function getEslintConfig(rootDir) {
     // importPlugin.flatConfigs.recommended,
     sonarjsPlugin.configs.recommended,
     perfectionist.configs['recommended-natural'],
-    ...tailwindPlugin.configs['flat/recommended'],
+    // ...tailwindPlugin.configs['flat/recommended'],
     ...compat.extends(
       'plugin:@typescript-eslint/recommended',
       'plugin:react-hooks/recommended'
@@ -42,10 +42,10 @@ export default function getEslintConfig(rootDir) {
         //     node: true,
         //     typescript: true,
         // },
-        tailwindcss: {
-          callees: ['tv', 'twMerge'],
-          config: join(rootDir, './tailwind.config.ts'),
-        },
+        // tailwindcss: {
+        //   callees: ['tv', 'twMerge'],
+        //   config: join(rootDir, './tailwind.config.ts'),
+        // },
       },
       languageOptions: {
         globals: {
@@ -202,30 +202,30 @@ export default function getEslintConfig(rootDir) {
         ],
         'require-await': 'off',
         'sonarjs/no-redundant-boolean': 'error',
-        'tailwindcss/classnames-order': 'off',
-        'tailwindcss/enforces-negative-arbitrary-values': 'error',
-        'tailwindcss/enforces-shorthand': 'error',
-        'tailwindcss/no-contradicting-classname': 'error',
-        'tailwindcss/no-custom-classname': [
-          'error',
-          {
-            callees: ['tv', 'twMerge'],
-            whitelist: [
-              'light',
-              'dark',
-              'text-inverted',
-              'h-ui-element',
-              'min-h-ui-element',
-              'max-h-ui-element',
-              'scrollbar-thin',
-              'font-default',
-              'font-title',
-              'font-code',
-              'subhead-bold',
-              'subhead-regular',
-            ],
-          },
-        ],
+        // 'tailwindcss/classnames-order': 'off',
+        // 'tailwindcss/enforces-negative-arbitrary-values': 'error',
+        // 'tailwindcss/enforces-shorthand': 'error',
+        // 'tailwindcss/no-contradicting-classname': 'error',
+        // 'tailwindcss/no-custom-classname': [
+        //   'error',
+        //   {
+        //     callees: ['tv', 'twMerge'],
+        //     whitelist: [
+        //       'light',
+        //       'dark',
+        //       'text-inverted',
+        //       'h-ui-element',
+        //       'min-h-ui-element',
+        //       'max-h-ui-element',
+        //       'scrollbar-thin',
+        //       'font-default',
+        //       'font-title',
+        //       'font-code',
+        //       'subhead-bold',
+        //       'subhead-regular',
+        //     ],
+        //   },
+        // ],
       },
     },
     // Ignore duplicate strings in tests

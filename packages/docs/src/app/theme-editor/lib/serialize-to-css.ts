@@ -10,12 +10,8 @@ export function serializeToCss({
   return `
     ${selector} {
       ${Object.entries(palettes)
-        .map(([paletteName, palette]) => {
-          return Object.entries(palette)
-            .map(([colorName, [light, dark]]) => {
-              return `--color-${colorName}: light-dark(${light}, ${dark});\n`
-            })
-            .join('')
+        .map(([colorName, [light, dark]]) => {
+          return `--color-${colorName}: light-dark(${light}, ${dark});`
         })
         .join('\n')}
     }

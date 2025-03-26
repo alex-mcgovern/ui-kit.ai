@@ -143,9 +143,9 @@ type TableProps = AriaTableProps & {
 
 const columnWrapperStyles = tv({
   base: [
-    'border-b border-muted-200',
+    'border-b border-tint-dark',
     '[&:focus-within]:z-20 [&:hover]:z-20',
-    'text-secondary hover:text-primary',
+    'text-mid-contrast hover:text-hi-contrast',
     'cursor-default hover:cursor-pointer',
   ],
 })
@@ -178,7 +178,7 @@ const cellStyles = tv({
     '-outline-offset-2',
     'group-data-[compact]/table:first:pl-0 group-data-[compact]/table:last:pr-0',
     // border styles
-    'border-b border-muted-200',
+    'border-b border-tint-dark',
   ],
   defaultVariants: {
     alignment: 'start',
@@ -197,16 +197,16 @@ const rowStyles = tv({
   base: [
     'group/row',
     'relative -outline-offset-2',
-    'text-primary disabled:text-muted-300',
+    'text-hi-contrast disabled:text-tint-dark',
     'transition-colors',
     // hover styles
-    'hover:select-none hover:bg-muted-50',
+    'hover:select-none hover:bg-tint-light',
     'hover:cursor-pointer hover:disabled:cursor-not-allowed',
     // pressed styles
-    'pressed:bg-muted-100',
+    'pressed:bg-tint',
     // selected styles
     'selected:select-none',
-    'selected:bg-muted-100',
+    'selected:bg-tint',
   ],
   extend: focusRing,
 })
@@ -227,9 +227,9 @@ const cellSkeletonStyles = tv({
 })
 
 const resizerStyles = tv({
-  base: `box-content h-5 w-px translate-x-[8px] cursor-col-resize rounded bg-muted-400
+  base: `box-content h-5 w-px translate-x-[8px] cursor-col-resize rounded bg-mid-contrast
   bg-clip-content px-[8px] py-1 -outline-offset-2 resizing:w-[2px]
-  resizing:bg-brand-600 resizing:pl-[7px] forced-colors:bg-[ButtonBorder]
+  resizing:bg-brand-light resizing:pl-[7px] forced-colors:bg-[ButtonBorder]
   forced-colors:resizing:bg-[Highlight]`,
   extend: focusRing,
 })
@@ -467,7 +467,7 @@ function ResizableTableContainer(props: ResizableTableContainerProps) {
       {...props}
       className={twMerge(
         'relative',
-        'w-full bg-base',
+        'w-full bg-background',
         'scrollbar-thin overflow-auto',
         props.className
       )}
@@ -614,7 +614,7 @@ function TableLoadingOverlay({ showOverlay }: { showOverlay: boolean }) {
     <div
       className={twMerge(
         'pointer-events-none',
-        'bg-base/50',
+        'bg-background/50',
         'absolute inset-0 z-10',
         'transition-opacity',
         'flex items-center justify-center',

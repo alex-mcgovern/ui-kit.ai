@@ -1,0 +1,286 @@
+/*
+████████╗██╗  ██╗███████╗███╗   ███╗███████╗
+╚══██╔══╝██║  ██║██╔════╝████╗ ████║██╔════╝
+   ██║   ███████║█████╗  ██╔████╔██║█████╗  
+   ██║   ██╔══██║██╔══╝  ██║╚██╔╝██║██╔══╝  
+   ██║   ██║  ██║███████╗██║ ╚═╝ ██║███████╗
+   ╚═╝   ╚═╝  ╚═╝╚══════╝╚═╝     ╚═╝╚══════╝
+*/
+
+@theme {
+  --height-ui-element: 2rem;
+
+  /* To completely override an entire namespace in the default theme, set the
+    entire namespace to initial using the special asterisk syntax: */
+  --color-*: initial;
+  --color-background: light-dark(#f2f2f3, #0c0d0d);
+  --color-background-raised: light-dark(#ffffff, #181a1b);
+  --color-background-inverse: light-dark(#494d50, #fafafa);
+  --color-hi-contrast: light-dark(#2e3438, #f8f9f9);
+  --color-mid-contrast: light-dark(#73818c, #c7cdd1);
+  --color-lo-contrast: light-dark(#abb4ba, #73818c);
+  --color-inverse: light-dark(#f8f9f9, #2e3438);
+  --color-tint: light-dark(#f0f3f5, #29343d);
+  --color-tint-dark: light-dark(#e8ecf0, #242e36);
+  --color-tint-light: light-dark(#f7f9fa, #2e3b45);
+  --color-brand: light-dark(#0090ff, #0090ff);
+  --color-brand-dark: light-dark(#0082e6, #0082e6);
+  --color-brand-light: light-dark(#1a9bff, #1a9bff);
+  --color-brand-fg: light-dark(#ecf3f9, #ecf3f9);
+  --color-brand-tint: light-dark(#e5f4ff, #003a66);
+  --color-brand-tint-dark: light-dark(#d9eeff, #003259);
+  --color-brand-tint-light: light-dark(#f2f9ff, #004173);
+  --color-brand-tint-fg: light-dark(#060e13, #ecf3f9);
+  --color-error: light-dark(#e5484d, #e5484d);
+  --color-error-dark: light-dark(#e12e33, #e12e33);
+  --color-error-light: light-dark(#e96267, #e96267);
+  --color-error-fg: light-dark(#f9ecec, #f9ecec);
+  --color-error-tint: light-dark(#fce9e9, #590d0f);
+  --color-error-tint-dark: light-dark(#fadede, #4e0b0d);
+  --color-error-tint-light: light-dark(#fdf4f4, #640e11);
+  --color-error-tint-fg: light-dark(#130606, #f9ecec);
+  --color-warning: light-dark(#ffc53d, #ffc53d);
+  --color-warning-dark: light-dark(#ffbc1d, #ffbc1d);
+  --color-warning-light: light-dark(#ffce5d, #ffce5d);
+  --color-warning-fg: light-dark(#130f06, #130f06);
+  --color-warning-tint: light-dark(#fff7e5, #664800);
+  --color-warning-tint-dark: light-dark(#fff4d9, #593f00);
+  --color-warning-tint-light: light-dark(#fffbf2, #735000);
+  --color-warning-tint-fg: light-dark(#130f06, #f9f5ec);
+  --color-success: light-dark(#30a46c, #30a46c);
+  --color-success-dark: light-dark(#2b9461, #2b9461);
+  --color-success-light: light-dark(#35b477, #35b477);
+  --color-success-fg: light-dark(#ecf9f2, #ecf9f2);
+  --color-success-tint: light-dark(#ebf9f2, #174f34);
+  --color-success-tint-dark: light-dark(#e1f6ec, #14452d);
+  --color-success-tint-light: light-dark(#f5fcf9, #1a593a);
+  --color-success-tint-fg: light-dark(#06130d, #ecf9f2);
+}
+
+/* 
+██╗   ██╗████████╗██╗██╗     ██╗████████╗██╗███████╗███████╗
+██║   ██║╚══██╔══╝██║██║     ██║╚══██╔══╝██║██╔════╝██╔════╝
+██║   ██║   ██║   ██║██║     ██║   ██║   ██║█████╗  ███████╗
+██║   ██║   ██║   ██║██║     ██║   ██║   ██║██╔══╝  ╚════██║
+╚██████╔╝   ██║   ██║███████╗██║   ██║   ██║███████╗███████║
+ ╚═════╝    ╚═╝   ╚═╝╚══════╝╚═╝   ╚═╝   ╚═╝╚══════╝╚══════╝
+*/
+
+@utilities {
+  .border {
+    border-width: 0.5px;
+
+    &-t {
+      border-top-width: 0.5px;
+    }
+    &-r {
+      border-right-width: 0.5px;
+    }
+    &-b {
+      border-bottom-width: 0.5px;
+    }
+    &-l {
+      border-left-width: 0.5px;
+    }
+  }
+}
+
+/*
+██████╗  █████╗ ███████╗███████╗
+██╔══██╗██╔══██╗██╔════╝██╔════╝
+██████╔╝███████║███████╗█████╗  
+██╔══██╗██╔══██║╚════██║██╔══╝  
+██████╔╝██║  ██║███████║███████╗                                   
+/*
+
+/* Scale up hit targets on high resolution mobile devices. */
+@media (min-resolution: 200dpi) {
+  :root {
+    font-size: 18px;
+  }
+}
+
+:root {
+  @apply bg-background text-lo-contrast;
+  color-scheme: dark light;
+
+  scrollbar-color: var(--gray-400) transparent;
+  accent-color: var(--color-brand);
+
+  font-size: 16px; /* Basis for REM units */
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  /* @apply text-base; */
+  font-family: 'Inter', sans-serif;
+}
+
+p {
+  /* @apply mb-2 text-lo-contrast; */
+}
+
+.code,
+code {
+  /* @apply text-sm !font-medium; */
+}
+
+/* Global colors for highlighted text */
+/* ::selection {
+  @apply bg-[theme(colors.muted.100)] text-[theme(colors.muted.600)];
+} */
+
+/* Hide the user agent default clear button on search inputs */
+[type='search']::-webkit-search-cancel-button,
+[type='search']::-webkit-search-decoration {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+/* Override cursor for all disabled elements */
+[disabled],
+[aria-disabled='true'] {
+  cursor: not-allowed;
+}
+
+/* Re-usable class for thing scrollbars (e.g. dialog, dropdown, etc) */
+.scrollbar-thin {
+  scrollbar-width: thin;
+  /* scrollbar-color: var(--gray-400) transparent; */
+}
+
+/* Chrome, Safari and Opera */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+/*
+ ██████╗ ██████╗ ██████╗ ███████╗
+██╔════╝██╔═══██╗██╔══██╗██╔════╝
+██║     ██║   ██║██║  ██║█████╗  
+██║     ██║   ██║██║  ██║██╔══╝  
+╚██████╗╚██████╔╝██████╔╝███████╗
+ ╚═════╝ ╚═════╝ ╚═════╝ ╚══════╝
+ */
+
+.react-syntax-highlighter-line-number {
+  color: var(--color-lo-contrast);
+}
+
+/**
+ * Tailwind CSS adaptation of GHColors primjs theme by Avi Aryan (http://aviaryan.in)
+ */
+code[class*='language-'],
+pre[class*='language-'] {
+  text-shadow: none !important;
+  white-space: pre !important;
+  text-align: left !important;
+  font-family: var(--font-mono) !important;
+  font-size: var(--font-size-sm) !important;
+  line-height: 1.5 !important;
+  color: var(--color-hi-contrast) !important;
+  direction: ltr !important;
+  word-spacing: normal !important;
+  word-break: normal !important;
+
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: var(--color-lo-contrast);
+  font-style: italic;
+}
+
+.token.namespace {
+  color: var(--color-lo-contrast);
+}
+
+.token.maybe-class-name {
+  color: var(--color-brand);
+}
+
+.token.keyword {
+  color: var(--color-warning);
+}
+
+.token.attr-value,
+.token.tag.script.language-javascript.script-punctuation.punctuation,
+.token.tag.script.language-javascript.punctuation {
+  color: var(--color-error);
+}
+.token.tag.script.language-javascript,
+.token.punctuation,
+.token.operator,
+.token.string {
+  color: var(--color-hi-contrast);
+}
+
+.token.entity,
+.token.url,
+.token.symbol,
+.token.number,
+.token.boolean,
+.token.variable,
+.token.constant,
+.token.property,
+.token.regex,
+.token.inserted {
+  color: var(--color-success);
+}
+
+.token.atrule,
+.token.attr-name,
+.language-autohotkey .token.selector {
+  color: var(--color-brand-tint-dark);
+}
+
+.token.function,
+.token.deleted,
+.language-autohotkey .token.tag {
+}
+
+.token.tag,
+.token.tag.script.language-javascript.class-name {
+  color: var(--color-brand);
+}
+
+.token.selector,
+.language-autohotkey .token.keyword {
+  color: var(--color-brand-dark);
+}
+.token.function,
+.token.tag.attr-name {
+  /* @apply text-purple-800; */
+}
+
+.token.important,
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+.token.tag.attr-value {
+  color: var(--color-success);
+}

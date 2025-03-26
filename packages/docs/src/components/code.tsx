@@ -25,10 +25,12 @@ export function Code({
   className,
   code,
   component,
+  language = 'tsx',
 }: {
   className?: string
   code: string
   component: ReactNode
+  language: string
 }) {
   return (
     <Card className={className}>
@@ -41,13 +43,13 @@ export function Code({
         </CardHeader>
         <CardBody>
           <TabPanel
-            className='flex items-center justify-center min-h-24 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px]'
+            className='flex items-center justify-center min-h-24'
             id='preview'
           >
             {component}
           </TabPanel>
           <TabPanel id='code'>
-            <CodeBlock language='tsx'>{code}</CodeBlock>
+            <CodeBlock language={language}>{code}</CodeBlock>
           </TabPanel>
         </CardBody>
       </Tabs>

@@ -1,9 +1,9 @@
+import type { ForwardedRef } from 'react'
 import type {
   ButtonProps as RACButtonProps,
   LinkProps as RACLinkProps,
 } from 'react-aria-components'
 
-import { type ForwardedRef } from 'react'
 import {
   composeRenderProps,
   Button as RACButton,
@@ -35,103 +35,31 @@ const buttonStyle = tv({
     'disabled:opacity-disabled',
   ],
   compoundVariants: [
-    ///////////////////////////////////////////////////
-    // Primary
-    ///////////////////////////////////////////////////
     {
       className: [
-        'border-red-700 bg-red-700',
-        'hover:border-red-600 hover:bg-red-600',
-        'pressed:border-red-900 pressed:bg-red-900',
+        'text-error-fg',
+        'border-error bg-error',
+        'hover:border-error-light hover:bg-error-light',
+        'pressed:border-error-dark pressed:bg-error-dark',
       ],
       isDestructive: true,
       variant: 'primary',
     },
     {
       className: [
-        'text-primary',
-        'border-brand-50 bg-brand-50',
-        // hover
-        'hover:border-brand-200 hover:bg-brand-200',
-        // pressed
-        'pressed:border-brand-300 pressed:bg-brand-300',
-      ],
-      isInverted: true,
-      variant: 'primary',
-    },
-    {
-      className: [
-        'text-invalid',
-        'border-red-50 bg-red-50',
-        'hover:border-red-50/90 hover:bg-red-50/90',
-        'pressed:border-red-50/80 pressed:bg-red-50/80',
-      ],
-      isDestructive: true,
-      isInverted: true,
-      variant: 'primary',
-    },
-    ///////////////////////////////////////////////////
-    // Secondary
-    ///////////////////////////////////////////////////
-    {
-      className: [
-        'border-red-700 text-invalid',
-        'hover:border-red-600 hover:bg-red-50 pressed:bg-red-100',
+        'border-error text-error',
+        'be-error-tint',
+        'hover:border-error-light hover:bg-error-tint-light pressed:bg-error-tint',
       ],
       isDestructive: true,
       variant: 'secondary',
     },
     {
       className: [
-        // base
-        'border-brand-400 bg-transparent text-brand-50',
-        // hover
-        'hover:border-brand-300 hover:bg-brand-50/10',
-        // pressed
-        'pressed:border-brand-600 pressed:bg-brand-900',
-      ],
-      isInverted: true,
-      variant: 'secondary',
-    },
-    {
-      className: [
-        'border-red-50/50 bg-transparent text-red-50',
-        'hover:border-red-50/60 hover:bg-red-50/10',
-        'pressed:border-red-50/50 pressed:bg-transparent',
+        'text-error',
+        'hover:bg-error-tint-light pressed:bg-error-tint',
       ],
       isDestructive: true,
-      isInverted: true,
-      variant: 'secondary',
-    },
-    ///////////////////////////////////////////////////
-    // Tertiary
-    ///////////////////////////////////////////////////
-    {
-      className: ['text-invalid', 'hover:bg-red-50 pressed:bg-red-100'],
-      isDestructive: true,
-      variant: 'tertiary',
-    },
-    {
-      className: [
-        'border-transparent bg-transparent text-brand-50',
-        // hover
-        'hover:border-brand-800 hover:bg-brand-800',
-        // pressed
-        'pressed:bg-transparent',
-      ],
-      isInverted: true,
-      variant: 'tertiary',
-    },
-    {
-      className: [
-        'border-transparent bg-transparent text-red-50',
-        // hover
-        'hover:border-red-800 hover:bg-red-800',
-        // pressed
-        'pressed:bg-transparent',
-      ],
-      isDestructive: true,
-      isInverted: true,
       variant: 'tertiary',
     },
   ],
@@ -151,29 +79,29 @@ const buttonStyle = tv({
     },
     variant: {
       primary: [
-        'text-muted-50',
-        'shadow-sm',
-        'border-brand-700 bg-brand-700',
+        'text-brand-fg',
+        'shadow-xs',
+        'border-brand bg-brand',
         // hover
-        'hover:border-brand-600 hover:bg-brand-600',
+        'hover:border-brand-light hover:bg-brand-light',
         // pressed
-        'pressed:border-brand-800 pressed:bg-brand-800',
+        'pressed:border-brand-dark pressed:bg-brand-dark',
       ],
       secondary: [
         // base
-        'shadow-sm',
-        'border-muted-200 bg-base text-primary',
+        'shadow-xs',
+        'border-tint-dark bg-background text-hi-contrast',
         // hover
-        'hover:border-muted-300 hover:bg-muted-100',
+        'hover:border-tint-dark hover:bg-tint',
         // pressed
-        'pressed:border-muted-300 pressed:bg-muted-200',
+        'pressed:border-tint-dark pressed:bg-tint-dark',
       ],
       tertiary: [
-        'border-transparent bg-transparent text-primary',
+        'border-transparent bg-transparent text-hi-contrast',
         // hover
-        'hover:bg-muted-100',
+        'hover:bg-tint',
         // pressed
-        'pressed:bg-muted-200',
+        'pressed:bg-tint-dark',
       ],
     },
   },

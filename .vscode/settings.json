@@ -1,7 +1,31 @@
 {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "prettier.configPath": ".prettierrc.mjs",
-    // "prettier.prettierPath": "./node_modules/prettier",
-    "prettier.requireConfig": true,
-    "typescript.tsdk": "node_modules/typescript/lib"
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "prettier.configPath": ".prettierrc.mjs",
+  "prettier.requireConfig": true,
+  "search.exclude": {
+    ".git": true,
+    "**/*.code-search": true,
+    "**/tsconfig.tsbuildinfo": true,
+    "**/node_modules": true,
+    "**/.next": true,
+    "**/dist": true,
+    "**/package-lock.json": true
+  },
+  "typescript.tsdk": "node_modules/typescript/lib"
 }

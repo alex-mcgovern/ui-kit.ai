@@ -48,12 +48,12 @@ export function EmptyState({
       )}
     >
       <Icon
-        className='mb-2 block text-secondary'
+        className='mb-2 block text-mid-contrast'
         size={48}
       />
 
       <Heading
-        className='mb-1 text-xl text-primary'
+        className='mb-1 text-xl text-hi-contrast'
         level={2}
       >
         {title}

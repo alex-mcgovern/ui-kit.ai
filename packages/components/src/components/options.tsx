@@ -27,26 +27,27 @@ type OptionsSectionProps<TType extends OptionType> =
 const optionStyle = tv({
   base: [
     'group/options-item',
-    'disabled:text-disabled disabled:forced-colors:text-[GrayText]',
     'flex items-center gap-2',
     'cursor-default',
-    'text-sm text-primary',
+    'text-sm text-hi-contrast',
     'outline outline-0',
     'select-none rounded',
     'px-2.5 py-0.5',
+    // disabled
+    'disabled:text-disabled disabled:forced-colors:text-[GrayText]',
     // hover
-    `hover:bg-muted-200 hover:open:bg-muted-200 hover:forced-colors:bg-[Highlight]
+    `hover:bg-tint hover:open:bg-tint hover:forced-colors:bg-[Highlight]
     hover:forced-colors:text-[HighlightText]`,
     // focus
-    `focus:bg-muted-200 focus:open:bg-muted-200 focus:forced-colors:bg-[Highlight]
+    `focus:bg-tint focus:open:bg-tint focus:forced-colors:bg-[Highlight]
     focus:forced-colors:text-[HighlightText]`,
     // selected
-    `selected:bg-muted-200 selected:open:bg-muted-200
+    `selected:bg-tint selected:open:bg-tint
     selected:forced-colors:bg-[Highlight]
     selected:forced-colors:text-[HighlightText]`,
     // destructive
-    'data-[destructive]:text-invalid',
-    'data-[destructive]:focus:bg-red-200',
+    'data-[destructive]:text-error',
+    'data-[destructive]:focus:bg-error-tint-dark',
     'forced-color-adjust-none',
   ],
 })
@@ -129,8 +130,8 @@ function OptionsItem<TType extends OptionType>({
             </span>
             {props.description != null ? (
               <span
-                className='truncate text-sm font-normal text-secondary
-                  group-focus/options-item:text-muted-50'
+                className='truncate text-sm font-normal text-mid-contrast
+                  group-focus/options-item:text-hi-contrast'
               >
                 {props.description}
               </span>
@@ -174,7 +175,7 @@ OptionsSection.displayName = 'OptionsSection'
 function OptionsSectionHeader(props: HeadingProps) {
   return (
     <Header
-      className='px-2.5 py-1 text-xs font-medium uppercase text-secondary'
+      className='px-2.5 py-1 text-xs font-medium uppercase text-mid-contrast'
       {...props}
     />
   )

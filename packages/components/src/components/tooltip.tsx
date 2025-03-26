@@ -26,7 +26,7 @@ const tooltipStyles = tv({
       'inline-flex items-center gap-1',
       'px-2 py-1',
       'text-sm font-medium',
-      'bg-muted-800 text-muted-50',
+      'bg-background-inverse text-inverse',
       'group rounded drop-shadow-lg',
       // transition
       'transition-all will-change-transform',
@@ -70,9 +70,9 @@ export function Tooltip({ children, ...props }: TooltipProps) {
     >
       <OverlayArrow>
         <svg
-          className='fill-muted-800 group-placement-left:-rotate-90 group-placement-right:rotate-90
-            group-placement-bottom:rotate-180 forced-colors:fill-[Canvas]
-            forced-colors:stroke-[ButtonBorder]'
+          className='fill-mid-contrast group-placement-left:-rotate-90 group-placement-right:rotate-90
+                        group-placement-bottom:rotate-180 forced-colors:fill-[Canvas]
+                        forced-colors:stroke-[ButtonBorder]'
           height={8}
           viewBox='0 0 8 8'
           width={8}

@@ -25,7 +25,8 @@ const CodeInline = ({
   return (
     <SyntaxHighlighter
       codeTagProps={{
-        className: 'px-1 py-0.5 bg-gray-200 rounded-sm border border-gray-400',
+        className:
+          'px-1 py-0.5 bg-tint-light rounded-sm border border-tint-dark',
         style: {
           whiteSpace: 'unset',
         },
@@ -81,7 +82,7 @@ const COMPONENTS = {
   a({ children, ...props }) {
     return (
       <a
-        className='text-brand-600 underline hover:text-brand-800'
+        className='text-hi-contrast underline hover:text-hi-contrast'
         target='_blank'
         {...props}
       >

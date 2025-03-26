@@ -16,7 +16,8 @@ export function getPalette({
     [`${name}-tint`]: [get(light, 2), get(dark, 2)],
     [`${name}-tint-active`]: [get(light, 3), get(dark, 3)],
     [`${name}-tint-hover`]: [get(light, 4), get(dark, 4)],
-    [`${name}-text-lo-contrast`]: [get(light, 11), get(dark, 11)],
+    [`${name}-text-inverse`]: [get(light, 1), get(dark, 1)],
+    [`${name}-text-mid-contrast`]: [get(light, 11), get(dark, 11)],
     [`${name}-text-hi-contrast`]: [get(light, 12), get(dark, 12)],
   } as const
 }

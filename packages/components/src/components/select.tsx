@@ -26,8 +26,8 @@ const selectButtonStyles = tv({
     'py-2 pl-3 pr-2',
     'text-sm',
     'w-full cursor-pointer text-start',
-    `group-data-[invalid]:!border-red-400 group-data-[invalid]:!text-invalid
-    group-data-[invalid]:forced-colors:text-[Mark]`,
+    `group-data-[invalid]:!border-error group-data-[invalid]:!text-error
+        group-data-[invalid]:forced-colors:text-[Mark]`,
   ],
   extend: fieldVariants,
 })
@@ -68,7 +68,7 @@ export function Select<
             <Popover className='min-w-[--trigger-width]'>
               <AriaListBox<T>
                 className='max-h-[inherit] overflow-auto p-1 outline-none
-                  [clip-path:inset(0_0_0_0_round_.75rem)]'
+                                    [clip-path:inset(0_0_0_0_round_.75rem)]'
                 items={items}
               >
                 {(props) => (
@@ -134,7 +134,7 @@ export function SelectButton({
           'inline-flex flex-1 items-center gap-2',
           'truncate',
           'placeholder-shown:text-placeholder',
-          'group-data-[invalid]:placeholder-shown:text-invalid',
+          'group-data-[invalid]:placeholder-shown:text-error',
         ])}
       />
       {renderSlot(slotRight, {

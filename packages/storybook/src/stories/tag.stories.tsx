@@ -10,10 +10,9 @@ import { CircleDot } from 'lucide-react'
 
 const VARIANTS = [
   'default',
-  'green',
-  'yellow',
-  'red',
-  'inverted',
+  'success',
+  'warning',
+  'error',
 ] as const satisfies ComponentProps<typeof Tag>['variant'][]
 
 function TagButtonTemplate({

@@ -10,7 +10,7 @@ import { Description } from './description'
 const alertStyles = tv({
   base: [
     'w-full',
-    'rounded-xl shadow-sm',
+    'rounded-xl shadow-xs',
     'px-4 py-2',
     'flex items-center gap-4',
   ],
@@ -19,9 +19,9 @@ const alertStyles = tv({
   },
   variants: {
     variant: {
-      default: 'border border-muted-200 bg-base text-primary',
-      invalid: 'bg-red-700 text-muted-50',
-      inverted: 'bg-muted-800 text-muted-50',
+      default: 'border border-tint-dark bg-background text-hi-contrast',
+      invalid: 'bg-error text-hi-contrast',
+      inverted: 'bg-mid-contrast text-hi-contrast',
     },
   },
 })
@@ -31,7 +31,7 @@ const titleStyles = tv({
 })
 
 const iconStyles = tv({
-  base: 'size-7 shrink-0 stroke-[1.75px] text-secondary',
+  base: 'size-7 shrink-0 stroke-[1.75px] text-mid-contrast',
 })
 
 /**
@@ -65,9 +65,7 @@ export function Alert({
       <Icon
         className={twMerge(
           iconStyles(),
-          variant === 'inverted' || variant === 'invalid'
-            ? 'text-muted-100'
-            : ''
+          variant === 'inverted' || variant === 'invalid' ? 'text-tint' : ''
         )}
       />
       <div>
@@ -88,7 +86,7 @@ export function Alert({
             className={twMerge(
               '!my-0',
               variant === 'inverted' || variant === 'invalid'
-                ? 'text-muted-300'
+                ? 'text-tint-dark'
                 : ''
             )}
           >

@@ -14,7 +14,7 @@ import packageJson from '@ui-kit.ai/components/package.json'
 import '@ui-kit.ai/components/style.css'
 import { Component, Github, Search, Sun } from 'lucide-react'
 
-import './globals.css'
+import '../index.css'
 
 import { Inter } from 'next/font/google'
 import Link from 'next/link'
@@ -57,12 +57,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en'>
-      <body className={`${inter.className} antialiased bg-muted-50 relative`}>
-        <nav className='bg-muted-50/50 backdrop-blur-md sticky top-0 z-10 border-b border-b-muted-200'>
+      <body className={`${inter.className} antialiased relative`}>
+        <nav className='bg-background backdrop-blur-md sticky top-0 z-10 border-b border-b-tint'>
           <div className='max-w-6xl flex items-center justify-between px-4 py-2 mx-auto '>
             <div className='flex gap-4 items-center'>
               <Link
-                className='font-semibold flex items-center gap-1 text-secondary hover:text-primary transition-colors'
+                className='font-semibold flex items-center gap-1 text-mid-contrast hover:text-hi-contrast transition-colors'
                 href='/'
               >
                 <Component className='size-4' />

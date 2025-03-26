@@ -23,7 +23,7 @@ interface PopoverProps extends Omit<AriaPopoverProps, 'children'> {
 
 const popoverStyles = tv({
   base: [
-    `rounded border border-muted-200 text-primary shadow-2xl transition-none
+    `rounded border border-tint-dark text-hi-contrast shadow-2xl transition-none
     forced-colors:bg-[Canvas]`,
   ],
   extend: bgGlass,
@@ -68,7 +68,7 @@ export function Popover({
       {(showArrow ?? false) && (
         <OverlayArrow className='group'>
           <svg
-            className='block fill-[theme(backgroundColor.base)] stroke-muted-200 stroke-1
+            className='block fill-[theme(backgroundColor.base)] stroke-tint-dark stroke-1
               group-placement-left:-rotate-90 group-placement-right:rotate-90
               group-placement-bottom:rotate-180 forced-colors:fill-[Canvas]
               forced-colors:stroke-[ButtonBorder]'

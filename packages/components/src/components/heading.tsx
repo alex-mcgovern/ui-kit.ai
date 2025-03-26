@@ -32,7 +32,7 @@ export function Heading({
       {...props}
       className={twMerge(
         heading({ level }),
-        'mb-2 text-primary',
+        'mb-2 text-hi-contrast',
         props.className
       )}
       level={level}

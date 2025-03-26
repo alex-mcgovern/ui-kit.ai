@@ -1,13 +1,12 @@
 import type { Preview } from '@storybook/react'
 
-import './storybook.css'
-
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { initialize as initializeMsw, mswLoader } from 'msw-storybook-addon'
 import React from 'react'
 import { type ScreenshotOptions, withScreenshot } from 'storycap'
 import '@ui-kit.ai/components/style.css'
 
+import './index.css'
 initializeMsw()
 
 const screenshotOptions: ScreenshotOptions = {

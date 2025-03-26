@@ -13,8 +13,8 @@ export function Skeleton(props: HTMLProps<HTMLDivElement>) {
         'animate-pulse',
         'h-4 max-w-full',
         'rounded-sm',
-        'bg-[position-x:180%] bg-muted-500 bg-gradient-to-r bg-[length:200%_100%]',
-        'from-muted-50 via-muted-100 to-muted-50',
+        'bg-[position-x:180%] bg-mid-contrast bg-gradient-to-r bg-[length:200%_100%]',
+        'from-tint-light via-tint to-tint-light',
         props.className
       )}
     />
