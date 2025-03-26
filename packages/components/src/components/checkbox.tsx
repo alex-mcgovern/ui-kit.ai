@@ -65,15 +65,15 @@ const boxStyles = tv({
     'group-hover:bg-tint',
     'group-hover:border-mid-contrast',
     // selected
-    'group-selected:bg-mid-contrast',
-    'group-selected:group-hover:bg-mid-contrast',
-    'group-selected:border-mid-contrast',
-    'group-selected:group-hover:border-mid-contrast',
+    'group-selected:bg-hi-contrast',
+    'group-selected:group-hover:bg-hi-contrast',
+    'group-selected:border-hi-contrast',
+    'group-selected:group-hover:border-hi-contrast',
     // indeterminate
-    'group-indeterminate:bg-mid-contrast',
-    'group-indeterminate:group-hover:bg-mid-contrast',
-    'group-indeterminate:border-mid-contrast',
-    'group-indeterminate:group-hover:border-mid-contrast',
+    'group-indeterminate:bg-hi-contrast',
+    'group-indeterminate:group-hover:bg-hi-contrast',
+    'group-indeterminate:border-hi-contrast',
+    'group-indeterminate:group-hover:border-hi-contrast',
     // invalid
     'group-invalid:border-error-light',
     'group-hover:group-invalid:bg-error-tint-light',

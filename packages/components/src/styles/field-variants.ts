@@ -22,7 +22,7 @@ export const fieldVariants = tv({
           'bg-background',
           'transition-colors',
           // hover
-          'hover:[&:not(:is([data-disabled],[data-focus-visible]))]:border-tint-light',
+          'hover:[&:not(:is([data-disabled],[data-focus-visible]))]:border-mid-contrast',
           'hover:[&:not(:is([data-disabled],[data-focus-visible]))]:forced-colors:border-[Highlight]',
           'hover:[&:not([data-disabled])]:bg-background',
           // invalid

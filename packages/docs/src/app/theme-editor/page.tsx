@@ -28,7 +28,7 @@ export default async function Page() {
 
   return (
     <div className='grid grid-cols-[1fr_3fr] gap-8'>
-      <section className='bg-tint'>
+      <section>
         <h2>Generated colors</h2>
 
         <RenderNamedPalette palettes={palettes} />

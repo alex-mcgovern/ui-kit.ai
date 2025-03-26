@@ -10,8 +10,8 @@ import { Description } from './description'
 const alertStyles = tv({
   base: [
     'w-full',
-    'rounded-xl shadow-xs',
-    'px-4 py-2',
+    'rounded-lg shadow-xs',
+    'pl-3 pr-2 py-1',
     'flex items-center gap-4',
   ],
   defaultVariants: {
@@ -19,9 +19,9 @@ const alertStyles = tv({
   },
   variants: {
     variant: {
-      default: 'border border-tint-dark bg-background text-hi-contrast',
-      invalid: 'bg-error text-hi-contrast',
-      inverted: 'bg-mid-contrast text-hi-contrast',
+      default: 'border border-tint-dark bg-background-raised text-hi-contrast',
+      invalid: 'bg-error-tint text-error-fg',
+      inverted: 'bg-background-inverse text-inverse',
     },
   },
 })
@@ -62,12 +62,7 @@ export function Alert({
       {...props}
       className={twMerge(alertStyles({ variant }), className)}
     >
-      <Icon
-        className={twMerge(
-          iconStyles(),
-          variant === 'inverted' || variant === 'invalid' ? 'text-tint' : ''
-        )}
-      />
+      <Icon className={twMerge(iconStyles())} />
       <div>
         {/*
          * Note: A heading element should *not* be used here,
@@ -82,16 +77,7 @@ export function Alert({
           {title}
         </span>
         {description != null ? (
-          <Description
-            className={twMerge(
-              '!my-0',
-              variant === 'inverted' || variant === 'invalid'
-                ? 'text-tint-dark'
-                : ''
-            )}
-          >
-            {description}
-          </Description>
+          <Description className={twMerge('!my-0')}>{description}</Description>
         ) : null}
       </div>
       {renderActionNodes({

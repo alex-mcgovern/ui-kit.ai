@@ -236,7 +236,7 @@ function getLoContrast(hex: string, mode: 'dark' | 'light') {
   const grayHsl: Hsl = {
     ...hslRepr,
     s: 0.1,
-    l: mode === 'light' ? 0.7 : 0.5,
+    l: mode === 'light' ? 0.7 : 0.2,
   }
 
   return hslToHex(grayHsl)
@@ -273,8 +273,8 @@ function getTintDark(hex: string, mode: 'dark' | 'light') {
 
   const grayHsl: Hsl = {
     ...hslRepr,
-    // s: hslRepr.s * 0.85,
-    l: mode === 'light' ? 0.925 : 0.175,
+    s: hslRepr.s * 0.85,
+    l: mode === 'light' ? 0.925 : 0.225,
   }
 
   return hslToHex(grayHsl)
@@ -287,7 +287,7 @@ function getTintLight(hex: string, mode: 'dark' | 'light') {
   const grayHsl: Hsl = {
     ...hslRepr,
     // s: hslRepr.s * 0.65,
-    l: mode === 'light' ? 0.975 : 0.225,
+    l: mode === 'light' ? 0.975 : 0.175,
   }
 
   return hslToHex(grayHsl)
