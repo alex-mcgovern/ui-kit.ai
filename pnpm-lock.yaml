@@ -105,6 +105,9 @@ importers:
       '@ui-kit.ai/prettier':
         specifier: workspace:*
         version: link:../prettier
+      '@ui-kit.ai/theme':
+        specifier: workspace:*
+        version: link:../theme
       '@ui-kit.ai/tsconfig':
         specifier: workspace:*
         version: link:../tsconfig
@@ -202,6 +205,9 @@ importers:
       '@ui-kit.ai/storybook':
         specifier: workspace:*
         version: link:../storybook
+      '@ui-kit.ai/theme':
+        specifier: workspace:*
+        version: link:../theme
       '@ui-kit.ai/tsconfig':
         specifier: workspace:*
         version: link:../tsconfig
@@ -525,6 +531,9 @@ importers:
       '@ui-kit.ai/prettier':
         specifier: workspace:*
         version: link:../prettier
+      '@ui-kit.ai/theme':
+        specifier: workspace:*
+        version: link:../theme
       '@ui-kit.ai/tsconfig':
         specifier: workspace:*
         version: link:../tsconfig
@@ -573,6 +582,28 @@ importers:
       '@ui-kit.ai/vitest':
         specifier: workspace:*
         version: link:../vitest
+
+  packages/theme:
+    dependencies:
+      culori:
+        specifier: ^4.0.1
+        version: 4.0.1
+    devDependencies:
+      '@types/culori':
+        specifier: ^2.1.1
+        version: 2.1.1
+      '@ui-kit.ai/eslint':
+        specifier: workspace:*
+        version: link:../eslint
+      '@ui-kit.ai/prettier':
+        specifier: workspace:*
+        version: link:../prettier
+      '@ui-kit.ai/tsconfig':
+        specifier: workspace:*
+        version: link:../tsconfig
+      '@ui-kit.ai/vite':
+        specifier: workspace:*
+        version: link:../vite
 
   packages/tsconfig:
     dependencies:

@@ -63,6 +63,7 @@
     "@types/react-syntax-highlighter": "15.5.13",
     "@ui-kit.ai/eslint": "workspace:*",
     "@ui-kit.ai/prettier": "workspace:*",
+    "@ui-kit.ai/theme": "workspace:*",
     "@ui-kit.ai/tsconfig": "workspace:*",
     "@ui-kit.ai/vite": "workspace:*",
     "@ui-kit.ai/vitest": "workspace:*",

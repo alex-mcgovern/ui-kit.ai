@@ -36,13 +36,13 @@ const optionStyle = tv({
     // disabled
     'disabled:text-disabled disabled:forced-colors:text-[GrayText]',
     // hover
-    `hover:bg-tint hover:open:bg-tint hover:forced-colors:bg-[Highlight]
+    `hover:bg-tint-light hover:open:bg-tint-light hover:forced-colors:bg-[Highlight]
     hover:forced-colors:text-[HighlightText]`,
     // focus
-    `focus:bg-tint focus:open:bg-tint focus:forced-colors:bg-[Highlight]
+    `focus:bg-tint-light focus:open:bg-tint-light focus:forced-colors:bg-[Highlight]
     focus:forced-colors:text-[HighlightText]`,
     // selected
-    `selected:bg-tint selected:open:bg-tint
+    `selected:bg-tint-light selected:open:bg-tint-light
     selected:forced-colors:bg-[Highlight]
     selected:forced-colors:text-[HighlightText]`,
     // destructive

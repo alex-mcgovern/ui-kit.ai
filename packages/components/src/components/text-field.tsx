@@ -6,10 +6,11 @@ import type {
 import type { TextFieldProps as AriaTextFieldProps } from 'react-aria-components'
 
 import { ClipboardIcon, EyeIcon, EyeOffIcon, XIcon } from 'lucide-react'
-import { useCallback, useEffect, useMemo, useState } from 'react'
+import { useCallback, useContext, useEffect, useMemo, useState } from 'react'
 import {
   TextField as AriaTextField,
   ButtonContext as FieldButtonContext,
+  TextFieldContext,
   useSlottedContext,
 } from 'react-aria-components'
 import { twMerge } from 'tailwind-merge'
@@ -120,6 +121,15 @@ export function TextFieldClearButton(
     <TooltipTrigger delay={0}>
       <FieldButton
         {...props}
+        className={(renderProps) =>
+          twMerge(
+            'transition-opacity',
+            'group:placeholder-shown:invisible group:placeholder-shown:hidden group:placeholder-shown:opacity-0',
+            typeof props.className === 'function'
+              ? props.className(renderProps)
+              : props.className
+          )
+        }
         slot='clear'
       >
         <XIcon />

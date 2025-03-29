@@ -1,0 +1,42 @@
+{
+  "name": "@ui-kit.ai/theme",
+  "version": "0.0.0-alpha.0",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alex-mcgovern/ui-kit.ai"
+  },
+  "license": "MIT",
+  "author": "Alex McGovern",
+  "type": "module",
+  "exports": {
+    "./style.css": "./dist/style.css"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsx ./src/index.ts",
+    "postbuild": "prettier ./dist/style.css --write",
+    "build:watch": "vite build --watch",
+    "check:eslint": "eslint .",
+    "check:prettier": "prettier . --check",
+    "check:tsc": "tsc",
+    "check:vitest": "vitest run --passWithNoTests",
+    "fix:eslint": "eslint . --fix",
+    "fix:prettier": "prettier . --write"
+  },
+  "dependencies": {
+    "culori": "^4.0.1"
+  },
+  "devDependencies": {
+    "@types/culori": "^2.1.1",
+    "@ui-kit.ai/eslint": "workspace:*",
+    "@ui-kit.ai/prettier": "workspace:*",
+    "@ui-kit.ai/tsconfig": "workspace:*",
+    "@ui-kit.ai/vite": "workspace:*"
+  },
+  "engines": {
+    "node": "22.x"
+  }
+}

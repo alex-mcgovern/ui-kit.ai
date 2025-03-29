@@ -32,7 +32,7 @@ const buttonStyle = tv({
     '[&_svg]:size-3 [&_svg]:shrink-0',
     // disabled
     'disabled:cursor-not-allowed',
-    'disabled:opacity-disabled',
+    'disabled:opacity-50',
   ],
   compoundVariants: [
     {
@@ -90,11 +90,11 @@ const buttonStyle = tv({
       secondary: [
         // base
         'shadow-xs',
-        'border-tint-dark bg-background text-hi-contrast',
+        'border-tint bg-transparent text-hi-contrast',
         // hover
-        'hover:border-tint-dark hover:bg-tint',
+        'hover:bg-tint-light',
         // pressed
-        'pressed:border-tint-dark pressed:bg-tint-dark',
+        'pressed:bg-tint',
       ],
       tertiary: [
         'border-transparent bg-transparent text-hi-contrast',

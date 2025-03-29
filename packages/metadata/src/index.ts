@@ -1,22 +1,23 @@
+import { composeStories as storybookComposeStories } from '@storybook/react'
 /**
  * We expose all stories from the `@ui-kit.ai/storybook` package wrapped in
  * `composeStories` this allows them to be consumed as "portable" stories, which
  * can be used for testing and documentation purposes.
  */
-import { composeStories as storybookComposeStories } from '@storybook/react'
 import { Alert as AlertStories } from '@ui-kit.ai/storybook'
 import { Button as ButtonStories } from '@ui-kit.ai/storybook'
-import { CheckboxGroup as CheckboxGroupStories } from '@ui-kit.ai/storybook'
 import { Checkbox as CheckboxStories } from '@ui-kit.ai/storybook'
+import { CheckboxGroup as CheckboxGroupStories } from '@ui-kit.ai/storybook'
+import { CodeBlock as CodeBlockStories } from '@ui-kit.ai/storybook'
 import { ComboBox as ComboBoxStories } from '@ui-kit.ai/storybook'
 import { Dialog as DialogStories } from '@ui-kit.ai/storybook'
 import { EmptyState as EmptyStateStories } from '@ui-kit.ai/storybook'
 import { FieldGroup as FieldGroupStories } from '@ui-kit.ai/storybook'
-import { Label as LabelStories } from '@ui-kit.ai/storybook'
-import { FormTextField as FormTextFieldStories } from '@ui-kit.ai/storybook'
 import { Form as FormStories } from '@ui-kit.ai/storybook'
+import { FormTextField as FormTextFieldStories } from '@ui-kit.ai/storybook'
 import { Heading as HeadingStories } from '@ui-kit.ai/storybook'
 import { Input as InputStories } from '@ui-kit.ai/storybook'
+import { Label as LabelStories } from '@ui-kit.ai/storybook'
 import { ListBox as ListBoxStories } from '@ui-kit.ai/storybook'
 import { Menu as MenuStories } from '@ui-kit.ai/storybook'
 import { Popover as PopoverStories } from '@ui-kit.ai/storybook'
@@ -40,6 +41,7 @@ export const Alert: Composed = compose(AlertStories)
 export const Button: Composed = compose(ButtonStories)
 export const Checkbox: Composed = compose(CheckboxStories)
 export const CheckboxGroup: Composed = compose(CheckboxGroupStories)
+export const CodeBlock: Composed = compose(CodeBlockStories)
 export const ComboBox: Composed = compose(ComboBoxStories)
 export const Dialog: Composed = compose(DialogStories)
 export const EmptyState: Composed = compose(EmptyStateStories)

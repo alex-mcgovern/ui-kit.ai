@@ -14,6 +14,12 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
+export const Default: Story = {
+  args: {},
+  parameters: {
+    displayName: 'Default',
+  },
+}
 export const Python: Story = {
   args: {
     children: `def greet():\n    print("Hello, world!")\n\ngreet()`,
@@ -22,7 +28,6 @@ export const Python: Story = {
   parameters: {
     displayName: 'Python',
   },
-  tags: ['language-python'],
 }
 
 export const TypeScript: Story = {
@@ -33,7 +38,6 @@ export const TypeScript: Story = {
   parameters: {
     displayName: 'TypeScript',
   },
-  tags: ['language-typescript'],
 }
 
 export const Rust: Story = {
@@ -44,5 +48,4 @@ export const Rust: Story = {
   parameters: {
     displayName: 'Rust',
   },
-  tags: ['language-rust'],
 }

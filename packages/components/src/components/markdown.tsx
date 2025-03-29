@@ -26,7 +26,7 @@ const CodeInline = ({
     <SyntaxHighlighter
       codeTagProps={{
         className:
-          'px-1 py-0.5 bg-tint-light rounded-sm border border-tint-dark',
+          'px-1 py-0.25 bg-tint-light rounded-sm border border-tint-dark',
         style: {
           whiteSpace: 'unset',
         },

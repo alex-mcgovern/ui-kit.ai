@@ -11,6 +11,19 @@ import {
 
 type Placement = ComponentProps<typeof Popover>['placement']
 
+import {
+  ArrowUp,
+  ArrowUpLeft,
+  ArrowUpRight,
+  MoveDownIcon,
+  MoveDownLeftIcon,
+  MoveDownRightIcon,
+  MoveLeftIcon,
+  MoveRightIcon,
+  MoveUpLeftIcon,
+  MoveUpRightIcon,
+} from 'lucide-react'
+
 const PLACEMENTS = [
   'bottom',
   'bottom left',
@@ -26,12 +39,27 @@ const PLACEMENTS = [
   'right bottom',
 ] satisfies Placement[]
 
+const PLACEMENT_ICONS = {
+  bottom: MoveDownIcon,
+  'bottom left': MoveDownLeftIcon,
+  'bottom right': MoveDownRightIcon,
+  left: MoveLeftIcon,
+  'left bottom': MoveDownLeftIcon,
+  'left top': MoveUpLeftIcon,
+  right: MoveRightIcon,
+  'right bottom': MoveDownRightIcon,
+  'right top': MoveUpRightIcon,
+  top: ArrowUp,
+  'top left': ArrowUpLeft,
+  'top right': ArrowUpRight,
+} satisfies Record<Placement, React.ComponentType>
+
 function PlacementTemplate(args: ComponentProps<typeof Popover>) {
   return (
     <>
       {PLACEMENTS.map((placement) => (
         <DialogTrigger>
-          <Button>{placement}</Button>
+          <Button>{PLACEMENT_ICONS[placement]}</Button>
           <Popover
             {...args}
             placement={placement}

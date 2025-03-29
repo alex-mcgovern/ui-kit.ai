@@ -41,6 +41,7 @@
     "@ui-kit.ai/mocks": "workspace:*",
     "@ui-kit.ai/prettier": "workspace:*",
     "@ui-kit.ai/storybook": "workspace:*",
+    "@ui-kit.ai/theme": "workspace:*",
     "@ui-kit.ai/tsconfig": "workspace:*",
     "@ui-kit.ai/vitest": "workspace:*",
     "postcss": "8.4.47",

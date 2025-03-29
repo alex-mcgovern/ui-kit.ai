@@ -5,9 +5,9 @@ export const fieldVariants = tv({
     'h-8',
     'text-base text-hi-contrast',
     'rounded',
-    'outline outline-0 outline-offset-2 outline-brand-400',
+    'outline outline-0 outline-offset-2',
     'disabled:text-disabled',
-    'placeholder:text-placeholder',
+    'placeholder:text-lo-contrast',
     'placeholder:invalid:text-error',
     'forced-colors:outline-[Highlight]',
   ],
@@ -18,13 +18,11 @@ export const fieldVariants = tv({
     isBorderless: {
       false: [
         [
-          'border border-lo-contrast',
+          'border border-tint-dark',
           'bg-background',
           'transition-colors',
           // hover
-          'hover:[&:not(:is([data-disabled],[data-focus-visible]))]:border-mid-contrast',
-          'hover:[&:not(:is([data-disabled],[data-focus-visible]))]:forced-colors:border-[Highlight]',
-          'hover:[&:not([data-disabled])]:bg-background',
+          'hover:[&:not([data-disabled])]:border-tint-dark',
           // invalid
           'invalid:bg-error-tint-light group-invalid:bg-error-tint-light',
           'invalid:border-error-tint-dark group-invalid:border-error-tint-dark',
@@ -35,7 +33,7 @@ export const fieldVariants = tv({
           // "[:is([data-invalid],[data-invalid]_&)]:forced-colors:!border-[Mark]",
           // "[:is([data-invalid],[data-invalid]_&)]:forced-colors:bg-[MarkBackground]",
           // focus visible
-          'focus-visible:border-mid-contrast focus-visible:outline-2',
+          'focus-visible:border-tint-dark focus-visible:outline-2',
           'focus-visible:forced-colors:border-[ButtonBorder]',
           'focus-within:[&:has([data-focus-visible])]:outline-2',
           // disabled
@@ -43,13 +41,7 @@ export const fieldVariants = tv({
           'forced-colors:border-[Highlight]',
         ],
       ],
-      true: [
-        'bg-transparent',
-        // text
-        // `hover:[&:not([data-disabled])]:text-hi-contrast`,
-        // `focus-visible:text-hi-contrast`, // so that you can tell focused field in a field group
-        // `pressed:text-mid-contrast`,
-      ],
+      true: ['bg-transparent'],
     },
   },
 })

@@ -287,7 +287,7 @@ function getTintLight(hex: string, mode: 'dark' | 'light') {
   const grayHsl: Hsl = {
     ...hslRepr,
     // s: hslRepr.s * 0.65,
-    l: mode === 'light' ? 0.975 : 0.175,
+    l: mode === 'light' ? 0.99 : 0.175,
   }
 
   return hslToHex(grayHsl)

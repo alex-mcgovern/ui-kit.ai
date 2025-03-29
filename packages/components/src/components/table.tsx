@@ -433,7 +433,7 @@ function ColumnSortControl({
         'transition-opacity',
         'forced-colors:text-[ButtonText]',
         sortDirection === 'descending' ? 'rotate-180' : null,
-        !sortDirection ? 'opacity-disabled' : null
+        !sortDirection ? 'opacity-50' : null
       )}
     >
       {sortDirection ? (

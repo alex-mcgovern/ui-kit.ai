@@ -15,7 +15,7 @@ export function Label(props: LabelProps) {
         'mb-2 block w-fit cursor-default',
         'text-sm font-medium text-hi-contrast',
         'group-invalid:text-error',
-        'group-disabled:cursor-not-allowed group-disabled:opacity-disabled',
+        'group-disabled:cursor-not-allowed group-disabled:opacity-50',
         props.className
       )}
     />

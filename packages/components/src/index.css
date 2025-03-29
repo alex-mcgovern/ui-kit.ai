@@ -1,3 +1,5 @@
+@import '../node_modules/@ui-kit.ai/theme/dist/style.css';
+
 /*
 ████████╗██╗  ██╗███████╗███╗   ███╗███████╗
 ╚══██╔══╝██║  ██║██╔════╝████╗ ████║██╔════╝
@@ -9,52 +11,6 @@
 
 @theme {
   --height-ui-element: 2rem;
-
-  /* To completely override an entire namespace in the default theme, set the
-    entire namespace to initial using the special asterisk syntax: */
-  --color-*: initial;
-  --color-background: light-dark(#f2f2f3, #0c0d0d);
-  --color-background-raised: light-dark(#ffffff, #181a1b);
-  --color-background-inverse: light-dark(#494d50, #fafafa);
-  --color-hi-contrast: light-dark(#2e3438, #f8f9f9);
-  --color-mid-contrast: light-dark(#73818c, #c7cdd1);
-  --color-lo-contrast: light-dark(#abb4ba, #454e54);
-  --color-inverse: light-dark(#f8f9f9, #2e3438);
-  --color-tint: light-dark(#f0f3f5, #29343d);
-  --color-tint-dark: light-dark(#e9ecef, #303b43);
-  --color-tint-light: light-dark(#f7f9fa, #242e36);
-  --color-brand: light-dark(#0090ff, #0090ff);
-  --color-brand-dark: light-dark(#0082e6, #0082e6);
-  --color-brand-light: light-dark(#1a9bff, #1a9bff);
-  --color-brand-fg: light-dark(#ecf3f9, #ecf3f9);
-  --color-brand-tint: light-dark(#e5f4ff, #003a66);
-  --color-brand-tint-dark: light-dark(#dceefc, #09406a);
-  --color-brand-tint-light: light-dark(#f2f9ff, #003259);
-  --color-brand-tint-fg: light-dark(#060e13, #ecf3f9);
-  --color-error: light-dark(#e5484d, #e5484d);
-  --color-error-dark: light-dark(#e12e33, #e12e33);
-  --color-error-light: light-dark(#e96267, #e96267);
-  --color-error-fg: light-dark(#f9ecec, #f9ecec);
-  --color-error-tint: light-dark(#fce9e9, #590d0f);
-  --color-error-tint-dark: light-dark(#f8e0e0, #5e1517);
-  --color-error-tint-light: light-dark(#fdf4f4, #4e0b0d);
-  --color-error-tint-fg: light-dark(#130606, #f9ecec);
-  --color-warning: light-dark(#ffc53d, #ffc53d);
-  --color-warning-dark: light-dark(#ffbc1d, #ffbc1d);
-  --color-warning-light: light-dark(#ffce5d, #ffce5d);
-  --color-warning-fg: light-dark(#130f06, #130f06);
-  --color-warning-tint: light-dark(#fff7e5, #664800);
-  --color-warning-tint-dark: light-dark(#fcf2dc, #6a4d09);
-  --color-warning-tint-light: light-dark(#fffbf2, #593f00);
-  --color-warning-tint-fg: light-dark(#130f06, #f9f5ec);
-  --color-success: light-dark(#30a46c, #30a46c);
-  --color-success-dark: light-dark(#2b9461, #2b9461);
-  --color-success-light: light-dark(#35b477, #35b477);
-  --color-success-fg: light-dark(#ecf9f2, #ecf9f2);
-  --color-success-tint: light-dark(#ebf9f2, #174f34);
-  --color-success-tint-dark: light-dark(#e3f5ec, #1f543a);
-  --color-success-tint-light: light-dark(#f5fcf9, #14452d);
-  --color-success-tint-fg: light-dark(#06130d, #ecf9f2);
 }
 
 /* 
@@ -101,7 +57,7 @@
 }
 
 :root {
-  @apply bg-background text-lo-contrast;
+  @apply bg-background text-mid-contrast;
   color-scheme: dark light;
 
   scrollbar-color: var(--gray-400) transparent;
@@ -126,6 +82,7 @@ p {
 
 .code,
 code {
+  font-size: 92%;
   /* @apply text-sm !font-medium; */
 }
 
@@ -227,11 +184,17 @@ pre[class*='language-'] {
 .token.tag.script.language-javascript.punctuation {
   color: var(--color-error);
 }
+
+.token.method.function.property-access {
+  color: var(--color-warning);
+}
+.token.punctuation {
+  color: var(--color-lo-contrast);
+}
 .token.tag.script.language-javascript,
-.token.punctuation,
 .token.operator,
 .token.string {
-  color: var(--color-hi-contrast);
+  color: var(--color-success);
 }
 
 .token.entity,

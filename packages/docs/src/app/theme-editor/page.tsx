@@ -6,7 +6,7 @@ import { Button, CodeBlock, Heading } from '@ui-kit.ai/components'
 import { format } from 'prettier'
 
 import { Code } from '../../components/code'
-import { getPalettes } from './lib/get-palettes'
+import { getPalettes } from './lib/gen-color-palette'
 import { serializeToCss } from './lib/serialize-to-css'
 const DEFAULT_COLOR_PRIMARY = '#0090FF'
 const DEFAULT_COLOR_ERROR = '#E5484D'

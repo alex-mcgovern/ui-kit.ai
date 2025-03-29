@@ -15,7 +15,7 @@ export function Description(props: LabelProps) {
         'mb-1 block w-fit cursor-default last:mt-2',
         'text-sm font-normal text-mid-contrast',
         'group-invalid:text-error',
-        'group-disabled:cursor-not-allowed group-disabled:opacity-disabled',
+        'group-disabled:cursor-not-allowed group-disabled:opacity-50',
         props.className
       )}
       slot='description'

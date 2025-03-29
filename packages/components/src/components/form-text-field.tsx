@@ -7,7 +7,7 @@ import { Input } from './input'
 import { TextField } from './text-field'
 
 /**
- * A form text field connects a `TextField` to a `Form` component using `react-hook-form`.
+ * A form text field connects a `<TextField />` to a `<Form />` component using `react-hook-form`.
  */
 export function FormTextField({
   children = <Input />,

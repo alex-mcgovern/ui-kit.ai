@@ -54,29 +54,29 @@ const checkboxContainerStyles = tv({
 const boxStyles = tv({
   base: [
     'bg-background',
-    'border border-mid-contrast',
+    'border border-lo-contrast',
     'size-4',
     'transition-colors',
     'flex flex-shrink-0 items-center justify-center',
     'rounded-sm',
     // disabled
-    'group-disabled:opacity-disabled',
+    'group-disabled:opacity-50',
     // hover
-    'group-hover:bg-tint',
+    'group-hover:bg-tint-light',
     'group-hover:border-mid-contrast',
     // selected
-    'group-selected:bg-hi-contrast',
-    'group-selected:group-hover:bg-hi-contrast',
-    'group-selected:border-hi-contrast',
-    'group-selected:group-hover:border-hi-contrast',
+    'group-selected:bg-brand',
+    'group-selected:group-hover:bg-brand',
+    'group-selected:border-brand',
+    'group-selected:group-hover:border-brand',
     // indeterminate
-    'group-indeterminate:bg-hi-contrast',
-    'group-indeterminate:group-hover:bg-hi-contrast',
-    'group-indeterminate:border-hi-contrast',
-    'group-indeterminate:group-hover:border-hi-contrast',
+    'group-indeterminate:bg-brand',
+    'group-indeterminate:group-hover:bg-brand',
+    'group-indeterminate:border-brand',
+    'group-indeterminate:group-hover:border-brand',
     // invalid
     'group-invalid:border-error-light',
-    'group-hover:group-invalid:bg-error-tint-light',
+    'group-hover:group-invalid:bg-error-brand-fg',
     'group-hover:group-invalid:border-error',
     // invalid selected
     'group-selected:group-invalid:bg-error',
@@ -99,15 +99,15 @@ const iconStyles = tv({
     'transition-colors',
     'stroke-transparent',
     // hover
-    'group-hover:stroke-mid-contrast',
-    'group-hover/row:stroke-mid-contrast',
-    'group-selected:stroke-tint-light',
-    'group-indeterminate:stroke-tint-light',
+    'group-hover:stroke-lo-contrast',
+    'group-hover/row:stroke-lo-contrast',
+    'group-selected:stroke-brand-fg',
+    'group-indeterminate:stroke-brand-fg',
     // invalid
     'group-hover:group-invalid:stroke-error',
     'group-hover/row:group-invalid:stroke-error',
-    'group-selected:group-invalid:stroke-error-tint-light',
-    'group-indeterminate:group-invalid:stroke-error-tint-light',
+    'group-selected:group-invalid:stroke-error-brand-fg',
+    'group-indeterminate:group-invalid:stroke-error-brand-fg',
   ],
 })
 

@@ -79,7 +79,7 @@ const tagStyles = tv({
     },
     variant: {
       default: [
-        'bg-tint border-lo-contrast text-mid-contrast',
+        'bg-background-raised border-lo-contrast text-mid-contrast',
         'hover:bg-tint-light',
         'pressed:bg-tint-dark',
       ],
