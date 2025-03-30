@@ -143,7 +143,7 @@ type TableProps = AriaTableProps & {
 
 const columnWrapperStyles = tv({
   base: [
-    'border-b border-tint-dark',
+    'border-b border-tint',
     '[&:focus-within]:z-20 [&:hover]:z-20',
     'text-mid-contrast hover:text-hi-contrast',
     'cursor-default hover:cursor-pointer',
@@ -178,7 +178,7 @@ const cellStyles = tv({
     '-outline-offset-2',
     'group-data-[compact]/table:first:pl-0 group-data-[compact]/table:last:pr-0',
     // border styles
-    'border-b border-tint-dark',
+    'border-b border-tint',
   ],
   defaultVariants: {
     alignment: 'start',

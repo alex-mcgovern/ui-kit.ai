@@ -47,7 +47,7 @@ const tagStyles = tv({
   base: [
     'h-6 min-w-6',
     'text-center text-sm font-normal',
-    'shadow-xs',
+    // 'shadow-xs',
     'inline-flex shrink-0 items-center justify-center gap-1.5',
     'rounded-full border',
     '[&_svg]:size-4 [&_svg]:shrink-0',
@@ -79,7 +79,7 @@ const tagStyles = tv({
     },
     variant: {
       default: [
-        'bg-background-raised border-lo-contrast text-mid-contrast',
+        'bg-background-raised border-tint-dark text-mid-contrast',
         'hover:bg-tint-light',
         'pressed:bg-tint-dark',
       ],

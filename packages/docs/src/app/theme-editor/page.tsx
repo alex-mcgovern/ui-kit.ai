@@ -2,7 +2,38 @@
 /* eslint-disable perfectionist/sort-objects */
 import type { ReactNode } from 'react'
 
-import { Button, CodeBlock, Heading } from '@ui-kit.ai/components'
+import {
+  Button,
+  Checkbox,
+  CodeBlock,
+  ComboBoxButton,
+  ComboBoxClearButton,
+  ComboBoxFieldGroup,
+  ComboBoxInput,
+  Description,
+  FieldGroup,
+  Form,
+  FormCheckboxGroup,
+  FormComboBox,
+  FormSelect,
+  FormSubmitButton,
+  FormTextField,
+  Heading,
+  Input,
+  Label,
+  ListBox,
+  SelectButton,
+  Tag,
+  TextFieldClearButton,
+} from '@ui-kit.ai/components'
+import {
+  AppleIcon,
+  AtSignIcon,
+  BananaIcon,
+  CarrotIcon,
+  GlobeIcon,
+  LeafyGreenIcon,
+} from 'lucide-react'
 import { format } from 'prettier'
 
 import { Code } from '../../components/code'
@@ -80,14 +111,14 @@ function ColorChip({
       className='size-8 flex items-center justify-center'
       style={{
         backgroundColor: backgroundColor,
-        // borderColor: '#ffffff',
+        borderColor: '#ffffff',
         borderRadius: 4,
-        // borderStyle: 'solid',
-        // borderWidth: 1,
+        borderStyle: 'solid',
+        borderWidth: 0.5,
         color: foregroundColor,
-        // outlineColor: '#000000',
-        // outlineStyle: 'solid',
-        // outlineWidth: 1,
+        outlineColor: '#000000',
+        outlineStyle: 'solid',
+        outlineWidth: 0.5,
       }}
     >
       Aa
@@ -101,26 +132,140 @@ function ColorPaletteRow({ children }: { children: ReactNode }) {
 
 function Example() {
   return (
-    <div className='flex flex-col gap-4'>
-      <div className='flex items-center gap-4'>
-        <Button>Primary</Button>
-        <Button variant='secondary'>Warning</Button>
-        <Button variant='tertiary'>Error</Button>
+    <div className='grid grid-cols-[3fr_2fr] gap-8'>
+      <div className='flex flex-col gap-4'>
+        <div className='flex items-center justify-center gap-4'>
+          <Button>Primary</Button>
+          <Button variant='secondary'>Warning</Button>
+          <Button variant='tertiary'>Error</Button>
+        </div>
+        <div className='flex items-center justify-center gap-4'>
+          <Button isDestructive>Primary</Button>
+          <Button
+            isDestructive
+            variant='secondary'
+          >
+            Warning
+          </Button>
+          <Button
+            isDestructive
+            variant='tertiary'
+          >
+            Error
+          </Button>
+        </div>
+        <div className='flex items-center justify-center gap-4'>
+          <Tag variant='default'>Default</Tag>
+          <Tag variant='error'>Error</Tag>
+          <Tag variant='warning'>Warning</Tag>
+          <Tag variant='success'>Success</Tag>
+          <Tag variant='inverted'>Inverted</Tag>
+        </div>
+        <ListBox
+          items={[
+            {
+              icon: <AppleIcon />,
+              id: 'apple',
+              textValue: 'Apple',
+            },
+            {
+              icon: <BananaIcon />,
+              id: 'banana',
+              textValue: 'Banana',
+            },
+            {
+              icon: <CarrotIcon />,
+              id: 'carrot',
+              textValue: 'Carrot',
+            },
+            {
+              icon: <LeafyGreenIcon />,
+              id: 'spinach',
+              textValue: 'Spinach',
+            },
+          ]}
+        />
       </div>
-      <div className='flex items-center gap-4'>
-        <Button isDestructive>Primary</Button>
-        <Button
-          isDestructive
-          variant='secondary'
-        >
-          Warning
-        </Button>
-        <Button
-          isDestructive
-          variant='tertiary'
-        >
-          Error
-        </Button>
+      <div>
+        <Form>
+          <FormTextField
+            className='mb-4'
+            name='email'
+            type='email'
+          >
+            <Label>Email address (Text field)</Label>
+            <FieldGroup>
+              <Input
+                icon={<AtSignIcon />}
+                isBorderless
+                placeholder='Enter your email address'
+              />
+              <TextFieldClearButton />
+            </FieldGroup>
+          </FormTextField>
+
+          <FormSelect
+            className='mb-4'
+            items={[
+              {
+                id: 'ireland',
+                textValue: 'Ireland',
+              },
+            ]}
+            name='country_of_birth'
+          >
+            <Label>Country of birth (Select)</Label>
+            <SelectButton slotLeft={<GlobeIcon />} />
+          </FormSelect>
+
+          <FormComboBox
+            className='mb-4'
+            items={[
+              {
+                id: 'ireland',
+                textValue: 'Ireland',
+              },
+            ]}
+            name='country_of_residence'
+          >
+            <Label>Country of residence (ComboBox)</Label>
+            <ComboBoxFieldGroup>
+              <ComboBoxInput
+                icon={<GlobeIcon />}
+                isBorderless
+                placeholder='Type to search...'
+              />
+              <ComboBoxClearButton />
+              <ComboBoxButton />
+            </ComboBoxFieldGroup>
+          </FormComboBox>
+
+          <FormCheckboxGroup
+            className='mb-4'
+            defaultValue={['account-updates']}
+            name='communication_preference'
+          >
+            <Label>Communication preferences</Label>
+            <Checkbox
+              description='Necessary emails about your account & account security.'
+              isDisabled
+              isRequired
+              label='Account updates'
+              value='account-updates'
+            />
+            <Checkbox
+              description='No more than one email per month with updates from our team.'
+              label='Newsletter'
+              value='newsletter'
+            />
+            <Checkbox
+              description="Deals, discounts and suggestions we think you'll love."
+              label='Promotions and Offers'
+              value='promotions'
+            />
+          </FormCheckboxGroup>
+          <FormSubmitButton />
+        </Form>
       </div>
     </div>
   )
@@ -198,7 +343,7 @@ function RenderNamedPalette({
 
       <ColorPaletteRow>
         <ColorChip
-          backgroundColor='transparent'
+          backgroundColor='#ffffff'
           foregroundColor={palettes['hi-contrast'][0]}
         />
         <ColorChip
@@ -209,7 +354,7 @@ function RenderNamedPalette({
       </ColorPaletteRow>
       <ColorPaletteRow>
         <ColorChip
-          backgroundColor='transparent'
+          backgroundColor='#ffffff'
           foregroundColor={palettes['mid-contrast'][0]}
         />
         <ColorChip
@@ -220,7 +365,7 @@ function RenderNamedPalette({
       </ColorPaletteRow>
       <ColorPaletteRow>
         <ColorChip
-          backgroundColor='transparent'
+          backgroundColor='#ffffff'
           foregroundColor={palettes['lo-contrast'][0]}
         />
         <ColorChip

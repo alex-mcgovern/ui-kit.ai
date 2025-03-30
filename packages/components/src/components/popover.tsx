@@ -23,7 +23,7 @@ interface PopoverProps extends Omit<AriaPopoverProps, 'children'> {
 
 const popoverStyles = tv({
   base: [
-    `rounded border border-tint-dark text-hi-contrast shadow-2xl transition-none
+    `rounded border border-tint text-hi-contrast shadow-2xl transition-none
     forced-colors:bg-[Canvas]`,
   ],
   extend: bgGlass,

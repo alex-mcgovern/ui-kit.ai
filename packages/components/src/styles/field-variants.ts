@@ -10,6 +10,10 @@ export const fieldVariants = tv({
     'placeholder:text-lo-contrast',
     'placeholder:invalid:text-error',
     'forced-colors:outline-[Highlight]',
+    // focus ring
+    `outline outline-0 outline-offset-2`,
+    `outline-brand-light`,
+    `forced-colors:outline-[Highlight]`,
   ],
   defaultVariants: {
     isBorderless: false,
@@ -22,8 +26,9 @@ export const fieldVariants = tv({
           'bg-background',
           'transition-colors',
           // hover
-          'hover:[&:not([data-disabled])]:border-tint-dark',
+          'hover:[&:not([data-disabled])]:border-lo-contrast',
           // invalid
+          'invalid:text-error-dark group-invalid:text-error-dark',
           'invalid:bg-error-tint-light group-invalid:bg-error-tint-light',
           'invalid:border-error-tint-dark group-invalid:border-error-tint-dark',
           'invalid:hover:border-error group-invalid:hover:border-error',

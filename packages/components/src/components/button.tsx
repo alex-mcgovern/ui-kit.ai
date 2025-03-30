@@ -47,9 +47,10 @@ const buttonStyle = tv({
     },
     {
       className: [
-        'border-error text-error',
-        'be-error-tint',
-        'hover:border-error-light hover:bg-error-tint-light pressed:bg-error-tint',
+        'border-error-tint-dark text-error',
+        'bg-background',
+        'hover:bg-error-tint-light',
+        'pressed:bg-error-tint',
       ],
       isDestructive: true,
       variant: 'secondary',
@@ -90,7 +91,7 @@ const buttonStyle = tv({
       secondary: [
         // base
         'shadow-xs',
-        'border-tint bg-transparent text-hi-contrast',
+        'border-tint-dark bg-background text-hi-contrast',
         // hover
         'hover:bg-tint-light',
         // pressed
