@@ -1,16 +1,14 @@
+'use client'
 /* eslint-disable sonarjs/no-duplicate-string */
 /* eslint-disable perfectionist/sort-objects */
-import type { ReactNode } from 'react'
 
 import {
   Button,
   Checkbox,
-  CodeBlock,
   ComboBoxButton,
   ComboBoxClearButton,
   ComboBoxFieldGroup,
   ComboBoxInput,
-  Description,
   FieldGroup,
   Form,
   FormCheckboxGroup,
@@ -18,7 +16,6 @@ import {
   FormSelect,
   FormSubmitButton,
   FormTextField,
-  Heading,
   Input,
   Label,
   ListBox,
@@ -26,6 +23,7 @@ import {
   Tag,
   TextFieldClearButton,
 } from '@ui-kit.ai/components'
+import { ColorPalette } from '@ui-kit.ai/theme'
 import {
   AppleIcon,
   AtSignIcon,
@@ -34,35 +32,36 @@ import {
   GlobeIcon,
   LeafyGreenIcon,
 } from 'lucide-react'
-import { format } from 'prettier'
+
+import type { getPalettes } from './lib/gen-color-palette'
 
 import { Code } from '../../components/code'
-import { getPalettes } from './lib/gen-color-palette'
-import { serializeToCss } from './lib/serialize-to-css'
-const DEFAULT_COLOR_PRIMARY = '#0090FF'
-const DEFAULT_COLOR_ERROR = '#E5484D'
-const DEFAULT_COLOR_SUCCESS = '#30A46C'
-const DEFAULT_COLOR_WARNING = '#FFC53D'
 
-const palettes = getPalettes({
-  errorHex: DEFAULT_COLOR_ERROR,
-  brandHex: DEFAULT_COLOR_PRIMARY,
-  successHex: DEFAULT_COLOR_SUCCESS,
-  warningHex: DEFAULT_COLOR_WARNING,
+const BRAND = '#0090FF'
+const ERROR = '#E5484D'
+const SUCCESS = '#30A46C'
+const WARNING = '#FFC53D'
+
+const palette = new ColorPalette({
+  errorHex: ERROR,
+  brandHex: BRAND,
+  successHex: SUCCESS,
+  warningHex: WARNING,
 })
 
-export default async function Page() {
-  const rootCss = await getFormattedCss({
-    palettes,
-    selector: '@theme',
-  })
+const colors = palette.palette()
+const css = palette.css({
+  overrideTwColors: true,
+  selector: '@theme',
+})
 
+export default function Page() {
   return (
     <div className='grid grid-cols-[1fr_3fr] gap-8'>
       <section>
         <h2>Generated colors</h2>
 
-        <RenderNamedPalette palettes={palettes} />
+        <RenderPalette palettes={colors} />
 
         {/* <h3>Light</h3>
         <h4>Primary</h4>
@@ -90,7 +89,7 @@ export default async function Page() {
       </section>
       <section>
         <Code
-          code={rootCss}
+          code={css}
           component={<Example />}
           language={'css'}
         />
@@ -124,10 +123,6 @@ function ColorChip({
       Aa
     </div>
   )
-}
-
-function ColorPaletteRow({ children }: { children: ReactNode }) {
-  return <div className='flex items-center gap-2 mb-2'>{children}</div>
 }
 
 function Example() {
@@ -271,485 +266,29 @@ function Example() {
   )
 }
 
-async function getFormattedCss({
-  palettes,
-  selector,
-}: {
-  palettes: ReturnType<typeof getPalettes>
-  selector: string
-}) {
-  const css = serializeToCss({ palettes, selector })
-  return format(css, { parser: 'css' })
-}
-
-function RenderNamedPalette({
+function RenderPalette({
   palettes,
 }: {
   palettes: ReturnType<typeof getPalettes>
 }) {
   return (
     <section className='my-8'>
-      <Heading
-        className='text-black'
-        level={3}
-      >
-        Color Palette
-      </Heading>
-
-      {/*//////////////////////////////////////////////////
-       // Background                                          
-       /////////////////////////////////////////////////// */}
-
-      <Heading
-        className='text-black'
-        level={4}
-      >
-        Background
-      </Heading>
-
-      <ColorPaletteRow>
-        <ColorChip
-          backgroundColor={palettes['background'][0]}
-          foregroundColor={palettes['hi-contrast'][0]}
-        />
-        <ColorChip
-          backgroundColor={palettes['background'][1]}
-          foregroundColor={palettes['hi-contrast'][1]}
-        />
-        <div>background</div>
-      </ColorPaletteRow>
-      <ColorPaletteRow>
-        <ColorChip
-          backgroundColor={palettes['background-inverse'][0]}
-          foregroundColor={palettes['inverse'][0]}
-        />
-        <ColorChip
-          backgroundColor={palettes['background-inverse'][1]}
-          foregroundColor={palettes['inverse'][1]}
-        />
-        <div>background-inverse</div>
-      </ColorPaletteRow>
-
-      {/*//////////////////////////////////////////////////
-       // Text                                          
-       /////////////////////////////////////////////////// */}
-
-      <Heading
-        className='text-black'
-        level={4}
-      >
-        Text
-      </Heading>
-
-      <ColorPaletteRow>
-        <ColorChip
-          backgroundColor='#ffffff'
-          foregroundColor={palettes['hi-contrast'][0]}
-        />
-        <ColorChip
-          backgroundColor='#000000'
-          foregroundColor={palettes['hi-contrast'][1]}
-        />
-        <div>hi-contrast</div>
-      </ColorPaletteRow>
-      <ColorPaletteRow>
-        <ColorChip
-          backgroundColor='#ffffff'
-          foregroundColor={palettes['mid-contrast'][0]}
-        />
-        <ColorChip
-          backgroundColor='#000000'
-          foregroundColor={palettes['mid-contrast'][1]}
-        />
-        <div>mid-contrast</div>
-      </ColorPaletteRow>
-      <ColorPaletteRow>
-        <ColorChip
-          backgroundColor='#ffffff'
-          foregroundColor={palettes['lo-contrast'][0]}
-        />
-        <ColorChip
-          backgroundColor='#000000'
-          foregroundColor={palettes['lo-contrast'][1]}
-        />
-        <div>lo-contrast</div>
-      </ColorPaletteRow>
-      <ColorPaletteRow>
-        <ColorChip
-          backgroundColor='#000000'
-          foregroundColor={palettes['inverse'][0]}
-        />
-        <ColorChip
-          backgroundColor='#ffffff'
-          foregroundColor={palettes['inverse'][1]}
-        />
-        <div>inverse</div>
-      </ColorPaletteRow>
-
-      {/*//////////////////////////////////////////////////
-       // Tint                                          
-       /////////////////////////////////////////////////// */}
-
-      <Heading
-        className='text-black'
-        level={4}
-      >
-        Tint
-      </Heading>
-
-      <ColorPaletteRow>
-        <ColorChip
-          backgroundColor={palettes['tint'][0]}
-          foregroundColor={palettes['hi-contrast'][0]}
-        />
-        <ColorChip
-          backgroundColor={palettes['tint'][1]}
-          foregroundColor={palettes['hi-contrast'][1]}
-        />
-        <div>tint</div>
-      </ColorPaletteRow>
-      <ColorPaletteRow>
-        <ColorChip
-          backgroundColor={palettes['tint-dark'][0]}
-          foregroundColor={palettes['hi-contrast'][0]}
-        />
-        <ColorChip
-          backgroundColor={palettes['tint-dark'][1]}
-          foregroundColor={palettes['hi-contrast'][1]}
-        />
-        <div>tint-dark</div>
-      </ColorPaletteRow>
-      <ColorPaletteRow>
-        <ColorChip
-          backgroundColor={palettes['tint-light'][0]}
-          foregroundColor={palettes['hi-contrast'][0]}
-        />
-        <ColorChip
-          backgroundColor={palettes['tint-light'][1]}
-          foregroundColor={palettes['hi-contrast'][1]}
-        />
-        <div>tint-light</div>
-      </ColorPaletteRow>
-
-      {/*//////////////////////////////////////////////////
-       // Brand                                          
-       /////////////////////////////////////////////////// */}
-
-      <Heading
-        className='text-black'
-        level={4}
-      >
-        Brand
-      </Heading>
-
-      <ColorPaletteRow>
-        <ColorChip
-          backgroundColor={palettes['brand'][0]}
-          foregroundColor={palettes['brand-fg'][0]}
-        />
-        <ColorChip
-          backgroundColor={palettes['brand'][1]}
-          foregroundColor={palettes['brand-fg'][1]}
-        />
-        <div>brand</div>
-      </ColorPaletteRow>
-
-      <ColorPaletteRow>
-        <ColorChip
-          backgroundColor={palettes['brand-dark'][0]}
-          foregroundColor={palettes['brand-fg'][0]}
-        />
-        <ColorChip
-          backgroundColor={palettes['brand-dark'][1]}
-          foregroundColor={palettes['brand-fg'][1]}
-        />
-        <div>brand-dark</div>
-      </ColorPaletteRow>
-
-      <ColorPaletteRow>
-        <ColorChip
-          backgroundColor={palettes['brand-light'][0]}
-          foregroundColor={palettes['brand-fg'][0]}
-        />
-        <ColorChip
-          backgroundColor={palettes['brand-light'][1]}
-          foregroundColor={palettes['brand-fg'][1]}
-        />
-        <div>brand-light</div>
-      </ColorPaletteRow>
-      <ColorPaletteRow>
-        <ColorChip
-          backgroundColor={palettes['brand-tint'][0]}
-          foregroundColor={palettes['brand-tint-fg'][0]}
-        />
-        <ColorChip
-          backgroundColor={palettes['brand-tint'][1]}
-          foregroundColor={palettes['brand-tint-fg'][1]}
-        />
-        <div>brand-tint</div>
-      </ColorPaletteRow>
-      <ColorPaletteRow>
-        <ColorChip
-          backgroundColor={palettes['brand-tint-dark'][0]}
-          foregroundColor={palettes['brand-tint-fg'][0]}
-        />
-        <ColorChip
-          backgroundColor={palettes['brand-tint-dark'][1]}
-          foregroundColor={palettes['brand-tint-fg'][1]}
-        />
-        <div>brand-tint-dark</div>
-      </ColorPaletteRow>
-      <ColorPaletteRow>
-        <ColorChip
-          backgroundColor={palettes['brand-tint-light'][0]}
-          foregroundColor={palettes['brand-tint-fg'][0]}
-        />
-        <ColorChip
-          backgroundColor={palettes['brand-tint-light'][1]}
-          foregroundColor={palettes['brand-tint-fg'][1]}
-        />
-        <div>brand-tint-light</div>
-      </ColorPaletteRow>
-
-      {/*//////////////////////////////////////////////////
-       // Error                                          
-       /////////////////////////////////////////////////// */}
-
-      <Heading
-        className='text-black'
-        level={4}
-      >
-        Error
-      </Heading>
-
-      <ColorPaletteRow>
-        <ColorChip
-          backgroundColor={palettes['error'][0]}
-          foregroundColor={palettes['error-fg'][0]}
-        />
-        <ColorChip
-          backgroundColor={palettes['error'][1]}
-          foregroundColor={palettes['error-fg'][1]}
-        />
-        <div>error</div>
-      </ColorPaletteRow>
-
-      <ColorPaletteRow>
-        <ColorChip
-          backgroundColor={palettes['error-dark'][0]}
-          foregroundColor={palettes['error-fg'][0]}
-        />
-        <ColorChip
-          backgroundColor={palettes['error-dark'][1]}
-          foregroundColor={palettes['error-fg'][1]}
-        />
-        <div>error-dark</div>
-      </ColorPaletteRow>
-
-      <ColorPaletteRow>
-        <ColorChip
-          backgroundColor={palettes['error-light'][0]}
-          foregroundColor={palettes['error-fg'][0]}
-        />
-        <ColorChip
-          backgroundColor={palettes['error-light'][1]}
-          foregroundColor={palettes['error-fg'][1]}
-        />
-        <div>error-light</div>
-      </ColorPaletteRow>
-      <ColorPaletteRow>
-        <ColorChip
-          backgroundColor={palettes['error-tint'][0]}
-          foregroundColor={palettes['error-tint-fg'][0]}
-        />
-        <ColorChip
-          backgroundColor={palettes['error-tint'][1]}
-          foregroundColor={palettes['error-tint-fg'][1]}
-        />
-        <div>error-tint</div>
-      </ColorPaletteRow>
-      <ColorPaletteRow>
-        <ColorChip
-          backgroundColor={palettes['error-tint-dark'][0]}
-          foregroundColor={palettes['error-tint-fg'][0]}
-        />
-        <ColorChip
-          backgroundColor={palettes['error-tint-dark'][1]}
-          foregroundColor={palettes['error-tint-fg'][1]}
-        />
-        <div>error-tint-dark</div>
-      </ColorPaletteRow>
-      <ColorPaletteRow>
-        <ColorChip
-          backgroundColor={palettes['error-tint-light'][0]}
-          foregroundColor={palettes['error-tint-fg'][0]}
-        />
-        <ColorChip
-          backgroundColor={palettes['error-tint-light'][1]}
-          foregroundColor={palettes['error-tint-fg'][1]}
-        />
-        <div>error-tint-light</div>
-      </ColorPaletteRow>
-
-      {/*//////////////////////////////////////////////////
-       // Warning                                          
-       /////////////////////////////////////////////////// */}
-
-      <Heading
-        className='text-black'
-        level={4}
-      >
-        Warning
-      </Heading>
-
-      <ColorPaletteRow>
-        <ColorChip
-          backgroundColor={palettes['warning'][0]}
-          foregroundColor={palettes['warning-fg'][0]}
-        />
-        <ColorChip
-          backgroundColor={palettes['warning'][1]}
-          foregroundColor={palettes['warning-fg'][1]}
-        />
-        <div>warning</div>
-      </ColorPaletteRow>
-
-      <ColorPaletteRow>
-        <ColorChip
-          backgroundColor={palettes['warning-dark'][0]}
-          foregroundColor={palettes['warning-fg'][0]}
-        />
-        <ColorChip
-          backgroundColor={palettes['warning-dark'][1]}
-          foregroundColor={palettes['warning-fg'][1]}
-        />
-        <div>warning-dark</div>
-      </ColorPaletteRow>
-
-      <ColorPaletteRow>
-        <ColorChip
-          backgroundColor={palettes['warning-light'][0]}
-          foregroundColor={palettes['warning-fg'][0]}
-        />
-        <ColorChip
-          backgroundColor={palettes['warning-light'][1]}
-          foregroundColor={palettes['warning-fg'][1]}
-        />
-        <div>warning-light</div>
-      </ColorPaletteRow>
-      <ColorPaletteRow>
-        <ColorChip
-          backgroundColor={palettes['warning-tint'][0]}
-          foregroundColor={palettes['warning-tint-fg'][0]}
-        />
-        <ColorChip
-          backgroundColor={palettes['warning-tint'][1]}
-          foregroundColor={palettes['warning-tint-fg'][1]}
-        />
-        <div>warning-tint</div>
-      </ColorPaletteRow>
-      <ColorPaletteRow>
-        <ColorChip
-          backgroundColor={palettes['warning-tint-dark'][0]}
-          foregroundColor={palettes['warning-tint-fg'][0]}
-        />
-        <ColorChip
-          backgroundColor={palettes['warning-tint-dark'][1]}
-          foregroundColor={palettes['warning-tint-fg'][1]}
-        />
-        <div>warning-tint-dark</div>
-      </ColorPaletteRow>
-      <ColorPaletteRow>
-        <ColorChip
-          backgroundColor={palettes['warning-tint-light'][0]}
-          foregroundColor={palettes['warning-tint-fg'][0]}
-        />
-        <ColorChip
-          backgroundColor={palettes['warning-tint-light'][1]}
-          foregroundColor={palettes['warning-tint-fg'][1]}
-        />
-        <div>warning-tint-light</div>
-      </ColorPaletteRow>
-
-      {/*//////////////////////////////////////////////////
-       // Success                                          
-       /////////////////////////////////////////////////// */}
-
-      <Heading
-        className='text-black'
-        level={4}
-      >
-        Success
-      </Heading>
-
-      <ColorPaletteRow>
-        <ColorChip
-          backgroundColor={palettes['success'][0]}
-          foregroundColor={palettes['success-fg'][0]}
-        />
-        <ColorChip
-          backgroundColor={palettes['success'][1]}
-          foregroundColor={palettes['success-fg'][1]}
-        />
-        <div>success</div>
-      </ColorPaletteRow>
-
-      <ColorPaletteRow>
-        <ColorChip
-          backgroundColor={palettes['success-dark'][0]}
-          foregroundColor={palettes['success-fg'][0]}
-        />
-        <ColorChip
-          backgroundColor={palettes['success-dark'][1]}
-          foregroundColor={palettes['success-fg'][1]}
-        />
-        <div>success-dark</div>
-      </ColorPaletteRow>
-
-      <ColorPaletteRow>
-        <ColorChip
-          backgroundColor={palettes['success-light'][0]}
-          foregroundColor={palettes['success-fg'][0]}
-        />
-        <ColorChip
-          backgroundColor={palettes['success-light'][1]}
-          foregroundColor={palettes['success-fg'][1]}
-        />
-        <div>success-light</div>
-      </ColorPaletteRow>
-      <ColorPaletteRow>
-        <ColorChip
-          backgroundColor={palettes['success-tint'][0]}
-          foregroundColor={palettes['success-tint-fg'][0]}
-        />
-        <ColorChip
-          backgroundColor={palettes['success-tint'][1]}
-          foregroundColor={palettes['success-tint-fg'][1]}
-        />
-        <div>success-tint</div>
-      </ColorPaletteRow>
-      <ColorPaletteRow>
-        <ColorChip
-          backgroundColor={palettes['success-tint-dark'][0]}
-          foregroundColor={palettes['success-tint-fg'][0]}
-        />
-        <ColorChip
-          backgroundColor={palettes['success-tint-dark'][1]}
-          foregroundColor={palettes['success-tint-fg'][1]}
-        />
-        <div>success-tint-dark</div>
-      </ColorPaletteRow>
-      <ColorPaletteRow>
-        <ColorChip
-          backgroundColor={palettes['success-tint-light'][0]}
-          foregroundColor={palettes['success-tint-fg'][0]}
-        />
-        <ColorChip
-          backgroundColor={palettes['success-tint-light'][1]}
-          foregroundColor={palettes['success-tint-fg'][1]}
-        />
-        <div>success-tint-light</div>
-      </ColorPaletteRow>
+      {Object.entries(palettes).map(([name, colors]) => (
+        <div key={name}>
+          <div className='flex items-center gap-4 border border-tint'>
+            <div>
+              <div className='text-hi-contrast'>{name}</div>
+              <div className='text-mid-contrast'>{colors[0]}</div>
+            </div>
+            <div
+              className='ml-auto size-12 flex items-center justify-center'
+              style={{
+                backgroundColor: colors[0],
+              }}
+            ></div>
+          </div>
+        </div>
+      ))}
     </section>
   )
 }

@@ -25,7 +25,7 @@ export function getPalettes({
       getBgRaised(grayHex, 'light'),
       getBgRaised(grayHex, 'dark'),
     ],
-    'background-inverse': [
+    'background-inverted': [
       getBgInverse(grayHex, 'light'),
       getBgInverse(grayHex, 'dark'),
     ],
@@ -42,7 +42,7 @@ export function getPalettes({
       getLoContrast(grayHex, 'light'),
       getLoContrast(grayHex, 'dark'),
     ],
-    inverse: [getInverse(grayHex, 'light'), getInverse(grayHex, 'dark')],
+    inverted: [getInverse(grayHex, 'light'), getInverse(grayHex, 'dark')],
 
     tint: [getTint(grayHex, 'light'), getTint(grayHex, 'dark')],
     'tint-dark': [getTintDark(grayHex, 'light'), getTintDark(grayHex, 'dark')],

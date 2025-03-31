@@ -21,7 +21,7 @@ const alertStyles = tv({
     variant: {
       default: 'border border-tint-dark bg-background-raised text-hi-contrast',
       invalid: 'bg-error-tint text-error-fg',
-      inverted: 'bg-background-inverse text-inverse',
+      inverted: 'bg-background-inverted text-inverted',
     },
   },
 })

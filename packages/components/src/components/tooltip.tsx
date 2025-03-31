@@ -26,7 +26,7 @@ const tooltipStyles = tv({
       'inline-flex items-center gap-1',
       'px-2 py-1',
       'text-sm font-medium',
-      'bg-background-inverse text-inverse',
+      'bg-background-inverted text-inverted',
       'group rounded drop-shadow-lg',
       // transition
       'transition-all will-change-transform',

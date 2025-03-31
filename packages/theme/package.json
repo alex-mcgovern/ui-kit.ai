@@ -10,13 +10,17 @@
   "author": "Alex McGovern",
   "type": "module",
   "exports": {
+    ".": "./dist/index.js",
     "./style.css": "./dist/style.css"
   },
+  "main": "dist/index.js",
+  "source": "src/index.ts",
+  "types": "dist/index.d.ts",
   "files": [
     "dist"
   ],
   "scripts": {
-    "build": "tsx ./src/index.ts",
+    "build": "vite build --emptyOutDir=false && tsx ./src/gen-palette.ts",
     "postbuild": "prettier ./dist/style.css --write",
     "build:watch": "vite build --watch",
     "check:eslint": "eslint .",
