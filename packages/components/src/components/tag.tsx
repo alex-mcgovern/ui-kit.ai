@@ -46,7 +46,7 @@ type Variant = 'default' | 'error' | 'success' | 'warning'
 const tagStyles = tv({
   base: [
     'h-6 min-w-6',
-    'text-center text-sm font-normal',
+    'text-center text-sm font-medium',
     // 'shadow-xs',
     'inline-flex shrink-0 items-center justify-center gap-1.5',
     'rounded-full border',
@@ -88,15 +88,30 @@ const tagStyles = tv({
         'hover:bg-error-light',
         'pressed:bg-error-dark',
       ],
+      errorTint: [
+        'bg-error-tint border-error-tint text-error-dark',
+        'hover:bg-error-tint-light',
+        'pressed:bg-error-tint-dark',
+      ],
       success: [
         'bg-success border-success text-success-fg',
         'hover:bg-success-light',
         'pressed:bg-success-dark',
       ],
+      successTint: [
+        'bg-success-tint border-success-tint text-success-dark',
+        'hover:bg-success-tint-light',
+        'pressed:bg-success-tint-dark',
+      ],
       warning: [
         'bg-warning border-warning text-warning-fg',
         'hover:bg-warning-light',
         'pressed:bg-warning-dark',
+      ],
+      warningTint: [
+        'bg-warning-tint border-warning-tint text-warning-dark',
+        'hover:bg-warning-tint-light',
+        'pressed:bg-warning-tint-dark',
       ],
     },
   },

@@ -58,11 +58,11 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body className={`${inter.className} antialiased relative `}>
-        <nav className='bg-background backdrop-blur-md sticky top-0 z-10 border-b border-b-tint'>
+        <nav className='bg-background-raised backdrop-blur-md sticky top-0 z-10 border-b border-b-tint'>
           <div className='max-w-6xl flex items-center justify-between px-4 py-2 mx-auto '>
             <div className='flex gap-4 items-center'>
               <Link
-                className='font-semibold flex items-center gap-1 text-mid-contrast hover:text-hi-contrast transition-colors'
+                className='font-semibold flex items-center gap-1 text-hi-contrast hover:text-mid-contrast transition-colors'
                 href='/'
               >
                 <Component className='size-4' />

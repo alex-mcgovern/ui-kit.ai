@@ -165,6 +165,9 @@ importers:
       react-element-to-jsx-string:
         specifier: 17.0.0
         version: 17.0.0(react-dom@19.0.0(react@19.0.0))(react-is@17.0.2)(react@19.0.0)
+      tailwind-merge:
+        specifier: 3.0.2
+        version: 3.0.2
       tailwindcss:
         specifier: 4.0.15
         version: 4.0.15

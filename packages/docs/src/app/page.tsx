@@ -45,7 +45,7 @@ export default function Home() {
 
         <div className='flex gap-2 mt-6 w-min '>
           <LinkButton
-            href={hrefs.docs}
+            href={hrefs.docs.getting_started.introduction}
             slotRight={<ArrowRight className='-ml-1.5' />}
           >
             Docs

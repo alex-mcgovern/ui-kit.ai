@@ -29,14 +29,10 @@ export const fieldVariants = tv({
           'hover:[&:not([data-disabled])]:border-lo-contrast',
           // invalid
           'invalid:text-error-dark group-invalid:text-error-dark',
-          'invalid:bg-error-tint-light group-invalid:bg-error-tint-light',
+          // 'invalid:bg-error-tint-light group-invalid:bg-error-tint-light',
           'invalid:border-error-tint-dark group-invalid:border-error-tint-dark',
           'invalid:hover:border-error group-invalid:hover:border-error',
           'invalid:outline-error group-invalid:outline-error',
-          // "[:is([data-invalid],[data-invalid]_&)]:border-error",
-          // "[:is([data-invalid],[data-invalid]_&)]:text-error",
-          // "[:is([data-invalid],[data-invalid]_&)]:forced-colors:!border-[Mark]",
-          // "[:is([data-invalid],[data-invalid]_&)]:forced-colors:bg-[MarkBackground]",
           // focus visible
           'focus-visible:border-tint-dark focus-visible:outline-2',
           'focus-visible:forced-colors:border-[ButtonBorder]',

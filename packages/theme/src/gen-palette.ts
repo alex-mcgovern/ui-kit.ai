@@ -1,21 +1,11 @@
 import * as fs from 'node:fs'
 import * as path from 'node:path'
 
-import { ColorPalette } from './palette'
-
-const BRAND = '#0090FF'
-const ERROR = '#E5484D'
-const SUCCESS = '#30A46C'
-const WARNING = '#FFC53D'
+import { ColorPalette, DEFAULT_COLOR_PALETTE_INPUT } from './palette'
 
 const outputPath = path.resolve(import.meta.dirname, '..', 'dist', 'style.css')
 
-const palette = new ColorPalette({
-  brandHex: BRAND,
-  errorHex: ERROR,
-  successHex: SUCCESS,
-  warningHex: WARNING,
-})
+const palette = new ColorPalette(DEFAULT_COLOR_PALETTE_INPUT)
 
 const css = palette.css({
   overrideTwColors: true,

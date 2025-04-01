@@ -9,8 +9,18 @@ function Template(args: ComponentProps<typeof EmptyState>) {
     <EmptyState
       {...args}
       actions={[
-        <Button key='secondary'>Secondary</Button>,
-        <Button key='primary'>Primary</Button>,
+        <Button
+          key='secondary'
+          variant='secondary'
+        >
+          Secondary
+        </Button>,
+        <Button
+          key='primary'
+          variant='primary'
+        >
+          Primary
+        </Button>,
       ]}
       body='This is the body'
       icon={SearchXIcon}

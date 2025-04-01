@@ -1,35 +1,38 @@
 /* eslint-disable perfectionist/sort-objects */
 import { converter, formatHsl, type Hsl, hsl } from 'culori'
 
+export type ColorPaletteInput = {
+  brand: string
+  error: string
+  gray?: string
+  success: string
+  warning: string
+}
+
+export const DEFAULT_COLOR_PALETTE_INPUT: ColorPaletteInput = {
+  brand: '#21201C',
+  error: '#E54D2E',
+  success: '#30A46C',
+  warning: '#FFC53D',
+} as const
+
 export class ColorPalette {
-  private brandHsl: Hsl
+  private brandHslDark: Hsl
+  private brandHslLight: Hsl
   private errorHsl: Hsl
   private grayHsl: Hsl
   private successHsl: Hsl
   private readonly vendorToHsl = converter('hsl')
   private warningHsl: Hsl
 
-  constructor({
-    brandHex,
-    errorHex,
-    grayHex,
-    successHex,
-    warningHex,
-  }: {
-    brandHex: string
-    errorHex: string
-    grayHex?: string
-    successHex: string
-    warningHex: string
-  }) {
-    this.brandHsl = this._hexToHsl(brandHex)
-    this.successHsl = this._hexToHsl(successHex)
-    this.warningHsl = this._hexToHsl(warningHex)
-    this.errorHsl = this._hexToHsl(errorHex)
+  constructor({ brand, error, gray, success, warning }: ColorPaletteInput) {
+    this.brandHslLight = this._deriveBrand(this._hexToHsl(brand), 'light')
+    this.brandHslDark = this._deriveBrand(this._hexToHsl(brand), 'dark')
+    this.successHsl = this._hexToHsl(success)
+    this.warningHsl = this._hexToHsl(warning)
+    this.errorHsl = this._hexToHsl(error)
     this.grayHsl =
-      grayHex != null
-        ? this._hexToHsl(grayHex)
-        : this._deriveGray(this.brandHsl)
+      gray != null ? this._hexToHsl(gray) : this._deriveGray(this.brandHslLight)
   }
 
   public css({
@@ -54,6 +57,13 @@ export class ColorPalette {
           .join('\n')}
       }
     `
+  }
+  public cssVars() {
+    return Object.fromEntries(
+      Object.entries(this.palette()).map(([colorName, [light, dark]]) => {
+        return [`--color-${colorName}`, `light-dark(${light}, ${dark})`]
+      })
+    )
   }
 
   public palette() {
@@ -122,46 +132,46 @@ export class ColorPalette {
       ///////////////////////////////////////////////////
 
       [`brand`]: [
-        this._formatHsl(this.brandHsl),
-        this._formatHsl(this.brandHsl),
+        this._formatHsl(this.brandHslLight),
+        this._formatHsl(this.brandHslDark),
       ],
       [`brand-dark`]: [
-        this._formatHsl(this._shade('dark', this.brandHsl)),
-        this._formatHsl(this._shade('dark', this.brandHsl)),
+        this._formatHsl(this._shade('dark', this.brandHslLight)),
+        this._formatHsl(this._shade('dark', this.brandHslDark)),
       ],
       [`brand-light`]: [
-        this._formatHsl(this._shade('light', this.brandHsl)),
-        this._formatHsl(this._shade('light', this.brandHsl)),
+        this._formatHsl(this._shade('light', this.brandHslLight)),
+        this._formatHsl(this._shade('light', this.brandHslDark)),
       ],
       [`brand-fg`]: [
-        this._formatHsl(this._fg(this.brandHsl)),
-        this._formatHsl(this._fg(this.brandHsl)),
+        this._formatHsl(this._fg(this.brandHslLight)),
+        this._formatHsl(this._fg(this.brandHslDark)),
       ],
 
       'brand-tint': [
-        this._formatHsl(this._tint(this.brandHsl, 'light')),
-        this._formatHsl(this._tint(this.brandHsl, 'dark')),
+        this._formatHsl(this._tint(this.brandHslLight, 'light')),
+        this._formatHsl(this._tint(this.brandHslDark, 'dark')),
       ],
       'brand-tint-dark': [
         this._formatHsl(
-          this._shade('light', this._tint(this.brandHsl, 'light'))
+          this._shade('dark', this._tint(this.brandHslLight, 'light'))
         ),
         this._formatHsl(
-          this._shade('light', this._tint(this.brandHsl, 'dark'))
+          this._shade('dark', this._tint(this.brandHslDark, 'dark'))
         ),
       ],
       'brand-tint-light': [
         this._formatHsl(
-          this._shade('light', this._tint(this.brandHsl, 'light'))
+          this._shade('light', this._tint(this.brandHslLight, 'light'))
         ),
         this._formatHsl(
-          this._shade('light', this._tint(this.brandHsl, 'dark'))
+          this._shade('light', this._tint(this.brandHslDark, 'dark'))
         ),
       ],
 
       'brand-tint-fg': [
-        this._formatHsl(this._fg(this._tint(this.brandHsl, 'light'))),
-        this._formatHsl(this._fg(this._tint(this.brandHsl, 'dark'))),
+        this._formatHsl(this._fg(this._tint(this.brandHslLight, 'light'))),
+        this._formatHsl(this._fg(this._tint(this.brandHslDark, 'dark'))),
       ],
 
       ///////////////////////////////////////////////////
@@ -191,11 +201,9 @@ export class ColorPalette {
       ],
       'error-tint-dark': [
         this._formatHsl(
-          this._shade('light', this._tint(this.errorHsl, 'light'))
+          this._shade('dark', this._tint(this.errorHsl, 'light'))
         ),
-        this._formatHsl(
-          this._shade('light', this._tint(this.errorHsl, 'dark'))
-        ),
+        this._formatHsl(this._shade('dark', this._tint(this.errorHsl, 'dark'))),
       ],
       'error-tint-light': [
         this._formatHsl(
@@ -238,10 +246,10 @@ export class ColorPalette {
       ],
       'warning-tint-dark': [
         this._formatHsl(
-          this._shade('light', this._tint(this.warningHsl, 'light'))
+          this._shade('dark', this._tint(this.warningHsl, 'light'))
         ),
         this._formatHsl(
-          this._shade('light', this._tint(this.warningHsl, 'dark'))
+          this._shade('dark', this._tint(this.warningHsl, 'dark'))
         ),
       ],
       'warning-tint-light': [
@@ -285,10 +293,10 @@ export class ColorPalette {
       ],
       'success-tint-dark': [
         this._formatHsl(
-          this._shade('light', this._tint(this.successHsl, 'light'))
+          this._shade('dark', this._tint(this.successHsl, 'light'))
         ),
         this._formatHsl(
-          this._shade('light', this._tint(this.successHsl, 'dark'))
+          this._shade('dark', this._tint(this.successHsl, 'dark'))
         ),
       ],
       'success-tint-light': [
@@ -310,7 +318,7 @@ export class ColorPalette {
   private _bg(mode: 'dark' | 'light'): Hsl {
     return {
       ...this.grayHsl,
-      l: mode === 'light' ? 0.975 : 0.025,
+      l: mode === 'light' ? 0.975 : 0.055,
       s: 0.05,
     }
   }
@@ -323,8 +331,20 @@ export class ColorPalette {
     }
   }
 
+  private _deriveBrand(hsl: Hsl, mode: 'dark' | 'light'): Hsl {
+    let l = hsl.l
+    if (mode === 'dark' && l < 0.3) {
+      l = 0.9
+    }
+    if (mode === 'light' && l > 0.8) {
+      l = 0.1
+    }
+
+    return { ...hsl, l }
+  }
+
   private _deriveGray(hsl: Hsl): Hsl {
-    return { ...hsl, s: 0.2 }
+    return { ...hsl, s: 0.075 }
   }
 
   private _fg(hsl: Hsl): Hsl {
@@ -353,8 +373,8 @@ export class ColorPalette {
    * hover/pressed states.
    */
   private _shade(modifier: 'dark' | 'light', hsl: Hsl): Hsl {
-    const factor = modifier === 'light' ? 1.1 : 0.9
-    const newL = Math.max(0.05, Math.min(0.95, hsl.l * factor))
+    const factor = modifier === 'light' ? 1.05 : 0.95
+    const newL = Math.max(0.025, Math.min(0.975, hsl.l * factor))
     return { ...hsl, l: newL }
   }
 
@@ -386,8 +406,8 @@ export class ColorPalette {
   private _tint(hsl: Hsl, mode: 'dark' | 'light'): Hsl {
     return {
       ...hsl,
-      l: mode === 'light' ? 0.925 : 0.15,
-      s: hsl.s * 0.8,
+      l: mode === 'light' ? 0.85 : 0.15,
+      s: hsl.s * 0.9,
     }
   }
 }

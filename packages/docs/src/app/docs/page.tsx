@@ -1,3 +1,5 @@
+import { redirect } from 'next/navigation'
+
 export default function Page() {
-    return <>Hi mom</>;
+  return redirect('/docs/getting-started')
 }

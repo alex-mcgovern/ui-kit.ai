@@ -50,7 +50,7 @@ const tabListStyles = tv({
   variants: {
     orientation: {
       horizontal:
-        'flex-row after:grow after:border-b after:border-b-tint after:content-[""]',
+        'flex-row after:grow after:border-b after:border-b-tint-light after:content-[""]',
       vertical: 'flex-col items-start gap-2',
     },
   },
@@ -97,7 +97,7 @@ const tabStyles = tv({
     'disabled:text-disabled',
     // horizontal
     `group-orientation-horizontal/tabs:border-b`,
-    `group-orientation-horizontal/tabs:border-tint`,
+    `group-orientation-horizontal/tabs:border-tint-light`,
     // horizontal selected
     `group-orientation-horizontal/tabs:selected:border-brand-light`,
     // vertical

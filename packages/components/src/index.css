@@ -39,6 +39,23 @@
       border-left-width: 0.5px;
     }
   }
+
+  .outline {
+    outline-width: 0.5px;
+
+    &-t {
+      outline-top-width: 0.5px;
+    }
+    &-r {
+      outline-right-width: 0.5px;
+    }
+    &-b {
+      outline-bottom-width: 0.5px;
+    }
+    &-l {
+      outline-left-width: 0.5px;
+    }
+  }
 }
 
 /*

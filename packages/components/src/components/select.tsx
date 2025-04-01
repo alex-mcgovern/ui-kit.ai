@@ -1,14 +1,16 @@
-import type { ForwardedRef } from 'react'
 import type {
   SelectProps as AriaSelectProps,
   ButtonProps,
 } from 'react-aria-components'
 
+import { ChevronsUpDownIcon } from 'lucide-react'
+import { type ForwardedRef, type ReactNode, useContext } from 'react'
 import {
   Button as AriaButton,
   ListBox as AriaListBox,
   Select as AriaSelect,
   SelectValue as AriaSelectValue,
+  SelectStateContext,
 } from 'react-aria-components'
 import { twMerge } from 'tailwind-merge'
 import { tv } from 'tailwind-variants'
@@ -22,8 +24,10 @@ import { Popover } from './popover'
 
 const selectButtonStyles = tv({
   base: [
-    'flex items-center gap-4',
+    'flex items-center gap-1',
     'py-2 pl-3 pr-2',
+    '[&:has([data-slot=slot-left])]:pl-1',
+    '[&:has([data-slot=slot-right])]:pr-1',
     'text-sm',
     'w-full cursor-pointer text-start',
     `group-data-[invalid]:!border-error group-data-[invalid]:!text-error
@@ -95,7 +99,7 @@ Select.displayName = 'Select'
 export function SelectButton({
   isBorderless,
   slotLeft,
-  slotRight,
+  slotRight = <ChevronsUpDownIcon aria-hidden />,
   ...props
 }: ButtonProps & {
   isBorderless?: boolean
@@ -112,6 +116,9 @@ export function SelectButton({
    */
   slotRight?: SlotNode
 }) {
+  const state = useContext(SelectStateContext)
+  const selectedItemIcon: null | ReactNode = state?.selectedItem?.props.icon
+
   return (
     <AriaButton
       {...props}
@@ -126,9 +133,13 @@ export function SelectButton({
         )
       }
     >
-      {renderSlot(slotLeft, {
-        'data-slot': 'slot-left',
-      })}
+      {renderSlot(
+        // @ts-expect-error - TODO: Fix select types
+        selectedItemIcon ?? slotLeft,
+        {
+          'data-slot': 'slot-left',
+        }
+      )}
       <AriaSelectValue
         className={twMerge([
           'inline-flex flex-1 items-center gap-2',
@@ -136,7 +147,9 @@ export function SelectButton({
           'placeholder-shown:text-lo-contrast',
           'group-data-[invalid]:placeholder-shown:text-error',
         ])}
-      />
+      >
+        {({ selectedText }) => selectedText}
+      </AriaSelectValue>
       {renderSlot(slotRight, {
         'data-slot': 'slot-right',
       })}

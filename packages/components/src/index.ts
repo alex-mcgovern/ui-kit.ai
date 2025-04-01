@@ -13,6 +13,9 @@ export {
 export { Checkbox } from './components/checkbox'
 export { CheckboxGroup } from './components/checkbox-group'
 export { CodeBlock } from './components/code-block'
+export { ColorField } from './components/color-field'
+export { ColorSlider } from './components/color-slider'
+export { ColorSwatch } from './components/color-swatch'
 export {
   ComboBox,
   ComboBoxButton,
@@ -53,6 +56,7 @@ export { Popover, PopoverDialog } from './components/popover'
 export { SearchField, SearchFieldClearButton } from './components/search-field'
 export { Select, SelectButton } from './components/select'
 export { Skeleton } from './components/skeleton'
+export { SliderOutput } from './components/slider-output'
 export {
   type GetRowOptionsFn,
   Table,

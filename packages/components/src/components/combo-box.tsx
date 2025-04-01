@@ -6,7 +6,7 @@ import type {
 } from 'react'
 import type { ComboBoxProps as AriaComboBoxProps } from 'react-aria-components'
 
-import { ChevronsUpDown as IconChevronsUpDown, X as IconX } from 'lucide-react'
+import { ChevronsUpDownIcon, XIcon } from 'lucide-react'
 import React, {
   createContext,
   useContext,
@@ -41,7 +41,7 @@ export function ComboBoxButton(
 ) {
   return (
     <FieldButton {...props}>
-      <IconChevronsUpDown aria-hidden />
+      <ChevronsUpDownIcon aria-hidden />
     </FieldButton>
   )
 }
@@ -82,7 +82,7 @@ export function ComboBoxClearButton(
       }}
       slot={null} // Don't inherit default Button behavior from ComboBox.
     >
-      <IconX
+      <XIcon
         aria-hidden
         className='size-4'
       />

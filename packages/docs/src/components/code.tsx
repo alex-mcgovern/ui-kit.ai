@@ -43,7 +43,7 @@ export function Code({
         </CardHeader>
         <CardBody>
           <TabPanel
-            className='flex items-center justify-center min-h-24 bg-[radial-gradient(var(--color-tint)_1px,transparent_1px)] [background-size:16px_16px]'
+            className='flex items-center justify-center min-h-24 bg-[radial-gradient(var(--color-tint-light)_1px,transparent_1px)] [background-size:16px_16px]'
             id='preview'
           >
             {component}

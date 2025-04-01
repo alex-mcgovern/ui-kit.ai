@@ -237,6 +237,8 @@ export const LinkButton = ({
   isIcon,
   isInverted,
   ref,
+  slotLeft,
+  slotRight,
   variant,
   ...props
 }: LinkButtonProps) => {
@@ -254,7 +256,23 @@ export const LinkButton = ({
         })
       )}
       ref={ref}
-    />
+    >
+      {(renderProps) => (
+        <>
+          {renderSlot(slotLeft, {
+            'data-slot': 'slot-left',
+          })}
+
+          {typeof props.children === 'function'
+            ? props.children(renderProps)
+            : props.children}
+
+          {renderSlot(slotRight, {
+            'data-slot': 'slot-right',
+          })}
+        </>
+      )}
+    </RACLink>
   )
 }
 LinkButton.displayName = 'LinkButton'
