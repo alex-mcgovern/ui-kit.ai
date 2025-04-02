@@ -36,6 +36,7 @@ export const Input = ({
         <div
           className={twMerge(
             'h-ui-element w-[theme(height.ui-element)]',
+            'text-mid-contrast',
             'absolute inset-x-0 top-0',
             'flex items-center justify-center',
             'pointer-events-none',

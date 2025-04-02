@@ -6,6 +6,8 @@ import type {
   MenuSectionProps as AriaMenuSectionProps,
 } from 'react-aria-components'
 
+import type { Intent } from './intent'
+
 export interface OptionsItemSchema<
   TType extends OptionType,
   TItemId extends string = string,
@@ -17,7 +19,7 @@ export interface OptionsItemSchema<
   href?: string
   icon?: ReactNode
   id: TItemId
-  isDestructive?: boolean
+  intent?: Intent
   items?: never
   textValue: string
 }
@@ -41,7 +43,7 @@ export interface OptionsSectionSchema<
   href?: never
   icon?: ReactNode
   id: string
-  isDestructive?: never
+  intent?: never
   items?: OptionsItemSchema<TType, TItemId, TValue>[]
   textValue?: string
 }
@@ -67,7 +69,7 @@ interface OptionSchemaBase<
   href?: string
   icon?: ReactNode
   id: string | TItemId
-  isDestructive?: boolean
+  intent?: Intent
   items?: OptionSchemaBase<TType, TItemId>[]
   textValue?: string
 }

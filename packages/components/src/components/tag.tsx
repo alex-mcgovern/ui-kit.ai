@@ -5,24 +5,23 @@ import type {
 
 import { type ForwardedRef, type HTMLProps } from 'react'
 import { Button as RACButton, Link as RACLink } from 'react-aria-components'
+import { twMerge } from 'tailwind-merge'
 import { tv } from 'tailwind-variants'
+
+import type { Intent } from '../types/intent'
 
 import { focusRing } from '../styles/focus-ring'
 import { renderSlot, Slot, type SlotNode } from '../types/slotted-node'
 
 type TagProps = {
   /**
-   * Whether the tag is a Button.
+   * Convey semantic meaning with color.
    */
-  isButton?: boolean
+  intent?: Intent
   /**
    * Adds an optional dashed border to the tag.
    */
   isDashed?: boolean
-  /**
-   * Whether the tag is a Link.
-   */
-  isLink?: boolean
   /**
    * A decorative node (e.g. an icon) to render on the left side of the
    * Tag. When a node is passed, the padding on the corresponding side is
@@ -35,13 +34,14 @@ type TagProps = {
    * slightly reduced to maintain visual balance.
    */
   slotRight?: SlotNode
+
   /**
    * The visual appearance of the tag.
    */
   variant?: Variant
 }
 
-type Variant = 'default' | 'error' | 'success' | 'warning'
+type Variant = 'default' | 'solid'
 
 const tagStyles = tv({
   base: [
@@ -79,39 +79,14 @@ const tagStyles = tv({
     },
     variant: {
       default: [
-        'bg-background-raised border-tint-dark text-mid-contrast',
+        'bg-background-raised border-tint text-mid-contrast',
         'hover:bg-tint-light',
         'pressed:bg-tint-dark',
       ],
-      error: [
-        'bg-error border-error text-error-fg',
-        'hover:bg-error-light',
-        'pressed:bg-error-dark',
-      ],
-      errorTint: [
-        'bg-error-tint border-error-tint text-error-dark',
-        'hover:bg-error-tint-light',
-        'pressed:bg-error-tint-dark',
-      ],
-      success: [
-        'bg-success border-success text-success-fg',
-        'hover:bg-success-light',
-        'pressed:bg-success-dark',
-      ],
-      successTint: [
-        'bg-success-tint border-success-tint text-success-dark',
-        'hover:bg-success-tint-light',
-        'pressed:bg-success-tint-dark',
-      ],
-      warning: [
-        'bg-warning border-warning text-warning-fg',
-        'hover:bg-warning-light',
-        'pressed:bg-warning-dark',
-      ],
-      warningTint: [
-        'bg-warning-tint border-warning-tint text-warning-dark',
-        'hover:bg-warning-tint-light',
-        'pressed:bg-warning-tint-dark',
+      solid: [
+        'bg-accent border-accent text-accent-fg',
+        'hover:bg-accent-light hover:border:accent-light',
+        'pressed:accent-dark pressed:border-accent-dark',
       ],
     },
   },
@@ -124,6 +99,7 @@ const tagStyles = tv({
 export function Tag({
   children,
   className,
+  intent,
   isDashed,
   ref,
   slotLeft,
@@ -137,11 +113,14 @@ export function Tag({
   return (
     <div
       {...props}
-      className={tagStyles({
+      className={twMerge(
+        tagStyles({
+          isDashed,
+          variant,
+        }),
         className,
-        isDashed,
-        variant,
-      })}
+        intent
+      )}
       ref={ref}
     >
       {renderSlot(slotLeft, {
@@ -164,6 +143,7 @@ Tag.displayName = 'Tag'
 export function TagButton({
   children,
   className,
+  intent,
   isDashed,
   ref,
   slotLeft,
@@ -178,12 +158,14 @@ export function TagButton({
     <RACButton
       {...props}
       className={(rp) =>
-        tagStyles({
-          className:
-            typeof className === 'function' ? className(rp) : className,
-          isDashed,
-          variant,
-        })
+        twMerge(
+          tagStyles({
+            isDashed,
+            variant,
+          }),
+          intent,
+          typeof className === 'function' ? className(rp) : className
+        )
       }
       ref={ref}
     >
@@ -211,6 +193,7 @@ TagButton.displayName = 'TagButton'
 export const TagLink = ({
   children,
   className,
+  intent,
   isDashed,
   ref,
   slotLeft,
@@ -225,12 +208,14 @@ export const TagLink = ({
     <RACLink
       {...props}
       className={(rp) =>
-        tagStyles({
-          className:
-            typeof className === 'function' ? className(rp) : className,
-          isDashed,
-          variant,
-        })
+        twMerge(
+          tagStyles({
+            isDashed,
+            variant,
+          }),
+          intent,
+          typeof className === 'function' ? className(rp) : className
+        )
       }
       ref={ref}
     >

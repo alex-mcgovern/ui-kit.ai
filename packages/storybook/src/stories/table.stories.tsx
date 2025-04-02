@@ -1,45 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import type { TableColumnSchema } from '@ui-kit.ai/components'
-import type {
-  GetStockWatchlistItemsData,
-  ListStockWatchlistItemsResponse,
-  StockWatchlistItem,
-} from '@ui-kit.ai/mocks'
+import type { StockWatchlistItem } from '@ui-kit.ai/mocks'
 import type { ComponentProps } from 'react'
-import type { SortDirection } from 'react-aria-components'
 
-import { keepPreviousData, useQuery } from '@tanstack/react-query'
-import {
-  Button,
-  Dialog,
-  DialogCloseButton,
-  DialogContent,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-  EmptyState,
-  FieldGroup,
-  Input,
-  Kbd,
-  Menu,
-  MenuTrigger,
-  Popover,
-  SearchField,
-  SearchFieldClearButton,
-  Table,
-  useKbd,
-} from '@ui-kit.ai/components'
+import { Table } from '@ui-kit.ai/components'
 import { getStocksHandler } from '@ui-kit.ai/mocks'
-import {
-  ArrowDownRight,
-  ArrowUpRight,
-  FilterIcon,
-  PlusIcon,
-  Search,
-  SearchXIcon,
-} from 'lucide-react'
-import { useCallback, useMemo, useRef, useState } from 'react'
+import { ArrowDownRight, ArrowUpRight } from 'lucide-react'
 import { twMerge } from 'tailwind-merge'
 
 const COLUMNS: TableColumnSchema<StockWatchlistItem>[] = [
@@ -116,8 +82,8 @@ function CellRenderer({
       return (
         <div
           className={twMerge(
-            'flex items-center justify-end gap-1',
-            isPositive ? 'text-green-600' : 'text-red-600'
+            'flex items-center justify-end gap-1 text-mid-contrast',
+            isPositive ? 'success' : 'error'
           )}
         >
           <Icon className='size-4' />
@@ -167,7 +133,7 @@ const meta = {
           },
           {
             id: 'remove',
-            isDestructive: true,
+            intent: 'error',
             textValue: `Remove ${row.id} from watchlist`,
           },
         ],
@@ -193,244 +159,56 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-const sortItems = (
-  a: StockWatchlistItem,
-  b: StockWatchlistItem,
-  column: keyof StockWatchlistItem
-) => {
-  if (typeof a[column] === 'string' && typeof b[column] === 'string') {
-    return a[column].toString().localeCompare(b[column].toString())
-  }
-  if (typeof a[column] === 'number' && typeof b[column] === 'number') {
-    return a[column] - b[column]
-  }
-
-  return 0
-}
-
-const useGetStocklistWatchItems = (options: GetStockWatchlistItemsData) => {
-  return useQuery({
-    placeholderData: keepPreviousData,
-    queryFn: async (): Promise<ListStockWatchlistItemsResponse | undefined> => {
-      const searchParams = new URLSearchParams(options)
-
-      const resp = await fetch(`/stocks?${searchParams.toString()}`)
-      if (!resp.ok) {
-        throw new Error('Failed to fetch stocks')
-      }
-      const data = await resp.json()
-      if (!Array.isArray(data.items)) {
-        throw new Error('Invalid response format')
-      }
-      return data as ListStockWatchlistItemsResponse
-    },
-    queryKey: ['stocks', options],
-  })
-}
-
-const useSortedItems = (rows: StockWatchlistItem[] = []) => {
-  const [sortDescriptor, setSortDescriptor] = useState<{
-    column: keyof StockWatchlistItem
-    direction: SortDirection
-  }>({
-    column: 'id',
-    direction: 'ascending',
-  })
-
-  const sortedItems = useMemo(() => {
-    const sorted = rows
-      .slice() // copy the array
-      .sort((a, b) => sortItems(a, b, sortDescriptor.column))
-    if (sortDescriptor.direction === 'descending') {
-      sorted.reverse()
-    }
-    return sorted
-  }, [rows, sortDescriptor.column, sortDescriptor.direction])
-
-  return {
-    setSortDescriptor,
-    sortDescriptor,
-    sortedItems,
-  }
-}
-
-function DialogAddToWatchList() {
-  const ref = useRef<HTMLButtonElement>(null)
-
-  useKbd([['c', () => ref.current?.click()]])
-
-  return (
-    <DialogTrigger>
-      <Button
-        className='ml-auto'
-        ref={ref}
-        slotLeft={<PlusIcon />}
-        slotRight={<Kbd>C</Kbd>}
-        variant='primary'
-      >
-        Add to watchlist
-      </Button>
-      <Dialog>
-        <DialogHeader>
-          <DialogTitle>Hello there</DialogTitle>
-          <DialogCloseButton />
-        </DialogHeader>
-
-        <DialogContent>Hello there</DialogContent>
-
-        <DialogFooter>
-          <Button
-            className='ml-auto'
-            onPress={() => close()}
-            variant='secondary'
-          >
-            Cancel
-          </Button>
-          <Button
-            onPress={() => {
-              alert('Confirmed')
-              close()
-            }}
-            type='submit'
-          >
-            Confirm
-          </Button>
-        </DialogFooter>
-      </Dialog>
-    </DialogTrigger>
-  )
-}
-
-function SearchFieldWatchlist({
-  search,
-  setSearch,
-}: {
-  search: string
-  setSearch: (v: string) => void
-}) {
-  const ref = useRef<HTMLInputElement>(null)
-
-  useKbd([['/', () => ref.current?.focus()]])
-
-  return (
-    <SearchField
-      className='max-w-64'
-      onChange={setSearch}
-      value={search}
-    >
-      <FieldGroup>
-        <Input
-          icon={<Search />}
-          isBorderless
-          placeholder='Search...'
-          ref={ref}
-        />
-        <SearchFieldClearButton />
-        <Kbd className='mr-2'>/</Kbd>
-      </FieldGroup>
-    </SearchField>
-  )
-}
-
 function Template({
   rows,
   ...args
 }: ComponentProps<typeof Table<StockWatchlistItem>>) {
-  const [page, setPage] = useState<number>(0)
-
-  const [search, _setSearch] = useState<string>('')
-  const setSearch = (v: string) => {
-    _setSearch(v)
-    setPage(0)
-  }
-
-  const { data, isLoading, isPlaceholderData } = useGetStocklistWatchItems({
-    page: page.toString(),
-    search,
-  })
-
-  const {
-    setSortDescriptor,
-    sortDescriptor,
-    sortedItems,
-    // @ts-expect-error - TODO: fix table stories types
-  } = useSortedItems(data?.items ?? [])
-
-  const renderEmptyState: ComponentProps<
-    typeof Table<StockWatchlistItem>
-  >['renderEmptyState'] = useCallback(() => {
-    return (
-      <EmptyState
-        actions={[
-          <Button
-            key='clear-search'
-            onPress={() => setSearch('')}
-          >
-            Clear search
-          </Button>,
-        ]}
-        body='Try another search term, or clearing the search.'
-        icon={SearchXIcon}
-        title={`No search results for "${search}"`}
-      />
-    )
-  }, [search])
-
   return (
-    <section className='w-full bg-base px-6 py-4'>
-      <div className='mb-4 flex items-center gap-2'>
-        <SearchFieldWatchlist
-          search={search}
-          setSearch={setSearch}
-        />
-        <MenuTrigger>
-          <Button
-            isIcon
-            variant='secondary'
-          >
-            <FilterIcon />
-          </Button>
-          <Popover>
-            <Menu
-              items={[
-                {
-                  id: 'foo',
-                  textValue: 'bar',
-                },
-              ]}
-            />
-          </Popover>
-        </MenuTrigger>
-
-        <DialogAddToWatchList />
-      </div>
-      <Table<StockWatchlistItem>
-        {...args}
-        // @ts-expect-error - TODO: Fix table stories types
-        onSortChange={setSortDescriptor}
-        renderEmptyState={renderEmptyState}
-        rows={sortedItems}
-        showLoadingOverlayUI={isPlaceholderData}
-        showSkeleton={isLoading ? [isLoading, { skeletonRowCount: 10 }] : false}
-        sortDescriptor={sortDescriptor}
-      />
-
-      <div className='ml-auto mt-4 flex items-center justify-center gap-2'>
-        {Array.from({
-          length: Math.ceil(
-            (data?.meta.total ?? 0) / (data?.meta.perPage ?? 0)
-          ),
-        }).map((_, i) => (
-          <Button
-            isIcon
-            onPress={() => setPage(i)}
-            variant={i === page ? 'primary' : 'secondary'}
-          >
-            {i + 1}
-          </Button>
-        ))}
-      </div>
-    </section>
+    <Table<StockWatchlistItem>
+      {...args}
+      rows={[
+        {
+          id: 'AAPL',
+          name: 'Apple Inc.',
+          percent_change: 1.2,
+          price_close: 150.75,
+          price_high: 152.3,
+          price_open: 149.5,
+        },
+        {
+          id: 'MSFT',
+          name: 'Microsoft Corp.',
+          percent_change: -0.5,
+          price_close: 299.1,
+          price_high: 301.0,
+          price_open: 298.0,
+        },
+        {
+          id: 'AMZN',
+          name: 'Amazon.com Inc.',
+          percent_change: 0.8,
+          price_close: 3450.0,
+          price_high: 3475.0,
+          price_open: 3420.0,
+        },
+        {
+          id: 'GOOGL',
+          name: 'Alphabet Inc.',
+          percent_change: 1.5,
+          price_close: 2800.5,
+          price_high: 2825.0,
+          price_open: 2780.0,
+        },
+        {
+          id: 'TSLA',
+          name: 'Tesla Inc.',
+          percent_change: -2.1,
+          price_close: 720.0,
+          price_high: 735.0,
+          price_open: 710.0,
+        },
+      ]}
+    />
   )
 }
 

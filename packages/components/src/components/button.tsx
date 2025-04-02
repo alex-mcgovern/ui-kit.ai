@@ -4,12 +4,11 @@ import type {
   LinkProps as RACLinkProps,
 } from 'react-aria-components'
 
-import {
-  composeRenderProps,
-  Button as RACButton,
-  Link as RACLink,
-} from 'react-aria-components'
+import { Button as RACButton, Link as RACLink } from 'react-aria-components'
+import { twMerge } from 'tailwind-merge'
 import { tv } from 'tailwind-variants'
+
+import type { Intent } from '../types/intent'
 
 import { focusRing } from '../styles/focus-ring'
 import { renderSlot, type SlotNode } from '../types/slotted-node'
@@ -34,59 +33,23 @@ const buttonStyle = tv({
     'disabled:cursor-not-allowed',
     'disabled:opacity-50',
   ],
-  compoundVariants: [
-    {
-      className: [
-        'text-error-fg',
-        'border-error bg-error',
-        'hover:border-error-light hover:bg-error-light',
-        'pressed:border-error-dark pressed:bg-error-dark',
-      ],
-      isDestructive: true,
-      variant: 'primary',
-    },
-    {
-      className: [
-        'border-error-tint-dark text-error',
-        'bg-background',
-        'hover:bg-error-tint-light',
-        'pressed:bg-error-tint',
-      ],
-      isDestructive: true,
-      variant: 'secondary',
-    },
-    {
-      className: [
-        'text-error',
-        'hover:bg-error-tint-light pressed:bg-error-tint',
-      ],
-      isDestructive: true,
-      variant: 'tertiary',
-    },
-  ],
   defaultVariants: {
     variant: 'primary',
   },
   extend: focusRing,
   variants: {
-    isDestructive: {
-      true: null,
-    },
     isIcon: {
       true: 'aspect-square w-[theme(height.ui-element)] px-2 [&_svg]:mx-auto',
     },
-    isInverted: {
-      true: null,
-    },
     variant: {
       primary: [
-        'text-brand-fg',
+        'text-accent-fg',
         'shadow-xs',
-        'border-brand bg-brand',
+        'border-accent bg-accent',
         // hover
-        'hover:border-brand-light hover:bg-brand-light',
+        'hover:border-accent-light hover:bg-accent-light',
         // pressed
-        'pressed:border-brand-dark pressed:bg-brand-dark',
+        'pressed:border-accent-dark pressed:bg-accent-dark',
       ],
       secondary: [
         // base
@@ -110,6 +73,10 @@ const buttonStyle = tv({
 
 type ButtonCommonProps = {
   /**
+   * Convey semantic meaning with color.
+   */
+  intent?: Intent
+  /**
    * When `isDestructive` is set to `true` the Button will styled in red, to denote a destructive action.
    */
   isDestructive?: boolean
@@ -123,10 +90,6 @@ type ButtonCommonProps = {
    * labelled to assistive technologies.
    */
   isIcon?: boolean
-  /**
-   * When `isInverted` is set to `true` light colors are dark, and vice/versa.
-   */
-  isInverted?: boolean
   /**
    * A decorative node (e.g. an icon) to render on the left side of the
    * Button. When a node is passed, the padding on the corresponding side is
@@ -183,9 +146,9 @@ type LinkButtonProps = ButtonCommonProps &
  * keyboard interactions.
  */
 export function Button({
+  intent,
   isDestructive,
   isIcon = false,
-  isInverted,
   isPending,
   ref,
   slotLeft,
@@ -198,17 +161,19 @@ export function Button({
   return (
     <RACButton
       {...props}
-      className={composeRenderProps(props.className, (className, renderProps) =>
-        buttonStyle({
-          ...renderProps,
-          // isLink,
-          className,
-          isDestructive,
-          isIcon,
-          isInverted,
-          variant,
-        })
-      )}
+      className={(renderProps) =>
+        twMerge(
+          buttonStyle({
+            ...renderProps,
+            isIcon,
+            variant,
+          }),
+          typeof props.className === 'function'
+            ? props.className(renderProps)
+            : props.className,
+          intent
+        )
+      }
       isPending={isPending}
       ref={ref}
     >
@@ -233,9 +198,8 @@ export function Button({
 Button.displayName = 'Button'
 
 export const LinkButton = ({
-  isDestructive,
+  intent,
   isIcon,
-  isInverted,
   ref,
   slotLeft,
   slotRight,
@@ -245,16 +209,19 @@ export const LinkButton = ({
   return (
     <RACLink
       {...props}
-      className={composeRenderProps(props.className, (className, renderProps) =>
-        buttonStyle({
-          ...renderProps,
-          className,
-          isDestructive,
-          isIcon,
-          isInverted,
-          variant,
-        })
-      )}
+      className={(renderProps) =>
+        twMerge(
+          buttonStyle({
+            ...renderProps,
+            isIcon,
+            variant,
+          }),
+          typeof props.className === 'function'
+            ? props.className(renderProps)
+            : props.className,
+          intent
+        )
+      }
       ref={ref}
     >
       {(renderProps) => (

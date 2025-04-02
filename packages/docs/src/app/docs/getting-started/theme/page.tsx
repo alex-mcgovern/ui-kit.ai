@@ -31,26 +31,31 @@ import {
 import { Demo } from './components/demo'
 
 export default function Page() {
-  const [brand, setBrand] = useState(DEFAULT_COLOR_PALETTE_INPUT.brand)
+  const [accent, setAccent] = useState(DEFAULT_COLOR_PALETTE_INPUT.accent)
   const [error, setError] = useState(DEFAULT_COLOR_PALETTE_INPUT.error)
   const [success, setSuccess] = useState(DEFAULT_COLOR_PALETTE_INPUT.success)
   const [warning, setWarning] = useState(DEFAULT_COLOR_PALETTE_INPUT.warning)
 
   const palette = new ColorPalette({
     error: error,
-    brand: brand,
+    accent: accent,
     success: success,
     warning: warning,
   })
 
-  const cssVars = palette.cssVars()
+  // const cssVars = palette.cssVars()
   const css = palette.css({
     overrideTwColors: true,
-    selector: '@theme',
+    selector: ':root',
   })
 
   return (
     <>
+      <style
+        dangerouslySetInnerHTML={{
+          __html: css,
+        }}
+      />
       <Heading level={1}>Theming</Heading>
 
       <section>
@@ -60,9 +65,9 @@ export default function Page() {
           </CardHeader>
           <CardBody className='grid grid-cols-4 gap-x-4 '>
             <ThemeColorPicker
-              label='Brand'
-              setValue={setBrand}
-              value={brand}
+              label='Accent'
+              setValue={setAccent}
+              value={accent}
             />
             <ThemeColorPicker
               label='Error'
@@ -83,7 +88,9 @@ export default function Page() {
           {/* <RenderPalette palettes={colors} /> */}
         </Card>
       </section>
-      <section style={cssVars}>
+      <section
+      // style={cssVars}
+      >
         <Demo />
 
         {/* <Code

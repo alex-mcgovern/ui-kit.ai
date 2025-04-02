@@ -206,7 +206,7 @@ const rowStyles = tv({
     'pressed:bg-tint',
     // selected styles
     'selected:select-none',
-    'selected:bg-tint',
+    'selected:bg-tint-light',
   ],
   extend: focusRing,
 })
@@ -229,7 +229,7 @@ const cellSkeletonStyles = tv({
 const resizerStyles = tv({
   base: `box-content h-5 w-px translate-x-[8px] cursor-col-resize rounded bg-mid-contrast
   bg-clip-content px-[8px] py-1 -outline-offset-2 resizing:w-[2px]
-  resizing:bg-brand-light resizing:pl-[7px] forced-colors:bg-[ButtonBorder]
+  resizing:bg-accent-light resizing:pl-[7px] forced-colors:bg-[ButtonBorder]
   forced-colors:resizing:bg-[Highlight]`,
   extend: focusRing,
 })

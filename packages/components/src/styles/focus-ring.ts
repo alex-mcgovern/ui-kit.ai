@@ -3,7 +3,7 @@ import { tv } from 'tailwind-variants'
 export const focusRing = tv({
   base: [
     `outline outline-0 outline-offset-2`,
-    `outline-brand-light`,
+    `outline-accent-light`,
     `forced-colors:outline-[Highlight]`,
   ],
   defaultVariants: {

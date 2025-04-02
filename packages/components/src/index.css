@@ -78,7 +78,7 @@
   color-scheme: dark light;
 
   scrollbar-color: var(--gray-400) transparent;
-  accent-color: var(--color-brand);
+  accent-color: var(--color-accent);
 
   font-size: 16px; /* Basis for REM units */
 
@@ -189,7 +189,7 @@ pre[class*='language-'] {
 }
 
 .token.maybe-class-name {
-  color: var(--color-brand);
+  color: var(--color-accent);
 }
 
 .token.keyword {
@@ -230,7 +230,7 @@ pre[class*='language-'] {
 .token.atrule,
 .token.attr-name,
 .language-autohotkey .token.selector {
-  color: var(--color-brand-tint-dark);
+  color: var(--color-accent-tint-dark);
 }
 
 .token.function,
@@ -240,12 +240,12 @@ pre[class*='language-'] {
 
 .token.tag,
 .token.tag.script.language-javascript.class-name {
-  color: var(--color-brand);
+  color: var(--color-accent);
 }
 
 .token.selector,
 .language-autohotkey .token.keyword {
-  color: var(--color-brand-dark);
+  color: var(--color-accent-dark);
 }
 .token.function,
 .token.tag.attr-name {

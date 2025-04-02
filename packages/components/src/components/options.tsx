@@ -45,9 +45,6 @@ const optionStyle = tv({
     `selected:bg-tint-light selected:open:bg-tint-light
     selected:forced-colors:bg-[Highlight]
     selected:forced-colors:text-[HighlightText]`,
-    // destructive
-    'data-[destructive]:text-error',
-    'data-[destructive]:focus:bg-error-tint-dark',
     'forced-color-adjust-none',
   ],
 })
@@ -89,7 +86,7 @@ function isSection<TType extends OptionType>(
 }
 
 function OptionsItem<TType extends OptionType>({
-  isDestructive,
+  intent,
   showCheckmarkOnSelected,
   type,
   ...props
@@ -103,8 +100,8 @@ function OptionsItem<TType extends OptionType>({
     <Component
       {...props}
       aria-label={props.textValue}
-      className={optionStyle()}
-      data-destructive={isDestructive}
+      className={twMerge(optionStyle(), intent)}
+      data-destructive={intent}
     >
       {({ isSelected }) => (
         <>

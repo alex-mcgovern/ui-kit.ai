@@ -99,7 +99,7 @@ const tabStyles = tv({
     `group-orientation-horizontal/tabs:border-b`,
     `group-orientation-horizontal/tabs:border-tint-light`,
     // horizontal selected
-    `group-orientation-horizontal/tabs:selected:border-brand-light`,
+    `group-orientation-horizontal/tabs:selected:border-accent-light`,
     // vertical
     `group-orientation-vertical/tabs:w-full`,
     `group-orientation-vertical/tabs:border-r`,

@@ -65,18 +65,18 @@ const boxStyles = tv({
     'group-hover:bg-tint-light',
     'group-hover:border-lo-contrast',
     // selected
-    'group-selected:bg-brand',
-    'group-selected:group-hover:bg-brand',
-    'group-selected:border-brand',
-    'group-selected:group-hover:border-brand',
+    'group-selected:bg-accent',
+    'group-selected:group-hover:bg-accent',
+    'group-selected:border-accent',
+    'group-selected:group-hover:border-accent',
     // indeterminate
-    'group-indeterminate:bg-brand',
-    'group-indeterminate:group-hover:bg-brand',
-    'group-indeterminate:border-brand',
-    'group-indeterminate:group-hover:border-brand',
+    'group-indeterminate:bg-accent',
+    'group-indeterminate:group-hover:bg-accent',
+    'group-indeterminate:border-accent',
+    'group-indeterminate:group-hover:border-accent',
     // invalid
     'group-invalid:border-error-light',
-    'group-hover:group-invalid:bg-error-brand-fg',
+    'group-hover:group-invalid:bg-error-accent-fg',
     'group-hover:group-invalid:border-error',
     // invalid selected
     'group-selected:group-invalid:bg-error',
@@ -101,13 +101,13 @@ const iconStyles = tv({
     // hover
     'group-hover:stroke-lo-contrast',
     'group-hover/row:stroke-lo-contrast',
-    'group-selected:stroke-brand-fg',
-    'group-indeterminate:stroke-brand-fg',
+    'group-selected:stroke-accent-fg',
+    'group-indeterminate:stroke-accent-fg',
     // invalid
     'group-hover:group-invalid:stroke-error',
     'group-hover/row:group-invalid:stroke-error',
-    'group-selected:group-invalid:stroke-error-brand-fg',
-    'group-indeterminate:group-invalid:stroke-error-brand-fg',
+    'group-selected:group-invalid:stroke-error-accent-fg',
+    'group-indeterminate:group-invalid:stroke-error-accent-fg',
   ],
 })
 

@@ -12,7 +12,7 @@ export const fieldVariants = tv({
     'forced-colors:outline-[Highlight]',
     // focus ring
     `outline outline-0 outline-offset-2`,
-    `outline-brand-light`,
+    `outline-accent-light`,
     `forced-colors:outline-[Highlight]`,
   ],
   defaultVariants: {
@@ -28,11 +28,7 @@ export const fieldVariants = tv({
           // hover
           'hover:[&:not([data-disabled])]:border-lo-contrast',
           // invalid
-          'invalid:text-error-dark group-invalid:text-error-dark',
-          // 'invalid:bg-error-tint-light group-invalid:bg-error-tint-light',
-          'invalid:border-error-tint-dark group-invalid:border-error-tint-dark',
-          'invalid:hover:border-error group-invalid:hover:border-error',
-          'invalid:outline-error group-invalid:outline-error',
+          'invalid:error group-invalid:error',
           // focus visible
           'focus-visible:border-tint-dark focus-visible:outline-2',
           'focus-visible:forced-colors:border-[ButtonBorder]',

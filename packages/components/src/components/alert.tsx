@@ -4,26 +4,22 @@ import { InfoIcon, type LucideProps } from 'lucide-react'
 import { twMerge } from 'tailwind-merge'
 import { tv } from 'tailwind-variants'
 
-import { type ActionNodes, renderActionNodes } from '../types/action-nodes'
+import type { ActionNodes } from '../types/action-nodes'
+import type { Intent } from '../types/intent'
+
+import { renderActionNodes } from '../types/action-nodes'
 import { Description } from './description'
 
 const alertStyles = tv({
   base: [
     'w-full',
     'rounded-lg shadow-xs',
+    'border border-tint-dark',
+    'bg-background-raised',
+    'text-hi-contrast',
     'pl-3 pr-2 py-1',
     'flex items-center gap-4',
   ],
-  defaultVariants: {
-    variant: 'default',
-  },
-  variants: {
-    variant: {
-      default: 'border border-tint-dark bg-background-raised text-hi-contrast',
-      invalid: 'bg-error-tint text-error-fg',
-      inverted: 'bg-background-inverted text-inverted',
-    },
-  },
 })
 
 const titleStyles = tv({
@@ -44,8 +40,8 @@ export function Alert({
   className,
   description,
   icon: Icon = InfoIcon,
+  intent,
   title,
-  variant,
   ...props
 }: {
   actions?: ActionNodes
@@ -54,13 +50,13 @@ export function Alert({
   icon?: React.ForwardRefExoticComponent<
     Omit<LucideProps, 'ref'> & React.RefAttributes<SVGSVGElement>
   >
+  intent: Intent
   title: string
-  variant: 'default' | 'invalid' | 'inverted'
 }) {
   return (
     <div
       {...props}
-      className={twMerge(alertStyles({ variant }), className)}
+      className={twMerge(alertStyles(), className, intent)}
     >
       <Icon className={twMerge(iconStyles())} />
       <div>
@@ -83,11 +79,7 @@ export function Alert({
       {renderActionNodes({
         actions,
         className: 'ml-auto',
-        props: {
-          // @ts-expect-error - TODO: type-aware action nodes
-          isDestructive: variant === 'invalid',
-          isInverted: variant === 'inverted' || variant === 'invalid',
-        },
+        props: {},
       })}
     </div>
   )
