@@ -10,7 +10,8 @@
         "tailwind.config.ts",
         "vite.config.mjs",
         "vitest.config.mjs",
-        ".next/types/**/*.ts"
+        ".next/types/**/*.ts",
+        "postcss.config.mjs"
     ],
     "exclude": ["dist", "node_modules"]
 }

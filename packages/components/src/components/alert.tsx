@@ -50,7 +50,10 @@ export function Alert({
     icon?: React.ForwardRefExoticComponent<
         Omit<LucideProps, 'ref'> & React.RefAttributes<SVGSVGElement>
     >
-    intent: Intent
+    /**
+     * Convey semantic meaning with color.
+     */
+    intent?: Intent
     title: string
 }) {
     return (

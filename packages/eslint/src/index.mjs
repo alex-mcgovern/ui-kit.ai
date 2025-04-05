@@ -11,7 +11,6 @@ import sonarjsPlugin from 'eslint-plugin-sonarjs'
 // import tailwindPlugin from 'eslint-plugin-tailwindcss'
 import react from 'eslint-plugin-react'
 import globals from 'globals'
-import { join } from 'path'
 
 /**
  * @param {string} rootDir

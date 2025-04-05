@@ -1,5 +1,5 @@
 {
     "extends": "@ui-kit.ai/tsconfig/react-library.json",
-    "include": ["src/**/*", "eslint.config.mjs", ".prettierrc.mjs", "knip.ts"],
+    "include": ["src/**/*", "eslint.config.mjs", ".prettierrc.mjs", "knip.ts", "vite.config.mjs"],
     "exclude": ["dist", "node_modules"]
 }

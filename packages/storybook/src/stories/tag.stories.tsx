@@ -8,21 +8,33 @@ import {
 } from '@ui-kit.ai/components'
 import { CircleDot } from 'lucide-react'
 
-const VARIANTS = ['default', 'success', 'warning', 'error'] as const satisfies ComponentProps<
-    typeof Tag
->['variant'][]
+const INTENTS = [undefined, 'success', 'warning', 'error'] as const satisfies (
+    | ComponentProps<typeof Tag>['intent']
+    | undefined
+)[]
 
 function TagButtonTemplate({ children, ...args }: ComponentProps<typeof TagButtonComponent>) {
     return (
-        <div className='grid grid-cols-5 gap-4'>
-            {VARIANTS.map((variant) => (
+        <div className='grid grid-cols-4 gap-4'>
+            {INTENTS.map((intent) => (
                 <TagButtonComponent
-                    key={variant}
+                    key={`${intent}-default`}
                     {...args}
                     className='capitalize'
-                    variant={variant}
+                    intent={intent}
                 >
-                    {children ?? variant}
+                    {children ?? intent}
+                </TagButtonComponent>
+            ))}
+            {INTENTS.map((intent) => (
+                <TagButtonComponent
+                    key={`${intent}-solid`}
+                    {...args}
+                    className='capitalize'
+                    intent={intent}
+                    variant='solid'
+                >
+                    {children ?? intent}
                 </TagButtonComponent>
             ))}
         </div>
@@ -31,16 +43,26 @@ function TagButtonTemplate({ children, ...args }: ComponentProps<typeof TagButto
 
 function TagLinkTemplate({ children, ...args }: ComponentProps<typeof TagLinkComponent>) {
     return (
-        <div className='grid grid-cols-5 gap-4'>
-            {VARIANTS.map((variant) => (
+        <div className='grid grid-cols-4 gap-4'>
+            {INTENTS.map((intent) => (
                 <TagLinkComponent
-                    key={variant}
+                    key={`${intent}-default`}
                     {...args}
                     className='capitalize'
-                    href='#'
-                    variant={variant}
+                    intent={intent}
                 >
-                    {children ?? variant}
+                    {children ?? intent}
+                </TagLinkComponent>
+            ))}
+            {INTENTS.map((intent) => (
+                <TagLinkComponent
+                    key={`${intent}-solid`}
+                    {...args}
+                    className='capitalize'
+                    intent={intent}
+                    variant='solid'
+                >
+                    {children ?? intent}
                 </TagLinkComponent>
             ))}
         </div>
@@ -49,15 +71,26 @@ function TagLinkTemplate({ children, ...args }: ComponentProps<typeof TagLinkCom
 
 function TagTemplate({ children, ...args }: ComponentProps<typeof Tag>) {
     return (
-        <div className='grid grid-cols-5 gap-4'>
-            {VARIANTS.map((variant) => (
+        <div className='grid grid-cols-4 gap-4'>
+            {INTENTS.map((intent) => (
                 <Tag
-                    key={variant}
+                    key={`${intent}-default`}
                     {...args}
                     className='capitalize'
-                    variant={variant}
+                    intent={intent}
                 >
-                    {children ?? variant}
+                    {children ?? intent}
+                </Tag>
+            ))}
+            {INTENTS.map((intent) => (
+                <Tag
+                    key={`${intent}-solid`}
+                    {...args}
+                    className='capitalize'
+                    intent={intent}
+                    variant='solid'
+                >
+                    {children ?? intent}
                 </Tag>
             ))}
         </div>

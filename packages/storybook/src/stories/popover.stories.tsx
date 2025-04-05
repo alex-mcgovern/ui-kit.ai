@@ -3,7 +3,7 @@ import type { ComponentProps } from 'react'
 
 import { Button, DialogTrigger, Heading, Popover, PopoverDialog } from '@ui-kit.ai/components'
 
-type Placement = ComponentProps<typeof Popover>['placement']
+type Placement = Exclude<ComponentProps<typeof Popover>['placement'], undefined>
 
 import {
     ArrowUp,
@@ -31,7 +31,9 @@ const PLACEMENTS = [
     'right',
     'right top',
     'right bottom',
-] satisfies Placement[]
+] as const satisfies Placement[]
+
+type KnownPlacement = (typeof PLACEMENTS)[number]
 
 const PLACEMENT_ICONS = {
     bottom: MoveDownIcon,
@@ -46,14 +48,19 @@ const PLACEMENT_ICONS = {
     top: ArrowUp,
     'top left': ArrowUpLeft,
     'top right': ArrowUpRight,
-} satisfies Record<Placement, React.ComponentType>
+} satisfies Record<KnownPlacement, React.ComponentType>
+
+const getPlacementIcon = (placement: KnownPlacement) => {
+    const Icon = PLACEMENT_ICONS[placement]
+    return <Icon className='h-4 w-4' />
+}
 
 function PlacementTemplate(args: ComponentProps<typeof Popover>) {
     return (
         <>
             {PLACEMENTS.map((placement) => (
                 <DialogTrigger>
-                    <Button>{PLACEMENT_ICONS[placement]}</Button>
+                    <Button>{getPlacementIcon(placement)}</Button>
                     <Popover
                         {...args}
                         placement={placement}

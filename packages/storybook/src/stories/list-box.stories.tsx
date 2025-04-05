@@ -13,6 +13,9 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
     args: { items: getMockOptions({ withIcon: true }) },
+    parameters: {
+        displayName: 'Default',
+    },
 }
 export const Sections: Story = {
     args: {
@@ -20,6 +23,9 @@ export const Sections: Story = {
             withIcon: true,
             withSections: true,
         }),
+    },
+    parameters: {
+        displayName: 'Sections',
     },
 }
 export const Invalid: Story = {
@@ -29,6 +35,9 @@ export const Invalid: Story = {
             withSections: true,
         }),
     },
+    parameters: {
+        displayName: 'Invalid',
+    },
 }
 export const IsDisabled: Story = {
     args: {
@@ -36,6 +45,9 @@ export const IsDisabled: Story = {
             withIcon: true,
             withSections: true,
         }),
+    },
+    parameters: {
+        displayName: 'Disabled',
     },
 }
 export const IsBorderless: Story = {
@@ -45,6 +57,9 @@ export const IsBorderless: Story = {
             withSections: true,
         }),
     },
+    parameters: {
+        displayName: 'Borderless',
+    },
 }
 export const DisabledKeys: Story = {
     args: {
@@ -53,5 +68,8 @@ export const DisabledKeys: Story = {
             withIcon: true,
             withSections: true,
         }),
+    },
+    parameters: {
+        displayName: 'With disabled keys',
     },
 }

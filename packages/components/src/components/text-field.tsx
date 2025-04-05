@@ -2,11 +2,10 @@ import type { ComponentProps, ComponentPropsWithoutRef, ForwardedRef } from 'rea
 import type { TextFieldProps as AriaTextFieldProps } from 'react-aria-components'
 
 import { ClipboardIcon, EyeIcon, EyeOffIcon, XIcon } from 'lucide-react'
-import { useCallback, useContext, useEffect, useMemo, useState } from 'react'
+import { useCallback, useEffect, useMemo, useState } from 'react'
 import {
     TextField as AriaTextField,
     ButtonContext as FieldButtonContext,
-    TextFieldContext,
     useSlottedContext,
 } from 'react-aria-components'
 import { twMerge } from 'tailwind-merge'
