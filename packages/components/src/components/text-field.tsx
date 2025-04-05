@@ -74,7 +74,7 @@ export function TextField({
                 {...props}
                 className={(rp) =>
                     twMerge(
-                        'group relative w-full grow',
+                        'group relative',
                         typeof props.className === 'function'
                             ? props.className(rp)
                             : props.className

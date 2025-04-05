@@ -55,6 +55,7 @@ export const WithSections: Story = {
     parameters: {
         displayName: 'Sections',
     },
+    render: Template,
 }
 export const DisabledKeys: Story = {
     args: {
@@ -67,4 +68,5 @@ export const DisabledKeys: Story = {
     parameters: {
         displayName: 'Disabled keys',
     },
+    render: Template,
 }

@@ -1,12 +1,76 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import type { ComponentProps } from 'react'
 
-import { Button, Kbd, Tooltip, TooltipInfoButton, TooltipTrigger } from '@ui-kit.ai/components'
+import { Button, Tooltip, TooltipInfoButton, TooltipTrigger } from '@ui-kit.ai/components'
+import {
+    ArrowUp,
+    ArrowUpLeft,
+    ArrowUpRight,
+    MoveDownIcon,
+    MoveDownLeftIcon,
+    MoveDownRightIcon,
+    MoveLeftIcon,
+    MoveRightIcon,
+} from 'lucide-react'
 import React from 'react'
 
 type Placement = ComponentProps<typeof Tooltip>['placement']
 
-const PLACEMENTS = ['bottom', 'top', 'left', 'right'] satisfies Placement[]
+const PLACEMENTS = [
+    'top left',
+    'top',
+    'top right',
+    'left',
+    null,
+    'right',
+    'bottom left',
+    'bottom',
+    'bottom right',
+] as const satisfies (null | Placement)[]
+
+type KnownPlacement = Exclude<(typeof PLACEMENTS)[number], null>
+
+const PLACEMENT_ICONS = {
+    bottom: MoveDownIcon,
+    'bottom left': MoveDownLeftIcon,
+    'bottom right': MoveDownRightIcon,
+    left: MoveLeftIcon,
+    right: MoveRightIcon,
+    top: ArrowUp,
+    'top left': ArrowUpLeft,
+    'top right': ArrowUpRight,
+} satisfies Record<KnownPlacement, React.ComponentType>
+
+const getPlacementIcon = (placement: KnownPlacement) => {
+    const Icon = PLACEMENT_ICONS[placement]
+    return <Icon className='h-4 w-4' />
+}
+function PlacementTemplate(args: ComponentProps<typeof Tooltip>) {
+    return (
+        <div className='grid grid-cols-3 gap-2'>
+            {PLACEMENTS.map((placement) =>
+                placement === null ? (
+                    <div />
+                ) : (
+                    <TooltipTrigger>
+                        <Button
+                            isIcon
+                            variant='secondary'
+                        >
+                            {getPlacementIcon(placement)}
+                        </Button>
+                        <Tooltip
+                            {...args}
+                            placement={placement}
+                        >
+                            {placement}
+                        </Tooltip>
+                    </TooltipTrigger>
+                )
+            )}
+        </div>
+    )
+}
 
 function Template(args: ComponentProps<typeof Tooltip>) {
     return (
@@ -50,16 +114,7 @@ export const Placement: Story = {
     parameters: {
         displayName: 'Placement',
     },
-    render: (args) => (
-        <>
-            {PLACEMENTS.map((placement) => (
-                <Template
-                    {...args}
-                    placement={placement}
-                />
-            ))}
-        </>
-    ),
+    render: PlacementTemplate,
 }
 /**
  * The Tooltip can be composed with a number of different components,
@@ -76,21 +131,4 @@ export const Trigger: Story = {
             <Tooltip {...args} />
         </TooltipTrigger>
     ),
-}
-/**
- * A common use case for a tooltip is to educate a user on an action that
- * supports keyboard shortcuts. You can use the `Kbd` component for this.
- */
-export const WithKbd: Story = {
-    args: {
-        children: (
-            <>
-                This is the tooltip <Kbd>C</Kbd>
-            </>
-        ),
-    },
-    parameters: {
-        displayName: 'With kbd',
-    },
-    render: Template,
 }

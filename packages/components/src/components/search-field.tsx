@@ -20,7 +20,7 @@ export function SearchField({ children = <Input />, ...props }: RACSearchFieldPr
                     typeof props.className === 'function'
                         ? props.className(renderProps)
                         : props.className,
-                    'group flex min-w-[40px] flex-col gap-1'
+                    'group relative w-full grow'
                 )
             }
         >

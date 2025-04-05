@@ -7,7 +7,7 @@ import { tv } from 'tailwind-variants'
 import { fieldVariants } from '../styles/field-variants'
 
 const fieldGroupStyles = tv({
-    base: 'group flex w-full items-center overflow-hidden text-start',
+    base: ['group relative', 'flex  items-center', 'overflow-hidden text-start'],
     extend: fieldVariants,
 })
 

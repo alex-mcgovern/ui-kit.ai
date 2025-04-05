@@ -42,18 +42,34 @@ export const Default: Story = {
         displayName: 'Default',
     },
 }
-/**
- * The `isDestructive` prop will style the button in red, to denote a
- * potentially destructive action the user should consider carefully.
- */
-export const Destructive: Story = {
+
+export const IntentError: Story = {
     args: {
-        isDestructive: true,
+        intent: 'error',
     },
     parameters: {
-        displayName: 'Destructive',
+        displayName: 'Intent: Error',
     },
 }
+
+export const IntentWarning: Story = {
+    args: {
+        intent: 'warning',
+    },
+    parameters: {
+        displayName: 'Intent: Warning',
+    },
+}
+
+export const IntentSuccess: Story = {
+    args: {
+        intent: 'success',
+    },
+    parameters: {
+        displayName: 'Intent: Success',
+    },
+}
+
 /**
  * The `isDisabled` prop will "gray out" the button, and prevent focus and interaction.
  */
