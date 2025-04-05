@@ -1,113 +1,105 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import type { ComponentProps } from 'react'
 
-import {
-  Button,
-  DialogTrigger,
-  Heading,
-  Popover,
-  PopoverDialog,
-} from '@ui-kit.ai/components'
+import { Button, DialogTrigger, Heading, Popover, PopoverDialog } from '@ui-kit.ai/components'
 
 type Placement = ComponentProps<typeof Popover>['placement']
 
 import {
-  ArrowUp,
-  ArrowUpLeft,
-  ArrowUpRight,
-  MoveDownIcon,
-  MoveDownLeftIcon,
-  MoveDownRightIcon,
-  MoveLeftIcon,
-  MoveRightIcon,
-  MoveUpLeftIcon,
-  MoveUpRightIcon,
+    ArrowUp,
+    ArrowUpLeft,
+    ArrowUpRight,
+    MoveDownIcon,
+    MoveDownLeftIcon,
+    MoveDownRightIcon,
+    MoveLeftIcon,
+    MoveRightIcon,
+    MoveUpLeftIcon,
+    MoveUpRightIcon,
 } from 'lucide-react'
 
 const PLACEMENTS = [
-  'bottom',
-  'bottom left',
-  'bottom right',
-  'top',
-  'top left',
-  'top right',
-  'left',
-  'left top',
-  'left bottom',
-  'right',
-  'right top',
-  'right bottom',
+    'bottom',
+    'bottom left',
+    'bottom right',
+    'top',
+    'top left',
+    'top right',
+    'left',
+    'left top',
+    'left bottom',
+    'right',
+    'right top',
+    'right bottom',
 ] satisfies Placement[]
 
 const PLACEMENT_ICONS = {
-  bottom: MoveDownIcon,
-  'bottom left': MoveDownLeftIcon,
-  'bottom right': MoveDownRightIcon,
-  left: MoveLeftIcon,
-  'left bottom': MoveDownLeftIcon,
-  'left top': MoveUpLeftIcon,
-  right: MoveRightIcon,
-  'right bottom': MoveDownRightIcon,
-  'right top': MoveUpRightIcon,
-  top: ArrowUp,
-  'top left': ArrowUpLeft,
-  'top right': ArrowUpRight,
+    bottom: MoveDownIcon,
+    'bottom left': MoveDownLeftIcon,
+    'bottom right': MoveDownRightIcon,
+    left: MoveLeftIcon,
+    'left bottom': MoveDownLeftIcon,
+    'left top': MoveUpLeftIcon,
+    right: MoveRightIcon,
+    'right bottom': MoveDownRightIcon,
+    'right top': MoveUpRightIcon,
+    top: ArrowUp,
+    'top left': ArrowUpLeft,
+    'top right': ArrowUpRight,
 } satisfies Record<Placement, React.ComponentType>
 
 function PlacementTemplate(args: ComponentProps<typeof Popover>) {
-  return (
-    <>
-      {PLACEMENTS.map((placement) => (
-        <DialogTrigger>
-          <Button>{PLACEMENT_ICONS[placement]}</Button>
-          <Popover
-            {...args}
-            placement={placement}
-          />
-        </DialogTrigger>
-      ))}
-    </>
-  )
+    return (
+        <>
+            {PLACEMENTS.map((placement) => (
+                <DialogTrigger>
+                    <Button>{PLACEMENT_ICONS[placement]}</Button>
+                    <Popover
+                        {...args}
+                        placement={placement}
+                    />
+                </DialogTrigger>
+            ))}
+        </>
+    )
 }
 
 function Template(args: ComponentProps<typeof Popover>) {
-  return (
-    <DialogTrigger>
-      <Button>Show popover</Button>
-      <Popover {...args} />
-    </DialogTrigger>
-  )
+    return (
+        <DialogTrigger>
+            <Button>Show popover</Button>
+            <Popover {...args} />
+        </DialogTrigger>
+    )
 }
 
 const meta = {
-  args: {
-    children: (
-      <PopoverDialog>
-        <Heading
-          className='mb-2 text-base'
-          level={3}
-          slot='title'
-        >
-          Help
-        </Heading>
-        <p className='text-sm'>
-          For help accessing your account, please contact support.
-        </p>
-      </PopoverDialog>
-    ),
-  },
-  component: Popover,
-  render: Template,
-  title: 'Components/Popover',
+    args: {
+        children: (
+            <PopoverDialog>
+                <Heading
+                    className='mb-2 text-base'
+                    level={3}
+                    slot='title'
+                >
+                    Help
+                </Heading>
+                <p className='text-sm'>For help accessing your account, please contact support.</p>
+            </PopoverDialog>
+        ),
+    },
+    component: Popover,
+    render: Template,
+    title: 'Components/Popover',
 } satisfies Meta<typeof Popover>
 
 export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
-  parameters: {
-    displayName: 'Default',
-  },
+    parameters: {
+        displayName: 'Default',
+    },
 }
 
 /**
@@ -116,15 +108,15 @@ export const Default: Story = {
  * when it detects a collision with a parent or window edge.
  */
 export const Placement: Story = {
-  decorators: [
-    (Story) => (
-      <div className='grid grid-cols-3 gap-2'>
-        <Story />
-      </div>
-    ),
-  ],
-  parameters: {
-    displayName: 'Placement',
-  },
-  render: PlacementTemplate,
+    decorators: [
+        (Story) => (
+            <div className='grid grid-cols-3 gap-2'>
+                <Story />
+            </div>
+        ),
+    ],
+    parameters: {
+        displayName: 'Placement',
+    },
+    render: PlacementTemplate,
 }

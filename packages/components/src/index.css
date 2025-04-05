@@ -10,7 +10,7 @@
 */
 
 @theme {
-  --height-ui-element: 2rem;
+    --height-ui-element: 2rem;
 }
 
 /* 
@@ -23,39 +23,39 @@
 */
 
 @utilities {
-  .border {
-    border-width: 0.5px;
+    .border {
+        border-width: 0.5px;
 
-    &-t {
-      border-top-width: 0.5px;
+        &-t {
+            border-top-width: 0.5px;
+        }
+        &-r {
+            border-right-width: 0.5px;
+        }
+        &-b {
+            border-bottom-width: 0.5px;
+        }
+        &-l {
+            border-left-width: 0.5px;
+        }
     }
-    &-r {
-      border-right-width: 0.5px;
-    }
-    &-b {
-      border-bottom-width: 0.5px;
-    }
-    &-l {
-      border-left-width: 0.5px;
-    }
-  }
 
-  .outline {
-    outline-width: 0.5px;
+    .outline {
+        outline-width: 0.5px;
 
-    &-t {
-      outline-top-width: 0.5px;
+        &-t {
+            outline-top-width: 0.5px;
+        }
+        &-r {
+            outline-right-width: 0.5px;
+        }
+        &-b {
+            outline-bottom-width: 0.5px;
+        }
+        &-l {
+            outline-left-width: 0.5px;
+        }
     }
-    &-r {
-      outline-right-width: 0.5px;
-    }
-    &-b {
-      outline-bottom-width: 0.5px;
-    }
-    &-l {
-      outline-left-width: 0.5px;
-    }
-  }
 }
 
 /*
@@ -68,39 +68,39 @@
 
 /* Scale up hit targets on high resolution mobile devices. */
 @media (min-resolution: 200dpi) {
-  :root {
-    font-size: 18px;
-  }
+    :root {
+        font-size: 18px;
+    }
 }
 
 :root {
-  @apply bg-background text-mid-contrast;
-  color-scheme: dark light;
+    @apply bg-background text-mid-contrast;
+    color-scheme: dark light;
 
-  scrollbar-color: var(--gray-400) transparent;
-  accent-color: var(--color-accent);
+    scrollbar-color: var(--gray-400) transparent;
+    accent-color: var(--color-accent);
 
-  font-size: 16px; /* Basis for REM units */
+    font-size: 16px; /* Basis for REM units */
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 body {
-  /* @apply text-base; */
-  font-family: 'Inter', sans-serif;
+    /* @apply text-base; */
+    font-family: 'Inter', sans-serif;
 }
 
 p {
-  /* @apply mb-2 text-lo-contrast; */
+    /* @apply mb-2 text-lo-contrast; */
 }
 
 .code,
 code {
-  font-size: 92%;
-  /* @apply text-sm !font-medium; */
+    font-size: 92%;
+    /* @apply text-sm !font-medium; */
 }
 
 /* Global colors for highlighted text */
@@ -111,30 +111,30 @@ code {
 /* Hide the user agent default clear button on search inputs */
 [type='search']::-webkit-search-cancel-button,
 [type='search']::-webkit-search-decoration {
-  -webkit-appearance: none;
-  appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
 }
 
 /* Override cursor for all disabled elements */
 [disabled],
 [aria-disabled='true'] {
-  cursor: not-allowed;
+    cursor: not-allowed;
 }
 
 /* Re-usable class for thing scrollbars (e.g. dialog, dropdown, etc) */
 .scrollbar-thin {
-  scrollbar-width: thin;
-  /* scrollbar-color: var(--gray-400) transparent; */
+    scrollbar-width: thin;
+    /* scrollbar-color: var(--gray-400) transparent; */
 }
 
 /* Chrome, Safari and Opera */
 .no-scrollbar::-webkit-scrollbar {
-  display: none;
+    display: none;
 }
 
 .no-scrollbar {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
 }
 
 /*
@@ -147,7 +147,7 @@ code {
  */
 
 .react-syntax-highlighter-line-number {
-  color: var(--color-lo-contrast);
+    color: var(--color-lo-contrast);
 }
 
 /**
@@ -155,63 +155,63 @@ code {
  */
 code[class*='language-'],
 pre[class*='language-'] {
-  text-shadow: none !important;
-  white-space: pre !important;
-  text-align: left !important;
-  font-family: var(--font-mono) !important;
-  font-size: var(--font-size-sm) !important;
-  line-height: 1.5 !important;
-  color: var(--color-hi-contrast) !important;
-  direction: ltr !important;
-  word-spacing: normal !important;
-  word-break: normal !important;
+    text-shadow: none !important;
+    white-space: pre !important;
+    text-align: left !important;
+    font-family: var(--font-mono) !important;
+    font-size: var(--font-size-sm) !important;
+    line-height: 1.5 !important;
+    color: var(--color-hi-contrast) !important;
+    direction: ltr !important;
+    word-spacing: normal !important;
+    word-break: normal !important;
 
-  -moz-tab-size: 4;
-  -o-tab-size: 4;
-  tab-size: 4;
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
 
-  -webkit-hyphens: none;
-  -moz-hyphens: none;
-  -ms-hyphens: none;
-  hyphens: none;
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
 }
 
 .token.comment,
 .token.prolog,
 .token.doctype,
 .token.cdata {
-  color: var(--color-lo-contrast);
-  font-style: italic;
+    color: var(--color-lo-contrast);
+    font-style: italic;
 }
 
 .token.namespace {
-  color: var(--color-lo-contrast);
+    color: var(--color-lo-contrast);
 }
 
 .token.maybe-class-name {
-  color: var(--color-accent);
+    color: var(--color-accent);
 }
 
 .token.keyword {
-  color: var(--color-warning);
+    color: var(--color-warning);
 }
 
 .token.attr-value,
 .token.tag.script.language-javascript.script-punctuation.punctuation,
 .token.tag.script.language-javascript.punctuation {
-  color: var(--color-error);
+    color: var(--color-error);
 }
 
 .token.method.function.property-access {
-  color: var(--color-warning);
+    color: var(--color-warning);
 }
 .token.punctuation {
-  color: var(--color-lo-contrast);
+    color: var(--color-lo-contrast);
 }
 .token.tag.script.language-javascript,
 .token.operator,
 .token.string {
-  color: var(--color-success);
+    color: var(--color-success);
 }
 
 .token.entity,
@@ -224,13 +224,13 @@ pre[class*='language-'] {
 .token.property,
 .token.regex,
 .token.inserted {
-  color: var(--color-success);
+    color: var(--color-success);
 }
 
 .token.atrule,
 .token.attr-name,
 .language-autohotkey .token.selector {
-  color: var(--color-accent-tint-dark);
+    color: var(--color-accent-tint-dark);
 }
 
 .token.function,
@@ -240,27 +240,27 @@ pre[class*='language-'] {
 
 .token.tag,
 .token.tag.script.language-javascript.class-name {
-  color: var(--color-accent);
+    color: var(--color-accent);
 }
 
 .token.selector,
 .language-autohotkey .token.keyword {
-  color: var(--color-accent-dark);
+    color: var(--color-accent-dark);
 }
 .token.function,
 .token.tag.attr-name {
-  /* @apply text-purple-800; */
+    /* @apply text-purple-800; */
 }
 
 .token.important,
 .token.bold {
-  font-weight: bold;
+    font-weight: bold;
 }
 
 .token.italic {
-  font-style: italic;
+    font-style: italic;
 }
 
 .token.tag.attr-value {
-  color: var(--color-success);
+    color: var(--color-success);
 }

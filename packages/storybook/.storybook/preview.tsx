@@ -10,32 +10,32 @@ import './index.css'
 initializeMsw()
 
 const screenshotOptions: ScreenshotOptions = {
-  captureBeyondViewport: false,
-  fullPage: false,
-  viewport: {
-    deviceScaleFactor: 3,
-    height: 300,
-    width: 600,
-  },
+    captureBeyondViewport: false,
+    fullPage: false,
+    viewport: {
+        deviceScaleFactor: 3,
+        height: 300,
+        width: 600,
+    },
 }
 
 const preview: Preview = {
-  decorators: [
-    // @ts-expect-error - the types seem out of date
-    withScreenshot,
-    (Story) => {
-      return (
-        <QueryClientProvider client={new QueryClient()}>
-          <Story />
-        </QueryClientProvider>
-      )
+    decorators: [
+        // @ts-expect-error - the types seem out of date
+        withScreenshot,
+        (Story) => {
+            return (
+                <QueryClientProvider client={new QueryClient()}>
+                    <Story />
+                </QueryClientProvider>
+            )
+        },
+    ],
+    loaders: [mswLoader],
+    parameters: {
+        actions: { argTypesRegex: '^on[A-Z].*' },
+        screenshot: screenshotOptions,
     },
-  ],
-  loaders: [mswLoader],
-  parameters: {
-    actions: { argTypesRegex: '^on[A-Z].*' },
-    screenshot: screenshotOptions,
-  },
 }
 
 export default preview

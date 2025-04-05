@@ -1,26 +1,26 @@
 {
-  "name": "@ui-kit.ai/tsconfig",
-  "version": "0.0.0-alpha.0",
-  "private": true,
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/alex-mcgovern/ui-kit.ai"
-  },
-  "license": "MIT",
-  "author": "Alex McGovern",
-  "type": "module",
-  "files": [
-    "*.json"
-  ],
-  "scripts": {
-    "check:prettier": "prettier . --check",
-    "fix:prettier": "prettier . --write"
-  },
-  "peerDependencies": {
-    "@testing-library/jest-dom": "6.6.3",
-    "@types/node": "22.13.10"
-  },
-  "engines": {
-    "node": "22.x"
-  }
+    "name": "@ui-kit.ai/tsconfig",
+    "version": "0.0.0-alpha.0",
+    "private": true,
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/alex-mcgovern/ui-kit.ai"
+    },
+    "license": "MIT",
+    "author": "Alex McGovern",
+    "type": "module",
+    "files": [
+        "*.json"
+    ],
+    "scripts": {
+        "check:prettier": "prettier . --check",
+        "fix:prettier": "prettier . --write"
+    },
+    "peerDependencies": {
+        "@testing-library/jest-dom": "6.6.3",
+        "@types/node": "22.13.10"
+    },
+    "engines": {
+        "node": "22.x"
+    }
 }

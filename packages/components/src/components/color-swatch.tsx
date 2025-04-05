@@ -5,14 +5,14 @@ import { twMerge } from 'tailwind-merge'
 import { tv } from 'tailwind-variants'
 
 const colorSwatchStyles = tv({
-  base: [
-    'inline-block',
-    'size-8',
-    'rounded',
-    'border border-background',
-    'outline outline-mid-contrast',
-    'shadow-sm',
-  ],
+    base: [
+        'inline-block',
+        'size-8',
+        'rounded',
+        'border-background border',
+        'outline-mid-contrast outline',
+        'shadow-sm',
+    ],
 })
 
 /**
@@ -20,18 +20,18 @@ const colorSwatchStyles = tv({
  * Provides visual representation of a color with proper accessibility semantics.
  */
 export function ColorSwatch(props: RACColorSwatchProps) {
-  return (
-    <RACColorSwatch
-      {...props}
-      className={(renderProps) =>
-        twMerge(
-          colorSwatchStyles(),
-          typeof props.className === 'function'
-            ? props.className(renderProps)
-            : props.className
-        )
-      }
-    />
-  )
+    return (
+        <RACColorSwatch
+            {...props}
+            className={(renderProps) =>
+                twMerge(
+                    colorSwatchStyles(),
+                    typeof props.className === 'function'
+                        ? props.className(renderProps)
+                        : props.className
+                )
+            }
+        />
+    )
 }
 ColorSwatch.displayName = 'ColorSwatch'

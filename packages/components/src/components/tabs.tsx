@@ -1,16 +1,11 @@
-import type {
-  TabListProps,
-  TabPanelProps,
-  TabProps,
-  TabsProps,
-} from 'react-aria-components'
+import type { TabListProps, TabPanelProps, TabProps, TabsProps } from 'react-aria-components'
 
 import {
-  composeRenderProps,
-  Tab as RACTab,
-  TabList as RACTabList,
-  TabPanel as RACTabPanel,
-  Tabs as RACTabs,
+    composeRenderProps,
+    Tab as RACTab,
+    TabList as RACTabList,
+    TabPanel as RACTabPanel,
+    Tabs as RACTabs,
 } from 'react-aria-components'
 import { twMerge } from 'tailwind-merge'
 import { tv } from 'tailwind-variants'
@@ -18,42 +13,42 @@ import { tv } from 'tailwind-variants'
 import { focusRing } from '../styles/focus-ring'
 
 const tabsStyles = tv({
-  base: 'group/tabs flex',
-  variants: {
-    orientation: {
-      horizontal: 'flex-col',
-      vertical: 'flex-row',
+    base: 'group/tabs flex',
+    variants: {
+        orientation: {
+            horizontal: 'flex-col',
+            vertical: 'flex-row',
+        },
     },
-  },
 })
 
 /**
  * Tabs organize content into multiple sections and allow users to navigate between them.
  */
 export function Tabs(props: TabsProps) {
-  return (
-    <RACTabs
-      {...props}
-      className={composeRenderProps(props.className, (className, renderProps) =>
-        tabsStyles({
-          ...renderProps,
-          className,
-        })
-      )}
-    />
-  )
+    return (
+        <RACTabs
+            {...props}
+            className={composeRenderProps(props.className, (className, renderProps) =>
+                tabsStyles({
+                    ...renderProps,
+                    className,
+                })
+            )}
+        />
+    )
 }
 Tabs.displayName = 'Tabs'
 
 const tabListStyles = tv({
-  base: 'no-scrollbar relative flex max-w-full',
-  variants: {
-    orientation: {
-      horizontal:
-        'flex-row after:grow after:border-b after:border-b-tint-light after:content-[""]',
-      vertical: 'flex-col items-start gap-2',
+    base: 'no-scrollbar relative flex max-w-full',
+    variants: {
+        orientation: {
+            horizontal:
+                'after:border-b-tint-light flex-row after:grow after:border-b after:content-[""]',
+            vertical: 'flex-col items-start gap-2',
+        },
     },
-  },
 })
 
 /**
@@ -63,48 +58,47 @@ const tabListStyles = tv({
  
  */
 export function TabList<T extends object>(props: TabListProps<T>) {
-  return (
-    <RACTabList
-      {...props}
-      className={composeRenderProps(props.className, (className, renderProps) =>
-        tabListStyles({
-          ...renderProps,
-          className,
-        })
-      )}
-    />
-  )
+    return (
+        <RACTabList
+            {...props}
+            className={composeRenderProps(props.className, (className, renderProps) =>
+                tabListStyles({
+                    ...renderProps,
+                    className,
+                })
+            )}
+        />
+    )
 }
 TabList.displayName = 'TabList'
 
 const tabStyles = tv({
-  base: [
-    'px-4 py-1.5',
-    '-outline-offset-4',
-    'whitespace-nowrap text-sm text-mid-contrast',
-    'font-medium',
-    'flex items-center',
-    'cursor-pointer',
-    // "border-transparent",
-    // pressed
-    'pressed:text-mid-contrast',
-    // hover
-    `hover:text-hi-contrast`,
-    // selected
-    'selected:text-hi-contrast',
-    `forced-color-adjust-none  
-    disabled:selected:text-mid-contrast`,
-    'disabled:text-disabled',
-    // horizontal
-    `group-orientation-horizontal/tabs:border-b`,
-    `group-orientation-horizontal/tabs:border-tint-light`,
-    // horizontal selected
-    `group-orientation-horizontal/tabs:selected:border-accent-light`,
-    // vertical
-    `group-orientation-vertical/tabs:w-full`,
-    `group-orientation-vertical/tabs:border-r`,
-  ],
-  extend: focusRing,
+    base: [
+        'px-4 py-1.5',
+        '-outline-offset-4',
+        'text-mid-contrast text-sm whitespace-nowrap',
+        'font-medium',
+        'flex items-center',
+        'cursor-pointer',
+        // "border-transparent",
+        // pressed
+        'pressed:text-mid-contrast',
+        // hover
+        'hover:text-hi-contrast',
+        // selected
+        'selected:text-hi-contrast',
+        'disabled:selected:text-mid-contrast forced-color-adjust-none',
+        'disabled:text-disabled',
+        // horizontal
+        'group-orientation-horizontal/tabs:border-b',
+        'group-orientation-horizontal/tabs:border-tint-light',
+        // horizontal selected
+        'group-orientation-horizontal/tabs:selected:border-accent-light',
+        // vertical
+        'group-orientation-vertical/tabs:w-full',
+        'group-orientation-vertical/tabs:border-r',
+    ],
+    extend: focusRing,
 })
 
 /**
@@ -114,17 +108,17 @@ const tabStyles = tv({
  
  */
 export function Tab(props: TabProps) {
-  return (
-    <RACTab
-      {...props}
-      className={composeRenderProps(props.className, (className, renderProps) =>
-        tabStyles({
-          ...renderProps,
-          className,
-        })
-      )}
-    />
-  )
+    return (
+        <RACTab
+            {...props}
+            className={composeRenderProps(props.className, (className, renderProps) =>
+                tabStyles({
+                    ...renderProps,
+                    className,
+                })
+            )}
+        />
+    )
 }
 Tab.displayName = 'Tab'
 
@@ -135,18 +129,16 @@ Tab.displayName = 'Tab'
  
  */
 export function TabPanel(props: TabPanelProps) {
-  return (
-    <RACTabPanel
-      {...props}
-      className={(rp) =>
-        twMerge(
-          'flex-1 outline-0',
-          typeof props.className === 'function'
-            ? props.className(rp)
-            : props.className
-        )
-      }
-    />
-  )
+    return (
+        <RACTabPanel
+            {...props}
+            className={(rp) =>
+                twMerge(
+                    'flex-1 outline-0',
+                    typeof props.className === 'function' ? props.className(rp) : props.className
+                )
+            }
+        />
+    )
 }
 TabPanel.displayName = 'TabPanel'

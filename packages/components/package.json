@@ -1,78 +1,78 @@
 {
-  "name": "@ui-kit.ai/components",
-  "version": "0.0.0-alpha.0",
-  "description": "",
-  "keywords": [],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/alex-mcgovern/ui-kit.ai"
-  },
-  "license": "MIT",
-  "author": "Alex McGovern",
-  "type": "module",
-  "exports": {
-    ".": "./dist/index.js",
-    "./style.css": "./dist/style.css",
-    "./package.json": "./package.json"
-  },
-  "main": "dist/index.js",
-  "source": "src/index.ts",
-  "types": "dist/index.d.ts",
-  "files": [
-    "dist"
-  ],
-  "scripts": {
-    "build": "vite build",
-    "build-mcp-dataset": "tsx ./src/scripts/build-mcp-dataset.ts",
-    "build:watch": "vite build --watch",
-    "check:eslint": "eslint .",
-    "check:prettier": "prettier . --check",
-    "check:tsc": "tsc",
-    "check:vitest": "vitest run --passWithNoTests",
-    "fix:eslint": "eslint . --fix",
-    "fix:prettier": "prettier . --write",
-    "start-mcp-server": "tsx ./src/mcp-server/index.ts"
-  },
-  "dependencies": {
-    "@ui-kit.ai/utils": "workspace:*",
-    "highlight.js": "^10.4.1",
-    "lucide-react": "0.474.0",
-    "postcss": "8.4.47",
-    "prismjs": "^1.27.0",
-    "react": "19.0.0",
-    "react-aria-components": "1.7.1",
-    "react-dom": "19.0.0",
-    "react-hook-form": "7.54.2",
-    "react-markdown": "10.1.0",
-    "react-syntax-highlighter": "15.6.1",
-    "remark-gfm": "4.0.1",
-    "tailwind-merge": "3.0.2",
-    "tailwind-variants": "1.0.0",
-    "tailwindcss": "4.0.15",
-    "tailwindcss-animate": "1.0.7",
-    "tailwindcss-react-aria-components": "2.0.0"
-  },
-  "devDependencies": {
-    "@tailwindcss/postcss": "^4.0.15",
-    "@testing-library/react": "16.2.0",
-    "@testing-library/user-event": "14.6.1",
-    "@types/hast": "^3.0.4",
-    "@types/node": "22.13.10",
-    "@types/react": "19.0.12",
-    "@types/react-dom": "19.0.4",
-    "@types/react-syntax-highlighter": "15.5.13",
-    "@ui-kit.ai/eslint": "workspace:*",
-    "@ui-kit.ai/prettier": "workspace:*",
-    "@ui-kit.ai/theme": "workspace:*",
-    "@ui-kit.ai/tsconfig": "workspace:*",
-    "@ui-kit.ai/vite": "workspace:*",
-    "@ui-kit.ai/vitest": "workspace:*",
-    "autoprefixer": "10.4.20",
-    "react-docgen-typescript": "2.2.2",
-    "tsx": "4.19.2",
-    "typescript": "5.5.4"
-  },
-  "engines": {
-    "node": "22.x"
-  }
+    "name": "@ui-kit.ai/components",
+    "version": "0.0.0-alpha.0",
+    "description": "",
+    "keywords": [],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/alex-mcgovern/ui-kit.ai"
+    },
+    "license": "MIT",
+    "author": "Alex McGovern",
+    "type": "module",
+    "exports": {
+        ".": "./dist/index.js",
+        "./style.css": "./dist/style.css",
+        "./package.json": "./package.json"
+    },
+    "main": "dist/index.js",
+    "source": "src/index.ts",
+    "types": "dist/index.d.ts",
+    "files": [
+        "dist"
+    ],
+    "scripts": {
+        "build": "vite build",
+        "build-mcp-dataset": "tsx ./src/scripts/build-mcp-dataset.ts",
+        "build:watch": "vite build --watch",
+        "check:eslint": "eslint .",
+        "check:prettier": "prettier . --check",
+        "check:tsc": "tsc",
+        "check:vitest": "vitest run --passWithNoTests",
+        "fix:eslint": "eslint . --fix",
+        "fix:prettier": "prettier . --write",
+        "start-mcp-server": "tsx ./src/mcp-server/index.ts"
+    },
+    "dependencies": {
+        "@ui-kit.ai/utils": "workspace:*",
+        "highlight.js": "^10.4.1",
+        "lucide-react": "0.474.0",
+        "postcss": "8.4.47",
+        "prismjs": "^1.27.0",
+        "react": "19.0.0",
+        "react-aria-components": "1.7.1",
+        "react-dom": "19.0.0",
+        "react-hook-form": "7.54.2",
+        "react-markdown": "10.1.0",
+        "react-syntax-highlighter": "15.6.1",
+        "remark-gfm": "4.0.1",
+        "tailwind-merge": "3.0.2",
+        "tailwind-variants": "1.0.0",
+        "tailwindcss": "4.0.15",
+        "tailwindcss-animate": "1.0.7",
+        "tailwindcss-react-aria-components": "2.0.0"
+    },
+    "devDependencies": {
+        "@tailwindcss/postcss": "^4.0.15",
+        "@testing-library/react": "16.2.0",
+        "@testing-library/user-event": "14.6.1",
+        "@types/hast": "^3.0.4",
+        "@types/node": "22.13.10",
+        "@types/react": "19.0.12",
+        "@types/react-dom": "19.0.4",
+        "@types/react-syntax-highlighter": "15.5.13",
+        "@ui-kit.ai/eslint": "workspace:*",
+        "@ui-kit.ai/prettier": "workspace:*",
+        "@ui-kit.ai/theme": "workspace:*",
+        "@ui-kit.ai/tsconfig": "workspace:*",
+        "@ui-kit.ai/vite": "workspace:*",
+        "@ui-kit.ai/vitest": "workspace:*",
+        "autoprefixer": "10.4.20",
+        "react-docgen-typescript": "2.2.2",
+        "tsx": "4.19.2",
+        "typescript": "5.5.4"
+    },
+    "engines": {
+        "node": "22.x"
+    }
 }

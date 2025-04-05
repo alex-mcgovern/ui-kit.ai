@@ -8,13 +8,13 @@ import { tv } from 'tailwind-variants'
 import { Heading } from './heading'
 
 const actionsStyle = tv({
-  base: 'mx-auto',
-  variants: {
-    actions: {
-      1: '',
-      2: 'grid grid-cols-2 gap-2',
+    base: 'mx-auto',
+    variants: {
+        actions: {
+            1: '',
+            2: 'grid grid-cols-2 gap-2',
+        },
     },
-  },
 })
 
 /**
@@ -23,55 +23,53 @@ const actionsStyle = tv({
  * of up to 2 actions, which are React nodes.
  */
 export function EmptyState({
-  actions,
-  body,
-  className,
-  icon: Icon = InfoIcon,
-  title,
+    actions,
+    body,
+    className,
+    icon: Icon = InfoIcon,
+    title,
 }: {
-  actions?: [ReactNode, ReactNode?]
-  body?: ReactNode
-  className?: string
-  icon?: React.ForwardRefExoticComponent<
-    Omit<LucideProps, 'ref'> & React.RefAttributes<SVGSVGElement>
-  >
-  title: string
-}) {
-  return (
-    <div
-      className={twMerge(
-        'text-balance text-center',
-        'w-full',
-        'px-6 py-32',
-        'flex flex-col items-center justify-center',
-        className
-      )}
+    actions?: [ReactNode, ReactNode?]
+    body?: ReactNode
+    className?: string
+    icon?: React.ForwardRefExoticComponent<
+        Omit<LucideProps, 'ref'> & React.RefAttributes<SVGSVGElement>
     >
-      <Icon
-        className='mb-2 block text-mid-contrast'
-        size={48}
-      />
-
-      <Heading
-        className='mb-1 text-xl text-hi-contrast'
-        level={2}
-      >
-        {title}
-      </Heading>
-      {body != null ? (
-        <p className='mb-4 max-w-lg text-balance'>{body}</p>
-      ) : null}
-
-      {actions && actions.length > 0 ? (
+    title: string
+}) {
+    return (
         <div
-          className={actionsStyle({
-            actions: actions.length,
-          })}
+            className={twMerge(
+                'text-center text-balance',
+                'w-full',
+                'px-6 py-32',
+                'flex flex-col items-center justify-center',
+                className
+            )}
         >
-          {actions}
+            <Icon
+                className='text-mid-contrast mb-2 block'
+                size={48}
+            />
+
+            <Heading
+                className='text-hi-contrast mb-1 text-xl'
+                level={2}
+            >
+                {title}
+            </Heading>
+            {body != null ? <p className='mb-4 max-w-lg text-balance'>{body}</p> : null}
+
+            {actions && actions.length > 0 ? (
+                <div
+                    className={actionsStyle({
+                        actions: actions.length,
+                    })}
+                >
+                    {actions}
+                </div>
+            ) : null}
         </div>
-      ) : null}
-    </div>
-  )
+    )
 }
 EmptyState.displayName = 'EmptyState'

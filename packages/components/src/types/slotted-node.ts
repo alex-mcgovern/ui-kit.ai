@@ -1,31 +1,28 @@
 import {
-  cloneElement,
-  type HTMLAttributes,
-  type JSXElementConstructor,
-  type ReactElement,
+    cloneElement,
+    type HTMLAttributes,
+    type JSXElementConstructor,
+    type ReactElement,
 } from 'react'
 import { twMerge } from 'tailwind-merge'
 
 export enum Slot {
-  LEFT = 'slot-left',
-  RIGHT = 'slot-right',
+    LEFT = 'slot-left',
+    RIGHT = 'slot-right',
 }
 
-export type SlotNode = ReactElement<
-  SlotNodeProps,
-  JSXElementConstructor<SlotNodeProps> | string
->
+export type SlotNode = ReactElement<SlotNodeProps, JSXElementConstructor<SlotNodeProps> | string>
 
 type SlotNodeProps = HTMLAttributes<HTMLElement> & {
-  [key: `data-${string}`]: unknown
+    [key: `data-${string}`]: unknown
 }
 
 export function renderSlot(node: SlotNode | undefined, props: SlotNodeProps) {
-  if (!node) return null
+    if (!node) return null
 
-  return cloneElement(node, {
-    ...node.props,
-    ...props,
-    className: twMerge('h-3 min-w-3', node.props.className, props.className),
-  })
+    return cloneElement(node, {
+        ...node.props,
+        ...props,
+        className: twMerge('h-3 min-w-3', node.props.className, props.className),
+    })
 }

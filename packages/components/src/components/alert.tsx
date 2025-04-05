@@ -11,23 +11,23 @@ import { renderActionNodes } from '../types/action-nodes'
 import { Description } from './description'
 
 const alertStyles = tv({
-  base: [
-    'w-full',
-    'rounded-lg shadow-xs',
-    'border border-tint-dark',
-    'bg-background-raised',
-    'text-hi-contrast',
-    'pl-3 pr-2 py-1',
-    'flex items-center gap-4',
-  ],
+    base: [
+        'w-full',
+        'rounded-lg shadow-xs',
+        'border-tint-dark border',
+        'bg-background-raised',
+        'text-hi-contrast',
+        'py-1 pr-2 pl-3',
+        'flex items-center gap-4',
+    ],
 })
 
 const titleStyles = tv({
-  base: 'font-title mb-0 block text-sm font-bold',
+    base: 'font-title mb-0 block text-sm font-bold',
 })
 
 const iconStyles = tv({
-  base: 'size-7 shrink-0 stroke-[1.75px] text-mid-contrast',
+    base: 'text-mid-contrast size-7 shrink-0 stroke-[1.75px]',
 })
 
 /**
@@ -36,52 +36,52 @@ const iconStyles = tv({
  * technologies.
  */
 export function Alert({
-  actions,
-  className,
-  description,
-  icon: Icon = InfoIcon,
-  intent,
-  title,
-  ...props
+    actions,
+    className,
+    description,
+    icon: Icon = InfoIcon,
+    intent,
+    title,
+    ...props
 }: {
-  actions?: ActionNodes
-  className?: string
-  description?: ReactNode
-  icon?: React.ForwardRefExoticComponent<
-    Omit<LucideProps, 'ref'> & React.RefAttributes<SVGSVGElement>
-  >
-  intent: Intent
-  title: string
-}) {
-  return (
-    <div
-      {...props}
-      className={twMerge(alertStyles(), className, intent)}
+    actions?: ActionNodes
+    className?: string
+    description?: ReactNode
+    icon?: React.ForwardRefExoticComponent<
+        Omit<LucideProps, 'ref'> & React.RefAttributes<SVGSVGElement>
     >
-      <Icon className={twMerge(iconStyles())} />
-      <div>
-        {/*
-         * Note: A heading element should *not* be used here,
-         * as it may appear on page before the H1, breaking
-         * the semantic flow of headings on the page and
-         * messing with a11y and SEO.
-         */}
-        <span
-          className={titleStyles()}
-          role='alert'
+    intent: Intent
+    title: string
+}) {
+    return (
+        <div
+            {...props}
+            className={twMerge(alertStyles(), className, intent)}
         >
-          {title}
-        </span>
-        {description != null ? (
-          <Description className={twMerge('!my-0')}>{description}</Description>
-        ) : null}
-      </div>
-      {renderActionNodes({
-        actions,
-        className: 'ml-auto',
-        props: {},
-      })}
-    </div>
-  )
+            <Icon className={twMerge(iconStyles())} />
+            <div>
+                {/*
+                 * Note: A heading element should *not* be used here,
+                 * as it may appear on page before the H1, breaking
+                 * the semantic flow of headings on the page and
+                 * messing with a11y and SEO.
+                 */}
+                <span
+                    className={titleStyles()}
+                    role='alert'
+                >
+                    {title}
+                </span>
+                {description != null ? (
+                    <Description className={twMerge('!my-0')}>{description}</Description>
+                ) : null}
+            </div>
+            {renderActionNodes({
+                actions,
+                className: 'ml-auto',
+                props: {},
+            })}
+        </div>
+    )
 }
 Alert.displayName = 'Alert'

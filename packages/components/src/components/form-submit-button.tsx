@@ -9,26 +9,22 @@ import { Button } from './button'
  * `react-hook-form`'s state to handle disabled * pending states appropriately.
  */
 export function FormSubmitButton({
-  children = 'Submit',
-  variant = 'primary',
-  ...props
+    children = 'Submit',
+    variant = 'primary',
+    ...props
 }: ComponentProps<typeof Button>) {
-  const { isDirty, isSubmitting, isValidating } = useFormState()
+    const { isDirty, isSubmitting, isValidating } = useFormState()
 
-  return (
-    <Button
-      {...props}
-      isDisabled={isDirty === false}
-      isPending={
-        props.isPending === true ||
-        isSubmitting === true ||
-        isValidating === true
-      }
-      type='submit'
-      variant={variant}
-    >
-      {children}
-    </Button>
-  )
+    return (
+        <Button
+            {...props}
+            isDisabled={isDirty === false}
+            isPending={props.isPending === true || isSubmitting === true || isValidating === true}
+            type='submit'
+            variant={variant}
+        >
+            {children}
+        </Button>
+    )
 }
 FormSubmitButton.displayName = 'FormSubmitButton'

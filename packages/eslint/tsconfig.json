@@ -1,5 +1,5 @@
 {
-  "extends": "@ui-kit.ai/tsconfig/node.json",
-  "include": ["src/**/*"],
-  "exclude": ["node_modules"]
+    "extends": "@ui-kit.ai/tsconfig/node.json",
+    "include": ["src/**/*"],
+    "exclude": ["node_modules"]
 }

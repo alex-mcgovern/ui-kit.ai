@@ -7,8 +7,8 @@ import { tv } from 'tailwind-variants'
 import { fieldVariants } from '../styles/field-variants'
 
 const fieldGroupStyles = tv({
-  base: 'group flex w-full items-center overflow-hidden text-start',
-  extend: fieldVariants,
+    base: 'group flex w-full items-center overflow-hidden text-start',
+    extend: fieldVariants,
 })
 
 /**
@@ -16,25 +16,25 @@ const fieldGroupStyles = tv({
  * states for styling.
  */
 export function FieldGroup({
-  isBorderless,
-  ref,
-  ...props
+    isBorderless,
+    ref,
+    ...props
 }: RACGroupProps & {
-  isBorderless?: boolean
-  ref?: ForwardedRef<HTMLDivElement>
+    isBorderless?: boolean
+    ref?: ForwardedRef<HTMLDivElement>
 }) {
-  return (
-    <RACGroup
-      {...props}
-      className={composeRenderProps(props.className, (className, renderProps) =>
-        fieldGroupStyles({
-          ...renderProps,
-          className,
-          isBorderless,
-        })
-      )}
-      ref={ref}
-    />
-  )
+    return (
+        <RACGroup
+            {...props}
+            className={composeRenderProps(props.className, (className, renderProps) =>
+                fieldGroupStyles({
+                    ...renderProps,
+                    className,
+                    isBorderless,
+                })
+            )}
+            ref={ref}
+        />
+    )
 }
 FieldGroup.displayName = 'FieldGroup'

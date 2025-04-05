@@ -11,26 +11,26 @@ import { twMerge } from 'tailwind-merge'
  * to assistive technologies, and provide extra context.
  */
 export const CheckboxGroup = ({
-  ref,
-  ...props
+    ref,
+    ...props
 }: AriaCheckboxGroupProps & {
-  ref?: ForwardedRef<HTMLDivElement>
+    ref?: ForwardedRef<HTMLDivElement>
 }) => {
-  return (
-    <AriaCheckboxGroup
-      {...props}
-      className={(renderProps) =>
-        twMerge(
-          'group',
-          typeof props.className === 'function'
-            ? props.className(renderProps)
-            : props.className
-        )
-      }
-      ref={ref}
-    >
-      {props.children}
-    </AriaCheckboxGroup>
-  )
+    return (
+        <AriaCheckboxGroup
+            {...props}
+            className={(renderProps) =>
+                twMerge(
+                    'group',
+                    typeof props.className === 'function'
+                        ? props.className(renderProps)
+                        : props.className
+                )
+            }
+            ref={ref}
+        >
+            {props.children}
+        </AriaCheckboxGroup>
+    )
 }
 CheckboxGroup.displayName = 'CheckboxGroup'

@@ -8,25 +8,25 @@ import { twMerge } from 'tailwind-merge'
  * A FieldError displays validation errors.
  */
 export function FieldError({
-  ref,
-  ...props
+    ref,
+    ...props
 }: RACFieldErrorProps & {
-  ref?: ForwardedRef<HTMLDivElement>
+    ref?: ForwardedRef<HTMLDivElement>
 }) {
-  return (
-    <RACFieldError
-      {...props}
-      className={(renderProps) =>
-        twMerge(
-          'block text-sm font-medium text-error',
-          'mt-1',
-          typeof props.className === 'function'
-            ? props.className(renderProps)
-            : props.className
-        )
-      }
-      ref={ref}
-    />
-  )
+    return (
+        <RACFieldError
+            {...props}
+            className={(renderProps) =>
+                twMerge(
+                    'text-error block text-sm font-medium',
+                    'mt-1',
+                    typeof props.className === 'function'
+                        ? props.className(renderProps)
+                        : props.className
+                )
+            }
+            ref={ref}
+        />
+    )
 }
 FieldError.displayName = 'FieldError'

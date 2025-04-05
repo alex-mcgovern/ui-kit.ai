@@ -2,8 +2,8 @@ import type { Element } from 'hast'
 import type { JSX } from 'react'
 
 import ReactMarkdown, {
-  type Components as ReactMarkdownComponents,
-  type Options as ReactMarkdownOptions,
+    type Components as ReactMarkdownComponents,
+    type Options as ReactMarkdownOptions,
 } from 'react-markdown'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import remarkGfm from 'remark-gfm'
@@ -13,157 +13,146 @@ import { Card, CardBody } from './card'
 import { CodeBlock } from './code-block'
 import { Heading } from './heading'
 
-const CodeInline = ({
-  children,
-  language,
-}: {
-  children: string
-  language: string
-}) => {
-  if (!children) return null
+const CodeInline = ({ children, language }: { children: string; language: string }) => {
+    if (!children) return null
 
-  return (
-    <SyntaxHighlighter
-      codeTagProps={{
-        className:
-          'px-1 py-0.25 bg-tint-light rounded-sm border border-tint-dark',
-        style: {
-          whiteSpace: 'unset',
-        },
-      }}
-      data-testid='syntax-highlighter-inline'
-      language={language}
-      PreTag='span'
-      useInlineStyles={false}
-      wrapLines={false}
-    >
-      {String(children).replace(/\n$/, '')}
-    </SyntaxHighlighter>
-  )
+    return (
+        <SyntaxHighlighter
+            codeTagProps={{
+                className: 'px-1 py-0.25 bg-tint-light rounded-sm border border-tint-dark',
+                style: {
+                    whiteSpace: 'unset',
+                },
+            }}
+            data-testid='syntax-highlighter-inline'
+            language={language}
+            PreTag='span'
+            useInlineStyles={false}
+            wrapLines={false}
+        >
+            {String(children).replace(/\n$/, '')}
+        </SyntaxHighlighter>
+    )
 }
 CodeInline.displayName = 'CodeInline'
 
 function MarkdownCode({
-  children,
-  className = '',
-  node,
+    children,
+    className = '',
+    node,
 }: JSX.IntrinsicElements['code'] & { node?: Element | undefined }) {
-  if (
-    node?.position == null ||
-    children == null ||
-    typeof children !== 'string'
-  ) {
-    console.error('Could not parse code node', node)
-    return <>{children}</>
-  }
+    if (node?.position == null || children == null || typeof children !== 'string') {
+        console.error('Could not parse code node', node)
+        return <>{children}</>
+    }
 
-  const language: string = /language-(\w+)/.exec(className)?.[1] ?? 'plaintext'
+    const language: string = /language-(\w+)/.exec(className)?.[1] ?? 'plaintext'
 
-  if (node.position.start.line === node.position.end.line) {
-    return <CodeInline language={language}>{children}</CodeInline>
-  }
+    if (node.position.start.line === node.position.end.line) {
+        return <CodeInline language={language}>{children}</CodeInline>
+    }
 
-  return (
-    <Card className='my-8'>
-      <CardBody>
-        <CodeBlock
-          className={className}
-          language={language}
-        >
-          {children}
-        </CodeBlock>
-      </CardBody>
-    </Card>
-  )
+    return (
+        <Card className='my-8'>
+            <CardBody>
+                <CodeBlock
+                    className={className}
+                    language={language}
+                >
+                    {children}
+                </CodeBlock>
+            </CardBody>
+        </Card>
+    )
 }
 MarkdownCode.displayName = 'MarkdownCode'
 
 const COMPONENTS = {
-  a({ children, ...props }) {
-    return (
-      <a
-        className='text-hi-contrast underline hover:text-hi-contrast'
-        target='_blank'
-        {...props}
-      >
-        {children}
-      </a>
-    )
-  },
-  code: MarkdownCode,
-  h1: (props) => (
-    <Heading
-      {...props}
-      className={twMerge(props.className, 'my-2')}
-      level={1}
-    />
-  ),
-  h2: (props) => (
-    <Heading
-      {...props}
-      className={twMerge(props.className, 'my-2')}
-      level={2}
-    />
-  ),
-  h3: (props) => (
-    <Heading
-      {...props}
-      className={twMerge(props.className, 'my-2')}
-      level={3}
-    />
-  ),
-  h4: (props) => (
-    <Heading
-      {...props}
-      className={twMerge(props.className, 'my-2')}
-      level={4}
-    />
-  ),
-  h5: (props) => (
-    <Heading
-      {...props}
-      className={twMerge(props.className, 'my-2')}
-      level={5}
-    />
-  ),
-  h6: (props) => (
-    <Heading
-      {...props}
-      className={twMerge(props.className, 'my-2')}
-      level={6}
-    />
-  ),
-  img({ alt, src }) {
-    return (
-      <img
-        alt={alt}
-        className='h-auto max-w-full'
-        src={src}
-      />
-    )
-  },
-  pre: ({ children }) => children,
+    a({ children, ...props }) {
+        return (
+            <a
+                className='text-hi-contrast hover:text-hi-contrast underline'
+                target='_blank'
+                {...props}
+            >
+                {children}
+            </a>
+        )
+    },
+    code: MarkdownCode,
+    h1: (props) => (
+        <Heading
+            {...props}
+            className={twMerge(props.className, 'my-2')}
+            level={1}
+        />
+    ),
+    h2: (props) => (
+        <Heading
+            {...props}
+            className={twMerge(props.className, 'my-2')}
+            level={2}
+        />
+    ),
+    h3: (props) => (
+        <Heading
+            {...props}
+            className={twMerge(props.className, 'my-2')}
+            level={3}
+        />
+    ),
+    h4: (props) => (
+        <Heading
+            {...props}
+            className={twMerge(props.className, 'my-2')}
+            level={4}
+        />
+    ),
+    h5: (props) => (
+        <Heading
+            {...props}
+            className={twMerge(props.className, 'my-2')}
+            level={5}
+        />
+    ),
+    h6: (props) => (
+        <Heading
+            {...props}
+            className={twMerge(props.className, 'my-2')}
+            level={6}
+        />
+    ),
+    img({ alt, src }) {
+        return (
+            <img
+                alt={alt}
+                className='h-auto max-w-full'
+                src={src}
+            />
+        )
+    },
+    pre: ({ children }) => children,
 } satisfies ReactMarkdownComponents
 
 export function Markdown({
-  children,
-  className,
-  options,
+    children,
+    className,
+    options,
 }: {
-  children: string
-  className?: string
-  options?: ReactMarkdownOptions
+    children: string
+    className?: string
+    options?: ReactMarkdownOptions
 }) {
-  return (
-    <div className={className}>
-      <ReactMarkdown
-        components={COMPONENTS}
-        remarkPlugins={[remarkGfm]}
-        {...options}
-      >
-        {children}
-      </ReactMarkdown>
-    </div>
-  )
+    return (
+        <div className={className}>
+            <ReactMarkdown
+                components={COMPONENTS}
+                remarkPlugins={[remarkGfm]}
+                {...options}
+            >
+                {children}
+            </ReactMarkdown>
+        </div>
+    )
 }
 Markdown.displayName = 'Markdown'

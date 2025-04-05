@@ -7,29 +7,25 @@ import { twMerge } from 'tailwind-merge'
 import { Input } from './input'
 
 export function ColorField({
-  children = <Input />,
-  ref,
-  ...props
+    children = <Input />,
+    ref,
+    ...props
 }: AriaColorFieldProps & {
-  ref?: ForwardedRef<HTMLInputElement>
+    ref?: ForwardedRef<HTMLInputElement>
 }) {
-  return (
-    <AriaColorField
-      {...props}
-      className={(rp) =>
-        twMerge(
-          'group relative w-full grow',
-          typeof props.className === 'function'
-            ? props.className(rp)
-            : props.className
-        )
-      }
-      ref={ref}
-    >
-      {(renderProps) =>
-        typeof children === 'function' ? children(renderProps) : children
-      }
-    </AriaColorField>
-  )
+    return (
+        <AriaColorField
+            {...props}
+            className={(rp) =>
+                twMerge(
+                    'group relative w-full grow',
+                    typeof props.className === 'function' ? props.className(rp) : props.className
+                )
+            }
+            ref={ref}
+        >
+            {(renderProps) => (typeof children === 'function' ? children(renderProps) : children)}
+        </AriaColorField>
+    )
 }
 ColorField.displayName = 'ColorField'

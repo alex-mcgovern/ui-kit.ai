@@ -28,11 +28,11 @@ import { TextField as TextFieldStories } from '@ui-kit.ai/storybook'
 import { Tooltip as TooltipStories } from '@ui-kit.ai/storybook'
 
 const compose = (
-  module: Parameters<typeof storybookComposeStories>[0]
+    module: Parameters<typeof storybookComposeStories>[0]
 ): ReturnType<typeof storybookComposeStories> => {
-  return storybookComposeStories(module, {
-    applyDecorators: (storyFn) => storyFn, // We don't want to apply any decorators
-  })
+    return storybookComposeStories(module, {
+        applyDecorators: (storyFn) => storyFn, // We don't want to apply any decorators
+    })
 }
 
 type Composed = ReturnType<typeof compose>
