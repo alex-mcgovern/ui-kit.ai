@@ -14,37 +14,28 @@ import {
     MoveDownRightIcon,
     MoveLeftIcon,
     MoveRightIcon,
-    MoveUpLeftIcon,
-    MoveUpRightIcon,
 } from 'lucide-react'
 
 const PLACEMENTS = [
-    'bottom',
-    'bottom left',
-    'bottom right',
-    'top',
     'top left',
+    'top',
     'top right',
     'left',
-    'left top',
-    'left bottom',
+    null,
     'right',
-    'right top',
-    'right bottom',
-] as const satisfies Placement[]
+    'bottom left',
+    'bottom',
+    'bottom right',
+] as const satisfies (null | Placement)[]
 
-type KnownPlacement = (typeof PLACEMENTS)[number]
+type KnownPlacement = Exclude<(typeof PLACEMENTS)[number], null>
 
 const PLACEMENT_ICONS = {
     bottom: MoveDownIcon,
     'bottom left': MoveDownLeftIcon,
     'bottom right': MoveDownRightIcon,
     left: MoveLeftIcon,
-    'left bottom': MoveDownLeftIcon,
-    'left top': MoveUpLeftIcon,
     right: MoveRightIcon,
-    'right bottom': MoveDownRightIcon,
-    'right top': MoveUpRightIcon,
     top: ArrowUp,
     'top left': ArrowUpLeft,
     'top right': ArrowUpRight,
@@ -57,17 +48,26 @@ const getPlacementIcon = (placement: KnownPlacement) => {
 
 function PlacementTemplate(args: ComponentProps<typeof Popover>) {
     return (
-        <>
-            {PLACEMENTS.map((placement) => (
-                <DialogTrigger>
-                    <Button>{getPlacementIcon(placement)}</Button>
-                    <Popover
-                        {...args}
-                        placement={placement}
-                    />
-                </DialogTrigger>
-            ))}
-        </>
+        <div className='grid grid-cols-3 gap-2'>
+            {PLACEMENTS.map((placement) =>
+                placement === null ? (
+                    <div />
+                ) : (
+                    <DialogTrigger>
+                        <Button
+                            isIcon
+                            variant='secondary'
+                        >
+                            {getPlacementIcon(placement)}
+                        </Button>
+                        <Popover
+                            {...args}
+                            placement={placement}
+                        />
+                    </DialogTrigger>
+                )
+            )}
+        </div>
     )
 }
 
