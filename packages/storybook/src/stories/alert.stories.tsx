@@ -40,34 +40,31 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
-  args: {
-    variant: 'default',
-  },
   parameters: {
     displayName: 'Default',
   },
 }
-/**
- * Passing `"invalid"` to the `variant` prop will style the alert in red, to
- * denote an error or invalid user action / scenario.
- */
-export const Invalid: Story = {
+export const IntentError: Story = {
   args: {
-    variant: 'invalid',
+    intent: 'error',
   },
   parameters: {
-    displayName: 'Invalid',
+    displayName: 'Intent: Error',
   },
 }
-/**
- * Passing `"inverted"` to the `variant` prop will invert the colors in the
- * alert. This can be used to add extra emphasis to the alert.
- */
-export const Inverted: Story = {
+export const IntentWarning: Story = {
   args: {
-    variant: 'inverted',
+    intent: 'warning',
   },
   parameters: {
-    displayName: 'Inverted',
+    displayName: 'Intent: Warning',
+  },
+}
+export const IntentSuccess: Story = {
+  args: {
+    intent: 'success',
+  },
+  parameters: {
+    displayName: 'Intent: Success',
   },
 }
