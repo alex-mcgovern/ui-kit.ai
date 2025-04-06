@@ -1,3 +1,4 @@
+/* eslint-disable sonarjs/no-duplicate-string */
 /* eslint-disable perfectionist/sort-objects */
 import { converter, formatHsl, type Hsl, hsl } from 'culori'
 
@@ -10,9 +11,9 @@ export type ColorPaletteInput = {
 }
 
 export const DEFAULT_COLOR_PALETTE_INPUT: ColorPaletteInput = {
-    accent: '#21201C',
-    error: '#E54D2E',
-    success: '#30A46C',
+    accent: '#5B5BD6',
+    error: '#E54666',
+    success: '#29A383',
     warning: '#FFC53D',
 } as const
 
@@ -51,26 +52,32 @@ export class ColorPalette {
             })
             .join('\n')}
 
+        ${Object.entries(this.syntaxPalette())
+            .map(([colorName, [light, dark]]) => {
+                return `--color-${colorName}: light-dark(${light}, ${dark});`
+            })
+            .join('\n')}
+
       }
 
       ${useTwUtilities ? '@utility ' : '.'}error {
         ${Object.entries(this.palette(this.errorHsl, this.errorHsl))
             .map(([colorName, [light, dark]]) => {
-                return `--color-${colorName}: light-dark(${light}, ${dark});`
+                return `--color-${colorName}: light-dark(${light}, ${dark}) ${useTwUtilities === false ? '!important' : ''};`
             })
             .join('\n')}
       }
       ${useTwUtilities ? '@utility ' : '.'}warning {
         ${Object.entries(this.palette(this.warningHsl, this.warningHsl))
             .map(([colorName, [light, dark]]) => {
-                return `--color-${colorName}: light-dark(${light}, ${dark});`
+                return `--color-${colorName}: light-dark(${light}, ${dark}) ${useTwUtilities === false ? '!important' : ''};`
             })
             .join('\n')}
       }
       ${useTwUtilities ? '@utility ' : '.'}success {
         ${Object.entries(this.palette(this.successHsl, this.successHsl))
             .map(([colorName, [light, dark]]) => {
-                return `--color-${colorName}: light-dark(${light}, ${dark});`
+                return `--color-${colorName}: light-dark(${light}, ${dark}) ${useTwUtilities === false ? '!important' : ''};`
             })
             .join('\n')}
       }
@@ -105,8 +112,8 @@ export class ColorPalette {
                 this._formatHsl(this._textHiContrast(gray, 'dark')),
             ],
             'mid-contrast': [
-                this._formatHsl(this._textMidContrast(gray)),
-                this._formatHsl(this._textMidContrast(gray)),
+                this._formatHsl(this._textMidContrast(gray, 'light')),
+                this._formatHsl(this._textMidContrast(gray, 'dark')),
             ],
             'lo-contrast': [
                 this._formatHsl(this._textLoContrast(gray, 'light')),
@@ -183,6 +190,27 @@ export class ColorPalette {
         } as const
     }
 
+    public syntaxPalette() {
+        return {
+            'syntax-1': [
+                this._formatHsl(this._textHiContrast(this.accentHsl, 'light')),
+                this._formatHsl(this._textHiContrast(this.accentHsl, 'dark')),
+            ],
+            'syntax-2': [
+                this._formatHsl(this._textHiContrast(this.grayHsl, 'light')),
+                this._formatHsl(this._textHiContrast(this.grayHsl, 'dark')),
+            ],
+            'syntax-3': [
+                this._formatHsl(this._shade('light', this.errorHsl)),
+                this._formatHsl(this._shade('light', this.errorHsl)),
+            ],
+            [`syntax-4`]: [
+                this._formatHsl(this._shade('dark', this._deriveAccent(this.accentHsl, 'light'))),
+                this._formatHsl(this._shade('dark', this._deriveAccent(this.accentHsl, 'dark'))),
+            ],
+        } as const
+    }
+
     private _bg(hsl: Hsl, mode: 'dark' | 'light'): Hsl {
         return {
             ...hsl,
@@ -249,7 +277,7 @@ export class ColorPalette {
     private _textHiContrast(hslVal: Hsl, mode: 'dark' | 'light'): Hsl {
         return {
             ...hslVal,
-            l: mode === 'light' ? 0.25 : 0.975,
+            l: mode === 'light' ? 0.25 : 0.85,
         }
     }
 
@@ -260,10 +288,10 @@ export class ColorPalette {
         }
     }
 
-    private _textMidContrast(hslVal: Hsl): Hsl {
+    private _textMidContrast(hslVal: Hsl, mode: 'dark' | 'light'): Hsl {
         return {
             ...hslVal,
-            l: 0.5,
+            l: mode === 'light' ? 0.45 : 0.55,
         }
     }
 
