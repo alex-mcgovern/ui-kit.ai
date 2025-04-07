@@ -50,7 +50,6 @@ export { Popover, PopoverDialog } from './components/popover'
 export { SearchField, SearchFieldClearButton } from './components/search-field'
 export { Select, SelectButton } from './components/select'
 export { Skeleton } from './components/skeleton'
-export { SliderOutput } from './components/slider-output'
 export {
     type GetRowOptionsFn,
     Table,

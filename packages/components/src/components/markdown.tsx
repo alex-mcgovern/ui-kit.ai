@@ -5,36 +5,13 @@ import ReactMarkdown, {
     type Components as ReactMarkdownComponents,
     type Options as ReactMarkdownOptions,
 } from 'react-markdown'
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import remarkGfm from 'remark-gfm'
 import { twMerge } from 'tailwind-merge'
 
 import { Card, CardBody } from './card'
 import { CodeBlock } from './code-block'
+import { CodeInline } from './code-inline'
 import { Heading } from './heading'
-
-const CodeInline = ({ children, language }: { children: string; language: string }) => {
-    if (!children) return null
-
-    return (
-        <SyntaxHighlighter
-            codeTagProps={{
-                className: 'px-1 py-0.25 bg-tint-light rounded-sm border border-tint-dark',
-                style: {
-                    whiteSpace: 'unset',
-                },
-            }}
-            data-testid='syntax-highlighter-inline'
-            language={language}
-            PreTag='span'
-            useInlineStyles={false}
-            wrapLines={false}
-        >
-            {String(children).replace(/\n$/, '')}
-        </SyntaxHighlighter>
-    )
-}
-CodeInline.displayName = 'CodeInline'
 
 function MarkdownCode({
     children,
@@ -131,7 +108,10 @@ const COMPONENTS = {
             />
         )
     },
+    li: ({ children }) => <li className='my-1'>{children}</li>,
+    ol: ({ children }) => <ol className='list-decimal list-inside pl-2'>{children}</ol>,
     pre: ({ children }) => children,
+    ul: ({ children }) => <ul className='list-disc list-inside pl-2'>{children}</ul>,
 } satisfies ReactMarkdownComponents
 
 export function Markdown({
