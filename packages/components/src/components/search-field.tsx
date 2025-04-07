@@ -5,10 +5,8 @@ import { X as IconX } from 'lucide-react'
 import { SearchField as RACSearchField } from 'react-aria-components'
 import { twMerge } from 'tailwind-merge'
 
-// import * as i18n from "../../i18n";
 import { FieldButton } from './field-button'
 import { Input } from './input'
-import { Kbd } from './kbd'
 import { Tooltip, TooltipTrigger } from './tooltip'
 
 export function SearchField({ children = <Input />, ...props }: RACSearchFieldProps) {
@@ -44,10 +42,7 @@ export function SearchFieldClearButton(props: ComponentProps<typeof FieldButton>
                 <IconX aria-hidden />
             </FieldButton>
 
-            <Tooltip placement='top'>
-                <span className='block'>Clear</span>
-                <Kbd>Esc</Kbd>
-            </Tooltip>
+            <Tooltip placement='top'>Clear</Tooltip>
         </TooltipTrigger>
     )
 }
