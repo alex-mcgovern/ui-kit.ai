@@ -10,16 +10,16 @@ export function Kbd(props: HTMLProps<HTMLDivElement>) {
         <div
             {...props}
             className={twMerge(
-                'h-5 min-w-5',
+                'h-5 min-w-5 w-min',
                 'text-center align-text-bottom',
                 // "inline-flex shrink-0 items-baseline justify-center",
-                'text-xs',
+                'text-xs font-medium whitespace-nowrap',
                 'px-1 pt-0.5 pb-[3px]',
-                'translate-y-[0.25px]',
+                'translate-y-[0.5px]',
                 // border
                 'rounded border border-b-[1.5px]',
-                'border-mid-contrast/50',
-                'bg-tint-light/10 text-current/50',
+                'border-tint',
+                'bg-raised text-current/50',
                 'opacity-80',
                 props.className
             )}
