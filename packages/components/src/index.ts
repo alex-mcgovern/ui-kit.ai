@@ -7,6 +7,7 @@ export { Card, CardBody, CardFooter, CardHeader, CardTitle } from './components/
 export { Checkbox } from './components/checkbox'
 export { CheckboxGroup } from './components/checkbox-group'
 export { CodeBlock } from './components/code-block'
+export { CodeInline } from './components/code-inline'
 export { ColorField } from './components/color-field'
 export { ColorSlider } from './components/color-slider'
 export { ColorSwatch } from './components/color-swatch'

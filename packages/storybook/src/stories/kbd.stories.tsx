@@ -23,7 +23,6 @@ export const Default: Story = {
     parameters: {
         displayName: 'Default',
     },
-    storyName: 'Kbd',
 }
 
 export const KeyCombination: Story = {

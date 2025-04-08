@@ -13,7 +13,7 @@ type Story = StoryObj<typeof meta>
 const markdownExample = `
 # Markdown Component Example
 
-This component renders **markdown** content with support for *various* features including \`inline code\`.
+This component renders **markdown** content with support for *various* features including \\\`inline code\\\`.
 
 ## Basic Text Formatting
 
@@ -31,18 +31,18 @@ You can use **bold**, *italic*, or ***both***. You can also use ~~strikethrough~
 
 ## Code Examples
 
-Inline code: \`const greeting = "Hello, World!"\`
+Inline code: \\\`const greeting = "Hello, World!"\\\`
 
-\`\`\`typescript
+\\\`\\\`\\\`typescript
 interface User {
     name: string;
     age: number;
 }
 
 function greet(user: User) {
-    return \`Hello, \${user.name}!\`;
+    return \\\`Hello, \\\${user.name}!\\\`;
 }
-\`\`\`
+\\\`\\\`\\\`
 
 ## Tables and Quotes
 

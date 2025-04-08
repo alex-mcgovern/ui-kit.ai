@@ -88,7 +88,7 @@ function TemplateVertical() {
     )
 }
 
-const meta = {
+const meta: Meta<typeof Tabs> = {
     component: Tabs,
     decorators: [
         (Story) => (
@@ -99,7 +99,7 @@ const meta = {
     ],
     render: TemplateHorizontal,
     title: 'Components/Tabs',
-} satisfies Meta<typeof Tabs>
+}
 
 export default meta
 type Story = StoryObj<typeof meta>

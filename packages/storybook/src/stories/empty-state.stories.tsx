@@ -48,5 +48,4 @@ export const Default: Story = {
     parameters: {
         displayName: 'Default',
     },
-    storyName: 'EmptyState',
 }

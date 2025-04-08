@@ -1,4 +1,4 @@
-import type { ComponentProps } from 'react'
+import type { ComponentProps, ForwardedRef } from 'react'
 import type { SearchFieldProps as RACSearchFieldProps } from 'react-aria-components'
 
 import { X as IconX } from 'lucide-react'
@@ -9,7 +9,11 @@ import { FieldButton } from './field-button'
 import { Input } from './input'
 import { Tooltip, TooltipTrigger } from './tooltip'
 
-export function SearchField({ children = <Input />, ...props }: RACSearchFieldProps) {
+export function SearchField({
+    children = <Input />,
+    ref,
+    ...props
+}: RACSearchFieldProps & { ref?: ForwardedRef<HTMLInputElement> }) {
     return (
         <RACSearchField
             {...props}
@@ -21,6 +25,7 @@ export function SearchField({ children = <Input />, ...props }: RACSearchFieldPr
                     'group relative w-full grow'
                 )
             }
+            ref={ref}
         >
             {children}
         </RACSearchField>

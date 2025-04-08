@@ -27,9 +27,9 @@
     },
     "dependencies": {
         "@ui-kit.ai/utils": "workspace:*",
-        "lucide-react": "0.474.0",
-        "msw": "2.7.0",
-        "react": "19.0.0",
+        "lucide-react": "0.487.0",
+        "msw": "2.7.3",
+        "react": "19.1.0",
         "zod": "3.24.1"
     },
     "devDependencies": {

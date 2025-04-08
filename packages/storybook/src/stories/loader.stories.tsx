@@ -20,7 +20,6 @@ export const Default: Story = {
     parameters: {
         displayName: 'Default',
     },
-    storyName: 'Loader',
 }
 
 export const CustomSize: Story = {
