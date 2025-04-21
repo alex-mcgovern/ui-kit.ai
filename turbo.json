@@ -1,0 +1,89 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "tasks": {
+    "@ui-kit.ai/metadata#build": {
+      "dependsOn": [
+        "@ui-kit.ai/components#build",
+        "@ui-kit.ai/storybook#build"
+      ],
+      "outputLogs": "new-only"
+    },
+    "@ui-kit.ai/components#build": {
+      "dependsOn": ["@ui-kit.ai/theme#build"],
+      "outputLogs": "new-only"
+    },
+    "@ui-kit.ai/mocks#build": {
+      "dependsOn": ["@ui-kit.ai/components#build"],
+      "outputLogs": "new-only"
+    },
+    "@ui-kit.ai/storybook#build": {
+      "dependsOn": ["@ui-kit.ai/components#build", "@ui-kit.ai/mocks#build"],
+      "outputLogs": "new-only"
+    },
+    "@ui-kit.ai/storybook#check:eslint": {
+      "dependsOn": ["@ui-kit.ai/components#build"],
+      "outputLogs": "new-only"
+    },
+    "@ui-kit.ai/storybook#check:prettier": {
+      "dependsOn": ["@ui-kit.ai/components#build"],
+      "outputLogs": "new-only"
+    },
+    "@ui-kit.ai/storybook#check:tsc": {
+      "dependsOn": ["@ui-kit.ai/components#build"],
+      "outputLogs": "new-only"
+    },
+    "@ui-kit.ai/storybook#storybook": {
+      "dependsOn": [
+        "@ui-kit.ai/components#build",
+        "@ui-kit.ai/mocks#build",
+        "@ui-kit.ai/utils#build"
+      ],
+      "outputLogs": "new-only"
+    },
+    "build": {
+      "outputLogs": "new-only",
+      "outputs": ["dist/**"]
+    },
+    "check": {
+      "dependsOn": ["check:prettier", "check:tsc", "check:vitest"],
+      "outputLogs": "new-only"
+    },
+    "check:eslint": {
+      "dependsOn": ["^check:eslint"],
+      "outputLogs": "new-only"
+    },
+    "check:prettier": {
+      "dependsOn": ["^check:prettier"],
+      "outputLogs": "new-only"
+    },
+    "check:tsc": {
+      "dependsOn": ["^check:tsc"],
+      "outputLogs": "new-only"
+    },
+    "check:vitest": {
+      "dependsOn": ["check:tsc", "^check:vitest"],
+      "outputLogs": "new-only"
+    },
+    "dev": {
+      "cache": false,
+      "persistent": true,
+      "outputLogs": "new-only"
+    },
+    "fix": {
+      "dependsOn": ["fix:prettier", "fix:eslint"],
+      "outputLogs": "new-only"
+    },
+    "fix:eslint": {
+      "dependsOn": ["^fix:eslint"],
+      "outputLogs": "new-only"
+    },
+    "fix:prettier": {
+      "dependsOn": ["^fix:prettier"],
+      "outputLogs": "new-only"
+    },
+    "storybook": {
+      "dependsOn": ["^storybook"],
+      "outputLogs": "new-only"
+    }
+  }
+}

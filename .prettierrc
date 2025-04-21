@@ -1,6 +1,0 @@
-{
-    "arrowParens": "always",
-    "proseWrap": "always",
-    "tabWidth": 4,
-    "singleAttributePerLine": true
-}

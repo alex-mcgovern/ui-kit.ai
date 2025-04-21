@@ -1,0 +1,17 @@
+{
+    "extends": "@ui-kit.ai/tsconfig/nextjs.json",
+    "compilerOptions": {
+        "plugins": [{ "name": "next" }]
+    },
+    "include": [
+        ".prettierrc.mjs",
+        "eslint.config.mjs",
+        "src/**/*",
+        "tailwind.config.ts",
+        "vite.config.mjs",
+        "vitest.config.mjs",
+        ".next/types/**/*.ts",
+        "postcss.config.mjs"
+    ],
+    "exclude": ["dist", "node_modules"]
+}

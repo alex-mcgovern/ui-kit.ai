@@ -1,0 +1,234 @@
+@import '../node_modules/@ui-kit.ai/theme/dist/style.css';
+
+/*
+████████╗██╗  ██╗███████╗███╗   ███╗███████╗
+╚══██╔══╝██║  ██║██╔════╝████╗ ████║██╔════╝
+   ██║   ███████║█████╗  ██╔████╔██║█████╗  
+   ██║   ██╔══██║██╔══╝  ██║╚██╔╝██║██╔══╝  
+   ██║   ██║  ██║███████╗██║ ╚═╝ ██║███████╗
+   ╚═╝   ╚═╝  ╚═╝╚══════╝╚═╝     ╚═╝╚══════╝
+*/
+
+@theme {
+    --height-ui-element: 2rem;
+}
+
+/* 
+██╗   ██╗████████╗██╗██╗     ██╗████████╗██╗███████╗███████╗
+██║   ██║╚══██╔══╝██║██║     ██║╚══██╔══╝██║██╔════╝██╔════╝
+██║   ██║   ██║   ██║██║     ██║   ██║   ██║█████╗  ███████╗
+██║   ██║   ██║   ██║██║     ██║   ██║   ██║██╔══╝  ╚════██║
+╚██████╔╝   ██║   ██║███████╗██║   ██║   ██║███████╗███████║
+ ╚═════╝    ╚═╝   ╚═╝╚══════╝╚═╝   ╚═╝   ╚═╝╚══════╝╚══════╝
+*/
+
+@utilities {
+    .border {
+        border-width: 0.5px;
+
+        &-t {
+            border-top-width: 0.5px;
+        }
+        &-r {
+            border-right-width: 0.5px;
+        }
+        &-b {
+            border-bottom-width: 0.5px;
+        }
+        &-l {
+            border-left-width: 0.5px;
+        }
+    }
+
+    .outline {
+        outline-width: 0.5px;
+
+        &-t {
+            outline-top-width: 0.5px;
+        }
+        &-r {
+            outline-right-width: 0.5px;
+        }
+        &-b {
+            outline-bottom-width: 0.5px;
+        }
+        &-l {
+            outline-left-width: 0.5px;
+        }
+    }
+}
+
+/*
+██████╗  █████╗ ███████╗███████╗
+██╔══██╗██╔══██╗██╔════╝██╔════╝
+██████╔╝███████║███████╗█████╗  
+██╔══██╗██╔══██║╚════██║██╔══╝  
+██████╔╝██║  ██║███████║███████╗                                   
+/*
+
+/* Scale up hit targets on high resolution mobile devices. */
+@media (min-resolution: 200dpi) {
+    :root {
+        font-size: 18px;
+    }
+}
+
+:root {
+    @apply bg-background text-mid-contrast;
+    color-scheme: dark light;
+
+    scrollbar-color: var(--gray-400) transparent;
+    accent-color: var(--color-accent);
+
+    font-size: 16px; /* Basis for REM units */
+
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    /* @apply text-base; */
+    font-family: 'Inter', sans-serif;
+}
+
+p {
+    /* @apply mb-2 text-lo-contrast; */
+}
+
+.code,
+code {
+    font-size: 92%;
+    /* @apply text-sm !font-medium; */
+}
+
+/* Global colors for highlighted text */
+/* ::selection {
+  @apply bg-[theme(colors.muted.100)] text-[theme(colors.muted.600)];
+} */
+
+/* Hide the user agent default clear button on search inputs */
+[type='search']::-webkit-search-cancel-button,
+[type='search']::-webkit-search-decoration {
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+/* Override cursor for all disabled elements */
+[disabled],
+[aria-disabled='true'] {
+    cursor: not-allowed;
+}
+
+/* Re-usable class for thing scrollbars (e.g. dialog, dropdown, etc) */
+.scrollbar-thin {
+    scrollbar-width: thin;
+    /* scrollbar-color: var(--gray-400) transparent; */
+}
+
+/* Chrome, Safari and Opera */
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+.no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+
+/*
+ ██████╗ ██████╗ ██████╗ ███████╗
+██╔════╝██╔═══██╗██╔══██╗██╔════╝
+██║     ██║   ██║██║  ██║█████╗  
+██║     ██║   ██║██║  ██║██╔══╝  
+╚██████╗╚██████╔╝██████╔╝███████╗
+ ╚═════╝ ╚═════╝ ╚═════╝ ╚══════╝
+ */
+
+.react-syntax-highlighter-line-number {
+    color: var(--color-lo-contrast);
+}
+
+/**
+ * Tailwind CSS adaptation of GHColors primjs theme by Avi Aryan (http://aviaryan.in)
+ */
+code[class*='language-'],
+pre[class*='language-'] {
+    text-shadow: none !important;
+    white-space: pre !important;
+    text-align: left !important;
+    font-family: var(--font-mono) !important;
+    font-size: var(--text-sm) !important;
+    line-height: var(--text-xs--line-height) !important;
+    color: var(--color-hi-contrast) !important;
+    direction: ltr !important;
+    word-spacing: normal !important;
+    word-break: normal !important;
+
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+    color: var(--color-lo-contrast);
+    font-style: italic;
+}
+.token.plain-text,
+.token.punctuation {
+    color: var(--color-hi-contrast);
+}
+
+.token.class,
+.token.class-name,
+.token.function,
+.token.maybe-class-name,
+.token.parameter,
+.token.property,
+.token.pseudo-class,
+.token.selector,
+.token.tag {
+    color: var(--color-syntax-1);
+}
+
+.token.attr-value,
+.token.color,
+.token.imports,
+.token.unit {
+    color: var(--color-syntax-2);
+}
+
+.token.attr-name,
+.token.important,
+.token.interpolation-punctuation,
+.token.keyword,
+.token.module,
+.token.operator,
+.token.rule,
+.token.variable {
+    color: var(--color-syntax-3);
+}
+
+.token.number,
+.token.string {
+    color: var(--color-syntax-4);
+}
+
+.token.comment {
+    color: var(--color-mid-contrast);
+}
+
+.highlight-word {
+    display: inline-block;
+    color: var(--color-hi-contrast);
+    background-color: var(--color-tint);
+}

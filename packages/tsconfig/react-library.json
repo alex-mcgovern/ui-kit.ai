@@ -1,0 +1,13 @@
+{
+    "$schema": "https://json.schemastore.org/tsconfig",
+    "display": "React Library",
+    "extends": "./base.json",
+    "compilerOptions": {
+        "lib": ["ES2022", "dom", "dom.iterable"],
+        "jsx": "preserve",
+        "module": "ESNext",
+        "noEmit": true,
+        "target": "ES2022",
+        "types": ["@testing-library/jest-dom"]
+    }
+}

@@ -1,0 +1,4 @@
+.turbo
+node_modules
+dist
+vite.config.mjs.timestamp-*.mjs

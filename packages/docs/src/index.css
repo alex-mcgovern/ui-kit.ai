@@ -1,0 +1,7 @@
+@import 'tailwindcss';
+@import '../node_modules/@ui-kit.ai/components/dist/style.css';
+
+@plugin "tailwindcss-react-aria-components";
+@source "../node_modules/@ui-kit.ai/components/dist";
+@source "../node_modules/@ui-kit.ai/storybook/dist";
+@source "../node_modules/@ui-kit.ai/theme/dist";

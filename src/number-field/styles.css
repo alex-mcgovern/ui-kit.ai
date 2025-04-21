@@ -1,7 +1,0 @@
-.number-field {
-    position: relative;
-
-    .input {
-        font-variant-numeric: tabular-nums;
-    }
-}

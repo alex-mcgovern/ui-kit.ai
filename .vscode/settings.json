@@ -1,108 +1,31 @@
 {
-    "[css]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[json]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[typescript]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[typescriptreact]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "commentBox.styles": {
-        "h1": {
-            "bottomEdgeToken": "-",
-            "bottomLeftToken": "* ",
-            "boxWidth": 80,
-            "capitalize": false,
-            "commentEndToken": "- */",
-            "commentStartToken": "/** ",
-            "leftEdgeToken": "* ",
-            "rightEdgeToken": "",
-            "textAlignment": "left",
-            "topEdgeToken": "-",
-            "topRightToken": "-"
-        },
-        "h1_JSX": {
-            "bottomEdgeToken": "-",
-            "bottomLeftToken": "* ",
-            "boxWidth": 80,
-            "capitalize": false,
-            "commentEndToken": "- */}",
-            "commentStartToken": "{/** ",
-            "leftEdgeToken": "* ",
-            "rightEdgeToken": "",
-            "textAlignment": "left",
-            "topEdgeToken": "-",
-            "topRightToken": "-"
-        },
-        "h2": {
-            "bottomEdgeToken": "-",
-            "bottomLeftToken": "* ",
-            "boxWidth": 48,
-            "capitalize": false,
-            "commentEndToken": "- */",
-            "commentStartToken": "/** ",
-            "leftEdgeToken": "* ",
-            "rightEdgeToken": "",
-            "textAlignment": "left",
-            "topEdgeToken": "-",
-            "topRightToken": "-"
-        },
-        "h2_JSX": {
-            "bottomEdgeToken": "-",
-            "bottomLeftToken": "* ",
-            "boxWidth": 48,
-            "capitalize": false,
-            "commentEndToken": "- */}",
-            "commentStartToken": "{/** ",
-            "leftEdgeToken": "* ",
-            "rightEdgeToken": "",
-            "textAlignment": "left",
-            "topEdgeToken": "-",
-            "topRightToken": "-"
-        }
-    },
-    "cSpell.language": "en-GB",
-    "cSpell.words": [
-        "arrowdown",
-        "arrowright",
-        "boondoggle",
-        "Clearable",
-        "clsx",
-        "combobox",
-        "Dismissable",
-        "Hideable",
-        "labelledby",
-        "Lastpass",
-        "popover",
-        "prepopulated",
-        "Toggleable",
-        "TAria",
-        "vars"
-    ],
-    "editor.codeActionsOnSave": {
-        "source.fixAll.eslint": "explicit"
-    },
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": true,
-    "git.ignoreLimitWarning": true,
-    "search.exclude": {
-        ".git": true,
-        "**/.cache": true,
-        "**/*.snap": true,
-        "**/node_modules": true,
-        "**/package-lock.json": true,
-        "build": true,
-        "dist": true,
-        "docs": true
-    },
-    "turboConsoleLog.delimiterInsideMessage": "",
-    "turboConsoleLog.includeFileNameAndLineNum": false,
-    "turboConsoleLog.insertEnclosingClass": false,
-    "turboConsoleLog.insertEnclosingFunction": false,
-    "turboConsoleLog.logMessagePrefix": "debug",
-    "turboConsoleLog.logType": "debug"
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "prettier.configPath": ".prettierrc.mjs",
+  "prettier.requireConfig": true,
+  "search.exclude": {
+    ".git": true,
+    "**/*.code-search": true,
+    "**/tsconfig.tsbuildinfo": true,
+    "**/node_modules": true,
+    "**/.next": true,
+    "**/dist": true,
+    "**/package-lock.json": true
+  },
+  "typescript.tsdk": "node_modules/typescript/lib"
 }

@@ -1,0 +1,930 @@
+{
+    "packages/components/src/components/alert.tsx": [
+        {
+            "description": "An alert is a message that is displayed to the user. It makes use of the ARIA\nrole \"alert\" to highlight the importance of the message to assistive\ntechnologies.\n\n[source code](https://github.com/alex-mcgovern/ui-kit.ai/tree/main/packages/components/src/checkbox)\n[mdn web docs](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/alert_role)\n\n## Usage\n\n```tsx\nimport { Alert } from \"ui-kit.ai\"\n```\n```tsx\n<Alert\n    {...args}\n    title=\"Account verification required\"\n    description=\"Please verify your email so we can make sure your account is secure. A link has been sent to foo@bar.com.\"\n    actions={[\n        <Button key=\"verify\" variant=\"secondary\">\n            Dismiss\n        </Button>,\n        <Button key=\"resend\" variant=\"primary\">\n            Resend email\n        </Button>,\n    ]}\n/>\n```",
+            "methods": [],
+            "displayName": "Alert",
+            "props": {
+                "actions": {
+                    "required": false,
+                    "tsType": {
+                        "name": "tuple",
+                        "raw": "[ReactNode, ReactNode?]",
+                        "elements": [
+                            { "name": "ReactNode" },
+                            { "name": "unknown" }
+                        ]
+                    },
+                    "description": ""
+                },
+                "className": {
+                    "required": false,
+                    "tsType": { "name": "string" },
+                    "description": ""
+                },
+                "description": {
+                    "required": false,
+                    "tsType": { "name": "ReactNode" },
+                    "description": ""
+                },
+                "icon": {
+                    "required": false,
+                    "tsType": {
+                        "name": "ReactForwardRefExoticComponent",
+                        "raw": "React.ForwardRefExoticComponent<\n    Omit<LucideProps, \"ref\"> & React.RefAttributes<SVGSVGElement>\n>",
+                        "elements": [
+                            {
+                                "name": "intersection",
+                                "raw": "Omit<LucideProps, \"ref\"> & React.RefAttributes<SVGSVGElement>",
+                                "elements": [
+                                    {
+                                        "name": "Omit",
+                                        "elements": [
+                                            { "name": "LucideProps" },
+                                            {
+                                                "name": "literal",
+                                                "value": "\"ref\""
+                                            }
+                                        ],
+                                        "raw": "Omit<LucideProps, \"ref\">"
+                                    },
+                                    {
+                                        "name": "ReactRefAttributes",
+                                        "raw": "React.RefAttributes<SVGSVGElement>",
+                                        "elements": [
+                                            { "name": "SVGSVGElement" }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    "description": "",
+                    "defaultValue": {
+                        "value": "createLucideIcon(\"Info\", __iconNode)",
+                        "computed": true
+                    }
+                },
+                "title": {
+                    "required": true,
+                    "tsType": { "name": "string" },
+                    "description": ""
+                },
+                "variant": {
+                    "required": true,
+                    "tsType": {
+                        "name": "union",
+                        "raw": "\"default\" | \"invalid\" | \"inverted\"",
+                        "elements": [
+                            { "name": "literal", "value": "\"default\"" },
+                            { "name": "literal", "value": "\"invalid\"" },
+                            { "name": "literal", "value": "\"inverted\"" }
+                        ]
+                    },
+                    "description": ""
+                }
+            }
+        }
+    ],
+    "packages/components/src/components/checkbox-group.tsx": [
+        {
+            "description": "A checkbox group allows a user to select multiple items from a list of options.\n\nIt can be composed with a Label and Description to correctly label the input\nto assistive technologies, and provide extra context.\n\n[source code](https://github.com/alex-mcgovern/ui-kit.ai/tree/main/packages/components/src/checkbox-group)\n[react-aria](https://react-spectrum.adobe.com/react-aria/CheckboxGroup)\n\n## Usage\n\n```tsx\nimport { Checkbox, CheckboxGroup } from \"ui-kit.ai\"\n```\n```tsx\n<CheckboxGroup>\n    <Checkbox\n        value=\"item-1\"\n        label=\"Item 1\"\n    />\n    <Checkbox\n        value=\"item-2\"\n        label=\"Item 2\"\n    />\n</CheckboxGroup>\n```",
+            "methods": [],
+            "displayName": "CheckboxGroup",
+            "props": {
+                "ref": {
+                    "required": false,
+                    "tsType": {
+                        "name": "ForwardedRef",
+                        "elements": [{ "name": "HTMLDivElement" }],
+                        "raw": "ForwardedRef<HTMLDivElement>"
+                    },
+                    "description": ""
+                }
+            }
+        }
+    ],
+    "packages/components/src/components/autocomplete.tsx": [
+        {
+            "description": "An autocomplete combines a TextField or SearchField with a Menu or ListBox, allowing users to search or filter a list of suggestions.\n\n[source code](https://github.com/alex-mcgovern/ui-kit.ai/tree/main/packages/components/src/autocomplete)\n[react-aria](https://react-spectrum.adobe.com/react-aria/Autocomplete)",
+            "methods": [],
+            "displayName": "Autocomplete"
+        }
+    ],
+    "packages/components/src/components/description.tsx": [
+        {
+            "description": "A Description is text with attributes that improve screen reader\nannouncements, usually used to provide more context on a field or control.\n\n[source code](https://github.com/alex-mcgovern/ui-kit.ai/tree/main/packages/components/src/description)\n[react-aria](https://react-spectrum.adobe.com/react-aria/accessibility)\n\n## Usage\n\n```tsx\nimport { Description } from \"ui-kit.ai\"\n```\n```tsx\n<Description>Your description here</Description>\n```",
+            "methods": [],
+            "displayName": "Description"
+        }
+    ],
+    "packages/components/src/components/checkbox.tsx": [
+        {
+            "description": "A checkbox allows a user to select multiple items from a list of individual\nitems, or to mark one individual item as selected.\n\n[source code](https://github.com/alex-mcgovern/ui-kit.ai/tree/main/packages/components/src/checkbox)\n[react-aria](https://react-spectrum.adobe.com/react-aria/Checkbox)\n\n## Usage\n\n```tsx\nimport { Checkbox } from \"ui-kit.ai\"\n```\n```tsx\n<Checkbox\n    label=\"Checkbox item\"\n/>\n```",
+            "methods": [],
+            "displayName": "Checkbox",
+            "props": {
+                "textPosition": {
+                    "defaultValue": { "value": "\"right\"", "computed": false },
+                    "required": false
+                }
+            }
+        }
+    ],
+    "packages/components/src/components/empty-state.tsx": [
+        {
+            "description": "A EmptyState is a fallback UI shown in the absence of data, e.g. for a search\nwith no results, or before any records have been created. It accepts a list\nof up to 2 actions, which are React nodes.\n\n[source code](https://github.com/alex-mcgovern/ui-kit.ai/tree/main/packages/components/src/empty-state)\n\n## Usage\n\n```tsx\nimport { EmptyState } from \"ui-kit.ai\"\nimport { SearchXIcon } from \"lucide-react\";\n```\n```tsx\n<EmptyState\n    title={'No search results for \"foo-bar\"'}\n    body=\"Try another search term, or clearing the search.\"\n    icon={SearchXIcon}a\n    actions={[\n        <Button key=\"clear-search\">\n                Clear search\n            </Button>\n    ]}\n/>\n```",
+            "methods": [],
+            "displayName": "EmptyState",
+            "props": {
+                "actions": {
+                    "required": false,
+                    "tsType": {
+                        "name": "tuple",
+                        "raw": "[ReactNode, ReactNode?]",
+                        "elements": [
+                            { "name": "ReactNode" },
+                            { "name": "unknown" }
+                        ]
+                    },
+                    "description": ""
+                },
+                "body": {
+                    "required": true,
+                    "tsType": { "name": "ReactNode" },
+                    "description": ""
+                },
+                "className": {
+                    "required": false,
+                    "tsType": { "name": "string" },
+                    "description": ""
+                },
+                "icon": {
+                    "required": true,
+                    "tsType": {
+                        "name": "ReactForwardRefExoticComponent",
+                        "raw": "React.ForwardRefExoticComponent<\n    Omit<LucideProps, \"ref\"> & React.RefAttributes<SVGSVGElement>\n>",
+                        "elements": [
+                            {
+                                "name": "intersection",
+                                "raw": "Omit<LucideProps, \"ref\"> & React.RefAttributes<SVGSVGElement>",
+                                "elements": [
+                                    {
+                                        "name": "Omit",
+                                        "elements": [
+                                            { "name": "LucideProps" },
+                                            {
+                                                "name": "literal",
+                                                "value": "\"ref\""
+                                            }
+                                        ],
+                                        "raw": "Omit<LucideProps, \"ref\">"
+                                    },
+                                    {
+                                        "name": "ReactRefAttributes",
+                                        "raw": "React.RefAttributes<SVGSVGElement>",
+                                        "elements": [
+                                            { "name": "SVGSVGElement" }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    "description": ""
+                },
+                "title": {
+                    "required": true,
+                    "tsType": { "name": "string" },
+                    "description": ""
+                }
+            }
+        }
+    ],
+    "packages/components/src/components/field-error.tsx": [
+        {
+            "description": "A FieldError displays validation errors.\n\n[source code](https://github.com/alex-mcgovern/ui-kit.ai/tree/main/packages/components/src/description)\n\n## Usage\n\n```tsx\nimport { FieldError } from \"ui-kit.ai\"\n```\n```tsx\n<FieldError>Your error message here</FieldError>\n```",
+            "methods": [],
+            "displayName": "FieldError",
+            "props": {
+                "ref": {
+                    "required": false,
+                    "tsType": {
+                        "name": "ForwardedRef",
+                        "elements": [{ "name": "HTMLDivElement" }],
+                        "raw": "ForwardedRef<HTMLDivElement>"
+                    },
+                    "description": ""
+                }
+            }
+        }
+    ],
+    "packages/components/src/components/field-group.tsx": [
+        {
+            "description": "A group represents a set of related UI controls, and supports interactive\nstates for styling.\n\n@see https://react-spectrum.adobe.com/react-aria/Group",
+            "methods": [],
+            "displayName": "FieldGroup",
+            "props": {
+                "isBorderless": {
+                    "required": false,
+                    "tsType": { "name": "boolean" },
+                    "description": ""
+                },
+                "ref": {
+                    "required": false,
+                    "tsType": {
+                        "name": "ForwardedRef",
+                        "elements": [{ "name": "HTMLDivElement" }],
+                        "raw": "ForwardedRef<HTMLDivElement>"
+                    },
+                    "description": ""
+                }
+            }
+        }
+    ],
+    "packages/components/src/components/field-button.tsx": [
+        {
+            "description": "A field button is a button that is intended to be used inside a `Group` component\nto add additional functionality to a field. The `slot` prop is used to connect the\nbutton to the field.\n\n[react-aria](https://react-spectrum.adobe.com/react-aria/Button)\n\n## Usage\n\n```tsx\nimport { FieldButton } from \"ui-kit.ai\"\nimport { XIcon } from \"lucide-react\"\n```\n```tsx\n<FieldButton>\n    <XIcon />\n</FieldButton>",
+            "methods": [],
+            "displayName": "FieldButton"
+        }
+    ],
+    "packages/components/src/components/form-checkbox-group.tsx": [
+        {
+            "description": "A `FormCheckboxGroup` connects a `CheckboxGroup` to a `Form` component using `react-hook-form`.\n\n[React Aria Documentation](https://react-spectrum.adobe.com/react-aria/CheckboxGroup)",
+            "methods": [],
+            "displayName": "FormCheckboxGroup"
+        }
+    ],
+    "packages/components/src/components/form-submit-button.tsx": [
+        {
+            "description": "A FormSubmitButton handles form submission, and listen's to\n`react-hook-form`'s state to handle disabled * pending states appropriately.\n\n[source code](https://github.com/alex-mcgovern/ui-kit.ai/tree/main/packages/components/src/form)\n[react-hook-form](https://react-hook-form.com/)\n\n## Usage\n\n```tsx\nimport { FormSubmitButton } from \"ui-kit.ai\"\n```\n```tsx\n<FormSubmitButton>Submit</FormSubmitButton>\n```",
+            "methods": [],
+            "displayName": "FormSubmitButton",
+            "props": {
+                "children": {
+                    "defaultValue": {
+                        "value": "\"Submit\"",
+                        "computed": false
+                    },
+                    "required": false
+                },
+                "variant": {
+                    "defaultValue": {
+                        "value": "\"primary\"",
+                        "computed": false
+                    },
+                    "required": false
+                }
+            }
+        }
+    ],
+    "packages/components/src/components/form.tsx": [
+        {
+            "description": "A form is a group of inputs that allows users to submit data to a server,\nwith support for providing field validation errors.\n\n[source code](https://github.com/alex-mcgovern/ui-kit.ai/tree/main/packages/components/src/form)\n[react-hook-form](https://react-hook-form.com/)",
+            "methods": [],
+            "displayName": "Form",
+            "props": {
+                "children": {
+                    "required": true,
+                    "tsType": { "name": "ReactNode" },
+                    "description": "Form field components & form submit button. They will be able to access `react-hook-form`'s form context."
+                },
+                "className": {
+                    "required": false,
+                    "tsType": { "name": "string" },
+                    "description": "Class name for the form."
+                },
+                "onError": {
+                    "required": false,
+                    "tsType": {
+                        "name": "SubmitErrorHandler",
+                        "elements": [{ "name": "TFieldValues" }],
+                        "raw": "SubmitErrorHandler<TFieldValues>"
+                    },
+                    "description": "Function that will be called when form validation errors occur."
+                },
+                "onSubmit": {
+                    "required": true,
+                    "tsType": {
+                        "name": "SubmitHandler",
+                        "elements": [{ "name": "TFieldValues" }],
+                        "raw": "SubmitHandler<TFieldValues>"
+                    },
+                    "description": "Function that will be called when the form is submitted."
+                },
+                "options": {
+                    "required": false,
+                    "tsType": {
+                        "name": "UseFormProps",
+                        "elements": [{ "name": "TFieldValues" }],
+                        "raw": "UseFormProps<TFieldValues>"
+                    },
+                    "description": "Additional options passed to `react-hook-forms` `useForm` hook."
+                }
+            }
+        }
+    ],
+    "packages/components/src/components/form-select.tsx": [
+        {
+            "description": "A `FormSelect` connects a `Select` to a `Form` component using `react-hook-form`.\n\n[React Aria Documentation](https://react-spectrum.adobe.com/react-aria/Select)",
+            "methods": [],
+            "displayName": "FormSelect"
+        }
+    ],
+    "packages/components/src/components/form-combo-box.tsx": [
+        {
+            "description": "A `FormComboBox` connects a `ComboBox` to a `Form` component using `react-hook-form`.\n\n[React Aria Documentation](https://react-spectrum.adobe.com/react-aria/ComboBox)",
+            "methods": [],
+            "displayName": "FormComboBox"
+        }
+    ],
+    "packages/components/src/components/form-text-field.tsx": [
+        {
+            "description": "A form text field connects a `TextField` to a `Form` component using `react-hook-form`.\n\n[React Aria Documentation](https://react-spectrum.adobe.com/react-aria/TextField)",
+            "methods": [],
+            "displayName": "FormTextField"
+        }
+    ],
+    "packages/components/src/components/heading.tsx": [
+        {
+            "description": "A heading renders a semantic heading with pre-determined typography styles\n\n[source code](https://github.com/alex-mcgovern/ui-kit.ai/tree/main/packages/components/src/heading)\n\n## Usage\n\n```tsx\nimport { Heading } from \"ui-kit.ai\"\n```\n```tsx\n<Heading level={1}>\n    Lorem ipsum dolor sit amet...\n</Heading>\n```",
+            "methods": [],
+            "displayName": "Heading",
+            "props": {
+                "level": {
+                    "required": false,
+                    "tsType": {
+                        "name": "union",
+                        "raw": "1 | 2 | 3 | 4 | 5 | 6",
+                        "elements": [
+                            { "name": "literal", "value": "1" },
+                            { "name": "literal", "value": "2" },
+                            { "name": "literal", "value": "3" },
+                            { "name": "literal", "value": "4" },
+                            { "name": "literal", "value": "5" },
+                            { "name": "literal", "value": "6" }
+                        ]
+                    },
+                    "description": "",
+                    "defaultValue": { "value": "3", "computed": false }
+                }
+            }
+        }
+    ],
+    "packages/components/src/components/label.tsx": [
+        {
+            "description": "A Label is used when composing a form field, and handles associating the\nlabel with the field via the `id` and `for` attributes on your behalf.\n\n[source code](https://github.com/alex-mcgovern/ui-kit.ai/tree/main/packages/components/src/label)\n[react-aria](https://react-spectrum.adobe.com/react-aria/forms#labels-and-help-text)\n\n## Usage\n\n```tsx\nimport { Label } from \"ui-kit.ai\"\n```\n```tsx\n<Label>Your label here</Label>\n```",
+            "methods": [],
+            "displayName": "Label"
+        }
+    ],
+    "packages/components/src/components/list-box.tsx": [
+        {
+            "description": "A listbox displays a list of options and allows a user to select one or more of them.\n\n[source code](https://github.com/alex-mcgovern/ui-kit.ai/tree/main/packages/components/src/listbox)\n[react-aria](https://react-spectrum.adobe.com/react-aria/ListBox)\n\n## Usage\n\n```tsx\nimport { ListBox } from \"ui-kit.ai\"\n```\n```tsx\n<ListBox items={[{ id: \"item-1\", textValue: \"Item 1\"}]} />\n```",
+            "methods": [],
+            "displayName": "ListBox"
+        }
+    ],
+    "packages/components/src/components/input.tsx": [
+        {
+            "description": "An Input is a primitive component used when composing fields, (e.g.\nTextField, SearchField, NumberField).\n\n[source code](https://github.com/alex-mcgovern/ui-kit.ai/tree/main/packages/components/src/description)\n\n## Usage\n\n```tsx\nimport { Input } from \"ui-kit.ai\"\n```\n```tsx\n<Input placeholder=\"Type something...\" />\n```",
+            "methods": [],
+            "displayName": "Input",
+            "props": {
+                "icon": {
+                    "required": false,
+                    "tsType": { "name": "ReactNode" },
+                    "description": ""
+                },
+                "isBorderless": {
+                    "required": false,
+                    "tsType": { "name": "boolean" },
+                    "description": ""
+                },
+                "ref": {
+                    "required": false,
+                    "tsType": {
+                        "name": "ForwardedRef",
+                        "elements": [{ "name": "HTMLInputElement" }],
+                        "raw": "ForwardedRef<HTMLInputElement>"
+                    },
+                    "description": ""
+                }
+            }
+        }
+    ],
+    "packages/components/src/components/kbd.tsx": [
+        {
+            "description": "Signals that a keyboard shortcut is available for the user to use.",
+            "methods": [],
+            "displayName": "Kbd"
+        }
+    ],
+    "packages/components/src/components/options.tsx": [
+        {
+            "description": "An OptionRenderer is an internal implementation detail, that handles\nrendering ListBox items or Menu items consistently.",
+            "methods": [],
+            "displayName": "OptionRenderer",
+            "props": {
+                "type": {
+                    "required": true,
+                    "tsType": { "name": "TType" },
+                    "description": ""
+                }
+            }
+        }
+    ],
+    "packages/components/src/components/loader.tsx": [
+        {
+            "description": "A loader icon to indicate that content is loading.",
+            "methods": [],
+            "displayName": "Loader"
+        }
+    ],
+    "packages/components/src/components/table.tsx": [
+        {
+            "description": "A table displays data in rows and columns and enables a user to navigate its\ncontents via directional navigation keys, and optionally supports row\nselection and sorting.\n\n[source code](https://github.com/alex-mcgovern/ui-kit.ai/tree/main/packages/components/src/table)\n[react-aria](https://react-spectrum.adobe.com/react-aria/Table#tooltip)",
+            "methods": [],
+            "displayName": "Table",
+            "props": {
+                "aria-label": {
+                    "required": true,
+                    "tsType": { "name": "string" },
+                    "description": ""
+                },
+                "cellRenderer": {
+                    "required": false,
+                    "tsType": {
+                        "name": "signature",
+                        "type": "function",
+                        "raw": "(props: {\n    column: TableColumnSchema<TRow>;\n    row: TRow;\n}) => ReactNode",
+                        "signature": {
+                            "arguments": [
+                                {
+                                    "type": {
+                                        "name": "signature",
+                                        "type": "object",
+                                        "raw": "{\n    column: TableColumnSchema<TRow>;\n    row: TRow;\n}",
+                                        "signature": {
+                                            "properties": [
+                                                {
+                                                    "key": "column",
+                                                    "value": {
+                                                        "name": "intersection",
+                                                        "raw": "Omit<\n    AriaColumnProps,\n    \"children\" | \"id\" | \"textValue\"\n> & {\n    alignment?: \"center\" | \"end\" | \"start\";\n    id: keyof T;\n    textValue: string;\n}",
+                                                        "elements": [
+                                                            {
+                                                                "name": "Omit",
+                                                                "elements": [
+                                                                    {
+                                                                        "name": "AriaColumnProps"
+                                                                    },
+                                                                    {
+                                                                        "name": "union",
+                                                                        "raw": "\"children\" | \"id\" | \"textValue\"",
+                                                                        "elements": [
+                                                                            {
+                                                                                "name": "literal",
+                                                                                "value": "\"children\""
+                                                                            },
+                                                                            {
+                                                                                "name": "literal",
+                                                                                "value": "\"id\""
+                                                                            },
+                                                                            {
+                                                                                "name": "literal",
+                                                                                "value": "\"textValue\""
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                ],
+                                                                "raw": "Omit<\n    AriaColumnProps,\n    \"children\" | \"id\" | \"textValue\"\n>"
+                                                            },
+                                                            {
+                                                                "name": "signature",
+                                                                "type": "object",
+                                                                "raw": "{\n    alignment?: \"center\" | \"end\" | \"start\";\n    id: keyof T;\n    textValue: string;\n}",
+                                                                "signature": {
+                                                                    "properties": [
+                                                                        {
+                                                                            "key": "alignment",
+                                                                            "value": {
+                                                                                "name": "union",
+                                                                                "raw": "\"center\" | \"end\" | \"start\"",
+                                                                                "elements": [
+                                                                                    {
+                                                                                        "name": "literal",
+                                                                                        "value": "\"center\""
+                                                                                    },
+                                                                                    {
+                                                                                        "name": "literal",
+                                                                                        "value": "\"end\""
+                                                                                    },
+                                                                                    {
+                                                                                        "name": "literal",
+                                                                                        "value": "\"start\""
+                                                                                    }
+                                                                                ],
+                                                                                "required": false
+                                                                            }
+                                                                        },
+                                                                        {
+                                                                            "key": "id",
+                                                                            "value": {
+                                                                                "name": "TRow",
+                                                                                "required": true
+                                                                            }
+                                                                        },
+                                                                        {
+                                                                            "key": "textValue",
+                                                                            "value": {
+                                                                                "name": "string",
+                                                                                "required": true
+                                                                            }
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            }
+                                                        ],
+                                                        "required": true
+                                                    }
+                                                },
+                                                {
+                                                    "key": "row",
+                                                    "value": {
+                                                        "name": "TRow",
+                                                        "required": true
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "name": "props"
+                                }
+                            ],
+                            "return": { "name": "ReactNode" }
+                        }
+                    },
+                    "description": "",
+                    "defaultValue": {
+                        "value": "TableDefaultCellRenderer<TRow>",
+                        "computed": false
+                    }
+                },
+                "className": {
+                    "required": false,
+                    "tsType": { "name": "string" },
+                    "description": ""
+                },
+                "columns": {
+                    "required": true,
+                    "tsType": {
+                        "name": "Array",
+                        "elements": [
+                            {
+                                "name": "intersection",
+                                "raw": "Omit<\n    AriaColumnProps,\n    \"children\" | \"id\" | \"textValue\"\n> & {\n    alignment?: \"center\" | \"end\" | \"start\";\n    id: keyof T;\n    textValue: string;\n}",
+                                "elements": [
+                                    {
+                                        "name": "Omit",
+                                        "elements": [
+                                            { "name": "AriaColumnProps" },
+                                            {
+                                                "name": "union",
+                                                "raw": "\"children\" | \"id\" | \"textValue\"",
+                                                "elements": [
+                                                    {
+                                                        "name": "literal",
+                                                        "value": "\"children\""
+                                                    },
+                                                    {
+                                                        "name": "literal",
+                                                        "value": "\"id\""
+                                                    },
+                                                    {
+                                                        "name": "literal",
+                                                        "value": "\"textValue\""
+                                                    }
+                                                ]
+                                            }
+                                        ],
+                                        "raw": "Omit<\n    AriaColumnProps,\n    \"children\" | \"id\" | \"textValue\"\n>"
+                                    },
+                                    {
+                                        "name": "signature",
+                                        "type": "object",
+                                        "raw": "{\n    alignment?: \"center\" | \"end\" | \"start\";\n    id: keyof T;\n    textValue: string;\n}",
+                                        "signature": {
+                                            "properties": [
+                                                {
+                                                    "key": "alignment",
+                                                    "value": {
+                                                        "name": "union",
+                                                        "raw": "\"center\" | \"end\" | \"start\"",
+                                                        "elements": [
+                                                            {
+                                                                "name": "literal",
+                                                                "value": "\"center\""
+                                                            },
+                                                            {
+                                                                "name": "literal",
+                                                                "value": "\"end\""
+                                                            },
+                                                            {
+                                                                "name": "literal",
+                                                                "value": "\"start\""
+                                                            }
+                                                        ],
+                                                        "required": false
+                                                    }
+                                                },
+                                                {
+                                                    "key": "id",
+                                                    "value": {
+                                                        "name": "TRow",
+                                                        "required": true
+                                                    }
+                                                },
+                                                {
+                                                    "key": "textValue",
+                                                    "value": {
+                                                        "name": "string",
+                                                        "required": true
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        ],
+                        "raw": "TableColumnSchema<TRow>[]"
+                    },
+                    "description": ""
+                },
+                "getRowOptions": {
+                    "required": false,
+                    "tsType": {
+                        "name": "signature",
+                        "type": "function",
+                        "raw": "(props: {\n    columns: TableColumnSchema<T>[];\n    row: T;\n}) => OptionsSchema<\"menu\">[]",
+                        "signature": {
+                            "arguments": [
+                                {
+                                    "type": {
+                                        "name": "signature",
+                                        "type": "object",
+                                        "raw": "{\n    columns: TableColumnSchema<T>[];\n    row: T;\n}",
+                                        "signature": {
+                                            "properties": [
+                                                {
+                                                    "key": "columns",
+                                                    "value": {
+                                                        "name": "Array",
+                                                        "elements": [
+                                                            {
+                                                                "name": "intersection",
+                                                                "raw": "Omit<\n    AriaColumnProps,\n    \"children\" | \"id\" | \"textValue\"\n> & {\n    alignment?: \"center\" | \"end\" | \"start\";\n    id: keyof T;\n    textValue: string;\n}",
+                                                                "elements": [
+                                                                    {
+                                                                        "name": "Omit",
+                                                                        "elements": [
+                                                                            {
+                                                                                "name": "AriaColumnProps"
+                                                                            },
+                                                                            {
+                                                                                "name": "union",
+                                                                                "raw": "\"children\" | \"id\" | \"textValue\"",
+                                                                                "elements": [
+                                                                                    {
+                                                                                        "name": "literal",
+                                                                                        "value": "\"children\""
+                                                                                    },
+                                                                                    {
+                                                                                        "name": "literal",
+                                                                                        "value": "\"id\""
+                                                                                    },
+                                                                                    {
+                                                                                        "name": "literal",
+                                                                                        "value": "\"textValue\""
+                                                                                    }
+                                                                                ]
+                                                                            }
+                                                                        ],
+                                                                        "raw": "Omit<\n    AriaColumnProps,\n    \"children\" | \"id\" | \"textValue\"\n>"
+                                                                    },
+                                                                    {
+                                                                        "name": "signature",
+                                                                        "type": "object",
+                                                                        "raw": "{\n    alignment?: \"center\" | \"end\" | \"start\";\n    id: keyof T;\n    textValue: string;\n}",
+                                                                        "signature": {
+                                                                            "properties": [
+                                                                                {
+                                                                                    "key": "alignment",
+                                                                                    "value": {
+                                                                                        "name": "union",
+                                                                                        "raw": "\"center\" | \"end\" | \"start\"",
+                                                                                        "elements": [
+                                                                                            {
+                                                                                                "name": "literal",
+                                                                                                "value": "\"center\""
+                                                                                            },
+                                                                                            {
+                                                                                                "name": "literal",
+                                                                                                "value": "\"end\""
+                                                                                            },
+                                                                                            {
+                                                                                                "name": "literal",
+                                                                                                "value": "\"start\""
+                                                                                            }
+                                                                                        ],
+                                                                                        "required": false
+                                                                                    }
+                                                                                },
+                                                                                {
+                                                                                    "key": "id",
+                                                                                    "value": {
+                                                                                        "name": "TRow",
+                                                                                        "required": true
+                                                                                    }
+                                                                                },
+                                                                                {
+                                                                                    "key": "textValue",
+                                                                                    "value": {
+                                                                                        "name": "string",
+                                                                                        "required": true
+                                                                                    }
+                                                                                }
+                                                                            ]
+                                                                        }
+                                                                    }
+                                                                ]
+                                                            }
+                                                        ],
+                                                        "raw": "TableColumnSchema<T>[]",
+                                                        "required": true
+                                                    }
+                                                },
+                                                {
+                                                    "key": "row",
+                                                    "value": {
+                                                        "name": "TRow",
+                                                        "required": true
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "name": "props"
+                                }
+                            ],
+                            "return": {
+                                "name": "Array",
+                                "elements": [
+                                    {
+                                        "name": "union",
+                                        "raw": "| OptionsItemSchema<TType, TItemId, TValue>\n| OptionsSectionSchema<TType, TItemId, TValue>",
+                                        "elements": [
+                                            {
+                                                "name": "OptionsItemSchema",
+                                                "elements": [
+                                                    {
+                                                        "name": "literal",
+                                                        "value": "\"menu\""
+                                                    },
+                                                    { "name": "string" },
+                                                    { "name": "object" }
+                                                ],
+                                                "raw": "OptionsItemSchema<TType, TItemId, TValue>"
+                                            },
+                                            {
+                                                "name": "OptionsSectionSchema",
+                                                "elements": [
+                                                    {
+                                                        "name": "literal",
+                                                        "value": "\"menu\""
+                                                    },
+                                                    { "name": "string" },
+                                                    { "name": "object" }
+                                                ],
+                                                "raw": "OptionsSectionSchema<TType, TItemId, TValue>"
+                                            }
+                                        ]
+                                    }
+                                ],
+                                "raw": "OptionsSchema<\"menu\">[]"
+                            }
+                        }
+                    },
+                    "description": ""
+                },
+                "renderEmptyState": {
+                    "required": true,
+                    "tsType": {
+                        "name": "ComponentProps[\"renderEmptyState\"]",
+                        "raw": "ComponentProps<typeof TableBody>[\"renderEmptyState\"]"
+                    },
+                    "description": "Provides content to display when there are no rows in the table.\n\n@note This behavior interacts with the `showSkeleton` prop."
+                },
+                "rows": {
+                    "required": true,
+                    "tsType": {
+                        "name": "Array",
+                        "elements": [{ "name": "TRow" }],
+                        "raw": "TRow[]"
+                    },
+                    "description": ""
+                },
+                "showLoadingOverlayUI": {
+                    "required": false,
+                    "tsType": { "name": "boolean" },
+                    "description": "If set to true, will render an overlay containing a loading \"spinner\" and\napply a blur effect over the table.\n\n**Recommendation**: Use this when data has already been loaded into the\ntable, and is in the process of being refreshed."
+                },
+                "showSkeleton": {
+                    "required": false,
+                    "tsType": {
+                        "name": "union",
+                        "raw": "[boolean, T] | boolean",
+                        "elements": [
+                            {
+                                "name": "tuple",
+                                "raw": "[boolean, T]",
+                                "elements": [
+                                    { "name": "boolean" },
+                                    {
+                                        "name": "signature",
+                                        "type": "object",
+                                        "raw": "{\n    skeletonRowCount?: number;\n}",
+                                        "signature": {
+                                            "properties": [
+                                                {
+                                                    "key": "skeletonRowCount",
+                                                    "value": {
+                                                        "name": "number",
+                                                        "required": false
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    }
+                                ]
+                            },
+                            { "name": "boolean" }
+                        ]
+                    },
+                    "description": "If set to true, will render a fallback \"skeleton\" element into each cell,\nrespecting each columns width, alignment and styling.\n\n**Recommendation**: Use this when data is being fetched, and there is no\ncontent to render in the table yet.\n\nAccepts a {@link BoolOptsTuple} which is either a boolean, or a tuple\ncontaining options in the second slot."
+                }
+            }
+        }
+    ],
+    "packages/components/src/components/skeleton.tsx": [
+        {
+            "description": "An animated `Skeleton` component, for use as a loading placeholder.",
+            "methods": [],
+            "displayName": "Skeleton"
+        }
+    ],
+    "packages/components/src/types/action-nodes.tsx": [
+        {
+            "description": "",
+            "methods": [],
+            "displayName": "renderActionNodes",
+            "props": {
+                "actions": {
+                    "required": true,
+                    "tsType": {
+                        "name": "union",
+                        "raw": "ActionNodes | undefined",
+                        "elements": [
+                            {
+                                "name": "tuple",
+                                "raw": "[ReactNode, ReactNode?]",
+                                "elements": [
+                                    { "name": "ReactNode" },
+                                    { "name": "unknown" }
+                                ]
+                            },
+                            { "name": "undefined" }
+                        ]
+                    },
+                    "description": ""
+                },
+                "className": {
+                    "required": false,
+                    "tsType": { "name": "string" },
+                    "description": ""
+                },
+                "props": {
+                    "required": true,
+                    "tsType": {
+                        "name": "HTMLAttributes",
+                        "elements": [{ "name": "HTMLElement" }],
+                        "raw": "HTMLAttributes<HTMLElement>"
+                    },
+                    "description": ""
+                }
+            }
+        }
+    ]
+}
