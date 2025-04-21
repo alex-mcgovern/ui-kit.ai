@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
+import type { ComponentProps } from 'react'
 
 import {
     Autocomplete,
@@ -10,7 +11,6 @@ import {
 } from '@ui-kit.ai/components'
 import { getMockOptions } from '@ui-kit.ai/mocks'
 import { SearchIcon } from 'lucide-react'
-import React from 'react'
 
 const meta = {
     component: Autocomplete,
@@ -21,7 +21,7 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof Autocomplete>
 
-const Template = (args: React.ComponentProps<typeof Autocomplete>) => (
+const Template = (args: ComponentProps<typeof Autocomplete>) => (
     <Autocomplete {...args}>
         <SearchField aria-label='Search'>
             <FieldGroup>

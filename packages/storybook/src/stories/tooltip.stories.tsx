@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import type { ComponentProps } from 'react'
+import type { ComponentProps, ComponentType } from 'react'
 
 import { Button, Tooltip, TooltipInfoButton, TooltipTrigger } from '@ui-kit.ai/components'
 import {
@@ -12,7 +12,6 @@ import {
     MoveLeftIcon,
     MoveRightIcon,
 } from 'lucide-react'
-import React from 'react'
 
 type Placement = ComponentProps<typeof Tooltip>['placement']
 
@@ -39,7 +38,7 @@ const PLACEMENT_ICONS = {
     top: ArrowUp,
     'top left': ArrowUpLeft,
     'top right': ArrowUpRight,
-} satisfies Record<KnownPlacement, React.ComponentType>
+} satisfies Record<KnownPlacement, ComponentType>
 
 const getPlacementIcon = (placement: KnownPlacement) => {
     const Icon = PLACEMENT_ICONS[placement]

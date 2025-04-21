@@ -8,7 +8,7 @@ function Template(args: ComponentProps<typeof Card>) {
     return (
         <Card {...args}>
             <CardHeader>
-                <Zap className='bg-muted-100 p-1.5 rounded-full size-8 text-mid-contrast -ml-1.5' />
+                <Zap className='bg-muted-100 text-mid-contrast -ml-1.5 size-8 rounded-full p-1.5' />
                 <CardTitle>Card Title</CardTitle>
             </CardHeader>
             <CardBody>

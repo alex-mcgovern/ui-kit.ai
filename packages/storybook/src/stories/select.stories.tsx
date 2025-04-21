@@ -3,7 +3,6 @@ import type { ComponentProps, ComponentType } from 'react'
 
 import { Description, Label, type OptionsSchema, Select, SelectButton } from '@ui-kit.ai/components'
 import { getMockOptions } from '@ui-kit.ai/mocks'
-import React from 'react'
 
 import * as DescriptionStories from './description.stories'
 import * as LabelStories from './label.stories'

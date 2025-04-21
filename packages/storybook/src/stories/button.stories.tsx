@@ -3,7 +3,6 @@ import type { ComponentProps } from 'react'
 
 import { Button } from '@ui-kit.ai/components'
 import { StarIcon } from 'lucide-react'
-import * as React from 'react'
 
 const VARIANTS = ['primary', 'secondary', 'tertiary'] as const satisfies Array<
     ComponentProps<typeof Button>['variant']

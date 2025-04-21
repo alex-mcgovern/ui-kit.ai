@@ -2,7 +2,6 @@ import type { Meta, StoryObj } from '@storybook/react'
 
 import { Input } from '@ui-kit.ai/components'
 import { SearchIcon } from 'lucide-react'
-import React from 'react'
 
 const meta: Meta<typeof Input> = {
     args: {

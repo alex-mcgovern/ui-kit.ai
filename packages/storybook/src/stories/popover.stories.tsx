@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import type { ComponentProps } from 'react'
+import type { ComponentProps, ComponentType } from 'react'
 
 import { Button, DialogTrigger, Heading, Popover, PopoverDialog } from '@ui-kit.ai/components'
 
@@ -39,7 +39,7 @@ const PLACEMENT_ICONS = {
     top: ArrowUp,
     'top left': ArrowUpLeft,
     'top right': ArrowUpRight,
-} satisfies Record<KnownPlacement, React.ComponentType>
+} satisfies Record<KnownPlacement, ComponentType>
 
 const getPlacementIcon = (placement: KnownPlacement) => {
     const Icon = PLACEMENT_ICONS[placement]

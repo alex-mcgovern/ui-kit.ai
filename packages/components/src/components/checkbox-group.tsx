@@ -1,6 +1,6 @@
 import type { CheckboxGroupProps as AriaCheckboxGroupProps } from 'react-aria-components'
 
-import React, { type ForwardedRef } from 'react'
+import { type ForwardedRef } from 'react'
 import { CheckboxGroup as AriaCheckboxGroup } from 'react-aria-components'
 import { twMerge } from 'tailwind-merge'
 

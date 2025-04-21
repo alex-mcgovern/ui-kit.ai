@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
 import { Tab, TabList, TabPanel, Tabs } from '@ui-kit.ai/components'
-import * as React from 'react'
 
 function TemplateHorizontal() {
     return (
@@ -16,7 +15,7 @@ function TemplateHorizontal() {
             </TabList>
 
             <TabPanel id='caesar'>
-                <ul className='list-disc list-inside'>
+                <ul className='list-inside list-disc'>
                     <li className='ml-2'>Crossed the Rubicon in 49 BCE, sparking civil war</li>
                     <li className='ml-2'>Implemented the Julian calendar</li>
                     <li className='ml-2'>Assassinated on the Ides of March (March 15) in 44 BCE</li>
@@ -24,7 +23,7 @@ function TemplateHorizontal() {
             </TabPanel>
 
             <TabPanel id='octavian'>
-                <ul className='list-disc list-inside'>
+                <ul className='list-inside list-disc'>
                     <li className='ml-2'>Was Julius Caesar's adopted son and heir</li>
                     <li className='ml-2'>Became Rome's first emperor under the name Augustus</li>
                     <li className='ml-2'>
@@ -34,7 +33,7 @@ function TemplateHorizontal() {
             </TabPanel>
 
             <TabPanel id='marc-antony'>
-                <ul className='list-disc list-inside'>
+                <ul className='list-inside list-disc'>
                     <li className='ml-2'>
                         Formed the Second Triumvirate with Octavian and Lepidus
                     </li>
@@ -58,7 +57,7 @@ function TemplateVertical() {
                 <Tab id='marc-antony'>Archive</Tab>
             </TabList>
             <TabPanel id='caesar'>
-                <ul className='list-disc list-inside'>
+                <ul className='list-inside list-disc'>
                     <li className='ml-2'>Crossed the Rubicon in 49 BCE, sparking civil war</li>
                     <li className='ml-2'>Implemented the Julian calendar</li>
                     <li className='ml-2'>Assassinated on the Ides of March (March 15) in 44 BCE</li>
@@ -66,7 +65,7 @@ function TemplateVertical() {
             </TabPanel>
 
             <TabPanel id='octavian'>
-                <ul className='list-disc list-inside'>
+                <ul className='list-inside list-disc'>
                     <li className='ml-2'>Was Julius Caesar's adopted son and heir</li>
                     <li className='ml-2'>Became Rome's first emperor under the name Augustus</li>
                     <li className='ml-2'>
@@ -76,7 +75,7 @@ function TemplateVertical() {
             </TabPanel>
 
             <TabPanel id='marc-antony'>
-                <ul className='list-disc list-inside'>
+                <ul className='list-inside list-disc'>
                     <li className='ml-2'>
                         Formed the Second Triumvirate with Octavian and Lepidus
                     </li>

@@ -10,12 +10,12 @@ export type ColorPaletteInput = {
     warning: string
 }
 
-export const DEFAULT_COLOR_PALETTE_INPUT: ColorPaletteInput = {
+export const DEFAULT_COLOR_PALETTE_INPUT = {
     accent: '#5B5BD6',
     error: '#E54666',
     success: '#29A383',
     warning: '#FFC53D',
-} as const
+} as const satisfies ColorPaletteInput
 
 export class ColorPalette {
     private accentHsl: Hsl

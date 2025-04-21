@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
+import type { ComponentProps } from 'react'
 
 import { zodResolver } from '@hookform/resolvers/zod'
 import {
@@ -21,13 +22,12 @@ const schema = z.object({
 
 type FieldValues = z.input<typeof schema>
 
-const Template = (args: React.ComponentProps<typeof FormSubmitButton>) => (
+const Template = (args: ComponentProps<typeof FormSubmitButton>) => (
     <Form<FieldValues>
         onSubmit={async () => {
             await new Promise((resolve) => setTimeout(resolve, 1000))
         }}
         options={{
-            // @ts-expect-error - TODO: Infinitely deep type in form
             resolver: zodResolver(schema),
         }}
     >
@@ -48,9 +48,6 @@ const Template = (args: React.ComponentProps<typeof FormSubmitButton>) => (
 
 const meta: Meta<typeof FormSubmitButton> = {
     component: FormSubmitButton,
-    parameters: {
-        layout: 'centered',
-    },
     render: Template,
     title: 'Components/Form/FormSubmitButton',
 }
@@ -62,23 +59,16 @@ export const Default: Story = {
     args: {
         children: 'Submit',
     },
-}
-
-export const Loading: Story = {
-    args: {
-        children: 'Submit',
-    },
     parameters: {
-        docs: {
-            description: {
-                story: 'The button automatically shows a loading state while the form is submitting.',
-            },
-        },
+        displayName: 'Default',
     },
 }
 
 export const CustomLabel: Story = {
     args: {
         children: 'Save Changes',
+    },
+    parameters: {
+        displayName: 'With Custom Label',
     },
 }

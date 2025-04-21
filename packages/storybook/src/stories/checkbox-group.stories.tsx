@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
 import { Checkbox, CheckboxGroup, Description, Label } from '@ui-kit.ai/components'
-import React, { type ComponentProps } from 'react'
+import { type ComponentProps } from 'react'
 
 import * as DescriptionStories from './description.stories'
 import * as LabelStories from './label.stories'

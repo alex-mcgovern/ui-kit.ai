@@ -20,7 +20,7 @@
         "dist"
     ],
     "scripts": {
-        "build": "vite build --emptyOutDir=false && tsx ./src/gen-palette.ts",
+        "build": "vite build && tsx ./src/gen-palette.ts",
         "postbuild": "prettier ./dist/style.css --write",
         "build:watch": "vite build --watch",
         "check:eslint": "eslint .",

@@ -127,7 +127,7 @@ function Template(props: ComponentProps<typeof Form<FieldValues>>) {
     )
 }
 
-const meta = {
+const meta: Meta<typeof Form<FieldValues>> = {
     args: {
         onError: (errors) => {
             alert(`Errors:\n\n${JSON.stringify(errors, null, 4)}`)
@@ -143,13 +143,12 @@ const meta = {
     component: Form,
     render: Template,
     title: 'Components/Form',
-} satisfies Meta<typeof Form<FieldValues>>
+}
 
 export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
-    // @ts-expect-error - we're not passing children and that's alright
     args: {},
     parameters: {
         displayName: 'Default',

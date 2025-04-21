@@ -3,7 +3,6 @@ import type { ComponentProps } from 'react'
 
 import { Checkbox, Description, FormCheckboxGroup, Label } from '@ui-kit.ai/components'
 import { Form } from '@ui-kit.ai/components'
-import React from 'react'
 
 import * as DescriptionStories from './description.stories'
 import * as LabelStories from './label.stories'

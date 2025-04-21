@@ -13,7 +13,7 @@ import {
 } from '@ui-kit.ai/components'
 import { getMockOptions } from '@ui-kit.ai/mocks'
 import { SearchIcon } from 'lucide-react'
-import React, { type ComponentProps } from 'react'
+import { type ComponentProps } from 'react'
 
 import * as DescriptionStories from './description.stories'
 import * as LabelStories from './label.stories'

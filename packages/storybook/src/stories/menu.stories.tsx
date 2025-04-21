@@ -5,7 +5,6 @@ import type { ComponentProps } from 'react'
 import { Button, Menu, MenuTrigger, Popover } from '@ui-kit.ai/components'
 import { getMockOptions } from '@ui-kit.ai/mocks'
 import { MenuIcon } from 'lucide-react'
-import React from 'react'
 
 function Template(args: ComponentProps<typeof Menu>) {
     return (

@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react'
+import type { ComponentProps } from 'react'
 
 import { FieldGroup, Input, SearchField, SearchFieldClearButton } from '@ui-kit.ai/components'
 import { SearchIcon } from 'lucide-react'
-import React from 'react'
 
 const meta = {
     component: SearchField,
@@ -13,7 +13,7 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof SearchField>
 
-const Template = (args: React.ComponentProps<typeof SearchField>) => (
+const Template = (args: ComponentProps<typeof SearchField>) => (
     <SearchField {...args}>
         <FieldGroup>
             <Input

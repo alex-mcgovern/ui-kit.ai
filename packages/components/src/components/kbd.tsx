@@ -10,7 +10,7 @@ export function Kbd(props: HTMLProps<HTMLDivElement>) {
         <div
             {...props}
             className={twMerge(
-                'h-5 min-w-5 w-min',
+                'h-5 w-min min-w-5',
                 'text-center align-text-bottom',
                 // "inline-flex shrink-0 items-baseline justify-center",
                 'text-xs font-medium whitespace-nowrap',
