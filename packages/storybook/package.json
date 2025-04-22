@@ -16,6 +16,7 @@
         "dist"
     ],
     "scripts": {
+        "prebuild": "tsx ./src/scripts/gen-index.ts && prettier ./src/index.ts --write",
         "build": "vite build",
         "build:watch": "vite build --watch",
         "check:eslint": "eslint .",
