@@ -22,6 +22,7 @@ export const CheckboxGroup = ({
             className={(renderProps) =>
                 twMerge(
                     'group',
+                    props.isInvalid === true ? 'error' : '',
                     typeof props.className === 'function'
                         ? props.className(renderProps)
                         : props.className

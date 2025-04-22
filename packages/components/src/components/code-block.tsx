@@ -5,12 +5,12 @@ import { Prism as SyntaxHighlighter, type SyntaxHighlighterProps } from 'react-s
  * This component is styled with Tailwind CSS and supports additional customization
  * through props.
  */
-export function CodeBlock(props: SyntaxHighlighterProps) {
+export function CodeBlock({ showLineNumbers = true, ...props }: SyntaxHighlighterProps) {
     return (
         <SyntaxHighlighter
             {...props}
             PreTag={undefined}
-            showLineNumbers
+            showLineNumbers={showLineNumbers}
             useInlineStyles={false}
             wrapLines
         >

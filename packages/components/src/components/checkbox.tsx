@@ -96,15 +96,10 @@ const iconStyles = tv({
         'transition-colors',
         'stroke-transparent',
         // hover
-        'group-hover:stroke-lo-contrast',
-        'group-hover/row:stroke-lo-contrast',
+        'group-hover:stroke-mid-contrast',
+        'group-hover/row:stroke-mid-contrast',
         'group-selected:stroke-accent-fg',
         'group-indeterminate:stroke-accent-fg',
-        // invalid
-        'group-hover:group-invalid:stroke-error',
-        'group-hover/row:group-invalid:stroke-error',
-        'group-selected:group-invalid:stroke-error-accent-fg',
-        'group-indeterminate:group-invalid:stroke-error-accent-fg',
     ],
 })
 
