@@ -33,7 +33,13 @@ jobs:
                   cache: 'pnpm'
                   cache-dependency-path: 'pnpm-lock.yaml'
 
-            - name: Install
+            - name: Install dependencies
+              run: pnpm i
+
+            - name: Build (internal packages)
+              run: pnpm run build
+
+            - name: Install (internal packages)
               run: pnpm i
 
             - name: Code quality
