@@ -7,17 +7,16 @@ settings:
 importers:
 
   .:
-    dependencies:
+    devDependencies:
       '@commitlint/config-conventional':
         specifier: ^19.8.0
         version: 19.8.0
-      commitlint:
-        specifier: ^19.8.0
-        version: 19.8.0(@types/node@22.14.0)(typescript@5.8.3)
-    devDependencies:
       '@ui-kit.ai/prettier':
         specifier: workspace:*
         version: link:packages/prettier
+      commitlint:
+        specifier: ^19.8.0
+        version: 19.8.0(@types/node@22.14.0)(typescript@5.8.3)
       knip:
         specifier: 5.46.0
         version: 5.46.0(@types/node@22.14.0)(typescript@5.8.3)
