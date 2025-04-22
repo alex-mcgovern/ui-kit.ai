@@ -133,8 +133,8 @@ export class ColorPalette {
                 this._formatHsl(this._tint(gray, 'dark')),
             ],
             'tint-dark': [
-                this._formatHsl(this._shade('light', this._tint(gray, 'light'))),
-                this._formatHsl(this._shade('light', this._tint(gray, 'dark'))),
+                this._formatHsl(this._shade('dark', this._tint(gray, 'light'))),
+                this._formatHsl(this._shade('dark', this._tint(gray, 'dark'))),
             ],
             'tint-light': [
                 this._formatHsl(this._shade('light', this._tint(gray, 'light'))),
@@ -222,7 +222,7 @@ export class ColorPalette {
     private _bgRaised(hsl: Hsl, mode: 'dark' | 'light'): Hsl {
         return {
             ...hsl,
-            l: mode === 'light' ? 0.9825 : 0.0675,
+            l: mode === 'light' ? 0.9825 : 0.0888,
             s: 0.05,
         }
     }
@@ -269,8 +269,9 @@ export class ColorPalette {
      * hover/pressed states.
      */
     private _shade(modifier: 'dark' | 'light', hslVal: Hsl): Hsl {
-        const factor = modifier === 'light' ? 1.05 : 0.95
-        const newL = Math.max(0.025, Math.min(0.975, hslVal.l * factor))
+        const factor = 0.05
+        const appliedFactor = modifier === 'dark' ? -factor : factor
+        const newL = Math.max(0.0125, Math.min(0.9875, hslVal.l + appliedFactor))
         return { ...hslVal, l: newL }
     }
 
@@ -302,7 +303,7 @@ export class ColorPalette {
     private _tint(hslVal: Hsl, mode: 'dark' | 'light'): Hsl {
         return {
             ...hslVal,
-            l: mode === 'light' ? 0.85 : 0.15,
+            l: mode === 'light' ? 0.8 : 0.2,
             s: hslVal.s * 0.9,
         }
     }

@@ -22,11 +22,11 @@ export const fieldVariants = tv({
         isBorderless: {
             false: [
                 [
-                    'border-tint-dark border',
+                    'border-tint border',
                     'bg-background',
                     'transition-colors',
                     // hover
-                    'hover:[&:not([data-disabled])]:border-lo-contrast',
+                    'hover:[&:not([data-disabled])]:border-tint-light',
                     // invalid
                     'invalid:error group-invalid:error',
                     // focus visible
