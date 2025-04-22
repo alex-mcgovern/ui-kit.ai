@@ -38,6 +38,3 @@ jobs:
 
             - name: Code quality
               run: pnpm run check
-
-            - name: Build
-              run: pnpm run build

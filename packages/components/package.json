@@ -69,7 +69,6 @@
         "@ui-kit.ai/vitest": "workspace:*",
         "autoprefixer": "10.4.21",
         "react-docgen-typescript": "2.2.2",
-        "tsx": "4.19.2",
         "typescript": "5.5.4"
     },
     "engines": {

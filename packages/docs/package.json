@@ -48,7 +48,6 @@
         "postcss": "8.5.3",
         "react-docgen-typescript": "2.2.2",
         "tailwindcss-react-aria-components": "2.0.0",
-        "tsx": "4.19.2",
         "typescript": "5.5.4"
     },
     "engines": {
