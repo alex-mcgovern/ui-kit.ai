@@ -60,7 +60,7 @@ async function main() {
 
             for (const [storyName, Story] of Object.entries(composedStories)) {
                 try {
-                    let jsx = reactElementToJSXString(
+                    const jsx = reactElementToJSXString(
                         (Story as () => ReactNode)(),
                         JSX_STRING_OPTIONS
                     )
@@ -68,11 +68,11 @@ async function main() {
                         throw Error(
                             `React.Fragment found in ${componentName} ${(Story as StoryFn).storyName}`
                         )
-                    jsx = `export function MyComponent() {\nreturn (${jsx});\n}`
-                    const formatted = await format(jsx, {
+                    let formatted = await format(jsx, {
                         ...prettierOptions,
                         parser: 'babel',
                     })
+                    if (formatted.startsWith(`;`)) formatted = formatted.slice(1)
 
                     composed[storyName] = formatted
                 } catch (e) {
