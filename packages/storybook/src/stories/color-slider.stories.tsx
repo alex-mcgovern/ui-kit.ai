@@ -3,17 +3,58 @@ import type { ComponentProps } from 'react'
 
 import { ColorSlider } from '@ui-kit.ai/components'
 
-function Template(args: ComponentProps<typeof ColorSlider>) {
+function HSLATemplate(args: ComponentProps<typeof ColorSlider>) {
     return (
-        <div className='flex w-64 flex-col gap-8'>
-            <ColorSlider {...args} />
+        <div className='flex flex-col gap-4 w-full'>
+            <ColorSlider
+                {...args}
+                channel='hue'
+            />
+            <ColorSlider
+                {...args}
+                channel='saturation'
+            />
+            <ColorSlider
+                {...args}
+                channel='lightness'
+            />
+            <ColorSlider
+                {...args}
+                channel='alpha'
+            />
         </div>
     )
 }
 
+function RGBATemplate(args: ComponentProps<typeof ColorSlider>) {
+    return (
+        <div className='flex flex-col gap-4 w-full'>
+            <ColorSlider
+                {...args}
+                channel='red'
+            />
+            <ColorSlider
+                {...args}
+                channel='green'
+            />
+            <ColorSlider
+                {...args}
+                channel='blue'
+            />
+            <ColorSlider
+                {...args}
+                channel='alpha'
+            />
+        </div>
+    )
+}
+
+function Template(args: ComponentProps<typeof ColorSlider>) {
+    return <ColorSlider {...args} />
+}
+
 const meta = {
     component: ColorSlider,
-    render: Template,
     title: 'Components/ColorSlider',
 } satisfies Meta<typeof ColorSlider>
 
@@ -25,90 +66,41 @@ type Story = StoryObj<typeof meta>
  */
 export const Default: Story = {
     args: {
-        channel: 'hue',
-        defaultValue: '#5000ff',
+        channel: 'blue',
+        defaultValue: '#5B5BD6',
     },
     parameters: {
         displayName: 'Default',
     },
+    render: Template,
 }
 
 /**
  * Slider for adjusting the saturation of a color.
  */
-export const SaturationSlider: Story = {
+export const RGBA: Story = {
+    // @ts-expect-error - intentionally omitting channel
     args: {
-        channel: 'saturation',
-        defaultValue: '#5000ff',
+        defaultValue: '#5B5BD6',
     },
     parameters: {
-        displayName: 'Saturation',
+        displayName: 'RGBA',
     },
+    render: RGBATemplate,
 }
 
 /**
  * Slider for adjusting the brightness/value of a color.
  */
-export const BrightnessSlider: Story = {
+export const HSLA: Story = {
     args: {
         channel: 'brightness',
-        defaultValue: '#5000ff',
+        defaultValue: 'hsl(240, 60%, 60%)',
     },
     parameters: {
-        displayName: 'Brightness',
+        displayName: 'HSLA',
     },
-}
-
-/**
- * Slider for adjusting the red channel of a color.
- */
-export const RedChannelSlider: Story = {
-    args: {
-        channel: 'red',
-        defaultValue: '#5000ff',
-    },
-    parameters: {
-        displayName: 'Red Channel',
-    },
-}
-
-/**
- * Slider for adjusting the green channel of a color.
- */
-export const GreenChannelSlider: Story = {
-    args: {
-        channel: 'green',
-        defaultValue: '#5000ff',
-    },
-    parameters: {
-        displayName: 'Green Channel',
-    },
-}
-
-/**
- * Slider for adjusting the blue channel of a color.
- */
-export const BlueChannelSlider: Story = {
-    args: {
-        channel: 'blue',
-        defaultValue: '#5000ff',
-    },
-    parameters: {
-        displayName: 'Blue Channel',
-    },
-}
-
-/**
- * Slider for adjusting the alpha (transparency) of a color.
- */
-export const AlphaSlider: Story = {
-    args: {
-        channel: 'alpha',
-        defaultValue: 'rgba(80, 0, 255, 0.5)',
-    },
-    parameters: {
-        displayName: 'Alpha',
-    },
+    render: HSLATemplate,
 }
 
 /**
@@ -116,25 +108,11 @@ export const AlphaSlider: Story = {
  */
 export const DisabledSlider: Story = {
     args: {
-        channel: 'hue',
-        defaultValue: '#5000ff',
+        channel: 'alpha',
+        defaultValue: '#5B5BD6',
         isDisabled: true,
     },
     parameters: {
         displayName: 'Disabled',
-    },
-}
-
-/**
- * Custom width example for the color slider.
- */
-export const CustomWidth: Story = {
-    args: {
-        channel: 'hue',
-        className: 'w-96',
-        defaultValue: '#5000ff',
-    },
-    parameters: {
-        displayName: 'Custom Width',
     },
 }

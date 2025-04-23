@@ -22,19 +22,21 @@ export default meta
 type Story = StoryObj<typeof Autocomplete>
 
 const Template = (args: ComponentProps<typeof Autocomplete>) => (
-    <Autocomplete {...args}>
-        <SearchField aria-label='Search'>
-            <FieldGroup>
-                <Input
-                    icon={<SearchIcon />}
-                    isBorderless
-                    placeholder='Search...'
-                />
-                <SearchFieldClearButton />
-            </FieldGroup>
-        </SearchField>
-        <Menu items={getMockOptions({ withIcon: true })} />
-    </Autocomplete>
+    <div className='flex flex-col gap-2 w-full'>
+        <Autocomplete {...args}>
+            <SearchField aria-label='Search'>
+                <FieldGroup>
+                    <Input
+                        icon={<SearchIcon />}
+                        isBorderless
+                        placeholder='Search...'
+                    />
+                    <SearchFieldClearButton />
+                </FieldGroup>
+            </SearchField>
+            <Menu items={getMockOptions({ withIcon: true })} />
+        </Autocomplete>
+    </div>
 )
 
 export const Default: Story = {
