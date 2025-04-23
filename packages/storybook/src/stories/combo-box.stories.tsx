@@ -37,7 +37,6 @@ function Template(props: ComponentProps<typeof ComboBox<OptionsSchema<'listbox'>
 
 const meta: Meta<typeof ComboBox<OptionsSchema<'listbox'>>> = {
     component: ComboBox,
-    decorators: [(Story) => <div className='mx-auto w-96'>{Story()}</div>],
     title: 'Components/ComboBox',
 }
 

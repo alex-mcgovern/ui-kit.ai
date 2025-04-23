@@ -23,15 +23,37 @@ type StoryFn = (() => ReactNode) & {
     tags: string[]
 }
 
+const NO_DISPLAY_NAME_SIGNAL = 'NO_DISPLAY_NAME_SIGNAL'
+
 const JSX_STRING_OPTIONS = {
+    displayName(element: ReactNode) {
+        if (typeof element === 'string') return element
+        if (typeof element === 'object' && element !== null && 'type' in element) {
+            const type = (element as { type: unknown }).type
+            if (typeof type === 'string') return type
+            // Handle forwardRef components
+            if (typeof type === 'object' && type !== null && 'render' in type) {
+                const render = (type as { render: { displayName?: string } }).render
+                if (render.displayName != null) return render.displayName
+            }
+            if (typeof type === 'function') {
+                const displayName = (type as unknown as { displayName: string }).displayName
+                if (displayName) return displayName
+                const name = (type as { name: string }).name
+                if (name) return name
+            }
+        }
+        return NO_DISPLAY_NAME_SIGNAL
+    },
     filterProps(_value, key) {
         return key !== 'data-testid' && key !== 'key'
     },
     // eslint-disable-next-line @typescript-eslint/no-unsafe-function-type
     functionValue: (fn: Function) => fn.toString(),
+    maxInlineAttributesLineLength: 30,
+    showDefaultProps: false,
     showFunctions: true,
     useBooleanShorthandSyntax: true,
-
     useFragmentShortSyntax: true,
 } as const satisfies ReactElementToJsxStringOptions
 
@@ -48,44 +70,32 @@ async function main() {
     const reactElementToJSXString = await (await import('react-element-to-jsx-string')).default
 
     for (const [componentName, stories] of Object.entries(components)) {
-        try {
-            const composedStories = composeStories(
-                stories as Parameters<typeof composeStories>[0],
-                {
-                    applyDecorators: (storyFn) => storyFn, // We don't want to apply any decorators
-                }
-            )
+        const composedStories = composeStories(stories as Parameters<typeof composeStories>[0], {
+            applyDecorators: (storyFn) => storyFn, // We don't want to apply any decorators
+        })
 
-            const composed: Record<string, string> = {}
+        const composed: Record<string, string> = {}
 
-            for (const [storyName, Story] of Object.entries(composedStories)) {
-                try {
-                    const jsx = reactElementToJSXString(
-                        (Story as () => ReactNode)(),
-                        JSX_STRING_OPTIONS
-                    )
-                    if (jsx.includes('React.Fragment'))
-                        throw Error(
-                            `React.Fragment found in ${componentName} ${(Story as StoryFn).storyName}`
-                        )
-                    let formatted = await format(jsx, {
-                        ...prettierOptions,
-                        parser: 'babel',
-                    })
-                    if (formatted.startsWith(`;`)) formatted = formatted.slice(1)
+        for (const [storyName, Story] of Object.entries(composedStories)) {
+            const jsx = reactElementToJSXString((Story as () => ReactNode)(), JSX_STRING_OPTIONS)
+            if (jsx.includes('React.Fragment'))
+                throw Error(
+                    `React.Fragment found in ${componentName} ${(Story as StoryFn).storyName}\n\n${jsx}`
+                )
+            if (jsx.includes(NO_DISPLAY_NAME_SIGNAL))
+                throw Error(
+                    `Missing display name found in ${componentName} ${(Story as StoryFn).storyName}\n\n${jsx}`
+                )
+            let formatted = await format(jsx, {
+                ...prettierOptions,
+                parser: 'babel',
+            })
+            if (formatted.startsWith(`;`)) formatted = formatted.slice(1)
 
-                    composed[storyName] = formatted
-                } catch (e) {
-                    console.error(
-                        `Error while formatting story ${storyName} of ${componentName}: ${e}`
-                    )
-                }
-            }
-
-            examples[componentName] = composed
-        } catch (e) {
-            console.error(`Error while processing ${componentName}: ${e}`)
+            composed[storyName] = formatted
         }
+
+        examples[componentName] = composed
     }
 
     fs.writeFileSync(outputPath, JSON.stringify(examples, null, 2), 'utf-8')

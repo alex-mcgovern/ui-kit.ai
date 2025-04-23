@@ -23,7 +23,7 @@ export function Code({
 }) {
     return (
         <Card className={twMerge(className, 'bg-background')}>
-            <CardHeader className='border-b-tint-light'>{component}</CardHeader>
+            <CardHeader className='border-b border-b-tint-light'>{component}</CardHeader>
             <CardBody className='bg-background-raised'>
                 <CodeBlock
                     language={language}

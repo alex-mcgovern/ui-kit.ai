@@ -33,7 +33,6 @@ function Template(props: ComponentProps<typeof FormCheckboxGroup>) {
 
 const meta: Meta<typeof FormCheckboxGroup> = {
     component: FormCheckboxGroup,
-    decorators: [(Story) => <div className='mx-auto w-96'>{Story()}</div>],
     title: 'Forms/FormCheckboxGroup',
 }
 

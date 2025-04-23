@@ -18,7 +18,6 @@ import { SearchIcon } from 'lucide-react'
 const meta: Meta<typeof FieldGroup> = {
     args: {},
     component: FieldGroup,
-    decorators: [(Story) => <div className='mx-auto w-96'>{Story()}</div>],
     title: 'Components/FieldGroup',
 }
 

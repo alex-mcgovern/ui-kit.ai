@@ -89,13 +89,6 @@ function TemplateVertical() {
 
 const meta: Meta<typeof Tabs> = {
     component: Tabs,
-    decorators: [
-        (Story) => (
-            <div className='w-[600px]'>
-                <Story />
-            </div>
-        ),
-    ],
     render: TemplateHorizontal,
     title: 'Components/Tabs',
 }

@@ -1,7 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import type { ComponentProps } from 'react'
 
-import { Kbd } from '@ui-kit.ai/components'
+import { Button, Kbd, Tooltip, TooltipTrigger } from '@ui-kit.ai/components'
+import { PlusIcon } from 'lucide-react'
 
 function Template(args: ComponentProps<typeof Kbd>) {
     return <Kbd {...args} />
@@ -32,4 +33,49 @@ export const KeyCombination: Story = {
     parameters: {
         displayName: 'Key Combination',
     },
+}
+
+function InButtonTemplate(args: ComponentProps<typeof Kbd>) {
+    return <Button slotRight={<Kbd {...args} />}>Create</Button>
+}
+
+export const InButton: Story = {
+    args: {
+        children: 'C',
+    },
+    parameters: {
+        displayName: 'In a button',
+    },
+    render: InButtonTemplate,
+}
+
+function InTooltipTemplate(args: ComponentProps<typeof Kbd>) {
+    return (
+        <TooltipTrigger>
+            <Button
+                aria-label='Create'
+                isIcon
+            >
+                <PlusIcon />
+            </Button>
+            <Tooltip
+                defaultOpen
+                isOpen
+                placement='right'
+            >
+                Create
+                <Kbd {...args} />
+            </Tooltip>
+        </TooltipTrigger>
+    )
+}
+
+export const InTooltip: Story = {
+    args: {
+        children: 'C',
+    },
+    parameters: {
+        displayName: 'In a tooltip',
+    },
+    render: InTooltipTemplate,
 }

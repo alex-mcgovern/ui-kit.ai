@@ -8,13 +8,6 @@ const meta: Meta<typeof Input> = {
         placeholder: 'This is a placeholder',
     },
     component: Input,
-    decorators: [
-        (Story) => (
-            <div className='w-96'>
-                <Story />
-            </div>
-        ),
-    ],
     title: 'Components/Input',
 }
 
