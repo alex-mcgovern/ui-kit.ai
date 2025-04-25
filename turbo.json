@@ -75,7 +75,7 @@
             "outputLogs": "new-only"
         },
         "publish": {
-            "dependsOn": ["build", "^publish"],
+            "dependsOn": ["check", "build", "^publish"],
             "outputLogs": "new-only"
         },
         "storybook": {

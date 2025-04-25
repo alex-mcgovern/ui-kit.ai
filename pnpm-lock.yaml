@@ -11,6 +11,9 @@ importers:
       '@commitlint/config-conventional':
         specifier: ^19.8.0
         version: 19.8.0
+      '@types/node':
+        specifier: 22.14.0
+        version: 22.14.0
       '@ui-kit.ai/prettier':
         specifier: workspace:*
         version: link:packages/prettier
@@ -32,9 +35,6 @@ importers:
 
   packages/components:
     dependencies:
-      '@ui-kit.ai/utils':
-        specifier: workspace:*
-        version: link:../utils
       highlight.js:
         specifier: ^11.11.1
         version: 11.11.1
@@ -379,9 +379,6 @@ importers:
 
   packages/mocks:
     dependencies:
-      '@ui-kit.ai/utils':
-        specifier: workspace:*
-        version: link:../utils
       lucide-react:
         specifier: 0.487.0
         version: 0.487.0(react@19.1.0)
