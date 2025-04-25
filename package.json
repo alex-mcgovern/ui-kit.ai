@@ -1,50 +1,50 @@
 {
-  "name": "ui-kit.ai-monorepo",
-  "version": "0.0.0-alpha.1",
-  "private": true,
-  "description": "",
-  "homepage": "https://github.com/alex-mcgovern/ui-kit.ai#readme",
-  "bugs": {
-    "url": "https://github.com/alex-mcgovern/ui-kit.ai/issues"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/alex-mcgovern/ui-kit.ai"
-  },
-  "license": "MIT",
-  "author": "Alex McGovern",
-  "type": "module",
-  "scripts": {
-    "build": "turbo build",
-    "build:watch": "turbo build:watch",
-    "check": "turbo check",
-    "check:eslint": "turbo check:eslint",
-    "check:prettier": "turbo check:prettier",
-    "check:tsc": "turbo check:tsc",
-    "check:vitest": "turbo check:vitest",
-    "fix": "turbo fix",
-    "fix:eslint": "turbo fix:eslint",
-    "fix:prettier": "turbo fix:prettier",
-    "publish": "turbo publish",
-    "sherif": "sherif",
-    "storybook": "turbo storybook",
-    "version:alpha": "tsx scripts/version.ts alpha",
-    "version:major": "tsx scripts/version.ts major",
-    "version:minor": "tsx scripts/version.ts minor",
-    "version:patch": "tsx scripts/version.ts patch"
-  },
-  "devDependencies": {
-    "@commitlint/config-conventional": "^19.8.0",
-    "@types/node": "22.14.0",
-    "@ui-kit.ai/prettier": "workspace:*",
-    "commitlint": "^19.8.0",
-    "knip": "5.46.0",
-    "sherif": "1.1.1",
-    "tsx": "4.19.3",
-    "turbo": "2.4.4"
-  },
-  "packageManager": "pnpm@10.6.3",
-  "engines": {
-    "node": "22.x"
-  }
+    "name": "ui-kit.ai-monorepo",
+    "version": "0.0.0-alpha.1",
+    "private": true,
+    "description": "",
+    "homepage": "https://github.com/alex-mcgovern/ui-kit.ai#readme",
+    "bugs": {
+        "url": "https://github.com/alex-mcgovern/ui-kit.ai/issues"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/alex-mcgovern/ui-kit.ai"
+    },
+    "license": "MIT",
+    "author": "Alex McGovern",
+    "type": "module",
+    "scripts": {
+        "build": "turbo build",
+        "build:watch": "turbo build:watch",
+        "check": "turbo check",
+        "check:eslint": "turbo check:eslint",
+        "check:prettier": "turbo check:prettier",
+        "check:tsc": "turbo check:tsc",
+        "check:vitest": "turbo check:vitest",
+        "fix": "turbo fix",
+        "fix:eslint": "turbo fix:eslint",
+        "fix:prettier": "turbo fix:prettier",
+        "publish": "turbo publish",
+        "sherif": "sherif",
+        "storybook": "turbo storybook",
+        "version:alpha": "tsx scripts/version.ts alpha && prettier **/package.json --write",
+        "version:major": "tsx scripts/version.ts major && prettier **/package.json --write",
+        "version:minor": "tsx scripts/version.ts minor && prettier **/package.json --write",
+        "version:patch": "tsx scripts/version.ts patch && prettier **/package.json --write"
+    },
+    "devDependencies": {
+        "@commitlint/config-conventional": "^19.8.0",
+        "@types/node": "22.14.0",
+        "@ui-kit.ai/prettier": "workspace:*",
+        "commitlint": "^19.8.0",
+        "knip": "5.46.0",
+        "sherif": "1.1.1",
+        "tsx": "4.19.3",
+        "turbo": "2.4.4"
+    },
+    "packageManager": "pnpm@10.6.3",
+    "engines": {
+        "node": "22.x"
+    }
 }

@@ -1,46 +1,46 @@
 {
-  "name": "@ui-kit.ai/theme",
-  "version": "0.0.0-alpha.1",
-  "private": true,
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/alex-mcgovern/ui-kit.ai"
-  },
-  "license": "MIT",
-  "author": "Alex McGovern",
-  "type": "module",
-  "exports": {
-    ".": "./dist/index.js",
-    "./style.css": "./dist/style.css"
-  },
-  "main": "dist/index.js",
-  "source": "src/index.ts",
-  "types": "dist/index.d.ts",
-  "files": [
-    "dist"
-  ],
-  "scripts": {
-    "build": "vite build && tsx ./src/gen-palette.ts",
-    "postbuild": "prettier ./dist/style.css --write",
-    "build:watch": "vite build --watch",
-    "check:eslint": "eslint .",
-    "check:prettier": "prettier . --check",
-    "check:tsc": "tsc",
-    "check:vitest": "vitest run --passWithNoTests",
-    "fix:eslint": "eslint . --fix",
-    "fix:prettier": "prettier . --write"
-  },
-  "dependencies": {
-    "culori": "^4.0.1"
-  },
-  "devDependencies": {
-    "@types/culori": "^2.1.1",
-    "@ui-kit.ai/eslint": "workspace:*",
-    "@ui-kit.ai/prettier": "workspace:*",
-    "@ui-kit.ai/tsconfig": "workspace:*",
-    "@ui-kit.ai/vite": "workspace:*"
-  },
-  "engines": {
-    "node": "22.x"
-  }
+    "name": "@ui-kit.ai/theme",
+    "version": "0.0.0-alpha.1",
+    "private": true,
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/alex-mcgovern/ui-kit.ai"
+    },
+    "license": "MIT",
+    "author": "Alex McGovern",
+    "type": "module",
+    "exports": {
+        ".": "./dist/index.js",
+        "./style.css": "./dist/style.css"
+    },
+    "main": "dist/index.js",
+    "source": "src/index.ts",
+    "types": "dist/index.d.ts",
+    "files": [
+        "dist"
+    ],
+    "scripts": {
+        "build": "vite build && tsx ./src/gen-palette.ts",
+        "postbuild": "prettier ./dist/style.css --write",
+        "build:watch": "vite build --watch",
+        "check:eslint": "eslint .",
+        "check:prettier": "prettier . --check",
+        "check:tsc": "tsc",
+        "check:vitest": "vitest run --passWithNoTests",
+        "fix:eslint": "eslint . --fix",
+        "fix:prettier": "prettier . --write"
+    },
+    "dependencies": {
+        "culori": "^4.0.1"
+    },
+    "devDependencies": {
+        "@types/culori": "^2.1.1",
+        "@ui-kit.ai/eslint": "workspace:*",
+        "@ui-kit.ai/prettier": "workspace:*",
+        "@ui-kit.ai/tsconfig": "workspace:*",
+        "@ui-kit.ai/vite": "workspace:*"
+    },
+    "engines": {
+        "node": "22.x"
+    }
 }
