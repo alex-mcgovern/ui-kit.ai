@@ -1,29 +1,29 @@
 {
-    "name": "@ui-kit.ai/tests",
-    "version": "0.0.0-alpha.0",
-    "private": true,
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/alex-mcgovern/ui-kit.ai"
-    },
-    "license": "MIT",
-    "author": "Alex McGovern",
-    "type": "module",
-    "scripts": {
-        "check:eslint": "eslint .",
-        "check:prettier": "prettier . --check",
-        "check:tsc": "tsc",
-        "check:vitest": "vitest run --passWithNoTests",
-        "fix:eslint": "eslint . --fix",
-        "fix:prettier": "prettier . --write"
-    },
-    "devDependencies": {
-        "@ui-kit.ai/eslint": "workspace:*",
-        "@ui-kit.ai/prettier": "workspace:*",
-        "@ui-kit.ai/tsconfig": "workspace:*",
-        "@ui-kit.ai/vitest": "workspace:*"
-    },
-    "engines": {
-        "node": "22.x"
-    }
+  "name": "@ui-kit.ai/tests",
+  "version": "0.0.0-alpha.1",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alex-mcgovern/ui-kit.ai"
+  },
+  "license": "MIT",
+  "author": "Alex McGovern",
+  "type": "module",
+  "scripts": {
+    "check:eslint": "eslint .",
+    "check:prettier": "prettier . --check",
+    "check:tsc": "tsc",
+    "check:vitest": "vitest run --passWithNoTests",
+    "fix:eslint": "eslint . --fix",
+    "fix:prettier": "prettier . --write"
+  },
+  "devDependencies": {
+    "@ui-kit.ai/eslint": "workspace:*",
+    "@ui-kit.ai/prettier": "workspace:*",
+    "@ui-kit.ai/tsconfig": "workspace:*",
+    "@ui-kit.ai/vitest": "workspace:*"
+  },
+  "engines": {
+    "node": "22.x"
+  }
 }
