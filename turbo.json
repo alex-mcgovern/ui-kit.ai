@@ -30,11 +30,7 @@
             "outputLogs": "new-only"
         },
         "@ui-kit.ai/storybook#storybook": {
-            "dependsOn": [
-                "@ui-kit.ai/components#build",
-                "@ui-kit.ai/mocks#build",
-                "@ui-kit.ai/utils#build"
-            ],
+            "dependsOn": ["@ui-kit.ai/components#build", "@ui-kit.ai/mocks#build"],
             "outputLogs": "new-only"
         },
         "build": {

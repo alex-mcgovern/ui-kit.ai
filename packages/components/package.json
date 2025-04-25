@@ -34,7 +34,6 @@
         "start-mcp-server": "tsx ./src/mcp-server/index.ts"
     },
     "dependencies": {
-        "@ui-kit.ai/utils": "workspace:*",
         "highlight.js": "^11.11.1",
         "lucide-react": "0.487.0",
         "postcss": "8.5.3",

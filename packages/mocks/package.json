@@ -26,7 +26,6 @@
         "fix:prettier": "prettier . --write"
     },
     "dependencies": {
-        "@ui-kit.ai/utils": "workspace:*",
         "lucide-react": "0.487.0",
         "msw": "2.7.3",
         "react": "19.1.0",
