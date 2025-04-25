@@ -27,7 +27,8 @@
         "fix:prettier": "turbo fix:prettier",
         "publish": "turbo publish",
         "sherif": "sherif",
-        "storybook": "turbo storybook"
+        "storybook": "turbo storybook",
+        "version": "tsx scripts/version.ts"
     },
     "devDependencies": {
         "@commitlint/config-conventional": "^19.8.0",
