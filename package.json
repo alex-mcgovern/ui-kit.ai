@@ -34,10 +34,10 @@
         "version:patch": "tsx scripts/version.ts patch && prettier **/package.json --write"
     },
     "devDependencies": {
-        "@commitlint/config-conventional": "^19.8.0",
+        "@commitlint/config-conventional": "19.8.0",
         "@types/node": "22.14.0",
         "@ui-kit.ai/prettier": "workspace:*",
-        "commitlint": "^19.8.0",
+        "commitlint": "19.8.0",
         "knip": "5.46.0",
         "sherif": "1.1.1",
         "tsx": "4.19.3",

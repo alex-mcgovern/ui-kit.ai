@@ -97,18 +97,6 @@ async function updateVersions(increment: VersionIncrement): Promise<void> {
             const content = JSON.parse(readFileSync(fullPath, 'utf8'))
             content.version = newVersion
 
-            // Also update any internal dependencies
-            if (content.dependencies) {
-                for (const [depName, depVersion] of Object.entries(content.dependencies)) {
-                    if (
-                        typeof depVersion === 'string' &&
-                        packageJsonFiles.some((p) => p.includes(depName))
-                    ) {
-                        content.dependencies[depName] = newVersion
-                    }
-                }
-            }
-
             // Pretty format with 2 space indentation to maintain formatting
             writeFileSync(fullPath, JSON.stringify(content, null, 2) + '\n', 'utf8')
             console.log(`Updated ${filePath}`)
