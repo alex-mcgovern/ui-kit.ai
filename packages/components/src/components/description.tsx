@@ -14,7 +14,7 @@ export function Description(props: LabelProps) {
             className={twMerge(
                 'mb-1 block w-fit cursor-default last:mt-2',
                 'text-mid-contrast text-sm font-normal',
-                'group-invalid:text-error',
+                'group-invalid:error',
                 'group-disabled:cursor-not-allowed group-disabled:opacity-50',
                 props.className
             )}

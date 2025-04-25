@@ -47,7 +47,8 @@
         "@ui-kit.ai/prettier": "workspace:*",
         "@ui-kit.ai/tsconfig": "workspace:*",
         "@ui-kit.ai/vite": "workspace:*",
-        "react": "19.1.0"
+        "react": "19.1.0",
+        "react-is": "19.1.0"
     },
     "engines": {
         "node": "22.x"

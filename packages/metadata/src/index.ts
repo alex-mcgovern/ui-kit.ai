@@ -18,6 +18,7 @@ import { ColorSwatch as ColorSwatchStories } from '@ui-kit.ai/storybook'
 import { ComboBox as ComboBoxStories } from '@ui-kit.ai/storybook'
 import { Description as DescriptionStories } from '@ui-kit.ai/storybook'
 import { Dialog as DialogStories } from '@ui-kit.ai/storybook'
+import { Disclosure as DisclosureStories } from '@ui-kit.ai/storybook'
 import { EmptyState as EmptyStateStories } from '@ui-kit.ai/storybook'
 import { FieldButton as FieldButtonStories } from '@ui-kit.ai/storybook'
 import { FieldError as FieldErrorStories } from '@ui-kit.ai/storybook'
@@ -71,6 +72,7 @@ export const ColorSwatch: Composed = compose(ColorSwatchStories)
 export const ComboBox: Composed = compose(ComboBoxStories)
 export const Description: Composed = compose(DescriptionStories)
 export const Dialog: Composed = compose(DialogStories)
+export const Disclosure: Composed = compose(DisclosureStories)
 export const EmptyState: Composed = compose(EmptyStateStories)
 export const FieldButton: Composed = compose(FieldButtonStories)
 export const FieldError: Composed = compose(FieldErrorStories)

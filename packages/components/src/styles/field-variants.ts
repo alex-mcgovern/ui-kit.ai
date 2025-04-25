@@ -8,12 +8,13 @@ export const fieldVariants = tv({
         'outline outline-0 outline-offset-2',
         'disabled:text-disabled',
         'placeholder:text-lo-contrast',
-        'placeholder:invalid:text-error',
         'forced-colors:outline-[Highlight]',
         // focus ring
         'outline outline-0 outline-offset-2',
         'outline-accent-light',
         'forced-colors:outline-[Highlight]',
+        // invalid
+        'invalid:error group-invalid:error',
     ],
     defaultVariants: {
         isBorderless: false,
@@ -22,13 +23,11 @@ export const fieldVariants = tv({
         isBorderless: {
             false: [
                 [
-                    'border-tint-dark border',
+                    'border-tint border',
                     'bg-background',
                     'transition-colors',
                     // hover
-                    'hover:[&:not([data-disabled])]:border-lo-contrast',
-                    // invalid
-                    'invalid:error group-invalid:error',
+                    'hover:[&:not([data-disabled])]:border-tint-light',
                     // focus visible
                     'focus-visible:border-tint-dark focus-visible:outline-2',
                     'focus-visible:forced-colors:border-[ButtonBorder]',

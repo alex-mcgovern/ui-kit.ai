@@ -22,7 +22,6 @@ const meta: Meta<typeof Select<OptionsSchema<'listbox'>>> = {
         items: getMockOptions({ withIcon: true }),
     },
     component: Select,
-    decorators: [(Story) => <div className='mx-auto w-96'>{Story()}</div>],
     render: Template,
     subcomponents: {
         SelectButton: SelectButton as ComponentType<unknown>,

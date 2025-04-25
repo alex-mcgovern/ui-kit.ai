@@ -22,8 +22,8 @@ export function FieldButton({
                     '!size-6',
                     'align-middle',
                     '-outline-offset-1',
-                    'text-mid-contrast group-invalid:text-error',
-                    'group-invalid:hover:bg-error-tint-light group-invalid:pressed:bg-error-tint-light',
+                    'text-mid-contrast',
+                    'group-invalid:error',
                     'last-of-type:mr-1 [&:not(:last-of-type)]:mr-px',
                     '[&_svg]:size-3 [&_svg]:shrink-0',
                     typeof props.className === 'function' ? props.className(rp) : props.className

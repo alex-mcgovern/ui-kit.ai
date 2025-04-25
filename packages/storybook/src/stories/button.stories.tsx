@@ -8,19 +8,20 @@ const VARIANTS = ['primary', 'secondary', 'tertiary'] as const satisfies Array<
     ComponentProps<typeof Button>['variant']
 >
 
+function capitalize(str: string) {
+    return str.charAt(0).toUpperCase() + str.slice(1)
+}
+
 function Template(args: Parameters<typeof Button>[0]) {
     return (
-        <div className='grid grid-cols-3 gap-4'>
-            {/* <div className='bg-primary-solid h-9 w-full'></div> */}
-
+        <div className='flex gap-2'>
             {VARIANTS.map((variant) => (
                 <Button
                     key={variant}
                     {...args}
-                    className='capitalize'
                     variant={variant}
                 >
-                    {args.children ?? variant}
+                    {args.children ?? capitalize(variant)}
                 </Button>
             ))}
         </div>

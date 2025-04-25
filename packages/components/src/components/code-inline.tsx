@@ -1,12 +1,24 @@
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
+import { twMerge } from 'tailwind-merge'
 
-export function CodeInline({ children, language }: { children: string; language: string }) {
+export function CodeInline({
+    children,
+    className,
+    language,
+}: {
+    children: string
+    className?: string
+    language: string
+}) {
     if (!children) return null
 
     return (
         <SyntaxHighlighter
             codeTagProps={{
-                className: 'px-1 py-0.25 bg-background-raised rounded-sm border border-tint-dark',
+                className: twMerge(
+                    'bg-background-raised border-tint-dark rounded-sm border px-1 py-0.25',
+                    className
+                ),
                 style: {
                     whiteSpace: 'unset',
                 },

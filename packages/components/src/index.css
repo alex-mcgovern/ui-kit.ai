@@ -79,34 +79,53 @@
 
     scrollbar-color: var(--gray-400) transparent;
     accent-color: var(--color-accent);
+    overscroll-behavior: none; /* Prevents scroll chaining */
 
     font-size: 16px; /* Basis for REM units */
 
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+    -webkit-text-size-adjust: 100%; /* Prevents iOS from resizing text */
+    -webkit-tap-highlight-color: transparent; /* Prevents iOS from highlighting text on tap */
+
     font-synthesis: none;
     text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased; /* Smoother fonts on webkit browsers */
+    -moz-osx-font-smoothing: grayscale; /* Smoother fonts on Firefox */
 }
 
 body {
-    /* @apply text-base; */
     font-family: 'Inter', sans-serif;
 }
 
 p {
-    /* @apply mb-2 text-lo-contrast; */
+    margin-bottom: calc(var(--spacing) * 4);
+    color: var(--color-mid-contrast);
+}
+
+ul,
+ol {
+    list-style-type: disc;
+    list-style-position: inside;
+    margin-bottom: calc(var(--spacing) * 4);
+    color: var(--color-mid-contrast);
+    padding-left: calc(var(--spacing) * 2);
+}
+
+li {
+    margin-bottom: calc(var(--spacing) * 2);
+    color: var(--color-mid-contrast);
 }
 
 .code,
 code {
     font-size: 92%;
-    /* @apply text-sm !font-medium; */
 }
 
 /* Global colors for highlighted text */
-/* ::selection {
-  @apply bg-[theme(colors.muted.100)] text-[theme(colors.muted.600)];
-} */
+::selection {
+    background: var(--color-accent-tint);
+    color: var(--color-accent-tint-fg);
+}
 
 /* Hide the user agent default clear button on search inputs */
 [type='search']::-webkit-search-cancel-button,

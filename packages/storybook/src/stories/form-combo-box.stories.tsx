@@ -40,7 +40,6 @@ function Template(props: ComponentProps<typeof FormComboBox<OptionsSchema<'listb
 
 const meta: Meta<typeof FormComboBox<OptionsSchema<'listbox'>>> = {
     component: FormComboBox,
-    decorators: [(Story) => <div className='mx-auto w-96'>{Story()}</div>],
     title: 'Components/FormComboBox',
 }
 

@@ -35,13 +35,6 @@ function Template(props: ComponentProps<typeof TextField>) {
 
 const meta: Meta<typeof TextField> = {
     component: TextField,
-    decorators: [
-        (Story) => (
-            <div className='w-96'>
-                <Story />
-            </div>
-        ),
-    ],
     render: Template,
     title: 'Components/TextField',
 }

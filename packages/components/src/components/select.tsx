@@ -27,8 +27,6 @@ const selectButtonStyles = tv({
         '[&:has([data-slot=slot-right])]:pr-1',
         'text-sm',
         'w-full cursor-pointer text-start',
-        `group-data-[invalid]:!border-error group-data-[invalid]:!text-error
-        group-data-[invalid]:forced-colors:text-[Mark]`,
     ],
     extend: fieldVariants,
 })
@@ -52,7 +50,7 @@ export function Select<T extends OptionsSchema<'listbox'> = OptionsSchema<'listb
             {...props}
             className={(rp) =>
                 twMerge(
-                    'group relative',
+                    'group invalid:error relative w-full',
                     typeof props.className === 'function' ? props.className(rp) : props.className
                 )
             }
@@ -135,7 +133,6 @@ export function SelectButton({
                     'inline-flex flex-1 items-center gap-2',
                     'truncate',
                     'placeholder-shown:text-lo-contrast',
-                    'group-data-[invalid]:placeholder-shown:text-error',
                 ])}
             >
                 {({ selectedText }) => selectedText}

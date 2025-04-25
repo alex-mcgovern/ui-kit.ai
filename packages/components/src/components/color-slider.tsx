@@ -48,7 +48,13 @@ export function ColorSlider(props: RACColorSliderProps) {
                     {typeof props.children === 'function'
                         ? props.children(renderProps)
                         : props.children}
-                    <SliderTrack className={trackStyles()}>
+                    <SliderTrack
+                        className={trackStyles()}
+                        style={({ defaultStyle }) => ({
+                            background: `${defaultStyle.background},
+      repeating-conic-gradient(var(--color-tint-dark) 0% 25%, var(--color-background) 0% 50%) 50% / 16px 16px`,
+                        })}
+                    >
                         <ColorThumb className={thumbStyles()} />
                     </SliderTrack>
                 </>

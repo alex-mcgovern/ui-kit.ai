@@ -29,23 +29,15 @@ const checkboxContainerStyles = tv({
     base: [
         'flex gap-3',
         'items-center',
-        // "items-start",
-        // "has-[[slot='description']]:items-start",
-        // "[:has([slot=description])]:items-start",
         '-mx-1 px-1',
+        'rounded-sm outline-offset-2 transition',
         'group',
         '[[role=group]_&]:mb-1',
         '[[role=group]_&]:last-of-type:mb-2',
         'hover:cursor-pointer disabled:cursor-not-allowed',
-        'invalid:text-error-dark rounded-sm outline-offset-2 transition',
+        'invalid:error',
     ],
     extend: focusRing,
-    variants: {
-        isDisabled: {
-            false: '',
-            true: 'text-mid-contrast',
-        },
-    },
 })
 
 const boxStyles = tv({
@@ -71,22 +63,6 @@ const boxStyles = tv({
         'group-indeterminate:group-hover:bg-accent',
         'group-indeterminate:border-accent',
         'group-indeterminate:group-hover:border-accent',
-        // invalid
-        'group-invalid:border-error-light',
-        'group-hover:group-invalid:bg-error-accent-fg',
-        'group-hover:group-invalid:border-error',
-        // invalid selected
-        'group-selected:group-invalid:bg-error',
-        'group-selected:group-invalid:group-hover:bg-error-light',
-        'group-selected:group-invalid:border-error',
-        'group-selected:group-invalid:group-hover:border-error-light',
-        // invalid indeterminate
-        'group-indeterminate:group-invalid:bg-error',
-        'group-indeterminate:group-invalid:group-hover:bg-error-light',
-        'group-indeterminate:group-invalid:border-error',
-        'group-indeterminate:group-invalid:group-hover:border-error-light',
-        // w. description
-        // "group-has-[[data-slot='description']]:mt-1",
     ],
 })
 
@@ -96,15 +72,10 @@ const iconStyles = tv({
         'transition-colors',
         'stroke-transparent',
         // hover
-        'group-hover:stroke-lo-contrast',
-        'group-hover/row:stroke-lo-contrast',
+        'group-hover:stroke-mid-contrast',
+        'group-hover/row:stroke-mid-contrast',
         'group-selected:stroke-accent-fg',
         'group-indeterminate:stroke-accent-fg',
-        // invalid
-        'group-hover:group-invalid:stroke-error',
-        'group-hover/row:group-invalid:stroke-error',
-        'group-selected:group-invalid:stroke-error-accent-fg',
-        'group-indeterminate:group-invalid:stroke-error-accent-fg',
     ],
 })
 

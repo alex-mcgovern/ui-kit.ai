@@ -18,7 +18,6 @@ import { SearchIcon } from 'lucide-react'
 const meta: Meta<typeof FieldGroup> = {
     args: {},
     component: FieldGroup,
-    decorators: [(Story) => <div className='mx-auto w-96'>{Story()}</div>],
     title: 'Components/FieldGroup',
 }
 
@@ -61,7 +60,7 @@ function SelectTextFieldTemplate(props: ComponentProps<typeof FieldGroup>) {
         <FieldGroup {...props}>
             <Select
                 aria-label='Country'
-                className='border-r-tint-dark min-w-64 border-r'
+                className='border-r-tint-dark border-r'
                 items={[
                     {
                         id: 'ireland',
