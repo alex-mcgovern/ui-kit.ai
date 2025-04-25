@@ -25,6 +25,7 @@
         "fix": "turbo fix",
         "fix:eslint": "turbo fix:eslint",
         "fix:prettier": "turbo fix:prettier",
+        "publish": "turbo publish",
         "sherif": "sherif",
         "storybook": "turbo storybook"
     },
