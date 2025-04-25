@@ -12,8 +12,7 @@ export function Card(props: HTMLProps<HTMLElement>) {
         <section
             {...props}
             className={twMerge(
-                `border-tint-light bg-background-raised relative overflow-hidden rounded border
-                shadow-xs`,
+                'border-tint-light bg-background-raised relative overflow-hidden rounded border shadow-xs',
                 props.className
             )}
         />
@@ -44,7 +43,7 @@ export function CardTitle({
     return (
         <Heading
             {...props}
-            className={twMerge('mb-0 truncate text-md', props.className)}
+            className={twMerge('text-md mb-0 truncate', props.className)}
             level={3}
             slot='title'
         >

@@ -5,7 +5,7 @@ import { ColorSlider } from '@ui-kit.ai/components'
 
 function HSLATemplate(args: ComponentProps<typeof ColorSlider>) {
     return (
-        <div className='flex flex-col gap-4 w-full'>
+        <div className='flex w-full flex-col gap-4'>
             <ColorSlider
                 {...args}
                 channel='hue'
@@ -28,7 +28,7 @@ function HSLATemplate(args: ComponentProps<typeof ColorSlider>) {
 
 function RGBATemplate(args: ComponentProps<typeof ColorSlider>) {
     return (
-        <div className='flex flex-col gap-4 w-full'>
+        <div className='flex w-full flex-col gap-4'>
             <ColorSlider
                 {...args}
                 channel='red'

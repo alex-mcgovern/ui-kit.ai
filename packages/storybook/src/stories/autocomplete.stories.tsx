@@ -22,7 +22,7 @@ export default meta
 type Story = StoryObj<typeof Autocomplete>
 
 const Template = (args: ComponentProps<typeof Autocomplete>) => (
-    <div className='flex flex-col gap-2 w-full'>
+    <div className='flex w-full flex-col gap-2'>
         <Autocomplete {...args}>
             <SearchField aria-label='Search'>
                 <FieldGroup>

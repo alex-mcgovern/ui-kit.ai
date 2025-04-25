@@ -35,7 +35,7 @@ const checkboxContainerStyles = tv({
         '[[role=group]_&]:mb-1',
         '[[role=group]_&]:last-of-type:mb-2',
         'hover:cursor-pointer disabled:cursor-not-allowed',
-        'invalid:error ',
+        'invalid:error',
     ],
     extend: focusRing,
 })

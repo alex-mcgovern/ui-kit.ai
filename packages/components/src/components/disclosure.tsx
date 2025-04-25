@@ -22,7 +22,7 @@ export function Disclosure({ children, className, ...props }: RACDisclosureProps
             {...props}
             className={(renderProps) =>
                 twMerge(
-                    'flex flex-col gap-2 w-full group',
+                    'group flex w-full flex-col gap-2',
                     typeof className === 'function' ? className(renderProps) : className
                 )
             }
@@ -74,7 +74,7 @@ export function DisclosureButton({
             }
             slot='trigger'
             slotLeft={
-                <ChevronRightIcon className='transition-transform duration-100 ease-out group-expanded:rotate-90' />
+                <ChevronRightIcon className='group-expanded:rotate-90 transition-transform duration-100 ease-out' />
             }
             variant={variant}
         >
