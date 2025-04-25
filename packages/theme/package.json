@@ -1,6 +1,6 @@
 {
     "name": "@ui-kit.ai/theme",
-    "version": "0.0.0-alpha.0",
+    "version": "0.0.0-alpha.1",
     "private": true,
     "repository": {
         "type": "git",
@@ -31,10 +31,10 @@
         "fix:prettier": "prettier . --write"
     },
     "dependencies": {
-        "culori": "^4.0.1"
+        "culori": "4.0.1"
     },
     "devDependencies": {
-        "@types/culori": "^2.1.1",
+        "@types/culori": "2.1.1",
         "@ui-kit.ai/eslint": "workspace:*",
         "@ui-kit.ai/prettier": "workspace:*",
         "@ui-kit.ai/tsconfig": "workspace:*",

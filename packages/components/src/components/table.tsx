@@ -9,7 +9,6 @@ import type {
     SortDirection,
 } from 'react-aria-components'
 
-import { getRandomNumber } from '@ui-kit.ai/utils'
 import {
     EllipsisVertical,
     ArrowUpDown as IconArrowsUpDown,
@@ -44,6 +43,10 @@ import { Loader } from './loader'
 import { Menu, MenuTrigger } from './menu'
 import { Popover } from './popover'
 import { Skeleton } from './skeleton'
+
+const getRandomNumber = (min: number = 0, max: number = 100): number => {
+    return Math.floor(min + Math.random() * (max - min + 1))
+}
 
 export type GetRowOptionsFn<T extends BaseRow = BaseRow> = (props: {
     columns: TableColumnSchema<T>[]
