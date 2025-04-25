@@ -35,7 +35,7 @@
     },
     "devDependencies": {
         "@commitlint/config-conventional": "19.8.0",
-        "@types/node": "22.14.0",
+        "@types/node": "22.15.2",
         "@ui-kit.ai/prettier": "workspace:*",
         "commitlint": "19.8.0",
         "knip": "5.46.0",
