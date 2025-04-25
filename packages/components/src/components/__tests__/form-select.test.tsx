@@ -1,4 +1,4 @@
-import { render } from '@testing-library/react'
+import { render, waitFor } from '@testing-library/react'
 import { userEvent } from '@testing-library/user-event'
 import { expect, it, vi } from 'vitest'
 
@@ -79,7 +79,9 @@ it('`FormSelect` clears when reset after submission', async () => {
 
     expect(onSubmit).toHaveBeenCalledWith({ select: 'abc123' }, expect.anything())
 
-    expect(field).not.toHaveTextContent('abc123')
+    await waitFor(() => {
+        expect(field).not.toHaveTextContent('abc123')
+    })
 })
 
 it('handles `defaultValues` prop passed to `Form` correctly with `FormSelect`', async () => {

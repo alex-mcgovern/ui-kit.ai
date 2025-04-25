@@ -1,6 +1,6 @@
 {
     "name": "ui-kit.ai-monorepo",
-    "version": "0.0.0-alpha.0",
+    "version": "0.0.0-alpha.1",
     "private": true,
     "description": "",
     "homepage": "https://github.com/alex-mcgovern/ui-kit.ai#readme",
@@ -25,13 +25,19 @@
         "fix": "turbo fix",
         "fix:eslint": "turbo fix:eslint",
         "fix:prettier": "turbo fix:prettier",
+        "publish": "turbo publish",
         "sherif": "sherif",
-        "storybook": "turbo storybook"
+        "storybook": "turbo storybook",
+        "version:alpha": "tsx scripts/version.ts alpha && prettier **/package.json --write",
+        "version:major": "tsx scripts/version.ts major && prettier **/package.json --write",
+        "version:minor": "tsx scripts/version.ts minor && prettier **/package.json --write",
+        "version:patch": "tsx scripts/version.ts patch && prettier **/package.json --write"
     },
     "devDependencies": {
-        "@commitlint/config-conventional": "^19.8.0",
+        "@commitlint/config-conventional": "19.8.0",
+        "@types/node": "22.14.0",
         "@ui-kit.ai/prettier": "workspace:*",
-        "commitlint": "^19.8.0",
+        "commitlint": "19.8.0",
         "knip": "5.46.0",
         "sherif": "1.1.1",
         "tsx": "4.19.3",

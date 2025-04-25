@@ -2,6 +2,7 @@ import fs from 'node:fs'
 import path from 'node:path'
 import { describe, expect } from 'vitest'
 import { test } from 'vitest'
+import { version } from '../../../package.json'
 
 const AUTHOR_NAME = 'Alex McGovern'
 const EXCLUDED_DIRECTORIES = ['node_modules', '.next', 'dist', '.turbo']
@@ -41,6 +42,17 @@ describe('package.json', () => {
     packageJsons.forEach(({ content, dir }) => {
         const packageJson = JSON.parse(content)
         const packageName = packageJson.name ?? dir
+
+        test(`${packageName} has version matching the root package.json version: ${version}`, () => {
+            expect(
+                'version' in packageJson,
+                `package.json for ${packageName} should have "version" property`
+            ).toBe(true)
+            expect(
+                packageJson.version,
+                `package.json for ${packageName} should have version matching root package.json: "${version}"`
+            ).toBe(version)
+        })
 
         test(`${packageName} has type "module"`, () => {
             expect(

@@ -1,6 +1,9 @@
-import { getRandomNumber } from '@ui-kit.ai/utils'
 import { delay, http, HttpResponse } from 'msw'
 import { z } from 'zod'
+
+const getRandomNumber = (min: number = 0, max: number = 100): number => {
+    return Math.floor(min + Math.random() * (max - min + 1))
+}
 
 export type ListStockWatchlistItemsResponse = {
     items: {

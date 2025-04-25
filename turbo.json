@@ -1,12 +1,12 @@
 {
     "$schema": "https://turbo.build/schema.json",
     "tasks": {
-        "@ui-kit.ai/metadata#build": {
-            "dependsOn": ["@ui-kit.ai/components#build", "@ui-kit.ai/storybook#build"],
-            "outputLogs": "new-only"
-        },
         "@ui-kit.ai/components#build": {
             "dependsOn": ["@ui-kit.ai/theme#build"],
+            "outputLogs": "new-only"
+        },
+        "@ui-kit.ai/metadata#build": {
+            "dependsOn": ["@ui-kit.ai/components#build", "@ui-kit.ai/storybook#build"],
             "outputLogs": "new-only"
         },
         "@ui-kit.ai/mocks#build": {
@@ -30,11 +30,7 @@
             "outputLogs": "new-only"
         },
         "@ui-kit.ai/storybook#storybook": {
-            "dependsOn": [
-                "@ui-kit.ai/components#build",
-                "@ui-kit.ai/mocks#build",
-                "@ui-kit.ai/utils#build"
-            ],
+            "dependsOn": ["@ui-kit.ai/components#build", "@ui-kit.ai/mocks#build"],
             "outputLogs": "new-only"
         },
         "build": {
@@ -63,8 +59,8 @@
         },
         "dev": {
             "cache": false,
-            "persistent": true,
-            "outputLogs": "new-only"
+            "outputLogs": "new-only",
+            "persistent": true
         },
         "fix": {
             "dependsOn": ["fix:prettier", "fix:eslint"],
@@ -76,6 +72,10 @@
         },
         "fix:prettier": {
             "dependsOn": ["^fix:prettier"],
+            "outputLogs": "new-only"
+        },
+        "publish": {
+            "dependsOn": ["check", "build", "^publish"],
             "outputLogs": "new-only"
         },
         "storybook": {
