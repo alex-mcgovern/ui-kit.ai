@@ -28,6 +28,7 @@ export {
     DialogTitle,
     DialogTrigger,
 } from './components/dialog'
+export { Disclosure, DisclosureButton, DisclosurePanel } from './components/disclosure'
 export { EmptyState } from './components/empty-state'
 export { FieldButton } from './components/field-button'
 export { FieldError } from './components/field-error'

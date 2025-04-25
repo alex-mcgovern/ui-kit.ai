@@ -18,12 +18,12 @@ export const DEFAULT_COLOR_PALETTE_INPUT = {
 } as const satisfies ColorPaletteInput
 
 export class ColorPalette {
-    private accentHsl: Hsl
-    private errorHsl: Hsl
-    private grayHsl: Hsl
-    private successHsl: Hsl
+    public accentHsl: Hsl
+    public errorHsl: Hsl
+    public grayHsl: Hsl
+    public successHsl: Hsl
+    public warningHsl: Hsl
     private readonly vendorToHsl = converter('hsl')
-    private warningHsl: Hsl
 
     constructor({ accent, error, gray, success, warning }: ColorPaletteInput) {
         this.accentHsl = this._hexToHsl(accent)

@@ -108,10 +108,6 @@ const COMPONENTS = {
             />
         )
     },
-    li: ({ children }) => <li className='my-1'>{children}</li>,
-    ol: ({ children }) => <ol className='mb-2 list-inside list-decimal pl-2'>{children}</ol>,
-    pre: ({ children }) => children,
-    ul: ({ children }) => <ul className='mb-2 list-inside list-disc pl-2'>{children}</ul>,
 } satisfies ReactMarkdownComponents
 
 export function Markdown({
