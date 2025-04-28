@@ -35,6 +35,7 @@ function MarkdownCode({
                 <CodeBlock
                     className={className}
                     language={language}
+                    showLineNumbers={false}
                 >
                     {children}
                 </CodeBlock>
