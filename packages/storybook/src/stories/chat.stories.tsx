@@ -49,7 +49,7 @@ function Template(args: ComponentProps<typeof Chat>) {
     return (
         <Chat
             {...args}
-            className='max-w-3xl mx-auto p-4'
+            className='mx-auto max-w-3xl p-4'
         >
             {displayMessages.map((message) => (
                 <ChatMessage

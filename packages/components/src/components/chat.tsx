@@ -8,11 +8,11 @@ import { Markdown } from './markdown'
 type ChatOrigin = 'them' | 'us'
 
 const messageBubbleStyles = tv({
-    base: ['relative  text-hi-contrast md:max-w-4/5 px-3 py-2'],
+    base: ['text-hi-contrast relative px-3 py-2 md:max-w-4/5'],
     variants: {
         origin: {
-            them: ['justify-self-start-safe left-0 '],
-            us: ['bg-tint-light rounded-xl rounded-tr-none justify-self-end-safe right-0'],
+            them: ['justify-self-start-safe left-0'],
+            us: ['bg-tint-light right-0 justify-self-end-safe rounded-xl rounded-tr-none'],
         },
     },
 })
