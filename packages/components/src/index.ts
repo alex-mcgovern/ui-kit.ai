@@ -1,6 +1,7 @@
 import './index.css'
 
 export { Alert } from './components/alert'
+export { TextArea } from './components/text-area'
 export { Autocomplete } from './components/autocomplete'
 export { Button, LinkButton } from './components/button'
 export { Card, CardBody, CardFooter, CardHeader, CardTitle } from './components/card'

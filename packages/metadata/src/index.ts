@@ -45,6 +45,7 @@ import { Skeleton as SkeletonStories } from '@ui-kit.ai/storybook'
 import { Table as TableStories } from '@ui-kit.ai/storybook'
 import { Tabs as TabsStories } from '@ui-kit.ai/storybook'
 import { Tag as TagStories } from '@ui-kit.ai/storybook'
+import { TextArea as TextAreaStories } from '@ui-kit.ai/storybook'
 import { TextField as TextFieldStories } from '@ui-kit.ai/storybook'
 import { Tooltip as TooltipStories } from '@ui-kit.ai/storybook'
 
@@ -99,5 +100,6 @@ export const Skeleton: Composed = compose(SkeletonStories)
 export const Table: Composed = compose(TableStories)
 export const Tabs: Composed = compose(TabsStories)
 export const Tag: Composed = compose(TagStories)
+export const TextArea: Composed = compose(TextAreaStories)
 export const TextField: Composed = compose(TextFieldStories)
 export const Tooltip: Composed = compose(TooltipStories)
