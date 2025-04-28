@@ -24,6 +24,7 @@ export function getInitials(name?: string) {
     }
     return `${first[0]}${last[0]}`
 }
+getInitials.displayName = 'getInitials'
 
 const avatarStyles = tv({
     base: 'bg-tint-light color-tint-fg flex size-10 shrink-0 items-center justify-center text-xl uppercase',
