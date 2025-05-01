@@ -38,7 +38,7 @@
         "@types/node": "22.14.0",
         "@ui-kit.ai/prettier": "workspace:*",
         "commitlint": "19.8.0",
-        "knip": "5.46.0",
+        "knip": "5.51.1",
         "sherif": "1.1.1",
         "tsx": "4.19.3",
         "turbo": "2.4.4"
