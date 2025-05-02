@@ -153,6 +153,9 @@ importers:
       lucide-react:
         specifier: 0.487.0
         version: 0.487.0(react@19.1.0)
+      msw:
+        specifier: 2.7.3
+        version: 2.7.3(@types/node@22.14.0)(typescript@5.5.4)
       next:
         specifier: 14.2.24
         version: 14.2.24(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
