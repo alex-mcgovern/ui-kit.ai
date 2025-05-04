@@ -22,9 +22,9 @@ export function Code({
     language: string
 }) {
     return (
-        <Card className={twMerge(className, 'bg-background')}>
-            <CardHeader className='border-b border-b-tint-light'>{component}</CardHeader>
-            <CardBody className='bg-raised'>
+        <Card className={twMerge(className, 'bg-raised')}>
+            <CardHeader className='border-b border-mid'>{component}</CardHeader>
+            <CardBody>
                 <CodeBlock
                     language={language}
                     showLineNumbers={false}

@@ -64,10 +64,9 @@ const dialogStyles = tv({
         'md:h-[unset] md:max-h-[inherit]',
         'w-full sm:max-w-[100dvw]',
         // border
-        'md:border-tint md:rounded-lg md:border',
+        'md:border-mid md:rounded-lg md:border',
         '[[data-placement]>&]:p-4',
     ],
-    extend: bgGlass,
     variants: {
         width: {
             lg: 'md:max-w-[max(50rem,50dvw)]',
@@ -159,7 +158,7 @@ export function DialogFooter({ children, ...props }: HTMLProps<HTMLElement>) {
             className={twMerge(
                 'min-h-10',
                 'flex shrink-0 items-center justify-between gap-2',
-                'border-t-tint border-t',
+                'border-mid border-t',
                 'py-2 pr-2 pl-4',
                 props.className
             )}
@@ -181,7 +180,7 @@ export function DialogHeader(props: HTMLProps<HTMLElement>) {
                 'h-10',
                 'px-4',
                 'flex shrink-0 items-center justify-between gap-4',
-                'border-b-tint border-b',
+                'border-mid border-b',
                 props.className
             )}
         />

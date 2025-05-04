@@ -28,7 +28,7 @@ const optionStyle = tv({
         'group/options-item',
         'flex items-center gap-2',
         'cursor-default',
-        'text-hi-contrast text-sm',
+        'text-dark text-sm',
         'outline outline-0',
         'rounded select-none',
         'px-2.5 py-0.5',
@@ -105,8 +105,10 @@ function OptionsItem<TType extends OptionType>({
                     {props.icon != null ? (
                         <div
                             className={twMerge(
-                                'pointer-events-none flex size-3 items-center justify-center',
-                                '[&_svg]:size-3 [&_svg]:shrink-0'
+                                'flex items-center justify-center',
+                                'text-mid',
+                                'pointer-events-none',
+                                'size-3 [&_svg]:size-3 [&_svg]:shrink-0'
                             )}
                         >
                             {props.icon}
@@ -123,13 +125,13 @@ function OptionsItem<TType extends OptionType>({
                             {props.children ?? props.textValue}
                         </span>
                         {props.description != null ? (
-                            <span className='text-mid-contrast group-focus/options-item:text-hi-contrast truncate text-sm font-normal'>
+                            <span className='text-mid group-focus/options-item:text-dark truncate text-sm font-normal'>
                                 {props.description}
                             </span>
                         ) : null}
                     </div>
                     {showCheckmarkOnSelected === true && isSelected ? (
-                        <IconCheck className='size-3' />
+                        <IconCheck className='size-3 text-mid' />
                     ) : null}
                 </>
             )}
@@ -163,7 +165,7 @@ OptionsSection.displayName = 'OptionsSection'
 function OptionsSectionHeader(props: HeadingProps) {
     return (
         <Header
-            className='text-mid-contrast px-2.5 py-1 text-xs font-medium uppercase'
+            className='text-mid px-2.5 py-1 text-xs font-medium uppercase'
             {...props}
         />
     )

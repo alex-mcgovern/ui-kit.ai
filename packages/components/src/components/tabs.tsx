@@ -76,27 +76,27 @@ const tabStyles = tv({
     base: [
         'px-4 py-1.5',
         '-outline-offset-4',
-        'text-mid-contrast text-sm whitespace-nowrap',
+        'text-mid text-sm whitespace-nowrap',
         'font-medium',
         'flex items-center',
         'cursor-pointer',
         // pressed
-        'pressed:text-mid-contrast',
+        'pressed:text-mid',
         // hover
-        'hover:text-hi-contrast',
+        'hover:text-dark',
         // selected
-        'selected:text-hi-contrast',
+        'selected:text-dark',
         'selected:border-accent-light',
         // selected
         'disabled:text-disabled',
-        'disabled:selected:text-mid-contrast forced-color-adjust-none',
+        'disabled:selected:text-mid forced-color-adjust-none',
         // horizontal
         'group-orientation-horizontal/tabs:border-b',
-        'group-orientation-horizontal/tabs:border-tint-light',
+        'group-orientation-horizontal/tabs:border-light',
         // vertical
         'group-orientation-vertical/tabs:w-full',
         'group-orientation-vertical/tabs:border-r',
-        'group-orientation-vertical/tabs:border-tint-light',
+        'group-orientation-vertical/tabs:border-light',
     ],
     extend: focusRing,
 })

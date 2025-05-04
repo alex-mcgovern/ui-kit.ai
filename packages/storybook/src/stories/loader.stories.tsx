@@ -33,7 +33,7 @@ export const CustomSize: Story = {
 
 export const CustomColor: Story = {
     args: {
-        className: 'text-mid-contrast',
+        className: 'text-mid',
     },
     parameters: {
         displayName: 'Custom Color',

@@ -26,7 +26,7 @@ export default function Layout({
         <div className='grid grid-cols-[1fr_5fr] gap-8 min-h-screen'>
             <Sidebar>
                 <Heading
-                    className='text-sm'
+                    className='text-sm text-mid mb-0'
                     level={3}
                 >
                     Getting started
@@ -55,13 +55,13 @@ export default function Layout({
                     showCheckmarkOnSelected={false}
                 />
                 <Heading
-                    className='text-sm'
+                    className='text-sm mb-0 text-mid'
                     level={3}
                 >
                     Components
                 </Heading>
                 <ListBox
-                    className='w-64'
+                    className='w-64 mb-4'
                     items={ITEMS}
                     selectedKeys={selectedLayoutSegment != null ? [selectedLayoutSegment] : []}
                     selectionMode='single'

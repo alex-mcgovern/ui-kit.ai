@@ -76,7 +76,7 @@ const tagStyles = tv({
                 'pressed:bg-tint-dark',
             ],
             solid: [
-                'bg-accent border-accent text-accent-fg',
+                'bg-accent border-dark text-accent',
                 'hover:bg-accent-light hover:border:accent-light',
                 'pressed:accent-dark pressed:border-accent-dark',
             ],

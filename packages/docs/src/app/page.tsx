@@ -105,11 +105,11 @@ function HomepageCard({
     return (
         <Card>
             <CardHeader className='pb-0'>
-                <Icon className='bg-muted-100 p-1.5 rounded-full size-8 text-mid-contrast -ml-1.5' />
+                <Icon className='bg-muted-100 p-1.5 rounded-full size-8 text-mid -ml-1.5' />
                 <CardTitle>{title}</CardTitle>
             </CardHeader>
             <CardBody>
-                <p className='text-mid-contrast'>{description}</p>
+                <p className='text-mid'>{description}</p>
             </CardBody>
         </Card>
     )

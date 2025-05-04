@@ -15,8 +15,8 @@ const alertStyles = tv({
         'w-full',
         'rounded-lg shadow-xs',
         'border-light border',
-        'bg-tint-light/50',
-        'text-hi-contrast',
+        'bg-tint-light',
+        'text-dark',
         'py-1 pr-2 pl-3',
         'flex items-center gap-4',
     ],
@@ -27,7 +27,7 @@ const titleStyles = tv({
 })
 
 const iconStyles = tv({
-    base: 'text-hi-contrast size-4 shrink-0 stroke-[1.75px]',
+    base: 'text-dark size-4 shrink-0 stroke-[1.75px]',
 })
 
 /**
@@ -76,9 +76,7 @@ export function Alert({
                     {title}
                 </span>
                 {description != null ? (
-                    <Description className={twMerge('!my-0 text-hi-contrast')}>
-                        {description}
-                    </Description>
+                    <Description className={twMerge('!my-0 text-dark')}>{description}</Description>
                 ) : null}
             </div>
             {renderActionNodes({

@@ -132,7 +132,7 @@ export function SelectButton({
                 className={twMerge([
                     'inline-flex flex-1 items-center gap-2',
                     'truncate',
-                    'placeholder-shown:text-lo-contrast',
+                    'placeholder-shown:text-light',
                 ])}
             >
                 {({ selectedText }) => selectedText}

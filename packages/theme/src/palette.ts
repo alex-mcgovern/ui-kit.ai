@@ -1,3 +1,13 @@
+// \t/*-------------------------------------------------
+// \t/ Default theme color utility mapping
+// \t/-------------------------------------------------*/
+// ${Object.keys(this.palette(this.grayHsl, this.accentHsl))
+//     .map((colorName, index) => {
+//         const cssVar = Object.keys(defaultThemeVars)[index]
+//         return `\t--color-${colorName}: var(${cssVar});`
+//     })
+//     .join('\n')}
+
 /* eslint-disable sonarjs/no-duplicate-string */
 /* eslint-disable perfectionist/sort-objects */
 import { converter, formatHsl, type Hsl, hsl } from 'culori'
@@ -11,10 +21,14 @@ export type ColorPaletteInput = {
 }
 
 export const DEFAULT_COLOR_PALETTE_INPUT = {
-    accent: '#3E63DD',
-    error: '#E54666',
-    success: '#29A383',
-    warning: '#FFC53D',
+    // accent: '#3E63DD',
+    accent: '#E6E0E0',
+    // error: '#E54666',
+    error: '#ECA7B6',
+    // success: '#29A383',
+    success: '#D6E0A9',
+    // warning: '#FFC53D',
+    warning: '#FFD675',
 } as const satisfies ColorPaletteInput
 
 export class ColorPalette {
@@ -102,15 +116,7 @@ ${Object.entries(warningThemeVars)
         return `\t${key}: ${value};`
     })
     .join('\n')}
-\t/*-------------------------------------------------
-\t/ Default theme color utility mapping
-\t/-------------------------------------------------*/
-${Object.keys(this.palette(this.grayHsl, this.accentHsl))
-    .map((colorName, index) => {
-        const cssVar = Object.keys(defaultThemeVars)[index]
-        return `\t--color-${colorName}: var(${cssVar});`
-    })
-    .join('\n')}
+
 \t/*-------------------------------------------------
 \t/ Syntax theme color utility mapping
 \t/-------------------------------------------------*/
@@ -159,6 +165,9 @@ ${Object.entries(this.syntaxPalette())
 @utility text-dark {
 \tcolor: var(--theme-default-hi-contrast);
 }
+@utility text-accent {
+\tcolor: var(--theme-default-accent-fg);
+}
 
 @utility border-light {
 \tborder-color: var(--theme-default-border-light);
@@ -174,13 +183,6 @@ ${Object.entries(this.syntaxPalette())
 / Info semantic color utility mapping
 /-------------------------------------------------*/
 @utility info {
-${Object.keys(this.palette(this.accentHsl, this.accentHsl))
-    .map((colorName, index) => {
-        const cssVar = Object.keys(infoThemeVars)[index]
-        return `\t--color-${colorName}: var(${cssVar});`
-    })
-    .join('\n')}
-
 \t--theme-default-base: var(--theme-info-base);
 \t--theme-default-raised: var(--theme-info-raised);
 \t--theme-default-tint-dark: var(--theme-info-tint-dark);
@@ -193,6 +195,7 @@ ${Object.keys(this.palette(this.accentHsl, this.accentHsl))
 \t--theme-default-lo-contrast: var(--theme-info-lo-contrast);
 \t--theme-default-mid-contrast: var(--theme-info-mid-contrast);
 \t--theme-default-hi-contrast: var(--theme-info-hi-contrast);
+\t--theme-default-accent-fg: var(--theme-info-accent-fg);
 
 \t--theme-default-border-light: var(--theme-info-border-light);
 \t--theme-default-border-mid: var(--theme-info-border-mid);
@@ -203,13 +206,6 @@ ${Object.keys(this.palette(this.accentHsl, this.accentHsl))
 / Error semantic color utility mapping
 /-------------------------------------------------*/
 @utility error {
-${Object.keys(this.palette(this.errorHsl, this.errorHsl))
-    .map((colorName, index) => {
-        const cssVar = Object.keys(errorThemeVars)[index]
-        return `\t--color-${colorName}: var(${cssVar});`
-    })
-    .join('\n')}
-
 \t--theme-default-base: var(--theme-error-base);
 \t--theme-default-raised: var(--theme-error-raised);
 \t--theme-default-tint-dark: var(--theme-error-tint-dark);
@@ -222,6 +218,7 @@ ${Object.keys(this.palette(this.errorHsl, this.errorHsl))
 \t--theme-default-lo-contrast: var(--theme-error-lo-contrast);
 \t--theme-default-mid-contrast: var(--theme-error-mid-contrast);
 \t--theme-default-hi-contrast: var(--theme-error-hi-contrast);
+\t--theme-default-accent-fg: var(--theme-error-accent-fg);
 
 \t--theme-default-border-light: var(--theme-error-border-light);
 \t--theme-default-border-mid: var(--theme-error-border-mid);
@@ -232,13 +229,6 @@ ${Object.keys(this.palette(this.errorHsl, this.errorHsl))
 / Warning semantic color utility mapping
 /-------------------------------------------------*/
 @utility warning {
-${Object.keys(this.palette(this.warningHsl, this.warningHsl))
-    .map((colorName, index) => {
-        const cssVar = Object.keys(warningThemeVars)[index]
-        return `\t--color-${colorName}: var(${cssVar});`
-    })
-    .join('\n')}
-
 \t--theme-default-base: var(--theme-warning-base);
 \t--theme-default-raised: var(--theme-warning-raised);
 \t--theme-default-tint-dark: var(--theme-warning-tint-dark);
@@ -251,6 +241,7 @@ ${Object.keys(this.palette(this.warningHsl, this.warningHsl))
 \t--theme-default-lo-contrast: var(--theme-warning-lo-contrast);
 \t--theme-default-mid-contrast: var(--theme-warning-mid-contrast);
 \t--theme-default-hi-contrast: var(--theme-warning-hi-contrast);
+\t--theme-default-accent-fg: var(--theme-warning-accent-fg);
 
 \t--theme-default-border-light: var(--theme-warning-border-light);
 \t--theme-default-border-mid: var(--theme-warning-border-mid);
@@ -260,15 +251,7 @@ ${Object.keys(this.palette(this.warningHsl, this.warningHsl))
 /*-------------------------------------------------
 / Success semantic color utility mapping
 /-------------------------------------------------*/
-@utility success {
-${Object.keys(this.palette(this.successHsl, this.successHsl))
-    .map((colorName, index) => {
-        const cssVar = Object.keys(successThemeVars)[index]
-        return `\t--color-${colorName}: var(${cssVar});`
-    })
-    .join('\n')}
-}
-
+@utility success { 
 \t--theme-default-base: var(--theme-success-base);
 \t--theme-default-raised: var(--theme-success-raised);
 \t--theme-default-tint-dark: var(--theme-success-tint-dark);
@@ -281,11 +264,12 @@ ${Object.keys(this.palette(this.successHsl, this.successHsl))
 \t--theme-default-lo-contrast: var(--theme-success-lo-contrast);
 \t--theme-default-mid-contrast: var(--theme-success-mid-contrast);
 \t--theme-default-hi-contrast: var(--theme-success-hi-contrast);
+\t--theme-default-accent-fg: var(--theme-success-accent-fg);
 
-\t--theme-default-border-light: var(--theme-warning-success-light);
-\t--theme-default-border-mid: var(--theme-warning-success-mid);
-\t--theme-default-border-dark: var(--theme-warning-success-dark);
-
+\t--theme-default-border-light: var(--theme-success-border-light);
+\t--theme-default-border-mid: var(--theme-success-border-mid);
+\t--theme-default-border-dark: var(--theme-success-border-dark);
+}
 `
     }
 
@@ -412,7 +396,7 @@ ${Object.keys(this.palette(this.successHsl, this.successHsl))
     private _bg(hsl: Hsl, mode: 'dark' | 'light'): Hsl {
         return {
             ...hsl,
-            l: mode === 'light' ? 0.975 : 0.055,
+            l: mode === 'light' ? 0.9625 : 0.055,
             s: 0.05,
         }
     }

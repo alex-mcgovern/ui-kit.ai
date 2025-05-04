@@ -3,14 +3,10 @@
 /* eslint-disable perfectionist/sort-objects */
 
 import {
-    CodeInline,
     ColorField,
     ColorSlider,
     ColorSwatch,
     DialogTrigger,
-    Disclosure,
-    DisclosureButton,
-    DisclosurePanel,
     FieldButton,
     FieldGroup,
     Heading,
@@ -18,12 +14,10 @@ import {
     Label,
     Popover,
     PopoverDialog,
-    Table,
 } from '@ui-kit.ai/components'
 import { ColorPalette, DEFAULT_COLOR_PALETTE_INPUT } from '@ui-kit.ai/theme'
 import { PipetteIcon } from 'lucide-react'
 import { type ComponentProps, type Dispatch, type SetStateAction, useState } from 'react'
-import { twMerge } from 'tailwind-merge'
 
 import { Sidebar } from '../../components/sidebar'
 import { ColorTableBg, ColorTableBorder, ColorTableText } from './components/color-table'
@@ -34,7 +28,6 @@ export default function Page() {
     const [error, setError] = useState(DEFAULT_COLOR_PALETTE_INPUT.error)
     const [success, setSuccess] = useState(DEFAULT_COLOR_PALETTE_INPUT.success)
     const [warning, setWarning] = useState(DEFAULT_COLOR_PALETTE_INPUT.warning)
-    const [info, setInfo] = useState(DEFAULT_COLOR_PALETTE_INPUT.accent)
 
     const palette = new ColorPalette({
         error: error,
@@ -126,7 +119,7 @@ function ThemeColorPicker({
 
     return (
         <ColorField
-            className='mb-2 grid grid-cols-[2fr_3fr] gap-2'
+            className='mb-2 grid grid-cols-2 items-center gap-2'
             onChange={onChange}
             value={value}
         >
