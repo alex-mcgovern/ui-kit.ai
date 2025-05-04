@@ -10,7 +10,7 @@ export function DemoContainer({
     className?: string
 }) {
     return (
-        <div className={twMerge('border border-dashed border-light rounded-lg p-4', className)}>
+        <div className={twMerge('border border-dashed border-mid rounded-lg p-4', className)}>
             {children}
         </div>
     )
