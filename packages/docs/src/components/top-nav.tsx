@@ -17,7 +17,7 @@ import { hrefs } from '../lib/hrefs'
 
 export function TopNav() {
     return (
-        <nav className='bg-background-raised backdrop-blur-md sticky top-0 z-10 border-b h-12 border-b-tint-light'>
+        <nav className='bg-raised backdrop-blur-md sticky top-0 z-10 border-b h-12 border-b-tint-light'>
             <div className='flex items-center justify-between px-4 py-2 mx-auto '>
                 <div className='flex gap-6 items-center'>
                     <Link
@@ -29,19 +29,19 @@ export function TopNav() {
                     </Link>
                     <div className='flex items-center gap-4'>
                         <Link
-                            className='text-sm font-light text-hi-contrast hover:text-mid-contrast transition-colors'
+                            className='text-sm  text-hi-contrast hover:text-mid-contrast transition-colors'
                             href={hrefs.docs.getting_started.introduction}
                         >
                             Docs
                         </Link>
                         <Link
-                            className='text-sm font-light text-hi-contrast hover:text-mid-contrast transition-colors'
+                            className='text-sm  text-hi-contrast hover:text-mid-contrast transition-colors'
                             href={hrefs.docs.components}
                         >
                             Components
                         </Link>
                         <Link
-                            className='text-sm font-light text-hi-contrast hover:text-mid-contrast transition-colors'
+                            className='text-sm  text-hi-contrast hover:text-mid-contrast transition-colors'
                             href={hrefs.theme}
                         >
                             Theme

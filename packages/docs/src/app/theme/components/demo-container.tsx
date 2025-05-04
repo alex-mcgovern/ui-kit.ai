@@ -3,20 +3,15 @@ import type { ReactNode } from 'react'
 import { twMerge } from 'tailwind-merge'
 
 export function DemoContainer({
-  children,
-  className,
+    children,
+    className,
 }: {
-  children: ReactNode
-  className?: string
+    children: ReactNode
+    className?: string
 }) {
-  return (
-    <div
-      className={twMerge(
-        'border border-dashed border-tint rounded-lg p-4',
-        className
-      )}
-    >
-      {children}
-    </div>
-  )
+    return (
+        <div className={twMerge('border border-dashed border-light rounded-lg p-4', className)}>
+            {children}
+        </div>
+    )
 }

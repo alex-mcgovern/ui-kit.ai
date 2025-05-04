@@ -6,6 +6,7 @@ import { useSelectedLayoutSegments } from 'next/navigation'
 
 import { Sidebar } from '../../components/sidebar'
 import { hrefs } from '../../lib/hrefs'
+import '../../mocks'
 
 const ITEMS: OptionsSchema<'listbox'>[] = Object.keys(components).map((componentName) => ({
     href: hrefs.component(componentName),

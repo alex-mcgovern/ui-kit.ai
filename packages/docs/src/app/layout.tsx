@@ -6,6 +6,7 @@ import '../index.css'
 
 import { Inter } from 'next/font/google'
 
+import { MSWProvider } from '../components/msw-provider'
 import { TopNav } from '../components/top-nav'
 
 const inter = Inter({
@@ -47,8 +48,10 @@ export default function RootLayout({
     return (
         <html lang='en'>
             <body className={`${inter.className} antialiased relative `}>
-                <TopNav />
-                <main className='mx-auto '>{children}</main>
+                <MSWProvider>
+                    <TopNav />
+                    <main className='mx-auto '>{children}</main>
+                </MSWProvider>
             </body>
         </html>
     )

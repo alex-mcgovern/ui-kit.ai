@@ -18,21 +18,23 @@ import {
     Label,
     Popover,
     PopoverDialog,
+    Table,
 } from '@ui-kit.ai/components'
 import { ColorPalette, DEFAULT_COLOR_PALETTE_INPUT } from '@ui-kit.ai/theme'
 import { PipetteIcon } from 'lucide-react'
 import { type ComponentProps, type Dispatch, type SetStateAction, useState } from 'react'
+import { twMerge } from 'tailwind-merge'
 
 import { Sidebar } from '../../components/sidebar'
+import { ColorTableBg, ColorTableBorder, ColorTableText } from './components/color-table'
 import { Demo } from './components/demo'
-
-type FullPalette = ReturnType<ColorPalette['palette']>
 
 export default function Page() {
     const [accent, setAccent] = useState(DEFAULT_COLOR_PALETTE_INPUT.accent)
     const [error, setError] = useState(DEFAULT_COLOR_PALETTE_INPUT.error)
     const [success, setSuccess] = useState(DEFAULT_COLOR_PALETTE_INPUT.success)
     const [warning, setWarning] = useState(DEFAULT_COLOR_PALETTE_INPUT.warning)
+    const [info, setInfo] = useState(DEFAULT_COLOR_PALETTE_INPUT.accent)
 
     const palette = new ColorPalette({
         error: error,
@@ -45,7 +47,6 @@ export default function Page() {
     const css = palette.css({
         overrideTwColors: true,
         selector: ':root',
-        useTwUtilities: false,
     })
 
     return (
@@ -56,34 +57,46 @@ export default function Page() {
                 }}
             />
             <Sidebar>
-                <Heading level={3}>Color</Heading>
+                <Heading level={3}>Base colors</Heading>
 
                 <ThemeColorPicker
                     label='Accent'
                     setValue={setAccent}
                     value={accent}
                 />
-                <DerivedColors colors={palette.palette(palette.grayHsl, palette.accentHsl)} />
                 <ThemeColorPicker
                     label='Error'
                     setValue={setError}
                     value={error}
                 />
-                <DerivedColors colors={palette.palette(palette.errorHsl, palette.errorHsl)} />
                 <ThemeColorPicker
                     label='Success'
                     setValue={setSuccess}
                     value={success}
                 />
-                <DerivedColors colors={palette.palette(palette.successHsl, palette.successHsl)} />
                 <ThemeColorPicker
                     label='Warning'
                     setValue={setWarning}
                     value={warning}
                 />
-                <DerivedColors colors={palette.palette(palette.warningHsl, palette.warningHsl)} />
+
+                <Heading level={3}>Derived colors</Heading>
+
+                <p className='text-sm mb-4'>
+                    Below are the colors derived from your inputs and the corresponding Tailwind
+                    class names you can use to access them in your components.
+                </p>
+
+                <Heading level={4}>Background</Heading>
+                <ColorTableBg palette={palette.palette(palette.grayHsl, palette.accentHsl)} />
+
+                <Heading level={4}>Text</Heading>
+                <ColorTableText palette={palette.palette(palette.grayHsl, palette.accentHsl)} />
+
+                <Heading level={4}>Border</Heading>
+                <ColorTableBorder palette={palette.palette(palette.grayHsl, palette.accentHsl)} />
             </Sidebar>
-            <main className='w-full px-4 min-w-0 mx-auto'>
+            <main className='w-full p-4 min-w-0 mx-auto'>
                 <section>
                     <Demo />
 
@@ -95,34 +108,6 @@ export default function Page() {
                 </section>
             </main>
         </div>
-    )
-}
-
-function DerivedColors({ colors }: { colors: FullPalette }) {
-    return (
-        <Disclosure>
-            <DisclosureButton className='!h-6 !pl-2.5'>Derived colors</DisclosureButton>
-            <DisclosurePanel>
-                <div>
-                    {Object.entries(colors).map(([key, value]) => (
-                        <div
-                            className='px-2 flex items-center mb-2 gap-1 text-xs'
-                            key={key}
-                        >
-                            <ColorSwatch
-                                className='size-5'
-                                color={value[0]}
-                            />
-                            <ColorSwatch
-                                className='size-5'
-                                color={value[1]}
-                            />
-                            <CodeInline language='plaintext'>{`--color-${key}`}</CodeInline>
-                        </div>
-                    ))}
-                </div>
-            </DisclosurePanel>
-        </Disclosure>
     )
 }
 
@@ -141,14 +126,11 @@ function ThemeColorPicker({
 
     return (
         <ColorField
-            className='mb-2'
+            className='mb-2 grid grid-cols-[2fr_3fr] gap-2'
             onChange={onChange}
             value={value}
         >
-            <div className='flex items-center justify-between'>
-                <Label>{label}</Label>
-                {/* <SliderOutput /> */}
-            </div>
+            <Label>{label}</Label>
             <FieldGroup>
                 <Input
                     icon={

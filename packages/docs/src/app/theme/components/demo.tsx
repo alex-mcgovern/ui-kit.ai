@@ -1,8 +1,5 @@
 'use client'
 
-import { ListBox } from '@ui-kit.ai/components'
-import { AppleIcon, BananaIcon, CarrotIcon, LeafyGreenIcon } from 'lucide-react'
-
 import { DemoAlert } from './demo-alert'
 import { DemoButton } from './demo-button'
 import { DemoForm } from './demo-form'
