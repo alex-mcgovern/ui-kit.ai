@@ -52,20 +52,15 @@ const buttonStyle = tv({
                 'pressed:border-accent-dark pressed:bg-accent-dark',
             ],
             secondary: [
-                // base
                 'shadow-xs',
-                'border-tint-dark bg-background text-hi-contrast',
-                // hover
-                'hover:bg-tint-light',
-                // pressed
-                'pressed:bg-tint',
+                'border-mid bg-transparent text-hi-contrast',
+                'hover:bg-hi-contrast/5',
+                'pressed:bg-base/5',
             ],
             tertiary: [
                 'text-hi-contrast border-transparent bg-transparent',
-                // hover
-                'hover:bg-tint',
-                // pressed
-                'pressed:bg-tint-dark',
+                'hover:bg-hi-contrast/5',
+                'pressed:bg-base/5',
             ],
         },
     },

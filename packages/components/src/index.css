@@ -74,7 +74,7 @@
 }
 
 :root {
-    @apply bg-background text-mid-contrast;
+    @apply bg-base text-mid-contrast;
     color-scheme: dark light;
 
     scrollbar-color: var(--gray-400) transparent;
@@ -97,7 +97,7 @@ body {
     font-family: 'Inter', sans-serif;
 }
 
-p {
+p:not(:last-child) {
     margin-bottom: calc(var(--spacing) * 4);
 }
 
@@ -120,8 +120,8 @@ code {
 
 /* Global colors for highlighted text */
 ::selection {
-    background: var(--color-accent-tint);
-    color: var(--color-accent-tint-fg);
+    background: var(--color-tint);
+    color: var(--color-hi-contrast);
 }
 
 /* Hide the user agent default clear button on search inputs */

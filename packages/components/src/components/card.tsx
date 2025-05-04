@@ -12,7 +12,7 @@ export function Card(props: HTMLProps<HTMLElement>) {
         <section
             {...props}
             className={twMerge(
-                'border-tint-light bg-background-raised relative overflow-hidden rounded border shadow-xs',
+                'border-light bg-base-raised relative overflow-hidden rounded border shadow-xs',
                 props.className
             )}
         />

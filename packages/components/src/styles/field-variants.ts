@@ -23,11 +23,11 @@ export const fieldVariants = tv({
         isBorderless: {
             false: [
                 [
-                    'border-tint border',
-                    'bg-background',
+                    'border-mid border',
+                    'bg-base',
                     'transition-colors',
                     // hover
-                    'hover:[&:not([data-disabled])]:border-tint-light',
+                    'hover:[&:not([data-disabled])]:border-dark',
                     // focus visible
                     'focus-visible:border-tint-dark focus-visible:outline-2',
                     'focus-visible:forced-colors:border-[ButtonBorder]',

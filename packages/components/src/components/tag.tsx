@@ -55,14 +55,6 @@ const tagStyles = tv({
         'px-3 py-1.5',
         '[&:has([data-slot=slot-left])]:pl-1.5',
         '[&:has([data-slot=slot-right])]:pr-1.5',
-        // color vars
-        '[--bg:theme(colors.muted.50)]',
-        '[--bg-hover:theme(colors.muted.100)]',
-        '[--bg-pressed:theme(colors.muted.200)]',
-        '[--border:theme(colors.muted.300)]',
-        '[--text:theme(colors.muted.500)]',
-        // assignment
-        'border-[--border] bg-[--bg] text-[--text]',
         // interactivity
         '[&:is(a,button)]:hover:bg-[--bg-hover]',
         '[&:is(a,button)]:pressed:bg-[--bg-pressed]',
@@ -79,7 +71,7 @@ const tagStyles = tv({
         },
         variant: {
             default: [
-                'bg-background-raised border-tint text-mid-contrast',
+                'bg-raised border-dark text-mid',
                 'hover:bg-tint-light',
                 'pressed:bg-tint-dark',
             ],

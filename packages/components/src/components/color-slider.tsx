@@ -17,7 +17,7 @@ const thumbStyles = tv({
         'size-6',
         'inset-y-1/2',
         'rounded-full',
-        'border-background border',
+        'border-base border',
         'outline-mid-contrast outline',
         'shadow-sm',
         'focus-visible:outline',
@@ -52,7 +52,7 @@ export function ColorSlider(props: RACColorSliderProps) {
                         className={trackStyles()}
                         style={({ defaultStyle }) => ({
                             background: `${defaultStyle.background},
-      repeating-conic-gradient(var(--color-tint-dark) 0% 25%, var(--color-background) 0% 50%) 50% / 16px 16px`,
+      repeating-conic-gradient(var(--color-tint-dark) 0% 25%, var(--color-base) 0% 50%) 50% / 16px 16px`,
                         })}
                     >
                         <ColorThumb className={thumbStyles()} />

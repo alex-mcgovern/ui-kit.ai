@@ -9,7 +9,7 @@ const colorSwatchStyles = tv({
         'inline-block',
         'size-8',
         'rounded',
-        'border-background border',
+        'border-base border',
         'outline-mid-contrast outline',
         'shadow-sm',
     ],

@@ -15,7 +15,7 @@ export function Kbd(props: HTMLProps<HTMLDivElement>) {
                 'text-xs font-medium whitespace-nowrap',
                 'px-1',
                 'rounded border border-b-[1.5px]',
-                'border-current/50',
+                'border-light',
                 'bg-current/10 text-current/80',
                 props.className
             )}

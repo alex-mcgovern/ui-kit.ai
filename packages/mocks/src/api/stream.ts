@@ -1,17 +1,16 @@
 import { http, HttpResponse } from 'msw'
 
-import fibonacciContent from '../markdown/chats/fibonacci.md?raw'
+const CHUNK_SIZE = 1
+const TEXT = 'Hi, how can I help?'
 
-const CHUNK = 10
-
-export const fibonacciStreamHandler = http.get('/api/stream/fibonacci', () => {
+export const llmStreamHandler = http.get('/api/stream', () => {
     const e = new TextEncoder()
 
     const stream = new ReadableStream({
         async start(c) {
-            for (let i = 0; i < fibonacciContent.length; i += CHUNK) {
-                const chunk = fibonacciContent.substring(i, i + CHUNK)
-                await new Promise((resolve) => setTimeout(resolve, 50))
+            for (let i = 0; i < TEXT.length; i += CHUNK_SIZE) {
+                const chunk = TEXT.substring(i, i + CHUNK_SIZE)
+                await new Promise((resolve) => setTimeout(resolve, 100))
                 if (i === 0) {
                     c.enqueue(
                         e.encode(

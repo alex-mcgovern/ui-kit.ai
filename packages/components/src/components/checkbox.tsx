@@ -42,8 +42,8 @@ const checkboxContainerStyles = tv({
 
 const boxStyles = tv({
     base: [
-        'bg-background',
-        'border-lo-contrast border',
+        'bg-base',
+        'border-mid border',
         'size-4',
         'transition-colors',
         'flex flex-shrink-0 items-center justify-center',
@@ -52,7 +52,7 @@ const boxStyles = tv({
         'group-disabled:opacity-50',
         // hover
         'group-hover:bg-tint-light',
-        'group-hover:border-lo-contrast',
+        'group-hover:border-dark',
         // selected
         'group-selected:bg-accent',
         'group-selected:group-hover:bg-accent',

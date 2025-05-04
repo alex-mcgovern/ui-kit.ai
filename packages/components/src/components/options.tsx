@@ -32,18 +32,17 @@ const optionStyle = tv({
         'outline outline-0',
         'rounded select-none',
         'px-2.5 py-0.5',
-        // disabled
-        'disabled:text-disabled disabled:forced-colors:text-[GrayText]',
-        // hover
-        `hover:bg-tint-light hover:open:bg-tint-light hover:forced-colors:bg-[Highlight]
-        hover:forced-colors:text-[HighlightText]`,
-        // focus
-        `focus:bg-tint-light focus:open:bg-tint-light focus:forced-colors:bg-[Highlight]
-        focus:forced-colors:text-[HighlightText]`,
-        // selected
-        `selected:bg-tint-light selected:open:bg-tint-light selected:forced-colors:bg-[Highlight]
-        selected:forced-colors:text-[HighlightText]`,
         'forced-color-adjust-none',
+        // disabled
+        'disabled:text-disabled',
+        // hover
+        `hover:bg-tint-light`,
+        // focus
+        `focus:bg-tint-light`,
+        // pressed
+        `pressed:bg-tint-dark`,
+        // selected
+        `selected:bg-tint`,
     ],
 })
 

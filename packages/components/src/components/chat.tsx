@@ -21,7 +21,9 @@ const messageBubbleStyles = tv({
  * A `Chat` contains a list of messages.
  */
 export function Chat({ children, className }: { children: ReactNode; className?: string }) {
-    return <section className={twMerge('flex flex-col gap-4', className)}>{children}</section>
+    return (
+        <section className={twMerge('flex flex-col gap-4 w-full', className)}>{children}</section>
+    )
 }
 Chat.displayName = 'Chat'
 

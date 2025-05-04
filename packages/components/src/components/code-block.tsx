@@ -11,7 +11,7 @@ import { Tooltip, TooltipTrigger } from './tooltip'
  */
 export function CodeBlock({ showLineNumbers = true, ...props }: SyntaxHighlighterProps) {
     return (
-        <div className='relative'>
+        <div className='relative w-full'>
             <SyntaxHighlighter
                 {...props}
                 PreTag={undefined}
@@ -24,8 +24,9 @@ export function CodeBlock({ showLineNumbers = true, ...props }: SyntaxHighlighte
             <TooltipTrigger>
                 <Button
                     aria-label='Copy to clipboard'
-                    className='absolute top-0.5 right-0.5'
+                    className='!w-6 !h-6 !p-0 absolute top-0 right-0'
                     isIcon
+                    variant='secondary'
                 >
                     <CopyIcon />
                 </Button>
