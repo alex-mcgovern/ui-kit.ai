@@ -16,7 +16,7 @@ export function CodeInline({
         <SyntaxHighlighter
             codeTagProps={{
                 className: twMerge(
-                    'bg-raised border-mid rounded-sm border px-1 py-0.25',
+                    'bg-tint-light border-light rounded-sm border px-1 py-0.25',
                     className
                 ),
                 style: {

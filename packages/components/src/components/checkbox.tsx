@@ -72,10 +72,10 @@ const iconStyles = tv({
         'transition-colors',
         'stroke-transparent',
         // hover
-        'group-hover:stroke-[var(--theme-default-mid-contrast)]',
-        'group-hover/row:stroke-[var(--theme-default-mid-contrast)]',
-        'group-selected:stroke-[var(--theme-default-accent-fg)]',
-        'group-indeterminate:stroke-[var(--theme-default-accent-fg)]',
+        'group-hover:stroke-[var(--theme-default-text-mid)]',
+        'group-hover/row:stroke-[var(--theme-default-text-mid)]',
+        'group-selected:stroke-[var(--theme-default-text-accent)]',
+        'group-indeterminate:stroke-[var(--theme-default-text-accent)]',
     ],
 })
 

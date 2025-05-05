@@ -38,7 +38,8 @@
         "@ui-kit.ai/eslint": "workspace:*",
         "@ui-kit.ai/prettier": "workspace:*",
         "@ui-kit.ai/tsconfig": "workspace:*",
-        "@ui-kit.ai/vite": "workspace:*"
+        "@ui-kit.ai/vite": "workspace:*",
+        "@ui-kit.ai/vitest": "workspace:*"
     },
     "engines": {
         "node": "22.x"

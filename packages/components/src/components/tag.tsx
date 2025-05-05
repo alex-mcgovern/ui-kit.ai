@@ -71,7 +71,7 @@ const tagStyles = tv({
         },
         variant: {
             default: [
-                'bg-raised border-dark text-mid',
+                'bg-tint-light border-dark text-mid',
                 'hover:bg-tint-light',
                 'pressed:bg-tint-dark',
             ],

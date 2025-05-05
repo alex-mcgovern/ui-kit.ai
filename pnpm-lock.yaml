@@ -628,6 +628,9 @@ importers:
       '@ui-kit.ai/vite':
         specifier: workspace:*
         version: link:../vite
+      '@ui-kit.ai/vitest':
+        specifier: workspace:*
+        version: link:../vitest
 
   packages/tsconfig:
     dependencies:

@@ -125,6 +125,7 @@ export function SelectButton({
                 // @ts-expect-error - TODO: Fix select types
                 selectedItemIcon ?? slotLeft,
                 {
+                    className: 'text-mid',
                     'data-slot': 'slot-left',
                 }
             )}
@@ -138,6 +139,7 @@ export function SelectButton({
                 {({ selectedText }) => selectedText}
             </AriaSelectValue>
             {renderSlot(slotRight, {
+                className: 'text-mid',
                 'data-slot': 'slot-right',
             })}
         </AriaButton>

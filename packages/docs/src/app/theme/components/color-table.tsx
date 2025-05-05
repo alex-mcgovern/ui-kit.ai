@@ -89,19 +89,11 @@ function BorderCell({
     )
 }
 
-function BorderTableRow({
-    className,
-    classNamePrefix,
-    color,
-}: {
-    className: string
-    classNamePrefix: string
-    color: Color
-}) {
+function BorderTableRow({ className, color }: { className: string; color: Color }) {
     return (
         <Row>
             <Cell className='font-medium py-0 pl-0 pr-2 border-0'>
-                <CodeInline language='plaintext'>{`${classNamePrefix}-${color}`}</CodeInline>
+                <CodeInline language='plaintext'>{color}</CodeInline>
             </Cell>
             {INTENTS.map((intent) => (
                 <BorderCell
@@ -129,19 +121,11 @@ function ColorCell({
         </Cell>
     )
 }
-function ColorTableRow({
-    className,
-    classNamePrefix,
-    color,
-}: {
-    className: string
-    classNamePrefix: string
-    color: Color
-}) {
+function ColorTableRow({ className, color }: { className: string; color: Color }) {
     return (
         <Row>
             <Cell className='font-medium py-0 pl-0 pr-2 border-0'>
-                <CodeInline language='plaintext'>{`${classNamePrefix}-${color}`}</CodeInline>
+                <CodeInline language='plaintext'>{color}</CodeInline>
             </Cell>
             {INTENTS.map((intent) => (
                 <ColorCell
@@ -157,100 +141,94 @@ function ColorTableRow({
 
 function RowRenderBg(color: Color) {
     switch (color) {
-        case 'accent':
+        case 'bg-accent':
             return (
                 <ColorTableRow
                     className='bg-accent text-accent'
-                    classNamePrefix='bg'
                     color={color}
                 />
             )
-        case 'accent-dark':
+        case 'bg-accent-dark':
             return (
                 <ColorTableRow
                     className='bg-accent-dark text-accent'
-                    classNamePrefix='bg'
                     color={color}
                 />
             )
-        case 'accent-fg':
-        case 'hi-contrast':
-        case 'lo-contrast':
-        case 'mid-contrast':
-            return null
-
-        case 'accent-light':
+        case 'bg-accent-light':
             return (
                 <ColorTableRow
                     className='bg-accent-light text-accent'
-                    classNamePrefix='bg'
                     color={color}
                 />
             )
-        case 'base':
+        case 'bg-base':
             return (
                 <ColorTableRow
                     className='bg-base text-dark'
-                    classNamePrefix='bg'
                     color={color}
                 />
             )
-        case 'raised':
+        case 'bg-raised':
             return (
                 <ColorTableRow
                     className='bg-raised text-dark'
-                    classNamePrefix='bg'
                     color={color}
                 />
             )
-        case 'tint':
+        case 'bg-tint':
             return (
                 <ColorTableRow
                     className='bg-tint text-dark'
-                    classNamePrefix='bg'
                     color={color}
                 />
             )
-        case 'tint-dark':
+
+        case 'bg-tint-dark':
             return (
                 <ColorTableRow
                     className='bg-tint-dark text-dark'
-                    classNamePrefix='bg'
                     color={color}
                 />
             )
-        case 'tint-light':
+        case 'bg-tint-light':
             return (
                 <ColorTableRow
                     className='bg-tint-light text-dark'
-                    classNamePrefix='bg'
                     color={color}
                 />
             )
+        case 'border-dark':
+        case 'border-light':
+        case 'border-mid':
+        case 'text-accent':
+        case 'text-dark':
+        case 'text-light':
+        case 'text-mid':
+            return null
         default:
             color satisfies never
     }
 }
 function RowRenderBorder(color: Color) {
     switch (color) {
-        case 'accent':
-        case 'accent-dark':
-        case 'accent-fg':
-        case 'accent-light':
-        case 'base':
-        case 'hi-contrast':
-        case 'lo-contrast':
-        case 'mid-contrast':
-        case 'raised':
-        case 'tint':
-        case 'tint-dark':
-        case 'tint-light':
+        case 'bg-accent':
+        case 'bg-accent-dark':
+        case 'bg-accent-light':
+        case 'bg-base':
+        case 'bg-raised':
+        case 'bg-tint':
+        case 'bg-tint-dark':
+        case 'bg-tint-light':
+        case 'text-accent':
+        case 'text-dark':
+        case 'text-light':
+        case 'text-mid':
             return null
         case 'border-dark':
             return (
                 <BorderTableRow
                     className='text-[var(--theme-default-border-dark)]'
-                    classNamePrefix=''
                     color={color}
                 />
             )
@@ -258,7 +236,6 @@ function RowRenderBorder(color: Color) {
             return (
                 <BorderTableRow
                     className='text-[var(--theme-default-border-light)]'
-                    classNamePrefix=''
                     color={color}
                 />
             )
@@ -266,7 +243,6 @@ function RowRenderBorder(color: Color) {
             return (
                 <BorderTableRow
                     className='text-[var(--theme-default-border-mid)]'
-                    classNamePrefix=''
                     color={color}
                 />
             )
@@ -277,44 +253,43 @@ function RowRenderBorder(color: Color) {
 }
 function RowRenderText(color: Color) {
     switch (color) {
-        case 'accent':
-        case 'accent-dark':
-        case 'accent-light':
-        case 'base':
-        case 'raised':
-        case 'tint':
-        case 'tint-dark':
-        case 'tint-light':
+        case 'bg-accent':
+        case 'bg-accent-dark':
+        case 'bg-accent-light':
+        case 'bg-base':
+        case 'bg-raised':
+        case 'bg-tint':
+        case 'bg-tint-dark':
+        case 'bg-tint-light':
+        case 'border-dark':
+        case 'border-light':
+        case 'border-mid':
             return null
-        case 'accent-fg':
+        case 'text-accent':
             return (
                 <ColorTableRow
                     className='bg-accent text-accent'
-                    classNamePrefix='text'
                     color={color}
                 />
             )
-        case 'hi-contrast':
+        case 'text-dark':
             return (
                 <ColorTableRow
                     className='bg-transparent text-dark'
-                    classNamePrefix='text'
                     color={color}
                 />
             )
-        case 'lo-contrast':
+        case 'text-light':
             return (
                 <ColorTableRow
                     className='bg-transparent text-light'
-                    classNamePrefix='text'
                     color={color}
                 />
             )
-        case 'mid-contrast':
+        case 'text-mid':
             return (
                 <ColorTableRow
                     className='bg-transparent text-mid'
-                    classNamePrefix='text'
                     color={color}
                 />
             )

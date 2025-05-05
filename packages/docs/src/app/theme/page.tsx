@@ -50,7 +50,12 @@ export default function Page() {
                 }}
             />
             <Sidebar>
-                <Heading level={3}>Base colors</Heading>
+                <Heading
+                    className='text-mid'
+                    level={3}
+                >
+                    Base colors
+                </Heading>
 
                 <ThemeColorPicker
                     label='Accent'
@@ -73,21 +78,37 @@ export default function Page() {
                     value={warning}
                 />
 
-                <Heading level={3}>Derived colors</Heading>
+                <section className='my-8'>
+                    <Heading
+                        className='text-mid'
+                        level={4}
+                    >
+                        Background
+                    </Heading>
+                    <ColorTableBg palette={palette.palette(palette.grayHsl, palette.accentHsl)} />
+                </section>
 
-                <p className='text-sm mb-4'>
-                    Below are the colors derived from your inputs and the corresponding Tailwind
-                    class names you can use to access them in your components.
-                </p>
+                <section className='my-8'>
+                    <Heading
+                        className='text-mid'
+                        level={4}
+                    >
+                        Text
+                    </Heading>
+                    <ColorTableText palette={palette.palette(palette.grayHsl, palette.accentHsl)} />
+                </section>
 
-                <Heading level={4}>Background</Heading>
-                <ColorTableBg palette={palette.palette(palette.grayHsl, palette.accentHsl)} />
-
-                <Heading level={4}>Text</Heading>
-                <ColorTableText palette={palette.palette(palette.grayHsl, palette.accentHsl)} />
-
-                <Heading level={4}>Border</Heading>
-                <ColorTableBorder palette={palette.palette(palette.grayHsl, palette.accentHsl)} />
+                <section className='my-8'>
+                    <Heading
+                        className='text-mid'
+                        level={4}
+                    >
+                        Border
+                    </Heading>
+                    <ColorTableBorder
+                        palette={palette.palette(palette.grayHsl, palette.accentHsl)}
+                    />
+                </section>
             </Sidebar>
             <main className='w-full p-4 min-w-0 mx-auto'>
                 <section>
@@ -119,7 +140,7 @@ function ThemeColorPicker({
 
     return (
         <ColorField
-            className='mb-2 grid grid-cols-2 items-center gap-2'
+            className='mb-1 grid grid-cols-2 items-center gap-2'
             onChange={onChange}
             value={value}
         >

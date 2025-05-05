@@ -2,12 +2,8 @@ import type { Meta, StoryObj } from '@storybook/react'
 import type { ComponentProps } from 'react'
 
 import { Cell, Column, Row, Table, TableBody, TableHeader } from '@ui-kit.ai/components'
-import { ArrowDownRight, ArrowUpRight } from 'lucide-react'
 
 const meta = {
-    args: {
-        'aria-label': 'Stocks table',
-    },
     component: Table,
     parameters: {
         parameters: {
@@ -22,7 +18,10 @@ type Story = StoryObj<typeof meta>
 
 function Template(args: ComponentProps<typeof Table>) {
     return (
-        <Table {...args}>
+        <Table
+            {...args}
+            aria-label='Stocks table'
+        >
             <TableHeader>
                 <Column>Code</Column>
                 <Column>Name</Column>
@@ -58,7 +57,6 @@ function Template(args: ComponentProps<typeof Table>) {
 }
 
 export const Default: Story = {
-    args: {},
     parameters: {
         displayName: 'Default',
     },
