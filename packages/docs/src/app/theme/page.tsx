@@ -12,8 +12,11 @@ import {
     Heading,
     Input,
     Label,
+    type OptionsSchema,
     Popover,
     PopoverDialog,
+    Select,
+    SelectButton,
 } from '@ui-kit.ai/components'
 import { ColorPalette, DEFAULT_COLOR_PALETTE_INPUT } from '@ui-kit.ai/theme'
 import { PipetteIcon } from 'lucide-react'
@@ -23,11 +26,34 @@ import { Sidebar } from '../../components/sidebar'
 import { ColorTableBg, ColorTableBorder, ColorTableText } from './components/color-table'
 import { Demo } from './components/demo'
 
+type Palette = {
+    accent: string
+    error: string
+    success: string
+    warning: string
+}
+
+type Preset = 'coffee' | 'indigo' | 'muted' | 'shadcn'
+
 export default function Page() {
     const [accent, setAccent] = useState(DEFAULT_COLOR_PALETTE_INPUT.accent)
     const [error, setError] = useState(DEFAULT_COLOR_PALETTE_INPUT.error)
     const [success, setSuccess] = useState(DEFAULT_COLOR_PALETTE_INPUT.success)
     const [warning, setWarning] = useState(DEFAULT_COLOR_PALETTE_INPUT.warning)
+
+    // const [preset, setPreset] = useState<Palette>({
+    //     accent: DEFAULT_COLOR_PALETTE_INPUT.accent,
+    //     error: DEFAULT_COLOR_PALETTE_INPUT.error,
+    //     success: DEFAULT_COLOR_PALETTE_INPUT.success,
+    //     warning: DEFAULT_COLOR_PALETTE_INPUT.warning,
+    // })
+
+    const onPresetChange = (palette: Palette) => {
+        setAccent(palette.accent)
+        setError(palette.error)
+        setSuccess(palette.success)
+        setWarning(palette.warning)
+    }
 
     const palette = new ColorPalette({
         error: error,
@@ -50,9 +76,22 @@ export default function Page() {
                 }}
             />
             <Sidebar>
+                <section className='my-8'>
+                    <Heading
+                        className='text-mid'
+                        level={3}
+                    >
+                        Theme
+                    </Heading>
+                </section>
+
+                <ThemePresetPicker
+                    label={''}
+                    setValue={onPresetChange}
+                />
                 <Heading
                     className='text-mid'
-                    level={3}
+                    level={4}
                 >
                     Base colors
                 </Heading>
@@ -193,5 +232,111 @@ function ThemeColorPicker({
                 </DialogTrigger>
             </FieldGroup>
         </ColorField>
+    )
+}
+
+const PRESETS: OptionsSchema<'listbox', Preset, Palette>[] = [
+    {
+        id: 'indigo',
+        textValue: 'Indigo',
+        icon: (
+            <ColorSwatch
+                className='size-5'
+                color='#3E63DD'
+            />
+        ),
+        value: {
+            accent: '#3E63DD',
+            error: '#E54666',
+            success: '#29A383',
+            warning: '#FFC53D',
+        },
+    },
+    {
+        id: 'muted',
+        textValue: 'Muted (warm)',
+        icon: (
+            <ColorSwatch
+                className='size-5'
+                color='#E6E0E0'
+            />
+        ),
+        value: {
+            accent: '#E6E0E0',
+            error: '#ECA7B6',
+            success: '#D6E0A9',
+            warning: '#FFD675',
+        },
+    },
+    {
+        id: 'shadcn',
+        textValue: 'shadcn',
+        description: 'Credit: shadcn/ui',
+        icon: (
+            <ColorSwatch
+                className='size-5'
+                color='#1C1917'
+            />
+        ),
+        value: {
+            accent: '#1C1917',
+            error: '#E7000B',
+            success: '#16A34A',
+            warning: '#FACC15',
+        },
+    },
+    {
+        id: 'coffee',
+        textValue: 'Coffee',
+        description: 'Credit: HeroUI',
+        icon: (
+            <ColorSwatch
+                className='size-5'
+                color='#1C1917'
+            />
+        ),
+        value: {
+            accent: '#db924b',
+            error: '#fc9581',
+            success: '#9db787',
+            warning: '#ffd25f',
+        },
+    },
+]
+
+function ThemePresetPicker({
+    value,
+    setValue,
+}: {
+    setValue: Dispatch<SetStateAction<Palette>>
+    value?: Palette
+}) {
+    return (
+        <Select
+            className='mb-1 grid grid-cols-2 items-center gap-2'
+            items={PRESETS}
+            onSelectionChange={(v) => {
+                const selected = PRESETS.find((preset) => preset.id === v)
+                if (selected != null && selected.value != null) {
+                    setValue(selected.value as Palette)
+                }
+            }}
+            selectedKey={
+                value != null
+                    ? PRESETS.find((preset) => {
+                          return (
+                              preset.value != null &&
+                              (preset.value as Palette).accent === value.accent &&
+                              (preset.value as Palette).error === value.error &&
+                              (preset.value as Palette).success === value.success &&
+                              (preset.value as Palette).warning === value.warning
+                          )
+                      })?.id
+                    : undefined
+            }
+        >
+            <Label>Preset</Label>
+            <SelectButton />
+        </Select>
     )
 }

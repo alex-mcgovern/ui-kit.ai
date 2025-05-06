@@ -37,7 +37,7 @@ const getRandomNumber = (min: number = 0, max: number = 100): number => {
 
 const columnWrapperStyles = tv({
     base: [
-        'border-mid border-b',
+        'border-dark border-b',
         '[&:focus-within]:z-20 [&:hover]:z-20',
         'text-mid hover:text-dark',
         'cursor-default hover:cursor-pointer',
@@ -72,7 +72,7 @@ const cellStyles = tv({
         '-outline-offset-2',
         'group-data-[compact]/table:first:pl-0 group-data-[compact]/table:last:pr-0',
         // border styles
-        'border-mid border-b',
+        'border-light border-b',
     ],
     defaultVariants: {
         alignment: 'start',

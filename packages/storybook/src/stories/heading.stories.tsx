@@ -12,7 +12,7 @@ function Template(props: ComponentProps<typeof Heading>) {
                 <Heading
                     {...props}
                     children={`H${level} ${TEXT} `}
-                    className='truncate'
+                    className='truncate mb-0'
                     key={level}
                     level={level}
                 />

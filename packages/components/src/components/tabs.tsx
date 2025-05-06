@@ -44,8 +44,7 @@ const tabListStyles = tv({
     base: 'no-scrollbar relative flex max-w-full',
     variants: {
         orientation: {
-            horizontal:
-                'after:border-b-tint-light flex-row after:grow after:border-b after:content-[""]',
+            horizontal: 'after:border-mid flex-row after:grow after:border-b after:content-[""]',
             vertical: 'flex-col items-start',
         },
     },
@@ -86,17 +85,17 @@ const tabStyles = tv({
         'hover:text-dark',
         // selected
         'selected:text-dark',
-        'selected:border-accent-light',
+        'selected:border-[var(--theme-default-bg-accent)]',
         // selected
         'disabled:text-disabled',
         'disabled:selected:text-mid forced-color-adjust-none',
         // horizontal
         'group-orientation-horizontal/tabs:border-b',
-        'group-orientation-horizontal/tabs:border-light',
+        'group-orientation-horizontal/tabs:border-mid',
         // vertical
         'group-orientation-vertical/tabs:w-full',
         'group-orientation-vertical/tabs:border-r',
-        'group-orientation-vertical/tabs:border-light',
+        'group-orientation-vertical/tabs:border-mid',
     ],
     extend: focusRing,
 })

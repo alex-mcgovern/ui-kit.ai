@@ -11,74 +11,70 @@ import { Code } from '../../../../components/code'
 import { getComponentStories } from '../../../../lib/get-story'
 import { getUsageExample } from '../../../../lib/get-usage-example'
 
-export default function Page({
-  params,
-}: {
-  params: { component: keyof typeof components }
-}) {
-  if (params.component in components === false)
-    throw new Error('Examples for component not found')
-  if (params.component in usage === false)
-    throw new Error('Code snippet for component not found')
-  if (
-    (propTypes as ComponentDoc[]).findIndex(
-      (prop) => prop.displayName === params.component
-    ) === -1
-  )
-    throw new Error('Code snippet for component not found')
+export default function Page({ params }: { params: { component: keyof typeof components } }) {
+    if (params.component in components === false)
+        throw new Error('Examples for component not found')
+    if (params.component in usage === false) throw new Error('Code snippet for component not found')
+    if (
+        (propTypes as ComponentDoc[]).findIndex((prop) => prop.displayName === params.component) ===
+        -1
+    )
+        throw new Error('Code snippet for component not found')
 
-  const stories = getComponentStories(params.component)
+    const stories = getComponentStories(params.component)
 
-  const Default = stories.find((Story) => Story.storyName === 'Default')
-  if (!Default) throw new Error('Default story not found')
+    const Default = stories.find((Story) => Story.storyName === 'Default')
+    if (!Default) throw new Error('Default story not found')
 
-  const docs = (propTypes as ComponentDoc[]).find(
-    (prop) => prop.displayName === params.component
-  ) as ComponentDoc
+    const docs = (propTypes as ComponentDoc[]).find(
+        (prop) => prop.displayName === params.component
+    ) as ComponentDoc
 
-  return (
-    <>
-      <Heading level={1}>{docs.displayName}</Heading>
-      <Markdown className='mb-8'>{docs.description}</Markdown>
+    return (
+        <>
+            <Heading level={1}>{docs.displayName}</Heading>
+            <Markdown className='mb-8'>{docs.description}</Markdown>
 
-      <Code
-        className='mb-8'
-        code={getUsageExample(params.component, 'Default')}
-        component={<Default />}
-      />
-
-      <Heading
-        id='Examples'
-        level={2}
-      >
-        Examples
-      </Heading>
-
-      {stories.map((Story) => {
-        // The `Default` story is shown outside the Examples section
-        if (Story.storyName === 'Default') return null
-
-        return (
-          <section
-            className='mb-12'
-            key={Story.id}
-          >
-            <Heading
-              className='mb-6'
-              id={Story.parameters.displayName}
-              level={3}
-            >
-              {Story.parameters.displayName}
-            </Heading>
             <Code
-              code={getUsageExample(params.component, Story.storyName)}
-              component={<Story />}
+                className='mb-8'
+                code={getUsageExample(params.component, 'Default')}
+                component={<Default />}
             />
-          </section>
-        )
-      })}
 
-      {/* <PropsTable docs={docs} /> */}
-    </>
-  )
+            {stories.length > 1 ? (
+                <Heading
+                    id='Examples'
+                    level={2}
+                >
+                    Examples
+                </Heading>
+            ) : null}
+
+            {stories.map((Story) => {
+                // The `Default` story is shown outside the Examples section
+                if (Story.storyName === 'Default') return null
+
+                return (
+                    <section
+                        className='mb-12'
+                        key={Story.id}
+                    >
+                        <Heading
+                            className='mb-6'
+                            id={Story.parameters.displayName}
+                            level={3}
+                        >
+                            {Story.parameters.displayName}
+                        </Heading>
+                        <Code
+                            code={getUsageExample(params.component, Story.storyName)}
+                            component={<Story />}
+                        />
+                    </section>
+                )
+            })}
+
+            {/* <PropsTable docs={docs} /> */}
+        </>
+    )
 }

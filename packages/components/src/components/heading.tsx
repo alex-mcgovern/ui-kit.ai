@@ -8,11 +8,11 @@ const heading = tv({
     base: 'font-title',
     variants: {
         level: {
-            1: 'text-3xl font-bold',
-            2: 'text-2xl font-bold',
-            3: 'text-xl font-semibold',
-            4: 'text-lg font-semibold',
-            5: 'text-base font-semibold',
+            1: 'text-4xl font-bold letter-spacing-[-0.35px]',
+            2: 'text-3xl font-bold letter-spacing-[-0.21px]',
+            3: 'text-2xl font-semibold letter-spacing-[-0.15px]',
+            4: 'text-xl font-semibold letter-spacing-[-0.1px]',
+            5: 'text-lg font-semibold letter-spacing-[-0.045px]',
             6: 'text-base font-semibold',
         },
     },
@@ -30,7 +30,7 @@ export function Heading({
     return (
         <AriaHeading
             {...props}
-            className={twMerge(heading({ level }), 'text-dark mb-2', props.className)}
+            className={twMerge(heading({ level }), 'text-dark mb-4', props.className)}
             level={level}
         />
     )

@@ -120,8 +120,8 @@ code {
 
 /* Global colors for highlighted text */
 ::selection {
-    background: var(--color-tint);
-    color: var(--color-hi-contrast);
+    background: var(--theme-default-bg-accent-light);
+    color: var(--theme-default-text-accent);
 }
 
 /* Hide the user agent default clear button on search inputs */
@@ -163,7 +163,7 @@ code {
  */
 
 .react-syntax-highlighter-line-number {
-    color: var(--color-lo-contrast);
+    color: var(--theme-default-text-light);
 }
 
 /**
@@ -177,7 +177,7 @@ pre[class*='language-'] {
     font-family: var(--font-mono) !important;
     font-size: var(--text-sm) !important;
     line-height: var(--text-xs--line-height) !important;
-    color: var(--color-hi-contrast) !important;
+    color: var(--theme-default-text-dark) !important;
     direction: ltr !important;
     word-spacing: normal !important;
     word-break: normal !important;
@@ -196,12 +196,12 @@ pre[class*='language-'] {
 .token.prolog,
 .token.doctype,
 .token.cdata {
-    color: var(--color-lo-contrast);
+    color: var(--theme-default-text-light);
     font-style: italic;
 }
 .token.plain-text,
 .token.punctuation {
-    color: var(--color-hi-contrast);
+    color: var(--theme-default-text-dark);
 }
 
 .token.class,
@@ -245,6 +245,6 @@ pre[class*='language-'] {
 
 .highlight-word {
     display: inline-block;
-    color: var(--color-hi-contrast);
-    background-color: var(--color-tint);
+    color: var(--theme-default-text-dark);
+    background-color: var(--theme-default-bg-tint);
 }

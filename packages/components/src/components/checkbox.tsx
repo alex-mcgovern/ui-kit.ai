@@ -5,11 +5,9 @@ import React from 'react'
 import { Checkbox as AriaCheckbox, composeRenderProps } from 'react-aria-components'
 import { tv } from 'tailwind-variants'
 
-import { i18n } from '../i18n'
 import { focusRing } from '../styles/focus-ring'
 import { Description } from './description'
 import { Label } from './label'
-import { Tag } from './tag'
 
 type CheckboxProps = Omit<AriaCheckboxProps, 'children'> &
     (
@@ -99,7 +97,6 @@ export function Checkbox({ description, label, textPosition = 'right', ...props 
                     {textPosition === 'left' && label != null ? (
                         <CheckboxLabel
                             description={description}
-                            isRequired={renderProps.isRequired}
                             label={label}
                         />
                     ) : null}
@@ -121,7 +118,6 @@ export function Checkbox({ description, label, textPosition = 'right', ...props 
                     {textPosition === 'right' && label != null ? (
                         <CheckboxLabel
                             description={description}
-                            isRequired={renderProps.isRequired}
                             label={label}
                         />
                     ) : null}
@@ -132,21 +128,10 @@ export function Checkbox({ description, label, textPosition = 'right', ...props 
 }
 Checkbox.displayName = 'Checkbox'
 
-function CheckboxLabel({
-    description,
-    isRequired,
-    label,
-}: {
-    description?: string
-    isRequired: boolean
-    label: string
-}) {
+function CheckboxLabel({ description, label }: { description?: string; label: string }) {
     return (
         <div>
-            <Label className='mb-0 flex items-center gap-1'>
-                {label}
-                {isRequired ? <Tag>{i18n.form.required}</Tag> : null}
-            </Label>
+            <Label className='mb-0 flex items-center gap-1 text-dark'>{label}</Label>
             {description != null ? (
                 <Description className='!mt-0'>{description}</Description>
             ) : null}
