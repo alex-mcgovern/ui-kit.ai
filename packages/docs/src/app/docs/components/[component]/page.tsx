@@ -7,7 +7,7 @@ import propTypes from '@ui-kit.ai/metadata/prop-types.json'
 import usage from '@ui-kit.ai/metadata/usage-examples.json'
 
 import { Code } from '../../../../components/code'
-// import { PropsTable } from '../../../../components/props-table'
+import { PropsTable } from '../../../../components/props-table'
 import { getComponentStories } from '../../../../lib/get-story'
 import { getUsageExample } from '../../../../lib/get-usage-example'
 
@@ -15,6 +15,7 @@ export default function Page({ params }: { params: { component: keyof typeof com
     if (params.component in components === false)
         throw new Error('Examples for component not found')
     if (params.component in usage === false) throw new Error('Code snippet for component not found')
+
     if (
         (propTypes as ComponentDoc[]).findIndex((prop) => prop.displayName === params.component) ===
         -1
@@ -34,26 +35,21 @@ export default function Page({ params }: { params: { component: keyof typeof com
         <>
             <Heading level={1}>{docs.displayName}</Heading>
             <Markdown className='mb-8'>{docs.description}</Markdown>
-
             <Code
                 className='mb-8'
                 code={getUsageExample(params.component, 'Default')}
                 component={<Default />}
             />
+            <section className='my-8'>
+                <Heading level={2}>Props</Heading>
+                <PropsTable docs={docs} />
+            </section>
 
-            {stories.length > 1 ? (
-                <Heading
-                    id='Examples'
-                    level={2}
-                >
-                    Examples
-                </Heading>
-            ) : null}
+            {stories.length > 1 ? <Heading level={2}>Examples</Heading> : null}
 
             {stories.map((Story) => {
                 // The `Default` story is shown outside the Examples section
                 if (Story.storyName === 'Default') return null
-
                 return (
                     <section
                         className='mb-12'
@@ -61,7 +57,6 @@ export default function Page({ params }: { params: { component: keyof typeof com
                     >
                         <Heading
                             className='mb-6'
-                            id={Story.parameters.displayName}
                             level={3}
                         >
                             {Story.parameters.displayName}
@@ -73,8 +68,6 @@ export default function Page({ params }: { params: { component: keyof typeof com
                     </section>
                 )
             })}
-
-            {/* <PropsTable docs={docs} /> */}
         </>
     )
 }

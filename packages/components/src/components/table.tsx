@@ -37,7 +37,7 @@ const getRandomNumber = (min: number = 0, max: number = 100): number => {
 
 const columnWrapperStyles = tv({
     base: [
-        'border-dark border-b',
+        'border-mid border-b',
         '[&:focus-within]:z-20 [&:hover]:z-20',
         'text-mid hover:text-dark',
         'cursor-default hover:cursor-pointer',
@@ -72,7 +72,7 @@ const cellStyles = tv({
         '-outline-offset-2',
         'group-data-[compact]/table:first:pl-0 group-data-[compact]/table:last:pr-0',
         // border styles
-        'border-light border-b',
+        'border-mid border-b',
     ],
     defaultVariants: {
         alignment: 'start',
@@ -90,6 +90,7 @@ const cellStyles = tv({
 const rowStyles = tv({
     base: [
         'group/row',
+        'w-full',
         'relative -outline-offset-2',
         'text-dark disabled:text-tint-dark',
         'transition-colors',
@@ -232,7 +233,7 @@ export function ResizableTableContainer(props: ResizableTableContainerProps) {
             {...props}
             className={twMerge(
                 'relative',
-                'bg-base w-full',
+                'w-full',
                 'scrollbar-thin overflow-auto',
                 props.className
             )}

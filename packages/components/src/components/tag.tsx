@@ -50,7 +50,7 @@ const tagStyles = tv({
         // 'shadow-xs',
         'inline-flex shrink-0 items-center justify-center gap-1.5',
         'rounded-full border',
-        '[&_svg]:size-4 [&_svg]:shrink-0',
+        '[&_svg]:size-3 [&_svg]:shrink-0',
         // padding
         'px-3 py-1.5',
         '[&:has([data-slot=slot-left])]:pl-1.5',

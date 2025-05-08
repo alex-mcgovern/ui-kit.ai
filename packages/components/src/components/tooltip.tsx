@@ -24,7 +24,7 @@ const tooltipStyles = tv({
         [
             'inline-flex items-center gap-1',
             'px-2 py-1',
-            'text-xs font-medium',
+            'text-sm',
             'bg-raised border-dark text-mid',
             'group rounded drop-shadow-sm',
             // transition
@@ -87,7 +87,7 @@ export function TooltipInfoButton({
             {...props}
             className={(rp) =>
                 twMerge(
-                    'size-7',
+                    'size-6',
                     typeof props.className === 'function' ? props.className(rp) : props.className
                 )
             }

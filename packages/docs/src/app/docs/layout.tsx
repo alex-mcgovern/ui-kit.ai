@@ -5,8 +5,9 @@ import * as components from '@ui-kit.ai/storybook'
 import { useSelectedLayoutSegments } from 'next/navigation'
 
 import { Sidebar } from '../../components/sidebar'
-import { hrefs } from '../../lib/hrefs'
+import TableOfContents from '../../components/table-of-contents'
 import '../../mocks'
+import { hrefs } from '../../lib/hrefs'
 
 const ITEMS: OptionsSchema<'listbox'>[] = Object.keys(components).map((componentName) => ({
     href: hrefs.component(componentName),
@@ -23,52 +24,59 @@ export default function Layout({
     const selectedLayoutSegment = selectedLayoutSegments[selectedLayoutSegments.length - 1]
 
     return (
-        <div className='grid grid-cols-[1fr_5fr] gap-8 min-h-screen'>
+        <div className='grid grid-cols-[1fr_4fr_1fr] gap-8 min-h-screen'>
             <Sidebar>
-                <Heading
-                    className='text-sm text-mid mb-0'
-                    level={3}
-                >
-                    Getting started
-                </Heading>
-                <ListBox
-                    className='w-64 mb-4'
-                    items={[
-                        {
-                            href: hrefs.docs.getting_started.introduction,
-                            id: 'introduction',
-                            textValue: 'Introduction',
-                        },
-                        {
-                            href: hrefs.docs.getting_started.installation,
-                            id: 'installation',
-                            textValue: 'Installation',
-                        },
-                        {
-                            href: hrefs.docs.getting_started.theme,
-                            id: 'Theme',
-                            textValue: 'theme',
-                        },
-                    ]}
-                    selectedKeys={selectedLayoutSegment != null ? [selectedLayoutSegment] : []}
-                    selectionMode='single'
-                    showCheckmarkOnSelected={false}
-                />
-                <Heading
-                    className='text-sm mb-0 text-mid'
-                    level={3}
-                >
-                    Components
-                </Heading>
-                <ListBox
-                    className='w-64 mb-4'
-                    items={ITEMS}
-                    selectedKeys={selectedLayoutSegment != null ? [selectedLayoutSegment] : []}
-                    selectionMode='single'
-                    showCheckmarkOnSelected={false}
-                />
+                <section className='mb-4'>
+                    <Heading
+                        className='ml-2 text-sm text-mid mb-2'
+                        level={3}
+                    >
+                        Getting started
+                    </Heading>
+                    <ListBox
+                        className='w-64 mb-4'
+                        items={[
+                            {
+                                href: hrefs.docs.getting_started.introduction,
+                                id: 'introduction',
+                                textValue: 'Introduction',
+                            },
+                            {
+                                href: hrefs.docs.getting_started.installation,
+                                id: 'installation',
+                                textValue: 'Installation',
+                            },
+                            {
+                                href: hrefs.docs.getting_started.theme,
+                                id: 'Theme',
+                                textValue: 'theme',
+                            },
+                        ]}
+                        selectedKeys={selectedLayoutSegment != null ? [selectedLayoutSegment] : []}
+                        selectionMode='single'
+                        showCheckmarkOnSelected={false}
+                    />
+                </section>
+                <section className='mb-4'>
+                    <Heading
+                        className='ml-2 text-sm mb-2 text-mid'
+                        level={3}
+                    >
+                        Components
+                    </Heading>
+                    <ListBox
+                        className='w-64 mb-4'
+                        items={ITEMS}
+                        selectedKeys={selectedLayoutSegment != null ? [selectedLayoutSegment] : []}
+                        selectionMode='single'
+                        showCheckmarkOnSelected={false}
+                    />
+                </section>
             </Sidebar>
-            <main className='w-full max-w-4xl py-8 px-4 min-w-0 mx-auto'>{children}</main>
+            <main className='w-full max-w-3xl py-8 px-4 min-w-0 mx-auto'>{children}</main>
+            <nav className='h-[calc(100dvh-3rem)] sticky top-12 px-4 py-6 min-w-0 overflow-y-auto scrollbar-thin'>
+                <TableOfContents />
+            </nav>
         </div>
     )
 }

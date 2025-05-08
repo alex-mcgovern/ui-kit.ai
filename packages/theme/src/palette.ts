@@ -1,18 +1,6 @@
-// \t/*-------------------------------------------------
-// \t/ Default theme color utility mapping
-// \t/-------------------------------------------------*/
-// ${Object.keys(this.palette(this.grayHsl, this.accentHsl))
-//     .map((colorName, index) => {
-//         const cssVar = Object.keys(defaultThemeVars)[index]
-//         return `\t--color-${colorName}: var(${cssVar});`
-//     })
-//     .join('\n')}
-
 /* eslint-disable sonarjs/no-duplicate-string */
 /* eslint-disable perfectionist/sort-objects */
 import { converter, formatHsl, type Hsl, hsl } from 'culori'
-
-import type { Intent } from './types'
 
 import { generateThemeVars } from './css-vars'
 import { generateBgUtilitiesCSS } from './tw-utils/bg'
@@ -23,13 +11,9 @@ import { Color, type ColorPaletteInput } from './types'
 
 export const DEFAULT_COLOR_PALETTE_INPUT = {
     accent: '#3E63DD',
-    // accent: '#E6E0E0',
     error: '#E54666',
-    // error: '#ECA7B6',
     success: '#29A383',
-    // success: '#D6E0A9',
     warning: '#FFC53D',
-    // warning: '#FFD675',
 } as const satisfies ColorPaletteInput
 
 export class ColorPalette {
@@ -242,13 +226,13 @@ ${genIntentUtils()}
     private _clrTextHigh(hslVal: Hsl, mode: 'dark' | 'light'): Hsl {
         return {
             ...hslVal,
-            l: mode === 'light' ? 0.2 : 0.8,
+            l: mode === 'light' ? 0.2 : 0.9,
         }
     }
     private _clrTextMid(hslVal: Hsl, mode: 'dark' | 'light'): Hsl {
         return {
             ...hslVal,
-            l: mode === 'light' ? 0.45 : 0.55,
+            l: mode === 'light' ? 0.4 : 0.6,
         }
     }
     private _clrTint(hslVal: Hsl, mode: 'dark' | 'light'): Hsl {
@@ -257,8 +241,5 @@ ${genIntentUtils()}
             l: mode === 'light' ? 0.9 : 0.1,
             s: hslVal.s * 0.75,
         }
-    }
-    private _genVarName(intent: Intent, color: Color): `--theme-${Intent}-${Color}` {
-        return `--theme-${intent}-${color}` as const
     }
 }

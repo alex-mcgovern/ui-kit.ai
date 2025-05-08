@@ -12,90 +12,113 @@ import {
     TextFieldCopyButton,
 } from '@ui-kit.ai/components'
 import { ArrowRight, BotIcon, Download, type LucideProps, Palette, Zap } from 'lucide-react'
+import { twMerge } from 'tailwind-merge'
 
+import { HomepageHero } from '../components/homepage-hero'
 import { hrefs } from '../lib/hrefs'
 
 export default function Home() {
     return (
-        <section className='mx-auto max-w-4xl'>
-            <section className='my-16 '>
-                <div className='flex items-center gap-1 mb-2 -ml-1.5'>
-                    <TagLink
-                        className='h-6'
-                        slotLeft={<Zap />}
-                        slotRight={<ArrowRight className='-ml-1.5' />}
-                    >
-                        Build faster with the ui-kit.ai MCP server
-                    </TagLink>
-                    <p className='mb-0'></p>
-                </div>
-                <Heading
-                    className='text-5xl text-balance'
-                    level={1}
-                >
-                    A component library for the AI age.
-                </Heading>
-                <p className='mb-2 text-balance'>
-                    Beautiful components built with React Aria Components, optimized for fast
-                    iteration in AI powered workflows.
-                </p>
-
-                <div className='flex gap-2 mt-6 w-min '>
-                    <LinkButton
-                        href={hrefs.docs.getting_started.introduction}
-                        slotRight={<ArrowRight className='-ml-1.5' />}
-                    >
-                        Docs
-                    </LinkButton>
-                    <TextField
-                        className='min-w-52 shrink-0'
-                        isReadOnly
-                        value='npm i @ui-kit.ai/components'
-                    >
-                        <FieldGroup>
-                            <Input
-                                className='font-mono'
-                                isBorderless
-                            />
-                            <TextFieldCopyButton />
-                        </FieldGroup>
-                    </TextField>
-                    {/* <code className="bg-muted-200 inline-flex px-2.5 gap-1.5 items-center h-ui-element rounded">
-                        <Copy className="size-4" />
-                    </code> */}
-                </div>
-            </section>
-            <section className='my-16 grid grid-cols-1 gap-4 md:grid-cols-2'>
-                <HomepageCard
-                    description="Customise your application's look & feel with CSS variables powered by Tailwind CSS v4."
-                    icon={Palette}
-                    title='Themeable'
-                />
-                <HomepageCard
-                    description='Supercharge your LLM for UI development with our MCP server.'
-                    icon={BotIcon}
-                    title='Ready for AI'
-                />
-                <HomepageCard
-                    description="Install a single NPM package. No CLI required. You want code ownership? We have something for that, it's called forking."
-                    icon={Download}
-                    title='Simple distribution'
-                />
-                <HomepageCard
-                    description="Customise your application's look & feel with CSS variables powered by Tailwind CSS v4."
-                    icon={Palette}
-                    title='Themeable'
-                />
-            </section>
-        </section>
+        <main
+            className={twMerge(
+                'before:h-dvh before:inset-0 before:-z-10 before:fixed',
+                'before:bg-radial-[at_100%_0%] before:from-[var(--theme-error-bg-tint-light)] before:via-[var(--theme-info-bg-tint-light)] before:to-transparent'
+            )}
+        >
+            <div className='mx-auto max-w-7xl'>
+                <section className='my-16 grid grid-cols-[3fr_2fr] gap-8'>
+                    <div>
+                        <div className='flex items-center gap-1 mb-2 -ml-1.5'>
+                            <TagLink
+                                className='h-6'
+                                slotLeft={<Zap />}
+                                slotRight={<ArrowRight className='-ml-1.5' />}
+                            >
+                                Build faster with the ui-kit.ai MCP server
+                            </TagLink>
+                            <p className='mb-0'></p>
+                        </div>
+                        <Heading className='text-5xl md:text-6xl font-bold tracking-tight mb-6'>
+                            Beautiful UI components
+                            <br />
+                            for
+                            <span className='bg-gradient-to-b from-[var(--theme-info-text-mid)] to-[var(--theme-info-text-light)] bg-clip-text text-transparent'>
+                                {' '}
+                                AI-powered
+                            </span>{' '}
+                            apps
+                        </Heading>
+                        <p className='mb-2 text-xl text-balance'>
+                            Professionally designed components, optimized for fast iteration in AI
+                            workflows. Accessible, customizable, and ready for production.
+                        </p>
+                        <div className='flex gap-2 mt-6 w-min '>
+                            <LinkButton
+                                href={hrefs.docs.getting_started.introduction}
+                                slotRight={<ArrowRight className='-ml-1.5' />}
+                            >
+                                Docs
+                            </LinkButton>
+                            <TextField
+                                className='min-w-52 shrink-0'
+                                isReadOnly
+                                value='npm i @ui-kit.ai/components'
+                            >
+                                <FieldGroup>
+                                    <Input
+                                        className='font-mono'
+                                        isBorderless
+                                    />
+                                    <TextFieldCopyButton />
+                                </FieldGroup>
+                            </TextField>
+                            {/* <code className="bg-muted-200 inline-flex px-2.5 gap-1.5 items-center h-ui-element rounded">
+                                <Copy className="size-4" />
+                            </code> */}
+                        </div>
+                    </div>
+                    <div className='flex items-center justify-center'>
+                        <HomepageHero />
+                    </div>
+                </section>
+                <section className='my-16 grid grid-cols-1 gap-8 md:grid-cols-4'>
+                    <HomepageCard
+                        className='info'
+                        description="Customise your application's look & feel with CSS variables powered by Tailwind CSS v4."
+                        icon={Palette}
+                        title='Themeable'
+                    />
+                    <HomepageCard
+                        className='error'
+                        description='Supercharge your LLM for UI development with our MCP server.'
+                        icon={BotIcon}
+                        title='Ready for AI'
+                    />
+                    <HomepageCard
+                        className='success'
+                        description="Install a single NPM package. No CLI required. You want code ownership? We have something for that, it's called forking."
+                        icon={Download}
+                        title='Simple distribution'
+                    />
+                    <HomepageCard
+                        className='warning'
+                        description="Customise your application's look & feel with CSS variables powered by Tailwind CSS v4."
+                        icon={Palette}
+                        title='Themeable'
+                    />
+                </section>
+            </div>
+        </main>
     )
 }
 
 function HomepageCard({
+    className,
     description,
     icon: Icon,
     title,
 }: {
+    className?: string
     description: string
     icon: React.ForwardRefExoticComponent<
         Omit<LucideProps, 'ref'> & React.RefAttributes<SVGSVGElement>
@@ -103,13 +126,26 @@ function HomepageCard({
     title: string
 }) {
     return (
-        <Card>
-            <CardHeader className='pb-0'>
-                <Icon className='bg-muted-100 p-1.5 rounded-full size-8 text-mid -ml-1.5' />
-                <CardTitle>{title}</CardTitle>
-            </CardHeader>
-            <CardBody>
-                <p className='text-mid'>{description}</p>
+        <Card className={twMerge(className, 'bg-tint-light/20')}>
+            <CardBody
+                className={twMerge(
+                    'flex flex-col items-center justify-center gap-4 py-8',
+                    'before:absolute before:inset-0 before:rounded-xl',
+                    'before:-z-10',
+                    'before:bg-gradient-to-r before:from-[var(--theme-default-bg-tint-dark)] before:via-[var(--theme-default-bg-tint-light)] before:to-[var(--theme-default-bg-tint-dark)]',
+                    'md:hover:before:from-[var(--theme-default-bg-tint-dark)] md:hover:before:via-[var(--theme-default-bg-tint-light)] md:hover:before:to-[var(--theme-default-bg-tint-dark)]',
+                    'before:opacity-40 before:blur-xl before:transition-all before:duration-500 md:hover:before:opacity-90 md:hover:before:blur-lg'
+                )}
+            >
+                <div className='bg-accent flex items-center justify-center rounded-xl border-dark shadow-2xl shadow-current size-16 -ml-1.5'>
+                    <Icon
+                        absoluteStrokeWidth
+                        className='bg-muted-100 p-1.5 rounded-full size-12 [&>*]:stroke-1.5 text-accent'
+                    />
+                </div>
+                <CardTitle className='text-xl font-bold text-dark'>{title}</CardTitle>
+
+                <p className='text-mid text-sm text-center text-balance'>{description}</p>
             </CardBody>
         </Card>
     )

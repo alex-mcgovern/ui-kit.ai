@@ -1,3 +1,5 @@
+'use client'
+
 import {
     Button,
     FieldGroup,
@@ -17,7 +19,7 @@ import { hrefs } from '../lib/hrefs'
 
 export function TopNav() {
     return (
-        <nav className='bg-raised backdrop-blur-md sticky top-0 z-10 border-b h-12 border-mid'>
+        <nav className='bg-raised/10 backdrop-blur-md sticky top-0 z-50 border-b h-12 border-mid'>
             <div className='flex items-center justify-between px-4 py-2 mx-auto '>
                 <div className='flex gap-6 items-center'>
                     <Link
@@ -58,7 +60,7 @@ export function TopNav() {
                                 placeholder='Search...'
                             />
                             <SearchFieldClearButton />
-                            <Kbd className='mr-2'>/</Kbd>
+                            <Kbd className='mr-2 shrink-0'>/</Kbd>
                         </FieldGroup>
                     </SearchField>
                     <LinkButton

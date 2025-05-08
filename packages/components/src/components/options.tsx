@@ -97,7 +97,15 @@ function OptionsItem<TType extends OptionType>({
         <Component
             {...props}
             aria-label={props.textValue}
-            className={twMerge(optionStyle(), intent)}
+            className={(renderProps) =>
+                twMerge(
+                    optionStyle(),
+                    intent,
+                    typeof props.className === 'function'
+                        ? props.className(renderProps)
+                        : props.className
+                )
+            }
             data-destructive={intent}
         >
             {({ isSelected }) => (
@@ -114,7 +122,7 @@ function OptionsItem<TType extends OptionType>({
                             {props.icon}
                         </div>
                     ) : null}
-                    <div className='flex-1'>
+                    <div className='flex-1 truncate'>
                         <span
                             className={twMerge(
                                 'flex items-center gap-1',

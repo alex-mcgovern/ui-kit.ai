@@ -50,7 +50,7 @@ export default function RootLayout({
             <body className={`${inter.className} antialiased relative `}>
                 <MSWProvider>
                     <TopNav />
-                    <main className='mx-auto '>{children}</main>
+                    {children}
                 </MSWProvider>
             </body>
         </html>

@@ -6,7 +6,14 @@ const OUTPUT_PATH = path.resolve(import.meta.dirname, '..', 'dist', 'prop-types.
 
 function main() {
     const resolvedPath = path.resolve(`node_modules/@ui-kit.ai/components/dist/index.d.ts`)
-    const docs = withCustomConfig(path.resolve('./tsconfig.json'), {}).parse(resolvedPath)
+    const docs = withCustomConfig(path.resolve('./tsconfig.json'), {
+        propFilter: (p) => {
+            // eslint-disable-next-line sonarjs/prefer-single-boolean-return
+            if (p.name.startsWith('aria')) return false
+            return true
+        },
+        shouldRemoveUndefinedFromOptional: true,
+    }).parse(resolvedPath)
     if (!Array.isArray(docs) || docs.length === 0) {
         throw Error(`❌ Unable to parse typedefs for ${resolvedPath}`)
     } else {
