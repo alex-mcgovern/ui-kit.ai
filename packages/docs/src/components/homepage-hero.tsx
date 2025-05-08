@@ -57,22 +57,10 @@ export const useParallaxTilt = (
 }
 
 export function HomepageHero() {
-    const [[rotX1, rotY1], [rotX2, rotY2], [rotX3, rotY3]] = useParallaxTilt([0.05, 0.1, 0.05], 100)
+    const [[rotX1, rotY1], [rotX2, rotY2], [rotX3, rotY3]] = useParallaxTilt([0.2, 0.25, 0.2], 50)
 
     return (
-        <div className='relative w-[400px] h-[180px]'>
-            <div
-                className='w-full absolute origin-center bottom-[90%] left-[5%]'
-                style={{
-                    transform: `perspective(1000px) rotateX(${rotX1}deg) rotateY(${rotY1}deg) scale3d(1, 1, 1)`,
-                    transformOrigin: '100% 100%',
-                    // eslint-disable-next-line sonarjs/no-duplicate-string
-                    transition: '400ms cubic-bezier(0.03, 0.98, 0.52, 0.99)',
-                    willChange: 'transform',
-                }}
-            >
-                <ChatReactionControls />
-            </div>
+        <div className='relative w-[400px] h-[180px] user-select-none'>
             <div
                 className='w-full flex items-center justify-center'
                 style={{
@@ -82,14 +70,26 @@ export function HomepageHero() {
                     willChange: 'transform',
                 }}
             >
-                <Card className='max-w-64 bg-tint/50 w-[400px] h-[180px] shadow-2xl'>
+                <Card className='max-w-64 bg-tint w-[400px] h-[180px] shadow-xl'>
                     <ChatStories.Default />
                 </Card>
             </div>
             <div
+                className='w-full absolute origin-center bottom-[90%] left-[5%]'
+                style={{
+                    transform: `perspective(1000px) rotateX(${rotX1}deg) rotateY(${rotY1}deg) scale3d(1, 1, 1) translateZ(10px)`,
+                    transformOrigin: '50% 50%',
+                    // eslint-disable-next-line sonarjs/no-duplicate-string
+                    transition: '400ms cubic-bezier(0.03, 0.98, 0.52, 0.99)',
+                    willChange: 'transform',
+                }}
+            >
+                <ChatReactionControls />
+            </div>
+            <div
                 className='w-full absolute origin-center top-[90%] -right-[50%]'
                 style={{
-                    transform: `perspective(1000px) rotateX(${rotX3}deg) rotateY(${rotY3}deg) scale3d(1, 1, 1)`,
+                    transform: `perspective(1000px) rotateX(${rotX3}deg) rotateY(${rotY3}deg) scale3d(1, 1, 1) translateZ(10px)`,
                     transformOrigin: '0% 0%',
                     transition: '400ms cubic-bezier(0.03, 0.98, 0.52, 0.99)',
                     willChange: 'transform',
@@ -103,7 +103,7 @@ export function HomepageHero() {
 
 function ChatReactionControls() {
     return (
-        <Card className='flex gap-2 p-1 rounded-lg bg-raised/10 backdrop-blur-md w-min'>
+        <Card className='flex gap-2 p-1 rounded-lg shadow-2xl bg-raised/10 backdrop-blur-sm w-min'>
             <Button
                 isIcon
                 variant='tertiary'
@@ -128,13 +128,13 @@ function ChatReactionControls() {
 
 function ChatTextArea() {
     return (
-        <Card className='max-w-64 bg-raised/10 backdrop-blur-md w-full shadow-2xl px-3 py-2 rounded-2xl'>
+        <Card className='max-w-64 bg-raised/10 backdrop-blur-sm w-full shadow-2xl px-3 py-2 rounded-2xl'>
             <TextField
                 aria-label='AI chat input'
                 isReadOnly
             >
                 <Input
-                    className='!p-0'
+                    className='!p-0 mb-2'
                     isBorderless
                     placeholder='Ask anything...'
                 />

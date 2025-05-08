@@ -1,7 +1,8 @@
+import type { LucideProps } from 'lucide-react'
+
 import {
     Card,
     CardBody,
-    CardHeader,
     CardTitle,
     FieldGroup,
     Heading,
@@ -11,7 +12,7 @@ import {
     TextField,
     TextFieldCopyButton,
 } from '@ui-kit.ai/components'
-import { ArrowRight, BotIcon, Download, type LucideProps, Palette, Zap } from 'lucide-react'
+import { ArrowRight, BotIcon, ChevronRightIcon, Download, Palette, Zap } from 'lucide-react'
 import { twMerge } from 'tailwind-merge'
 
 import { HomepageHero } from '../components/homepage-hero'
@@ -42,7 +43,7 @@ export default function Home() {
                             Beautiful UI components
                             <br />
                             for
-                            <span className='bg-gradient-to-b from-[var(--theme-info-text-mid)] to-[var(--theme-info-text-light)] bg-clip-text text-transparent'>
+                            <span className='bg-gradient-to-br from-[var(--theme-error-text-light)] via-[var(--theme-info-text-mid)] to-[var(--theme-info-text-dark)] bg-clip-text text-transparent'>
                                 {' '}
                                 AI-powered
                             </span>{' '}
@@ -54,34 +55,32 @@ export default function Home() {
                         </p>
                         <div className='flex gap-2 mt-6 w-min '>
                             <LinkButton
+                                className='!h-10'
                                 href={hrefs.docs.getting_started.introduction}
-                                slotRight={<ArrowRight className='-ml-1.5' />}
+                                slotRight={<ChevronRightIcon />}
                             >
-                                Docs
+                                Get started
                             </LinkButton>
                             <TextField
                                 className='min-w-52 shrink-0'
                                 isReadOnly
                                 value='npm i @ui-kit.ai/components'
                             >
-                                <FieldGroup>
+                                <FieldGroup className='!h-10'>
                                     <Input
                                         className='font-mono'
                                         isBorderless
                                     />
-                                    <TextFieldCopyButton />
+                                    <TextFieldCopyButton className='!size-7.5' />
                                 </FieldGroup>
                             </TextField>
-                            {/* <code className="bg-muted-200 inline-flex px-2.5 gap-1.5 items-center h-ui-element rounded">
-                                <Copy className="size-4" />
-                            </code> */}
                         </div>
                     </div>
                     <div className='flex items-center justify-center'>
                         <HomepageHero />
                     </div>
                 </section>
-                <section className='my-16 grid grid-cols-1 gap-8 md:grid-cols-4'>
+                <section className='my-20 grid grid-cols-1 gap-8 md:grid-cols-4'>
                     <HomepageCard
                         className='info'
                         description="Customise your application's look & feel with CSS variables powered by Tailwind CSS v4."
@@ -132,12 +131,12 @@ function HomepageCard({
                     'flex flex-col items-center justify-center gap-4 py-8',
                     'before:absolute before:inset-0 before:rounded-xl',
                     'before:-z-10',
-                    'before:bg-gradient-to-r before:from-[var(--theme-default-bg-tint-dark)] before:via-[var(--theme-default-bg-tint-light)] before:to-[var(--theme-default-bg-tint-dark)]',
-                    'md:hover:before:from-[var(--theme-default-bg-tint-dark)] md:hover:before:via-[var(--theme-default-bg-tint-light)] md:hover:before:to-[var(--theme-default-bg-tint-dark)]',
+                    'before:bg-gradient-to-r before:from-transparent before:via-[var(--theme-default-bg-tint-light)] before:to-transparent',
+                    'md:hover:before:from-transparent md:hover:before:via-[var(--theme-default-bg-tint-light)] md:hover:before:to-transparent',
                     'before:opacity-40 before:blur-xl before:transition-all before:duration-500 md:hover:before:opacity-90 md:hover:before:blur-lg'
                 )}
             >
-                <div className='bg-accent flex items-center justify-center rounded-xl border-dark shadow-2xl shadow-current size-16 -ml-1.5'>
+                <div className='bg-accent flex items-center justify-center rounded-xl border-dark shadow-2xl shadow-[var(--theme-default-bg-accent)] size-16 -ml-1.5'>
                     <Icon
                         absoluteStrokeWidth
                         className='bg-muted-100 p-1.5 rounded-full size-12 [&>*]:stroke-1.5 text-accent'
@@ -145,7 +144,7 @@ function HomepageCard({
                 </div>
                 <CardTitle className='text-xl font-bold text-dark'>{title}</CardTitle>
 
-                <p className='text-mid text-sm text-center text-balance'>{description}</p>
+                <p className='text-dark text-sm text-center text-balance'>{description}</p>
             </CardBody>
         </Card>
     )

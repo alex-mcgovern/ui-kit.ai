@@ -239,7 +239,7 @@ ${genIntentUtils()}
         return {
             ...hslVal,
             l: mode === 'light' ? 0.9 : 0.1,
-            s: hslVal.s * 0.75,
+            s: hslVal.s * 0.5,
         }
     }
 }
