@@ -1,5 +1,7 @@
 'use client'
 
+import type { Dispatch, ReactNode, SetStateAction } from 'react'
+
 import {
     Card,
     CardBody,
@@ -10,7 +12,8 @@ import {
     TabPanel,
     Tabs,
 } from '@ui-kit.ai/components'
-import { createContext, type Dispatch, type ReactNode, type SetStateAction } from 'react'
+import { createContext } from 'react'
+import { twMerge } from 'tailwind-merge'
 
 export const ShowCodeContext = createContext<[boolean, Dispatch<SetStateAction<boolean>>] | null>(
     null
@@ -36,13 +39,21 @@ export function Code({
                 </CardHeader>
                 <CardBody>
                     <TabPanel
-                        className='flex items-center justify-center min-h-24 bg-[radial-gradient(var(--theme-default-bg-tint-light)_1px,transparent_1px)] [background-size:16px_16px]'
+                        className={twMerge(
+                            'flex items-center justify-center',
+                            'bg-[radial-gradient(var(--theme-default-bg-tint-light)_1px,transparent_1px)] [background-size:16px_16px]'
+                        )}
                         id='preview'
                     >
                         {component}
                     </TabPanel>
                     <TabPanel id='code'>
-                        <CodeBlock language='tsx'>{code}</CodeBlock>
+                        <CodeBlock
+                            language='tsx'
+                            showLineNumbers={false}
+                        >
+                            {code}
+                        </CodeBlock>
                     </TabPanel>
                 </CardBody>
             </Tabs>

@@ -7,10 +7,20 @@ const MAP: Record<TwBorderUtility, VarName> = {
     [TwBorderUtility.MID]: genVarName(Intent.DEFAULT, Color.BORDER_MID),
 }
 
+const template = (utility: string, varName: string): string => `
+@utility ${utility} {
+  border-color: var(${varName})
+}
+@utility ${utility}-* {
+  --alpha: calc(--modifier(integer) * 1%);
+  border-color: --alpha(--value(${varName}, [color]) / var(--alpha, 100%));
+}
+`
+
 export function generateBorderUtilitiesCSS(): string {
     return Object.entries(MAP)
         .map(([utility, varName]) => {
-            return `@utility ${utility} {\n\tborder-color: var(${varName});\n}`
+            return template(utility, varName)
         })
         .join('\n')
 }

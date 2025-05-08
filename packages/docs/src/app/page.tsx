@@ -125,7 +125,7 @@ function HomepageCard({
     title: string
 }) {
     return (
-        <Card className={twMerge(className, 'bg-tint-light/20')}>
+        <Card className={twMerge(className, 'bg-tint-light/10')}>
             <CardBody
                 className={twMerge(
                     'flex flex-col items-center justify-center gap-4 py-8',

@@ -12,10 +12,20 @@ const MAP: Record<TwBgUtility, VarName> = {
     [TwBgUtility.TINT_LIGHT]: genVarName(Intent.DEFAULT, Color.BG_TINT_LIGHT),
 }
 
+const template = (utility: string, varName: string): string => `
+@utility ${utility} {
+  background-color: var(${varName})
+}
+@utility ${utility}-* {
+  --alpha: calc(--modifier(integer) * 1%);
+  background-color: --alpha(--value(${varName}, [color]) / var(--alpha, 100%));
+}
+`
+
 export function generateBgUtilitiesCSS(): string {
     return Object.entries(MAP)
         .map(([utility, varName]) => {
-            return `@utility ${utility} {\n\tbackground-color: var(${varName});\n}`
+            return template(utility, varName)
         })
         .join('\n')
 }
