@@ -10,39 +10,39 @@ import {
     ThumbsDownIcon,
     ThumbsUpIcon,
 } from 'lucide-react'
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 
 export const useParallaxTilt = (
     factors: number[],
     sensitivity: number = 20
 ): [number, number][] => {
-    const [mousePosition, setMousePosition] = useState<{ x: number; y: number }>({
-        x: 0,
-        y: 0,
-    })
+    const mousePositionRef = useRef<{ x: number; y: number }>({ x: 0, y: 0 })
+    const rotationsRef = useRef<[number, number][]>(factors.map(() => [0, 0]))
+    const [, forceRender] = useState({})
 
-    const [rotations, setRotations] = useState<[number, number][]>(factors.map(() => [0, 0]))
+    const handleMouseMove = useCallback(
+        (event: MouseEvent) => {
+            const windowWidth = window.innerWidth
+            const windowHeight = window.innerHeight
 
-    const handleMouseMove = useCallback((event: MouseEvent) => {
-        const windowWidth = window.innerWidth
-        const windowHeight = window.innerHeight
+            const x = (event.clientX / windowWidth) * 2 - 1
+            const y = (event.clientY / windowHeight) * 2 - 1
 
-        const x = (event.clientX / windowWidth) * 2 - 1
-        const y = (event.clientY / windowHeight) * 2 - 1
+            mousePositionRef.current = { x, y }
 
-        setMousePosition({ x, y })
-    }, [])
+            // Calculate new rotations
+            const newRotations = factors.map((factor) => {
+                const xRotation = -y * factor * sensitivity
+                const yRotation = x * factor * sensitivity
 
-    useEffect(() => {
-        const newRotations = factors.map((factor) => {
-            const xRotation = -mousePosition.y * factor * sensitivity
-            const yRotation = mousePosition.x * factor * sensitivity
+                return [xRotation, yRotation] as [number, number]
+            })
 
-            return [xRotation, yRotation] as [number, number]
-        })
-
-        setRotations(newRotations)
-    }, [mousePosition, factors, sensitivity])
+            rotationsRef.current = newRotations
+            forceRender({})
+        },
+        [factors, sensitivity]
+    )
 
     // Set up and clean up event listeners
     useEffect(() => {
@@ -53,11 +53,11 @@ export const useParallaxTilt = (
         }
     }, [handleMouseMove])
 
-    return rotations
+    return rotationsRef.current
 }
 
 export function HomepageHero() {
-    const [[rotX1, rotY1], [rotX2, rotY2], [rotX3, rotY3]] = useParallaxTilt([0.2, 0.2, 0.3], 100)
+    const [[rotX1, rotY1], [rotX2, rotY2], [rotX3, rotY3]] = useParallaxTilt([0.05, 0.1, 0.05], 100)
 
     return (
         <div className='relative w-[400px] h-[180px]'>
@@ -65,7 +65,7 @@ export function HomepageHero() {
                 className='w-full absolute origin-center bottom-[90%] left-[5%]'
                 style={{
                     transform: `perspective(1000px) rotateX(${rotX1}deg) rotateY(${rotY1}deg) scale3d(1, 1, 1)`,
-                    transformOrigin: '50% 50%',
+                    transformOrigin: '100% 100%',
                     // eslint-disable-next-line sonarjs/no-duplicate-string
                     transition: '400ms cubic-bezier(0.03, 0.98, 0.52, 0.99)',
                     willChange: 'transform',
@@ -90,7 +90,7 @@ export function HomepageHero() {
                 className='w-full absolute origin-center top-[90%] -right-[50%]'
                 style={{
                     transform: `perspective(1000px) rotateX(${rotX3}deg) rotateY(${rotY3}deg) scale3d(1, 1, 1)`,
-                    transformOrigin: '50% 50%',
+                    transformOrigin: '0% 0%',
                     transition: '400ms cubic-bezier(0.03, 0.98, 0.52, 0.99)',
                     willChange: 'transform',
                 }}
