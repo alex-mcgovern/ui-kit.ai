@@ -18,7 +18,7 @@ export function FieldError({
             {...props}
             className={(renderProps) =>
                 twMerge(
-                    'error text-mid-contrast block text-sm font-medium',
+                    'error text-mid block text-sm font-medium',
                     'mt-1',
                     typeof props.className === 'function'
                         ? props.className(renderProps)

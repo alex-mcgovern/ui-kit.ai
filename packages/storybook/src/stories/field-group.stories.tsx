@@ -60,7 +60,7 @@ function SelectTextFieldTemplate(props: ComponentProps<typeof FieldGroup>) {
         <FieldGroup {...props}>
             <Select
                 aria-label='Country'
-                className='border-r-tint-dark border-r'
+                className='border-r-mid border-r'
                 items={[
                     {
                         id: 'ireland',

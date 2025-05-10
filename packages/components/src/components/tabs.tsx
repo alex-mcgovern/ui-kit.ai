@@ -44,8 +44,7 @@ const tabListStyles = tv({
     base: 'no-scrollbar relative flex max-w-full',
     variants: {
         orientation: {
-            horizontal:
-                'after:border-b-tint-light flex-row after:grow after:border-b after:content-[""]',
+            horizontal: 'after:border-mid flex-row after:grow after:border-b after:content-[""]',
             vertical: 'flex-col items-start',
         },
     },
@@ -76,27 +75,27 @@ const tabStyles = tv({
     base: [
         'px-4 py-1.5',
         '-outline-offset-4',
-        'text-mid-contrast text-sm whitespace-nowrap',
+        'text-mid text-sm whitespace-nowrap',
         'font-medium',
         'flex items-center',
         'cursor-pointer',
         // pressed
-        'pressed:text-mid-contrast',
+        'pressed:text-mid',
         // hover
-        'hover:text-hi-contrast',
+        'hover:text-dark',
         // selected
-        'selected:text-hi-contrast',
-        'selected:border-accent-light',
+        'selected:text-dark',
+        'selected:border-[var(--theme-default-bg-accent)]',
         // selected
         'disabled:text-disabled',
-        'disabled:selected:text-mid-contrast forced-color-adjust-none',
+        'disabled:selected:text-mid forced-color-adjust-none',
         // horizontal
         'group-orientation-horizontal/tabs:border-b',
-        'group-orientation-horizontal/tabs:border-tint-light',
+        'group-orientation-horizontal/tabs:border-mid',
         // vertical
         'group-orientation-vertical/tabs:w-full',
         'group-orientation-vertical/tabs:border-r',
-        'group-orientation-vertical/tabs:border-tint-light',
+        'group-orientation-vertical/tabs:border-mid',
     ],
     extend: focusRing,
 })

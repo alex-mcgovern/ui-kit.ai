@@ -43,29 +43,22 @@ const buttonStyle = tv({
         },
         variant: {
             primary: [
-                'text-accent-fg',
+                'text-accent',
                 'shadow-xs',
-                'border-accent bg-accent',
-                // hover
-                'hover:border-accent-light hover:bg-accent-light',
-                // pressed
-                'pressed:border-accent-dark pressed:bg-accent-dark',
+                'border-light bg-accent',
+                'hover:bg-accent-light',
+                'pressed:bg-accent-dark',
             ],
             secondary: [
-                // base
                 'shadow-xs',
-                'border-tint-dark bg-background text-hi-contrast',
-                // hover
+                'border-mid text-dark bg-transparent',
                 'hover:bg-tint-light',
-                // pressed
                 'pressed:bg-tint',
             ],
             tertiary: [
-                'text-hi-contrast border-transparent bg-transparent',
-                // hover
-                'hover:bg-tint',
-                // pressed
-                'pressed:bg-tint-dark',
+                'text-dark border-transparent bg-transparent',
+                'hover:bg-tint-light',
+                'pressed:bg-tint',
             ],
         },
     },

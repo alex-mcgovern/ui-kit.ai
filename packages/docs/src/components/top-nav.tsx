@@ -1,3 +1,5 @@
+'use client'
+
 import {
     Button,
     FieldGroup,
@@ -17,11 +19,11 @@ import { hrefs } from '../lib/hrefs'
 
 export function TopNav() {
     return (
-        <nav className='bg-background-raised backdrop-blur-md sticky top-0 z-10 border-b h-12 border-b-tint-light'>
+        <nav className='bg-raised/10 backdrop-blur-md sticky top-0 z-50 border-b h-12 border-mid'>
             <div className='flex items-center justify-between px-4 py-2 mx-auto '>
                 <div className='flex gap-6 items-center'>
                     <Link
-                        className='font-semibold flex items-center gap-1 text-hi-contrast hover:text-mid-contrast transition-colors'
+                        className='font-semibold flex items-center gap-1 text-dark hover:text-mid transition-colors'
                         href='/'
                     >
                         <Component className='size-4' />
@@ -29,19 +31,19 @@ export function TopNav() {
                     </Link>
                     <div className='flex items-center gap-4'>
                         <Link
-                            className='text-sm font-light text-hi-contrast hover:text-mid-contrast transition-colors'
+                            className='text-sm  text-dark hover:text-mid transition-colors'
                             href={hrefs.docs.getting_started.introduction}
                         >
                             Docs
                         </Link>
                         <Link
-                            className='text-sm font-light text-hi-contrast hover:text-mid-contrast transition-colors'
+                            className='text-sm  text-dark hover:text-mid transition-colors'
                             href={hrefs.docs.components}
                         >
                             Components
                         </Link>
                         <Link
-                            className='text-sm font-light text-hi-contrast hover:text-mid-contrast transition-colors'
+                            className='text-sm  text-dark hover:text-mid transition-colors'
                             href={hrefs.theme}
                         >
                             Theme
@@ -51,14 +53,14 @@ export function TopNav() {
                 </div>
                 <div className='flex items-center justify-between gap-1 '>
                     <SearchField className='max-w-64'>
-                        <FieldGroup>
+                        <FieldGroup className='bg-raised/50 backdrop-blur-md'>
                             <Input
                                 icon={<Search />}
                                 isBorderless
                                 placeholder='Search...'
                             />
                             <SearchFieldClearButton />
-                            <Kbd className='mr-2'>/</Kbd>
+                            <Kbd className='mr-2 shrink-0'>/</Kbd>
                         </FieldGroup>
                     </SearchField>
                     <LinkButton

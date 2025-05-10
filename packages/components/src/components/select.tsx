@@ -125,6 +125,7 @@ export function SelectButton({
                 // @ts-expect-error - TODO: Fix select types
                 selectedItemIcon ?? slotLeft,
                 {
+                    className: 'text-mid',
                     'data-slot': 'slot-left',
                 }
             )}
@@ -132,12 +133,13 @@ export function SelectButton({
                 className={twMerge([
                     'inline-flex flex-1 items-center gap-2',
                     'truncate',
-                    'placeholder-shown:text-lo-contrast',
+                    'placeholder-shown:text-light',
                 ])}
             >
                 {({ selectedText }) => selectedText}
             </AriaSelectValue>
             {renderSlot(slotRight, {
+                className: 'text-mid',
                 'data-slot': 'slot-right',
             })}
         </AriaButton>

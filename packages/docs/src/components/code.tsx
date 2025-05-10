@@ -2,7 +2,16 @@
 
 import type { Dispatch, ReactNode, SetStateAction } from 'react'
 
-import { Card, CardBody, CardHeader, CodeBlock } from '@ui-kit.ai/components'
+import {
+    Card,
+    CardBody,
+    CardHeader,
+    CodeBlock,
+    Tab,
+    TabList,
+    TabPanel,
+    Tabs,
+} from '@ui-kit.ai/components'
 import { createContext } from 'react'
 import { twMerge } from 'tailwind-merge'
 
@@ -14,24 +23,40 @@ export function Code({
     className,
     code,
     component,
-    language = 'tsx',
 }: {
     className?: string
     code: string
     component: ReactNode
-    language: string
 }) {
     return (
-        <Card className={twMerge(className, 'bg-background')}>
-            <CardHeader className='border-b border-b-tint-light'>{component}</CardHeader>
-            <CardBody className='bg-background-raised'>
-                <CodeBlock
-                    language={language}
-                    showLineNumbers={false}
-                >
-                    {code}
-                </CodeBlock>
-            </CardBody>
+        <Card className={className}>
+            <Tabs>
+                <CardHeader className='p-0'>
+                    <TabList className='w-full'>
+                        <Tab id='preview'>Preview</Tab>
+                        <Tab id='code'>Code</Tab>
+                    </TabList>
+                </CardHeader>
+                <CardBody>
+                    <TabPanel
+                        className={twMerge(
+                            'flex items-center justify-center',
+                            'bg-[radial-gradient(var(--theme-default-bg-tint-light)_1px,transparent_1px)] [background-size:16px_16px]'
+                        )}
+                        id='preview'
+                    >
+                        {component}
+                    </TabPanel>
+                    <TabPanel id='code'>
+                        <CodeBlock
+                            language='tsx'
+                            showLineNumbers={false}
+                        >
+                            {code}
+                        </CodeBlock>
+                    </TabPanel>
+                </CardBody>
+            </Tabs>
         </Card>
     )
 }

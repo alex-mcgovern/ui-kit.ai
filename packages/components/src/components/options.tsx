@@ -28,22 +28,21 @@ const optionStyle = tv({
         'group/options-item',
         'flex items-center gap-2',
         'cursor-default',
-        'text-hi-contrast text-sm',
+        'text-dark text-sm',
         'outline outline-0',
         'rounded select-none',
         'px-2.5 py-0.5',
-        // disabled
-        'disabled:text-disabled disabled:forced-colors:text-[GrayText]',
-        // hover
-        `hover:bg-tint-light hover:open:bg-tint-light hover:forced-colors:bg-[Highlight]
-        hover:forced-colors:text-[HighlightText]`,
-        // focus
-        `focus:bg-tint-light focus:open:bg-tint-light focus:forced-colors:bg-[Highlight]
-        focus:forced-colors:text-[HighlightText]`,
-        // selected
-        `selected:bg-tint-light selected:open:bg-tint-light selected:forced-colors:bg-[Highlight]
-        selected:forced-colors:text-[HighlightText]`,
         'forced-color-adjust-none',
+        // disabled
+        'disabled:text-disabled',
+        // hover
+        'hover:bg-tint-light',
+        // focus
+        'focus:bg-tint-light',
+        // pressed
+        'pressed:bg-tint-dark',
+        // selected
+        'selected:bg-tint',
     ],
 })
 
@@ -98,7 +97,15 @@ function OptionsItem<TType extends OptionType>({
         <Component
             {...props}
             aria-label={props.textValue}
-            className={twMerge(optionStyle(), intent)}
+            className={(renderProps) =>
+                twMerge(
+                    optionStyle(),
+                    intent,
+                    typeof props.className === 'function'
+                        ? props.className(renderProps)
+                        : props.className
+                )
+            }
             data-destructive={intent}
         >
             {({ isSelected }) => (
@@ -106,14 +113,16 @@ function OptionsItem<TType extends OptionType>({
                     {props.icon != null ? (
                         <div
                             className={twMerge(
-                                'pointer-events-none flex size-3 items-center justify-center',
-                                '[&_svg]:size-3 [&_svg]:shrink-0'
+                                'flex items-center justify-center',
+                                'text-mid',
+                                'pointer-events-none',
+                                'size-3 [&_svg]:size-3 [&_svg]:shrink-0'
                             )}
                         >
                             {props.icon}
                         </div>
                     ) : null}
-                    <div className='flex-1'>
+                    <div className='flex-1 truncate'>
                         <span
                             className={twMerge(
                                 'flex items-center gap-1',
@@ -124,13 +133,13 @@ function OptionsItem<TType extends OptionType>({
                             {props.children ?? props.textValue}
                         </span>
                         {props.description != null ? (
-                            <span className='text-mid-contrast group-focus/options-item:text-hi-contrast truncate text-sm font-normal'>
+                            <span className='text-mid group-focus/options-item:text-dark truncate text-sm font-normal'>
                                 {props.description}
                             </span>
                         ) : null}
                     </div>
                     {showCheckmarkOnSelected === true && isSelected ? (
-                        <IconCheck className='size-3' />
+                        <IconCheck className='text-mid size-3' />
                     ) : null}
                 </>
             )}
@@ -164,7 +173,7 @@ OptionsSection.displayName = 'OptionsSection'
 function OptionsSectionHeader(props: HeadingProps) {
     return (
         <Header
-            className='text-mid-contrast px-2.5 py-1 text-xs font-medium uppercase'
+            className='text-mid px-2.5 py-1 text-xs font-medium uppercase'
             {...props}
         />
     )

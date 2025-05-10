@@ -5,11 +5,9 @@ import React from 'react'
 import { Checkbox as AriaCheckbox, composeRenderProps } from 'react-aria-components'
 import { tv } from 'tailwind-variants'
 
-import { i18n } from '../i18n'
 import { focusRing } from '../styles/focus-ring'
 import { Description } from './description'
 import { Label } from './label'
-import { Tag } from './tag'
 
 type CheckboxProps = Omit<AriaCheckboxProps, 'children'> &
     (
@@ -42,8 +40,8 @@ const checkboxContainerStyles = tv({
 
 const boxStyles = tv({
     base: [
-        'bg-background',
-        'border-lo-contrast border',
+        'bg-base',
+        'border-mid border',
         'size-4',
         'transition-colors',
         'flex flex-shrink-0 items-center justify-center',
@@ -52,7 +50,7 @@ const boxStyles = tv({
         'group-disabled:opacity-50',
         // hover
         'group-hover:bg-tint-light',
-        'group-hover:border-lo-contrast',
+        'group-hover:border-dark',
         // selected
         'group-selected:bg-accent',
         'group-selected:group-hover:bg-accent',
@@ -72,10 +70,10 @@ const iconStyles = tv({
         'transition-colors',
         'stroke-transparent',
         // hover
-        'group-hover:stroke-mid-contrast',
-        'group-hover/row:stroke-mid-contrast',
-        'group-selected:stroke-accent-fg',
-        'group-indeterminate:stroke-accent-fg',
+        'group-hover:stroke-[var(--theme-default-text-mid)]',
+        'group-hover/row:stroke-[var(--theme-default-text-mid)]',
+        'group-selected:stroke-[var(--theme-default-text-accent)]',
+        'group-indeterminate:stroke-[var(--theme-default-text-accent)]',
     ],
 })
 
@@ -99,7 +97,6 @@ export function Checkbox({ description, label, textPosition = 'right', ...props 
                     {textPosition === 'left' && label != null ? (
                         <CheckboxLabel
                             description={description}
-                            isRequired={renderProps.isRequired}
                             label={label}
                         />
                     ) : null}
@@ -121,7 +118,6 @@ export function Checkbox({ description, label, textPosition = 'right', ...props 
                     {textPosition === 'right' && label != null ? (
                         <CheckboxLabel
                             description={description}
-                            isRequired={renderProps.isRequired}
                             label={label}
                         />
                     ) : null}
@@ -132,21 +128,10 @@ export function Checkbox({ description, label, textPosition = 'right', ...props 
 }
 Checkbox.displayName = 'Checkbox'
 
-function CheckboxLabel({
-    description,
-    isRequired,
-    label,
-}: {
-    description?: string
-    isRequired: boolean
-    label: string
-}) {
+function CheckboxLabel({ description, label }: { description?: string; label: string }) {
     return (
         <div>
-            <Label className='mb-0 flex items-center gap-1'>
-                {label}
-                {isRequired ? <Tag>{i18n.form.required}</Tag> : null}
-            </Label>
+            <Label className='text-dark mb-0 flex items-center gap-1'>{label}</Label>
             {description != null ? (
                 <Description className='!mt-0'>{description}</Description>
             ) : null}

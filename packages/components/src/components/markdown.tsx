@@ -49,7 +49,7 @@ const COMPONENTS = {
     a({ children, ...props }) {
         return (
             <a
-                className='text-hi-contrast hover:text-hi-contrast underline'
+                className='text-dark hover:text-dark underline'
                 target='_blank'
                 {...props}
             >
@@ -61,42 +61,42 @@ const COMPONENTS = {
     h1: (props) => (
         <Heading
             {...props}
-            className={twMerge(props.className, 'my-2')}
+            className={twMerge(props.className, 'mb-4')}
             level={1}
         />
     ),
     h2: (props) => (
         <Heading
             {...props}
-            className={twMerge(props.className, 'my-2')}
+            className={twMerge(props.className, 'mb-4')}
             level={2}
         />
     ),
     h3: (props) => (
         <Heading
             {...props}
-            className={twMerge(props.className, 'my-2')}
+            className={twMerge(props.className, 'mb-4')}
             level={3}
         />
     ),
     h4: (props) => (
         <Heading
             {...props}
-            className={twMerge(props.className, 'my-2')}
+            className={twMerge(props.className, 'mb-4')}
             level={4}
         />
     ),
     h5: (props) => (
         <Heading
             {...props}
-            className={twMerge(props.className, 'my-2')}
+            className={twMerge(props.className, 'mb-4')}
             level={5}
         />
     ),
     h6: (props) => (
         <Heading
             {...props}
-            className={twMerge(props.className, 'my-2')}
+            className={twMerge(props.className, 'mb-4')}
             level={6}
         />
     ),

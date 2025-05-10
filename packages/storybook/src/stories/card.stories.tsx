@@ -8,11 +8,11 @@ function Template(args: ComponentProps<typeof Card>) {
     return (
         <Card {...args}>
             <CardHeader>
-                <Zap className='bg-muted-100 text-mid-contrast -ml-1.5 size-3 rounded-full p-1.5' />
+                <Zap className='bg-muted-100 text-mid -ml-1.5 size-3 rounded-full p-1.5' />
                 <CardTitle>Card Title</CardTitle>
             </CardHeader>
             <CardBody>
-                <p className='text-mid-contrast'>
+                <p className='text-mid'>
                     This is an example card with a header, title, and body content. Cards are
                     containers that group and organize content in a consistent manner.
                 </p>
@@ -44,7 +44,7 @@ export const WithoutHeader: Story = {
     render: () => (
         <Card>
             <CardBody>
-                <p className='text-mid-contrast'>A simple card with just body content.</p>
+                <p className='text-mid'>A simple card with just body content.</p>
             </CardBody>
         </Card>
     ),

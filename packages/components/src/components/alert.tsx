@@ -1,5 +1,3 @@
-import type { ReactNode } from 'react'
-
 import { InfoIcon, type LucideProps } from 'lucide-react'
 import { twMerge } from 'tailwind-merge'
 import { tv } from 'tailwind-variants'
@@ -8,26 +6,25 @@ import type { ActionNodes } from '../types/action-nodes'
 import type { Intent } from '../types/intent'
 
 import { renderActionNodes } from '../types/action-nodes'
-import { Description } from './description'
 
 const alertStyles = tv({
     base: [
         'w-full',
         'rounded-lg shadow-xs',
-        'border-tint-dark border',
-        'bg-background-raised',
-        'text-hi-contrast',
+        'border-light border',
+        'bg-tint-light',
+        'text-mid',
         'py-1 pr-2 pl-3',
         'flex items-center gap-4',
     ],
 })
 
 const titleStyles = tv({
-    base: 'font-title mb-0 block text-sm font-bold',
+    base: 'font-title mb-0 block text-sm font-medium',
 })
 
 const iconStyles = tv({
-    base: 'text-mid-contrast size-7 shrink-0 stroke-[1.75px]',
+    base: 'text-mid size-4 shrink-0 stroke-[1.75px]',
 })
 
 /**
@@ -38,15 +35,13 @@ const iconStyles = tv({
 export function Alert({
     actions,
     className,
-    description,
     icon: Icon = InfoIcon,
-    intent,
-    title,
+    intent = 'info',
+    text,
     ...props
 }: {
     actions?: ActionNodes
     className?: string
-    description?: ReactNode
     icon?: React.ForwardRefExoticComponent<
         Omit<LucideProps, 'ref'> & React.RefAttributes<SVGSVGElement>
     >
@@ -54,7 +49,7 @@ export function Alert({
      * Convey semantic meaning with color.
      */
     intent?: Intent
-    title: string
+    text: string
 }) {
     return (
         <div
@@ -73,11 +68,8 @@ export function Alert({
                     className={titleStyles()}
                     role='alert'
                 >
-                    {title}
+                    {text}
                 </span>
-                {description != null ? (
-                    <Description className={twMerge('!my-0')}>{description}</Description>
-                ) : null}
             </div>
             {renderActionNodes({
                 actions,

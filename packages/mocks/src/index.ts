@@ -5,4 +5,5 @@ export type {
     ListStockWatchlistItemsResponse,
     StockWatchlistItem,
 } from './api/stocks'
+export { llmStreamHandler } from './api/stream'
 export { getMockOptions } from './types/options'

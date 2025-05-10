@@ -26,25 +26,25 @@ type StoryFn = (() => ReactNode) & {
 const NO_DISPLAY_NAME_SIGNAL = 'NO_DISPLAY_NAME_SIGNAL'
 
 const JSX_STRING_OPTIONS = {
-    displayName(element: ReactNode) {
-        if (typeof element === 'string') return element
-        if (typeof element === 'object' && element !== null && 'type' in element) {
-            const type = (element as { type: unknown }).type
-            if (typeof type === 'string') return type
-            // Handle forwardRef components
-            if (typeof type === 'object' && type !== null && 'render' in type) {
-                const render = (type as { render: { displayName?: string } }).render
-                if (render.displayName != null) return render.displayName
-            }
-            if (typeof type === 'function') {
-                const displayName = (type as unknown as { displayName: string }).displayName
-                if (displayName) return displayName
-                const name = (type as { name: string }).name
-                if (name) return name
-            }
-        }
-        return NO_DISPLAY_NAME_SIGNAL
-    },
+    // displayName(element: ReactNode) {
+    //     if (typeof element === 'string') return element
+    //     if (typeof element === 'object' && element !== null && 'type' in element) {
+    //         const type = (element as { type: unknown }).type
+    //         if (typeof type === 'string') return type
+    //         // Handle forwardRef components
+    //         if (typeof type === 'object' && type !== null && 'render' in type) {
+    //             const render = (type as { render: { displayName?: string } }).render
+    //             if (render.displayName != null) return render.displayName
+    //         }
+    //         if (typeof type === 'function') {
+    //             const displayName = (type as unknown as { displayName: string }).displayName
+    //             if (displayName) return displayName
+    //             const name = (type as { name: string }).name
+    //             if (name) return name
+    //         }
+    //     }
+    //     return NO_DISPLAY_NAME_SIGNAL
+    // },
     filterProps(_value, key) {
         return key !== 'data-testid' && key !== 'key'
     },

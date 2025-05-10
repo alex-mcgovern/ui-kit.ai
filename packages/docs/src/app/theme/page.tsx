@@ -3,36 +3,57 @@
 /* eslint-disable perfectionist/sort-objects */
 
 import {
-    CodeInline,
     ColorField,
     ColorSlider,
     ColorSwatch,
     DialogTrigger,
-    Disclosure,
-    DisclosureButton,
-    DisclosurePanel,
     FieldButton,
     FieldGroup,
     Heading,
     Input,
     Label,
+    type OptionsSchema,
     Popover,
     PopoverDialog,
+    Select,
+    SelectButton,
 } from '@ui-kit.ai/components'
 import { ColorPalette, DEFAULT_COLOR_PALETTE_INPUT } from '@ui-kit.ai/theme'
 import { PipetteIcon } from 'lucide-react'
 import { type ComponentProps, type Dispatch, type SetStateAction, useState } from 'react'
 
 import { Sidebar } from '../../components/sidebar'
+import { ColorTableBg, ColorTableBorder, ColorTableText } from './components/color-table'
 import { Demo } from './components/demo'
 
-type FullPalette = ReturnType<ColorPalette['palette']>
+type Palette = {
+    accent: string
+    error: string
+    success: string
+    warning: string
+}
+
+type Preset = 'coffee' | 'indigo' | 'muted' | 'shadcn'
 
 export default function Page() {
     const [accent, setAccent] = useState(DEFAULT_COLOR_PALETTE_INPUT.accent)
     const [error, setError] = useState(DEFAULT_COLOR_PALETTE_INPUT.error)
     const [success, setSuccess] = useState(DEFAULT_COLOR_PALETTE_INPUT.success)
     const [warning, setWarning] = useState(DEFAULT_COLOR_PALETTE_INPUT.warning)
+
+    // const [preset, setPreset] = useState<Palette>({
+    //     accent: DEFAULT_COLOR_PALETTE_INPUT.accent,
+    //     error: DEFAULT_COLOR_PALETTE_INPUT.error,
+    //     success: DEFAULT_COLOR_PALETTE_INPUT.success,
+    //     warning: DEFAULT_COLOR_PALETTE_INPUT.warning,
+    // })
+
+    const onPresetChange = (palette: Palette) => {
+        setAccent(palette.accent)
+        setError(palette.error)
+        setSuccess(palette.success)
+        setWarning(palette.warning)
+    }
 
     const palette = new ColorPalette({
         error: error,
@@ -45,7 +66,6 @@ export default function Page() {
     const css = palette.css({
         overrideTwColors: true,
         selector: ':root',
-        useTwUtilities: false,
     })
 
     return (
@@ -56,34 +76,80 @@ export default function Page() {
                 }}
             />
             <Sidebar>
-                <Heading level={3}>Color</Heading>
+                <section className='my-8'>
+                    <Heading
+                        className='text-mid'
+                        level={3}
+                    >
+                        Theme
+                    </Heading>
+                </section>
+
+                <ThemePresetPicker
+                    label={''}
+                    setValue={onPresetChange}
+                />
+                <Heading
+                    className='text-mid'
+                    level={4}
+                >
+                    Base colors
+                </Heading>
 
                 <ThemeColorPicker
                     label='Accent'
                     setValue={setAccent}
                     value={accent}
                 />
-                <DerivedColors colors={palette.palette(palette.grayHsl, palette.accentHsl)} />
                 <ThemeColorPicker
                     label='Error'
                     setValue={setError}
                     value={error}
                 />
-                <DerivedColors colors={palette.palette(palette.errorHsl, palette.errorHsl)} />
                 <ThemeColorPicker
                     label='Success'
                     setValue={setSuccess}
                     value={success}
                 />
-                <DerivedColors colors={palette.palette(palette.successHsl, palette.successHsl)} />
                 <ThemeColorPicker
                     label='Warning'
                     setValue={setWarning}
                     value={warning}
                 />
-                <DerivedColors colors={palette.palette(palette.warningHsl, palette.warningHsl)} />
+
+                <section className='my-8'>
+                    <Heading
+                        className='text-mid'
+                        level={4}
+                    >
+                        Background
+                    </Heading>
+                    <ColorTableBg palette={palette.palette(palette.grayHsl, palette.accentHsl)} />
+                </section>
+
+                <section className='my-8'>
+                    <Heading
+                        className='text-mid'
+                        level={4}
+                    >
+                        Text
+                    </Heading>
+                    <ColorTableText palette={palette.palette(palette.grayHsl, palette.accentHsl)} />
+                </section>
+
+                <section className='my-8'>
+                    <Heading
+                        className='text-mid'
+                        level={4}
+                    >
+                        Border
+                    </Heading>
+                    <ColorTableBorder
+                        palette={palette.palette(palette.grayHsl, palette.accentHsl)}
+                    />
+                </section>
             </Sidebar>
-            <main className='w-full px-4 min-w-0 mx-auto'>
+            <main className='w-full p-4 min-w-0 mx-auto'>
                 <section>
                     <Demo />
 
@@ -95,34 +161,6 @@ export default function Page() {
                 </section>
             </main>
         </div>
-    )
-}
-
-function DerivedColors({ colors }: { colors: FullPalette }) {
-    return (
-        <Disclosure>
-            <DisclosureButton className='!h-6 !pl-2.5'>Derived colors</DisclosureButton>
-            <DisclosurePanel>
-                <div>
-                    {Object.entries(colors).map(([key, value]) => (
-                        <div
-                            className='px-2 flex items-center mb-2 gap-1 text-xs'
-                            key={key}
-                        >
-                            <ColorSwatch
-                                className='size-5'
-                                color={value[0]}
-                            />
-                            <ColorSwatch
-                                className='size-5'
-                                color={value[1]}
-                            />
-                            <CodeInline language='plaintext'>{`--color-${key}`}</CodeInline>
-                        </div>
-                    ))}
-                </div>
-            </DisclosurePanel>
-        </Disclosure>
     )
 }
 
@@ -141,14 +179,11 @@ function ThemeColorPicker({
 
     return (
         <ColorField
-            className='mb-2'
+            className='mb-1 grid grid-cols-2 items-center gap-2'
             onChange={onChange}
             value={value}
         >
-            <div className='flex items-center justify-between'>
-                <Label>{label}</Label>
-                {/* <SliderOutput /> */}
-            </div>
+            <Label>{label}</Label>
             <FieldGroup>
                 <Input
                     icon={
@@ -197,5 +232,111 @@ function ThemeColorPicker({
                 </DialogTrigger>
             </FieldGroup>
         </ColorField>
+    )
+}
+
+const PRESETS: OptionsSchema<'listbox', Preset, Palette>[] = [
+    {
+        id: 'indigo',
+        textValue: 'Indigo',
+        icon: (
+            <ColorSwatch
+                className='size-5'
+                color='#3E63DD'
+            />
+        ),
+        value: {
+            accent: '#3E63DD',
+            error: '#E54666',
+            success: '#29A383',
+            warning: '#FFC53D',
+        },
+    },
+    {
+        id: 'muted',
+        textValue: 'Muted (warm)',
+        icon: (
+            <ColorSwatch
+                className='size-5'
+                color='#E6E0E0'
+            />
+        ),
+        value: {
+            accent: '#E6E0E0',
+            error: '#ECA7B6',
+            success: '#D6E0A9',
+            warning: '#FFD675',
+        },
+    },
+    {
+        id: 'shadcn',
+        textValue: 'shadcn',
+        description: 'Credit: shadcn/ui',
+        icon: (
+            <ColorSwatch
+                className='size-5'
+                color='#1C1917'
+            />
+        ),
+        value: {
+            accent: '#1C1917',
+            error: '#E7000B',
+            success: '#16A34A',
+            warning: '#FACC15',
+        },
+    },
+    {
+        id: 'coffee',
+        textValue: 'Coffee',
+        description: 'Credit: HeroUI',
+        icon: (
+            <ColorSwatch
+                className='size-5'
+                color='#1C1917'
+            />
+        ),
+        value: {
+            accent: '#db924b',
+            error: '#fc9581',
+            success: '#9db787',
+            warning: '#ffd25f',
+        },
+    },
+]
+
+function ThemePresetPicker({
+    value,
+    setValue,
+}: {
+    setValue: Dispatch<SetStateAction<Palette>>
+    value?: Palette
+}) {
+    return (
+        <Select
+            className='mb-1 grid grid-cols-2 items-center gap-2'
+            items={PRESETS}
+            onSelectionChange={(v) => {
+                const selected = PRESETS.find((preset) => preset.id === v)
+                if (selected != null && selected.value != null) {
+                    setValue(selected.value as Palette)
+                }
+            }}
+            selectedKey={
+                value != null
+                    ? PRESETS.find((preset) => {
+                          return (
+                              preset.value != null &&
+                              (preset.value as Palette).accent === value.accent &&
+                              (preset.value as Palette).error === value.error &&
+                              (preset.value as Palette).success === value.success &&
+                              (preset.value as Palette).warning === value.warning
+                          )
+                      })?.id
+                    : undefined
+            }
+        >
+            <Label>Preset</Label>
+            <SelectButton />
+        </Select>
     )
 }

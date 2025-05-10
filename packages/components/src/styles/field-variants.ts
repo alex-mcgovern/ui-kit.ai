@@ -3,11 +3,11 @@ import { tv } from 'tailwind-variants'
 export const fieldVariants = tv({
     base: [
         'h-8',
-        'text-hi-contrast text-base',
+        'text-dark text-base',
         'rounded',
         'outline outline-0 outline-offset-2',
         'disabled:text-disabled',
-        'placeholder:text-lo-contrast',
+        'placeholder:text-light',
         'forced-colors:outline-[Highlight]',
         // focus ring
         'outline outline-0 outline-offset-2',
@@ -23,17 +23,17 @@ export const fieldVariants = tv({
         isBorderless: {
             false: [
                 [
-                    'border-tint border',
-                    'bg-background',
+                    'border-mid border',
+                    'bg-base',
                     'transition-colors',
                     // hover
-                    'hover:[&:not([data-disabled])]:border-tint-light',
+                    'hover:[&:not([data-disabled])]:border-dark',
                     // focus visible
-                    'focus-visible:border-tint-dark focus-visible:outline-2',
+                    'focus-visible:border-dark focus-visible:outline-2',
                     'focus-visible:forced-colors:border-[ButtonBorder]',
                     'focus-within:[&:has([data-focus-visible])]:outline-2',
                     // disabled
-                    'disabled:border-tint-light disabled:forced-colors:border-[GrayText]',
+                    'disabled:border-light disabled:forced-colors:border-[GrayText]',
                     'forced-colors:border-[Highlight]',
                 ],
             ],

@@ -7,7 +7,6 @@ import { Info as InfoIcon } from 'lucide-react'
 import { type ComponentProps, type ForwardedRef } from 'react'
 import {
     composeRenderProps,
-    OverlayArrow,
     Tooltip as RACTooltip,
     TooltipTrigger as RACTooltipTrigger,
 } from 'react-aria-components'
@@ -25,9 +24,9 @@ const tooltipStyles = tv({
         [
             'inline-flex items-center gap-1',
             'px-2 py-1',
-            'text-sm font-medium',
-            'bg-background-inverted text-inverted',
-            'group rounded drop-shadow-lg',
+            'text-sm',
+            'bg-raised border-dark text-mid',
+            'group rounded drop-shadow-sm',
             // transition
             'transition-all will-change-transform',
             'translate-y-0',
@@ -68,18 +67,6 @@ export function Tooltip({ children, ...props }: TooltipProps) {
             )}
             offset={10}
         >
-            <OverlayArrow>
-                <svg
-                    className='fill-mid-contrast group-placement-left:-rotate-90 group-placement-right:rotate-90
-                        group-placement-bottom:rotate-180 forced-colors:fill-[Canvas] forced-colors:stroke-[ButtonBorder]'
-                    height={8}
-                    viewBox='0 0 8 8'
-                    width={8}
-                >
-                    <path d='M0 0 L4 4 L8 0' />
-                </svg>
-            </OverlayArrow>
-
             {children}
         </RACTooltip>
     )
@@ -100,7 +87,7 @@ export function TooltipInfoButton({
             {...props}
             className={(rp) =>
                 twMerge(
-                    'size-7',
+                    'size-6',
                     typeof props.className === 'function' ? props.className(rp) : props.className
                 )
             }

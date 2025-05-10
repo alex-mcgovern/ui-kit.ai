@@ -5,6 +5,16 @@
             "dependsOn": ["@ui-kit.ai/theme#build"],
             "outputLogs": "new-only"
         },
+        "@ui-kit.ai/docs#build": {
+            "dependsOn": [
+                "@ui-kit.ai/components#build",
+                "@ui-kit.ai/theme#build",
+                "@ui-kit.ai/metadata#build",
+                "@ui-kit.ai/mocks#build",
+                "@ui-kit.ai/storybook#build"
+            ],
+            "outputLogs": "new-only"
+        },
         "@ui-kit.ai/metadata#build": {
             "dependsOn": ["@ui-kit.ai/components#build", "@ui-kit.ai/storybook#build"],
             "outputLogs": "new-only"
@@ -35,7 +45,7 @@
         },
         "build": {
             "outputLogs": "new-only",
-            "outputs": ["dist/**"]
+            "outputs": ["dist/**", ".next/**"]
         },
         "check": {
             "dependsOn": ["build", "check:prettier", "check:tsc", "check:vitest"],

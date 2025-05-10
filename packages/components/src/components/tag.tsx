@@ -50,19 +50,11 @@ const tagStyles = tv({
         // 'shadow-xs',
         'inline-flex shrink-0 items-center justify-center gap-1.5',
         'rounded-full border',
-        '[&_svg]:size-4 [&_svg]:shrink-0',
+        '[&_svg]:size-3 [&_svg]:shrink-0',
         // padding
         'px-3 py-1.5',
         '[&:has([data-slot=slot-left])]:pl-1.5',
         '[&:has([data-slot=slot-right])]:pr-1.5',
-        // color vars
-        '[--bg:theme(colors.muted.50)]',
-        '[--bg-hover:theme(colors.muted.100)]',
-        '[--bg-pressed:theme(colors.muted.200)]',
-        '[--border:theme(colors.muted.300)]',
-        '[--text:theme(colors.muted.500)]',
-        // assignment
-        'border-[--border] bg-[--bg] text-[--text]',
         // interactivity
         '[&:is(a,button)]:hover:bg-[--bg-hover]',
         '[&:is(a,button)]:pressed:bg-[--bg-pressed]',
@@ -79,12 +71,12 @@ const tagStyles = tv({
         },
         variant: {
             default: [
-                'bg-background-raised border-tint text-mid-contrast',
+                'bg-tint-light border-dark text-mid',
                 'hover:bg-tint-light',
                 'pressed:bg-tint-dark',
             ],
             solid: [
-                'bg-accent border-accent text-accent-fg',
+                'bg-accent border-dark text-accent',
                 'hover:bg-accent-light hover:border:accent-light',
                 'pressed:accent-dark pressed:border-accent-dark',
             ],

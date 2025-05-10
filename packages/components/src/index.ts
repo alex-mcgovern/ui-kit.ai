@@ -1,7 +1,5 @@
 import './index.css'
-
 export { Alert } from './components/alert'
-export { TextArea } from './components/text-area'
 export { Autocomplete } from './components/autocomplete'
 export { Avatar } from './components/avatar'
 export { Button, LinkButton } from './components/button'
@@ -56,14 +54,17 @@ export { SearchField, SearchFieldClearButton } from './components/search-field'
 export { Select, SelectButton } from './components/select'
 export { Skeleton } from './components/skeleton'
 export {
-    type GetRowOptionsFn,
+    Cell,
+    Column,
+    ResizableTableContainer,
+    Row,
     Table,
-    type TableCellRenderer,
-    type TableColumnSchema,
-    type TableRendererProps,
+    TableBody,
+    TableHeader,
 } from './components/table'
 export { Tab, TabList, TabPanel, Tabs } from './components/tabs'
 export { Tag, TagButton, TagLink } from './components/tag'
+export { TextArea } from './components/text-area'
 export {
     TextField,
     TextFieldClearButton,
@@ -73,3 +74,4 @@ export {
 export { Tooltip, TooltipInfoButton, TooltipTrigger } from './components/tooltip'
 export { useKbd } from './hooks/use-kbd'
 export { type OptionsSchema } from './types/options'
+export { RouterProvider } from 'react-aria-components'

@@ -2,16 +2,15 @@
 /* eslint-disable perfectionist/sort-objects */
 import { converter, formatHsl, type Hsl, hsl } from 'culori'
 
-export type ColorPaletteInput = {
-    accent: string
-    error: string
-    gray?: string
-    success: string
-    warning: string
-}
+import { generateThemeVars } from './css-vars'
+import { generateBgUtilitiesCSS } from './tw-utils/bg'
+import { generateBorderUtilitiesCSS } from './tw-utils/border'
+import { genIntentUtils } from './tw-utils/intent'
+import { generateTextUtilitiesCSS } from './tw-utils/text'
+import { Color, type ColorPaletteInput } from './types'
 
 export const DEFAULT_COLOR_PALETTE_INPUT = {
-    accent: '#5B5BD6',
+    accent: '#3E63DD',
     error: '#E54666',
     success: '#29A383',
     warning: '#FFC53D',
@@ -26,208 +25,161 @@ export class ColorPalette {
     private readonly vendorToHsl = converter('hsl')
 
     constructor({ accent, error, gray, success, warning }: ColorPaletteInput) {
-        this.accentHsl = this._hexToHsl(accent)
-        this.successHsl = this._hexToHsl(success)
-        this.warningHsl = this._hexToHsl(warning)
-        this.errorHsl = this._hexToHsl(error)
-        this.grayHsl = gray != null ? this._hexToHsl(gray) : this._deriveGray(this.accentHsl)
+        this.accentHsl = this._clrHexToHsl(accent)
+        this.successHsl = this._clrHexToHsl(success)
+        this.warningHsl = this._clrHexToHsl(warning)
+        this.errorHsl = this._clrHexToHsl(error)
+        this.grayHsl = gray != null ? this._clrHexToHsl(gray) : this._clrDeriveGray(this.accentHsl)
     }
 
-    public css({
-        overrideTwColors,
-        selector,
-        useTwUtilities = true,
-    }: {
-        overrideTwColors: boolean
-        selector: string
-        useTwUtilities: boolean
-    }) {
+    public css({ overrideTwColors, selector }: { overrideTwColors: boolean; selector: string }) {
         return `
-      ${selector} {
-        ${overrideTwColors ? `--color-*: initial; /* override/reset tailwind colors */` : ''}
-  
-        ${Object.entries(this.palette(this.grayHsl, this.accentHsl))
-            .map(([colorName, [light, dark]]) => {
-                return `--color-${colorName}: light-dark(${light}, ${dark});`
-            })
-            .join('\n')}
+${selector} {
+    ${overrideTwColors ? `--color-*: initial; /* override/reset tailwind colors */` : ''}
+${generateThemeVars({
+    default: this.palette(this.grayHsl, this.accentHsl),
+    info: this.palette(this.accentHsl, this.accentHsl),
+    error: this.palette(this.errorHsl, this.errorHsl),
+    success: this.palette(this.successHsl, this.successHsl),
+    warning: this.palette(this.warningHsl, this.warningHsl),
+})}
+\t/*-------------------------------------------------
+\t/ Syntax theme color utility mapping
+\t/-------------------------------------------------*/
+${Object.entries(this.genSyntaxPalette())
+    .map(([colorName, [light, dark]]) => {
+        return `\t--color-${colorName}: light-dark(${light}, ${dark});`
+    })
+    .join('\n')}
+}
+${generateBgUtilitiesCSS()}
+${generateTextUtilitiesCSS()}
+${generateBorderUtilitiesCSS()}
+${genIntentUtils()}
+`
+    }
 
-        ${Object.entries(this.syntaxPalette())
-            .map(([colorName, [light, dark]]) => {
-                return `--color-${colorName}: light-dark(${light}, ${dark});`
-            })
-            .join('\n')}
-
-      }
-
-      ${useTwUtilities ? '@utility ' : '.'}error {
-        ${Object.entries(this.palette(this.errorHsl, this.errorHsl))
-            .map(([colorName, [light, dark]]) => {
-                return `--color-${colorName}: light-dark(${light}, ${dark}) ${useTwUtilities === false ? '!important' : ''};`
-            })
-            .join('\n')}
-      }
-      ${useTwUtilities ? '@utility ' : '.'}warning {
-        ${Object.entries(this.palette(this.warningHsl, this.warningHsl))
-            .map(([colorName, [light, dark]]) => {
-                return `--color-${colorName}: light-dark(${light}, ${dark}) ${useTwUtilities === false ? '!important' : ''};`
-            })
-            .join('\n')}
-      }
-      ${useTwUtilities ? '@utility ' : '.'}success {
-        ${Object.entries(this.palette(this.successHsl, this.successHsl))
-            .map(([colorName, [light, dark]]) => {
-                return `--color-${colorName}: light-dark(${light}, ${dark}) ${useTwUtilities === false ? '!important' : ''};`
-            })
-            .join('\n')}
-      }
-    `
+    public genSyntaxPalette() {
+        return {
+            'syntax-1': [
+                this._clrFormatHsl(this._clrTextHigh(this.accentHsl, 'light')),
+                this._clrFormatHsl(this._clrTextHigh(this.accentHsl, 'dark')),
+            ],
+            'syntax-2': [
+                this._clrFormatHsl(this._clrTextHigh(this.grayHsl, 'light')),
+                this._clrFormatHsl(this._clrTextHigh(this.grayHsl, 'dark')),
+            ],
+            'syntax-3': [
+                this._clrFormatHsl(this._clrShade('light', this.errorHsl)),
+                this._clrFormatHsl(this._clrShade('light', this.errorHsl)),
+            ],
+            [`syntax-4`]: [
+                this._clrFormatHsl(this._clrDeriveAccent(this.accentHsl, 'light')),
+                this._clrFormatHsl(this._clrDeriveAccent(this.accentHsl, 'dark')),
+            ],
+        } as const
     }
 
     public palette(gray: Hsl, accent: Hsl) {
         return {
-            ///////////////////////////////////////////////////
-            // Background
-            ///////////////////////////////////////////////////
-
-            background: [
-                this._formatHsl(this._bg(gray, 'light')),
-                this._formatHsl(this._bg(gray, 'dark')),
+            [Color.BG_BASE]: [
+                this._clrFormatHsl(this._clrBg(gray, 'light')),
+                this._clrFormatHsl(this._clrBg(gray, 'dark')),
             ],
-            'background-raised': [
-                this._formatHsl(this._bgRaised(gray, 'light')),
-                this._formatHsl(this._bgRaised(gray, 'dark')),
+            [Color.BG_RAISED]: [
+                this._clrFormatHsl(this._clrBgRaised(gray, 'light')),
+                this._clrFormatHsl(this._clrBgRaised(gray, 'dark')),
             ],
-            'background-inverted': [
-                this._formatHsl(this._textHiContrast(gray, 'light')),
-                this._formatHsl(this._textHiContrast(gray, 'dark')),
+            [Color.BG_TINT_DARK]: [
+                this._clrFormatHsl(this._clrShade('dark', this._clrTint(gray, 'light'))),
+                this._clrFormatHsl(this._clrShade('dark', this._clrTint(gray, 'dark'))),
             ],
-
-            ///////////////////////////////////////////////////
-            // Text
-            ///////////////////////////////////////////////////
-
-            'hi-contrast': [
-                this._formatHsl(this._textHiContrast(gray, 'light')),
-                this._formatHsl(this._textHiContrast(gray, 'dark')),
+            [Color.BG_TINT]: [
+                this._clrFormatHsl(this._clrTint(gray, 'light')),
+                this._clrFormatHsl(this._clrTint(gray, 'dark')),
             ],
-            'mid-contrast': [
-                this._formatHsl(this._textMidContrast(gray, 'light')),
-                this._formatHsl(this._textMidContrast(gray, 'dark')),
+            [Color.BG_TINT_LIGHT]: [
+                this._clrFormatHsl(this._clrShade('light', this._clrTint(gray, 'light'))),
+                this._clrFormatHsl(this._clrShade('light', this._clrTint(gray, 'dark'))),
             ],
-            'lo-contrast': [
-                this._formatHsl(this._textLoContrast(gray, 'light')),
-                this._formatHsl(this._textLoContrast(gray, 'dark')),
+            [Color.BG_ACCENT_DARK]: [
+                this._clrFormatHsl(this._clrShade('dark', this._clrDeriveAccent(accent, 'light'))),
+                this._clrFormatHsl(this._clrShade('dark', this._clrDeriveAccent(accent, 'dark'))),
             ],
-            inverted: [
-                this._formatHsl(this._bg(gray, 'light')),
-                this._formatHsl(this._bg(gray, 'dark')),
+            [Color.BG_ACCENT]: [
+                this._clrFormatHsl(this._clrDeriveAccent(accent, 'light')),
+                this._clrFormatHsl(this._clrDeriveAccent(accent, 'dark')),
             ],
-
-            ///////////////////////////////////////////////////
-            // Tint
-            ///////////////////////////////////////////////////
-
-            tint: [
-                this._formatHsl(this._tint(gray, 'light')),
-                this._formatHsl(this._tint(gray, 'dark')),
+            [Color.BG_ACCENT_LIGHT]: [
+                this._clrFormatHsl(this._clrShade('light', this._clrDeriveAccent(accent, 'light'))),
+                this._clrFormatHsl(this._clrShade('light', this._clrDeriveAccent(accent, 'dark'))),
             ],
-            'tint-dark': [
-                this._formatHsl(this._shade('dark', this._tint(gray, 'light'))),
-                this._formatHsl(this._shade('dark', this._tint(gray, 'dark'))),
+            [Color.TEXT_ACCENT]: [
+                this._clrFormatHsl(this._clrFg(this._clrDeriveAccent(accent, 'light'))),
+                this._clrFormatHsl(this._clrFg(this._clrDeriveAccent(accent, 'dark'))),
             ],
-            'tint-light': [
-                this._formatHsl(this._shade('light', this._tint(gray, 'light'))),
-                this._formatHsl(this._shade('light', this._tint(gray, 'dark'))),
+            [Color.TEXT_LIGHT]: [
+                this._clrFormatHsl(this._clrTextDark(gray, 'light')),
+                this._clrFormatHsl(this._clrTextDark(gray, 'dark')),
             ],
-
-            ///////////////////////////////////////////////////
-            // Accent
-            ///////////////////////////////////////////////////
-
-            [`accent`]: [
-                this._formatHsl(this._deriveAccent(accent, 'light')),
-                this._formatHsl(this._deriveAccent(accent, 'dark')),
+            [Color.TEXT_MID]: [
+                this._clrFormatHsl(this._clrTextMid(gray, 'light')),
+                this._clrFormatHsl(this._clrTextMid(gray, 'dark')),
             ],
-            [`accent-dark`]: [
-                this._formatHsl(this._shade('dark', this._deriveAccent(accent, 'light'))),
-                this._formatHsl(this._shade('dark', this._deriveAccent(accent, 'dark'))),
+            [Color.TEXT_DARK]: [
+                this._clrFormatHsl(this._clrTextHigh(gray, 'light')),
+                this._clrFormatHsl(this._clrTextHigh(gray, 'dark')),
             ],
-            [`accent-light`]: [
-                this._formatHsl(this._shade('light', this._deriveAccent(accent, 'light'))),
-                this._formatHsl(this._shade('light', this._deriveAccent(accent, 'dark'))),
+            [Color.BORDER_LIGHT]: [
+                this._clrFormatHsl(this._clrBorderLight(gray, 'light')),
+                this._clrFormatHsl(this._clrBorderLight(gray, 'dark')),
             ],
-            [`accent-fg`]: [
-                this._formatHsl(this._fg(this._deriveAccent(accent, 'light'))),
-                this._formatHsl(this._fg(this._deriveAccent(accent, 'dark'))),
+            [Color.BORDER_MID]: [
+                this._clrFormatHsl(this._clrBorder(gray, 'light')),
+                this._clrFormatHsl(this._clrBorder(gray, 'dark')),
             ],
-
-            'accent-tint': [
-                this._formatHsl(this._tint(this._deriveAccent(accent, 'light'), 'light')),
-                this._formatHsl(this._tint(this._deriveAccent(accent, 'dark'), 'dark')),
-            ],
-            'accent-tint-dark': [
-                this._formatHsl(
-                    this._shade('dark', this._tint(this._deriveAccent(accent, 'light'), 'light'))
-                ),
-                this._formatHsl(
-                    this._shade('dark', this._tint(this._deriveAccent(accent, 'dark'), 'dark'))
-                ),
-            ],
-            'accent-tint-light': [
-                this._formatHsl(
-                    this._shade('light', this._tint(this._deriveAccent(accent, 'light'), 'light'))
-                ),
-                this._formatHsl(
-                    this._shade('light', this._tint(this._deriveAccent(accent, 'dark'), 'dark'))
-                ),
-            ],
-
-            'accent-tint-fg': [
-                this._formatHsl(this._fg(this._tint(this._deriveAccent(accent, 'light'), 'light'))),
-                this._formatHsl(this._fg(this._tint(this._deriveAccent(accent, 'dark'), 'dark'))),
+            [Color.BORDER_DARK]: [
+                this._clrFormatHsl(this._clrBorderDark(gray, 'light')),
+                this._clrFormatHsl(this._clrBorderDark(gray, 'dark')),
             ],
         } as const
     }
-
-    public syntaxPalette() {
-        return {
-            'syntax-1': [
-                this._formatHsl(this._textHiContrast(this.accentHsl, 'light')),
-                this._formatHsl(this._textHiContrast(this.accentHsl, 'dark')),
-            ],
-            'syntax-2': [
-                this._formatHsl(this._textHiContrast(this.grayHsl, 'light')),
-                this._formatHsl(this._textHiContrast(this.grayHsl, 'dark')),
-            ],
-            'syntax-3': [
-                this._formatHsl(this._shade('light', this.errorHsl)),
-                this._formatHsl(this._shade('light', this.errorHsl)),
-            ],
-            [`syntax-4`]: [
-                this._formatHsl(this._shade('dark', this._deriveAccent(this.accentHsl, 'light'))),
-                this._formatHsl(this._shade('dark', this._deriveAccent(this.accentHsl, 'dark'))),
-            ],
-        } as const
-    }
-
-    private _bg(hsl: Hsl, mode: 'dark' | 'light'): Hsl {
+    private _clrBg(hsl: Hsl, mode: 'dark' | 'light'): Hsl {
         return {
             ...hsl,
-            l: mode === 'light' ? 0.975 : 0.055,
+            l: mode === 'light' ? 0.9625 : 0.055,
             s: 0.05,
         }
     }
-
-    private _bgRaised(hsl: Hsl, mode: 'dark' | 'light'): Hsl {
+    private _clrBgRaised(hsl: Hsl, mode: 'dark' | 'light'): Hsl {
         return {
             ...hsl,
             l: mode === 'light' ? 0.9825 : 0.0888,
             s: 0.05,
         }
     }
-
-    private _deriveAccent(hslVal: Hsl, mode: 'dark' | 'light'): Hsl {
+    private _clrBorder(hslVal: Hsl, mode: 'dark' | 'light'): Hsl {
+        return {
+            ...hslVal,
+            l: mode === 'light' ? 0.4 : 0.6,
+            alpha: 0.2,
+        }
+    }
+    private _clrBorderDark(hslVal: Hsl, mode: 'dark' | 'light'): Hsl {
+        return {
+            ...hslVal,
+            l: mode === 'light' ? 0.4 : 0.6,
+            alpha: 0.3,
+        }
+    }
+    private _clrBorderLight(hslVal: Hsl, mode: 'dark' | 'light'): Hsl {
+        return {
+            ...hslVal,
+            l: mode === 'light' ? 0.4 : 0.6,
+            alpha: 0.1,
+        }
+    }
+    private _clrDeriveAccent(hslVal: Hsl, mode: 'dark' | 'light'): Hsl {
         let l = hslVal.l
         if (mode === 'dark' && l < 0.3) {
             l = 0.9
@@ -238,73 +190,56 @@ export class ColorPalette {
 
         return { ...hslVal, l }
     }
-
-    private _deriveGray(hslVal: Hsl): Hsl {
-        return { ...hslVal, s: 0.15 }
+    private _clrDeriveGray(hslVal: Hsl): Hsl {
+        return { ...hslVal, s: 0.075 }
     }
-
-    private _fg(hslVal: Hsl): Hsl {
+    private _clrFg(hslVal: Hsl): Hsl {
         return {
             ...hslVal,
             l: hslVal.l > 0.6 ? 0.05 : 0.95,
             s: 0.5,
         }
     }
-
-    private _formatHsl(hslVal: Hsl) {
+    private _clrFormatHsl(hslVal: Hsl) {
         return formatHsl(hsl(hslVal))
     }
-
-    private _hexToHsl(hex: string): Hsl {
+    private _clrHexToHsl(hex: string): Hsl {
         const hslRepr = this.vendorToHsl(hex)
         if (hslRepr == null) {
             throw new Error(`Invalid hex color: ${hex}`)
         }
         return hslRepr
     }
-
-    /**
-     * Accepts a color, and returns a lightened or darkened shade,
-     * e.g. given a accent color, returns light/dark variants suitable for
-     * hover/pressed states.
-     */
-    private _shade(modifier: 'dark' | 'light', hslVal: Hsl): Hsl {
-        const factor = 0.05
+    private _clrShade(modifier: 'dark' | 'light', hslVal: Hsl): Hsl {
+        const factor = 0.0375
         const appliedFactor = modifier === 'dark' ? -factor : factor
         const newL = Math.max(0.0125, Math.min(0.9875, hslVal.l + appliedFactor))
         return { ...hslVal, l: newL }
     }
 
-    private _textHiContrast(hslVal: Hsl, mode: 'dark' | 'light'): Hsl {
-        return {
-            ...hslVal,
-            l: mode === 'light' ? 0.25 : 0.85,
-        }
-    }
-
-    private _textLoContrast(hslVal: Hsl, mode: 'dark' | 'light'): Hsl {
+    private _clrTextDark(hslVal: Hsl, mode: 'dark' | 'light'): Hsl {
         return {
             ...hslVal,
             l: mode === 'light' ? 0.675 : 0.4,
         }
     }
-
-    private _textMidContrast(hslVal: Hsl, mode: 'dark' | 'light'): Hsl {
+    private _clrTextHigh(hslVal: Hsl, mode: 'dark' | 'light'): Hsl {
         return {
             ...hslVal,
-            l: mode === 'light' ? 0.45 : 0.55,
+            l: mode === 'light' ? 0.2 : 0.9,
         }
     }
-
-    /**
-     * Accepts a color, and returns a color that is much closer to the background
-     * color, suitable for use as a background color for a list element.
-     */
-    private _tint(hslVal: Hsl, mode: 'dark' | 'light'): Hsl {
+    private _clrTextMid(hslVal: Hsl, mode: 'dark' | 'light'): Hsl {
         return {
             ...hslVal,
-            l: mode === 'light' ? 0.8 : 0.2,
-            s: hslVal.s * 0.9,
+            l: mode === 'light' ? 0.4 : 0.6,
+        }
+    }
+    private _clrTint(hslVal: Hsl, mode: 'dark' | 'light'): Hsl {
+        return {
+            ...hslVal,
+            l: mode === 'light' ? 0.9 : 0.1,
+            s: hslVal.s * 0.5,
         }
     }
 }

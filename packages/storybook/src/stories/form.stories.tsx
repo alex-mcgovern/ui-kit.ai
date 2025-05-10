@@ -103,14 +103,14 @@ function Template(props: ComponentProps<typeof Form<FieldValues>>) {
             >
                 <Label>Communication preferences</Label>
                 <Checkbox
-                    description='Necessary emails about your account & account security.'
+                    description='Necessary emails about your account & security.'
                     isDisabled
                     isRequired
                     label='Account updates'
                     value='account-updates'
                 />
                 <Checkbox
-                    description='No more than one email per month with updates from our team.'
+                    description='Max 1 email per month with updates from our team.'
                     label='Newsletter'
                     value='newsletter'
                 />
