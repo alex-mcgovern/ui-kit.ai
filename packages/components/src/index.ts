@@ -1,5 +1,4 @@
 import './index.css'
-
 export { Alert } from './components/alert'
 export { Autocomplete } from './components/autocomplete'
 export { Avatar } from './components/avatar'
@@ -75,3 +74,4 @@ export {
 export { Tooltip, TooltipInfoButton, TooltipTrigger } from './components/tooltip'
 export { useKbd } from './hooks/use-kbd'
 export { type OptionsSchema } from './types/options'
+export { RouterProvider } from 'react-aria-components'

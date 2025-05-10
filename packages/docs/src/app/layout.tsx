@@ -1,12 +1,11 @@
 import type { Metadata, Viewport } from 'next'
 
-import '@ui-kit.ai/components/style.css'
-
 import '../index.css'
 
 import { Inter } from 'next/font/google'
 
-import { MSWProvider } from '../components/msw-provider'
+import { MSWProvider } from '../components/providers/msw-provider'
+import { RouterProvider } from '../components/providers/router-provider'
 import { TopNav } from '../components/top-nav'
 
 const inter = Inter({
@@ -49,8 +48,10 @@ export default function RootLayout({
         <html lang='en'>
             <body className={`${inter.className} antialiased relative `}>
                 <MSWProvider>
-                    <TopNav />
-                    {children}
+                    <RouterProvider>
+                        <TopNav />
+                        {children}
+                    </RouterProvider>
                 </MSWProvider>
             </body>
         </html>
