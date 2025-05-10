@@ -1,3 +1,4 @@
+export { fibonacciStreamHandler } from './api/llm-chat'
 export { getStocksHandler } from './api/stocks'
 export type {
     GetStockWatchlistItemsData,
