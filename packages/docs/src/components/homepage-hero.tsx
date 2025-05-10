@@ -45,7 +45,7 @@ export function HomepageHero() {
 
 function ChatMessages() {
     return (
-        <Card className='bg-tint/100 w-[360px] h-[180px] shadow-xl'>
+        <Card className='bg-raised/50 w-[360px] h-[180px] shadow-xl'>
             {/* @ts-expect-error - exported stories are loosely typed */}
             <ChatStories.Default />
         </Card>
@@ -54,7 +54,7 @@ function ChatMessages() {
 
 function ChatReactionControls() {
     return (
-        <Card className='flex gap-2 p-1 rounded-lg shadow-2xl bg-raised/10 backdrop-blur-sm w-min'>
+        <Card className='flex gap-2 p-1 rounded-lg shadow-2xl bg-tint-light/50 backdrop-blur-sm w-min'>
             <Button
                 isIcon
                 variant='tertiary'
@@ -79,7 +79,7 @@ function ChatReactionControls() {
 
 function ChatTextArea() {
     return (
-        <Card className='max-w-64 bg-accent/90 backdrop-blur-sm w-full shadow-2xl px-3 py-2 rounded-2xl'>
+        <Card className='max-w-64 bg-tint-light/50 backdrop-blur-sm w-full shadow-2xl px-3 py-2 rounded-2xl'>
             <TextField
                 aria-label='AI chat input'
                 isReadOnly

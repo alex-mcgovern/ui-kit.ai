@@ -24,18 +24,21 @@ export function PropsTable({ docs }: { docs: ComponentDoc }) {
                     <TableHeader>
                         <Column
                             className='py-2 px-3'
+                            minWidth={184}
                             width='1fr'
                         >
                             Name
                         </Column>
                         <Column
                             className='py-2 px-3'
+                            minWidth={376}
                             width='2fr'
                         >
                             Type
                         </Column>
                         <Column
                             className='py-2 px-3'
+                            minWidth={183}
                             width='1fr'
                         >
                             Default
