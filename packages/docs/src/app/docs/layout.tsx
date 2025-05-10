@@ -2,7 +2,7 @@
 
 import { Heading, ListBox, type OptionsSchema } from '@ui-kit.ai/components'
 import * as components from '@ui-kit.ai/storybook'
-import { useSelectedLayoutSegments } from 'next/navigation'
+import { usePathname, useSelectedLayoutSegments } from 'next/navigation'
 
 import { Sidebar } from '../../components/sidebar'
 import TableOfContents from '../../components/table-of-contents'
@@ -20,6 +20,7 @@ export default function Layout({
 }: Readonly<{
     children: React.ReactNode
 }>) {
+    const path = usePathname()
     const selectedLayoutSegments = useSelectedLayoutSegments()
     const selectedLayoutSegment = selectedLayoutSegments[selectedLayoutSegments.length - 1]
 
@@ -75,7 +76,7 @@ export default function Layout({
             </Sidebar>
             <main className='w-full max-w-3xl py-8 px-4 min-w-0 mx-auto'>{children}</main>
             <nav className='h-[calc(100dvh-3rem)] sticky top-12 px-4 py-6 min-w-0 overflow-y-auto scrollbar-thin'>
-                <TableOfContents />
+                <TableOfContents key={path} />
             </nav>
         </div>
     )
