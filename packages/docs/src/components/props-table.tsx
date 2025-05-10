@@ -15,6 +15,7 @@ import {
     TooltipInfoButton,
     TooltipTrigger,
 } from '@ui-kit.ai/components'
+import { Fragment } from 'react'
 
 export function PropsTable({ docs }: { docs: ComponentDoc }) {
     return (
@@ -97,16 +98,11 @@ function PropTypes({ children }: { children: string }) {
             {propTypes.map((type, index) => {
                 const isLast: boolean = index === propTypes.length - 1
                 return (
-                    <>
-                        <CodeInline
-                            key={index}
-                            language='plaintext'
-                        >
-                            {type}
-                        </CodeInline>
+                    <Fragment key={type}>
+                        <CodeInline language='plaintext'>{type}</CodeInline>
 
                         {isLast === false ? <span className='text-light'>{' | '}</span> : null}
-                    </>
+                    </Fragment>
                 )
             })}
         </>
