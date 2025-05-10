@@ -6,8 +6,10 @@ import { composeStories as storybookComposeStories } from '@storybook/react'
  */
 import { Alert as AlertStories } from '@ui-kit.ai/storybook'
 import { Autocomplete as AutocompleteStories } from '@ui-kit.ai/storybook'
+import { Avatar as AvatarStories } from '@ui-kit.ai/storybook'
 import { Button as ButtonStories } from '@ui-kit.ai/storybook'
 import { Card as CardStories } from '@ui-kit.ai/storybook'
+import { Chat as ChatStories } from '@ui-kit.ai/storybook'
 import { Checkbox as CheckboxStories } from '@ui-kit.ai/storybook'
 import { CheckboxGroup as CheckboxGroupStories } from '@ui-kit.ai/storybook'
 import { CodeBlock as CodeBlockStories } from '@ui-kit.ai/storybook'
@@ -61,8 +63,10 @@ type Composed = ReturnType<typeof compose>
 
 export const Alert: Composed = compose(AlertStories)
 export const Autocomplete: Composed = compose(AutocompleteStories)
+export const Avatar: Composed = compose(AvatarStories)
 export const Button: Composed = compose(ButtonStories)
 export const Card: Composed = compose(CardStories)
+export const Chat: Composed = compose(ChatStories)
 export const Checkbox: Composed = compose(CheckboxStories)
 export const CheckboxGroup: Composed = compose(CheckboxGroupStories)
 export const CodeBlock: Composed = compose(CodeBlockStories)

@@ -29,13 +29,12 @@ const config: StorybookConfig = {
     docs: {
         autodocs: true,
     },
-
     framework: {
         name: '@storybook/react-vite',
         options: {},
     },
-
     stories: ['../src/**/*.stories.tsx', '../src/**/*.mdx'],
+    staticDirs: ['../public'],
     typescript: {
         reactDocgen: 'react-docgen-typescript',
         reactDocgenTypescriptOptions: {

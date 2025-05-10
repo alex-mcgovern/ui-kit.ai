@@ -11,7 +11,7 @@ import {
     TextField,
     TextFieldCopyButton,
 } from '@ui-kit.ai/components'
-import { ArrowRight, BotIcon, Copy, Download, type LucideProps, Palette, Zap } from 'lucide-react'
+import { ArrowRight, BotIcon, Download, type LucideProps, Palette, Zap } from 'lucide-react'
 
 import { hrefs } from '../lib/hrefs'
 
