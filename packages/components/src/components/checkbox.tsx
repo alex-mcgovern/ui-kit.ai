@@ -131,7 +131,7 @@ Checkbox.displayName = 'Checkbox'
 function CheckboxLabel({ description, label }: { description?: string; label: string }) {
     return (
         <div>
-            <Label className='mb-0 flex items-center gap-1 text-dark'>{label}</Label>
+            <Label className='text-dark mb-0 flex items-center gap-1'>{label}</Label>
             {description != null ? (
                 <Description className='!mt-0'>{description}</Description>
             ) : null}

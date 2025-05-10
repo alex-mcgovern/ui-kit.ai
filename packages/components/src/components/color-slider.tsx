@@ -9,7 +9,7 @@ const sliderStyles = tv({
 })
 
 const trackStyles = tv({
-    base: ['relative border border-light', 'w-full', 'h-6', 'rounded'],
+    base: ['border-light relative border', 'w-full', 'h-6', 'rounded'],
 })
 
 const thumbStyles = tv({
@@ -17,7 +17,7 @@ const thumbStyles = tv({
         'size-6',
         'inset-y-1/2',
         'rounded-full',
-        'border-[var(--theme-default-base)] border-4',
+        'border-4 border-[var(--theme-default-base)]',
         'shadow-md',
         'focus-visible:outline',
         'focus-visible:outline-2',

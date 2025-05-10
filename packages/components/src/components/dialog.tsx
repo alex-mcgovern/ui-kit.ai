@@ -17,7 +17,6 @@ import {
 import { twMerge } from 'tailwind-merge'
 import { tv } from 'tailwind-variants'
 
-import { bgGlass } from '../styles/bg-glass'
 import { Button } from './button'
 import { Heading } from './heading'
 

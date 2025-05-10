@@ -24,7 +24,7 @@ export function CodeBlock({ showLineNumbers = true, ...props }: SyntaxHighlighte
             <TooltipTrigger>
                 <Button
                     aria-label='Copy to clipboard'
-                    className='!w-6 !h-6 !p-0 absolute top-0 right-0'
+                    className='absolute top-0 right-0 !h-6 !w-6 !p-0'
                     isIcon
                     variant='secondary'
                 >

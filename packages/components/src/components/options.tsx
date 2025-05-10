@@ -36,13 +36,13 @@ const optionStyle = tv({
         // disabled
         'disabled:text-disabled',
         // hover
-        `hover:bg-tint-light`,
+        'hover:bg-tint-light',
         // focus
-        `focus:bg-tint-light`,
+        'focus:bg-tint-light',
         // pressed
-        `pressed:bg-tint-dark`,
+        'pressed:bg-tint-dark',
         // selected
-        `selected:bg-tint`,
+        'selected:bg-tint',
     ],
 })
 
@@ -139,7 +139,7 @@ function OptionsItem<TType extends OptionType>({
                         ) : null}
                     </div>
                     {showCheckmarkOnSelected === true && isSelected ? (
-                        <IconCheck className='size-3 text-mid' />
+                        <IconCheck className='text-mid size-3' />
                     ) : null}
                 </>
             )}

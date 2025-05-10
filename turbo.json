@@ -35,7 +35,7 @@
         },
         "build": {
             "outputLogs": "new-only",
-            "outputs": ["dist/**"]
+            "outputs": ["dist/**", ".next/**"]
         },
         "check": {
             "dependsOn": ["build", "check:prettier", "check:tsc", "check:vitest"],

@@ -58,11 +58,11 @@ async function updateVersions(increment: VersionIncrement): Promise<void> {
     })
 
     if (packageJsonFiles.length === 0) {
-        console.log('No package.json files found')
+        console.info('No package.json files found')
         return
     }
 
-    console.log(`Found ${packageJsonFiles.length} package.json files`)
+    console.info(`Found ${packageJsonFiles.length} package.json files`)
 
     let rootVersion: string | null = null
 
@@ -88,7 +88,7 @@ async function updateVersions(increment: VersionIncrement): Promise<void> {
     }
 
     const newVersion = bumpVersion(rootVersion, increment)
-    console.log(`Updating versions: ${rootVersion} → ${newVersion}`)
+    console.info(`Updating versions: ${rootVersion} → ${newVersion}`)
 
     // Update all package.json files
     for (const filePath of packageJsonFiles) {
@@ -99,13 +99,13 @@ async function updateVersions(increment: VersionIncrement): Promise<void> {
 
             // Pretty format with 2 space indentation to maintain formatting
             writeFileSync(fullPath, JSON.stringify(content, null, 2) + '\n', 'utf8')
-            console.log(`Updated ${filePath}`)
+            console.info(`Updated ${filePath}`)
         } catch (error) {
             console.error(`Failed to update ${filePath}:`, error)
         }
     }
 
-    console.log(`Version bump complete: ${newVersion}`)
+    console.info(`Version bump complete: ${newVersion}`)
 }
 
 /**

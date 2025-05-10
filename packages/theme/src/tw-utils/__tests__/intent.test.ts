@@ -18,7 +18,7 @@ const EXPECTED = `
 	--theme-default-text-accent: var(--theme-default-text-accent);
 	--theme-default-text-dark: var(--theme-default-text-dark);
 	--theme-default-text-light: var(--theme-default-text-light);
-	--theme-default-text-mid: var(--theme-default-text-mid);;
+	--theme-default-text-mid: var(--theme-default-text-mid);
 }
 @utility error {
 	--theme-default-bg-accent: var(--theme-error-bg-accent);
@@ -35,7 +35,7 @@ const EXPECTED = `
 	--theme-default-text-accent: var(--theme-error-text-accent);
 	--theme-default-text-dark: var(--theme-error-text-dark);
 	--theme-default-text-light: var(--theme-error-text-light);
-	--theme-default-text-mid: var(--theme-error-text-mid);;
+	--theme-default-text-mid: var(--theme-error-text-mid);
 }
 @utility info {
 	--theme-default-bg-accent: var(--theme-info-bg-accent);
@@ -52,7 +52,7 @@ const EXPECTED = `
 	--theme-default-text-accent: var(--theme-info-text-accent);
 	--theme-default-text-dark: var(--theme-info-text-dark);
 	--theme-default-text-light: var(--theme-info-text-light);
-	--theme-default-text-mid: var(--theme-info-text-mid);;
+	--theme-default-text-mid: var(--theme-info-text-mid);
 }
 @utility success {
 	--theme-default-bg-accent: var(--theme-success-bg-accent);
@@ -69,7 +69,7 @@ const EXPECTED = `
 	--theme-default-text-accent: var(--theme-success-text-accent);
 	--theme-default-text-dark: var(--theme-success-text-dark);
 	--theme-default-text-light: var(--theme-success-text-light);
-	--theme-default-text-mid: var(--theme-success-text-mid);;
+	--theme-default-text-mid: var(--theme-success-text-mid);
 }
 @utility warning {
 	--theme-default-bg-accent: var(--theme-warning-bg-accent);
@@ -86,7 +86,7 @@ const EXPECTED = `
 	--theme-default-text-accent: var(--theme-warning-text-accent);
 	--theme-default-text-dark: var(--theme-warning-text-dark);
 	--theme-default-text-light: var(--theme-warning-text-light);
-	--theme-default-text-mid: var(--theme-warning-text-mid);;
+	--theme-default-text-mid: var(--theme-warning-text-mid);
 }
 `
 

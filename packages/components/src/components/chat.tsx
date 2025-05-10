@@ -22,7 +22,7 @@ const messageBubbleStyles = tv({
  */
 export function Chat({ children, className }: { children: ReactNode; className?: string }) {
     return (
-        <section className={twMerge('flex flex-col gap-4 w-full', className)}>{children}</section>
+        <section className={twMerge('flex w-full flex-col gap-4', className)}>{children}</section>
     )
 }
 Chat.displayName = 'Chat'
