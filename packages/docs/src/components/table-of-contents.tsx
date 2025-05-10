@@ -11,8 +11,6 @@ interface TOCItem {
 
 export function TableOfContents() {
     const [tocItems, setTocItems] = useState<TOCItem[]>([])
-    const [activeId, setActiveId] = useState<string>('')
-    console.debug('👉 activeId:', activeId)
 
     // Function to convert heading text to kebab-case for IDs
     const toKebabCase = (text: string): string => {
@@ -74,41 +72,6 @@ export function TableOfContents() {
         setTocItems(processedItems)
     }, [])
 
-    // Set up intersection observer to detect which heading is in view
-    useEffect(() => {
-        if (tocItems.length === 0) return
-
-        const headingElements = document.querySelectorAll('h2, h3, h4, h5, h6')
-        const callback: IntersectionObserverCallback = (entries) => {
-            // Find the first heading that's in view
-            const visibleHeadings = entries.filter((entry) => entry.isIntersecting)
-
-            if (visibleHeadings.length > 0) {
-                // Get the ID of the first visible heading
-                const firstVisibleHeading = visibleHeadings[0].target as HTMLElement
-                if (firstVisibleHeading.id) {
-                    setActiveId(firstVisibleHeading.id)
-                }
-            }
-        }
-
-        const observer = new IntersectionObserver(callback, {
-            rootMargin: '0px 0px -80% 0px', // Consider heading visible when in top 20% of viewport
-            threshold: 0,
-        })
-
-        // Observe all heading elements
-        headingElements.forEach((heading) => {
-            if (heading.id) {
-                observer.observe(heading)
-            }
-        })
-
-        return () => {
-            observer.disconnect()
-        }
-    }, [tocItems])
-
     // If no TOC items, don't render anything
     if (tocItems.length === 0) return null
 
@@ -127,7 +90,6 @@ export function TableOfContents() {
                     id: item.id,
                     textValue: item.textValue,
                 }))}
-                selectedKeys={activeId ? [activeId] : []}
                 selectionMode='single'
                 showCheckmarkOnSelected={false}
             />
@@ -145,7 +107,6 @@ export function TableOfContents() {
                                 id: child.id,
                                 textValue: child.textValue,
                             }))}
-                            selectedKeys={activeId ? [activeId] : []}
                             selectionMode='single'
                             showCheckmarkOnSelected={false}
                         />
