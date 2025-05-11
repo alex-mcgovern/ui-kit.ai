@@ -3,7 +3,7 @@ import type { ComponentProps } from 'react'
 
 import { Heading } from '@ui-kit.ai/components'
 
-const TEXT = 'Lorem ipsum dolor sit amet...'
+const TEXT = 'Lorem ipsum dolor...'
 
 function Template(props: ComponentProps<typeof Heading>) {
     return (

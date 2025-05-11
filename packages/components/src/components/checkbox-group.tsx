@@ -6,9 +6,6 @@ import { twMerge } from 'tailwind-merge'
 
 /**
  * A checkbox group allows a user to select multiple items from a list of options.
- *
- * It can be composed with a Label and Description to correctly label the input
- * to assistive technologies, and provide extra context.
  */
 export const CheckboxGroup = ({
     ref,

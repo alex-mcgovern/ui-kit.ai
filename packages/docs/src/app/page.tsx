@@ -11,6 +11,7 @@ import {
     TextField,
     TextFieldCopyButton,
 } from '@ui-kit.ai/components'
+import * as components from '@ui-kit.ai/storybook'
 import {
     ArrowRight,
     BlocksIcon,
@@ -25,8 +26,11 @@ import {
 } from 'lucide-react'
 import { twMerge } from 'tailwind-merge'
 
+import { AllComponentsCards } from '../components/all-components-cards'
 import { HomepageHero } from '../components/homepage-hero'
 import { hrefs } from '../lib/hrefs'
+
+const COMPONENTS_COUNT = Object.keys(components).length
 
 export default function Home() {
     return (
@@ -99,6 +103,14 @@ export default function Home() {
                         icon={CodeIcon}
                         title='Developer experience'
                     />
+                </div>
+            </HomepageSection>
+            <HomepageSection>
+                <Heading className='text-5xl font-bold tracking-tight mb-12'>
+                    {COMPONENTS_COUNT} beautifully designed components...
+                </Heading>
+                <div className='grid grid-cols-1 gap-8 md:grid-cols-3 items-stretch'>
+                    <AllComponentsCards />
                 </div>
             </HomepageSection>
         </main>

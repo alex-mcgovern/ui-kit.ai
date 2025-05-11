@@ -75,7 +75,11 @@ function Template(args: ComponentProps<typeof Tooltip>) {
     return (
         <TooltipTrigger>
             <TooltipInfoButton />
-            <Tooltip {...args} />
+            <Tooltip
+                isOpen
+                placement='right'
+                {...args}
+            />
         </TooltipTrigger>
     )
 }

@@ -27,7 +27,7 @@
         "fix:prettier": "prettier . --write",
         "storybook": "storybook dev -p 65534",
         "storybook:docs": "storybook dev --docs -p 65534",
-        "storycap": "storycap --serverCmd \"storybook dev -p 65534\" http://localhost:65534 --include \"**/Primary\" --flat --outDir \"assets\""
+        "storycap": "storycap --serverCmd \"storybook dev -p 65534\" http://localhost:65534 --include \"**/Default\" --flat --outDir \"../docs/public/components\""
     },
     "dependencies": {
         "@mdx-js/react": "3.1.0",

@@ -14,6 +14,11 @@ import { FieldButton } from './field-button'
 import { Input } from './input'
 import { Tooltip, TooltipTrigger } from './tooltip'
 
+/**
+ * TextFields are text inputs that allow users to input custom text entries with
+ * a keyboard. Various decorations can be displayed around the field to
+ * communicate the entry requirements.
+ */
 export function TextField({
     children = <Input />,
     ref,

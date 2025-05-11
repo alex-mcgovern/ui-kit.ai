@@ -4,7 +4,7 @@ import { CodeBlock } from '@ui-kit.ai/components'
 
 const meta = {
     args: {
-        children: `console.log("Hello, world!");`,
+        children: `const greet = (): void => {\n    console.log("Hello, world!");\n};\n\ngreet();`,
         language: 'typescript',
     },
     component: CodeBlock,

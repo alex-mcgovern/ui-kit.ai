@@ -9,6 +9,9 @@ import { FieldButton } from './field-button'
 import { Input } from './input'
 import { Tooltip, TooltipTrigger } from './tooltip'
 
+/**
+ * A search field allows a user to enter and clear a search query.
+ */
 export function SearchField({
     children = <Input />,
     ref,

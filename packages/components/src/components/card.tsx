@@ -1,5 +1,6 @@
 import type { ComponentProps, HTMLProps } from 'react'
 
+import { Link } from 'react-aria-components'
 import { twMerge } from 'tailwind-merge'
 
 import { Heading } from './heading'
@@ -19,6 +20,28 @@ export function Card(props: HTMLProps<HTMLElement>) {
     )
 }
 Card.displayName = 'Card'
+
+/**
+ * A Card is a container that groups and organizes content in a consistent manner.
+ */
+export function CardLink(props: ComponentProps<typeof Link>) {
+    return (
+        <Link
+            {...props}
+            className={(renderProps) =>
+                twMerge(
+                    'border-mid bg-raised relative overflow-hidden rounded-lg border shadow-xs',
+                    'transition-all',
+                    'hover:shadow-md',
+                    typeof props.className === 'function'
+                        ? props.className(renderProps)
+                        : props.className
+                )
+            }
+        />
+    )
+}
+CardLink.displayName = 'CardLink'
 
 /**
  * A CardHeader is a container for the title of the card.

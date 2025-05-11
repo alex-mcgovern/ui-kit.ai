@@ -5,9 +5,8 @@ import { twMerge } from 'tailwind-merge'
 import { Button } from './button'
 
 /**
- * A field button is a button that is intended to be used inside a `Group` component
- * to add additional functionality to a field. The `slot` prop is used to connect the
- * button to the field.
+ * A field button can used inside a group component
+ * to add additional functionality to a field.
  */
 export function FieldButton({
     ...props

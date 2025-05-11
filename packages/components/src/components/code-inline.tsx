@@ -1,6 +1,9 @@
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import { twMerge } from 'tailwind-merge'
 
+/**
+ * A syntax-highlighted inline code component, built using react-syntax-highlighter.
+ */
 export function CodeInline({
     children,
     className,
