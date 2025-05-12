@@ -30,7 +30,6 @@ export function FormSelect<T extends OptionsSchema<'listbox'> = OptionsSchema<'l
     return (
         <Select
             {...props}
-            defaultSelectedKey={value}
             isDisabled={isDisabled}
             isInvalid={invalid}
             name={name}
@@ -40,7 +39,7 @@ export function FormSelect<T extends OptionsSchema<'listbox'> = OptionsSchema<'l
                 props.onSelectionChange?.(k)
             }}
             ref={ref}
-            selectedKey={value}
+            selectedKey={value ?? ''}
             validationBehavior='aria' // Let React Hook Form handle validation instead of the browser.
         >
             {(renderProps) => {

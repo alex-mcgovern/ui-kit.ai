@@ -47,7 +47,15 @@
             ],
             "outputLogs": "new-only"
         },
-        "@ui-kit.ai/storybook#storycap": {
+        "@ui-kit.ai/storybook#storycap:light": {
+            "dependsOn": [
+                "@ui-kit.ai/components#build",
+                "@ui-kit.ai/theme#build",
+                "@ui-kit.ai/mocks#build"
+            ],
+            "outputLogs": "new-only"
+        },
+        "@ui-kit.ai/storybook#storycap:dark": {
             "dependsOn": [
                 "@ui-kit.ai/components#build",
                 "@ui-kit.ai/theme#build",

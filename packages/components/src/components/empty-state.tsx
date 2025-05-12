@@ -52,7 +52,7 @@ export function EmptyState({
             />
 
             <Heading
-                className='text-dark mb-1 text-xl'
+                className='text-dark mb-1 text-sm'
                 level={2}
             >
                 {title}

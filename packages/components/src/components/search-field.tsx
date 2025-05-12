@@ -1,7 +1,7 @@
-import type { ComponentProps, ForwardedRef } from 'react'
 import type { SearchFieldProps as RACSearchFieldProps } from 'react-aria-components'
 
 import { X as IconX } from 'lucide-react'
+import { type ComponentProps, type ForwardedRef, forwardRef } from 'react'
 import { SearchField as RACSearchField } from 'react-aria-components'
 import { twMerge } from 'tailwind-merge'
 
@@ -12,28 +12,29 @@ import { Tooltip, TooltipTrigger } from './tooltip'
 /**
  * A search field allows a user to enter and clear a search query.
  */
-export function SearchField({
-    children = <Input />,
-    ref,
-    ...props
-}: RACSearchFieldProps & { ref?: ForwardedRef<HTMLInputElement> }) {
-    return (
-        <RACSearchField
-            {...props}
-            className={(renderProps) =>
-                twMerge(
-                    typeof props.className === 'function'
-                        ? props.className(renderProps)
-                        : props.className,
-                    'group relative w-full grow'
-                )
-            }
-            ref={ref}
-        >
-            {children}
-        </RACSearchField>
-    )
-}
+export const SearchField = forwardRef(
+    (
+        { children = <Input />, ...props }: RACSearchFieldProps,
+        ref: ForwardedRef<HTMLInputElement>
+    ) => {
+        return (
+            <RACSearchField
+                {...props}
+                className={(renderProps) =>
+                    twMerge(
+                        typeof props.className === 'function'
+                            ? props.className(renderProps)
+                            : props.className,
+                        'group relative w-full grow'
+                    )
+                }
+                ref={ref}
+            >
+                {children}
+            </RACSearchField>
+        )
+    }
+)
 SearchField.displayName = 'SearchField'
 
 /**

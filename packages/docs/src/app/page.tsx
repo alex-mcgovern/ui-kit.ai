@@ -36,8 +36,8 @@ export default function Home() {
     return (
         <main
             className={twMerge(
-                'before:h-dvh before:inset-0 before:-z-10 before:fixed',
-                'before:bg-radial-[at_100%_0%] before:from-[var(--theme-error-bg-tint-light)] before:via-[var(--theme-info-bg-tint-light)] before:to-transparent'
+                'before:h-[200dvh] before:inset-0 before:-z-10 before:absolute',
+                'before:bg-radial-[at_100%_0%] before:from-[var(--theme-error-bg-tint-light)] before:via-40% before:via-[var(--theme-info-bg-tint-light)] before:to-70% before:to-[var(--theme-default-bg-base)]'
             )}
         >
             <HomepageSection className='grid grid-cols-[3fr_2fr] gap-8 items-center'>
