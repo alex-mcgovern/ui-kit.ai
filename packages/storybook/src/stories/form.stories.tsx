@@ -57,7 +57,7 @@ function Template(props: ComponentProps<typeof Form<FieldValues>>) {
                 name={FIELD_NAME.email}
                 type='email'
             >
-                <Label>Email address (Text field)</Label>
+                <Label>Email address</Label>
                 <FieldGroup>
                     <Input
                         icon={<AtSignIcon />}
@@ -68,7 +68,7 @@ function Template(props: ComponentProps<typeof Form<FieldValues>>) {
                 </FieldGroup>
             </FormTextField>
 
-            <FormSelect
+            {/* <FormSelect
                 className='mb-4'
                 items={getMockOptions({
                     withIcon: true,
@@ -77,14 +77,14 @@ function Template(props: ComponentProps<typeof Form<FieldValues>>) {
             >
                 <Label>Country of birth (Select)</Label>
                 <SelectButton slotLeft={<GlobeIcon />} />
-            </FormSelect>
+            </FormSelect> */}
 
             <FormComboBox
                 className='mb-4'
                 items={getMockOptions()}
                 name={FIELD_NAME.country_of_residence}
             >
-                <Label>Country of residence (ComboBox)</Label>
+                <Label>Country of residence</Label>
                 <ComboBoxFieldGroup>
                     <ComboBoxInput
                         icon={<GlobeIcon />}
@@ -128,20 +128,19 @@ function Template(props: ComponentProps<typeof Form<FieldValues>>) {
 }
 
 const meta: Meta<typeof Form<FieldValues>> = {
-    args: {
-        onError: (errors) => {
-            alert(`Errors:\n\n${JSON.stringify(errors, null, 4)}`)
-        },
-        onSubmit: async (data) => {
-            await new Promise((resolve) => setTimeout(resolve, 1_000))
-            alert(`Submitted:\n\n${JSON.stringify(data, null, 4)}`)
-        },
-        options: {
-            resolver: zodResolver(schema),
-        },
-    },
+    // args: {
+    //     onError: (errors) => {
+    //         alert(`Errors:\n\n${JSON.stringify(errors, null, 4)}`)
+    //     },
+    //     onSubmit: async (data) => {
+    //         await new Promise((resolve) => setTimeout(resolve, 1_000))
+    //         alert(`Submitted:\n\n${JSON.stringify(data, null, 4)}`)
+    //     },
+    //     options: {
+    //         resolver: zodResolver(schema),
+    //     },
+    // },
     component: Form,
-    render: Template,
     title: 'Form',
 }
 
@@ -149,8 +148,17 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
-    args: {},
+    args: {
+        onSubmit: async (data) => {
+            await new Promise((resolve) => setTimeout(resolve, 1_000))
+            alert(`Submitted:\n\n${JSON.stringify(data, null, 4)}`)
+        },
+        // options: {
+        //     resolver: zodResolver(schema),
+        // },
+    },
     parameters: {
         displayName: 'Default',
     },
+    render: Template,
 }

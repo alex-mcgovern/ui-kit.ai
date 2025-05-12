@@ -12,6 +12,7 @@ import {
     TextFieldClearButton,
 } from '@ui-kit.ai/components'
 import { AtSignIcon } from 'lucide-react'
+import { twMerge } from 'tailwind-merge'
 import { z } from 'zod'
 
 import * as LabelStories from './label.stories'
@@ -24,6 +25,7 @@ type FieldValues = z.input<typeof schema>
 
 const Template = (args: ComponentProps<typeof FormSubmitButton>) => (
     <Form<FieldValues>
+        className='flex flex-col'
         onSubmit={async () => {
             await new Promise((resolve) => setTimeout(resolve, 1000))
         }}
@@ -31,7 +33,10 @@ const Template = (args: ComponentProps<typeof FormSubmitButton>) => (
             resolver: zodResolver(schema),
         }}
     >
-        <FormTextField>
+        <FormTextField
+            className='mb-4'
+            name='email_address'
+        >
             <Label {...LabelStories.Default.args} />
             <FieldGroup>
                 <Input
@@ -42,7 +47,15 @@ const Template = (args: ComponentProps<typeof FormSubmitButton>) => (
                 <TextFieldClearButton />
             </FieldGroup>
         </FormTextField>
-        <FormSubmitButton {...args} />
+        <FormSubmitButton
+            {...args}
+            className={(rp) =>
+                twMerge(
+                    typeof args.className === 'function' ? args.className(rp) : args.className,
+                    'ml-auto'
+                )
+            }
+        />
     </Form>
 )
 
