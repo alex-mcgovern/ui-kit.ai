@@ -63,7 +63,7 @@ const dialogStyles = tv({
         'h-[unset] max-h-[inherit]',
         'w-full sm:max-sm:max-w-[100dvw]',
         // border
-        'sm:max-sm:border-0 sm:max-sm:rounded-none',
+        'sm:max-sm:rounded-none sm:max-sm:border-0',
         'border-mid rounded-lg border',
         '[[data-placement]>&]:p-4',
     ],

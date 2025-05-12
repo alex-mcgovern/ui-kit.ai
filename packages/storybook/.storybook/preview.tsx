@@ -39,10 +39,10 @@ const preview: Preview = {
                 <div
                     className={twMerge(
                         'relative flex items-center justify-center',
-                        'px-12 py-6 min-h-[270px]',
+                        'min-h-[270px] px-12 py-6',
                         // gradient background
                         'before:absolute before:inset-0 before:-z-20',
-                        'before:bg-gradient-to-tr ',
+                        'before:bg-gradient-to-tr',
                         'before:from-[var(--theme-info-bg-tint)]/70',
                         'before:via-[var(--theme-info-bg-tint)]/70',
                         'before:to-[var(--theme-error-bg-tint)]/70',

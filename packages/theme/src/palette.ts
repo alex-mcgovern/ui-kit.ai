@@ -3,7 +3,6 @@
 import { converter, formatHsl, type Hsl, hsl } from 'culori'
 
 import { generateThemeVars } from './css-vars'
-import { generateBgUtilitiesCSS } from './tw-utils/bg'
 import { generateBorderUtilitiesCSS } from './tw-utils/border'
 import { genIntentUtils } from './tw-utils/intent'
 import { generateTextUtilitiesCSS } from './tw-utils/text'

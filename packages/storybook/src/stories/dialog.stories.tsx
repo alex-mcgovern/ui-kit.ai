@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import type { ComponentProps, ComponentType } from 'react'
+import type { ComponentProps } from 'react'
 
 import { faker } from '@faker-js/faker'
 import {

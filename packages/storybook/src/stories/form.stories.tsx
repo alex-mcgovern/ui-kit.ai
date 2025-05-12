@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import type { ComponentProps } from 'react'
 
-import { zodResolver } from '@hookform/resolvers/zod'
 import { Checkbox } from '@ui-kit.ai/components'
 import {
     ComboBoxButton,
@@ -13,12 +12,10 @@ import {
     Form,
     FormCheckboxGroup,
     FormComboBox,
-    FormSelect,
     FormSubmitButton,
     FormTextField,
     Input,
     Label,
-    SelectButton,
     TextFieldClearButton,
 } from '@ui-kit.ai/components'
 import { getMockOptions } from '@ui-kit.ai/mocks'
@@ -149,6 +146,8 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
     args: {
+        // @ts-expect-error - TODO: Fix this
+
         onSubmit: async (data) => {
             await new Promise((resolve) => setTimeout(resolve, 1_000))
             alert(`Submitted:\n\n${JSON.stringify(data, null, 4)}`)
@@ -160,5 +159,6 @@ export const Default: Story = {
     parameters: {
         displayName: 'Default',
     },
+    // @ts-expect-error - TODO: Fix this
     render: Template,
 }
