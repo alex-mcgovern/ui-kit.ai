@@ -35,7 +35,7 @@ const meta = {
     },
     component: EmptyState,
     render: Template,
-    title: 'Components/EmptyState',
+    title: 'EmptyState',
 } satisfies Meta<typeof EmptyState>
 
 export default meta

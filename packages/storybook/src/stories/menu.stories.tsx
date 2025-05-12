@@ -25,7 +25,7 @@ function Template(args: ComponentProps<typeof Menu>) {
 
 const meta = {
     component: Menu,
-    title: 'Components/Menu',
+    title: 'Menu',
 } satisfies Meta<typeof Menu<OptionsSchema<'listbox'>>>
 
 export default meta

@@ -44,7 +44,7 @@ const meta: Meta<typeof TextField> = {
         ),
     ],
     render: Example,
-    title: 'Components/TextField',
+    title: 'TextField',
 }
 
 export default meta

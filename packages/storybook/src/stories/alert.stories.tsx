@@ -17,7 +17,7 @@ function Template(args: ComponentProps<typeof Alert>) {
 const meta = {
     component: Alert,
     render: Template,
-    title: 'Components/Alert',
+    title: 'Alert',
 } satisfies Meta<typeof Alert>
 
 export default meta

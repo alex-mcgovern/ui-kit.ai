@@ -10,7 +10,7 @@ const meta = {
             displayName: 'Default',
         },
     },
-    title: 'Components/Table',
+    title: 'Table',
 } satisfies Meta<typeof Table>
 
 export default meta

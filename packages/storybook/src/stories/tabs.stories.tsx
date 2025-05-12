@@ -90,7 +90,7 @@ function TemplateVertical() {
 const meta: Meta<typeof Tabs> = {
     component: Tabs,
     render: TemplateHorizontal,
-    title: 'Components/Tabs',
+    title: 'Tabs',
 }
 
 export default meta

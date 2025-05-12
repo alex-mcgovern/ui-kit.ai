@@ -24,7 +24,7 @@ export const fieldVariants = tv({
             false: [
                 [
                     'border-mid border',
-                    'bg-base',
+                    'bg-base/80',
                     'transition-colors',
                     // hover
                     'hover:[&:not([data-disabled])]:border-dark',

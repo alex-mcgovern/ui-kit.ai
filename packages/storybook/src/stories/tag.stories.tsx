@@ -100,7 +100,7 @@ function TagTemplate({ children, ...args }: ComponentProps<typeof Tag>) {
 const meta = {
     component: Tag,
     render: TagTemplate,
-    title: 'Components/Tag',
+    title: 'Tag',
 } satisfies Meta<typeof Tag>
 
 export default meta

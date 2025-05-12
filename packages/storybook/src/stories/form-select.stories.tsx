@@ -5,19 +5,23 @@ import { Description, Form, FormSelect, Label, SelectButton } from '@ui-kit.ai/c
 import { getMockOptions } from '@ui-kit.ai/mocks'
 import { GlobeIcon } from 'lucide-react'
 
-import * as DescriptionStories from './description.stories'
-import * as LabelStories from './label.stories'
+// import * as DescriptionStories from './description.stories'
+// import * as LabelStories from './label.stories'
 
 function Template(args: ComponentProps<typeof FormSelect>) {
     return (
-        <Form onSubmit={() => {}}>
+        <Form
+            onSubmit={(values) => {
+                alert(JSON.stringify(values))
+            }}
+        >
             <FormSelect
                 {...args}
                 items={getMockOptions({ withIcon: true })}
             >
-                <Label {...LabelStories.Default.args} />
+                {/* <Label {...LabelStories.Default.args} /> */}
                 <SelectButton slotLeft={<GlobeIcon />} />
-                <Description {...DescriptionStories.Default.args} />
+                {/* <Description {...DescriptionStories.Default.args} /> */}
             </FormSelect>
         </Form>
     )
@@ -29,14 +33,16 @@ const meta = {
     },
     component: FormSelect,
     render: Template,
-    title: 'Components/FormSelect',
+    title: 'FormSelect',
 } satisfies Meta<typeof FormSelect>
 
 export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
-    args: {},
+    args: {
+        name: 'favorite_plant',
+    },
     parameters: {
         displayName: 'Default',
     },
@@ -45,6 +51,7 @@ export const Default: Story = {
 export const IsInvalid: Story = {
     args: {
         isInvalid: true,
+        name: 'favorite_plant',
     },
     parameters: {
         displayName: 'Invalid',

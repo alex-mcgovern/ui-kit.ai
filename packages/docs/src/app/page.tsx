@@ -203,7 +203,7 @@ function HomepageCard({
                     'rounded-xl size-16',
                     'mb-4',
                     'shadow-xl',
-                    'bg-gradient-to-tr from-[var(--theme-info-bg-accent-dark)] via-[var(--theme-info-bg-accent-light)] to-[var(--theme-error-bg-accent)]',
+                    'bg-gradient-to-tr from-[var(--theme-info-bg-accent-dark)] via-[var(--theme-info-bg-accent-light)] to-[var(--theme-error-bg-accent-mid)]',
                     gradientClassName
                 )}
             >

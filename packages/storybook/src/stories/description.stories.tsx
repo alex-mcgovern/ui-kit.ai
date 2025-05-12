@@ -10,7 +10,7 @@ function Template(args: ComponentProps<typeof Description>) {
 const meta = {
     component: Description,
     render: Template,
-    title: 'Components/Description',
+    title: 'Description',
 } satisfies Meta<typeof Description>
 
 export default meta

@@ -49,7 +49,7 @@ const Template = (args: ComponentProps<typeof FormSubmitButton>) => (
 const meta: Meta<typeof FormSubmitButton> = {
     component: FormSubmitButton,
     render: Template,
-    title: 'Components/Form/FormSubmitButton',
+    title: 'FormSubmitButton',
 }
 
 export default meta

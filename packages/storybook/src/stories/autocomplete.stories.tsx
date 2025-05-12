@@ -8,7 +8,7 @@ import { SearchIcon } from 'lucide-react'
 const meta = {
     component: Autocomplete,
     tags: ['autodocs'],
-    title: 'Components/Autocomplete',
+    title: 'Autocomplete',
 } satisfies Meta<typeof Autocomplete>
 
 export default meta

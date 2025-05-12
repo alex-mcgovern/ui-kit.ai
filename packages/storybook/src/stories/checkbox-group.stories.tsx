@@ -28,7 +28,7 @@ function Template(args: ComponentProps<typeof CheckboxGroup>) {
 const meta = {
     component: CheckboxGroup,
     render: Template,
-    title: 'Components/CheckboxGroup',
+    title: 'CheckboxGroup',
 } satisfies Meta<typeof CheckboxGroup>
 
 export default meta

@@ -97,7 +97,7 @@ const meta = {
     },
     component: Popover,
     render: Template,
-    title: 'Components/Popover',
+    title: 'Popover',
 } satisfies Meta<typeof Popover>
 
 export default meta

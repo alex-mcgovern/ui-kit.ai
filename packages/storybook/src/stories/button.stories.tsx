@@ -31,7 +31,7 @@ function Template(args: Parameters<typeof Button>[0]) {
 const meta = {
     component: Button,
     render: Template,
-    title: 'Components/Button',
+    title: 'Button',
 } satisfies Meta<typeof Button>
 
 export default meta

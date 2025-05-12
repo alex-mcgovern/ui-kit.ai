@@ -5,7 +5,7 @@ import { getMockOptions } from '@ui-kit.ai/mocks'
 
 const meta = {
     component: ListBox,
-    title: 'Components/ListBox',
+    title: 'ListBox',
 } satisfies Meta<typeof ListBox<OptionsSchema<'listbox'>>>
 
 export default meta

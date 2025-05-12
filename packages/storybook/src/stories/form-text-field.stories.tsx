@@ -37,7 +37,7 @@ const meta = {
     },
     component: FormTextField,
     render: Template,
-    title: 'Components/FormTextField',
+    title: 'FormTextField',
 } satisfies Meta<typeof FormTextField>
 
 export default meta

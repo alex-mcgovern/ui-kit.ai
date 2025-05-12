@@ -26,7 +26,7 @@ const meta = {
         children: TEXT,
     },
     component: Heading,
-    title: 'Components/Heading',
+    title: 'Heading',
 } satisfies Meta<typeof Heading>
 
 export default meta

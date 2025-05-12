@@ -37,10 +37,19 @@ const preview: Preview = {
             return (
                 <div
                     className={twMerge(
-                        'flex items-center justify-center',
-                        'px-6 min-h-[270px]',
-                        'before:inset-0 before:-z-10 before:fixed',
-                        'before:bg-gradient-to-tr before:from-[var(--theme-info-bg-raised)] before:via-[var(--theme-default-bg-raised)] before:to-[var(--theme-error-bg-raised)]'
+                        'relative flex items-center justify-center',
+                        'p-6 min-h-[270px]',
+                        // gradient background
+                        'before:absolute before:inset-0 before:-z-20',
+                        'before:bg-gradient-to-tr ',
+                        'before:from-[var(--theme-info-bg-tint-light)] ',
+                        'before:via-[var(--theme-info-bg-tint)] ',
+                        'before:to-[var(--theme-error-bg-tint-light)]',
+                        // dots overlay
+                        'after:absolute after:inset-0 after:-z-10',
+                        'after:bg-[radial-gradient(var(--theme-info-border-dark)_1px,transparent_1px)]',
+                        'after:[background-size:16px_16px]',
+                        'after:[mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_30%,transparent_150%)]'
                     )}
                 >
                     <Story />
@@ -54,6 +63,7 @@ const preview: Preview = {
     loaders: [mswLoader],
     parameters: {
         actions: { argTypesRegex: '^on[A-Z].*' },
+        layout: 'fullscreen',
         screenshot: screenshotOptions,
     },
 }

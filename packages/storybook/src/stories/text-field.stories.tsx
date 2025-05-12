@@ -36,7 +36,7 @@ function Template(props: ComponentProps<typeof TextField>) {
 const meta: Meta<typeof TextField> = {
     component: TextField,
     render: Template,
-    title: 'Components/TextField',
+    title: 'TextField',
 }
 
 export default meta

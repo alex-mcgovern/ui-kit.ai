@@ -1,8 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import type { ComponentProps } from 'react'
 
-import { Checkbox, Description, FormCheckboxGroup, Label } from '@ui-kit.ai/components'
-import { Form } from '@ui-kit.ai/components'
+import { Checkbox, Description, Form, FormCheckboxGroup, Label } from '@ui-kit.ai/components'
 
 import * as DescriptionStories from './description.stories'
 import * as LabelStories from './label.stories'
@@ -10,10 +9,7 @@ import * as LabelStories from './label.stories'
 function Template(props: ComponentProps<typeof FormCheckboxGroup>) {
     return (
         <Form onSubmit={() => {}}>
-            <FormCheckboxGroup
-                name='preferences'
-                {...props}
-            >
+            <FormCheckboxGroup {...props}>
                 <Label {...LabelStories.Default.args} />
                 <Checkbox
                     description='Optional description'
@@ -33,13 +29,16 @@ function Template(props: ComponentProps<typeof FormCheckboxGroup>) {
 
 const meta: Meta<typeof FormCheckboxGroup> = {
     component: FormCheckboxGroup,
-    title: 'Forms/FormCheckboxGroup',
+    title: 'FormCheckboxGroup',
 }
 
 export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
+    args: {
+        name: 'preferences',
+    },
     parameters: {
         displayName: 'Default',
     },
@@ -49,6 +48,7 @@ export const Default: Story = {
 export const Disabled: Story = {
     args: {
         isDisabled: true,
+        name: 'preferences',
     },
     parameters: {
         displayName: 'Disabled',
@@ -59,6 +59,7 @@ export const Disabled: Story = {
 export const Invalid: Story = {
     args: {
         isInvalid: true,
+        name: 'preferences',
     },
     parameters: {
         displayName: 'Invalid',

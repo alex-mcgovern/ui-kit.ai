@@ -142,7 +142,7 @@ const meta: Meta<typeof Form<FieldValues>> = {
     },
     component: Form,
     render: Template,
-    title: 'Components/Form',
+    title: 'Form',
 }
 
 export default meta

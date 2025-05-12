@@ -90,7 +90,7 @@ const meta = {
     },
     component: Tooltip,
     render: Template,
-    title: 'Components/Tooltip',
+    title: 'Tooltip',
 } satisfies Meta<typeof Tooltip>
 
 export default meta

@@ -1,6 +1,17 @@
 import type { Meta, StoryObj } from '@storybook/react'
+import type { ComponentProps } from 'react'
 
-import { CodeBlock } from '@ui-kit.ai/components'
+import { Card, CardBody, CodeBlock } from '@ui-kit.ai/components'
+
+function TemplateCard(args: ComponentProps<typeof CodeBlock>) {
+    return (
+        <Card>
+            <CardBody>
+                <CodeBlock {...args} />
+            </CardBody>
+        </Card>
+    )
+}
 
 const meta = {
     args: {
@@ -8,7 +19,7 @@ const meta = {
         language: 'typescript',
     },
     component: CodeBlock,
-    title: 'Components/CodeBlock',
+    title: 'CodeBlock',
 } satisfies Meta<typeof CodeBlock>
 
 export default meta
@@ -19,6 +30,7 @@ export const Default: Story = {
     parameters: {
         displayName: 'Default',
     },
+    render: TemplateCard,
 }
 export const Python: Story = {
     args: {

@@ -4,7 +4,7 @@ import { genIntentUtils } from '../intent'
 
 const EXPECTED = `
 @utility default {
-	--theme-default-bg-accent: var(--theme-default-bg-accent);
+	--theme-default-bg-accent-mid: var(--theme-default-bg-accent-mid);
 	--theme-default-bg-accent-dark: var(--theme-default-bg-accent-dark);
 	--theme-default-bg-accent-light: var(--theme-default-bg-accent-light);
 	--theme-default-bg-base: var(--theme-default-bg-base);
@@ -21,7 +21,7 @@ const EXPECTED = `
 	--theme-default-text-mid: var(--theme-default-text-mid);
 }
 @utility error {
-	--theme-default-bg-accent: var(--theme-error-bg-accent);
+	--theme-default-bg-accent-mid: var(--theme-error-bg-accent-mid);
 	--theme-default-bg-accent-dark: var(--theme-error-bg-accent-dark);
 	--theme-default-bg-accent-light: var(--theme-error-bg-accent-light);
 	--theme-default-bg-base: var(--theme-error-bg-base);
@@ -38,7 +38,7 @@ const EXPECTED = `
 	--theme-default-text-mid: var(--theme-error-text-mid);
 }
 @utility info {
-	--theme-default-bg-accent: var(--theme-info-bg-accent);
+	--theme-default-bg-accent-mid: var(--theme-info-bg-accent-mid);
 	--theme-default-bg-accent-dark: var(--theme-info-bg-accent-dark);
 	--theme-default-bg-accent-light: var(--theme-info-bg-accent-light);
 	--theme-default-bg-base: var(--theme-info-bg-base);
@@ -55,7 +55,7 @@ const EXPECTED = `
 	--theme-default-text-mid: var(--theme-info-text-mid);
 }
 @utility success {
-	--theme-default-bg-accent: var(--theme-success-bg-accent);
+	--theme-default-bg-accent-mid: var(--theme-success-bg-accent-mid);
 	--theme-default-bg-accent-dark: var(--theme-success-bg-accent-dark);
 	--theme-default-bg-accent-light: var(--theme-success-bg-accent-light);
 	--theme-default-bg-base: var(--theme-success-bg-base);
@@ -72,7 +72,7 @@ const EXPECTED = `
 	--theme-default-text-mid: var(--theme-success-text-mid);
 }
 @utility warning {
-	--theme-default-bg-accent: var(--theme-warning-bg-accent);
+	--theme-default-bg-accent-mid: var(--theme-warning-bg-accent-mid);
 	--theme-default-bg-accent-dark: var(--theme-warning-bg-accent-dark);
 	--theme-default-bg-accent-light: var(--theme-warning-bg-accent-light);
 	--theme-default-bg-base: var(--theme-warning-bg-base);

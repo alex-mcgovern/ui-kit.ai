@@ -52,13 +52,13 @@ const boxStyles = tv({
         'group-hover:bg-tint-light',
         'group-hover:border-dark',
         // selected
-        'group-selected:bg-accent',
-        'group-selected:group-hover:bg-accent',
+        'group-selected:bg-accent-mid',
+        'group-selected:group-hover:bg-accent-mid',
         'group-selected:border-accent',
         'group-selected:group-hover:border-accent',
         // indeterminate
-        'group-indeterminate:bg-accent',
-        'group-indeterminate:group-hover:bg-accent',
+        'group-indeterminate:bg-accent-mid',
+        'group-indeterminate:group-hover:bg-accent-mid',
         'group-indeterminate:border-accent',
         'group-indeterminate:group-hover:border-accent',
     ],

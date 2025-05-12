@@ -1,13 +1,6 @@
 import type { ComponentDoc } from 'react-docgen-typescript'
 
-import {
-    Card,
-    CardBody,
-    CardLink,
-    CardTitle,
-    Markdown,
-    type OptionsSchema,
-} from '@ui-kit.ai/components'
+import { CardBody, CardLink, CardTitle, Markdown } from '@ui-kit.ai/components'
 import propTypes from '@ui-kit.ai/metadata/prop-types.json'
 import * as components from '@ui-kit.ai/storybook'
 import Image from 'next/image'
@@ -26,7 +19,7 @@ const COMPONENTS: {
     return {
         description: docs.description,
         href: hrefs.component(componentName),
-        imageUrl: `/components/Components_${componentName}_Default.png`,
+        imageUrl: `/components/${componentName}_Default.png`,
         name: componentName,
     }
 })
@@ -40,10 +33,10 @@ export function AllComponentsCards() {
                     href={component.href}
                     key={component.name}
                 >
-                    <div className='border-b border-mid overflow-hidden'>
+                    <div className='overflow-hidden m-3 rounded-sm'>
                         <Image
                             alt={component.name}
-                            className='group-hover:scale-102 transition-transform'
+                            className='group-hover:scale-101 transition-transform rounded-sm duration-500 ease-in-out'
                             height={810}
                             src={component.imageUrl}
                             width={1440}

@@ -52,7 +52,10 @@ ${Object.entries(this.genSyntaxPalette())
     })
     .join('\n')}
 }
-${generateBgUtilitiesCSS()}
+@utility bg-* {
+  --alpha: calc(--modifier(integer) * 1%);
+  background-color: --alpha(--value(--theme-default-bg-*, [color]) / var(--alpha, 100%));
+}
 ${generateTextUtilitiesCSS()}
 ${generateBorderUtilitiesCSS()}
 ${genIntentUtils()}
@@ -106,7 +109,7 @@ ${genIntentUtils()}
                 this._clrFormatHsl(this._clrShade('dark', this._clrDeriveAccent(accent, 'light'))),
                 this._clrFormatHsl(this._clrShade('dark', this._clrDeriveAccent(accent, 'dark'))),
             ],
-            [Color.BG_ACCENT]: [
+            [Color.BG_ACCENT_MID]: [
                 this._clrFormatHsl(this._clrDeriveAccent(accent, 'light')),
                 this._clrFormatHsl(this._clrDeriveAccent(accent, 'dark')),
             ],

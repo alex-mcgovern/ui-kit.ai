@@ -57,7 +57,7 @@ const dialogStyles = tv({
         'outline outline-0',
         'relative',
         'text-left',
-        'bg-accent/80 bg-clip-padding',
+        'bg-raised/80',
         // height
         'sm:max-sm:h-dvh sm:max-sm:max-h-dvh',
         'h-[unset] max-h-[inherit]',

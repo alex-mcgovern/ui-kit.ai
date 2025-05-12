@@ -12,7 +12,7 @@ const alertStyles = tv({
         'w-full',
         'rounded-lg shadow-xs',
         'border-light border',
-        'bg-tint-light',
+        'bg-tint-light/80',
         'text-mid',
         'py-1 pr-2 pl-3',
         'flex items-center gap-4',

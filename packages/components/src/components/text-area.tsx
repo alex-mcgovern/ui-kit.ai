@@ -6,7 +6,7 @@ import { tv } from 'tailwind-variants'
 import { fieldVariants } from '../styles/field-variants'
 
 const textAreaStyles = tv({
-    base: ['px-3', 'text-sm', 'w-full', 'text-start align-middle'],
+    base: ['px-3', 'text-sm', 'w-full', 'text-start align-middle', 'min-h-24'],
     extend: fieldVariants,
 })
 

@@ -95,7 +95,7 @@ const LongContent = () => (
 
 const meta = {
     component: Dialog,
-    title: 'Components/Dialog',
+    title: 'Dialog',
 } satisfies Meta<typeof Dialog>
 
 export default meta
