@@ -1,5 +1,4 @@
 export * as Alert from './stories/alert.stories'
-export * as Autocomplete from './stories/autocomplete.stories'
 export * as Avatar from './stories/avatar.stories'
 export * as Button from './stories/button.stories'
 export * as Card from './stories/card.stories'

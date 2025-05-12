@@ -23,6 +23,23 @@ function Template(args: ComponentProps<typeof Menu>) {
     )
 }
 
+function TemplateDefault(args: ComponentProps<typeof Menu>) {
+    return (
+        <MenuTrigger defaultOpen>
+            <Button
+                className='px-2'
+                isIcon
+                variant='secondary'
+            >
+                <MenuIcon />
+            </Button>
+            <Popover placement='right'>
+                <Menu {...args} />
+            </Popover>
+        </MenuTrigger>
+    )
+}
+
 const meta = {
     component: Menu,
     title: 'Menu',
@@ -41,7 +58,7 @@ export const Default: Story = {
     parameters: {
         displayName: 'Default',
     },
-    render: Template,
+    render: TemplateDefault,
 }
 
 export const WithSections: Story = {
