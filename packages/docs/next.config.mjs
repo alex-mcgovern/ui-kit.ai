@@ -1,5 +1,16 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+    eslint: {
+        ignoreDuringBuilds: true,
+    },
+    images: {
+        unoptimized: true,
+    },
+    output: 'export',
+    typescript: {
+        ignoreBuildErrors: true,
+    },
+    // Static HTML export
     webpack: (config, {}) => {
         config.module.rules.push({
             test: /\.md$/,
@@ -7,12 +18,6 @@ const nextConfig = {
             type: 'asset/source',
         })
         return config
-    },
-    typescript: {
-        ignoreBuildErrors: true,
-    },
-    eslint: {
-        ignoreDuringBuilds: true,
     },
 }
 

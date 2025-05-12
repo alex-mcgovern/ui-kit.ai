@@ -6,7 +6,6 @@ import { usePathname, useSelectedLayoutSegments } from 'next/navigation'
 
 import { Sidebar } from '../../components/sidebar'
 import TableOfContents from '../../components/table-of-contents'
-import '../../mocks'
 import { hrefs } from '../../lib/hrefs'
 
 const ITEMS: OptionsSchema<'listbox'>[] = Object.keys(components).map((componentName) => ({
