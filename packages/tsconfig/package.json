@@ -18,7 +18,7 @@
     },
     "peerDependencies": {
         "@testing-library/jest-dom": "6.6.3",
-        "@types/node": "22.13.10"
+        "@types/node": "22.15.17"
     },
     "engines": {
         "node": "22.x"

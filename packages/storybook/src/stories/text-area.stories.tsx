@@ -7,7 +7,7 @@ const meta: Meta<typeof TextArea> = {
         placeholder: 'This is a placeholder',
     },
     component: TextArea,
-    title: 'Components/TextArea',
+    title: 'TextArea',
 }
 
 export default meta

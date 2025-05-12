@@ -1,7 +1,7 @@
 export enum Color {
-    BG_ACCENT = 'bg-accent',
     BG_ACCENT_DARK = 'bg-accent-dark',
     BG_ACCENT_LIGHT = 'bg-accent-light',
+    BG_ACCENT_MID = 'bg-accent-mid',
     BG_BASE = 'bg-base',
     BG_RAISED = 'bg-raised',
     BG_TINT = 'bg-tint',
@@ -25,9 +25,9 @@ export enum Intent {
 }
 
 export enum TwBgUtility {
-    ACCENT = 'bg-accent',
     ACCENT_DARK = 'bg-accent-dark',
     ACCENT_LIGHT = 'bg-accent-light',
+    ACCENT_MID = 'bg-accent-mid',
     BASE = 'bg-base',
     RAISED = 'bg-raised',
     TINT = 'bg-tint',

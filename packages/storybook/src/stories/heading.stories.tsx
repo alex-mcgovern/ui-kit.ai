@@ -3,7 +3,7 @@ import type { ComponentProps } from 'react'
 
 import { Heading } from '@ui-kit.ai/components'
 
-const TEXT = 'Lorem ipsum dolor sit amet...'
+const TEXT = 'Lorem ipsum dolor...'
 
 function Template(props: ComponentProps<typeof Heading>) {
     return (
@@ -26,7 +26,7 @@ const meta = {
         children: TEXT,
     },
     component: Heading,
-    title: 'Components/Heading',
+    title: 'Heading',
 } satisfies Meta<typeof Heading>
 
 export default meta

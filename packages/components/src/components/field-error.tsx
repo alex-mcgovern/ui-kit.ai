@@ -5,7 +5,7 @@ import { FieldError as RACFieldError } from 'react-aria-components'
 import { twMerge } from 'tailwind-merge'
 
 /**
- * A FieldError displays validation errors.
+ * A field error displays validation errors for a field within a form.
  */
 export function FieldError({
     ref,

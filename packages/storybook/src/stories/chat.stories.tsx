@@ -8,7 +8,7 @@ import { useEffect, useState } from 'react'
 
 const meta: Meta<typeof Chat> = {
     component: Chat,
-    title: 'Components/Chat',
+    title: 'Chat',
 }
 
 export default meta

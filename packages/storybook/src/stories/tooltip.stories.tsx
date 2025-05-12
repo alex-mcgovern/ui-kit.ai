@@ -75,7 +75,11 @@ function Template(args: ComponentProps<typeof Tooltip>) {
     return (
         <TooltipTrigger>
             <TooltipInfoButton />
-            <Tooltip {...args} />
+            <Tooltip
+                isOpen
+                placement='right'
+                {...args}
+            />
         </TooltipTrigger>
     )
 }
@@ -86,7 +90,7 @@ const meta = {
     },
     component: Tooltip,
     render: Template,
-    title: 'Components/Tooltip',
+    title: 'Tooltip',
 } satisfies Meta<typeof Tooltip>
 
 export default meta

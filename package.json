@@ -28,6 +28,7 @@
         "publish": "turbo publish",
         "sherif": "sherif",
         "storybook": "turbo storybook",
+        "storycap": "turbo storycap",
         "version:alpha": "tsx scripts/version.ts alpha && prettier **/package.json --write",
         "version:major": "tsx scripts/version.ts major && prettier **/package.json --write",
         "version:minor": "tsx scripts/version.ts minor && prettier **/package.json --write",
@@ -35,7 +36,7 @@
     },
     "devDependencies": {
         "@commitlint/config-conventional": "19.8.0",
-        "@types/node": "22.14.0",
+        "@types/node": "22.15.17",
         "@ui-kit.ai/prettier": "workspace:*",
         "commitlint": "19.8.0",
         "knip": "5.46.0",

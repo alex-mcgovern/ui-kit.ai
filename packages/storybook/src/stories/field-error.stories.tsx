@@ -10,7 +10,7 @@ function Template(args: ComponentProps<typeof FieldError>) {
 const meta = {
     component: FieldError,
     render: Template,
-    title: 'Components/FieldError',
+    title: 'FieldError',
 } satisfies Meta<typeof FieldError>
 
 export default meta

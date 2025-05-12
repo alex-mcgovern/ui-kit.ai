@@ -4,7 +4,7 @@ import { Markdown } from '@ui-kit.ai/components'
 
 const meta = {
     component: Markdown,
-    title: 'Components/Markdown',
+    title: 'Markdown',
 } satisfies Meta<typeof Markdown>
 
 export default meta

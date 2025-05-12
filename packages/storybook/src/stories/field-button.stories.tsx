@@ -31,7 +31,7 @@ function Template(args: ComponentProps<typeof FieldButton>) {
 
 const meta = {
     component: FieldButton,
-    title: 'Components/FieldButton',
+    title: 'FieldButton',
 } satisfies Meta<typeof FieldButton>
 
 export default meta

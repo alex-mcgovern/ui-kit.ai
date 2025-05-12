@@ -21,7 +21,7 @@ function Template(args: ComponentProps<typeof ColorSwatch>) {
 const meta = {
     component: ColorSwatch,
     render: Template,
-    title: 'Components/ColorSwatch',
+    title: 'ColorSwatch',
 } satisfies Meta<typeof ColorSwatch>
 
 export default meta

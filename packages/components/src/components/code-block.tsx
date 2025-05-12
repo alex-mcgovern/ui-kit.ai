@@ -6,8 +6,6 @@ import { Tooltip, TooltipTrigger } from './tooltip'
 
 /**
  * A syntax-highlighted code block component, built using `react-syntax-highlighter`.
- * This component is styled with Tailwind CSS and supports additional customization
- * through props.
  */
 export function CodeBlock({ showLineNumbers = true, ...props }: SyntaxHighlighterProps) {
     return (

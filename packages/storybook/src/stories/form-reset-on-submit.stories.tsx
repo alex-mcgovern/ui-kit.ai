@@ -40,7 +40,7 @@ function Template() {
 const meta = {
     component: FormResetOnSubmit,
     render: Template,
-    title: 'Components/FormResetOnSubmit',
+    title: 'FormResetOnSubmit',
 } satisfies Meta<typeof FormResetOnSubmit>
 
 export default meta

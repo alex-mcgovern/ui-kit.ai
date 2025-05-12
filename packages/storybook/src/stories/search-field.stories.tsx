@@ -7,7 +7,7 @@ import { SearchIcon } from 'lucide-react'
 const meta = {
     component: SearchField,
     tags: ['autodocs'],
-    title: 'Components/SearchField',
+    title: 'SearchField',
 } satisfies Meta<typeof SearchField>
 
 export default meta

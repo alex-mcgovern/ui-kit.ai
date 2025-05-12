@@ -8,7 +8,7 @@ const meta: Meta<typeof Input> = {
         placeholder: 'This is a placeholder',
     },
     component: Input,
-    title: 'Components/Input',
+    title: 'Input',
 }
 
 export default meta

@@ -18,7 +18,7 @@ import { SearchIcon } from 'lucide-react'
 const meta: Meta<typeof FieldGroup> = {
     args: {},
     component: FieldGroup,
-    title: 'Components/FieldGroup',
+    title: 'FieldGroup',
 }
 
 export default meta

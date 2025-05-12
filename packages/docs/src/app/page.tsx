@@ -11,6 +11,7 @@ import {
     TextField,
     TextFieldCopyButton,
 } from '@ui-kit.ai/components'
+import * as components from '@ui-kit.ai/storybook'
 import {
     ArrowRight,
     BlocksIcon,
@@ -25,15 +26,18 @@ import {
 } from 'lucide-react'
 import { twMerge } from 'tailwind-merge'
 
+import { AllComponentsCards } from '../components/all-components-cards'
 import { HomepageHero } from '../components/homepage-hero'
 import { hrefs } from '../lib/hrefs'
+
+const COMPONENTS_COUNT = Object.keys(components).length
 
 export default function Home() {
     return (
         <main
             className={twMerge(
-                'before:h-dvh before:inset-0 before:-z-10 before:fixed',
-                'before:bg-radial-[at_100%_0%] before:from-[var(--theme-error-bg-tint-light)] before:via-[var(--theme-info-bg-tint-light)] before:to-transparent'
+                'before:h-[200dvh] before:inset-0 before:-z-10 before:absolute',
+                'before:bg-radial-[at_100%_0%] before:from-[var(--theme-error-bg-tint-light)] before:via-40% before:via-[var(--theme-info-bg-tint-light)] before:to-70% before:to-[var(--theme-default-bg-base)]'
             )}
         >
             <HomepageSection className='grid grid-cols-[3fr_2fr] gap-8 items-center'>
@@ -99,6 +103,14 @@ export default function Home() {
                         icon={CodeIcon}
                         title='Developer experience'
                     />
+                </div>
+            </HomepageSection>
+            <HomepageSection>
+                <Heading className='text-5xl font-bold tracking-tight mb-12'>
+                    {COMPONENTS_COUNT} beautifully designed components...
+                </Heading>
+                <div className='grid grid-cols-1 gap-8 md:grid-cols-3 items-stretch'>
+                    <AllComponentsCards />
                 </div>
             </HomepageSection>
         </main>
@@ -191,7 +203,7 @@ function HomepageCard({
                     'rounded-xl size-16',
                     'mb-4',
                     'shadow-xl',
-                    'bg-gradient-to-tr from-[var(--theme-info-bg-accent-dark)] via-[var(--theme-info-bg-accent-light)] to-[var(--theme-error-bg-accent)]',
+                    'bg-gradient-to-tr from-[var(--theme-info-bg-accent-dark)] via-[var(--theme-info-bg-accent-light)] to-[var(--theme-error-bg-accent-mid)]',
                     gradientClassName
                 )}
             >

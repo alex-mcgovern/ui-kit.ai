@@ -14,7 +14,7 @@ const meta = {
     },
     component: CodeInline,
     render: Template,
-    title: 'Components/CodeInline',
+    title: 'CodeInline',
 } satisfies Meta<typeof CodeInline>
 
 export default meta

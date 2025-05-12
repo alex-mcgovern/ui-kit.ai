@@ -141,10 +141,10 @@ function ColorTableRow({ className, color }: { className: string; color: Color }
 
 function RowRenderBg(color: Color) {
     switch (color) {
-        case 'bg-accent':
+        case 'bg-accent-mid':
             return (
                 <ColorTableRow
-                    className='bg-accent text-accent'
+                    className='bg-accent-mid text-accent'
                     color={color}
                 />
             )
@@ -212,7 +212,7 @@ function RowRenderBg(color: Color) {
 }
 function RowRenderBorder(color: Color) {
     switch (color) {
-        case 'bg-accent':
+        case 'bg-accent-mid':
         case 'bg-accent-dark':
         case 'bg-accent-light':
         case 'bg-base':
@@ -253,7 +253,7 @@ function RowRenderBorder(color: Color) {
 }
 function RowRenderText(color: Color) {
     switch (color) {
-        case 'bg-accent':
+        case 'bg-accent-mid':
         case 'bg-accent-dark':
         case 'bg-accent-light':
         case 'bg-base':
@@ -268,7 +268,7 @@ function RowRenderText(color: Color) {
         case 'text-accent':
             return (
                 <ColorTableRow
-                    className='bg-accent text-accent'
+                    className='bg-accent-mid text-accent'
                     color={color}
                 />
             )

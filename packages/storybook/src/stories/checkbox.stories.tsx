@@ -13,7 +13,7 @@ const meta = {
     },
     component: Checkbox,
     render: Template,
-    title: 'Components/Checkbox',
+    title: 'Checkbox',
 } satisfies Meta<typeof Checkbox>
 
 export default meta

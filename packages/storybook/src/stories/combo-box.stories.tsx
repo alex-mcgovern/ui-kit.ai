@@ -37,7 +37,7 @@ function Template(props: ComponentProps<typeof ComboBox<OptionsSchema<'listbox'>
 
 const meta: Meta<typeof ComboBox<OptionsSchema<'listbox'>>> = {
     component: ComboBox,
-    title: 'Components/ComboBox',
+    title: 'ComboBox',
 }
 
 export default meta

@@ -5,7 +5,10 @@ import { Disclosure, DisclosureButton, DisclosurePanel } from '@ui-kit.ai/compon
 
 function Template(args: ComponentProps<typeof Disclosure>) {
     return (
-        <Disclosure {...args}>
+        <Disclosure
+            {...args}
+            defaultExpanded
+        >
             <DisclosureButton>Toggle Content</DisclosureButton>
             <DisclosurePanel>
                 <p>This is the content inside the disclosure panel.</p>
@@ -17,7 +20,7 @@ function Template(args: ComponentProps<typeof Disclosure>) {
 const meta = {
     component: Disclosure,
     render: Template,
-    title: 'Components/Disclosure',
+    title: 'Disclosure',
 } satisfies Meta<typeof Disclosure>
 
 export default meta
@@ -26,14 +29,5 @@ type Story = StoryObj<typeof meta>
 export const Default: Story = {
     parameters: {
         displayName: 'Default',
-    },
-}
-
-export const DefaultExpanded: Story = {
-    args: {
-        defaultExpanded: true,
-    },
-    parameters: {
-        displayName: 'Expanded by default',
     },
 }

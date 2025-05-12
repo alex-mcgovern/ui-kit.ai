@@ -11,7 +11,7 @@ function Template(args: ComponentProps<typeof Kbd>) {
 const meta = {
     component: Kbd,
     render: Template,
-    title: 'Components/Kbd',
+    title: 'Kbd',
 } satisfies Meta<typeof Kbd>
 
 export default meta

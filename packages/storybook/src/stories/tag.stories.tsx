@@ -23,7 +23,7 @@ function TagButtonTemplate({ children, ...args }: ComponentProps<typeof TagButto
                     className='capitalize'
                     intent={intent}
                 >
-                    {children ?? intent}
+                    {children ?? intent ?? 'default'}
                 </TagButtonComponent>
             ))}
             {INTENTS.map((intent) => (
@@ -34,7 +34,7 @@ function TagButtonTemplate({ children, ...args }: ComponentProps<typeof TagButto
                     intent={intent}
                     variant='solid'
                 >
-                    {children ?? intent}
+                    {children ?? intent ?? 'default'}
                 </TagButtonComponent>
             ))}
         </div>
@@ -51,7 +51,7 @@ function TagLinkTemplate({ children, ...args }: ComponentProps<typeof TagLinkCom
                     className='capitalize'
                     intent={intent}
                 >
-                    {children ?? intent}
+                    {children ?? intent ?? 'default'}
                 </TagLinkComponent>
             ))}
             {INTENTS.map((intent) => (
@@ -62,7 +62,7 @@ function TagLinkTemplate({ children, ...args }: ComponentProps<typeof TagLinkCom
                     intent={intent}
                     variant='solid'
                 >
-                    {children ?? intent}
+                    {children ?? intent ?? 'default'}
                 </TagLinkComponent>
             ))}
         </div>
@@ -79,7 +79,7 @@ function TagTemplate({ children, ...args }: ComponentProps<typeof Tag>) {
                     className='capitalize'
                     intent={intent}
                 >
-                    {children ?? intent}
+                    {children ?? intent ?? 'default'}
                 </Tag>
             ))}
             {INTENTS.map((intent) => (
@@ -90,7 +90,7 @@ function TagTemplate({ children, ...args }: ComponentProps<typeof Tag>) {
                     intent={intent}
                     variant='solid'
                 >
-                    {children ?? intent}
+                    {children ?? intent ?? 'default'}
                 </Tag>
             ))}
         </div>
@@ -100,7 +100,7 @@ function TagTemplate({ children, ...args }: ComponentProps<typeof Tag>) {
 const meta = {
     component: Tag,
     render: TagTemplate,
-    title: 'Components/Tag',
+    title: 'Tag',
 } satisfies Meta<typeof Tag>
 
 export default meta

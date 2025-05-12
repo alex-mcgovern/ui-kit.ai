@@ -55,7 +55,7 @@ function Template(args: ComponentProps<typeof ColorSlider>) {
 
 const meta = {
     component: ColorSlider,
-    title: 'Components/ColorSlider',
+    title: 'ColorSlider',
 } satisfies Meta<typeof ColorSlider>
 
 export default meta
@@ -66,7 +66,7 @@ type Story = StoryObj<typeof meta>
  */
 export const Default: Story = {
     args: {
-        channel: 'blue',
+        channel: 'alpha',
         defaultValue: '#5B5BD6',
     },
     parameters: {

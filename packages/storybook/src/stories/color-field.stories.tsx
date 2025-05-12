@@ -30,7 +30,7 @@ function Template(args: ComponentProps<typeof ColorField>) {
 const meta = {
     component: ColorField,
     render: Template,
-    title: 'Components/ColorField',
+    title: 'ColorField',
 } satisfies Meta<typeof ColorField>
 
 export default meta

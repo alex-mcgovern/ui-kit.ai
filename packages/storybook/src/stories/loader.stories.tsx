@@ -10,7 +10,7 @@ function Template(args: ComponentProps<typeof Loader>) {
 const meta = {
     component: Loader,
     render: Template,
-    title: 'Components/Loader',
+    title: 'Loader',
 } satisfies Meta<typeof Loader>
 
 export default meta

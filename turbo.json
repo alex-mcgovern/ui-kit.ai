@@ -40,7 +40,27 @@
             "outputLogs": "new-only"
         },
         "@ui-kit.ai/storybook#storybook": {
-            "dependsOn": ["@ui-kit.ai/components#build", "@ui-kit.ai/mocks#build"],
+            "dependsOn": [
+                "@ui-kit.ai/components#build",
+                "@ui-kit.ai/theme#build",
+                "@ui-kit.ai/mocks#build"
+            ],
+            "outputLogs": "new-only"
+        },
+        "@ui-kit.ai/storybook#storycap:light": {
+            "dependsOn": [
+                "@ui-kit.ai/components#build",
+                "@ui-kit.ai/theme#build",
+                "@ui-kit.ai/mocks#build"
+            ],
+            "outputLogs": "new-only"
+        },
+        "@ui-kit.ai/storybook#storycap:dark": {
+            "dependsOn": [
+                "@ui-kit.ai/components#build",
+                "@ui-kit.ai/theme#build",
+                "@ui-kit.ai/mocks#build"
+            ],
             "outputLogs": "new-only"
         },
         "build": {
@@ -90,6 +110,10 @@
         },
         "storybook": {
             "dependsOn": ["^storybook"],
+            "outputLogs": "new-only"
+        },
+        "storycap": {
+            "dependsOn": ["^storycap"],
             "outputLogs": "new-only"
         }
     }

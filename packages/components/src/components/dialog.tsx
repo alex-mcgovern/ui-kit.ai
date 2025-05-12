@@ -57,13 +57,14 @@ const dialogStyles = tv({
         'outline outline-0',
         'relative',
         'text-left',
-        'bg-raised bg-clip-padding',
+        'bg-raised/80',
         // height
-        'h-dvh max-h-dvh',
-        'md:h-[unset] md:max-h-[inherit]',
-        'w-full sm:max-w-[100dvw]',
+        'sm:max-sm:h-dvh sm:max-sm:max-h-dvh',
+        'h-[unset] max-h-[inherit]',
+        'w-full sm:max-sm:max-w-[100dvw]',
         // border
-        'md:border-mid md:rounded-lg md:border',
+        'sm:max-sm:rounded-none sm:max-sm:border-0',
+        'border-mid rounded-lg border',
         '[[data-placement]>&]:p-4',
     ],
     variants: {
@@ -83,14 +84,10 @@ export function Dialog({
     ...props
 }: RACDialogProps & { width?: 'lg' | 'md' | 'sm' }) {
     return (
-        <DialogModalOverlay isDismissable>
-            <DialogModal isDismissable>
-                <RACDialog
-                    {...props}
-                    className={twMerge(dialogStyles({ width }), props.className)}
-                />
-            </DialogModal>
-        </DialogModalOverlay>
+        <RACDialog
+            {...props}
+            className={twMerge(dialogStyles({ width }), props.className)}
+        />
     )
 }
 Dialog.displayName = 'Dialog'
@@ -220,7 +217,7 @@ export function DialogTrigger(props: RACDialogTriggerProps) {
 }
 DialogTrigger.displayName = 'DialogTrigger'
 
-function DialogModal({ isDismissable = true, ...props }: RACModalOverlayProps) {
+export function DialogModal({ isDismissable = true, ...props }: RACModalOverlayProps) {
     return (
         <RACModal
             {...props}
@@ -231,7 +228,7 @@ function DialogModal({ isDismissable = true, ...props }: RACModalOverlayProps) {
 }
 DialogModal.displayName = 'DialogModal'
 
-function DialogModalOverlay({
+export function DialogModalOverlay({
     isDismissable = true,
     ...props
 }: Omit<RACModalOverlayProps, 'className'>) {

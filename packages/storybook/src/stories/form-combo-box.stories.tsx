@@ -40,7 +40,7 @@ function Template(props: ComponentProps<typeof FormComboBox<OptionsSchema<'listb
 
 const meta: Meta<typeof FormComboBox<OptionsSchema<'listbox'>>> = {
     component: FormComboBox,
-    title: 'Components/FormComboBox',
+    title: 'FormComboBox',
 }
 
 export default meta

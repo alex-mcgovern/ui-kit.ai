@@ -17,7 +17,15 @@ export function HomepageHero() {
     const [parallaxChat, parallaxControls, parallaxTextArea] = useParallaxTilt([0.2, 0.25, 0.2], 25)
 
     return (
-        <div className='relative w-[360px] h-[180px] user-select-none '>
+        <div
+            className={twMerge(
+                'relative w-[360px] h-[180px] user-select-none', // dots overlay
+                'after:absolute after:-inset-[75%] after:-z-10',
+                'after:bg-[radial-gradient(var(--theme-info-border-dark)_1px,transparent_1px)]',
+                'after:[background-size:16px_16px]',
+                'after:[mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_30%,transparent_150%)]'
+            )}
+        >
             <ParallaxTiltContainer
                 className='origin-center'
                 rotateX={parallaxControls?.[0]}

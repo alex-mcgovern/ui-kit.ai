@@ -33,8 +33,8 @@ const config: StorybookConfig = {
         name: '@storybook/react-vite',
         options: {},
     },
-    stories: ['../src/**/*.stories.tsx', '../src/**/*.mdx'],
     staticDirs: ['../public'],
+    stories: ['../src/**/*.stories.tsx', '../src/**/*.mdx'],
     typescript: {
         reactDocgen: 'react-docgen-typescript',
         reactDocgenTypescriptOptions: {

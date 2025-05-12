@@ -10,7 +10,7 @@ function Template(args: ComponentProps<typeof Label>) {
 const meta = {
     component: Label,
     render: Template,
-    title: 'Components/Label',
+    title: 'Label',
 } satisfies Meta<typeof Label>
 
 export default meta

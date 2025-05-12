@@ -3,7 +3,6 @@
 import { converter, formatHsl, type Hsl, hsl } from 'culori'
 
 import { generateThemeVars } from './css-vars'
-import { generateBgUtilitiesCSS } from './tw-utils/bg'
 import { generateBorderUtilitiesCSS } from './tw-utils/border'
 import { genIntentUtils } from './tw-utils/intent'
 import { generateTextUtilitiesCSS } from './tw-utils/text'
@@ -52,7 +51,10 @@ ${Object.entries(this.genSyntaxPalette())
     })
     .join('\n')}
 }
-${generateBgUtilitiesCSS()}
+@utility bg-* {
+  --alpha: calc(--modifier(integer) * 1%);
+  background-color: --alpha(--value(--theme-default-bg-*, [color]) / var(--alpha, 100%));
+}
 ${generateTextUtilitiesCSS()}
 ${generateBorderUtilitiesCSS()}
 ${genIntentUtils()}
@@ -106,7 +108,7 @@ ${genIntentUtils()}
                 this._clrFormatHsl(this._clrShade('dark', this._clrDeriveAccent(accent, 'light'))),
                 this._clrFormatHsl(this._clrShade('dark', this._clrDeriveAccent(accent, 'dark'))),
             ],
-            [Color.BG_ACCENT]: [
+            [Color.BG_ACCENT_MID]: [
                 this._clrFormatHsl(this._clrDeriveAccent(accent, 'light')),
                 this._clrFormatHsl(this._clrDeriveAccent(accent, 'dark')),
             ],

@@ -6,6 +6,9 @@ import { twMerge } from 'tailwind-merge'
 
 import { Input } from './input'
 
+/**
+ * A color field allows users to edit a hex color or individual color channel value.
+ */
 export function ColorField({
     children = <Input />,
     ref,

@@ -45,7 +45,7 @@ const buttonStyle = tv({
             primary: [
                 'text-accent',
                 'shadow-xs',
-                'border-light bg-accent',
+                'border-light bg-accent-mid',
                 'hover:bg-accent-light',
                 'pressed:bg-accent-dark',
             ],

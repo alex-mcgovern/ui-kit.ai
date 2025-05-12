@@ -8,20 +8,6 @@ function Template(args: ComponentProps<typeof Alert>) {
     return (
         <Alert
             {...args}
-            actions={[
-                <Button
-                    key='secondary'
-                    variant='secondary'
-                >
-                    Secondary
-                </Button>,
-                <Button
-                    key='primary'
-                    variant='primary'
-                >
-                    Primary
-                </Button>,
-            ]}
             icon={InfoIcon}
             text='You do not have any active subscriptions.'
         />
@@ -31,7 +17,7 @@ function Template(args: ComponentProps<typeof Alert>) {
 const meta = {
     component: Alert,
     render: Template,
-    title: 'Components/Alert',
+    title: 'Alert',
 } satisfies Meta<typeof Alert>
 
 export default meta
@@ -46,6 +32,31 @@ export const Default: Story = {
         displayName: 'Default',
     },
 }
+
+export const WithActions: Story = {
+    args: {
+        actions: [
+            <Button
+                key='secondary'
+                variant='secondary'
+            >
+                Secondary
+            </Button>,
+            <Button
+                key='primary'
+                variant='primary'
+            >
+                Primary
+            </Button>,
+        ],
+        icon: InfoIcon,
+        text: 'You do not have any active subscriptions.',
+    },
+    parameters: {
+        displayName: 'Default',
+    },
+}
+
 export const IntentError: Story = {
     args: {
         icon: AlertTriangleIcon,

@@ -85,7 +85,7 @@ const tabStyles = tv({
         'hover:text-dark',
         // selected
         'selected:text-dark',
-        'selected:border-[var(--theme-default-bg-accent)]',
+        'selected:border-[var(--theme-default-bg-accent-mid)]',
         // selected
         'disabled:text-disabled',
         'disabled:selected:text-mid forced-color-adjust-none',

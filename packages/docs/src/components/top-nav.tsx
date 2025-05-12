@@ -53,7 +53,7 @@ export function TopNav() {
                 </div>
                 <div className='flex items-center justify-between gap-1 '>
                     <SearchField className='max-w-64'>
-                        <FieldGroup className='bg-raised/50 backdrop-blur-md'>
+                        <FieldGroup className='bg-tint-light/50 backdrop-blur-md'>
                             <Input
                                 icon={<Search />}
                                 isBorderless

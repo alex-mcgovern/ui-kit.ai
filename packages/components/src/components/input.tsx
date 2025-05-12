@@ -17,8 +17,8 @@ const inputStyles = tv({
 })
 
 /**
- * An Input is a primitive component used when composing fields, (e.g.
- * TextField, SearchField, NumberField).
+ * An input is a primitive component used when composing fields, like text
+ * fields, search fields, etc.
  */
 export const Input = ({
     icon,

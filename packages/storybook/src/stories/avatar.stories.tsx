@@ -3,11 +3,11 @@ import type { Meta, StoryObj } from '@storybook/react'
 import { Avatar } from '@ui-kit.ai/components'
 
 const meta: Meta<typeof Avatar> = {
-    component: Avatar,
-    title: 'Components/Avatar',
     args: {
         name: 'Alex McGovern',
     },
+    component: Avatar,
+    title: 'Avatar',
 }
 
 export default meta

@@ -2,6 +2,7 @@ import type { ReactNode } from 'react'
 import type { FieldValues, SubmitErrorHandler, SubmitHandler, UseFormProps } from 'react-hook-form'
 
 import { FormProvider, useForm } from 'react-hook-form'
+import { twMerge } from 'tailwind-merge'
 
 /**
  * A form is a group of inputs that allows users to submit data to a server,
@@ -44,7 +45,7 @@ export function Form<TFieldValues extends FieldValues = FieldValues>({
     return (
         <FormProvider {...formMethods}>
             <form
-                className={className}
+                className={twMerge(className, 'w-full')}
                 onSubmit={(e) => void formMethods.handleSubmit(onSubmit, onError)(e)}
             >
                 {children}

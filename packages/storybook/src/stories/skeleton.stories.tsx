@@ -4,7 +4,7 @@ import { Skeleton } from '@ui-kit.ai/components'
 
 const meta = {
     component: Skeleton,
-    title: 'Components/Skeleton',
+    title: 'Skeleton',
 } satisfies Meta<typeof Skeleton>
 
 export default meta

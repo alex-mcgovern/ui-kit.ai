@@ -14,8 +14,6 @@ import {
 import { twMerge } from 'tailwind-merge'
 import { tv } from 'tailwind-variants'
 
-import { bgGlass } from '../styles/bg-glass'
-
 interface PopoverProps extends Omit<AriaPopoverProps, 'children'> {
     children: React.ReactNode
     showArrow?: boolean
@@ -23,9 +21,9 @@ interface PopoverProps extends Omit<AriaPopoverProps, 'children'> {
 
 const popoverStyles = tv({
     base: [
-        'border-mid text-dark rounded border shadow-2xl transition-none forced-colors:bg-[Canvas]',
+        `bg-raised/80 border-mid text-dark rounded border shadow-2xl transition-none
+        forced-colors:bg-[Canvas]`,
     ],
-    extend: bgGlass,
     variants: {
         isEntering: {
             true: `animate-in fade-in placement-left:slide-in-from-right-1 placement-right:slide-in-from-left-1

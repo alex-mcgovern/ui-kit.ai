@@ -26,7 +26,7 @@ const meta: Meta<typeof Select<OptionsSchema<'listbox'>>> = {
     subcomponents: {
         SelectButton: SelectButton as ComponentType<unknown>,
     },
-    title: 'Components/Select',
+    title: 'Select',
 }
 
 export default meta

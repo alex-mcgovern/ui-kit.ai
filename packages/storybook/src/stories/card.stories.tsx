@@ -24,7 +24,7 @@ function Template(args: ComponentProps<typeof Card>) {
 const meta = {
     component: Card,
     render: Template,
-    title: 'Components/Card',
+    title: 'Card',
 } satisfies Meta<typeof Card>
 
 export default meta

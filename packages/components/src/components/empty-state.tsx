@@ -18,9 +18,8 @@ const actionsStyle = tv({
 })
 
 /**
- * A EmptyState is a fallback UI shown in the absence of data, e.g. for a search
- * with no results, or before any records have been created. It accepts a list
- * of up to 2 actions, which are React nodes.
+ * An empty state is a fallback UI shown in the absence of data, e.g. for a search
+ * with no results.
  */
 export function EmptyState({
     actions,
@@ -42,7 +41,7 @@ export function EmptyState({
             className={twMerge(
                 'text-center text-balance',
                 'w-full',
-                'px-6 py-32',
+                'p-6',
                 'flex flex-col items-center justify-center',
                 className
             )}
@@ -53,7 +52,7 @@ export function EmptyState({
             />
 
             <Heading
-                className='text-dark mb-1 text-xl'
+                className='text-dark mb-1 text-sm'
                 level={2}
             >
                 {title}

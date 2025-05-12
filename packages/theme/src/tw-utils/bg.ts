@@ -2,9 +2,9 @@ import { genVarName, type VarName } from '../css-vars'
 import { Color, Intent, TwBgUtility } from '../types'
 
 const MAP: Record<TwBgUtility, VarName> = {
-    [TwBgUtility.ACCENT]: genVarName(Intent.DEFAULT, Color.BG_ACCENT),
     [TwBgUtility.ACCENT_DARK]: genVarName(Intent.DEFAULT, Color.BG_ACCENT_DARK),
     [TwBgUtility.ACCENT_LIGHT]: genVarName(Intent.DEFAULT, Color.BG_ACCENT_LIGHT),
+    [TwBgUtility.ACCENT_MID]: genVarName(Intent.DEFAULT, Color.BG_ACCENT_MID),
     [TwBgUtility.BASE]: genVarName(Intent.DEFAULT, Color.BG_BASE),
     [TwBgUtility.RAISED]: genVarName(Intent.DEFAULT, Color.BG_RAISED),
     [TwBgUtility.TINT]: genVarName(Intent.DEFAULT, Color.BG_TINT),
@@ -18,7 +18,7 @@ const template = (utility: string, varName: string): string => `
 }
 @utility ${utility}-* {
   --alpha: calc(--modifier(integer) * 1%);
-  background-color: --alpha(--value(${varName}, [color]) / var(--alpha, 100%));
+  background-color: --alpha(var(${varName}) / var(--alpha, 100%));
 }
 `
 
