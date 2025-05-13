@@ -48,8 +48,8 @@ export default function Layout({
                             },
                             {
                                 href: hrefs.docs.getting_started.theme,
-                                id: 'Theme',
-                                textValue: 'theme',
+                                id: 'theme',
+                                textValue: 'Theme',
                             },
                         ]}
                         selectedKeys={selectedLayoutSegment != null ? [selectedLayoutSegment] : []}

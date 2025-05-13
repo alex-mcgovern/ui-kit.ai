@@ -1,99 +1,107 @@
-# Getting started
+# Introduction
 
-`@ui-kit.ai/components` is a UI library designed with AI integration in mind. It aims to simplify the development process for developers and designers, providing a toolkit that works seamlessly with AI to build more efficient and intelligent user interfaces.
+A clean, minimal UI library that works right out of the box with thoughtful defaults and powerful customization options.
 
-## Installation
+## Why Another UI Library?
 
-Getting up and running is quick and easy.
+We built this library with a clear vision: to create a UI toolkit that enables
+rich, interactive experiences without the configuration headaches.
 
-### 1. Install the package
+While we've drawn inspiration from excellent projects like shadcn/ui, Radix UI Themes, and HeroUI (which we deeply respect), we saw an opportunity to build something that prioritizes both developer experience and end-user delight.
 
-Install the package from your command line:
+## Everything You Need
 
-```shell
-npm install @ui-kit.ai/components
+### 🎨 Themeable
+
+Quickly customize your application's look and feel with our intuitive theme editor. Our theming system is powered by CSS variables and Tailwind CSS v4, giving you the flexibility to create unique designs without writing complex CSS.
+
+```bash
+# Customize your theme with ease
+npm run theme
 ```
 
-### 2. Import the CSS file
+### 🧩 Composable
 
-Import the global CSS file at the root of your application:
-
-```jsx
-import '@ui-kit.ai/components/styles.css'
-```
-
-### 3. Add the Provider component
-
-Add the UI Kit Provider to your application, wrapping your root component:
+We believe in the power of composition. Our library provides simple component APIs that can be combined into powerful recipes. Build complex UI patterns from fundamental building blocks, all with consistent behavior and accessibility.
 
 ```jsx
-import { UIKitProvider } from '@ui-kit.ai/components'
+// Compose components with ease
+import { Card, Button, Avatar } from '@our-ui/react'
 
-export default function () {
+function UserCard({ user }) {
     return (
-        <UIKitProvider>
-            <YourApp />
-        </UIKitProvider>
+        <Card>
+            <Card.Header>
+                <Avatar src={user.avatar} />
+                <Card.Title>{user.name}</Card.Title>
+            </Card.Header>
+            <Card.Content>{user.bio}</Card.Content>
+            <Card.Footer>
+                <Button>Follow</Button>
+            </Card.Footer>
+        </Card>
     )
 }
 ```
 
-### 4. Start building
+### ♿ Accessible
 
-You are now ready to use UI Kit components:
+Built with [React Aria](https://react-spectrum.adobe.com/react-aria/), the foremost accessibility-first UI primitives library. Every component follows WAI-ARIA guidelines and best practices, ensuring your applications are usable by everyone, regardless of ability.
 
-```jsx
-import { Box, Text, Button } from '@ui-kit.ai/components'
+### 🚀 Performant
 
-function YourApp() {
-    return (
-        <Box
-            gap='medium'
-            direction='vertical'
-        >
-            <Text>Hello from UI Kit AI</Text>
-            <Button>Get Started</Button>
-        </Box>
-    )
-}
+Tree-shakeable architecture means you only ship what you use. With a small footprint and minimal runtime overhead, your applications stay fast and responsive, even as they grow in complexity.
+
+### 🌙 Dark Mode
+
+Automatic light/dark mode support for all custom themes, right out of the box. No extra configuration required.
+
+### 📦 Simple Installation
+
+Start building straight away with a single command:
+
+```bash
+npm install @our-ui/react
 ```
 
-## Key Features
+## The MCP Server (Beta)
 
-This library includes an MCP server that offers detailed usage examples to large language models (LLMs), ensuring accurate component implementation and reducing errors. This eliminates the need for extensive debugging and promotes cleaner, more reliable code.
+One of our most exciting features is the MCP server. This powerful addition gives your assistant UI superpowers, enabling rich, AI-powered experiences in your applications.
 
-## Batteries Included
+### LLM Integration
 
-Unlike some other libraries, `@ui-kit.ai/components` comes fully equipped, offering a straightforward and quick installation process. While modification is restricted, customization is still possible through a built-in theme editor, accessible at `/theme` on this website.
+The MCP server allows LLMs to provide detailed code examples that work seamlessly with our component library. This means you can:
 
-## Customizing Your Theme
+- Generate functional UI components on demand
+- Get intelligent suggestions for layout and design
+- Receive working code snippets that use our components correctly
 
-### Using the Theme Editor
+### Coming Soon
 
-You can customize the appearance of components without code changes by using our built-in theme editor:
+We're actively working on several exciting additions to the MCP server:
 
-1. Navigate to the `/theme` page on this website
-2. Adjust colors, spacing, and other design tokens
-3. Export your custom theme configuration
-4. Apply it to your UIKitProvider:
+- **Provider Adapters**: Seamlessly integrate with major LLM providers by translating their message formats automatically, making it simple to build chat interfaces against them.
 
-```jsx
-import { UIKitProvider } from '@ui-kit.ai/components'
-import myCustomTheme from './my-theme.json'
+- **Google A2A Integration**: First-party support for the Google A2A specification, allowing you to build UIs around this spec with minimal hassle.
 
-export default function () {
-    return (
-        <UIKitProvider theme={myCustomTheme}>
-            <YourApp />
-        </UIKitProvider>
-    )
-}
+## Getting Started
+
+Ready to build beautiful, accessible, and performant UIs? Let's get started:
+
+```bash
+# Install the library
+npm install @our-ui/react
+
+# Optional: Install the MCP server for AI-powered UI assistance
+npm install @our-ui/mcp-server
 ```
 
-## Solid Foundation
+## Community and Support
 
-`@ui-kit.ai/components` utilizes React Aria components, a well-maintained library from Adobe. This ensures accessibility, reliability, and longevity, providing the benefits of a professional-grade library without the need for extensive custom development.
+We believe in building this library together with our community. Join us on [GitHub](https://github.com/your-library) to contribute, report issues, or just say hello!
 
-## Next Steps
+For commercial support options or enterprise features, please reach out to our [team](mailto:support@your-library.com).
 
-Explore our component library to see all available components and discover how they can help you build powerful, accessible, and AI-ready user interfaces.
+---
+
+_This library is developed with love and respect for the broader UI component ecosystem. Special thanks to the creators and contributors of shadcn/ui, Radix UI, and HeroUI for their inspiring work._
