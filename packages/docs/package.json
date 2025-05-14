@@ -22,7 +22,7 @@
     "event-source-polyfill": "1.0.31",
     "lodash-es": "4.17.21",
     "lucide-react": "0.487.0",
-    "msw": "2.7.3",
+    "msw": "2.8.2",
     "next": "14.2.24",
     "prettier": "3.5.3",
     "radix-theme-generator": "0.1.1",
