@@ -25,7 +25,7 @@ const modalOverlayStyles = tv({
         'fixed inset-0 z-50',
         'h-dvh w-dvw',
         'flex items-center justify-center text-center',
-        'bg-[#000000]/20',
+        'bg-base/25 backdrop-blur-xs backdrop-brightness-75',
         // transition properties
         'transition-opacity duration-300 ease-out',
         // entering
