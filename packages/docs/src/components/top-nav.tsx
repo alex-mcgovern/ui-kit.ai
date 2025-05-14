@@ -2,6 +2,7 @@
 
 import {
     Button,
+    DialogTrigger,
     FieldGroup,
     Input,
     Kbd,
@@ -12,10 +13,11 @@ import {
 } from '@ui-kit.ai/components'
 // import packageJson from '@ui-kit.ai/components/package.json'
 import '@ui-kit.ai/components/style.css'
-import { Component, Github, Search, Sun } from 'lucide-react'
+import { Component, Github, Search, SearchIcon, Sun } from 'lucide-react'
 import Link from 'next/link'
 
 import { hrefs } from '../lib/hrefs'
+import { DocsSearchDialog } from './docs-search-dialog'
 
 export function TopNav() {
     return (
@@ -52,17 +54,7 @@ export function TopNav() {
                     {/* <Tag className='h-5 text-xs px-1.5'>v{packageJson.version}</Tag> */}
                 </div>
                 <div className='flex items-center justify-between gap-1 '>
-                    <SearchField className='max-w-64'>
-                        <FieldGroup className='bg-tint-light/50 backdrop-blur-md'>
-                            <Input
-                                icon={<Search />}
-                                isBorderless
-                                placeholder='Search...'
-                            />
-                            <SearchFieldClearButton />
-                            <Kbd className='mr-2 shrink-0'>/</Kbd>
-                        </FieldGroup>
-                    </SearchField>
+                    <DocsSearchDialog />
                     <LinkButton
                         isIcon
                         variant='tertiary'
