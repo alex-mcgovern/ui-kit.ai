@@ -1,20 +1,23 @@
-name: Publish docs
+name: Publish packages
+
 on:
     push:
-        branches:
-            - 'main'
+        tags:
+            - 'v[0-9]+.[0-9]+.[0-9]'
+
+permissions:
+    id-token: write
+    deployments: write
 
 concurrency:
     group: build-and-deploy-${{ github.workflow }}-${{ github.ref }}
     cancel-in-progress: true
 
 jobs:
-    deploy:
+    publish-packages:
+        name: Publish package
         runs-on: ubuntu-latest
-        permissions:
-            contents: read
-            deployments: write
-        name: Deploy to Cloudflare Pages
+        environment: npm-registry
         steps:
             - name: Checkout
               uses: actions/checkout@v4
@@ -33,18 +36,13 @@ jobs:
                   cache: 'pnpm'
                   cache-dependency-path: 'pnpm-lock.yaml'
 
-            - name: Install dependencies
+            - name: Install
               run: pnpm i
 
             - name: Build
               run: pnpm run build
 
-            - name: Publish
-              uses: cloudflare/pages-action@v1
-              with:
-                  apiToken: ${{ secrets.CF_PAGES_TOKEN }}
-                  accountId: ${{ secrets.CF_ACCOUNT_ID }}
-                  projectName: 'ui-kit-ai'
-                  directory: 'packages/docs/out'
-                  branch: 'main'
-                  gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+            - name: Publish to NPM
+              run: pnpm run publish --provenance --access public
+              env:
+                  NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
