@@ -1,0 +1,97 @@
+{
+    "$schema": "https://raw.githubusercontent.com/googleapis/release-please/main/schemas/config.json",
+    "include-component-in-tag": true,
+    "include-v-in-tag": true,
+    "release-type": "node",
+    "separate-pull-requests": true,
+    "tag-separator": "@",
+    "always-update": true,
+    "changelog-sections": [
+        { "type": "feat", "section": "Features" },
+        { "type": "fix", "section": "Bug Fixes" },
+        { "type": "perf", "section": "Performance Improvements" },
+        { "type": "revert", "section": "Reverts" },
+        { "type": "chore", "section": "Miscellaneous Chores" },
+        { "type": "docs", "section": "Documentation" },
+        { "type": "style", "section": "Styles" },
+        { "type": "refactor", "section": "Code Refactoring" },
+        { "type": "test", "section": "Tests" },
+        { "type": "build", "section": "Build System" },
+        { "type": "ci", "section": "Continuous Integration" }
+    ],
+    "packages": {
+        "packages/components": {
+            "always-update": true,
+            "extra-label": "components"
+        },
+        "packages/docs": {
+            "always-update": true,
+            "extra-label": "docs"
+        },
+        "packages/eslint": {
+            "always-update": true,
+            "extra-label": "eslint"
+        },
+        "packages/mcp-server": {
+            "always-update": true,
+            "extra-label": "mcp-server"
+        },
+        "packages/metadata": {
+            "always-update": true,
+            "extra-label": "metadata"
+        },
+        "packages/mocks": {
+            "always-update": true,
+            "extra-label": "mocks"
+        },
+        "packages/prettier": {
+            "always-update": true,
+            "extra-label": "prettier"
+        },
+        "packages/storybook": {
+            "always-update": true,
+            "extra-label": "storybook"
+        },
+        "packages/tests": {
+            "always-update": true,
+            "extra-label": "tests"
+        },
+        "packages/theme": {
+            "always-update": true,
+            "extra-label": "theme"
+        },
+        "packages/tsconfig": {
+            "always-update": true,
+            "extra-label": "tsconfig"
+        },
+        "packages/vite": {
+            "always-update": true,
+            "extra-label": "vite"
+        },
+        "packages/vitest": {
+            "always-update": true,
+            "extra-label": "vitest"
+        }
+    },
+    "plugins": [
+        {
+            "type": "linked-versions",
+            "groupName": "all",
+            "components": [
+                "packages/components",
+                "packages/docs",
+                "packages/eslint",
+                "packages/mcp-server",
+                "packages/metadata",
+                "packages/mocks",
+                "packages/prettier",
+                "packages/storybook",
+                "packages/tests",
+                "packages/theme",
+                "packages/tsconfig",
+                "packages/vite",
+                "packages/vitest"
+            ]
+        }
+    ]
+}

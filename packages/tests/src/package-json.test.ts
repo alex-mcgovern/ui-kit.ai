@@ -2,6 +2,7 @@ import fs from 'node:fs'
 import path from 'node:path'
 import { describe, expect } from 'vitest'
 import { test } from 'vitest'
+
 import { version } from '../../../package.json'
 
 const AUTHOR_NAME = 'Alex McGovern'
