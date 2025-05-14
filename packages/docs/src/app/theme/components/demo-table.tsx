@@ -19,7 +19,7 @@ export function DemoTable() {
                     selectionMode='single'
                 >
                     <TableHeader>
-                        <Column>Code</Column>
+                        <Column isRowHeader>Code</Column>
                         <Column>Name</Column>
                         <Column alignment='end'>High</Column>
                         <Column alignment='end'>Open</Column>

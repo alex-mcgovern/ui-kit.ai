@@ -49,7 +49,7 @@ const COMPONENTS = {
     a({ children, ...props }) {
         return (
             <a
-                className='text-dark hover:text-dark underline'
+                className='text-dark hover:text-mid underline decoration-dotted'
                 target='_blank'
                 {...props}
             >

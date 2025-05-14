@@ -18,12 +18,12 @@ export function ColorTableBg({ palette }: { palette: Palette }) {
             className='w-full'
         >
             <TableHeader className='hidden'>
+                <Column isRowHeader>Name</Column>
                 <Column>Default</Column>
                 <Column>Info</Column>
                 <Column>Success</Column>
                 <Column>Warning</Column>
                 <Column>Error</Column>
-                <Column>Name</Column>
             </TableHeader>
             <TableBody>
                 {Object.keys(palette).map((color) => RowRenderBg(color as Color))}
@@ -38,12 +38,12 @@ export function ColorTableBorder({ palette }: { palette: Palette }) {
             className='w-full'
         >
             <TableHeader className='hidden'>
+                <Column isRowHeader>Name</Column>
                 <Column>Default</Column>
                 <Column>Info</Column>
                 <Column>Success</Column>
                 <Column>Warning</Column>
                 <Column>Error</Column>
-                <Column>Name</Column>
             </TableHeader>
             <TableBody>
                 {Object.keys(palette).map((color) => RowRenderBorder(color as Color))}
@@ -58,12 +58,12 @@ export function ColorTableText({ palette }: { palette: Palette }) {
             className='w-full'
         >
             <TableHeader className='hidden'>
+                <Column isRowHeader>Name</Column>
                 <Column>Default</Column>
                 <Column>Info</Column>
                 <Column>Success</Column>
                 <Column>Warning</Column>
                 <Column>Error</Column>
-                <Column>Name</Column>
             </TableHeader>
             <TableBody>
                 {Object.keys(palette).map((color) => RowRenderText(color as Color))}
@@ -141,13 +141,6 @@ function ColorTableRow({ className, color }: { className: string; color: Color }
 
 function RowRenderBg(color: Color) {
     switch (color) {
-        case 'bg-accent-mid':
-            return (
-                <ColorTableRow
-                    className='bg-accent-mid text-accent'
-                    color={color}
-                />
-            )
         case 'bg-accent-dark':
             return (
                 <ColorTableRow
@@ -159,6 +152,13 @@ function RowRenderBg(color: Color) {
             return (
                 <ColorTableRow
                     className='bg-accent-light text-accent'
+                    color={color}
+                />
+            )
+        case 'bg-accent-mid':
+            return (
+                <ColorTableRow
+                    className='bg-accent-mid text-accent'
                     color={color}
                 />
             )
@@ -212,9 +212,9 @@ function RowRenderBg(color: Color) {
 }
 function RowRenderBorder(color: Color) {
     switch (color) {
-        case 'bg-accent-mid':
         case 'bg-accent-dark':
         case 'bg-accent-light':
+        case 'bg-accent-mid':
         case 'bg-base':
         case 'bg-raised':
         case 'bg-tint':
@@ -253,9 +253,9 @@ function RowRenderBorder(color: Color) {
 }
 function RowRenderText(color: Color) {
     switch (color) {
-        case 'bg-accent-mid':
         case 'bg-accent-dark':
         case 'bg-accent-light':
+        case 'bg-accent-mid':
         case 'bg-base':
         case 'bg-raised':
         case 'bg-tint':

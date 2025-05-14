@@ -25,7 +25,7 @@ const modalOverlayStyles = tv({
         'fixed inset-0 z-50',
         'h-dvh w-dvw',
         'flex items-center justify-center text-center',
-        'bg-black/20',
+        'bg-[#000000]/20',
         // transition properties
         'transition-opacity duration-300 ease-out',
         // entering
@@ -57,7 +57,7 @@ const dialogStyles = tv({
         'outline outline-0',
         'relative',
         'text-left',
-        'bg-raised/80',
+        'bg-raised/80 backdrop-blur-xs',
         // height
         'sm:max-sm:h-dvh sm:max-sm:max-h-dvh',
         'h-[unset] max-h-[inherit]',

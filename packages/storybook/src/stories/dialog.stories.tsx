@@ -103,6 +103,7 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
     parameters: {
+        className: 'error',
         displayName: 'Default',
     },
     render: TemplateDialog,

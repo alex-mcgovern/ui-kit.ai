@@ -2,8 +2,6 @@ import type { Meta, StoryObj } from '@storybook/react'
 import type { ComponentProps } from 'react'
 
 import { Chat, ChatMessage } from '@ui-kit.ai/components'
-import { llmStreamHandler } from '@ui-kit.ai/mocks'
-import { EventSourcePolyfill } from 'event-source-polyfill'
 import { useEffect, useState } from 'react'
 
 const meta: Meta<typeof Chat> = {
@@ -21,29 +19,25 @@ interface ChatMessage {
 type Story = StoryObj<typeof meta>
 
 function Template(args: ComponentProps<typeof Chat>) {
-    const [es] = useState(() => new EventSourcePolyfill('/api/stream'))
     const [streamedMessage, setStreamedMessage] = useState<string>('')
 
     useEffect(() => {
-        // @ts-expect-error - EventSourcePolyfill does not have the same type as EventSource
-        const handleStart = (e) => {
-            setStreamedMessage(JSON.parse(e.data).text)
-        }
-        // @ts-expect-error - EventSourcePolyfill does not have the same type as EventSource
-        const handleDelta = (e) => {
-            setStreamedMessage((prev) => `${prev}${JSON.parse(e.data).text}`)
-        }
+        const fullMessage = 'Hi, how can I help?'
+        let currentIndex = 0
 
-        // Add event listeners with the named handler references
-        es.addEventListener('text_part_start', handleStart)
-        es.addEventListener('text_part_delta', handleDelta)
+        const interval = setInterval(() => {
+            if (currentIndex <= fullMessage.length) {
+                setStreamedMessage(fullMessage.substring(0, currentIndex))
+                currentIndex++
+            } else {
+                clearInterval(interval)
+            }
+        }, 100)
 
-        // Remove the same handler references on cleanup
         return () => {
-            es.removeEventListener('text_part_start', handleStart)
-            es.removeEventListener('text_part_delta', handleDelta)
+            clearInterval(interval)
         }
-    }, [es])
+    }, [])
 
     // Combine the initial messages with the streaming content
     const displayMessages = [
@@ -79,9 +73,6 @@ function Template(args: ComponentProps<typeof Chat>) {
 export const Default: Story = {
     parameters: {
         displayName: 'Default',
-        msw: {
-            handlers: [llmStreamHandler],
-        },
     },
     // @ts-expect-error - intentionally omitting children
     render: (args) => <Template {...args} />,

@@ -143,13 +143,13 @@ function HeroCtaPrimary({ className }: { className?: string }) {
         <div className={twMerge('flex gap-2 w-min', className)}>
             <LinkButton
                 className='!h-10'
-                href={hrefs.docs.getting_started.introduction}
+                href={hrefs.docs.getting_started.installation}
                 slotRight={<ChevronRightIcon />}
             >
                 Get started
             </LinkButton>
             <TextField
-                className='min-w-52 shrink-0'
+                className='min-w-46 shrink-0'
                 isReadOnly
                 value='npm i @ui-kit.ai/components'
             >

@@ -1,6 +1,7 @@
 node_modules
 .next
 **/*/dist
+packages/docs/out
 .turbo
 vite.config.mjs.timestamp-*
 .DS_Store

@@ -4,7 +4,6 @@ import '../index.css'
 
 import { Inter } from 'next/font/google'
 
-import { MSWProvider } from '../components/providers/msw-provider'
 import { RouterProvider } from '../components/providers/router-provider'
 import { TopNav } from '../components/top-nav'
 
@@ -47,12 +46,10 @@ export default function RootLayout({
     return (
         <html lang='en'>
             <body className={`${inter.className} antialiased relative `}>
-                <MSWProvider>
-                    <RouterProvider>
-                        <TopNav />
-                        {children}
-                    </RouterProvider>
-                </MSWProvider>
+                <RouterProvider>
+                    <TopNav />
+                    {children}
+                </RouterProvider>
             </body>
         </html>
     )

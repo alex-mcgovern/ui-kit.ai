@@ -47,17 +47,17 @@ export function EmptyState({
             )}
         >
             <Icon
-                className='text-mid mb-2 block'
+                className='text-mid mb-2 block [&>*]:stroke-[1.5]'
                 size={48}
             />
 
             <Heading
-                className='text-dark mb-1 text-sm'
+                className='text-dark mb-1 text-base'
                 level={2}
             >
                 {title}
             </Heading>
-            {body != null ? <p className='mb-4 max-w-lg text-balance'>{body}</p> : null}
+            {body != null ? <p className='mb-4 max-w-lg text-base text-balance'>{body}</p> : null}
 
             {actions && actions.length > 0 ? (
                 <div
