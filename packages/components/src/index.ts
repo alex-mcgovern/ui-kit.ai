@@ -1,5 +1,6 @@
 import './index.css'
 export { Alert } from './components/alert'
+export { Autocomplete } from './components/autocomplete'
 export { Avatar } from './components/avatar'
 export { Button, LinkButton } from './components/button'
 export { Card, CardBody, CardFooter, CardHeader, CardLink, CardTitle } from './components/card'
