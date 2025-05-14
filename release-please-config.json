@@ -64,10 +64,6 @@
             "always-update": true,
             "extra-label": "tsconfig"
         },
-        "packages/utils": {
-            "always-update": true,
-            "extra-label": "utils"
-        },
         "packages/vite": {
             "always-update": true,
             "extra-label": "vite"
@@ -93,7 +89,6 @@
                 "packages/tests",
                 "packages/theme",
                 "packages/tsconfig",
-                "packages/utils",
                 "packages/vite",
                 "packages/vitest"
             ]

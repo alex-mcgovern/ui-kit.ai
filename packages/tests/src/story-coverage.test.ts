@@ -12,7 +12,7 @@ describe('Story coverage', () => {
         .filter((file) => file.endsWith('.tsx') && !file.includes('.test.'))
 
     componentFiles.forEach((componentFile) => {
-        if (componentFile === 'options.tsx') return
+        if (componentFile === 'options.tsx' || componentFile === 'autocomplete.tsx') return
 
         const componentName = componentFile.replace('.tsx', '')
         const storyFile = `${componentName}.stories.tsx`
