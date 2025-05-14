@@ -7,7 +7,7 @@
     "packages/mocks": "0.0.0-alpha.3",
     "packages/prettier": "0.0.0-alpha.3",
     "packages/storybook": "0.0.0-alpha.3",
-    "packages/tests": "0.0.0-alpha.3",
+    "packages/tests": "0.1.0-alpha.3",
     "packages/theme": "0.0.0-alpha.3",
     "packages/tsconfig": "0.0.0-alpha.3",
     "packages/vite": "0.0.0-alpha.3",
