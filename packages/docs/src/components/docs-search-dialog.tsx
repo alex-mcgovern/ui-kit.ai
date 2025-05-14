@@ -63,7 +63,7 @@ export function DocsSearchDialog() {
                         width='md'
                     >
                         <Autocomplete>
-                            <DialogHeader className='px-1'>
+                            <DialogHeader className='px-1.5'>
                                 <SearchField
                                     aria-label='Search...'
                                     autoFocus
@@ -79,11 +79,14 @@ export function DocsSearchDialog() {
                                 <Menu
                                     items={ITEMS}
                                     renderEmptyState={() => (
-                                        <EmptyState
-                                            body='Try searching for something else.'
-                                            icon={SearchIcon}
-                                            title='No results found'
-                                        />
+                                        <div className='h-dvh md:h-[calc(50vh-4rem)] flex items-center justify-between'>
+                                            <EmptyState
+                                                body='Try searching for something else.'
+                                                className=''
+                                                icon={SearchIcon}
+                                                title='No results found'
+                                            />
+                                        </div>
                                     )}
                                 />
                             </DialogContent>
