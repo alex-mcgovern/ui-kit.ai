@@ -2,7 +2,7 @@ on:
     push:
         branches:
             - 'main'
-            - 'ci/deploy/docs'
+            - 'ci/deploy-docs-site'
 jobs:
     deploy:
         runs-on: ubuntu-latest
