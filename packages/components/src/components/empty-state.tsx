@@ -57,7 +57,7 @@ export function EmptyState({
             >
                 {title}
             </Heading>
-            {body != null ? <p className='mb-4 max-w-lg text-balance text-base'>{body}</p> : null}
+            {body != null ? <p className='mb-4 max-w-lg text-base text-balance'>{body}</p> : null}
 
             {actions && actions.length > 0 ? (
                 <div
