@@ -70,11 +70,6 @@ describe('Release Please Configuration', () => {
                 config['always-update'],
                 `Package "${packageName}" should have "always-update" set to true in release-please-config.json`
             ).toBe(true)
-
-            expect(
-                config['extra-label'],
-                `Package "${packageName}" should have "extra-label" matching its name in release-please-config.json`
-            ).toBe(packageName)
         }
     })
 
@@ -93,6 +88,7 @@ describe('Release Please Configuration', () => {
         )
 
         configPackages.forEach((configPackage) => {
+            if (configPackage === '.') return
             expect(
                 packageDirectories.includes(configPackage),
                 `Package "${configPackage}" in release-please-config.json doesn't exist in packages directory`

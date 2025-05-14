@@ -1,7 +1,8 @@
 {
     "$schema": "https://raw.githubusercontent.com/googleapis/release-please/main/schemas/config.json",
-    "include-component-in-tag": true,
+    "include-component-in-tag": false,
     "include-v-in-tag": true,
+    "group-pull-request-title-pattern": "❖ ${version}",
     "release-type": "node",
     "tag-separator": "@",
     "always-update": true,
@@ -19,6 +20,9 @@
         { "type": "ci", "section": "Continuous Integration" }
     ],
     "packages": {
+        ".": {
+            "always-update": true
+        },
         "packages/components": {
             "always-update": true,
             "extra-label": "components"
@@ -77,6 +81,7 @@
             "type": "linked-versions",
             "groupName": "all",
             "components": [
+                ".",
                 "packages/components",
                 "packages/docs",
                 "packages/eslint",
