@@ -25,7 +25,7 @@ const modalOverlayStyles = tv({
         'fixed inset-0 z-50',
         'h-dvh w-dvw',
         'flex items-center justify-center text-center',
-        'bg-[#000000]/20',
+        'bg-base/25 backdrop-blur-xs backdrop-brightness-75',
         // transition properties
         'transition-opacity duration-300 ease-out',
         // entering
@@ -38,7 +38,7 @@ const modalOverlayStyles = tv({
 
 const modalStyles = tv({
     base: [
-        'h-dvh w-dvw md:size-[unset] md:max-h-[75dvh]',
+        'h-dvh w-full md:max-h-[75dvh]',
         'flex items-center justify-center',
         'relative',
         'forced-colors:bg-[Canvas]',
@@ -221,7 +221,14 @@ export function DialogModal({ isDismissable = true, ...props }: RACModalOverlayP
     return (
         <RACModal
             {...props}
-            className={modalStyles}
+            className={(renderProps) =>
+                twMerge(
+                    modalStyles(),
+                    typeof props.className === 'function'
+                        ? props.className(renderProps)
+                        : props.className
+                )
+            }
             isDismissable={isDismissable}
         />
     )
