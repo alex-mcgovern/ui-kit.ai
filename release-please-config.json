@@ -3,7 +3,7 @@
     "include-component-in-tag": true,
     "include-v-in-tag": true,
     "release-type": "node",
-    "separate-pull-requests": true,
+    "separate-pull-requests": false,
     "tag-separator": "@",
     "always-update": true,
     "changelog-sections": [
