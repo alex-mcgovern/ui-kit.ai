@@ -28,7 +28,7 @@
     "radix-theme-generator": "0.1.1",
     "react": "19.1.0",
     "react-dom": "19.1.0",
-    "react-element-to-jsx-string": "17.0.0",
+    "react-element-to-jsx-string": "17.0.1",
     "tailwind-merge": "3.2.0",
     "tailwindcss": "4.1.3",
     "zod": "3.24.1"
