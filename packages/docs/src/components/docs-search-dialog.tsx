@@ -1,3 +1,5 @@
+import type { ComponentDoc } from 'react-docgen-typescript'
+
 import {
     Autocomplete,
     Button,
@@ -7,23 +9,32 @@ import {
     DialogModal,
     DialogModalOverlay,
     DialogTrigger,
+    EmptyState,
     Input,
     Menu,
     type OptionsSchema,
     SearchField,
     useKbd,
 } from '@ui-kit.ai/components'
+import propTypes from '@ui-kit.ai/metadata/prop-types.json'
 import components from '@ui-kit.ai/metadata/usage-examples.json'
 import { SearchIcon } from 'lucide-react'
 import { useState } from 'react'
 
 import { hrefs } from '../lib/hrefs'
 
-const ITEMS: OptionsSchema<'listbox'>[] = Object.entries(components).map(([componentName]) => ({
-    href: hrefs.component(componentName),
-    id: componentName,
-    textValue: componentName,
-}))
+const ITEMS: OptionsSchema<'listbox'>[] = Object.entries(components).map(([componentName]) => {
+    const docs = (propTypes as ComponentDoc[]).find(
+        (prop) => prop.displayName === componentName
+    ) as ComponentDoc
+    return {
+        className: 'mb-2',
+        description: docs.description,
+        href: hrefs.component(componentName),
+        id: componentName,
+        textValue: componentName,
+    }
+})
 
 export function DocsSearchDialog() {
     const [isOpen, setIsOpen] = useState(false)
@@ -47,9 +58,12 @@ export function DocsSearchDialog() {
             </Button>
             <DialogModalOverlay>
                 <DialogModal>
-                    <Dialog width='md'>
+                    <Dialog
+                        className='md:!h-[50vh]'
+                        width='md'
+                    >
                         <Autocomplete>
-                            <DialogHeader className='px-0'>
+                            <DialogHeader className='px-1'>
                                 <SearchField
                                     aria-label='Search...'
                                     autoFocus
@@ -61,9 +75,17 @@ export function DocsSearchDialog() {
                                     />
                                 </SearchField>
                             </DialogHeader>
-
-                            <DialogContent>
-                                <Menu items={ITEMS} />
+                            <DialogContent className='p-1'>
+                                <Menu
+                                    items={ITEMS}
+                                    renderEmptyState={() => (
+                                        <EmptyState
+                                            body='Try searching for something else.'
+                                            icon={SearchIcon}
+                                            title='No results found'
+                                        />
+                                    )}
+                                />
                             </DialogContent>
                         </Autocomplete>
                     </Dialog>

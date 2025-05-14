@@ -221,7 +221,14 @@ export function DialogModal({ isDismissable = true, ...props }: RACModalOverlayP
     return (
         <RACModal
             {...props}
-            className={modalStyles}
+            className={(renderProps) =>
+                twMerge(
+                    modalStyles(),
+                    typeof props.className === 'function'
+                        ? props.className(renderProps)
+                        : props.className
+                )
+            }
             isDismissable={isDismissable}
         />
     )
