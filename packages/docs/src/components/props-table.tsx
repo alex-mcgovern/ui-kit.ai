@@ -25,6 +25,7 @@ export function PropsTable({ docs }: { docs: ComponentDoc }) {
                     <TableHeader>
                         <Column
                             className='py-2 px-3'
+                            isRowHeader
                             minWidth={184}
                             width='1fr'
                         >
@@ -50,12 +51,7 @@ export function PropsTable({ docs }: { docs: ComponentDoc }) {
                             <Row key={name}>
                                 <Cell className='py-2 px-5'>
                                     <div className='flex items-center gap-0.5'>
-                                        <CodeInline
-                                            className='accent'
-                                            language='plaintext'
-                                        >
-                                            {name}
-                                        </CodeInline>
+                                        <CodeInline language='plaintext'>{name}</CodeInline>
                                         {prop.description !== '' ? (
                                             <TooltipTrigger>
                                                 <TooltipInfoButton />

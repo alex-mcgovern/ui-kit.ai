@@ -37,10 +37,6 @@ export function ComponentDocsPageContent({ component }: { component: keyof typeo
                 code={getUsageExample(component, 'Default')}
                 component={<Default />}
             />
-            <section className='my-8'>
-                <Heading level={2}>Props</Heading>
-                <PropsTable docs={docs} />
-            </section>
 
             {stories.length > 1 ? <Heading level={2}>Examples</Heading> : null}
 
@@ -65,6 +61,11 @@ export function ComponentDocsPageContent({ component }: { component: keyof typeo
                     </section>
                 )
             })}
+
+            <section className='my-8'>
+                <Heading level={2}>Props</Heading>
+                <PropsTable docs={docs} />
+            </section>
         </>
     )
 }

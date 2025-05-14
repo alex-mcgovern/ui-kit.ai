@@ -8,11 +8,11 @@ const heading = tv({
     base: 'font-title',
     variants: {
         level: {
-            1: 'letter-spacing-[-0.35px] text-4xl font-bold',
-            2: 'letter-spacing-[-0.21px] text-3xl font-bold',
-            3: 'letter-spacing-[-0.15px] text-2xl font-semibold',
-            4: 'letter-spacing-[-0.1px] text-xl font-semibold',
-            5: 'letter-spacing-[-0.045px] text-lg font-semibold',
+            1: 'letter-spacing-[-0.35px] text-3xl font-bold',
+            2: 'letter-spacing-[-0.21px] text-2xl font-bold',
+            3: 'letter-spacing-[-0.15px] text-xl font-semibold',
+            4: 'letter-spacing-[-0.1px] text-lg font-semibold',
+            5: 'letter-spacing-[-0.045px] text-base font-semibold',
             6: 'text-base font-semibold',
         },
     },

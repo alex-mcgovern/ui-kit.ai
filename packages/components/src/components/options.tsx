@@ -116,7 +116,7 @@ function OptionsItem<TType extends OptionType>({
                                 'flex items-center justify-center',
                                 'text-mid',
                                 'pointer-events-none',
-                                'size-3 [&_svg]:size-3 [&_svg]:shrink-0'
+                                'size-4 [&_svg]:size-3 [&_svg]:shrink-0'
                             )}
                         >
                             {props.icon}

@@ -104,13 +104,18 @@ p:not(:last-child) {
 ul,
 ol {
     list-style-type: disc;
-    list-style-position: inside;
+    list-style-position: outside;
     margin-bottom: calc(var(--spacing) * 4);
-    padding-left: calc(var(--spacing) * 2);
+    margin-left: calc(var(--spacing) * 4);
 }
 
 li {
-    margin-bottom: calc(var(--spacing) * 2);
+    margin-bottom: calc(var(--spacing) * 1);
+}
+
+strong {
+    font-weight: 500;
+    color: var(--theme-default-text-dark);
 }
 
 .code,

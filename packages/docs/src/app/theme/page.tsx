@@ -188,7 +188,7 @@ function ThemeColorPicker({
                 <Input
                     icon={
                         <ColorSwatch
-                            className='size-5'
+                            className='size-4'
                             color={value ?? undefined}
                         />
                     }
@@ -241,7 +241,7 @@ const PRESETS: OptionsSchema<'listbox', Preset, Palette>[] = [
         textValue: 'Indigo',
         icon: (
             <ColorSwatch
-                className='size-5'
+                className='size-4'
                 color='#3E63DD'
             />
         ),
@@ -257,7 +257,7 @@ const PRESETS: OptionsSchema<'listbox', Preset, Palette>[] = [
         textValue: 'Muted (warm)',
         icon: (
             <ColorSwatch
-                className='size-5'
+                className='size-4'
                 color='#E6E0E0'
             />
         ),
@@ -274,7 +274,7 @@ const PRESETS: OptionsSchema<'listbox', Preset, Palette>[] = [
         description: 'Credit: shadcn/ui',
         icon: (
             <ColorSwatch
-                className='size-5'
+                className='size-4'
                 color='#1C1917'
             />
         ),
@@ -291,7 +291,7 @@ const PRESETS: OptionsSchema<'listbox', Preset, Palette>[] = [
         description: 'Credit: HeroUI',
         icon: (
             <ColorSwatch
-                className='size-5'
+                className='size-4'
                 color='#1C1917'
             />
         ),
