@@ -77,7 +77,7 @@
         "@ui-kit.ai/vitest": "workspace:*",
         "autoprefixer": "10.4.21",
         "lodash-es": "4.17.21",
-        "msw": "2.7.3",
+        "msw": "2.8.2",
         "msw-storybook-addon": "2.0.4",
         "storybook": "8.6.12",
         "storycap": "5.0.1",
