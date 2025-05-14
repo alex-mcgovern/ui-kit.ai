@@ -2,7 +2,7 @@
     "packages/components": "0.0.0-alpha.3",
     "packages/docs": "0.0.0-alpha.3",
     "packages/eslint": "0.0.0-alpha.3",
-    "packages/mcp-server": "0.0.0-alpha.3",
+    "packages/mcp-server": "0.1.0-alpha.3",
     "packages/metadata": "0.0.0-alpha.3",
     "packages/mocks": "0.0.0-alpha.3",
     "packages/prettier": "0.0.0-alpha.3",
