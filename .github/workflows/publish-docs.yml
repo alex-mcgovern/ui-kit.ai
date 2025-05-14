@@ -1,0 +1,45 @@
+on:
+    push:
+        branches:
+            - 'main'
+            - 'ci/deploy/docs'
+jobs:
+    deploy:
+        runs-on: ubuntu-latest
+        permissions:
+            contents: read
+            deployments: write
+        name: Deploy to Cloudflare Pages
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4
+
+            - name: Install pnpm
+              uses: pnpm/action-setup@v4
+              with:
+                  version: '10.6.3'
+                  run_install: false
+
+            - name: Setup Node
+              uses: actions/setup-node@v4
+              with:
+                  node-version-file: '.nvmrc'
+                  registry-url: 'https://registry.npmjs.org'
+                  cache: 'pnpm'
+                  cache-dependency-path: 'pnpm-lock.yaml'
+
+            - name: Install dependencies
+              run: pnpm i
+
+            - name: Build
+              run: pnpm run build
+
+            - name: Publish
+              uses: cloudflare/pages-action@v1
+              with:
+                  apiToken: ${{ secrets.CF_PAGES_TOKEN }}
+                  accountId: ${{ secrets.CF_ACCOUNT_ID }}
+                  projectName: 'ui-kit-ai'
+                  directory: 'packages/docs/out'
+                  branch: 'main'
+                  gitHubToken: ${{ secrets.GITHUB_TOKEN }}
