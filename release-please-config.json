@@ -5,6 +5,7 @@
     "group-pull-request-title-pattern": "❖ @ui-kit.ai v${version}",
     "release-type": "node",
     "tag-separator": "@",
+    "release-as": "alpha",
     "always-update": true,
     "changelog-sections": [
         { "type": "feat", "section": "Features" },
@@ -21,59 +22,47 @@
     ],
     "packages": {
         ".": {
-            "always-update": true
+            "always-update": true,
+            "release-as": "0.0.0"
         },
         "packages/components": {
-            "always-update": true,
-            "extra-label": "components"
+            "release-as": "0.0.0"
         },
         "packages/docs": {
-            "always-update": true,
-            "extra-label": "docs"
+            "release-as": "0.0.0"
         },
         "packages/eslint": {
-            "always-update": true,
-            "extra-label": "eslint"
+            "release-as": "0.0.0"
         },
         "packages/mcp-server": {
-            "always-update": true,
-            "extra-label": "mcp-server"
+            "release-as": "0.0.0"
         },
         "packages/metadata": {
-            "always-update": true,
-            "extra-label": "metadata"
+            "release-as": "0.0.0"
         },
         "packages/mocks": {
-            "always-update": true,
-            "extra-label": "mocks"
+            "release-as": "0.0.0"
         },
         "packages/prettier": {
-            "always-update": true,
-            "extra-label": "prettier"
+            "release-as": "0.0.0"
         },
         "packages/storybook": {
-            "always-update": true,
-            "extra-label": "storybook"
+            "release-as": "0.0.0"
         },
         "packages/tests": {
-            "always-update": true,
-            "extra-label": "tests"
+            "release-as": "0.0.0"
         },
         "packages/theme": {
-            "always-update": true,
-            "extra-label": "theme"
+            "release-as": "0.0.0"
         },
         "packages/tsconfig": {
-            "always-update": true,
-            "extra-label": "tsconfig"
+            "release-as": "0.0.0"
         },
         "packages/vite": {
-            "always-update": true,
-            "extra-label": "vite"
+            "release-as": "0.0.0"
         },
         "packages/vitest": {
-            "always-update": true,
-            "extra-label": "vitest"
+            "release-as": "0.0.0"
         }
     },
     "plugins": [
