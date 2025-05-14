@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import type { ComponentProps } from 'react'
 
-import { faker } from '@faker-js/faker'
 import {
     Button,
     Dialog,
@@ -72,26 +71,26 @@ function TemplateDialog(props: ComponentProps<typeof Dialog>) {
     )
 }
 
-const LongContent = () => (
-    <>
-        <p className='mb-2'>
-            A modal dialog component powered by{' '}
-            <a href='https://react-spectrum.adobe.com/react-aria/Dialoghtml'>
-                React Aria Components
-            </a>
-        </p>
-        {Array.from({ length: 10 }, () => {
-            return (
-                <p
-                    className='mb-2'
-                    key={faker.string.alphanumeric(4)}
-                >
-                    {faker.lorem.paragraphs(1)}
-                </p>
-            )
-        })}
-    </>
-)
+// const LongContent = () => (
+//     <>
+//         <p className='mb-2'>
+//             A modal dialog component powered by{' '}
+//             <a href='https://react-spectrum.adobe.com/react-aria/Dialoghtml'>
+//                 React Aria Components
+//             </a>
+//         </p>
+//         {Array.from({ length: 10 }, () => {
+//             return (
+//                 <p
+//                     className='mb-2'
+//                     key={faker.string.alphanumeric(4)}
+//                 >
+//                     {faker.lorem.paragraphs(1)}
+//                 </p>
+//             )
+//         })}
+//     </>
+// )
 
 const meta = {
     component: Dialog,
@@ -116,84 +115,32 @@ export const Modal: Story = {
     render: Template,
 }
 
-export const WidthMd: Story = {
+export const WidthSm: Story = {
     args: {
-        children: ({ close }) => {
-            return (
-                <>
-                    <DialogHeader>
-                        <DialogTitle>Hello there</DialogTitle>
-                        <DialogCloseButton />
-                    </DialogHeader>
-
-                    <DialogContent>
-                        <LongContent />
-                    </DialogContent>
-
-                    <DialogFooter>
-                        <Button
-                            className='ml-auto'
-                            slot='close'
-                            variant='secondary'
-                        >
-                            Cancel
-                        </Button>
-                        <Button
-                            onPress={() => {
-                                alert('Confirmed')
-                                close()
-                            }}
-                            type='submit'
-                        >
-                            Confirm
-                        </Button>
-                    </DialogFooter>
-                </>
-            )
-        },
+        width: 'sm',
     },
     parameters: {
-        displayName: 'md',
+        displayName: 'Width: `sm`',
     },
+    render: TemplateDialog,
+}
+
+export const WidthMd: Story = {
+    args: {
+        width: 'md',
+    },
+    parameters: {
+        displayName: 'Width: `md`',
+    },
+    render: TemplateDialog,
 }
 
 export const WidthLg: Story = {
     args: {
-        children: ({ close }) => {
-            return (
-                <>
-                    <DialogHeader>
-                        <DialogTitle>Hello there</DialogTitle>
-                        <DialogCloseButton />
-                    </DialogHeader>
-
-                    <DialogContent>
-                        <LongContent />
-                    </DialogContent>
-
-                    <DialogFooter>
-                        <Button
-                            className='ml-auto'
-                            onPress={() => close()}
-                            variant='secondary'
-                        >
-                            Cancel
-                        </Button>
-                        <Button
-                            onPress={() => {
-                                alert('Confirmed')
-                                close()
-                            }}
-                            type='submit'
-                        >
-                            Confirm
-                        </Button>
-                    </DialogFooter>
-                </>
-            )
-        },
+        width: 'lg',
     },
     parameters: {
-        displayName: 'lg',
+        displayName: 'Width: `lg`',
     },
+    render: TemplateDialog,
 }
