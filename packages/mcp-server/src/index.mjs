@@ -7,10 +7,16 @@ import { z } from 'zod'
 
 import packageJson from '../package.json' with { type: 'json' }
 
-const server = new McpServer({
-    name: '@ui-kit.ai/components usage',
-    version: packageJson.version,
-})
+const server = new McpServer(
+    {
+        name: '@ui-kit.ai/components usage',
+        version: packageJson.version,
+    },
+    {
+        instructions:
+            'Use this server to get usage examples for the `@ui-kit.ai/components` package. You can use the `all_components` tool to get a list of all components, or the `usage` tool to get usage examples for a specific component.',
+    }
+)
 
 server.tool('all_components', {}, () => {
     return {

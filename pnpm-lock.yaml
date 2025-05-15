@@ -65,6 +65,9 @@ importers:
       react-syntax-highlighter:
         specifier: 15.6.1
         version: 15.6.1(react@19.1.0)
+      remark-alerts:
+        specifier: 0.0.1
+        version: 0.0.1(@types/mdast@4.0.4)(unified@11.0.5)
       remark-gfm:
         specifier: 4.0.1
         version: 4.0.1
@@ -308,12 +311,9 @@ importers:
       '@modelcontextprotocol/sdk':
         specifier: 1.9.0
         version: 1.9.0
-      react:
-        specifier: 19.1.0
-        version: 19.1.0
-      react-element-to-jsx-string:
-        specifier: 17.0.1
-        version: 17.0.1(react-dom@19.1.0(react@19.1.0))(react-is@19.1.0)(react@19.1.0)
+      '@ui-kit.ai/metadata':
+        specifier: workspace:*
+        version: link:../metadata
       zod:
         specifier: 3.24.1
         version: 3.24.1
@@ -330,9 +330,6 @@ importers:
       '@ui-kit.ai/eslint':
         specifier: workspace:*
         version: link:../eslint
-      '@ui-kit.ai/metadata':
-        specifier: workspace:*
-        version: link:../metadata
       '@ui-kit.ai/prettier':
         specifier: workspace:*
         version: link:../prettier
@@ -347,50 +344,40 @@ importers:
         version: link:../vitest
 
   packages/metadata:
-    dependencies:
-      '@storybook/react':
-        specifier: 8.6.12
-        version: 8.6.12(@storybook/test@8.6.12(storybook@8.6.12(prettier@3.5.3)))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(storybook@8.6.12(prettier@3.5.3))(typescript@5.8.2)
-      '@ui-kit.ai/components':
-        specifier: workspace:*
-        version: link:../components
-      '@ui-kit.ai/storybook':
-        specifier: workspace:*
-        version: link:../storybook
-      prettier:
-        specifier: 3.5.3
-        version: 3.5.3
-      react-docgen-typescript:
-        specifier: 2.2.2
-        version: 2.2.2(typescript@5.8.2)
-      react-element-to-jsx-string:
-        specifier: 17.0.1
-        version: 17.0.1(react-dom@19.1.0(react@19.1.0))(react-is@19.1.0)(react@19.1.0)
-      tailwindcss:
-        specifier: 4.1.6
-        version: 4.1.6
     devDependencies:
       '@types/react':
         specifier: 19.1.3
         version: 19.1.3
+      '@ui-kit.ai/components':
+        specifier: workspace:*
+        version: link:../components
       '@ui-kit.ai/eslint':
         specifier: workspace:*
         version: link:../eslint
       '@ui-kit.ai/prettier':
         specifier: workspace:*
         version: link:../prettier
+      '@ui-kit.ai/storybook':
+        specifier: workspace:*
+        version: link:../storybook
       '@ui-kit.ai/tsconfig':
         specifier: workspace:*
         version: link:../tsconfig
       '@ui-kit.ai/vite':
         specifier: workspace:*
         version: link:../vite
+      prettier:
+        specifier: 3.5.3
+        version: 3.5.3
       react:
         specifier: 19.1.0
         version: 19.1.0
-      react-is:
-        specifier: 19.1.0
-        version: 19.1.0
+      react-docgen-typescript:
+        specifier: 2.2.2
+        version: 2.2.2(typescript@5.8.2)
+      react-element-to-jsx-string:
+        specifier: 17.0.1
+        version: 17.0.1(react-dom@19.1.0(react@19.1.0))(react-is@19.1.0)(react@19.1.0)
 
   packages/mocks:
     dependencies:
@@ -5711,6 +5698,12 @@ packages:
   regexp.prototype.flags@1.5.4:
     resolution: {integrity: sha512-dYqgNSZbDwkaJ2ceRd9ojCGjBq+mOm9LmtXnAnEGyHhN/5R7iDW2TRw3h+o/jCFxus3P2LfWIIiwowAjANm7IA==}
     engines: {node: '>= 0.4'}
+
+  remark-alerts@0.0.1:
+    resolution: {integrity: sha512-xDUy3FqgYu3rUsYovZKLXZwHuM7M/XUFxsTDAMeEKoHsg9hiEHR59FkRqeGtzZDg8ThEJYnFiJJW49n9ruvVLw==}
+    peerDependencies:
+      '@types/mdast': ^4.0.3
+      unified: ^11.0.4
 
   remark-gfm@4.0.1:
     resolution: {integrity: sha512-1quofZ2RQ9EWdeN34S79+KExV1764+wCUGop5CPL1WGdD0ocPpu91lzPGbwWMECpEpd42kJGQwzRfyov9j4yNg==}
@@ -12772,6 +12765,12 @@ snapshots:
       get-proto: 1.0.1
       gopd: 1.2.0
       set-function-name: 2.0.2
+
+  remark-alerts@0.0.1(@types/mdast@4.0.4)(unified@11.0.5):
+    dependencies:
+      '@types/mdast': 4.0.4
+      unified: 11.0.5
+      unist-util-visit: 5.0.0
 
   remark-gfm@4.0.1:
     dependencies:

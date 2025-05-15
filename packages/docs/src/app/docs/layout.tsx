@@ -51,6 +51,11 @@ export default function Layout({
                                 id: 'theme',
                                 textValue: 'Theme',
                             },
+                            {
+                                href: hrefs.docs.getting_started.mcp_server,
+                                id: 'mcp-server',
+                                textValue: 'MCP server',
+                            },
                         ]}
                         selectedKeys={selectedLayoutSegment != null ? [selectedLayoutSegment] : []}
                         selectionMode='single'

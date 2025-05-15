@@ -58,42 +58,42 @@ const COMPONENTS = {
         )
     },
     code: MarkdownCode,
-    h1: (props) => (
+    h1: ({ node: _node, ...props }) => (
         <Heading
             {...props}
             className={twMerge(props.className, 'mb-4')}
             level={1}
         />
     ),
-    h2: (props) => (
+    h2: ({ node: _node, ...props }) => (
         <Heading
             {...props}
             className={twMerge(props.className, 'mb-4')}
             level={2}
         />
     ),
-    h3: (props) => (
+    h3: ({ node: _node, ...props }) => (
         <Heading
             {...props}
             className={twMerge(props.className, 'mb-4')}
             level={3}
         />
     ),
-    h4: (props) => (
+    h4: ({ node: _node, ...props }) => (
         <Heading
             {...props}
             className={twMerge(props.className, 'mb-4')}
             level={4}
         />
     ),
-    h5: (props) => (
+    h5: ({ node: _node, ...props }) => (
         <Heading
             {...props}
             className={twMerge(props.className, 'mb-4')}
             level={5}
         />
     ),
-    h6: (props) => (
+    h6: ({ node: _node, ...props }) => (
         <Heading
             {...props}
             className={twMerge(props.className, 'mb-4')}
@@ -109,22 +109,22 @@ const COMPONENTS = {
             />
         )
     },
-    li: (props) => (
+    li: ({ node: _node, ...props }) => (
         <li
             {...props}
             className={twMerge('my-2', props.className)}
         />
     ),
-    ol: (props) => (
+    ol: ({ node: _node, ...props }) => (
         <ol
             {...props}
-            className={twMerge('my-4 list-inside list-decimal pl-4', props.className)}
+            className={twMerge('my-4 list-outside list-decimal pl-4', props.className)}
         />
     ),
-    ul: (props) => (
+    ul: ({ node: _node, ...props }) => (
         <ul
             {...props}
-            className={twMerge('my-4 list-inside list-disc pl-4', props.className)}
+            className={twMerge('my-4 list-outside list-disc pl-4', props.className)}
         />
     ),
 } satisfies ReactMarkdownComponents
