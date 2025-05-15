@@ -6,7 +6,7 @@ export const fieldVariants = tv({
         'text-dark text-base',
         'rounded',
         'outline outline-0 outline-offset-2',
-        'disabled:text-disabled',
+        'disabled:text-light',
         'placeholder:text-light',
         'forced-colors:outline-[Highlight]',
         // focus ring

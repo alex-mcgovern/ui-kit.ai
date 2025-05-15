@@ -1,7 +1,7 @@
 'use client'
-import type { ReactNode } from 'react'
+import type { ForwardRefExoticComponent, ReactNode, RefAttributes, SVGProps } from 'react'
 
-import { InfoIcon, type LucideProps } from 'lucide-react'
+import { InfoIcon } from 'lucide-react'
 import { twMerge } from 'tailwind-merge'
 import { tv } from 'tailwind-variants'
 
@@ -31,9 +31,7 @@ export function EmptyState({
     actions?: [ReactNode, ReactNode?]
     body?: ReactNode
     className?: string
-    icon?: React.ForwardRefExoticComponent<
-        Omit<LucideProps, 'ref'> & React.RefAttributes<SVGSVGElement>
-    >
+    icon?: ForwardRefExoticComponent<SVGProps<SVGSVGElement>> & RefAttributes<SVGSVGElement>
     title: string
 }) {
     return (
@@ -46,10 +44,7 @@ export function EmptyState({
                 className
             )}
         >
-            <Icon
-                className='text-mid mb-2 block [&>*]:stroke-[1.5]'
-                size={48}
-            />
+            <Icon className='text-mid mb-2 block size-6 [&>*]:stroke-[1.5]' />
 
             <Heading
                 className='text-dark mb-1 text-base'

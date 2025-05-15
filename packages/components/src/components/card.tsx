@@ -50,7 +50,7 @@ export const CardHeader = (props: HTMLProps<HTMLElement>) => {
     return (
         <header
             {...props}
-            className={twMerge('flex items-center px-3 py-3', props.className)}
+            className={twMerge('flex items-center px-4 py-3', props.className)}
         />
     )
 }
@@ -83,7 +83,7 @@ export function CardBody(props: HTMLProps<HTMLDivElement> & { noPadding?: boolea
     return (
         <div
             {...props}
-            className={twMerge('shrink grow px-3 py-3', props.className)}
+            className={twMerge('shrink grow px-4 py-4', props.className)}
         />
     )
 }
@@ -96,7 +96,7 @@ export function CardFooter(props: HTMLProps<HTMLElement>) {
     return (
         <footer
             {...props}
-            className={twMerge('flex items-center px-3 py-3', props.className)}
+            className={twMerge('flex items-center px-4 py-3', props.className)}
         />
     )
 }

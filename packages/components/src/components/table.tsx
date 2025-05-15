@@ -19,7 +19,7 @@ import {
     ResizableTableContainer as AriaTableContainer,
     TableHeader as AriaTableHeader,
     Collection,
-    ColumnResizer,
+    // ColumnResizer,
     Group,
     TableBody as RACTableBody,
     useTableOptions,
@@ -46,9 +46,9 @@ const columnWrapperStyles = tv({
 
 const columnStyles = tv({
     base: [
-        'h-6 text-sm',
+        'text-sm',
         'text-start',
-        'px-2 py-1',
+        'px-4 py-2',
         'group-data-[compact]/table:first:pl-0 group-data-[compact]/table:last:pr-0',
         'font-semibold',
         'flex flex-1 items-center gap-1',
@@ -66,13 +66,13 @@ const columnStyles = tv({
 
 const cellStyles = tv({
     base: [
-        'h-ui-element text-sm',
-        'px-2',
+        'text-sm',
+        'px-4 py-2',
         'transition-colors',
         '-outline-offset-2',
         'group-data-[compact]/table:first:pl-0 group-data-[compact]/table:last:pr-0',
         // border styles
-        'border-mid border-b',
+        'border-mid border-b group-last/row:border-b-0',
     ],
     defaultVariants: {
         alignment: 'start',
@@ -121,12 +121,14 @@ const cellSkeletonStyles = tv({
     },
 })
 
-const resizerStyles = tv({
-    base: `bg-mid-contrast resizing:w-[2px] resizing:bg-accent-light resizing:pl-[7px]
-    forced-colors:resizing:bg-[Highlight] box-content h-5 w-px translate-x-[8px] cursor-col-resize
-    rounded bg-clip-content px-[8px] py-1 -outline-offset-2 forced-colors:bg-[ButtonBorder]`,
-    extend: focusRing,
-})
+// const resizerStyles = tv({
+//     base: [
+//         `bg-mid-contrast resizing:w-[2px] resizing:bg-accent-light resizing:pl-[7px]
+//     forced-colors:resizing:bg-[Highlight] box-content h-5 w-px translate-x-[8px] cursor-col-resize
+//     rounded bg-clip-content px-[8px] py-1 -outline-offset-2 forced-colors:bg-[ButtonBorder]`,
+//     ],
+//     extend: focusRing,
+// })
 
 export function Cell({
     alignment,
@@ -177,31 +179,35 @@ export function Column({
     return (
         <AriaColumn
             {...props}
-            className={(rp) =>
-                twMerge(
-                    columnWrapperStyles(),
-                    typeof className === 'function' ? className(rp) : className
-                )
-            }
+            className={columnWrapperStyles()}
             textValue={textValue}
         >
-            {({ allowsSorting, sortDirection, ...renderProps }) => (
+            {(renderProps) => (
                 <div className='flex items-center'>
                     <Group
-                        className={() => columnStyles({ alignment })}
+                        className={() =>
+                            twMerge(
+                                columnStyles({ alignment }),
+                                typeof className === 'function'
+                                    ? className({ ...renderProps, defaultClassName: '' })
+                                    : className
+                            )
+                        }
                         role='presentation'
                         tabIndex={-1}
                     >
                         <span className='inline-flex items-center truncate'>
                             {typeof children === 'function'
-                                ? children({ allowsSorting, sortDirection, ...renderProps })
+                                ? children(renderProps)
                                 : (children ?? textValue)}
                         </span>
 
-                        {allowsSorting ? <ColumnSortControl sortDirection={sortDirection} /> : null}
+                        {renderProps.allowsSorting ? (
+                            <ColumnSortControl sortDirection={renderProps.sortDirection} />
+                        ) : null}
                     </Group>
 
-                    {props.width != null && <ColumnResizer className={resizerStyles()} />}
+                    {/* {props.width != null && <ColumnResizer className={resizerStyles()} />} */}
                 </div>
             )}
         </AriaColumn>
@@ -237,7 +243,7 @@ export function ResizableTableContainer(props: ResizableTableContainerProps) {
                 'scrollbar-thin overflow-auto',
                 props.className
             )}
-        ></AriaTableContainer>
+        />
     )
 }
 ResizableTableContainer.displayName = 'ResizableTableContainer'

@@ -74,7 +74,7 @@ export function DisclosureButton({
             }
             slot='trigger'
             slotLeft={
-                <ChevronRightIcon className='group-expanded:rotate-90 transition-transform duration-100 ease-out' />
+                <ChevronRightIcon className='group-expanded:rotate-90 transition-transform ease-out' />
             }
             variant={variant}
         >

@@ -26,15 +26,15 @@ type OptionsSectionProps<TType extends OptionType> = OptionsSectionSchema<TType>
 const optionStyle = tv({
     base: [
         'group/options-item',
-        'flex items-center gap-2',
+        'flex items-center gap-1.5',
         'cursor-default',
         'text-dark text-sm',
         'outline outline-0',
         'rounded select-none',
-        'px-2.5 py-0.5',
+        'px-1.25 py-0.5',
         'forced-color-adjust-none',
         // disabled
-        'disabled:text-disabled',
+        'disabled:text-light',
         // hover
         'hover:bg-tint-light',
         // focus
@@ -106,7 +106,6 @@ function OptionsItem<TType extends OptionType>({
                         : props.className
                 )
             }
-            data-destructive={intent}
         >
             {({ isSelected }) => (
                 <>
@@ -173,7 +172,7 @@ OptionsSection.displayName = 'OptionsSection'
 function OptionsSectionHeader(props: HeadingProps) {
     return (
         <Header
-            className='text-mid px-2.5 py-1 text-xs font-medium uppercase'
+            className='text-mid px-1.5 py-1 text-xs font-medium tracking-wide uppercase'
             {...props}
         />
     )

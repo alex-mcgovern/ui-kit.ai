@@ -1,5 +1,6 @@
 export * as Alert from './stories/alert.stories'
 export * as Avatar from './stories/avatar.stories'
+export * as Breadcrumbs from './stories/breadcrumbs.stories'
 export * as Button from './stories/button.stories'
 export * as Card from './stories/card.stories'
 export * as Chat from './stories/chat.stories'

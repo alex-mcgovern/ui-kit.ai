@@ -24,23 +24,20 @@ export function PropsTable({ docs }: { docs: ComponentDoc }) {
                 <Table aria-label='Component Props'>
                     <TableHeader>
                         <Column
-                            className='py-2 px-3'
                             isRowHeader
-                            minWidth={184}
+                            minWidth={181}
                             width='1fr'
                         >
                             Name
                         </Column>
                         <Column
-                            className='py-2 px-3'
-                            minWidth={376}
+                            minWidth={373}
                             width='2fr'
                         >
                             Type
                         </Column>
                         <Column
-                            className='py-2 px-3'
-                            minWidth={183}
+                            minWidth={180}
                             width='1fr'
                         >
                             Default
@@ -49,7 +46,7 @@ export function PropsTable({ docs }: { docs: ComponentDoc }) {
                     <TableBody items={Object.entries(docs.props)}>
                         {Object.entries(docs.props).map(([name, prop]) => (
                             <Row key={name}>
-                                <Cell className='py-2 px-5'>
+                                <Cell>
                                     <div className='flex items-center gap-0.5'>
                                         <CodeInline language='plaintext'>{name}</CodeInline>
                                         {prop.description !== '' ? (
@@ -65,10 +62,10 @@ export function PropsTable({ docs }: { docs: ComponentDoc }) {
                                         ) : null}
                                     </div>
                                 </Cell>
-                                <Cell className='py-2 px-5'>
+                                <Cell>
                                     <PropTypes>{prop.type.name}</PropTypes>
                                 </Cell>
-                                <Cell className='py-2 px-5 text-mid'>
+                                <Cell className='text-mid'>
                                     {prop.defaultValue?.value != null ? (
                                         <CodeInline language='plaintext'>
                                             {prop.defaultValue?.value}
