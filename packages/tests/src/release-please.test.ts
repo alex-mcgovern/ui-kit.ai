@@ -102,6 +102,7 @@ describe('Release Please Configuration', () => {
         )
 
         manifestPackages.forEach((manifestPackage) => {
+            if (manifestPackage === '.') return
             expect(
                 packageDirectories.includes(manifestPackage),
                 `Package "${manifestPackage}" in release-please-manifest.json doesn't exist in packages directory`
