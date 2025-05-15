@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.0.1](https://github.com/alex-mcgovern/ui-kit.ai/compare/@ui-kit.ai/docs@v0.0.0...@ui-kit.ai/docs@v0.0.1) (2025-05-15)
+
+
+### Continuous Integration
+
+* **release-please:** remove 'release-as' override ([#257](https://github.com/alex-mcgovern/ui-kit.ai/issues/257)) ([5170b23](https://github.com/alex-mcgovern/ui-kit.ai/commit/5170b236357566805253a8cfa35c5d57995e49a7))
+
 ## [0.0.0](https://github.com/alex-mcgovern/ui-kit.ai/compare/@ui-kit.ai/docs-v0.0.0-alpha.3...@ui-kit.ai/docs@v0.0.0) (2025-05-14)
 
 
