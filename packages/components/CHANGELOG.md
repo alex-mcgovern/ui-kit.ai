@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.0.5](https://github.com/alex-mcgovern/ui-kit.ai/compare/@ui-kit.ai/components@v0.0.4...@ui-kit.ai/components@v0.0.5) (2025-05-15)
+
+
+### Continuous Integration
+
+* wip on npm publish action ([3014844](https://github.com/alex-mcgovern/ui-kit.ai/commit/301484489287eb14713b16a28fba686e5c5040eb))
+* wip on npm publish action ([bca8b22](https://github.com/alex-mcgovern/ui-kit.ai/commit/bca8b22e78f7d4c8948411715ea087576f6a31f0))
+* wip on npm publish action ([7d81939](https://github.com/alex-mcgovern/ui-kit.ai/commit/7d8193928ac88c4c1576ec1e85d27f4c3ef4cf94))
+
 ## [0.0.4](https://github.com/alex-mcgovern/ui-kit.ai/compare/@ui-kit.ai/components@v0.0.3...@ui-kit.ai/components@v0.0.4) (2025-05-15)
 
 

@@ -1,5 +1,19 @@
 # Changelog
 
+## [0.0.5](https://github.com/alex-mcgovern/ui-kit.ai/compare/ui-kit.ai-monorepo@v0.0.4...ui-kit.ai-monorepo@v0.0.5) (2025-05-15)
+
+
+### Continuous Integration
+
+* wip on npm publish action ([3014844](https://github.com/alex-mcgovern/ui-kit.ai/commit/301484489287eb14713b16a28fba686e5c5040eb))
+* wip on npm publish action ([bca8b22](https://github.com/alex-mcgovern/ui-kit.ai/commit/bca8b22e78f7d4c8948411715ea087576f6a31f0))
+* wip on npm publish action ([d20be19](https://github.com/alex-mcgovern/ui-kit.ai/commit/d20be195de5af580412ab2c5285ca34faf7fe853))
+* wip on npm publish action ([7d81939](https://github.com/alex-mcgovern/ui-kit.ai/commit/7d8193928ac88c4c1576ec1e85d27f4c3ef4cf94))
+* wip on npm publish action ([d93ca47](https://github.com/alex-mcgovern/ui-kit.ai/commit/d93ca47ef500f4cc1ff79fa6386ca248b582b2a5))
+* wip on npm publish action ([3d6f0e4](https://github.com/alex-mcgovern/ui-kit.ai/commit/3d6f0e41bb46527c256ff5081ba6bcb4207f3ea7))
+* wip on npm publish action ([dc4cf53](https://github.com/alex-mcgovern/ui-kit.ai/commit/dc4cf53e10a3afe4bf0dd61bbc9e9ee8ac725e04))
+* wip on npm publish action ([926fa33](https://github.com/alex-mcgovern/ui-kit.ai/commit/926fa33e9df31ec820e3c6e4b8edb29fd5681076))
+
 ## [0.0.4](https://github.com/alex-mcgovern/ui-kit.ai/compare/ui-kit.ai-monorepo@v0.0.3...ui-kit.ai-monorepo@v0.0.4) (2025-05-15)
 
 
