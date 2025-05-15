@@ -44,7 +44,7 @@ export function EmptyState({
                 className
             )}
         >
-            <Icon className='text-mid size-6 mb-2 block [&>*]:stroke-[1.5]' />
+            <Icon className='text-mid mb-2 block size-6 [&>*]:stroke-[1.5]' />
 
             <Heading
                 className='text-dark mb-1 text-base'
