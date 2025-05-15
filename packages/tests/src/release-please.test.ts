@@ -36,19 +36,6 @@ describe('Release Please Configuration', () => {
         })
     })
 
-    test('All packages should be included in linked-versions plugin', () => {
-        // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
-        const linkedPackages = releasePleaseConfig.plugins[0]?.components ?? []
-        const linkedPackageNames = linkedPackages.map((pkg) => pkg.replace('packages/', ''))
-
-        packageDirectories.forEach((packageDir) => {
-            expect(
-                linkedPackageNames.includes(packageDir),
-                `Package "${packageDir}" is missing from linked-versions plugin in release-please-config.json`
-            ).toBe(true)
-        })
-    })
-
     test('All packages should be included in release-please-manifest.json', () => {
         const manifestPackages = Object.keys(releasePleaseManifest).map((key) =>
             key.replace('packages/', '')
@@ -108,5 +95,47 @@ describe('Release Please Configuration', () => {
                 `Package "${manifestPackage}" in release-please-manifest.json doesn't exist in packages directory`
             ).toBe(true)
         })
+    })
+
+    test('Each package entry should have a "component" property with the correct name', () => {
+        for (const [packagePath, config] of Object.entries(releasePleaseConfig.packages)) {
+            const componentName = config.component
+            expect(
+                componentName,
+                `Package "${packagePath}" is missing the "component" property in release-please-config.json`
+            ).toBeDefined()
+
+            if (packagePath === '.') {
+                expect(
+                    componentName,
+                    `Root package's component name should be "ui-kit.ai-monorepo"`
+                ).toBe('ui-kit.ai-monorepo')
+            } else {
+                const expectedName = `@ui-kit.ai/${packagePath.replace('packages/', '')}`
+                expect(
+                    componentName,
+                    `Component name for "${packagePath}" should be "${expectedName}"`
+                ).toBe(expectedName)
+            }
+        }
+    })
+
+    test('All components defined in packages should be present in the linked-versions plugin', () => {
+        const linkedComponentsList = releasePleaseConfig.plugins[0]?.components ?? []
+        const linkedComponentsSet = new Set(linkedComponentsList)
+
+        for (const [packagePath, config] of Object.entries(releasePleaseConfig.packages)) {
+            const componentName = config.component
+            expect(
+                linkedComponentsSet.has(componentName),
+                `Component "${componentName}" for package "${packagePath}" is missing from the linked-versions plugin components list`
+            ).toBe(true)
+        }
+
+        // Also verify there are no extra components in the linked versions plugin
+        expect(
+            linkedComponentsList.length,
+            `The linked-versions plugin has ${linkedComponentsList.length} components but there should be ${Object.keys(releasePleaseConfig.packages).length}`
+        ).toBe(Object.keys(releasePleaseConfig.packages).length)
     })
 })
