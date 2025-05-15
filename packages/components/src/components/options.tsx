@@ -31,7 +31,7 @@ const optionStyle = tv({
         'text-dark text-sm',
         'outline outline-0',
         'rounded select-none',
-        'px-2.5 py-0.5',
+        'py-0.5',
         'forced-color-adjust-none',
         // disabled
         'disabled:text-disabled',
@@ -44,6 +44,12 @@ const optionStyle = tv({
         // selected
         'selected:bg-tint',
     ],
+    variants: {
+        hasIcon: {
+            false: 'px-2.5',
+            true: 'pl-1.5 pr-2.5',
+        },
+    },
 })
 
 /**
@@ -99,14 +105,13 @@ function OptionsItem<TType extends OptionType>({
             aria-label={props.textValue}
             className={(renderProps) =>
                 twMerge(
-                    optionStyle(),
+                    optionStyle({ hasIcon: props.icon != null }),
                     intent,
                     typeof props.className === 'function'
                         ? props.className(renderProps)
                         : props.className
                 )
             }
-            data-destructive={intent}
         >
             {({ isSelected }) => (
                 <>
