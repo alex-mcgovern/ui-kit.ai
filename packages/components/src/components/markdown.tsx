@@ -109,6 +109,24 @@ const COMPONENTS = {
             />
         )
     },
+    li: (props) => (
+        <li
+            {...props}
+            className={twMerge('my-2', props.className)}
+        />
+    ),
+    ol: (props) => (
+        <ol
+            {...props}
+            className={twMerge('my-4 list-inside list-decimal pl-4', props.className)}
+        />
+    ),
+    ul: (props) => (
+        <ul
+            {...props}
+            className={twMerge('my-4 list-inside list-disc pl-4', props.className)}
+        />
+    ),
 } satisfies ReactMarkdownComponents
 
 export function Markdown({

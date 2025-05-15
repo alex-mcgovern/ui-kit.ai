@@ -102,18 +102,6 @@ p:not(:last-child) {
     margin-bottom: calc(var(--spacing) * 4);
 }
 
-ul,
-ol {
-    list-style-type: disc;
-    list-style-position: outside;
-    margin-bottom: calc(var(--spacing) * 4);
-    margin-left: calc(var(--spacing) * 4);
-}
-
-li {
-    margin-bottom: calc(var(--spacing) * 1);
-}
-
 strong {
     font-weight: 500;
     color: var(--theme-default-text-dark);
