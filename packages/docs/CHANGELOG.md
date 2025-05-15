@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.0.1](https://github.com/alex-mcgovern/ui-kit.ai/compare/@ui-kit.ai/docs@v0.0.0...@ui-kit.ai/docs@v0.0.1) (2025-05-15)
+
+
+### Build System
+
+* **deps-dev:** bump @types/culori from 2.1.1 to 4.0.0 ([#259](https://github.com/alex-mcgovern/ui-kit.ai/issues/259)) ([c69412b](https://github.com/alex-mcgovern/ui-kit.ai/commit/c69412b2a1816e863886b5248bddd7ce7bed2f01))
+* **deps-dev:** bump @types/react-dom from 19.1.4 to 19.1.5 ([#260](https://github.com/alex-mcgovern/ui-kit.ai/issues/260)) ([da949d6](https://github.com/alex-mcgovern/ui-kit.ai/commit/da949d6de645abd5d5c37b14cb3d620c8f6de896))
+* **deps:** bump tailwindcss from 4.1.3 to 4.1.6 ([#263](https://github.com/alex-mcgovern/ui-kit.ai/issues/263)) ([ee777a9](https://github.com/alex-mcgovern/ui-kit.ai/commit/ee777a9a596d03f1aa35f13ba737bd6e1fbb97d7))
+
 ## 0.0.0 (2025-05-15)
 
 

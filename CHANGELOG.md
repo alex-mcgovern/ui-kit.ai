@@ -1,5 +1,28 @@
 # Changelog
 
+## [0.0.1](https://github.com/alex-mcgovern/ui-kit.ai/compare/ui-kit.ai-monorepo@v0.0.0...ui-kit.ai-monorepo@v0.0.1) (2025-05-15)
+
+
+### Miscellaneous Chores
+
+* add npm badge to readme ([#270](https://github.com/alex-mcgovern/ui-kit.ai/issues/270)) ([3a86a49](https://github.com/alex-mcgovern/ui-kit.ai/commit/3a86a49879e03a414a9380ff18a2bde13c7c2f1c))
+* Update README.md ([#266](https://github.com/alex-mcgovern/ui-kit.ai/issues/266)) ([eb709a4](https://github.com/alex-mcgovern/ui-kit.ai/commit/eb709a4052dae148ecdc91e9d8147084c4ffe1f3))
+
+
+### Build System
+
+* **deps-dev:** bump @types/culori from 2.1.1 to 4.0.0 ([#259](https://github.com/alex-mcgovern/ui-kit.ai/issues/259)) ([c69412b](https://github.com/alex-mcgovern/ui-kit.ai/commit/c69412b2a1816e863886b5248bddd7ce7bed2f01))
+* **deps-dev:** bump @types/react-dom from 19.1.4 to 19.1.5 ([#260](https://github.com/alex-mcgovern/ui-kit.ai/issues/260)) ([da949d6](https://github.com/alex-mcgovern/ui-kit.ai/commit/da949d6de645abd5d5c37b14cb3d620c8f6de896))
+* **deps-dev:** bump commitlint from 19.8.0 to 19.8.1 ([#261](https://github.com/alex-mcgovern/ui-kit.ai/issues/261)) ([b5146b0](https://github.com/alex-mcgovern/ui-kit.ai/commit/b5146b001f67e2cb55a28b9cd9a39655ead01ed6))
+* **deps:** bump @tanstack/react-query from 5.76.0 to 5.76.1 ([#262](https://github.com/alex-mcgovern/ui-kit.ai/issues/262)) ([44353b3](https://github.com/alex-mcgovern/ui-kit.ai/commit/44353b327446c038c6a35a3d46211fd5b052e532))
+* **deps:** bump tailwindcss from 4.1.3 to 4.1.6 ([#263](https://github.com/alex-mcgovern/ui-kit.ai/issues/263)) ([ee777a9](https://github.com/alex-mcgovern/ui-kit.ai/commit/ee777a9a596d03f1aa35f13ba737bd6e1fbb97d7))
+
+
+### Continuous Integration
+
+* **release-please:** correctly configure linked versions plugin ([#271](https://github.com/alex-mcgovern/ui-kit.ai/issues/271)) ([dd2c5f5](https://github.com/alex-mcgovern/ui-kit.ai/commit/dd2c5f58e54436c70a1de9724bbb13f2802c398e))
+* **release-please:** remove 'release-as' override ([#268](https://github.com/alex-mcgovern/ui-kit.ai/issues/268)) ([11ad11c](https://github.com/alex-mcgovern/ui-kit.ai/commit/11ad11cb753e1623f39c51815300ea4d8ce8cb07))
+
 ## 0.0.0 (2025-05-15)
 
 
