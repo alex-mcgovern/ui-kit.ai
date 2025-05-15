@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.0.0](https://github.com/alex-mcgovern/ui-kit.ai/compare/ui-kit.ai-monorepo@v0.0.0...ui-kit.ai-monorepo@v0.0.0) (2025-05-15)
+
+
+### Miscellaneous Chores
+
+* Update README.md ([#266](https://github.com/alex-mcgovern/ui-kit.ai/issues/266)) ([eb709a4](https://github.com/alex-mcgovern/ui-kit.ai/commit/eb709a4052dae148ecdc91e9d8147084c4ffe1f3))
+
 ## 0.0.0 (2025-05-15)
 
 
