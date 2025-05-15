@@ -10,7 +10,7 @@ import { DocsSearchDialog } from './docs-search-dialog'
 
 export function TopNav() {
     return (
-        <nav className='bg-raised/10 backdrop-blur-md sticky top-0 z-50 border-b h-12 border-mid'>
+        <nav className='bg-raised/10 backdrop-blur-xs sticky top-0 z-50 border-b h-12 border-mid'>
             <div className='flex items-center justify-between px-4 py-2 mx-auto '>
                 <div className='flex gap-6 items-center'>
                     <Link
