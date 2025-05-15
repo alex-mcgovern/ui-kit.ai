@@ -47,7 +47,7 @@ const optionStyle = tv({
     variants: {
         hasIcon: {
             false: 'px-2.5',
-            true: 'pl-1.5 pr-2.5',
+            true: 'pr-2.5 pl-1.5',
         },
     },
 })
