@@ -5,7 +5,6 @@
     "group-pull-request-title-pattern": "❖ @ui-kit.ai v${version}",
     "release-type": "node",
     "tag-separator": "@",
-    "release-as": "alpha",
     "always-update": true,
     "changelog-sections": [
         { "type": "feat", "section": "Features" },
@@ -22,48 +21,21 @@
     ],
     "packages": {
         ".": {
-            "always-update": true,
-            "release-as": "0.0.0"
+            "always-update": true
         },
-        "packages/components": {
-            "release-as": "0.0.0"
-        },
-        "packages/docs": {
-            "release-as": "0.0.0"
-        },
-        "packages/eslint": {
-            "release-as": "0.0.0"
-        },
-        "packages/mcp-server": {
-            "release-as": "0.0.0"
-        },
-        "packages/metadata": {
-            "release-as": "0.0.0"
-        },
-        "packages/mocks": {
-            "release-as": "0.0.0"
-        },
-        "packages/prettier": {
-            "release-as": "0.0.0"
-        },
-        "packages/storybook": {
-            "release-as": "0.0.0"
-        },
-        "packages/tests": {
-            "release-as": "0.0.0"
-        },
-        "packages/theme": {
-            "release-as": "0.0.0"
-        },
-        "packages/tsconfig": {
-            "release-as": "0.0.0"
-        },
-        "packages/vite": {
-            "release-as": "0.0.0"
-        },
-        "packages/vitest": {
-            "release-as": "0.0.0"
-        }
+        "packages/components": {},
+        "packages/docs": {},
+        "packages/eslint": {},
+        "packages/mcp-server": {},
+        "packages/metadata": {},
+        "packages/mocks": {},
+        "packages/prettier": {},
+        "packages/storybook": {},
+        "packages/tests": {},
+        "packages/theme": {},
+        "packages/tsconfig": {},
+        "packages/vite": {},
+        "packages/vitest": {}
     },
     "plugins": [
         {
