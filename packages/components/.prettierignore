@@ -2,3 +2,4 @@
 dist
 node_modules
 vite.config.mjs.timestamp-*.mjs
+CHANGELOG.md
