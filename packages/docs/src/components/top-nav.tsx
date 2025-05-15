@@ -2,7 +2,7 @@
 
 import { LinkButton } from '@ui-kit.ai/components'
 import '@ui-kit.ai/components/style.css'
-import { Component, Github } from 'lucide-react'
+import { Github } from 'lucide-react'
 import Link from 'next/link'
 
 import { hrefs } from '../lib/hrefs'
@@ -17,8 +17,7 @@ export function TopNav() {
                         className='font-semibold flex items-center gap-1 text-dark hover:text-mid transition-colors'
                         href='/'
                     >
-                        <Component className='size-4' />
-                        ui-kit.ai
+                        ❖ ui-kit.ai
                     </Link>
                     <div className='flex items-center gap-4'>
                         <Link

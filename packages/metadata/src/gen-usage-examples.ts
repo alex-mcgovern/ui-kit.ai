@@ -1,10 +1,9 @@
-import * as components from '@ui-kit.ai/storybook'
+import * as composedComponentsMap from '@ui-kit.ai/storybook'
 import * as fs from 'node:fs'
 import * as path from 'node:path'
 
 const outputPath = path.resolve(import.meta.dirname, '..', 'dist', 'usage-examples.json')
 
-import { composeStories } from '@storybook/react'
 import { format, resolveConfig, resolveConfigFile } from 'prettier'
 import React, { type ReactNode } from 'react'
 import { type Options as ReactElementToJsxStringOptions } from 'react-element-to-jsx-string'
@@ -69,11 +68,7 @@ async function main() {
     // NOTE: Dynamic import seems to help avoid "function does not exist" errors
     const reactElementToJSXString = await (await import('react-element-to-jsx-string')).default
 
-    for (const [componentName, stories] of Object.entries(components)) {
-        const composedStories = composeStories(stories as Parameters<typeof composeStories>[0], {
-            applyDecorators: (storyFn) => storyFn, // We don't want to apply any decorators
-        })
-
+    for (const [componentName, composedStories] of Object.entries(composedComponentsMap)) {
         const composed: Record<string, string> = {}
 
         for (const [storyName, Story] of Object.entries(composedStories)) {

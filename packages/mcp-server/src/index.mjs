@@ -1,13 +1,15 @@
+#!/usr/bin/env node
+
 import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js'
 import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js'
-import usage from '@ui-kit.ai/metadata/usage-examples.json'
+import usage from '@ui-kit.ai/metadata/usage-examples.json' with { type: 'json' }
 import { z } from 'zod'
 
-import { version } from '../package.json'
+import packageJson from '../package.json' with { type: 'json' }
 
 const server = new McpServer({
-    name: '@ui-kit.ai/components component library assistant',
-    version,
+    name: '@ui-kit.ai/components usage',
+    version: packageJson.version,
 })
 
 server.tool('all_components', {}, () => {
@@ -29,7 +31,6 @@ server.tool(
         }),
     },
     ({ component }) => {
-        // @ts-expect-error - usage is a Record<string, unknown>
         const example = component in usage ? usage[component] : null
 
         return {

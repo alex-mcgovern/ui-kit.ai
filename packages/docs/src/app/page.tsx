@@ -120,7 +120,10 @@ export default function Home() {
 function HeroContent() {
     return (
         <>
-            <Heading className='text-5xl md:text-6xl font-bold tracking-tight mb-6'>
+            <Heading
+                className='text-5xl md:text-6xl font-bold tracking-tight mb-6'
+                level={1}
+            >
                 Beautiful UI components
                 <br />
                 for

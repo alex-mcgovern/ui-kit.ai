@@ -339,6 +339,9 @@ importers:
       '@ui-kit.ai/tsconfig':
         specifier: workspace:*
         version: link:../tsconfig
+      '@ui-kit.ai/vite':
+        specifier: workspace:*
+        version: link:../vite
       '@ui-kit.ai/vitest':
         specifier: workspace:*
         version: link:../vitest

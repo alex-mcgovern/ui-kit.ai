@@ -1,6 +1,6 @@
 {
     "name": "@ui-kit.ai/components",
-    "version": "0.0.6-alpha.12",
+    "version": "0.0.6-alpha.23",
     "description": "",
     "keywords": [],
     "repository": {
@@ -23,7 +23,6 @@
     ],
     "scripts": {
         "build": "vite build",
-        "build-mcp-dataset": "tsx ./src/scripts/build-mcp-dataset.ts",
         "build:watch": "vite build --watch",
         "check:eslint": "eslint .",
         "check:prettier": "prettier . --check",
@@ -31,8 +30,7 @@
         "check:vitest": "vitest run --passWithNoTests",
         "fix:eslint": "eslint . --fix",
         "fix:prettier": "prettier . --write",
-        "publish-packages": "pnpm publish --access public --no-git-checks",
-        "start-mcp-server": "tsx ./src/mcp-server/index.ts"
+        "publish-packages": "pnpm publish --access public --no-git-checks"
     },
     "dependencies": {
         "highlight.js": "11.11.1",
