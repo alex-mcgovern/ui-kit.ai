@@ -1,87 +1,138 @@
 {
     "$schema": "https://raw.githubusercontent.com/googleapis/release-please/main/schemas/config.json",
+    "always-update": true,
+    "bump-minor-pre-major": true,
+    "bump-patch-for-minor-pre-major": true,
+    "group-pull-request-title-pattern": "❖ @ui-kit.ai v${version}",
     "include-component-in-tag": true,
     "include-v-in-tag": true,
-    "group-pull-request-title-pattern": "❖ @ui-kit.ai v${version}",
     "release-type": "node",
     "tag-separator": "@",
     "changelog-sections": [
-        { "type": "feat", "section": "Features" },
-        { "type": "fix", "section": "Bug Fixes" },
-        { "type": "perf", "section": "Performance Improvements" },
-        { "type": "revert", "section": "Reverts" },
-        { "type": "chore", "section": "Miscellaneous Chores" },
-        { "type": "docs", "section": "Documentation" },
-        { "type": "style", "section": "Styles" },
-        { "type": "refactor", "section": "Code Refactoring" },
-        { "type": "test", "section": "Tests" },
-        { "type": "build", "section": "Build System" },
-        { "type": "ci", "section": "Continuous Integration" }
+        {
+            "section": "Features",
+            "type": "feat"
+        },
+        {
+            "section": "Bug Fixes",
+            "type": "fix"
+        },
+        {
+            "section": "Performance Improvements",
+            "type": "perf"
+        },
+        {
+            "section": "Reverts",
+            "type": "revert"
+        },
+        {
+            "section": "Miscellaneous Chores",
+            "type": "chore"
+        },
+        {
+            "section": "Documentation",
+            "type": "docs"
+        },
+        {
+            "section": "Styles",
+            "type": "style"
+        },
+        {
+            "section": "Code Refactoring",
+            "type": "refactor"
+        },
+        {
+            "section": "Tests",
+            "type": "test"
+        },
+        {
+            "section": "Build System",
+            "type": "build"
+        },
+        {
+            "section": "Continuous Integration",
+            "type": "ci"
+        }
     ],
+
     "packages": {
         ".": {
-            "always-update": true
+            "always-update": true,
+            "component": "ui-kit.ai-monorepo"
         },
         "packages/components": {
-            "always-update": true
+            "always-update": true,
+            "component": "@ui-kit.ai/components"
         },
         "packages/docs": {
-            "always-update": true
+            "always-update": true,
+            "component": "@ui-kit.ai/docs"
         },
         "packages/eslint": {
-            "always-update": true
+            "always-update": true,
+            "component": "@ui-kit.ai/eslint"
         },
         "packages/mcp-server": {
-            "always-update": true
+            "always-update": true,
+            "component": "@ui-kit.ai/mcp-server"
         },
         "packages/metadata": {
-            "always-update": true
+            "always-update": true,
+            "component": "@ui-kit.ai/metadata"
         },
         "packages/mocks": {
-            "always-update": true
+            "always-update": true,
+            "component": "@ui-kit.ai/mocks"
         },
         "packages/prettier": {
-            "always-update": true
+            "always-update": true,
+            "component": "@ui-kit.ai/prettier"
         },
         "packages/storybook": {
-            "always-update": true
+            "always-update": true,
+            "component": "@ui-kit.ai/storybook"
         },
         "packages/tests": {
-            "always-update": true
+            "always-update": true,
+            "component": "@ui-kit.ai/tests"
         },
         "packages/theme": {
-            "always-update": true
+            "always-update": true,
+            "component": "@ui-kit.ai/theme"
         },
         "packages/tsconfig": {
-            "always-update": true
+            "always-update": true,
+            "component": "@ui-kit.ai/tsconfig"
         },
         "packages/vite": {
-            "always-update": true
+            "always-update": true,
+            "component": "@ui-kit.ai/vite"
         },
         "packages/vitest": {
-            "always-update": true
+            "always-update": true,
+            "component": "@ui-kit.ai/vitest"
         }
     },
     "plugins": [
         {
-            "type": "linked-versions",
-            "groupName": "all",
             "components": [
-                ".",
-                "packages/components",
-                "packages/docs",
-                "packages/eslint",
-                "packages/mcp-server",
-                "packages/metadata",
-                "packages/mocks",
-                "packages/prettier",
-                "packages/storybook",
-                "packages/tests",
-                "packages/theme",
-                "packages/tsconfig",
-                "packages/vite",
-                "packages/vitest"
-            ]
+                "ui-kit.ai-monorepo",
+                "@ui-kit.ai/components",
+                "@ui-kit.ai/docs",
+                "@ui-kit.ai/eslint",
+                "@ui-kit.ai/mcp-server",
+                "@ui-kit.ai/metadata",
+                "@ui-kit.ai/mocks",
+                "@ui-kit.ai/prettier",
+                "@ui-kit.ai/storybook",
+                "@ui-kit.ai/tests",
+                "@ui-kit.ai/theme",
+                "@ui-kit.ai/tsconfig",
+                "@ui-kit.ai/vite",
+                "@ui-kit.ai/vitest"
+            ],
+            "groupName": "all",
+            "type": "linked-versions"
         }
     ]
 }
