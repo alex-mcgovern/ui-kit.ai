@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.0.1](https://github.com/alex-mcgovern/ui-kit.ai/compare/@ui-kit.ai/metadata@v0.0.0...@ui-kit.ai/metadata@v0.0.1) (2025-05-15)
+
+
+### Build System
+
+* **deps:** bump tailwindcss from 4.1.3 to 4.1.6 ([#263](https://github.com/alex-mcgovern/ui-kit.ai/issues/263)) ([ee777a9](https://github.com/alex-mcgovern/ui-kit.ai/commit/ee777a9a596d03f1aa35f13ba737bd6e1fbb97d7))
+
 ## 0.0.0 (2025-05-15)
 
 

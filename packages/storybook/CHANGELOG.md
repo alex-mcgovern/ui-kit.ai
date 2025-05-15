@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.0.1](https://github.com/alex-mcgovern/ui-kit.ai/compare/@ui-kit.ai/storybook@v0.0.0...@ui-kit.ai/storybook@v0.0.1) (2025-05-15)
+
+
+### Build System
+
+* **deps-dev:** bump @types/react-dom from 19.1.4 to 19.1.5 ([#260](https://github.com/alex-mcgovern/ui-kit.ai/issues/260)) ([da949d6](https://github.com/alex-mcgovern/ui-kit.ai/commit/da949d6de645abd5d5c37b14cb3d620c8f6de896))
+* **deps:** bump @tanstack/react-query from 5.76.0 to 5.76.1 ([#262](https://github.com/alex-mcgovern/ui-kit.ai/issues/262)) ([44353b3](https://github.com/alex-mcgovern/ui-kit.ai/commit/44353b327446c038c6a35a3d46211fd5b052e532))
+* **deps:** bump tailwindcss from 4.1.3 to 4.1.6 ([#263](https://github.com/alex-mcgovern/ui-kit.ai/issues/263)) ([ee777a9](https://github.com/alex-mcgovern/ui-kit.ai/commit/ee777a9a596d03f1aa35f13ba737bd6e1fbb97d7))
+
 ## 0.0.0 (2025-05-15)
 
 
