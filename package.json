@@ -1,6 +1,6 @@
 {
     "name": "ui-kit.ai-monorepo",
-    "version": "0.0.4",
+    "version": "0.0.5-alpha.0",
     "private": true,
     "description": "",
     "homepage": "https://github.com/alex-mcgovern/ui-kit.ai#readme",
@@ -25,7 +25,7 @@
         "fix": "turbo fix",
         "fix:eslint": "turbo fix:eslint",
         "fix:prettier": "turbo fix:prettier",
-        "publish": "turbo publish",
+        "publish-packages": "turbo publish-packages",
         "sherif": "sherif",
         "storybook": "turbo storybook",
         "storycap": "turbo storycap",

@@ -104,8 +104,8 @@
             "dependsOn": ["^fix:prettier"],
             "outputLogs": "new-only"
         },
-        "publish": {
-            "dependsOn": ["check", "build", "^publish"],
+        "publish-packages": {
+            "dependsOn": ["check", "build", "^publish-packages"],
             "outputLogs": "new-only"
         },
         "storybook": {

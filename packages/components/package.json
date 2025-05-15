@@ -1,6 +1,6 @@
 {
     "name": "@ui-kit.ai/components",
-    "version": "0.0.4",
+    "version": "0.0.5-alpha.0",
     "description": "",
     "keywords": [],
     "repository": {
@@ -31,7 +31,7 @@
         "check:vitest": "vitest run --passWithNoTests",
         "fix:eslint": "eslint . --fix",
         "fix:prettier": "prettier . --write",
-        "publish": "npm publish --access public --no-git-checks",
+        "publish-packages": "pnpm publish --access public --no-git-checks",
         "start-mcp-server": "tsx ./src/mcp-server/index.ts"
     },
     "dependencies": {
