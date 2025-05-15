@@ -11,6 +11,7 @@
 
 @theme {
     --height-ui-element: 2rem;
+    --default-transition-duration: 50ms;
 }
 
 /* 

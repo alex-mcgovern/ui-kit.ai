@@ -27,7 +27,7 @@ const modalOverlayStyles = tv({
         'flex items-center justify-center text-center',
         'bg-base/25 backdrop-blur-xs backdrop-brightness-75',
         // transition properties
-        'transition-opacity duration-300 ease-out',
+        'transition-opacity ease-out',
         // entering
         'entering:opacity-0',
         // exiting
@@ -43,7 +43,7 @@ const modalStyles = tv({
         'relative',
         'forced-colors:bg-[Canvas]',
         // transition
-        'transition-transform duration-300 ease-out',
+        'transition-transform ease-out',
         'md:entering:translate-y-4',
         'md:exiting:translate-y-4',
         'exiting:pointer-events-none', // ensure content behind is immediately interactive

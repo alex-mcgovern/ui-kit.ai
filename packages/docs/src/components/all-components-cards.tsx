@@ -38,14 +38,14 @@ export function AllComponentsCards() {
                     <div className='overflow-hidden mb-1 border-b border-mid'>
                         <Image
                             alt={component.name}
-                            className='not-dark:hidden group-hover:scale-102 transition-transform duration-500 ease-in-out'
+                            className='not-dark:hidden group-hover:scale-102 transition-transform ease-in-out'
                             height={810}
                             src={component.imageUrlDark}
                             width={1440}
                         />
                         <Image
                             alt={component.name}
-                            className='dark:hidden group-hover:scale-102 transition-transform duration-500 ease-in-out'
+                            className='dark:hidden group-hover:scale-102 transition-transform ease-in-out'
                             height={810}
                             src={component.imageUrlLight}
                             width={1440}
