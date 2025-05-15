@@ -73,16 +73,16 @@ importers:
         version: 3.3.0
       tailwind-variants:
         specifier: 1.0.0
-        version: 1.0.0(tailwindcss@4.1.3)
+        version: 1.0.0(tailwindcss@4.1.6)
       tailwindcss:
-        specifier: 4.1.3
-        version: 4.1.3
+        specifier: 4.1.6
+        version: 4.1.6
       tailwindcss-animate:
         specifier: 1.0.7
-        version: 1.0.7(tailwindcss@4.1.3)
+        version: 1.0.7(tailwindcss@4.1.6)
       tailwindcss-react-aria-components:
         specifier: 2.0.0
-        version: 2.0.0(tailwindcss@4.1.3)
+        version: 2.0.0(tailwindcss@4.1.6)
     devDependencies:
       '@tailwindcss/postcss':
         specifier: 4.1.3
@@ -181,8 +181,8 @@ importers:
         specifier: 3.3.0
         version: 3.3.0
       tailwindcss:
-        specifier: 4.1.3
-        version: 4.1.3
+        specifier: 4.1.6
+        version: 4.1.6
       zod:
         specifier: 3.24.1
         version: 3.24.1
@@ -240,7 +240,7 @@ importers:
         version: 2.2.2(typescript@5.5.4)
       tailwindcss-react-aria-components:
         specifier: 2.0.0
-        version: 2.0.0(tailwindcss@4.1.3)
+        version: 2.0.0(tailwindcss@4.1.6)
       typescript:
         specifier: 5.5.4
         version: 5.5.4
@@ -361,8 +361,8 @@ importers:
         specifier: 17.0.1
         version: 17.0.1(react-dom@19.1.0(react@19.1.0))(react-is@19.1.0)(react@19.1.0)
       tailwindcss:
-        specifier: 4.1.3
-        version: 4.1.3
+        specifier: 4.1.6
+        version: 4.1.6
     devDependencies:
       '@types/react':
         specifier: 19.1.3
@@ -471,8 +471,8 @@ importers:
         specifier: 3.3.0
         version: 3.3.0
       tailwindcss:
-        specifier: 4.1.3
-        version: 4.1.3
+        specifier: 4.1.6
+        version: 4.1.6
       zod:
         specifier: 3.24.1
         version: 3.24.1
@@ -587,7 +587,7 @@ importers:
         version: 5.0.1(@storybook/manager-api@8.6.12(storybook@8.6.12(prettier@3.5.3)))(@storybook/preview-api@8.6.12(storybook@8.6.12(prettier@3.5.3)))
       tailwindcss-react-aria-components:
         specifier: 2.0.0
-        version: 2.0.0(tailwindcss@4.1.3)
+        version: 2.0.0(tailwindcss@4.1.6)
       typescript:
         specifier: 5.5.4
         version: 5.5.4
@@ -13286,18 +13286,18 @@ snapshots:
 
   tailwind-merge@3.3.0: {}
 
-  tailwind-variants@1.0.0(tailwindcss@4.1.3):
+  tailwind-variants@1.0.0(tailwindcss@4.1.6):
     dependencies:
       tailwind-merge: 3.0.2
-      tailwindcss: 4.1.3
+      tailwindcss: 4.1.6
 
-  tailwindcss-animate@1.0.7(tailwindcss@4.1.3):
+  tailwindcss-animate@1.0.7(tailwindcss@4.1.6):
     dependencies:
-      tailwindcss: 4.1.3
+      tailwindcss: 4.1.6
 
-  tailwindcss-react-aria-components@2.0.0(tailwindcss@4.1.3):
+  tailwindcss-react-aria-components@2.0.0(tailwindcss@4.1.6):
     dependencies:
-      tailwindcss: 4.1.3
+      tailwindcss: 4.1.6
 
   tailwindcss@4.1.3: {}
 
