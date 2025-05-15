@@ -34,7 +34,7 @@
         "culori": "4.0.1"
     },
     "devDependencies": {
-        "@types/culori": "2.1.1",
+        "@types/culori": "4.0.0",
         "@ui-kit.ai/eslint": "workspace:*",
         "@ui-kit.ai/prettier": "workspace:*",
         "@ui-kit.ai/tsconfig": "workspace:*",
