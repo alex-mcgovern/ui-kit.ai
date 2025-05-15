@@ -38,7 +38,7 @@ const modalOverlayStyles = tv({
 
 const modalStyles = tv({
     base: [
-        'h-dvh w-full md:max-h-[75dvh]',
+        'h-auto w-auto md:max-h-[75dvh]',
         'flex items-center justify-center',
         'relative',
         'forced-colors:bg-[Canvas]',
