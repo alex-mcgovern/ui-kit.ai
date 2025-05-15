@@ -172,7 +172,7 @@ OptionsSection.displayName = 'OptionsSection'
 function OptionsSectionHeader(props: HeadingProps) {
     return (
         <Header
-            className='text-mid px-1.5 py-1 text-xs tracking-wide font-medium uppercase'
+            className='text-mid px-1.5 py-1 text-xs font-medium tracking-wide uppercase'
             {...props}
         />
     )
