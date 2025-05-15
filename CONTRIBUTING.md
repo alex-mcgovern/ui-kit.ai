@@ -1,4 +1,4 @@
-# Contributing to Boondoggle Design
+# Contributing to ui-kit.ai
 
 ## Project Setup
 
