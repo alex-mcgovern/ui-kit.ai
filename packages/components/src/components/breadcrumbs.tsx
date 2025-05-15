@@ -32,7 +32,7 @@ export function Breadcrumb(props: BreadcrumbProps & Omit<LinkProps, 'className'>
                         : 'text-light'
                 )}
             />
-            {props.href != null && <ChevronRightIcon className='size-3 text-dark' />}
+            {props.href != null && <ChevronRightIcon className='text-dark size-3' />}
         </AriaBreadcrumb>
     )
 }
