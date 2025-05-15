@@ -31,7 +31,7 @@
         "check:vitest": "vitest run --passWithNoTests",
         "fix:eslint": "eslint . --fix",
         "fix:prettier": "prettier . --write",
-        "publish": "pnpm publish --provenance --access public --no-git-checks",
+        "publish": "pnpm publish --access public --no-git-checks",
         "start-mcp-server": "tsx ./src/mcp-server/index.ts"
     },
     "dependencies": {
