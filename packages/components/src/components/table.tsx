@@ -48,7 +48,7 @@ const columnStyles = tv({
     base: [
         'h-6 text-sm',
         'text-start',
-        'px-2 py-1',
+        'px-4 py-1',
         'group-data-[compact]/table:first:pl-0 group-data-[compact]/table:last:pr-0',
         'font-semibold',
         'flex flex-1 items-center gap-1',
@@ -67,7 +67,7 @@ const columnStyles = tv({
 const cellStyles = tv({
     base: [
         'h-ui-element text-sm',
-        'px-2',
+        'px-4',
         'transition-colors',
         '-outline-offset-2',
         'group-data-[compact]/table:first:pl-0 group-data-[compact]/table:last:pr-0',
@@ -177,28 +177,32 @@ export function Column({
     return (
         <AriaColumn
             {...props}
-            className={(rp) =>
-                twMerge(
-                    columnWrapperStyles(),
-                    typeof className === 'function' ? className(rp) : className
-                )
-            }
+            className={columnWrapperStyles()}
             textValue={textValue}
         >
-            {({ allowsSorting, sortDirection, ...renderProps }) => (
+            {(renderProps) => (
                 <div className='flex items-center'>
                     <Group
-                        className={() => columnStyles({ alignment })}
+                        className={() =>
+                            twMerge(
+                                columnStyles({ alignment }),
+                                typeof className === 'function'
+                                    ? className({ ...renderProps, defaultClassName: '' })
+                                    : className
+                            )
+                        }
                         role='presentation'
                         tabIndex={-1}
                     >
                         <span className='inline-flex items-center truncate'>
                             {typeof children === 'function'
-                                ? children({ allowsSorting, sortDirection, ...renderProps })
+                                ? children(renderProps)
                                 : (children ?? textValue)}
                         </span>
 
-                        {allowsSorting ? <ColumnSortControl sortDirection={sortDirection} /> : null}
+                        {renderProps.allowsSorting ? (
+                            <ColumnSortControl sortDirection={renderProps.sortDirection} />
+                        ) : null}
                     </Group>
 
                     {props.width != null && <ColumnResizer className={resizerStyles()} />}
