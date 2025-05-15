@@ -1,19 +1,8 @@
 'use client'
 
-import {
-    Button,
-    DialogTrigger,
-    FieldGroup,
-    Input,
-    Kbd,
-    LinkButton,
-    SearchField,
-    SearchFieldClearButton,
-    // Tag,
-} from '@ui-kit.ai/components'
-// import packageJson from '@ui-kit.ai/components/package.json'
+import { LinkButton } from '@ui-kit.ai/components'
 import '@ui-kit.ai/components/style.css'
-import { Component, Github, Search, SearchIcon, Sun } from 'lucide-react'
+import { Component, Github } from 'lucide-react'
 import Link from 'next/link'
 
 import { hrefs } from '../lib/hrefs'
@@ -56,17 +45,18 @@ export function TopNav() {
                 <div className='flex items-center justify-between gap-1 '>
                     <DocsSearchDialog />
                     <LinkButton
+                        href='https://github.com/alex-mcgovern/ui-kit.ai'
                         isIcon
                         variant='tertiary'
                     >
                         <Github />
                     </LinkButton>
-                    <Button
+                    {/* <Button
                         isIcon
                         variant='tertiary'
                     >
                         <Sun />
-                    </Button>
+                    </Button> */}
                 </div>
             </div>
         </nav>
