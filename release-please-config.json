@@ -20,60 +20,46 @@
     ],
     "packages": {
         ".": {
-            "always-update": true,
-            "release-as": "0.0.0"
+            "always-update": true
         },
         "packages/components": {
-            "always-update": true,
-            "release-as": "0.0.0"
+            "always-update": true
         },
         "packages/docs": {
-            "always-update": true,
-            "release-as": "0.0.0"
+            "always-update": true
         },
         "packages/eslint": {
-            "always-update": true,
-            "release-as": "0.0.0"
+            "always-update": true
         },
         "packages/mcp-server": {
-            "always-update": true,
-            "release-as": "0.0.0"
+            "always-update": true
         },
         "packages/metadata": {
-            "always-update": true,
-            "release-as": "0.0.0"
+            "always-update": true
         },
         "packages/mocks": {
-            "always-update": true,
-            "release-as": "0.0.0"
+            "always-update": true
         },
         "packages/prettier": {
-            "always-update": true,
-            "release-as": "0.0.0"
+            "always-update": true
         },
         "packages/storybook": {
-            "always-update": true,
-            "release-as": "0.0.0"
+            "always-update": true
         },
         "packages/tests": {
-            "always-update": true,
-            "release-as": "0.0.0"
+            "always-update": true
         },
         "packages/theme": {
-            "always-update": true,
-            "release-as": "0.0.0"
+            "always-update": true
         },
         "packages/tsconfig": {
-            "always-update": true,
-            "release-as": "0.0.0"
+            "always-update": true
         },
         "packages/vite": {
-            "always-update": true,
-            "release-as": "0.0.0"
+            "always-update": true
         },
         "packages/vitest": {
-            "always-update": true,
-            "release-as": "0.0.0"
+            "always-update": true
         }
     },
     "plugins": [
