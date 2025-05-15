@@ -21,10 +21,10 @@ import { Popover } from './popover'
 
 const selectButtonStyles = tv({
     base: [
-        'flex items-center gap-1',
-        'py-2 pr-2 pl-3',
-        '[&:has([data-slot=slot-left])]:pl-1',
-        '[&:has([data-slot=slot-right])]:pr-1',
+        'flex items-center gap-1.5',
+        'py-2 pr-2.5 pl-3',
+        '[&:has([data-slot=slot-left])]:pl-2',
+        '[&:has([data-slot=slot-right])]:pr-2',
         'text-sm',
         'w-full cursor-pointer text-start',
     ],
@@ -125,7 +125,7 @@ export function SelectButton({
                 // @ts-expect-error - TODO: Fix select types
                 selectedItemIcon ?? slotLeft,
                 {
-                    className: 'text-mid',
+                    className: 'text-mid [&:is(svg)]:size-3 [&:is(svg)]:shrink-0',
                     'data-slot': 'slot-left',
                 }
             )}
@@ -139,7 +139,7 @@ export function SelectButton({
                 {({ selectedText }) => selectedText}
             </AriaSelectValue>
             {renderSlot(slotRight, {
-                className: 'text-mid',
+                className: 'text-mid [&:is(svg)]:size-3 [&:is(svg)]:shrink-0',
                 'data-slot': 'slot-right',
             })}
         </AriaButton>

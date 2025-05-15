@@ -31,7 +31,7 @@ const optionStyle = tv({
         'text-dark text-sm',
         'outline outline-0',
         'rounded select-none',
-        'px-1.5 py-0.5',
+        'px-1.25 py-0.5',
         'forced-color-adjust-none',
         // disabled
         'disabled:text-light',

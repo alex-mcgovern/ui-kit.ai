@@ -23,6 +23,6 @@ export function renderSlot(node: SlotNode | undefined, props: SlotNodeProps) {
     return cloneElement(node, {
         ...node.props,
         ...props,
-        className: twMerge('h-3 min-w-3', node.props.className, props.className),
+        className: twMerge(node.props.className, props.className),
     })
 }
