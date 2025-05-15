@@ -330,6 +330,9 @@ importers:
       '@ui-kit.ai/eslint':
         specifier: workspace:*
         version: link:../eslint
+      '@ui-kit.ai/metadata':
+        specifier: workspace:*
+        version: link:../metadata
       '@ui-kit.ai/prettier':
         specifier: workspace:*
         version: link:../prettier
