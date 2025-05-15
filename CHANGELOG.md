@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.0.4](https://github.com/alex-mcgovern/ui-kit.ai/compare/ui-kit.ai-monorepo@v0.0.3...ui-kit.ai-monorepo@v0.0.4) (2025-05-15)
+
+
+### Continuous Integration
+
+* fix npm publish ([e823afc](https://github.com/alex-mcgovern/ui-kit.ai/commit/e823afc31e6d182196ef3903f4756187c89ccaa5))
+
 ## [0.0.3](https://github.com/alex-mcgovern/ui-kit.ai/compare/ui-kit.ai-monorepo@v0.0.2...ui-kit.ai-monorepo@v0.0.3) (2025-05-15)
 
 
