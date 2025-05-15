@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.0.2](https://github.com/alex-mcgovern/ui-kit.ai/compare/@ui-kit.ai/docs@v0.0.1...@ui-kit.ai/docs@v0.0.2) (2025-05-15)
+
+
+### Bug Fixes
+
+* **docs:** top nav missing github link ([#274](https://github.com/alex-mcgovern/ui-kit.ai/issues/274)) ([8560fbf](https://github.com/alex-mcgovern/ui-kit.ai/commit/8560fbfb2afa3d92629e5fd94d8933ae74958bf2))
+
 ## [0.0.1](https://github.com/alex-mcgovern/ui-kit.ai/compare/@ui-kit.ai/docs@v0.0.0...@ui-kit.ai/docs@v0.0.1) (2025-05-15)
 
 

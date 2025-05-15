@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.0.2](https://github.com/alex-mcgovern/ui-kit.ai/compare/ui-kit.ai-monorepo@v0.0.1...ui-kit.ai-monorepo@v0.0.2) (2025-05-15)
+
+
+### Bug Fixes
+
+* **docs:** top nav missing github link ([#274](https://github.com/alex-mcgovern/ui-kit.ai/issues/274)) ([8560fbf](https://github.com/alex-mcgovern/ui-kit.ai/commit/8560fbfb2afa3d92629e5fd94d8933ae74958bf2))
+
+
+### Miscellaneous Chores
+
+* oss stuff ([#272](https://github.com/alex-mcgovern/ui-kit.ai/issues/272)) ([45898f1](https://github.com/alex-mcgovern/ui-kit.ai/commit/45898f1393be5ede7219422f30169657c7df5e62))
+* typo in contributing guide ([#275](https://github.com/alex-mcgovern/ui-kit.ai/issues/275)) ([420f6ab](https://github.com/alex-mcgovern/ui-kit.ai/commit/420f6abc734d4543faca055d8d18aea9ae880015))
+
 ## [0.0.1](https://github.com/alex-mcgovern/ui-kit.ai/compare/ui-kit.ai-monorepo@v0.0.0...ui-kit.ai-monorepo@v0.0.1) (2025-05-15)
 
 
