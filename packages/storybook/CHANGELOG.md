@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.0.5](https://github.com/alex-mcgovern/ui-kit.ai/compare/@ui-kit.ai/storybook@v0.0.4...@ui-kit.ai/storybook@v0.0.5) (2025-05-15)
+
+
+### Continuous Integration
+
+* wip on npm publish action ([3014844](https://github.com/alex-mcgovern/ui-kit.ai/commit/301484489287eb14713b16a28fba686e5c5040eb))
+
 ## [0.0.4](https://github.com/alex-mcgovern/ui-kit.ai/compare/@ui-kit.ai/storybook@v0.0.3...@ui-kit.ai/storybook@v0.0.4) (2025-05-15)
 
 
