@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.0.1](https://github.com/alex-mcgovern/ui-kit.ai/compare/@ui-kit.ai/tests@v0.0.0...@ui-kit.ai/tests@v0.0.1) (2025-05-15)
+
+
+### Continuous Integration
+
+* **release-please:** correctly configure linked versions plugin ([#271](https://github.com/alex-mcgovern/ui-kit.ai/issues/271)) ([dd2c5f5](https://github.com/alex-mcgovern/ui-kit.ai/commit/dd2c5f58e54436c70a1de9724bbb13f2802c398e))
+
 ## 0.0.0 (2025-05-15)
 
 

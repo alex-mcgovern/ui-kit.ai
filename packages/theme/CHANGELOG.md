@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.0.1](https://github.com/alex-mcgovern/ui-kit.ai/compare/@ui-kit.ai/theme@v0.0.0...@ui-kit.ai/theme@v0.0.1) (2025-05-15)
+
+
+### Build System
+
+* **deps-dev:** bump @types/culori from 2.1.1 to 4.0.0 ([#259](https://github.com/alex-mcgovern/ui-kit.ai/issues/259)) ([c69412b](https://github.com/alex-mcgovern/ui-kit.ai/commit/c69412b2a1816e863886b5248bddd7ce7bed2f01))
+
 ## 0.0.0 (2025-05-15)
 
 
