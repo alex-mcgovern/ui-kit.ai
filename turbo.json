@@ -106,7 +106,8 @@
         },
         "publish-packages": {
             "dependsOn": ["check", "build", "^publish-packages"],
-            "outputLogs": "new-only"
+            "outputLogs": "new-only",
+            "cache": false
         },
         "storybook": {
             "dependsOn": ["^storybook"],

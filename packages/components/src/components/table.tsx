@@ -48,7 +48,7 @@ const columnStyles = tv({
     base: [
         'text-sm',
         'text-start',
-        'py-2 px-4',
+        'px-4 py-2',
         'group-data-[compact]/table:first:pl-0 group-data-[compact]/table:last:pr-0',
         'font-semibold',
         'flex flex-1 items-center gap-1',
@@ -67,7 +67,7 @@ const columnStyles = tv({
 const cellStyles = tv({
     base: [
         'text-sm',
-        'py-2 px-4',
+        'px-4 py-2',
         'transition-colors',
         '-outline-offset-2',
         'group-data-[compact]/table:first:pl-0 group-data-[compact]/table:last:pr-0',
