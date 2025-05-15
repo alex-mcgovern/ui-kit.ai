@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.0.3](https://github.com/alex-mcgovern/ui-kit.ai/compare/@ui-kit.ai/theme@v0.0.2...@ui-kit.ai/theme@v0.0.3) (2025-05-15)
+
+
+### Miscellaneous Chores
+
+* **@ui-kit.ai/theme:** Synchronize all versions
+
 ## [0.0.2](https://github.com/alex-mcgovern/ui-kit.ai/compare/@ui-kit.ai/theme@v0.0.1...@ui-kit.ai/theme@v0.0.2) (2025-05-15)
 
 
