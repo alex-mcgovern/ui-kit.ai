@@ -87,7 +87,7 @@ const tabStyles = tv({
         'selected:text-dark',
         'selected:border-[var(--theme-default-bg-accent-mid)]',
         // selected
-        'disabled:text-disabled',
+        'disabled:text-light',
         'disabled:selected:text-mid forced-color-adjust-none',
         // horizontal
         'group-orientation-horizontal/tabs:border-b',

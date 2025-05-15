@@ -26,15 +26,15 @@ type OptionsSectionProps<TType extends OptionType> = OptionsSectionSchema<TType>
 const optionStyle = tv({
     base: [
         'group/options-item',
-        'flex items-center gap-2',
+        'flex items-center gap-1.5',
         'cursor-default',
         'text-dark text-sm',
         'outline outline-0',
         'rounded select-none',
-        'py-0.5',
+        'px-1.5 py-0.5',
         'forced-color-adjust-none',
         // disabled
-        'disabled:text-disabled',
+        'disabled:text-light',
         // hover
         'hover:bg-tint-light',
         // focus
@@ -44,12 +44,6 @@ const optionStyle = tv({
         // selected
         'selected:bg-tint',
     ],
-    variants: {
-        hasIcon: {
-            false: 'px-2.5',
-            true: 'pr-2.5 pl-1.5',
-        },
-    },
 })
 
 /**
@@ -105,7 +99,7 @@ function OptionsItem<TType extends OptionType>({
             aria-label={props.textValue}
             className={(renderProps) =>
                 twMerge(
-                    optionStyle({ hasIcon: props.icon != null }),
+                    optionStyle(),
                     intent,
                     typeof props.className === 'function'
                         ? props.className(renderProps)
@@ -178,7 +172,7 @@ OptionsSection.displayName = 'OptionsSection'
 function OptionsSectionHeader(props: HeadingProps) {
     return (
         <Header
-            className='text-mid px-2.5 py-1 text-xs font-medium uppercase'
+            className='text-mid px-1.5 py-1 text-xs tracking-wide font-medium uppercase'
             {...props}
         />
     )
