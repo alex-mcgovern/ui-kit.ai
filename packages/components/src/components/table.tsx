@@ -313,7 +313,7 @@ export function Table({
         />
     )
 }
-Table.displayName = 'TableBase'
+Table.displayName = 'Table'
 
 export function TableBody<T extends object>(props: AriaTableBodyProps<T>) {
     return <RACTableBody<T> {...props} />
