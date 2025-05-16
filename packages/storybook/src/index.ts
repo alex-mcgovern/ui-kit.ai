@@ -37,6 +37,7 @@ import * as HeadingStories from './stories/heading.stories'
 import * as InputStories from './stories/input.stories'
 import * as KbdStories from './stories/kbd.stories'
 import * as LabelStories from './stories/label.stories'
+import * as LinkStories from './stories/link.stories'
 import * as ListBoxStories from './stories/list-box.stories'
 import * as LoaderStories from './stories/loader.stories'
 import * as MarkdownStories from './stories/markdown.stories'
@@ -51,6 +52,7 @@ import * as TagStories from './stories/tag.stories'
 import * as TextAreaStories from './stories/text-area.stories'
 import * as TextFieldStories from './stories/text-field.stories'
 import * as TooltipStories from './stories/tooltip.stories'
+import * as TopNavStories from './stories/top-nav.stories'
 
 const compose = (
     module: Parameters<typeof storybookComposeStories>[0]
@@ -94,6 +96,7 @@ export const Heading: Composed = compose(HeadingStories)
 export const Input: Composed = compose(InputStories)
 export const Kbd: Composed = compose(KbdStories)
 export const Label: Composed = compose(LabelStories)
+export const Link: Composed = compose(LinkStories)
 export const ListBox: Composed = compose(ListBoxStories)
 export const Loader: Composed = compose(LoaderStories)
 export const Markdown: Composed = compose(MarkdownStories)
@@ -108,3 +111,4 @@ export const Tag: Composed = compose(TagStories)
 export const TextArea: Composed = compose(TextAreaStories)
 export const TextField: Composed = compose(TextFieldStories)
 export const Tooltip: Composed = compose(TooltipStories)
+export const TopNav: Composed = compose(TopNavStories)
