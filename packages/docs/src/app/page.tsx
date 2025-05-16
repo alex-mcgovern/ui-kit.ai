@@ -73,7 +73,7 @@ export default function Home() {
                         title='Accessible'
                     />
                     <HomepageCard
-                        description='Give your assistant UI super powers with our MCP server.'
+                        description='Give your assistant UI super powers with our [MCP server](/docs/getting-started/mcp-server).'
                         gradientClassName='from-0% via-0% to-100%'
                         icon={BotIcon}
                         title='MCP server'
@@ -120,7 +120,10 @@ export default function Home() {
 function HeroContent() {
     return (
         <>
-            <Heading className='text-5xl md:text-6xl font-bold tracking-tight mb-6'>
+            <Heading
+                className='text-5xl md:text-6xl font-bold tracking-tight mb-6'
+                level={1}
+            >
                 Beautiful UI components
                 <br />
                 for
@@ -173,6 +176,7 @@ function HeroCtaSecondary({ className }: { className?: string }) {
                 'h-6',
                 'bg-gradient-to-r from-[var(--theme-error-tint-dark)] via-[var(--theme-info-tint-dark)] to-[var(--theme-info-tint-light)]'
             )}
+            href={hrefs.docs.getting_started.mcp_server}
             slotLeft={<ZapIcon />}
             slotRight={<ArrowRight className='-ml-1.5' />}
         >

@@ -1,7 +1,6 @@
 {
     "name": "@ui-kit.ai/mcp-server",
-    "version": "0.0.6-alpha.11",
-    "private": true,
+    "version": "0.0.6-alpha.27",
     "repository": {
         "type": "git",
         "url": "https://github.com/alex-mcgovern/ui-kit.ai"
@@ -9,14 +8,22 @@
     "license": "MIT",
     "author": "Alex McGovern",
     "type": "module",
+    "bin": "./src/index.mjs",
+    "files": [
+        "src/index.mjs",
+        "resources"
+    ],
     "scripts": {
+        "check:eslint": "eslint .",
+        "check:prettier": "prettier . --check",
+        "check:vitest": "vitest run --passWithNoTests",
         "fix:eslint": "eslint . --fix",
-        "fix:prettier": "prettier . --write"
+        "fix:prettier": "prettier . --write",
+        "publish-packages": "pnpm publish --access public --no-git-checks"
     },
     "dependencies": {
-        "@modelcontextprotocol/sdk": "1.9.0",
-        "react": "19.1.0",
-        "react-element-to-jsx-string": "17.0.1",
+        "@modelcontextprotocol/sdk": "1.11.3",
+        "@ui-kit.ai/metadata": "workspace:*",
         "zod": "3.24.1"
     },
     "devDependencies": {
@@ -26,7 +33,9 @@
         "@ui-kit.ai/eslint": "workspace:*",
         "@ui-kit.ai/prettier": "workspace:*",
         "@ui-kit.ai/tsconfig": "workspace:*",
-        "@ui-kit.ai/vitest": "workspace:*"
+        "@ui-kit.ai/vite": "workspace:*",
+        "@ui-kit.ai/vitest": "workspace:*",
+        "react-docgen-typescript": "2.2.2"
     },
     "engines": {
         "node": "22.x"

@@ -20,18 +20,7 @@ function Template(props: ComponentProps<typeof Dialog>) {
             <Button className='error'>Delete account</Button>
             <DialogModalOverlay>
                 <DialogModal>
-                    <TemplateDialog {...props} />
-                </DialogModal>
-            </DialogModalOverlay>
-        </DialogTrigger>
-    )
-}
-function TemplateDialog(props: ComponentProps<typeof Dialog>) {
-    return (
-        <Dialog {...props}>
-            {({ close }) => {
-                return (
-                    <>
+                    <Dialog {...props}>
                         <DialogHeader>
                             <DialogTitle>Delete account</DialogTitle>
                             <DialogCloseButton />
@@ -48,7 +37,7 @@ function TemplateDialog(props: ComponentProps<typeof Dialog>) {
                         <DialogFooter>
                             <Button
                                 className='ml-auto'
-                                onPress={() => close()}
+                                slot='close'
                                 variant='secondary'
                             >
                                 Cancel
@@ -64,9 +53,47 @@ function TemplateDialog(props: ComponentProps<typeof Dialog>) {
                                 Confirm
                             </Button>
                         </DialogFooter>
-                    </>
-                )
-            }}
+                    </Dialog>
+                </DialogModal>
+            </DialogModalOverlay>
+        </DialogTrigger>
+    )
+}
+function TemplateDialog(props: ComponentProps<typeof Dialog>) {
+    return (
+        <Dialog {...props}>
+            <DialogHeader>
+                <DialogTitle>Delete account</DialogTitle>
+                <DialogCloseButton />
+            </DialogHeader>
+
+            <DialogContent>
+                <p className='mb-2'>Are you sure you want to delete your account?</p>
+                <p>
+                    <b>This action cannot be undone.</b> All of your data will be permanently
+                    deleted.
+                </p>
+            </DialogContent>
+
+            <DialogFooter>
+                <Button
+                    className='ml-auto'
+                    slot='close'
+                    variant='secondary'
+                >
+                    Cancel
+                </Button>
+                <Button
+                    className='error'
+                    onPress={() => {
+                        alert('Confirmed')
+                        close()
+                    }}
+                    type='submit'
+                >
+                    Confirm
+                </Button>
+            </DialogFooter>
         </Dialog>
     )
 }

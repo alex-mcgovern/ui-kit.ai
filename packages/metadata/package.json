@@ -1,6 +1,6 @@
 {
     "name": "@ui-kit.ai/metadata",
-    "version": "0.0.6-alpha.11",
+    "version": "0.0.6-alpha.27",
     "repository": {
         "type": "git",
         "url": "https://github.com/alex-mcgovern/ui-kit.ai"
@@ -9,20 +9,15 @@
     "author": "Alex McGovern",
     "type": "module",
     "exports": {
-        ".": "./dist/index.js",
         "./prop-types.json": "./dist/prop-types.json",
         "./usage-examples.json": "./dist/usage-examples.json"
     },
-    "main": "dist/index.js",
     "source": "src/index.ts",
-    "types": "dist/index.d.ts",
     "files": [
         "dist"
     ],
     "scripts": {
-        "prebuild": "tsx ./src/scripts/gen-index.ts && prettier ./src/index.ts --write",
-        "build": "vite build && npm run gen-prop-types && npm run gen-usage-examples",
-        "build:watch": "vite build --watch",
+        "build": "npm run gen-prop-types && npm run gen-usage-examples",
         "check:eslint": "eslint .",
         "check:prettier": "prettier . --check",
         "check:tsc": "tsc",
@@ -30,25 +25,21 @@
         "fix:eslint": "eslint . --fix",
         "fix:prettier": "prettier . --write",
         "gen-prop-types": "tsx ./src/gen-prop-types.ts",
-        "gen-usage-examples": "tsx ./src/gen-usage-examples.ts"
-    },
-    "dependencies": {
-        "@storybook/react": "8.6.12",
-        "@ui-kit.ai/components": "workspace:*",
-        "@ui-kit.ai/storybook": "workspace:*",
-        "prettier": "3.5.3",
-        "react-docgen-typescript": "2.2.2",
-        "react-element-to-jsx-string": "17.0.1",
-        "tailwindcss": "4.1.6"
+        "gen-usage-examples": "tsx ./src/gen-usage-examples.ts",
+        "publish-packages": "pnpm publish --access public --no-git-checks"
     },
     "devDependencies": {
         "@types/react": "19.1.3",
+        "@ui-kit.ai/components": "workspace:*",
         "@ui-kit.ai/eslint": "workspace:*",
         "@ui-kit.ai/prettier": "workspace:*",
+        "@ui-kit.ai/storybook": "workspace:*",
         "@ui-kit.ai/tsconfig": "workspace:*",
         "@ui-kit.ai/vite": "workspace:*",
+        "prettier": "3.5.3",
         "react": "19.1.0",
-        "react-is": "19.1.0"
+        "react-docgen-typescript": "2.2.2",
+        "react-element-to-jsx-string": "17.0.1"
     },
     "engines": {
         "node": "22.x"

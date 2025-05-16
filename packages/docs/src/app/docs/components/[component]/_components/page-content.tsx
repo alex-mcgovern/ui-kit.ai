@@ -3,9 +3,9 @@
 import type { ComponentDoc } from 'react-docgen-typescript'
 
 import { Heading, Markdown } from '@ui-kit.ai/components'
-import * as components from '@ui-kit.ai/metadata'
 import propTypes from '@ui-kit.ai/metadata/prop-types.json'
 import usage from '@ui-kit.ai/metadata/usage-examples.json'
+import * as components from '@ui-kit.ai/storybook'
 
 import { Code } from '../../../../../components/code'
 import { PropsTable } from '../../../../../components/props-table'

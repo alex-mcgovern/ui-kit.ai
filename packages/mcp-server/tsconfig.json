@@ -1,10 +1,5 @@
 {
-    "extends": "@ui-kit.ai/tsconfig/react-library.json",
-    "include": [
-        "src/**/*",
-        "eslint.config.mjs",
-        ".prettierrc.mjs",
-        "../../scripts/utils/parse-story.ts"
-    ],
-    "exclude": ["node_modules"]
+    "extends": "@ui-kit.ai/tsconfig/node.json",
+    "include": ["src/**/*", "eslint.config.mjs", ".prettierrc.mjs"],
+    "exclude": ["node_modules", "dist"]
 }

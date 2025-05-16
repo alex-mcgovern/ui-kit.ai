@@ -1,4 +1,4 @@
-import * as components from '@ui-kit.ai/metadata'
+import * as components from '@ui-kit.ai/storybook'
 
 import { ComponentDocsPageContent } from './_components/page-content'
 

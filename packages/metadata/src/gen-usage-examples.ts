@@ -1,10 +1,9 @@
-import * as components from '@ui-kit.ai/storybook'
+import * as composedComponentsMap from '@ui-kit.ai/storybook'
 import * as fs from 'node:fs'
 import * as path from 'node:path'
 
 const outputPath = path.resolve(import.meta.dirname, '..', 'dist', 'usage-examples.json')
 
-import { composeStories } from '@storybook/react'
 import { format, resolveConfig, resolveConfigFile } from 'prettier'
 import React, { type ReactNode } from 'react'
 import { type Options as ReactElementToJsxStringOptions } from 'react-element-to-jsx-string'
@@ -26,27 +25,8 @@ type StoryFn = (() => ReactNode) & {
 const NO_DISPLAY_NAME_SIGNAL = 'NO_DISPLAY_NAME_SIGNAL'
 
 const JSX_STRING_OPTIONS = {
-    // displayName(element: ReactNode) {
-    //     if (typeof element === 'string') return element
-    //     if (typeof element === 'object' && element !== null && 'type' in element) {
-    //         const type = (element as { type: unknown }).type
-    //         if (typeof type === 'string') return type
-    //         // Handle forwardRef components
-    //         if (typeof type === 'object' && type !== null && 'render' in type) {
-    //             const render = (type as { render: { displayName?: string } }).render
-    //             if (render.displayName != null) return render.displayName
-    //         }
-    //         if (typeof type === 'function') {
-    //             const displayName = (type as unknown as { displayName: string }).displayName
-    //             if (displayName) return displayName
-    //             const name = (type as { name: string }).name
-    //             if (name) return name
-    //         }
-    //     }
-    //     return NO_DISPLAY_NAME_SIGNAL
-    // },
-    filterProps(_value, key) {
-        return key !== 'data-testid' && key !== 'key'
+    filterProps(value, key) {
+        return key !== 'data-testid' && key !== 'key' && value != null
     },
     // eslint-disable-next-line @typescript-eslint/no-unsafe-function-type
     functionValue: (fn: Function) => fn.toString(),
@@ -69,11 +49,7 @@ async function main() {
     // NOTE: Dynamic import seems to help avoid "function does not exist" errors
     const reactElementToJSXString = await (await import('react-element-to-jsx-string')).default
 
-    for (const [componentName, stories] of Object.entries(components)) {
-        const composedStories = composeStories(stories as Parameters<typeof composeStories>[0], {
-            applyDecorators: (storyFn) => storyFn, // We don't want to apply any decorators
-        })
-
+    for (const [componentName, composedStories] of Object.entries(composedComponentsMap)) {
         const composed: Record<string, string> = {}
 
         for (const [storyName, Story] of Object.entries(composedStories)) {

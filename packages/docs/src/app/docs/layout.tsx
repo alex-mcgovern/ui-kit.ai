@@ -28,7 +28,7 @@ export default function Layout({
             <Sidebar>
                 <section className='mb-4'>
                     <Heading
-                        className='ml-2 text-sm text-mid mb-2'
+                        className='ml-0.75  text-sm text-mid mb-2'
                         level={3}
                     >
                         Getting started
@@ -51,6 +51,11 @@ export default function Layout({
                                 id: 'theme',
                                 textValue: 'Theme',
                             },
+                            {
+                                href: hrefs.docs.getting_started.mcp_server,
+                                id: 'mcp-server',
+                                textValue: 'MCP server',
+                            },
                         ]}
                         selectedKeys={selectedLayoutSegment != null ? [selectedLayoutSegment] : []}
                         selectionMode='single'
@@ -59,7 +64,7 @@ export default function Layout({
                 </section>
                 <section className='mb-4'>
                     <Heading
-                        className='ml-2 text-sm mb-2 text-mid'
+                        className='ml-0.75  text-sm mb-2 text-mid'
                         level={3}
                     >
                         Components

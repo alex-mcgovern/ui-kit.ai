@@ -1,7 +1,7 @@
 'use client'
 
 import { Button, Card, Input, Tag, TextField } from '@ui-kit.ai/components'
-import { Chat as ChatStories } from '@ui-kit.ai/metadata'
+import { Chat as ChatStories } from '@ui-kit.ai/storybook'
 import {
     ArrowUpIcon,
     ClipboardCopyIcon,

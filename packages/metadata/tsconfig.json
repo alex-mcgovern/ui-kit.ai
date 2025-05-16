@@ -1,5 +1,5 @@
 {
     "extends": "@ui-kit.ai/tsconfig/nextjs.json",
-    "include": ["src/**/*", "eslint.config.mjs", ".prettierrc.mjs", "vite.config.mjs"],
+    "include": ["src/**/*", "eslint.config.mjs", ".prettierrc.mjs"],
     "exclude": ["node_modules", "dist"]
 }
