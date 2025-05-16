@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.0.6](https://github.com/alex-mcgovern/ui-kit.ai/compare/@ui-kit.ai/eslint@v0.0.5...@ui-kit.ai/eslint@v0.0.6) (2025-05-16)
+
+
+### Features
+
+* MCP server (alpha quality) ([#282](https://github.com/alex-mcgovern/ui-kit.ai/issues/282)) ([94f5277](https://github.com/alex-mcgovern/ui-kit.ai/commit/94f527783562e26f8a0b6c2e502ea6755c104fc6))
+
+
+### Bug Fixes
+
+* styling fixes ([#280](https://github.com/alex-mcgovern/ui-kit.ai/issues/280)) ([6dc5ef3](https://github.com/alex-mcgovern/ui-kit.ai/commit/6dc5ef3a733a9a40e559d91626e285c43ee2c13c))
+
 ## [0.0.5](https://github.com/alex-mcgovern/ui-kit.ai/compare/@ui-kit.ai/eslint@v0.0.4...@ui-kit.ai/eslint@v0.0.5) (2025-05-15)
 
 
