@@ -19,10 +19,16 @@ const server = new McpServer(
 )
 
 server.tool('all_components', {}, () => {
+    // Create a markdown list of all available components
+    const componentsList = Object.keys(usage)
+        .sort()
+        .map((componentName) => `- ${componentName}`)
+        .join('\n')
+
     return {
         content: [
             {
-                text: JSON.stringify(Object.keys(usage), null, 2),
+                text: `# Available Components\n\n${componentsList}`,
                 type: 'text',
             },
         ],
@@ -37,13 +43,31 @@ server.tool(
         }),
     },
     ({ component }) => {
-        const example = component in usage ? usage[component] : null
+        // @ts-expect-error - we lose some type information here
+        const componentExamples = component in usage ? usage[component] : null
+
+        if (componentExamples == null) {
+            return {
+                content: [
+                    {
+                        text: 'No examples found for this component.',
+                        type: 'text',
+                    },
+                ],
+            }
+        }
+
+        // Format examples as markdown with H3 headings and code blocks
+        const formattedExamples = Object.entries(componentExamples)
+            .map(([exampleName, codeExample]) => {
+                return `### ${exampleName}\n\n\`\`\`jsx\n${codeExample}\n\`\`\``
+            })
+            .join('\n\n')
 
         return {
             content: [
                 {
-                    // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
-                    text: example ? JSON.stringify(example, null, 2) : 'No example found.',
+                    text: formattedExamples || `No examples found for ${component}.`,
                     type: 'text',
                 },
             ],
@@ -52,4 +76,5 @@ server.tool(
 )
 
 const transport = new StdioServerTransport()
+// @ts-expect-error - TODO: ts configuration issue — top-level await *is* actually supported in newer Node.js versions
 await server.connect(transport)
