@@ -153,11 +153,11 @@ function TemplatePagination(args: ComponentProps<typeof Table>) {
                     </Row>
                 </TableBody>
             </Table>
-            <div className='w-full flex justify-between items-center mt-4'>
-                <span className='block whitespace-nowrap shrink-0 text-mid text-sm font-medium'>
+            <div className='mt-4 flex w-full items-center justify-between'>
+                <span className='text-mid block shrink-0 text-sm font-medium whitespace-nowrap'>
                     1-10 of 100
                 </span>
-                <div className='flex gap-1 items-center justify-center'>
+                <div className='flex items-center justify-center gap-1'>
                     <Button
                         aria-label='First page'
                         isIcon
@@ -210,7 +210,7 @@ function TemplatePagination(args: ComponentProps<typeof Table>) {
                     </Button>
                 </div>
                 <Select
-                    className='flex gap-2 items-center w-auto'
+                    className='flex w-auto items-center gap-2'
                     defaultSelectedKey={'10'}
                     items={[
                         { id: '10', textValue: '10' },
