@@ -17,6 +17,11 @@ function main() {
     if (!Array.isArray(docs) || docs.length === 0) {
         throw Error(`❌ Unable to parse typedefs for ${resolvedPath}`)
     } else {
+        const dir = path.dirname(OUTPUT_PATH)
+        if (!fs.existsSync(dir)) {
+            fs.mkdirSync(dir, { recursive: true })
+            console.info(`✅  Created directory ${dir}`)
+        }
         fs.writeFileSync(OUTPUT_PATH, JSON.stringify(docs, null, 2))
         console.info(`✅  Component type data written to ${OUTPUT_PATH}`)
     }
