@@ -10,7 +10,8 @@
     "type": "module",
     "bin": "./src/index.mjs",
     "files": [
-        "src"
+        "src/index.mjs",
+        "resources"
     ],
     "scripts": {
         "check:eslint": "eslint .",
@@ -21,7 +22,7 @@
         "publish-packages": "pnpm publish --access public --no-git-checks"
     },
     "dependencies": {
-        "@modelcontextprotocol/sdk": "1.9.0",
+        "@modelcontextprotocol/sdk": "1.11.3",
         "@ui-kit.ai/metadata": "workspace:*",
         "zod": "3.24.1"
     },
@@ -33,7 +34,8 @@
         "@ui-kit.ai/prettier": "workspace:*",
         "@ui-kit.ai/tsconfig": "workspace:*",
         "@ui-kit.ai/vite": "workspace:*",
-        "@ui-kit.ai/vitest": "workspace:*"
+        "@ui-kit.ai/vitest": "workspace:*",
+        "react-docgen-typescript": "2.2.2"
     },
     "engines": {
         "node": "22.x"

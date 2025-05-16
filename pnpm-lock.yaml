@@ -174,9 +174,6 @@ importers:
       react-dom:
         specifier: 19.1.0
         version: 19.1.0(react@19.1.0)
-      react-element-to-jsx-string:
-        specifier: 17.0.1
-        version: 17.0.1(react-dom@19.1.0(react@19.1.0))(react-is@19.1.0)(react@19.1.0)
       tailwind-merge:
         specifier: 3.3.0
         version: 3.3.0
@@ -306,8 +303,8 @@ importers:
   packages/mcp-server:
     dependencies:
       '@modelcontextprotocol/sdk':
-        specifier: 1.9.0
-        version: 1.9.0
+        specifier: 1.11.3
+        version: 1.11.3
       '@ui-kit.ai/metadata':
         specifier: workspace:*
         version: link:../metadata
@@ -339,6 +336,9 @@ importers:
       '@ui-kit.ai/vitest':
         specifier: workspace:*
         version: link:../vitest
+      react-docgen-typescript:
+        specifier: 2.2.2
+        version: 2.2.2(typescript@5.8.2)
 
   packages/metadata:
     devDependencies:
@@ -1389,8 +1389,8 @@ packages:
   '@microsoft/tsdoc@0.15.1':
     resolution: {integrity: sha512-4aErSrCR/On/e5G2hDP0wjooqDdauzEbIq8hIkIe5pXV0rtWJZvdCEKL0ykZxex+IxIwBp0eGeV48hQN07dXtw==}
 
-  '@modelcontextprotocol/sdk@1.9.0':
-    resolution: {integrity: sha512-Jq2EUCQpe0iyO5FGpzVYDNFR6oR53AIrwph9yWl7uSc7IWUMsrmpmSaTGra5hQNunXpM+9oit85p924jWuHzUA==}
+  '@modelcontextprotocol/sdk@1.11.3':
+    resolution: {integrity: sha512-rmOWVRUbUJD7iSvJugjUbFZshTAuJ48MXoZ80Osx1GM0K/H1w7rSEvmw8m6vdWxNASgtaHIhAgre4H/E9GJiYQ==}
     engines: {node: '>=18'}
 
   '@mswjs/interceptors@0.37.6':
@@ -7458,7 +7458,7 @@ snapshots:
 
   '@microsoft/tsdoc@0.15.1': {}
 
-  '@modelcontextprotocol/sdk@1.9.0':
+  '@modelcontextprotocol/sdk@1.11.3':
     dependencies:
       content-type: 1.0.5
       cors: 2.8.5
