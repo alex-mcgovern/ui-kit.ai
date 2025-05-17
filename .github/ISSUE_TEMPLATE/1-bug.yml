@@ -1,0 +1,12 @@
+name: Bug
+description: Bug ticket
+title: '[Bug]: '
+labels: ['bug']
+body:
+    - type: textarea
+      id: description
+      attributes:
+          label: Description
+          description: Describe the behavior you expected and what actually happened. Please provide any additional information that may be helpful in diagnosing the issue.
+      validations:
+          required: true
