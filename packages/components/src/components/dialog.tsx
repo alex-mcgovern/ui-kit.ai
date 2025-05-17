@@ -69,9 +69,9 @@ const dialogStyles = tv({
     ],
     variants: {
         width: {
-            lg: 'md:max-w-[max(50rem,50dvw)]',
-            md: 'md:max-w-[max(35rem,35dvw)]',
-            sm: 'md:max-w-96',
+            lg: 'md:w-[max(50rem,50dvw)]',
+            md: 'md:w-[max(35rem,35dvw)]',
+            sm: 'md:w-96',
         },
     },
 })

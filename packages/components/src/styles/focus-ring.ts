@@ -14,7 +14,7 @@ export const focusRing = tv({
         isBorderless: {
             false: [
                 'focus-within:&:has([data-focus-visible]):outline-2 focus-visible:outline-2',
-                'group/invalid:!outline-red-700 invalid:!outline-red-700',
+                'group/invalid:error invalid:error',
             ],
             true: '',
         },
