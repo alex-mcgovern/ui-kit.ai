@@ -14,8 +14,8 @@ const alertStyles = tv({
         'border-light border',
         'bg-tint-light/80',
         'text-mid',
-        'py-1 pr-2 pl-3',
-        'flex items-center gap-4',
+        'p-2 pl-3',
+        'flex items-center gap-3',
     ],
 })
 

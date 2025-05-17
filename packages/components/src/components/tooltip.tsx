@@ -7,6 +7,7 @@ import { Info as InfoIcon } from 'lucide-react'
 import { type ComponentProps, type ForwardedRef } from 'react'
 import {
     composeRenderProps,
+    OverlayArrow,
     Tooltip as RACTooltip,
     TooltipTrigger as RACTooltipTrigger,
 } from 'react-aria-components'
@@ -25,7 +26,7 @@ const tooltipStyles = tv({
             'inline-flex items-center gap-1',
             'px-2 py-1',
             'text-sm',
-            'bg-raised border-dark text-mid',
+            'bg-[var(--theme-default-text-dark)] text-[var(--theme-default-bg-raised)]',
             'group rounded drop-shadow-sm',
             // transition
             'transition-all will-change-transform',
@@ -35,18 +36,18 @@ const tooltipStyles = tv({
             '[--origin-x:0]',
             '[--origin-y:0]',
             // placement
-            'placement-top:[--origin-y:theme(spacing.1)]',
-            'placement-right:[--origin-x:calc(theme(spacing.1)_*_-1)]',
-            'placement-bottom:[--origin-y:calc(theme(spacing.1)_*_-1)]',
-            'placement-left:[--origin-x:theme(spacing.1)]',
+            'placement-top:[--origin-y:var(--spacing)]',
+            'placement-right:[--origin-x:calc(var(--spacing)_*_-1)]',
+            'placement-bottom:[--origin-y:calc(var(--spacing)_*_-1)]',
+            'placement-left:[--origin-x:var(--spacing)]',
             // entering
             'entering:opacity-0',
-            'entering:translate-y-[--origin-y]',
-            'entering:translate-x-[--origin-x]',
+            'entering:translate-y-(--origin-y)',
+            'entering:translate-x-(--origin-x)',
             // exiting
             'exiting:opacity-0',
-            'exiting:translate-y-[--origin-y]',
-            'exiting:translate-x-[--origin-x]',
+            'exiting:translate-y-(--origin-y)',
+            'exiting:translate-x-(--origin-x)',
             'exiting:pointer-events-none', // ensure content behind is immediately interactive
         ],
     ],
@@ -67,6 +68,19 @@ export function Tooltip({ children, ...props }: TooltipProps) {
             )}
             offset={10}
         >
+            <OverlayArrow>
+                <svg
+                    className='group-placement-left:-rotate-90 group-placement-right:rotate-90 group-placement-bottom:rotate-180
+                        fill-[var(--theme-default-text-dark)] forced-colors:fill-[Canvas]
+                        forced-colors:stroke-[ButtonBorder]'
+                    height={8}
+                    viewBox='0 0 8 8'
+                    width={8}
+                >
+                    <path d='M0 0 L4 4 L8 0' />
+                </svg>
+            </OverlayArrow>
+
             {children}
         </RACTooltip>
     )

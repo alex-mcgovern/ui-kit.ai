@@ -59,7 +59,7 @@ export function DocsSearchDialog() {
             <DialogModalOverlay>
                 <DialogModal>
                     <Dialog
-                        className='md:!h-[50vh]'
+                        className='md:!h-[50vh] w-full'
                         width='md'
                     >
                         <Autocomplete>
