@@ -1,0 +1,12 @@
+name: Chore
+description: Chore ticket
+title: '[Chore]: '
+labels: ['chore']
+body:
+    - type: textarea
+      id: description
+      attributes:
+          label: Description
+          description: Why is it needed? What is the expected outcome? What is the impact?
+      validations:
+          required: true
