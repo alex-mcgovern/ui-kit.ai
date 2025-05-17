@@ -45,7 +45,7 @@
         "zod": "3.24.4"
     },
     "devDependencies": {
-        "@faker-js/faker": "8.4.1",
+        "@faker-js/faker": "9.8.0",
         "@hookform/resolvers": "5.0.1",
         "@storybook/addon-essentials": "8.6.14",
         "@storybook/addon-interactions": "8.6.14",
