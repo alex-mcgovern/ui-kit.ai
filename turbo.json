@@ -15,6 +15,10 @@
             ],
             "outputLogs": "new-only"
         },
+        "@ui-kit.ai/mcp-server#build": {
+            "dependsOn": ["@ui-kit.ai/metadata#build"],
+            "outputLogs": "new-only"
+        },
         "@ui-kit.ai/metadata#build": {
             "dependsOn": ["@ui-kit.ai/components#build", "@ui-kit.ai/storybook#build"],
             "outputLogs": "new-only"
@@ -47,7 +51,7 @@
             ],
             "outputLogs": "new-only"
         },
-        "@ui-kit.ai/storybook#storycap:light": {
+        "@ui-kit.ai/storybook#storycap:dark": {
             "dependsOn": [
                 "@ui-kit.ai/components#build",
                 "@ui-kit.ai/theme#build",
@@ -55,7 +59,7 @@
             ],
             "outputLogs": "new-only"
         },
-        "@ui-kit.ai/storybook#storycap:dark": {
+        "@ui-kit.ai/storybook#storycap:light": {
             "dependsOn": [
                 "@ui-kit.ai/components#build",
                 "@ui-kit.ai/theme#build",
@@ -65,7 +69,7 @@
         },
         "build": {
             "outputLogs": "new-only",
-            "outputs": ["dist/**", ".next/**"]
+            "outputs": ["dist/**", ".next/**", "out/**"]
         },
         "check": {
             "dependsOn": ["build", "check:prettier", "check:tsc", "check:vitest"],
@@ -105,9 +109,9 @@
             "outputLogs": "new-only"
         },
         "publish-packages": {
+            "cache": false,
             "dependsOn": ["check", "build", "^publish-packages"],
-            "outputLogs": "new-only",
-            "cache": false
+            "outputLogs": "new-only"
         },
         "storybook": {
             "dependsOn": ["^storybook"],

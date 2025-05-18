@@ -2,36 +2,159 @@
 
 import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js'
 import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js'
-import propTypes from '@ui-kit.ai/metadata/prop-types.json' with { type: 'json' }
-import usage from '@ui-kit.ai/metadata/usage-examples.json' with { type: 'json' }
+import { existsSync, readdirSync, readFileSync } from 'fs'
+import { dirname, join, resolve } from 'path'
+import { fileURLToPath } from 'url'
 import { z } from 'zod'
 
-import packageJson from '../package.json' with { type: 'json' }
+const __dirname = dirname(fileURLToPath(import.meta.url))
 
 /**
- * A list of component summaries derived from prop types documentation.
- * @type {{
- *   name: string;
- *   description: string;
- * }[]}
+ * The path to the directory containing the usage examples, e.g.:
+ * @example
+ * dist/
+ * └── usage
+ *     ├── ComponentA
+ *     │   ├── ExampleA.md
+ *     │   └── ExampleB.md
+ *     └── ComponentB
+ *         ├── ExampleA.md
+ *         └── ExampleB.md
  */
-const ALL_COMPONENTS = Object.keys(usage).map((componentName) => {
-    if (!Array.isArray(propTypes)) throw new Error('propTypes is not an array')
-    const docs = propTypes.find((prop) => prop.displayName === componentName)
-    return {
-        description: docs.description,
-        name: componentName,
+const USAGE_DIR = resolve(__dirname, '../dist/usage')
+
+// For simplicity, we validate the existence of the usage directory at startup
+// and throw an error if it doesn't exist
+if (!existsSync(USAGE_DIR)) throw new Error(`Usage directory not found: ${USAGE_DIR}`)
+
+///////////////////////////////////////////////////
+// Text
+///////////////////////////////////////////////////
+
+const SERVER_INSTRUCTIONS = `Provides usage examples for \`@ui-kit.ai/components\`.
+
+### When to use this MCP server?
+- When the user prompt relates to user-interface code generation.
+- When the user prompt relates to \`@ui-kit.ai/components\`.
+- Before generating any user-interface code.
+
+### How to use this MCP server?
+- Use the \`usageExampleIds\` tool to get an index of all available examples.
+- Use the \`get_usage_example\` tool to get usage examples for a specific component.
+`
+
+const LIST_USAGE_EXAMPLES_DESCRIPTION =
+    'Get a list of all available components in the `@ui-kit.ai/components` package.'
+
+const GET_USAGE_EXAMPLE_DESCRIPTION =
+    'Get usage examples for components in the `@ui-kit.ai/components` package.'
+
+///////////////////////////////////////////////////
+// Utils
+///////////////////////////////////////////////////
+
+/**
+ * Retrieves a list of directory names within the specified directory path.
+ * NOTE: This function only returns direct child directories (depth=1)
+ * and does not traverse subdirectories recursively.
+ *
+ * @param {string} dirPath - The path to the directory whose subdirectories should be retrieved
+ * @returns {string[]} An array of directory names (not full paths)
+ */
+function _listDirectoriesByPath(dirPath) {
+    return readdirSync(dirPath, { withFileTypes: true })
+        .filter((dirent) => dirent.isDirectory())
+        .map((dirent) => dirent.name)
+}
+
+/**
+ * Retrieves a list of markdown file names within the specified directory path.
+ * NOTE: This function only returns direct child files (depth=1)
+ * and does not traverse subdirectories recursively.
+ *
+ * @param {string} dirPath - The path to the directory where markdown files should be retrieved
+ * @returns {string[]} An array of markdown file names (not full paths)
+ */
+function _listMarkdownFilesInPath(dirPath) {
+    return readdirSync(dirPath, { withFileTypes: true })
+        .filter((dirent) => dirent.isFile() && dirent.name.endsWith('.md'))
+        .map((dirent) => dirent.name)
+}
+
+/**
+ * Get the MCP server version of from package.json
+ * @returns {string} The version of the MCP server
+ */
+function getMcpServerVersion() {
+    const packageJsonPath = resolve(__dirname, '../package.json')
+    const packageJson = JSON.parse(readFileSync(packageJsonPath, 'utf8'))
+    return packageJson.version
+}
+
+/**
+ * Loads all component usage examples from the USAGE_DIR.
+ *
+ * @returns {{
+ *   usageExamples: Object<string, string>  // Map of component/example IDs to their content
+ * }}
+ * @example
+ * ```
+ * // Directory structure:
+ * dist/usage/
+ * ├── ComponentA/
+ * │   ├── ExampleA.md
+ * │   └── ExampleB.md
+ * └── ComponentB/
+ *     ├── ExampleA.md
+ *     └── ExampleB.md
+ * // Example return value:
+ * {
+ *     "ComponentA/ExampleA": "{CODE_CONTENT}",
+ *     "ComponentA/ExampleB": "{CODE_CONTENT}",
+ *     "ComponentB/ExampleA": "{CODE_CONTENT}",
+ *     "ComponentB/ExampleB": "{CODE_CONTENT}"
+ * }
+ * ```
+ */
+function loadUsageExamples() {
+    // Get all component directories (e.g., Button, Card)
+    const componentNames = _listDirectoriesByPath(USAGE_DIR)
+
+    /** @type {Object<string, string>} - Map of fully qualified IDs to their code content */
+    const usageExamples = {}
+
+    for (const componentName of componentNames) {
+        const componentPath = join(USAGE_DIR, componentName)
+        const markdownFilenames = _listMarkdownFilesInPath(componentPath)
+
+        // Process each markdown file to extract code examples
+        for (const markdownFilename of markdownFilenames) {
+            const usageExampleName = markdownFilename.replace('.md', '')
+            const content = readFileSync(join(componentPath, markdownFilename), 'utf8')
+
+            // Create fully qualified ID: "ComponentName/ExampleName"
+            const fullyQualifiedId = `${componentName}/${usageExampleName}`
+            usageExamples[fullyQualifiedId] = content
+        }
     }
-})
+
+    return { usageExamples }
+}
+
+const { usageExamples } = loadUsageExamples()
+const usageExampleIds = Object.keys(usageExamples)
+
+///////////////////////////////////////////////////
+// MCP Server
+///////////////////////////////////////////////////
 
 const server = new McpServer(
     {
         name: '@ui-kit.ai/components usage',
-        version: packageJson.version,
+        version: getMcpServerVersion(),
     },
     {
-        instructions:
-            'Use this server to get usage examples for the `@ui-kit.ai/components` package. You can use the `all_components` tool to get a list of all components, or the `usage` tool to get usage examples for a specific component.',
+        instructions: SERVER_INSTRUCTIONS,
     }
 )
 
@@ -39,38 +162,9 @@ const server = new McpServer(
 // Tool: All components
 ///////////////////////////////////////////////////
 
-/**
- * Format a list of components into a header-description sections.
- * @param {{
- *   name: string;
- *   description: string;
- * }[]} components
- * @returns {string}
- */
-const formatComponents = (components) =>
-    components
-        .map((component) => {
-            return `## ${component.name}\n${component.description}`
-        })
-        .join('\n\n')
-
-/**
- * @param {string} components
- * @returns {string}
- */
-function allComponentsTemplate(components) {
-    return `
-# Available Components
-
-All of these components can be directly imported from the \`@ui-kit.ai/components\` library.
-
-${components}
-`
-}
-
 server.tool(
-    'all_components',
-    'Get a list of all available components in the `@ui-kit.ai/components` package.',
+    'list_usage_examples',
+    LIST_USAGE_EXAMPLES_DESCRIPTION,
     {
         destructiveHint: false,
         idempotentHint: true,
@@ -82,7 +176,7 @@ server.tool(
         return {
             content: [
                 {
-                    text: allComponentsTemplate(formatComponents(ALL_COMPONENTS)),
+                    text: usageExampleIds.join('\n'),
                     type: 'text',
                 },
             ],
@@ -94,40 +188,33 @@ server.tool(
 // Tool: Usage
 ///////////////////////////////////////////////////
 
+// @ts-expect-error - TODO: something wrong with function overload in the SDK
 server.tool(
-    'usage',
-    'Get usage examples for a specific component in the `@ui-kit.ai/components` package.',
+    'get_usage_example',
+    GET_USAGE_EXAMPLE_DESCRIPTION,
     {
-        component: z.string({
-            description: 'The name of the component to get usage examples for.',
+        usageExampleId: z.string({
+            description: 'e.g. Button/Default',
         }),
     },
-    ({ component }) => {
-        // @ts-expect-error - we lose some type information here
-        const componentExamples = component in usage ? usage[component] : null
-
-        if (componentExamples == null) {
+    ({ usageExampleId }) => {
+        if (usageExampleId in usageExamples === false) {
             return {
                 content: [
                     {
-                        text: 'No examples found for this component.',
+                        text: `No examples found for "${usageExampleId}".`,
                         type: 'text',
                     },
                 ],
             }
         }
 
-        // Format examples as markdown with H3 headings and code blocks
-        const formattedExamples = Object.entries(componentExamples)
-            .map(([exampleName, codeExample]) => {
-                return `### ${exampleName}\n\n\`\`\`jsx\n${codeExample}\n\`\`\``
-            })
-            .join('\n\n')
+        const codeExample = usageExamples[usageExampleId]
 
         return {
             content: [
                 {
-                    text: formattedExamples || `No examples found for ${component}.`,
+                    text: codeExample,
                     type: 'text',
                 },
             ],
