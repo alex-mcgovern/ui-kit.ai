@@ -1,6 +1,6 @@
 # ❖ ui-kit.ai
 
-![NPM Version](https://img.shields.io/npm/v/%40ui-kit.ai%2Fcomponents?style=flat-square&logo=npm&labelColor=gray&color=gray)
+[![npm](https://img.shields.io/npm/v/%40ui-kit.ai%2Fcomponents.svg?style=flat-square&logo=npm&labelColor=gray&color=gray)](https://npmjs.com/package/%40ui-kit.ai%2Fcomponents)
 
 Professionally designed components, optimized for fast iteration in AI workflows. Accessible, customizable, and ready for production.
 
