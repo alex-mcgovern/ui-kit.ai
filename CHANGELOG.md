@@ -1,5 +1,22 @@
 # Changelog
 
+## [0.0.8](https://github.com/alex-mcgovern/ui-kit.ai/compare/ui-kit.ai-monorepo@v0.0.7...ui-kit.ai-monorepo@v0.0.8) (2025-05-18)
+
+
+### Bug Fixes
+
+* **MCP:** more granular usage examples ([#295](https://github.com/alex-mcgovern/ui-kit.ai/issues/295)) ([75cbd4d](https://github.com/alex-mcgovern/ui-kit.ai/commit/75cbd4d7804ed51b96250d3fcf727bee85e012bc))
+
+
+### Documentation
+
+* fix npm badge in README ([#296](https://github.com/alex-mcgovern/ui-kit.ai/issues/296)) ([4758c33](https://github.com/alex-mcgovern/ui-kit.ai/commit/4758c334a8ecef40eee4315306ce3dd3b27e46be))
+
+
+### Continuous Integration
+
+* run checks on main ([#298](https://github.com/alex-mcgovern/ui-kit.ai/issues/298)) ([f2c4ef3](https://github.com/alex-mcgovern/ui-kit.ai/commit/f2c4ef34d5e7e26e9846d51a9cea183e31389112))
+
 ## [0.0.7](https://github.com/alex-mcgovern/ui-kit.ai/compare/ui-kit.ai-monorepo@v0.0.6...ui-kit.ai-monorepo@v0.0.7) (2025-05-18)
 
 
