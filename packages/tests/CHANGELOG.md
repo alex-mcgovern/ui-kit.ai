@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.0.8](https://github.com/alex-mcgovern/ui-kit.ai/compare/@ui-kit.ai/tests@v0.0.7...@ui-kit.ai/tests@v0.0.8) (2025-05-18)
+
+
+### Miscellaneous Chores
+
+* **@ui-kit.ai/tests:** Synchronize all versions
+
 ## [0.0.7](https://github.com/alex-mcgovern/ui-kit.ai/compare/@ui-kit.ai/tests@v0.0.6...@ui-kit.ai/tests@v0.0.7) (2025-05-18)
 
 

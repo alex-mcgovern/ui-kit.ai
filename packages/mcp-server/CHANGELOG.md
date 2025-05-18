@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.0.8](https://github.com/alex-mcgovern/ui-kit.ai/compare/@ui-kit.ai/mcp-server@v0.0.7...@ui-kit.ai/mcp-server@v0.0.8) (2025-05-18)
+
+
+### Bug Fixes
+
+* **MCP:** more granular usage examples ([#295](https://github.com/alex-mcgovern/ui-kit.ai/issues/295)) ([75cbd4d](https://github.com/alex-mcgovern/ui-kit.ai/commit/75cbd4d7804ed51b96250d3fcf727bee85e012bc))
+
 ## [0.0.7](https://github.com/alex-mcgovern/ui-kit.ai/compare/@ui-kit.ai/mcp-server@v0.0.6...@ui-kit.ai/mcp-server@v0.0.7) (2025-05-18)
 
 
