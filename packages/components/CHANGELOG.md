@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.0.7](https://github.com/alex-mcgovern/ui-kit.ai/compare/@ui-kit.ai/components@v0.0.6...@ui-kit.ai/components@v0.0.7) (2025-05-18)
+
+
+### Bug Fixes
+
+* code block copy button, & related UI nits ([#292](https://github.com/alex-mcgovern/ui-kit.ai/issues/292)) ([28880fb](https://github.com/alex-mcgovern/ui-kit.ai/commit/28880fb72452dcf60235b087d1e581e72c2afed9))
+
 ## [0.0.6](https://github.com/alex-mcgovern/ui-kit.ai/compare/@ui-kit.ai/components@v0.0.5...@ui-kit.ai/components@v0.0.6) (2025-05-16)
 
 

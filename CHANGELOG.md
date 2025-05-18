@@ -1,5 +1,29 @@
 # Changelog
 
+## [0.0.7](https://github.com/alex-mcgovern/ui-kit.ai/compare/ui-kit.ai-monorepo@v0.0.6...ui-kit.ai-monorepo@v0.0.7) (2025-05-18)
+
+
+### Bug Fixes
+
+* code block copy button, & related UI nits ([#292](https://github.com/alex-mcgovern/ui-kit.ai/issues/292)) ([28880fb](https://github.com/alex-mcgovern/ui-kit.ai/commit/28880fb72452dcf60235b087d1e581e72c2afed9))
+
+
+### Miscellaneous Chores
+
+* add issue templates ([#293](https://github.com/alex-mcgovern/ui-kit.ai/issues/293)) ([a15db90](https://github.com/alex-mcgovern/ui-kit.ai/commit/a15db90d73053ed07683c7604cea96cc06c6bb1e))
+* upgrade storybook ([#288](https://github.com/alex-mcgovern/ui-kit.ai/issues/288)) ([3e0ce1a](https://github.com/alex-mcgovern/ui-kit.ai/commit/3e0ce1a6d07df3be037d7653df5955257b8d3b5d))
+
+
+### Documentation
+
+* typo in getting-started/introduction ([#294](https://github.com/alex-mcgovern/ui-kit.ai/issues/294)) ([347f002](https://github.com/alex-mcgovern/ui-kit.ai/commit/347f002d975645737e3a34f0afb692c6bbb1701c))
+
+
+### Build System
+
+* **deps-dev:** bump @faker-js/faker from 8.4.1 to 9.8.0 ([#285](https://github.com/alex-mcgovern/ui-kit.ai/issues/285)) ([56ad7c5](https://github.com/alex-mcgovern/ui-kit.ai/commit/56ad7c5bb91dbc6e9503b7a4f1754facf60c7321))
+* **deps:** bump zod from 3.24.1 to 3.24.4 ([#284](https://github.com/alex-mcgovern/ui-kit.ai/issues/284)) ([d1b1af9](https://github.com/alex-mcgovern/ui-kit.ai/commit/d1b1af9c52ed153e939d6531c5c43e9594dbb73d))
+
 ## [0.0.6](https://github.com/alex-mcgovern/ui-kit.ai/compare/ui-kit.ai-monorepo@v0.0.5...ui-kit.ai-monorepo@v0.0.6) (2025-05-16)
 
 
