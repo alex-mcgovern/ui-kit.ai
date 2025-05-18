@@ -2,36 +2,92 @@
 
 import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js'
 import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js'
-import propTypes from '@ui-kit.ai/metadata/prop-types.json' with { type: 'json' }
-import usage from '@ui-kit.ai/metadata/usage-examples.json' with { type: 'json' }
+import { existsSync, readdirSync, readFileSync } from 'fs'
+import { dirname, join, resolve } from 'path'
+import { fileURLToPath } from 'url'
 import { z } from 'zod'
 
-import packageJson from '../package.json' with { type: 'json' }
+// Get the current directory
+const __dirname = dirname(fileURLToPath(import.meta.url))
+
+// Path to the usage examples directory
+const usageDirPath = resolve(__dirname, '../dist/usage')
+
+// Load package.json for version info
+const packageJson = JSON.parse(readFileSync(resolve(__dirname, '../package.json'), 'utf8'))
+
+// Read available components and examples from filesystem
+const loadUsageExamples = () => {
+    // Map to store component examples
+    const usageExamples = {}
+
+    // Check if directory exists
+    if (!existsSync(usageDirPath)) {
+        console.error(`Usage directory not found: ${usageDirPath}`)
+        return { list_usage_examples: [], usage: {} }
+    }
+
+    // Get all component directories
+    const componentDirs = readdirSync(usageDirPath, { withFileTypes: true })
+        .filter((dirent) => dirent.isDirectory())
+        .map((dirent) => dirent.name)
+
+    // Build list of all available examples
+    const examplesList = []
+
+    // For each component directory, read example files
+    for (const componentName of componentDirs) {
+        const componentPath = join(usageDirPath, componentName)
+        const exampleFiles = readdirSync(componentPath, { withFileTypes: true })
+            .filter((dirent) => dirent.isFile() && dirent.name.endsWith('.md'))
+            .map((dirent) => dirent.name.replace('.md', ''))
+
+        // Initialize component examples
+        usageExamples[componentName] = {}
+
+        // For each example file, extract the code
+        for (const exampleName of exampleFiles) {
+            const mdFilePath = join(componentPath, `${exampleName}.md`)
+            const mdContent = readFileSync(mdFilePath, 'utf8')
+
+            // Extract code block from markdown
+            const codeMatch = mdContent.match(/```tsx\n([\s\S]*?)\n```/)
+            if (codeMatch && codeMatch[1]) {
+                usageExamples[componentName][exampleName] = codeMatch[1]
+                examplesList.push(`${componentName}/${exampleName}`)
+            }
+        }
+    }
+
+    return { list_usage_examples: examplesList, usage: usageExamples }
+}
+
+// Load usage examples
+const { list_usage_examples, usage } = loadUsageExamples()
+
+const INSTRUCTIONS = `Provides usage examples for \`@ui-kit.ai/components\`.
+
+### When to use this MCP server?
+- When the user prompt relates to user-interface code generation.
+- When the user prompt relates to \`@ui-kit.ai/components\`.
+- Before generating any user-interface code.
+
+### How to use this MCP server?
+- Use the \`list_usage_examples\` tool to get an index of all available examples.
+- Use the \`get_usage_example\` tool to get usage examples for a specific component.
+`
 
 /**
- * A list of component summaries derived from prop types documentation.
- * @type {{
- *   name: string;
- *   description: string;
- * }[]}
+ * A flat list of component/example paths derived from usage examples.
+ * @type {string[]}
  */
-const ALL_COMPONENTS = Object.keys(usage).map((componentName) => {
-    if (!Array.isArray(propTypes)) throw new Error('propTypes is not an array')
-    const docs = propTypes.find((prop) => prop.displayName === componentName)
-    return {
-        description: docs.description,
-        name: componentName,
-    }
-})
-
 const server = new McpServer(
     {
         name: '@ui-kit.ai/components usage',
         version: packageJson.version,
     },
     {
-        instructions:
-            'Use this server to get usage examples for the `@ui-kit.ai/components` package. You can use the `all_components` tool to get a list of all components, or the `usage` tool to get usage examples for a specific component.',
+        instructions: INSTRUCTIONS,
     }
 )
 
@@ -40,19 +96,31 @@ const server = new McpServer(
 ///////////////////////////////////////////////////
 
 /**
- * Format a list of components into a header-description sections.
- * @param {{
- *   name: string;
- *   description: string;
- * }[]} components
+ * Format a list of component/example pairs into a grouped list
+ * @param {string[]} componentPaths
  * @returns {string}
  */
-const formatComponents = (components) =>
-    components
-        .map((component) => {
-            return `## ${component.name}\n${component.description}`
+const formatComponents = (componentPaths) => {
+    // Group by component
+    const grouped = componentPaths.reduce(
+        (acc, path) => {
+            const [component, example] = path.split('/')
+            if (component == null || example == null) return acc
+            acc[component] ??= []
+            acc[component].push(example)
+            return acc
+        },
+        /** @type {Record<string, string[]>}  */
+        {}
+    )
+
+    return Object.entries(grouped)
+        .map(([component, examples]) => {
+            const examplesList = examples.map((example) => `- ${component}/${example}`).join('\n')
+            return `## ${component}\n${examplesList}`
         })
         .join('\n\n')
+}
 
 /**
  * @param {string} components
@@ -60,16 +128,17 @@ const formatComponents = (components) =>
  */
 function allComponentsTemplate(components) {
     return `
-# Available Components
+# Available Component Examples
 
-All of these components can be directly imported from the \`@ui-kit.ai/components\` library.
+All of these component examples can be queried using the \`usage\` tool by passing the full path (e.g. "Button/Default").
+Components can be directly imported from the \`@ui-kit.ai/components\` library.
 
 ${components}
 `
 }
 
 server.tool(
-    'all_components',
+    'list_usage_examples',
     'Get a list of all available components in the `@ui-kit.ai/components` package.',
     {
         destructiveHint: false,
@@ -82,7 +151,7 @@ server.tool(
         return {
             content: [
                 {
-                    text: allComponentsTemplate(formatComponents(ALL_COMPONENTS)),
+                    text: allComponentsTemplate(formatComponents(list_usage_examples)),
                     type: 'text',
                 },
             ],
@@ -95,39 +164,49 @@ server.tool(
 ///////////////////////////////////////////////////
 
 server.tool(
-    'usage',
-    'Get usage examples for a specific component in the `@ui-kit.ai/components` package.',
+    'get_usage_example',
+    'Get usage examples for components in the `@ui-kit.ai/components` package.',
     {
         component: z.string({
-            description: 'The name of the component to get usage examples for.',
+            description: 'e.g. Button/Default',
         }),
     },
     ({ component }) => {
-        // @ts-expect-error - we lose some type information here
-        const componentExamples = component in usage ? usage[component] : null
+        // Check if the query contains a component/example path
 
-        if (componentExamples == null) {
+        const [componentName, exampleName] = component.split('/')
+
+        // Check if component exists
+        if (componentName == null || !(componentName in usage)) {
             return {
                 content: [
                     {
-                        text: 'No examples found for this component.',
+                        text: `No examples found for component "${componentName}".`,
                         type: 'text',
                     },
                 ],
             }
         }
 
-        // Format examples as markdown with H3 headings and code blocks
-        const formattedExamples = Object.entries(componentExamples)
-            .map(([exampleName, codeExample]) => {
-                return `### ${exampleName}\n\n\`\`\`jsx\n${codeExample}\n\`\`\``
-            })
-            .join('\n\n')
+        // Check if example exists for this component
+        const componentExamples = usage[componentName]
+        if (exampleName == null || !(exampleName in componentExamples)) {
+            return {
+                content: [
+                    {
+                        text: `No example "${exampleName}" found for component "${componentName}".`,
+                        type: 'text',
+                    },
+                ],
+            }
+        }
 
+        // Return the specific example
+        const codeExample = componentExamples[exampleName]
         return {
             content: [
                 {
-                    text: formattedExamples || `No examples found for ${component}.`,
+                    text: `### ${componentName}/${exampleName}\n\n\`\`\`jsx\n${codeExample}\n\`\`\``,
                     type: 'text',
                 },
             ],
