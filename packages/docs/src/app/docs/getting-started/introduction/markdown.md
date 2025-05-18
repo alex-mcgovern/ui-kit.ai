@@ -9,7 +9,7 @@ Not quite. **@ui-kit.ai** is a modern, opinionated UI framework designed to
 accelerate the development of AI-powered applications. It is built with a focus
 on:
 
-- **AI consumption**: Our MCP server superhcharges LLMs with code samples as
+- **AI consumption**: Our [MCP server](/docs/getting-started/mcp-server) supercharges LLMs with code samples as
   context.
 - **AI experiences**: Primitives for rich chat-based user-experiences.
 - **Accessibility**: Built with
