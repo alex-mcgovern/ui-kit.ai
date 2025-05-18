@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.0.7](https://github.com/alex-mcgovern/ui-kit.ai/compare/@ui-kit.ai/vitest@v0.0.6...@ui-kit.ai/vitest@v0.0.7) (2025-05-18)
+
+
+### Miscellaneous Chores
+
+* **@ui-kit.ai/vitest:** Synchronize all versions
+
 ## [0.0.6](https://github.com/alex-mcgovern/ui-kit.ai/compare/@ui-kit.ai/vitest@v0.0.5...@ui-kit.ai/vitest@v0.0.6) (2025-05-16)
 
 

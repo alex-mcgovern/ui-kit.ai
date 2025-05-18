@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.0.7](https://github.com/alex-mcgovern/ui-kit.ai/compare/@ui-kit.ai/mocks@v0.0.6...@ui-kit.ai/mocks@v0.0.7) (2025-05-18)
+
+
+### Build System
+
+* **deps:** bump zod from 3.24.1 to 3.24.4 ([#284](https://github.com/alex-mcgovern/ui-kit.ai/issues/284)) ([d1b1af9](https://github.com/alex-mcgovern/ui-kit.ai/commit/d1b1af9c52ed153e939d6531c5c43e9594dbb73d))
+
 ## [0.0.6](https://github.com/alex-mcgovern/ui-kit.ai/compare/@ui-kit.ai/mocks@v0.0.5...@ui-kit.ai/mocks@v0.0.6) (2025-05-16)
 
 
