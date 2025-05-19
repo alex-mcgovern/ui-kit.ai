@@ -12,7 +12,7 @@
     "bin": "./src/index.mjs",
     "files": [
         "src/index.mjs",
-        "resources"
+        "dist"
     ],
     "scripts": {
         "build": "tsx ./src/scripts/gen-usage.ts",
