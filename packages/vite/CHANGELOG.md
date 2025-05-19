@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.0.10](https://github.com/alex-mcgovern/ui-kit.ai/compare/@ui-kit.ai/vite@v0.0.9...@ui-kit.ai/vite@v0.0.10) (2025-05-19)
+
+
+### Miscellaneous Chores
+
+* **@ui-kit.ai/vite:** Synchronize all versions
+
 ## [0.0.9](https://github.com/alex-mcgovern/ui-kit.ai/compare/@ui-kit.ai/vite@v0.0.8...@ui-kit.ai/vite@v0.0.9) (2025-05-19)
 
 

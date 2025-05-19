@@ -1,5 +1,19 @@
 # Changelog
 
+## [0.0.10](https://github.com/alex-mcgovern/ui-kit.ai/compare/ui-kit.ai-monorepo@v0.0.9...ui-kit.ai-monorepo@v0.0.10) (2025-05-19)
+
+
+### Documentation
+
+* readme updates for npm (part 2) ([#311](https://github.com/alex-mcgovern/ui-kit.ai/issues/311)) ([d48aafb](https://github.com/alex-mcgovern/ui-kit.ai/commit/d48aafb701721059dde07db1a84ed7372028c175))
+
+
+### Build System
+
+* **deps-dev:** bump @commitlint/config-conventional from 19.8.0 to 19.8.1 ([#301](https://github.com/alex-mcgovern/ui-kit.ai/issues/301)) ([60c8e69](https://github.com/alex-mcgovern/ui-kit.ai/commit/60c8e69f1eaf0f0868bf13fa4b123e7421610e7a))
+* **deps-dev:** bump sherif from 1.1.1 to 1.5.0 ([#304](https://github.com/alex-mcgovern/ui-kit.ai/issues/304)) ([abcc67c](https://github.com/alex-mcgovern/ui-kit.ai/commit/abcc67c8ba1f02e6f5e8150aa225f7c021ac673d))
+* **deps:** bump react-hook-form from 7.56.3 to 7.56.4 ([#303](https://github.com/alex-mcgovern/ui-kit.ai/issues/303)) ([25309f1](https://github.com/alex-mcgovern/ui-kit.ai/commit/25309f1e0ec702ea0927940142669b10754e7ab1))
+
 ## [0.0.9](https://github.com/alex-mcgovern/ui-kit.ai/compare/ui-kit.ai-monorepo@v0.0.8...ui-kit.ai-monorepo@v0.0.9) (2025-05-19)
 
 
