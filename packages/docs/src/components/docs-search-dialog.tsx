@@ -1,4 +1,4 @@
-import type { ComponentDoc } from 'react-docgen-typescript'
+import type { OptionsSchema } from '@ui-kit.ai/components'
 
 import {
     Autocomplete,
@@ -12,7 +12,6 @@ import {
     EmptyState,
     Input,
     Menu,
-    type OptionsSchema,
     SearchField,
     useKbd,
 } from '@ui-kit.ai/components'
@@ -24,12 +23,12 @@ import { useState } from 'react'
 import { hrefs } from '../lib/hrefs'
 
 const ITEMS: OptionsSchema<'listbox'>[] = Object.entries(components).map(([componentName]) => {
-    const docs = (propTypes as ComponentDoc[]).find(
-        (prop) => prop.displayName === componentName
-    ) as ComponentDoc
+    const docs = Array.isArray(propTypes)
+        ? propTypes.find((prop) => prop.displayName === componentName)
+        : null
     return {
         className: 'mb-2',
-        description: docs.description,
+        description: docs?.description ?? '',
         href: hrefs.component(componentName),
         id: componentName,
         textValue: componentName,
@@ -83,7 +82,7 @@ export function DocsSearchDialog() {
                                             <EmptyState
                                                 body='Try searching for something else.'
                                                 className=''
-                                                icon={SearchIcon}
+                                                icon={<SearchIcon />}
                                                 title='No results found'
                                             />
                                         </div>

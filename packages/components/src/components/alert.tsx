@@ -1,4 +1,4 @@
-import { InfoIcon, type LucideProps } from 'lucide-react'
+import { InfoIcon } from 'lucide-react'
 import { twMerge } from 'tailwind-merge'
 import { tv } from 'tailwind-variants'
 
@@ -6,6 +6,7 @@ import type { ActionNodes } from '../types/action-nodes'
 import type { Intent } from '../types/intent'
 
 import { renderActionNodes } from '../types/action-nodes'
+import { renderSlot } from '../types/slotted-node'
 
 const alertStyles = tv({
     base: [
@@ -35,16 +36,14 @@ const iconStyles = tv({
 export function Alert({
     actions,
     className,
-    icon: Icon = InfoIcon,
+    icon = <InfoIcon />,
     intent = 'info',
     text,
     ...props
 }: {
     actions?: ActionNodes
     className?: string
-    icon?: React.ForwardRefExoticComponent<
-        Omit<LucideProps, 'ref'> & React.RefAttributes<SVGSVGElement>
-    >
+    icon?: React.JSX.Element
     /**
      * Convey semantic meaning with color.
      */
@@ -56,7 +55,11 @@ export function Alert({
             {...props}
             className={twMerge(alertStyles(), className, intent)}
         >
-            <Icon className={twMerge(iconStyles())} />
+            {renderSlot(icon, {
+                'aria-hidden': true,
+                className: iconStyles(),
+                role: 'img',
+            })}
             <div>
                 {/*
                  * Note: A heading element should *not* be used here,

@@ -1,4 +1,4 @@
-import type { ComponentDoc } from 'react-docgen-typescript'
+import type { Props } from 'react-docgen-typescript'
 
 import {
     Card,
@@ -17,7 +17,7 @@ import {
 } from '@ui-kit.ai/components'
 import { Fragment } from 'react'
 
-export function PropsTable({ docs }: { docs: ComponentDoc }) {
+export function PropsTable({ props }: { props: Props }) {
     return (
         <Card>
             <ResizableTableContainer>
@@ -43,8 +43,8 @@ export function PropsTable({ docs }: { docs: ComponentDoc }) {
                             Default
                         </Column>
                     </TableHeader>
-                    <TableBody items={Object.entries(docs.props)}>
-                        {Object.entries(docs.props).map(([name, prop]) => (
+                    <TableBody items={Object.entries(props)}>
+                        {Object.entries(props).map(([name, prop]) => (
                             <Row key={name}>
                                 <Cell>
                                     <div className='flex items-center gap-0.5'>

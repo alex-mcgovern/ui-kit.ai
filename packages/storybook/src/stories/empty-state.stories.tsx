@@ -23,7 +23,7 @@ function Template(args: ComponentProps<typeof EmptyState>) {
                 </Button>,
             ]}
             body='This is the body'
-            icon={SearchXIcon}
+            icon={<SearchXIcon />}
             title='This is the title'
         />
     )

@@ -1,5 +1,3 @@
-import type { ComponentDoc } from 'react-docgen-typescript'
-
 import { CardBody, CardLink, CardTitle, Markdown } from '@ui-kit.ai/components'
 import propTypes from '@ui-kit.ai/metadata/prop-types.json'
 import * as components from '@ui-kit.ai/storybook'
@@ -8,17 +6,17 @@ import Image from 'next/image'
 import { hrefs } from '../lib/hrefs'
 
 const COMPONENTS: {
-    description: string
+    description: null | string
     href: string
     imageUrlDark: string
     imageUrlLight: string
     name: string
 }[] = Object.keys(components).map((componentName) => {
-    const docs = (propTypes as ComponentDoc[]).find(
-        (prop) => prop.displayName === componentName
-    ) as ComponentDoc
+    const docs = Array.isArray(propTypes)
+        ? propTypes.find((prop) => prop.displayName === componentName)
+        : null
     return {
-        description: docs.description,
+        description: docs?.description ?? null,
         href: hrefs.component(componentName),
         imageUrlDark: `/components/dark/${componentName}_Default.png`,
         imageUrlLight: `/components/light/${componentName}_Default.png`,
@@ -53,7 +51,9 @@ export function AllComponentsCards() {
                     </div>
                     <CardBody>
                         <CardTitle className='mb-2'>{component.name}</CardTitle>
-                        <Markdown>{component.description}</Markdown>
+                        {component.description != null ? (
+                            <Markdown>{component.description}</Markdown>
+                        ) : null}
                     </CardBody>
                 </CardLink>
             ))}

@@ -2,6 +2,9 @@
 /* eslint-disable sonarjs/no-duplicate-string */
 /* eslint-disable perfectionist/sort-objects */
 
+import type { OptionsSchema } from '@ui-kit.ai/components'
+import type { ComponentProps, Dispatch, SetStateAction } from 'react'
+
 import {
     ColorField,
     ColorSlider,
@@ -12,7 +15,6 @@ import {
     Heading,
     Input,
     Label,
-    type OptionsSchema,
     Popover,
     PopoverDialog,
     Select,
@@ -20,7 +22,7 @@ import {
 } from '@ui-kit.ai/components'
 import { ColorPalette, DEFAULT_COLOR_PALETTE_INPUT } from '@ui-kit.ai/theme'
 import { PipetteIcon } from 'lucide-react'
-import { type ComponentProps, type Dispatch, type SetStateAction, useState } from 'react'
+import { useState } from 'react'
 
 import { Sidebar } from '../../components/sidebar'
 import { ColorTableBg, ColorTableBorder, ColorTableText } from './components/color-table'
@@ -36,10 +38,10 @@ type Palette = {
 type Preset = 'coffee' | 'indigo' | 'muted' | 'shadcn'
 
 export default function Page() {
-    const [accent, setAccent] = useState(DEFAULT_COLOR_PALETTE_INPUT.accent)
-    const [error, setError] = useState(DEFAULT_COLOR_PALETTE_INPUT.error)
-    const [success, setSuccess] = useState(DEFAULT_COLOR_PALETTE_INPUT.success)
-    const [warning, setWarning] = useState(DEFAULT_COLOR_PALETTE_INPUT.warning)
+    const [accent, setAccent] = useState<string>(DEFAULT_COLOR_PALETTE_INPUT.accent)
+    const [error, setError] = useState<string>(DEFAULT_COLOR_PALETTE_INPUT.error)
+    const [success, setSuccess] = useState<string>(DEFAULT_COLOR_PALETTE_INPUT.success)
+    const [warning, setWarning] = useState<string>(DEFAULT_COLOR_PALETTE_INPUT.warning)
 
     // const [preset, setPreset] = useState<Palette>({
     //     accent: DEFAULT_COLOR_PALETTE_INPUT.accent,
@@ -85,10 +87,7 @@ export default function Page() {
                     </Heading>
                 </section>
 
-                <ThemePresetPicker
-                    label={''}
-                    setValue={onPresetChange}
-                />
+                <ThemePresetPicker setValue={(palette) => onPresetChange(palette)} />
                 <Heading
                     className='text-mid'
                     level={4}
@@ -308,11 +307,12 @@ function ThemePresetPicker({
     value,
     setValue,
 }: {
-    setValue: Dispatch<SetStateAction<Palette>>
+    setValue: (palette: Palette) => void
     value?: Palette
 }) {
     return (
         <Select
+            aria-label='Theme preset'
             className='mb-1 grid grid-cols-2 items-center gap-2'
             items={PRESETS}
             onSelectionChange={(v) => {
