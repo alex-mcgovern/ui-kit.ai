@@ -6,7 +6,7 @@ import { Github } from 'lucide-react'
 
 const meta: Meta<typeof TopNav> = {
     component: TopNav,
-    title: 'Navigation/TopNav',
+    title: 'TopNav',
 }
 
 export default meta
