@@ -40,14 +40,14 @@ export default function Home() {
                 'before:bg-radial-[at_100%_0%] before:from-[var(--theme-error-bg-tint-light)] before:via-40% before:via-[var(--theme-info-bg-tint-light)] before:to-70% before:to-[var(--theme-default-bg-base)]'
             )}
         >
-            <HomepageSection className='grid grid-cols-[3fr_2fr] gap-8 items-center'>
+            <HomepageSection className='grid grid-cols-1 md:grid-cols-[3fr_2fr] gap-8 items-center'>
                 <div>
                     <HeroCtaSecondary className='mb-2' />
                     <HeroContent />
                     <HeroCtaPrimary className='mt-6' />
                 </div>
 
-                <HomepageHero />
+                <HomepageHero className='hidden md:block' />
             </HomepageSection>
             <HomepageSection className='flex flex-col justify-center relative'>
                 <Heading className='text-5xl font-bold tracking-tight mb-12'>
@@ -152,7 +152,7 @@ function HeroCtaPrimary({ className }: { className?: string }) {
                 Get started
             </LinkButton>
             <TextField
-                className='min-w-46 shrink-0'
+                className='min-w-46 shrink-0 hidden md:block'
                 isReadOnly
                 value='npm i @ui-kit.ai/components'
             >
@@ -230,7 +230,10 @@ function HomepageCard({
 function HomepageSection({ children, className }: { children: ReactNode; className?: string }) {
     return (
         <section
-            className={twMerge('mx-auto max-w-7xl min-h-[calc(100dvh-3rem)] relative', className)}
+            className={twMerge(
+                'mx-auto max-w-7xl px-4 min-h-[calc(100dvh-3rem)] relative',
+                className
+            )}
         >
             {children}
         </section>

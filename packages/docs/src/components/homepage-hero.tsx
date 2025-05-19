@@ -13,7 +13,7 @@ import {
 import { type ReactNode, useCallback, useEffect, useRef, useState } from 'react'
 import { twMerge } from 'tailwind-merge'
 
-export function HomepageHero() {
+export function HomepageHero({ className }: { className?: string }) {
     const [parallaxChat, parallaxControls, parallaxTextArea] = useParallaxTilt([0.2, 0.25, 0.2], 25)
 
     return (
@@ -23,7 +23,8 @@ export function HomepageHero() {
                 'after:absolute after:-inset-[75%] after:-z-10',
                 'after:bg-[radial-gradient(var(--theme-info-border-dark)_1px,transparent_1px)]',
                 'after:[background-size:16px_16px]',
-                'after:[mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_30%,transparent_150%)]'
+                'after:[mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_30%,transparent_150%)]',
+                className
             )}
         >
             <ParallaxTiltContainer

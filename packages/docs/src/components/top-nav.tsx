@@ -17,7 +17,7 @@ export function TopNav() {
                 >
                     ❖ ui-kit.ai
                 </Link>
-                <div className='flex items-center gap-4'>
+                <div className='hidden md:flex items-center gap-4'>
                     <Link
                         className='text-sm  text-dark hover:text-mid transition-colors'
                         href={hrefs.docs.getting_started.introduction}
