@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.0.10](https://github.com/alex-mcgovern/ui-kit.ai/compare/@ui-kit.ai/components@v0.0.9...@ui-kit.ai/components@v0.0.10) (2025-05-19)
+
+
+### Documentation
+
+* readme updates for npm (part 2) ([#311](https://github.com/alex-mcgovern/ui-kit.ai/issues/311)) ([d48aafb](https://github.com/alex-mcgovern/ui-kit.ai/commit/d48aafb701721059dde07db1a84ed7372028c175))
+
+
+### Build System
+
+* **deps:** bump react-hook-form from 7.56.3 to 7.56.4 ([#303](https://github.com/alex-mcgovern/ui-kit.ai/issues/303)) ([25309f1](https://github.com/alex-mcgovern/ui-kit.ai/commit/25309f1e0ec702ea0927940142669b10754e7ab1))
+
 ## [0.0.9](https://github.com/alex-mcgovern/ui-kit.ai/compare/@ui-kit.ai/components@v0.0.8...@ui-kit.ai/components@v0.0.9) (2025-05-19)
 
 

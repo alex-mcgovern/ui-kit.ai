@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.0.10](https://github.com/alex-mcgovern/ui-kit.ai/compare/@ui-kit.ai/metadata@v0.0.9...@ui-kit.ai/metadata@v0.0.10) (2025-05-19)
+
+
+### Documentation
+
+* readme updates for npm (part 2) ([#311](https://github.com/alex-mcgovern/ui-kit.ai/issues/311)) ([d48aafb](https://github.com/alex-mcgovern/ui-kit.ai/commit/d48aafb701721059dde07db1a84ed7372028c175))
+
 ## [0.0.9](https://github.com/alex-mcgovern/ui-kit.ai/compare/@ui-kit.ai/metadata@v0.0.8...@ui-kit.ai/metadata@v0.0.9) (2025-05-19)
 
 
