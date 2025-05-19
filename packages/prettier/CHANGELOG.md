@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.0.9](https://github.com/alex-mcgovern/ui-kit.ai/compare/@ui-kit.ai/prettier@v0.0.8...@ui-kit.ai/prettier@v0.0.9) (2025-05-19)
+
+
+### Documentation
+
+* readme updates for npm ([#308](https://github.com/alex-mcgovern/ui-kit.ai/issues/308)) ([79aed18](https://github.com/alex-mcgovern/ui-kit.ai/commit/79aed186b2eb89e483da5f147c0db9596a349949))
+
 ## [0.0.8](https://github.com/alex-mcgovern/ui-kit.ai/compare/@ui-kit.ai/prettier@v0.0.7...@ui-kit.ai/prettier@v0.0.8) (2025-05-18)
 
 
