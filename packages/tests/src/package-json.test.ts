@@ -113,5 +113,16 @@ describe('package.json', () => {
                 `package.json for ${packageName} should have "${REPO_GIT_URL}" in "repository.url"`
             ).toBe(REPO_GIT_URL)
         })
+
+        test(`${packageName} has "homepage" property`, () => {
+            expect(
+                'homepage' in packageJson,
+                `package.json for ${packageName} should have "homepage" property`
+            ).toBe(true)
+            expect(
+                packageJson.homepage,
+                `package.json for ${packageName} should have "https://ui-kit.ai" in "homepage"`
+            ).toBe('https://ui-kit.ai')
+        })
     })
 })
