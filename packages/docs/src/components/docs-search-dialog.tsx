@@ -53,7 +53,7 @@ export function DocsSearchDialog() {
             onOpenChange={handleOpenChange}
         >
             <Button className='!h-7 px-2 rounded-full justify-between'>
-                <SearchIcon />
+                <SearchIcon className='text-mid' />
                 <span className='shrink-0 text-mid text-xs'>⌘K</span>
             </Button>
             <DialogModalOverlay>
