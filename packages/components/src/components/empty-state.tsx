@@ -1,10 +1,13 @@
 'use client'
-import type { ForwardRefExoticComponent, ReactNode, RefAttributes, SVGProps } from 'react'
+import type { ReactNode } from 'react'
 
 import { InfoIcon } from 'lucide-react'
 import { twMerge } from 'tailwind-merge'
 import { tv } from 'tailwind-variants'
 
+import type { SlotNode } from '../types/slotted-node'
+
+import { renderSlot } from '../types/slotted-node'
 import { Heading } from './heading'
 
 const actionsStyle = tv({
@@ -25,13 +28,13 @@ export function EmptyState({
     actions,
     body,
     className,
-    icon: Icon = InfoIcon,
+    icon = <InfoIcon />,
     title,
 }: {
     actions?: [ReactNode, ReactNode?]
     body?: ReactNode
     className?: string
-    icon?: ForwardRefExoticComponent<SVGProps<SVGSVGElement>> & RefAttributes<SVGSVGElement>
+    icon?: SlotNode
     title: string
 }) {
     return (
@@ -44,7 +47,11 @@ export function EmptyState({
                 className
             )}
         >
-            <Icon className='text-mid mb-4 block size-8 [&>*]:stroke-[1.5]' />
+            {renderSlot(icon, {
+                'aria-hidden': true,
+                className: 'text-mid mb-4 block size-8 [&>*]:stroke-[1.5]',
+                role: 'img',
+            })}
 
             <Heading
                 className='text-dark mb-1 text-base'

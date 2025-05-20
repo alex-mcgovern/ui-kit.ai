@@ -1,9 +1,6 @@
-import {
-    cloneElement,
-    type HTMLAttributes,
-    type JSXElementConstructor,
-    type ReactElement,
-} from 'react'
+import type { HTMLAttributes } from 'react'
+
+import { cloneElement } from 'react'
 import { twMerge } from 'tailwind-merge'
 
 export enum Slot {
@@ -11,7 +8,7 @@ export enum Slot {
     RIGHT = 'slot-right',
 }
 
-export type SlotNode = ReactElement<SlotNodeProps, JSXElementConstructor<SlotNodeProps> | string>
+export type SlotNode = React.JSX.Element
 
 type SlotNodeProps = HTMLAttributes<HTMLElement> & {
     [key: `data-${string}`]: unknown

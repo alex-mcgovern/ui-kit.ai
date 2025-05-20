@@ -8,7 +8,7 @@ function Template(args: ComponentProps<typeof Alert>) {
     return (
         <Alert
             {...args}
-            icon={InfoIcon}
+            icon={<InfoIcon />}
             text='You do not have any active subscriptions.'
         />
     )
@@ -25,7 +25,7 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
     args: {
-        icon: InfoIcon,
+        icon: <InfoIcon />,
         text: 'You do not have any active subscriptions.',
     },
     parameters: {
@@ -49,7 +49,7 @@ export const WithActions: Story = {
                 Primary
             </Button>,
         ],
-        icon: InfoIcon,
+        icon: <InfoIcon />,
         text: 'You do not have any active subscriptions.',
     },
     parameters: {
@@ -59,7 +59,7 @@ export const WithActions: Story = {
 
 export const IntentError: Story = {
     args: {
-        icon: AlertTriangleIcon,
+        icon: <AlertTriangleIcon />,
         intent: 'error',
         text: 'Your last payment was unsuccessful.',
     },
@@ -69,7 +69,7 @@ export const IntentError: Story = {
 }
 export const IntentWarning: Story = {
     args: {
-        icon: AlertTriangleIcon,
+        icon: <AlertTriangleIcon />,
         intent: 'warning',
         text: 'Your subscription will expire in 3 days.',
     },
@@ -79,7 +79,7 @@ export const IntentWarning: Story = {
 }
 export const IntentSuccess: Story = {
     args: {
-        icon: CheckCircleIcon,
+        icon: <CheckCircleIcon />,
         intent: 'success',
         text: 'Your payment was successful.',
     },

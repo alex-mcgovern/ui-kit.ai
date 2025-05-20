@@ -1,7 +1,8 @@
+import type { ForwardedRef } from 'react'
 import type { SelectProps as AriaSelectProps, ButtonProps } from 'react-aria-components'
 
 import { ChevronsUpDownIcon } from 'lucide-react'
-import { type ForwardedRef, type ReactNode, useContext } from 'react'
+import { useContext } from 'react'
 import {
     Button as AriaButton,
     ListBox as AriaListBox,
@@ -107,7 +108,7 @@ export function SelectButton({
     slotRight?: SlotNode
 }) {
     const state = useContext(SelectStateContext)
-    const selectedItemIcon: null | ReactNode = state?.selectedItem?.props.icon
+    const selectedItemIcon: null | SlotNode = state?.selectedItem?.props.icon
 
     return (
         <AriaButton
@@ -121,14 +122,10 @@ export function SelectButton({
                 )
             }
         >
-            {renderSlot(
-                // @ts-expect-error - TODO: Fix select types
-                selectedItemIcon ?? slotLeft,
-                {
-                    className: 'text-mid [&:is(svg)]:size-3 [&:is(svg)]:shrink-0',
-                    'data-slot': 'slot-left',
-                }
-            )}
+            {renderSlot(selectedItemIcon ?? slotLeft, {
+                className: 'text-mid [&:is(svg)]:size-3 [&:is(svg)]:shrink-0',
+                'data-slot': 'slot-left',
+            })}
             <AriaSelectValue
                 className={twMerge([
                     'inline-flex flex-1 items-center gap-2',

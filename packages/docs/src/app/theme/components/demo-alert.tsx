@@ -9,21 +9,21 @@ export function DemoAlert() {
     return (
         <DemoContainer className='flex flex-col gap-4'>
             <Alert
-                icon={InfoIcon}
+                icon={<InfoIcon />}
                 text='You do not have any active subscriptions.'
             />
             <Alert
-                icon={AlertTriangleIcon}
+                icon={<AlertTriangleIcon />}
                 intent='error'
                 text='Your last payment was unsuccessful.'
             />
             <Alert
-                icon={AlertTriangleIcon}
+                icon={<AlertTriangleIcon />}
                 intent='warning'
                 text='Your subscription will expire in 3 days.'
             />
             <Alert
-                icon={CheckCircleIcon}
+                icon={<CheckCircleIcon />}
                 intent='success'
                 text='Your payment was successful.'
             />

@@ -1,6 +1,6 @@
 'use client'
 
-import type { ComponentDoc } from 'react-docgen-typescript'
+import type { ComponentDoc, Props } from 'react-docgen-typescript'
 
 import { Heading, Markdown } from '@ui-kit.ai/components'
 import propTypes from '@ui-kit.ai/metadata/prop-types.json'
@@ -16,7 +16,10 @@ export function ComponentDocsPageContent({ component }: { component: keyof typeo
     if (component in components === false) throw new Error('Examples for component not found')
     if (component in usage === false) throw new Error('Code snippet for component not found')
 
-    if ((propTypes as ComponentDoc[]).findIndex((prop) => prop.displayName === component) === -1)
+    if (
+        Array.isArray(propTypes) === false ||
+        propTypes.findIndex((prop) => prop.displayName === component) === -1
+    )
         throw new Error('Code snippet for component not found')
 
     const stories = getComponentStories(component)
@@ -24,9 +27,8 @@ export function ComponentDocsPageContent({ component }: { component: keyof typeo
     const Default = stories.find((Story) => Story.storyName === 'Default')
     if (!Default) throw new Error(`Default story not found for ${component}`)
 
-    const docs = (propTypes as ComponentDoc[]).find(
-        (prop) => prop.displayName === component
-    ) as ComponentDoc
+    const docs = propTypes.find(isComponentDoc)
+    if (!docs) throw new Error(`Docs not found for ${component}`)
 
     return (
         <>
@@ -64,8 +66,19 @@ export function ComponentDocsPageContent({ component }: { component: keyof typeo
 
             <section className='my-8'>
                 <Heading level={2}>Props</Heading>
-                <PropsTable docs={docs} />
+                {/* TODO: Determine why the type casting is needed */}
+                <PropsTable props={docs.props as unknown as Props} />
             </section>
         </>
+    )
+}
+
+function isComponentDoc(doc: unknown): doc is ComponentDoc {
+    return (
+        typeof doc === 'object' &&
+        doc !== null &&
+        'displayName' in doc &&
+        'description' in doc &&
+        'props' in doc
     )
 }

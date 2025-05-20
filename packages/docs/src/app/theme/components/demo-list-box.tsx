@@ -1,6 +1,6 @@
 'use client'
 
-import { Card, CardBody, ListBox } from '@ui-kit.ai/components'
+import { Card, CardBody, ListBox, type OptionsSchema } from '@ui-kit.ai/components'
 import { AppleIcon, BananaIcon, CarrotIcon, LeafyGreenIcon } from 'lucide-react'
 
 import { DemoContainer } from './demo-container'
@@ -50,34 +50,36 @@ function ListBoxes() {
                 ]}
                 selectionMode='single'
             />
-            <ListBox
+            <ListBox<OptionsSchema<'listbox'>>
                 defaultSelectedKeys={['apple']}
-                items={[
-                    {
-                        icon: <AppleIcon />,
-                        id: 'apple',
-                        intent: 'error',
-                        textValue: 'Apple',
-                    },
-                    {
-                        icon: <BananaIcon />,
-                        id: 'banana',
-                        intent: 'error',
-                        textValue: 'Banana',
-                    },
-                    {
-                        icon: <CarrotIcon />,
-                        id: 'carrot',
-                        intent: 'error',
-                        textValue: 'Carrot',
-                    },
-                    {
-                        icon: <LeafyGreenIcon />,
-                        id: 'spinach',
-                        intent: 'error',
-                        textValue: 'Spinach',
-                    },
-                ]}
+                items={
+                    [
+                        {
+                            icon: <AppleIcon />,
+                            id: 'apple',
+                            intent: 'error',
+                            textValue: 'Apple',
+                        },
+                        {
+                            icon: <BananaIcon />,
+                            id: 'banana',
+                            intent: 'error',
+                            textValue: 'Banana',
+                        },
+                        {
+                            icon: <CarrotIcon />,
+                            id: 'carrot',
+                            intent: 'error',
+                            textValue: 'Carrot',
+                        },
+                        {
+                            icon: <LeafyGreenIcon />,
+                            id: 'spinach',
+                            intent: 'error',
+                            textValue: 'Spinach',
+                        },
+                    ] as const
+                }
                 selectionMode='single'
             />
         </>
