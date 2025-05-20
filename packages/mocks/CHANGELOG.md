@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.0.11](https://github.com/alex-mcgovern/ui-kit.ai/compare/@ui-kit.ai/mocks@v0.0.10...@ui-kit.ai/mocks@v0.0.11) (2025-05-20)
+
+
+### Miscellaneous Chores
+
+* **@ui-kit.ai/mocks:** Synchronize all versions
+
 ## [0.0.10](https://github.com/alex-mcgovern/ui-kit.ai/compare/@ui-kit.ai/mocks@v0.0.9...@ui-kit.ai/mocks@v0.0.10) (2025-05-19)
 
 

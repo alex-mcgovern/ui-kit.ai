@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.0.11](https://github.com/alex-mcgovern/ui-kit.ai/compare/@ui-kit.ai/storybook@v0.0.10...@ui-kit.ai/storybook@v0.0.11) (2025-05-20)
+
+
+### Bug Fixes
+
+* **`TopNav`:** image missing from component index ([#316](https://github.com/alex-mcgovern/ui-kit.ai/issues/316)) ([92ea496](https://github.com/alex-mcgovern/ui-kit.ai/commit/92ea496da2fccdcebe103a71622545f6f8d8c20d))
+* icon prop types for `Alert` & `EmptyState`  are not intuitive (and related ts fixes) ([#320](https://github.com/alex-mcgovern/ui-kit.ai/issues/320)) ([f294763](https://github.com/alex-mcgovern/ui-kit.ai/commit/f294763aa5da23d824cb040ebda1ffffbda0ecae))
+
 ## [0.0.10](https://github.com/alex-mcgovern/ui-kit.ai/compare/@ui-kit.ai/storybook@v0.0.9...@ui-kit.ai/storybook@v0.0.10) (2025-05-19)
 
 

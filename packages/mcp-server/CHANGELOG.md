@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.0.11](https://github.com/alex-mcgovern/ui-kit.ai/compare/@ui-kit.ai/mcp-server@v0.0.10...@ui-kit.ai/mcp-server@v0.0.11) (2025-05-20)
+
+
+### Bug Fixes
+
+* **MCP server:** dist not packaged to npm ([#314](https://github.com/alex-mcgovern/ui-kit.ai/issues/314)) ([d193c34](https://github.com/alex-mcgovern/ui-kit.ai/commit/d193c34174e6c617d8fcd3917eb64cdf0fcd4df7))
+
 ## [0.0.10](https://github.com/alex-mcgovern/ui-kit.ai/compare/@ui-kit.ai/mcp-server@v0.0.9...@ui-kit.ai/mcp-server@v0.0.10) (2025-05-19)
 
 

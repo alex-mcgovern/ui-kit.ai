@@ -1,5 +1,27 @@
 # Changelog
 
+## [0.0.11](https://github.com/alex-mcgovern/ui-kit.ai/compare/ui-kit.ai-monorepo@v0.0.10...ui-kit.ai-monorepo@v0.0.11) (2025-05-20)
+
+
+### Bug Fixes
+
+* **`TopNav`:** image missing from component index ([#316](https://github.com/alex-mcgovern/ui-kit.ai/issues/316)) ([92ea496](https://github.com/alex-mcgovern/ui-kit.ai/commit/92ea496da2fccdcebe103a71622545f6f8d8c20d))
+* docs search icon color ([#317](https://github.com/alex-mcgovern/ui-kit.ai/issues/317)) ([0c81ba8](https://github.com/alex-mcgovern/ui-kit.ai/commit/0c81ba8ad941eaf5d3d694d7545a8213fbd8a7e3))
+* homepage responsive css ([bf34225](https://github.com/alex-mcgovern/ui-kit.ai/commit/bf342250e50c92a6c6d56f78fcdfb5949078a2f6))
+* icon prop types for `Alert` & `EmptyState`  are not intuitive (and related ts fixes) ([#320](https://github.com/alex-mcgovern/ui-kit.ai/issues/320)) ([f294763](https://github.com/alex-mcgovern/ui-kit.ai/commit/f294763aa5da23d824cb040ebda1ffffbda0ecae))
+* **MCP server:** dist not packaged to npm ([#314](https://github.com/alex-mcgovern/ui-kit.ai/issues/314)) ([d193c34](https://github.com/alex-mcgovern/ui-kit.ai/commit/d193c34174e6c617d8fcd3917eb64cdf0fcd4df7))
+* mobile styling on docs homepage ([#318](https://github.com/alex-mcgovern/ui-kit.ai/issues/318)) ([bf34225](https://github.com/alex-mcgovern/ui-kit.ai/commit/bf342250e50c92a6c6d56f78fcdfb5949078a2f6))
+
+
+### Build System
+
+* **deps-dev:** bump turbo from 2.4.4 to 2.5.3 ([#321](https://github.com/alex-mcgovern/ui-kit.ai/issues/321)) ([e6bd297](https://github.com/alex-mcgovern/ui-kit.ai/commit/e6bd297b1cbc2fa517e69f428f91ca6194e83f3f))
+
+
+### Continuous Integration
+
+* broken regex in publish workflow triggers ([#312](https://github.com/alex-mcgovern/ui-kit.ai/issues/312)) ([6963739](https://github.com/alex-mcgovern/ui-kit.ai/commit/6963739e52f715779c3a400579f5d9e60368e1df))
+
 ## [0.0.10](https://github.com/alex-mcgovern/ui-kit.ai/compare/ui-kit.ai-monorepo@v0.0.9...ui-kit.ai-monorepo@v0.0.10) (2025-05-19)
 
 
