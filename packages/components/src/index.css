@@ -123,6 +123,10 @@ code {
     color: var(--theme-default-text-accent);
 }
 
+textarea {
+    resize: vertical; /* user can resize vertically, but width is fixed */
+}
+
 /*
 Apply a consistent focus ring to any focus-visible element,
 except when it is a child of already focus-visible element.
