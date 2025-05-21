@@ -37,7 +37,7 @@ export function Code({
                         <Tab id='code'>Code</Tab>
                     </TabList>
                 </CardHeader>
-                <CardBody>
+                <CardBody className='py-4'>
                     <TabPanel
                         className={twMerge(
                             'flex items-center justify-center',
