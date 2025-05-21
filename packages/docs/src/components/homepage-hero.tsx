@@ -1,6 +1,6 @@
 'use client'
 
-import { Button, Card, Input, Tag, TextField } from '@ui-kit.ai/components'
+import { Button, Card, Input, TagButton, TextField } from '@ui-kit.ai/components'
 import { Chat as ChatStories } from '@ui-kit.ai/storybook'
 import {
     ArrowUpIcon,
@@ -54,7 +54,7 @@ export function HomepageHero({ className }: { className?: string }) {
 
 function ChatMessages() {
     return (
-        <Card className='bg-raised/50 w-[360px] h-[180px] shadow-xl'>
+        <Card className='bg-raised/50 backdrop-blur-[2px] w-[360px] h-[180px] shadow-xl'>
             {/* @ts-expect-error - exported stories are loosely typed */}
             <ChatStories.Default />
         </Card>
@@ -63,20 +63,23 @@ function ChatMessages() {
 
 function ChatReactionControls() {
     return (
-        <Card className='flex gap-2 p-1 rounded-lg shadow-2xl bg-tint-light/50 backdrop-blur-sm w-min'>
+        <Card className='flex gap-2 p-1 rounded-lg shadow-2xl bg-tint-light/50 backdrop-blur-[2px] w-min'>
             <Button
+                excludeFromTabOrder
                 isIcon
                 variant='tertiary'
             >
                 <ClipboardCopyIcon />
             </Button>
             <Button
+                excludeFromTabOrder
                 isIcon
                 variant='tertiary'
             >
                 <ThumbsUpIcon />
             </Button>
             <Button
+                excludeFromTabOrder
                 isIcon
                 variant='tertiary'
             >
@@ -91,6 +94,7 @@ function ChatTextArea() {
         <Card className='max-w-64 bg-tint-light/50 backdrop-blur-sm w-full shadow-2xl px-3 py-2 rounded-2xl'>
             <TextField
                 aria-label='AI chat input'
+                excludeFromTabOrder
                 isReadOnly
             >
                 <Input
@@ -100,14 +104,21 @@ function ChatTextArea() {
                 />
             </TextField>
             <div className='flex gap-2'>
-                <Tag className='bg-raised/20 w-6 px-1.5'>
+                <TagButton
+                    className='bg-raised/20 w-6 px-1.5'
+                    excludeFromTabOrder
+                >
                     <PlusIcon />
-                </Tag>
-                <Tag className='bg-raised/20 w-6 px-1.5'>
+                </TagButton>
+                <TagButton
+                    className='bg-raised/20 w-6 px-1.5'
+                    excludeFromTabOrder
+                >
                     <PaperclipIcon />
-                </Tag>
+                </TagButton>
                 <Button
                     className='!size-6 ml-auto rounded-full'
+                    excludeFromTabOrder
                     isIcon
                 >
                     <ArrowUpIcon />
