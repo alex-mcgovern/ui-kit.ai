@@ -12,6 +12,7 @@ import { Card, CardBody } from './card'
 import { CodeBlock } from './code-block'
 import { CodeInline } from './code-inline'
 import { Heading } from './heading'
+import { Link } from './link'
 
 function MarkdownCode({
     children,
@@ -46,15 +47,14 @@ function MarkdownCode({
 MarkdownCode.displayName = 'MarkdownCode'
 
 const COMPONENTS = {
-    a({ children, ...props }) {
+    a({ children, href }) {
         return (
-            <a
+            <Link
                 className='text-dark hover:text-mid underline decoration-dotted'
-                target='_blank'
-                {...props}
+                href={href}
             >
                 {children}
-            </a>
+            </Link>
         )
     },
     code: MarkdownCode,
