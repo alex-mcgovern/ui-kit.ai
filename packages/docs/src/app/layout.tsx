@@ -45,7 +45,7 @@ export default function RootLayout({
 }>) {
     return (
         <html lang='en'>
-            <body className={`${inter.className} antialiased relative `}>
+            <body className={`${inter.className} antialiased relative overscroll-none`}>
                 <RouterProvider>
                     <TopNav />
                     {children}
