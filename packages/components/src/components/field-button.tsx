@@ -20,7 +20,6 @@ export function FieldButton({
                 twMerge(
                     '!size-6',
                     'align-middle',
-                    '-outline-offset-1',
                     'text-mid',
                     'group-invalid:error',
                     'last-of-type:mr-1 [&:not(:last-of-type)]:mr-px',

@@ -10,18 +10,6 @@ import {
 import { twMerge } from 'tailwind-merge'
 import { tv } from 'tailwind-variants'
 
-import { focusRing } from '../styles/focus-ring'
-
-const tabsStyles = tv({
-    base: 'group/tabs flex',
-    variants: {
-        orientation: {
-            horizontal: 'flex-col',
-            vertical: 'flex-row',
-        },
-    },
-})
-
 /**
  * Tabs organize content into multiple sections and allow users to navigate between them.
  */
@@ -29,12 +17,14 @@ export function Tabs(props: TabsProps) {
     return (
         <RACTabs
             {...props}
-            className={composeRenderProps(props.className, (className, renderProps) =>
-                tabsStyles({
-                    ...renderProps,
-                    className,
-                })
-            )}
+            className={(renderProps) =>
+                twMerge(
+                    typeof props.className === 'function'
+                        ? props.className(renderProps)
+                        : props.className,
+                    'group/tabs flex orientation-horizontal:flex-col orientation vertical:flex-row'
+                )
+            }
         />
     )
 }
@@ -74,7 +64,7 @@ TabList.displayName = 'TabList'
 const tabStyles = tv({
     base: [
         'px-4 py-1.5',
-        '-outline-offset-4',
+        '!-outline-offset-4',
         'text-mid text-sm whitespace-nowrap',
         'font-medium',
         'flex items-center',
@@ -97,7 +87,6 @@ const tabStyles = tv({
         'group-orientation-vertical/tabs:border-r',
         'group-orientation-vertical/tabs:border-mid',
     ],
-    extend: focusRing,
 })
 
 /**

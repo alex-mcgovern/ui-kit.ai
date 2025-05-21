@@ -13,16 +13,7 @@ const trackStyles = tv({
 })
 
 const thumbStyles = tv({
-    base: [
-        'size-6',
-        'inset-y-1/2',
-        'rounded-full',
-        'border-4 border-[var(--theme-default-base)]',
-        'shadow-md',
-        'focus-visible:outline',
-        'focus-visible:outline-2',
-        'focus-visible:outline-offset-2',
-    ],
+    base: ['size-6', 'inset-y-1/2', 'rounded-full', 'border-3 border-[#ffffff]', 'shadow-lg'],
 })
 
 /**
