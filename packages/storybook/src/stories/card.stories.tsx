@@ -1,22 +1,84 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import type { ComponentProps } from 'react'
 
-import { Card, CardBody, CardHeader, CardTitle } from '@ui-kit.ai/components'
-import { Zap } from 'lucide-react'
+import {
+    Button,
+    Card,
+    CardBody,
+    CardDescription,
+    CardFooter,
+    CardHeader,
+    CardTitle,
+    FieldGroup,
+    Form,
+    FormSubmitButton,
+    FormTextField,
+    Input,
+    Label,
+    TextFieldClearButton,
+} from '@ui-kit.ai/components'
 
 function Template(args: ComponentProps<typeof Card>) {
     return (
-        <Card {...args}>
+        <Card
+            {...args}
+            className='w-full max-w-128'
+        >
             <CardHeader>
-                <Zap className='bg-muted-100 text-mid -ml-1.5 size-3 rounded-full p-1.5' />
-                <CardTitle>Card Title</CardTitle>
+                <CardTitle>Card title</CardTitle>
+                <CardDescription>Card description</CardDescription>
             </CardHeader>
             <CardBody>
-                <p className='text-mid'>
-                    This is an example card with a header, title, and body content. Cards are
-                    containers that group and organize content in a consistent manner.
-                </p>
+                This is the card body content. Lorem ipsum dolor sit amet, consectetur adipiscing
+                elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
             </CardBody>
+            <CardFooter className='flex justify-end gap-2'>
+                <Button variant='secondary'>Secondary</Button>
+                <Button variant='primary'>Primary</Button>
+            </CardFooter>
+        </Card>
+    )
+}
+
+function TemplateCardForm(args: ComponentProps<typeof Card>) {
+    return (
+        <Card
+            {...args}
+            className='w-full max-w-128'
+        >
+            <Form onSubmit={() => {}}>
+                <CardHeader>
+                    <CardTitle>Card title</CardTitle>
+                    <CardDescription>Card description</CardDescription>
+                </CardHeader>
+                <CardBody>
+                    <FormTextField
+                        className='mb-4'
+                        name='username'
+                        type='username'
+                    >
+                        <Label>Username</Label>
+                        <FieldGroup>
+                            <Input isBorderless />
+                            <TextFieldClearButton />
+                        </FieldGroup>
+                    </FormTextField>
+                    <FormTextField
+                        className='mb-4'
+                        name='email'
+                        type='email'
+                    >
+                        <Label>Email address</Label>
+                        <FieldGroup>
+                            <Input isBorderless />
+                            <TextFieldClearButton />
+                        </FieldGroup>
+                    </FormTextField>
+                </CardBody>
+                <CardFooter className='flex justify-end gap-2'>
+                    <FormSubmitButton>Submit</FormSubmitButton>
+                </CardFooter>
+            </Form>
         </Card>
     )
 }
@@ -37,17 +99,12 @@ export const Default: Story = {
     },
 }
 
-export const WithoutHeader: Story = {
+export const WithForm: Story = {
+    args: {},
     parameters: {
-        displayName: 'Without Header',
+        displayName: 'Card with form',
     },
-    render: () => (
-        <Card>
-            <CardBody>
-                <p className='text-mid'>A simple card with just body content.</p>
-            </CardBody>
-        </Card>
-    ),
+    render: TemplateCardForm,
 }
 
 export const CustomClassName: Story = {

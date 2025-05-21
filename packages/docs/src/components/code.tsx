@@ -31,7 +31,7 @@ export function Code({
     return (
         <Card className={className}>
             <Tabs>
-                <CardHeader className='p-0'>
+                <CardHeader className='p-0 m-0'>
                     <TabList className='w-full'>
                         <Tab id='preview'>Preview</Tab>
                         <Tab id='code'>Code</Tab>

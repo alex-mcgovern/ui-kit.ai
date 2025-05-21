@@ -27,10 +27,9 @@ function Template(props: ComponentProps<typeof Dialog>) {
                         </DialogHeader>
 
                         <DialogContent>
-                            <p className='mb-2'>Are you sure you want to delete your account?</p>
                             <p>
-                                <b>This action cannot be undone.</b> All of your data will be
-                                permanently deleted.
+                                <b>This action cannot be undone.</b> All of your account data will
+                                be permanently deleted.
                             </p>
                         </DialogContent>
 
@@ -59,6 +58,7 @@ function Template(props: ComponentProps<typeof Dialog>) {
         </DialogTrigger>
     )
 }
+
 function TemplateDialog(props: ComponentProps<typeof Dialog>) {
     return (
         <Dialog {...props}>
@@ -68,10 +68,9 @@ function TemplateDialog(props: ComponentProps<typeof Dialog>) {
             </DialogHeader>
 
             <DialogContent>
-                <p className='mb-2'>Are you sure you want to delete your account?</p>
                 <p>
-                    <b>This action cannot be undone.</b> All of your data will be permanently
-                    deleted.
+                    <b>This action cannot be undone.</b> All of your account data will be
+                    permanently deleted.
                 </p>
             </DialogContent>
 
@@ -95,6 +94,74 @@ function TemplateDialog(props: ComponentProps<typeof Dialog>) {
                 </Button>
             </DialogFooter>
         </Dialog>
+    )
+}
+
+function TemplateLongContent(props: ComponentProps<typeof Dialog>) {
+    return (
+        <DialogTrigger>
+            <Button className='error'>Delete account</Button>
+            <DialogModalOverlay>
+                <DialogModal>
+                    <Dialog {...props}>
+                        <DialogHeader>
+                            <DialogTitle>Delete account</DialogTitle>
+                            <DialogCloseButton />
+                        </DialogHeader>
+
+                        <DialogContent>
+                            <p className='mb-2'>
+                                Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque
+                                faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi
+                                pretium tellus duis convallis. Tempus leo eu aenean sed diam urna
+                                tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas.
+                                Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut
+                                hendrerit semper vel class aptent taciti sociosqu. Ad litora
+                                torquent per conubia nostra inceptos himenaeos.
+                            </p>
+                            <p className='mb-2'>
+                                Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque
+                                faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi
+                                pretium tellus duis convallis. Tempus leo eu aenean sed diam urna
+                                tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas.
+                                Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut
+                                hendrerit semper vel class aptent taciti sociosqu. Ad litora
+                                torquent per conubia nostra inceptos himenaeos.
+                            </p>
+                            <p className='mb-2'>
+                                Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque
+                                faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi
+                                pretium tellus duis convallis. Tempus leo eu aenean sed diam urna
+                                tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas.
+                                Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut
+                                hendrerit semper vel class aptent taciti sociosqu. Ad litora
+                                torquent per conubia nostra inceptos himenaeos.
+                            </p>
+                        </DialogContent>
+
+                        <DialogFooter>
+                            <Button
+                                className='ml-auto'
+                                slot='close'
+                                variant='secondary'
+                            >
+                                Cancel
+                            </Button>
+                            <Button
+                                className='error'
+                                onPress={() => {
+                                    alert('Confirmed')
+                                    close()
+                                }}
+                                type='submit'
+                            >
+                                Confirm
+                            </Button>
+                        </DialogFooter>
+                    </Dialog>
+                </DialogModal>
+            </DialogModalOverlay>
+        </DialogTrigger>
     )
 }
 
@@ -170,4 +237,11 @@ export const WidthLg: Story = {
         displayName: 'Width: `lg`',
     },
     render: TemplateDialog,
+}
+
+export const WithLongContent: Story = {
+    parameters: {
+        displayName: 'With long content',
+    },
+    render: TemplateLongContent,
 }
