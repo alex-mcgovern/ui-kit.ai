@@ -51,7 +51,10 @@ export function DocsSearchDialog() {
             isOpen={isOpen}
             onOpenChange={handleOpenChange}
         >
-            <Button className='!h-7 px-2 rounded-full justify-between'>
+            <Button
+                className='!h-7 px-2 rounded-full justify-between'
+                variant='secondary'
+            >
                 <SearchIcon className='text-mid' />
                 <span className='shrink-0 text-mid text-xs'>⌘K</span>
             </Button>
