@@ -12,7 +12,6 @@
 @theme {
     --height-ui-element: 2rem;
     --default-transition-duration: 50ms;
-    --tw-ring-color: var(--theme-default-bg-accent-light);
 }
 
 /* 
