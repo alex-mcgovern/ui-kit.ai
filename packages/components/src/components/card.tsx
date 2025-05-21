@@ -13,7 +13,7 @@ export function Card(props: HTMLProps<HTMLElement>) {
         <section
             {...props}
             className={twMerge(
-                'border-mid bg-raised/80 relative overflow-hidden rounded-lg border shadow-xs',
+                'border-mid bg-raised/50 backdrop-blur-[2px] relative overflow-hidden rounded-lg border shadow-xs',
                 props.className
             )}
         />
@@ -30,7 +30,7 @@ export function CardLink(props: ComponentProps<typeof Link>) {
             {...props}
             className={(renderProps) =>
                 twMerge(
-                    'border-mid bg-raised/80 relative overflow-hidden rounded-lg border shadow-xs',
+                    'border-mid bg-raised/50 backdrop-blur-[2px] relative overflow-hidden rounded-lg border shadow-xs',
                     'transition-all',
                     'hover:shadow-md',
                     typeof props.className === 'function'
