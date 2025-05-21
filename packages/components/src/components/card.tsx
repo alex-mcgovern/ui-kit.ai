@@ -13,7 +13,7 @@ export function Card(props: HTMLProps<HTMLElement>) {
         <section
             {...props}
             className={twMerge(
-                'border-mid bg-raised/80 backdrop-blur-[2px] relative overflow-hidden rounded-lg border shadow-xs',
+                'border-mid bg-raised/80 relative overflow-hidden rounded-lg border shadow-xs backdrop-blur-[2px]',
                 props.className
             )}
         />
@@ -30,7 +30,7 @@ export function CardLink(props: ComponentProps<typeof Link>) {
             {...props}
             className={(renderProps) =>
                 twMerge(
-                    'border-mid bg-raised/80 backdrop-blur-[2px] relative overflow-hidden rounded-lg border shadow-xs',
+                    'border-mid bg-raised/80 relative overflow-hidden rounded-lg border shadow-xs backdrop-blur-[2px]',
                     'transition-all',
                     'hover:shadow-md',
                     typeof props.className === 'function'
@@ -50,7 +50,7 @@ export const CardHeader = (props: HTMLProps<HTMLElement>) => {
     return (
         <header
             {...props}
-            className={twMerge('px-4 my-4', props.className)}
+            className={twMerge('my-4 px-4', props.className)}
             data-component='header'
         />
     )
@@ -87,7 +87,7 @@ export function CardDescription({
     return (
         <span
             {...props}
-            className={twMerge(' text-mid mb-0 truncate text-base', props.className)}
+            className={twMerge('text-mid mb-0 truncate text-base', props.className)}
             slot='description'
         >
             {children}
@@ -103,7 +103,7 @@ export function CardBody(props: HTMLProps<HTMLDivElement>) {
     return (
         <div
             {...props}
-            className={twMerge('px-4 my-4 text-base', props.className)}
+            className={twMerge('my-4 px-4 text-base', props.className)}
         />
     )
 }
@@ -116,7 +116,7 @@ export function CardFooter(props: HTMLProps<HTMLElement>) {
     return (
         <footer
             {...props}
-            className={twMerge('flex items-center px-4 my-4', props.className)}
+            className={twMerge('my-4 flex items-center px-4', props.className)}
         />
     )
 }

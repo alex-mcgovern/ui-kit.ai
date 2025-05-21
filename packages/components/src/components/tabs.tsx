@@ -22,7 +22,7 @@ export function Tabs(props: TabsProps) {
                     typeof props.className === 'function'
                         ? props.className(renderProps)
                         : props.className,
-                    'group/tabs flex orientation-horizontal:flex-col orientation vertical:flex-row'
+                    'group/tabs orientation-horizontal:flex-col orientation vertical:flex-row flex'
                 )
             }
         />
