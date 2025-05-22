@@ -65,7 +65,7 @@ export function DocsSearchDialog() {
                         width='md'
                     >
                         <Autocomplete>
-                            <DialogHeader className='px-1.5'>
+                            <DialogHeader className='border-b border-mid p-2'>
                                 <SearchField
                                     aria-label='Search...'
                                     autoFocus
@@ -77,7 +77,7 @@ export function DocsSearchDialog() {
                                     />
                                 </SearchField>
                             </DialogHeader>
-                            <DialogContent className='p-1'>
+                            <DialogContent className='p-2'>
                                 <Menu
                                     items={ITEMS}
                                     renderEmptyState={() => (
