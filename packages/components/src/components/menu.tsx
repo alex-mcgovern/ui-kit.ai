@@ -23,7 +23,7 @@ export function Menu<T extends OptionsSchema<'menu'>>({
         <RACMenu
             {...props}
             className='scrollbar-thin max-h-[inherit] overflow-auto p-1 outline outline-0
-                [clip-path:inset(0_0_0_0_round_.75rem)]'
+                [clip-path:inset(0_0_0_0_round_.25rem)]'
         >
             {(renderProps) => (
                 <OptionRenderer<'menu'>

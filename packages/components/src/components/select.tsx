@@ -63,7 +63,7 @@ export function Select<T extends OptionsSchema<'listbox'> = OptionsSchema<'listb
                         {typeof children === 'function' ? children(rp) : children}
                         <Popover className='min-w-(--trigger-width)'>
                             <AriaListBox<T>
-                                className='max-h-[inherit] overflow-auto p-1 outline-none [clip-path:inset(0_0_0_0_round_.75rem)]'
+                                className='max-h-[inherit] overflow-auto p-1 outline-none [clip-path:inset(0_0_0_0_round_.25rem)]'
                                 items={items}
                             >
                                 {(props) => (
