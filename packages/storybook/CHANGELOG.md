@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.0.12](https://github.com/alex-mcgovern/ui-kit.ai/compare/@ui-kit.ai/storybook@v0.0.11...@ui-kit.ai/storybook@v0.0.12) (2025-05-22)
+
+
+### Bug Fixes
+
+* styling nits ([#327](https://github.com/alex-mcgovern/ui-kit.ai/issues/327)) ([2c9be5a](https://github.com/alex-mcgovern/ui-kit.ai/commit/2c9be5a70d8ffc321a8ea9f7a108d8f2bd829b6b))
+
 ## [0.0.11](https://github.com/alex-mcgovern/ui-kit.ai/compare/@ui-kit.ai/storybook@v0.0.10...@ui-kit.ai/storybook@v0.0.11) (2025-05-20)
 
 

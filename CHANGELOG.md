@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.0.12](https://github.com/alex-mcgovern/ui-kit.ai/compare/ui-kit.ai-monorepo@v0.0.11...ui-kit.ai-monorepo@v0.0.12) (2025-05-22)
+
+
+### Bug Fixes
+
+* styling nits ([#327](https://github.com/alex-mcgovern/ui-kit.ai/issues/327)) ([2c9be5a](https://github.com/alex-mcgovern/ui-kit.ai/commit/2c9be5a70d8ffc321a8ea9f7a108d8f2bd829b6b))
+* wrong component name in docs ([#334](https://github.com/alex-mcgovern/ui-kit.ai/issues/334)) ([8b2cf19](https://github.com/alex-mcgovern/ui-kit.ai/commit/8b2cf19b48837510f008255c19133da0126c8f1b))
+
+
+### Miscellaneous Chores
+
+* update screenshots ([#333](https://github.com/alex-mcgovern/ui-kit.ai/issues/333)) ([ea7ff7a](https://github.com/alex-mcgovern/ui-kit.ai/commit/ea7ff7aa1bae80e48a3e00bf09347358e5f9252c))
+
 ## [0.0.11](https://github.com/alex-mcgovern/ui-kit.ai/compare/ui-kit.ai-monorepo@v0.0.10...ui-kit.ai-monorepo@v0.0.11) (2025-05-20)
 
 

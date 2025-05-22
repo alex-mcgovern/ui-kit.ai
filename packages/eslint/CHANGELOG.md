@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.0.12](https://github.com/alex-mcgovern/ui-kit.ai/compare/@ui-kit.ai/eslint@v0.0.11...@ui-kit.ai/eslint@v0.0.12) (2025-05-22)
+
+
+### Miscellaneous Chores
+
+* **@ui-kit.ai/eslint:** Synchronize all versions
+
 ## [0.0.11](https://github.com/alex-mcgovern/ui-kit.ai/compare/@ui-kit.ai/eslint@v0.0.10...@ui-kit.ai/eslint@v0.0.11) (2025-05-20)
 
 
