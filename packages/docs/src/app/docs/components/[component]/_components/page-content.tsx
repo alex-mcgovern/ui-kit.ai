@@ -13,7 +13,8 @@ import { getComponentStories } from '../../../../../lib/get-story'
 import { getUsageExample } from '../../../../../lib/get-usage-example'
 
 export function ComponentDocsPageContent({ component }: { component: keyof typeof components }) {
-    if (component in components === false) throw new Error('Examples for component not found')
+    if (component in components === false)
+        throw new Error(`Examples for component "${component}" not found`)
     if (component in usage === false) throw new Error('Code snippet for component not found')
 
     if (
@@ -27,8 +28,10 @@ export function ComponentDocsPageContent({ component }: { component: keyof typeo
     const Default = stories.find((Story) => Story.storyName === 'Default')
     if (!Default) throw new Error(`Default story not found for ${component}`)
 
-    const docs = propTypes.find(isComponentDoc)
-    if (!docs) throw new Error(`Docs not found for ${component}`)
+    const docs = propTypes.find(
+        (propType) => isComponentDoc(propType) && propType.displayName === component
+    )
+    if (docs == null) throw new Error(`Docs not found for ${component}`)
 
     return (
         <>
