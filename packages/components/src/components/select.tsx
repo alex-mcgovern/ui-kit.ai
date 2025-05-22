@@ -61,7 +61,7 @@ export function Select<T extends OptionsSchema<'listbox'> = OptionsSchema<'listb
                 return (
                     <>
                         {typeof children === 'function' ? children(rp) : children}
-                        <Popover className='min-w-[--trigger-width]'>
+                        <Popover className='min-w-(--trigger-width)'>
                             <AriaListBox<T>
                                 className='max-h-[inherit] overflow-auto p-1 outline-none [clip-path:inset(0_0_0_0_round_.75rem)]'
                                 items={items}
@@ -121,6 +121,7 @@ export function SelectButton({
                     typeof props.className === 'function' ? props.className(rp) : props.className
                 )
             }
+            data-variant-borderless={isBorderless}
         >
             {renderSlot(selectedItemIcon ?? slotLeft, {
                 className: 'text-mid [&:is(svg)]:size-3 [&:is(svg)]:shrink-0',

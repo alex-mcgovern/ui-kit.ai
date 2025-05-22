@@ -33,6 +33,7 @@ export function FieldGroup({
                     isBorderless,
                 })
             )}
+            data-variant-borderless={isBorderless}
             ref={ref}
         />
     )

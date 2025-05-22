@@ -5,7 +5,6 @@ import React from 'react'
 import { Checkbox as AriaCheckbox, composeRenderProps } from 'react-aria-components'
 import { tv } from 'tailwind-variants'
 
-import { focusRing } from '../styles/focus-ring'
 import { Description } from './description'
 import { Label } from './label'
 
@@ -28,14 +27,13 @@ const checkboxContainerStyles = tv({
         'flex gap-3',
         'items-center',
         '-mx-1 px-1',
-        'rounded-sm outline-offset-2 transition',
+        'rounded-sm transition',
         'group',
         '[[role=group]_&]:mb-1',
         '[[role=group]_&]:last-of-type:mb-2',
         'hover:cursor-pointer disabled:cursor-not-allowed',
         'invalid:error',
     ],
-    extend: focusRing,
 })
 
 const boxStyles = tv({

@@ -1,8 +1,15 @@
 import type { ReactNode } from 'react'
 
-export function Sidebar({ children }: { children: ReactNode }) {
+import { twMerge } from 'tailwind-merge'
+
+export function Sidebar({ children, className }: { children: ReactNode; className?: string }) {
     return (
-        <nav className='h-[calc(100dvh-3rem)] sticky top-12 px-4 py-6 min-w-0 overflow-y-auto scrollbar-thin border-r border-mid'>
+        <nav
+            className={twMerge(
+                'h-[calc(100dvh-3rem)] sticky top-12 px-5 py-6 min-w-0 overflow-y-auto scrollbar-thin border-r border-mid',
+                className
+            )}
+        >
             {children}
         </nav>
     )

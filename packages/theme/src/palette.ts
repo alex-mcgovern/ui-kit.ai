@@ -52,8 +52,8 @@ ${Object.entries(this.genSyntaxPalette())
     .join('\n')}
 }
 @utility bg-* {
-  --alpha: calc(--modifier(integer) * 1%);
-  background-color: --alpha(--value(--theme-default-bg-*, [color]) / var(--alpha, 100%));
+  background-color: --value(--theme-default-bg-*, [color]);
+  background-color: --alpha(--value(--theme-default-bg-*, [color]) / calc(--modifier(integer) * 1%));
 }
 ${generateTextUtilitiesCSS()}
 ${generateBorderUtilitiesCSS()}

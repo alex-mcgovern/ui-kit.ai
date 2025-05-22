@@ -25,7 +25,7 @@ const modalOverlayStyles = tv({
         'fixed inset-0 z-50',
         'h-dvh w-dvw',
         'flex items-center justify-center text-center',
-        'bg-base/25 backdrop-blur-xs backdrop-brightness-75',
+        'bg-base/25 backdrop-blur-[2px]',
         // transition properties
         'transition-opacity ease-out',
         // entering
@@ -52,12 +52,13 @@ const modalStyles = tv({
 
 const dialogStyles = tv({
     base: [
+        'group/dialog',
         'flex flex-col',
         'md:shadow-2xl',
-        'outline outline-0',
+        '!outline-0',
         'relative',
         'text-left',
-        'bg-raised/80 backdrop-blur-xs',
+        'bg-raised/80 backdrop-blur-[2px]',
         // height
         'sm:max-sm:h-dvh sm:max-sm:max-h-dvh',
         'h-[unset] max-h-[inherit]',
@@ -105,7 +106,6 @@ export function DialogCloseButton(
             aria-label='Close'
             className={(rp) =>
                 twMerge(
-                    '-mx-3',
                     typeof props.className === 'function' ? props.className(rp) : props.className
                 )
             }
@@ -133,11 +133,15 @@ export function DialogContent({ ref, ...props }: HTMLProps<HTMLDivElement>) {
             {...props}
             className={twMerge(
                 'scrollbar-thin overflow-y-auto',
-                'px-4 py-3',
-                'text-sm',
+                'text-base',
                 'shrink grow',
+                // padding
+                'p-4',
+                'group-has-data-[dialog-footer]/dialog:pb-2',
+                'group-has-data-[dialog-header]/dialog:pt-2',
                 props.className
             )}
+            data-dialog-content
             ref={ref}
         />
     )
@@ -154,10 +158,12 @@ export function DialogFooter({ children, ...props }: HTMLProps<HTMLElement>) {
             className={twMerge(
                 'min-h-10',
                 'flex shrink-0 items-center justify-between gap-2',
-                'border-mid border-t',
-                'py-2 pr-2 pl-4',
+                // padding
+                'p-4',
+                'group-has-data-[dialog-content]/dialog:pt-2',
                 props.className
             )}
+            data-dialog-header
         >
             {children}
         </footer>
@@ -173,12 +179,13 @@ export function DialogHeader(props: HTMLProps<HTMLElement>) {
         <header
             {...props}
             className={twMerge(
-                'h-10',
-                'px-4',
                 'flex shrink-0 items-center justify-between gap-4',
-                'border-mid border-b',
+                // padding
+                'p-4',
+                'group-has-data-[dialog-content]/dialog:pb-2',
                 props.className
             )}
+            data-dialog-header
         />
     )
 }
@@ -199,7 +206,7 @@ export function DialogTitle({
     return (
         <Heading
             {...props}
-            className={twMerge('mb-0 truncate text-sm', props.className)}
+            className={twMerge('mb-0 truncate text-base', props.className)}
             level={3}
             slot='title'
         >

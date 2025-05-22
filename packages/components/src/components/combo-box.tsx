@@ -1,8 +1,8 @@
-import type { ComponentProps, CSSProperties, ForwardedRef, RefObject } from 'react'
+import type { ComponentProps, ForwardedRef } from 'react'
 import type { ComboBoxProps as AriaComboBoxProps } from 'react-aria-components'
 
 import { ChevronsUpDownIcon, XIcon } from 'lucide-react'
-import React, { createContext, useContext, useLayoutEffect, useRef, useState } from 'react'
+import React, { useContext } from 'react'
 import { ComboBox as AriaComboBox, ComboBoxStateContext, ListBox } from 'react-aria-components'
 import { twMerge } from 'tailwind-merge'
 
@@ -76,14 +76,7 @@ ComboBoxClearButton.displayName = 'ComboBoxClearButton'
  * correctly.
  */
 export function ComboBoxFieldGroup(props: ComponentProps<typeof FieldGroup>) {
-    const ref = useContext(ComboBoxRefContext)
-    if (!ref) throw Error('ComboBoxFieldGroup must be used within a ComboBox')
-    return (
-        <FieldGroup
-            {...props}
-            ref={ref}
-        />
-    )
+    return <FieldGroup {...props} />
 }
 ComboBoxFieldGroup.displayName = 'ComboBoxFieldGroup'
 
@@ -119,9 +112,6 @@ export const ComboBoxInput = ({
 }
 ComboBoxInput.displayName = 'ComboBoxInput'
 
-const ComboBoxRefContext = createContext<null | RefObject<HTMLDivElement | null>>(null)
-ComboBoxRefContext.displayName = 'ComboBoxRefContext'
-
 /**
  * A combo box combines a text input with a listbox, allowing users to filter a
  * list of options to items matching a query.
@@ -138,86 +128,43 @@ export function ComboBox<T extends OptionsSchema<'listbox'> = OptionsSchema<'lis
         ref?: ForwardedRef<HTMLDivElement>
         showCheckmarkOnSelected?: boolean
     }) {
-    const [groupRef, groupWidth] = usePopoverWidth()
-
     return (
-        <ComboBoxRefContext.Provider value={groupRef}>
-            <AriaComboBox<T>
-                {...props}
-                className={(renderProps) =>
-                    twMerge(
-                        'group relative w-full grow',
-                        typeof props.className === 'function'
-                            ? props.className(renderProps)
-                            : props.className
-                    )
-                }
-                ref={ref}
-            >
-                {(rp) => (
-                    <>
-                        {typeof children === 'function' ? children(rp) : children}
+        <AriaComboBox<T>
+            {...props}
+            className={(renderProps) =>
+                twMerge(
+                    'group relative w-full grow',
+                    typeof props.className === 'function'
+                        ? props.className(renderProps)
+                        : props.className
+                )
+            }
+            ref={ref}
+        >
+            {(rp) => (
+                <>
+                    {typeof children === 'function' ? children(rp) : children}
 
-                        <Popover
-                            className='w-[--trigger-width]'
-                            style={
-                                {
-                                    '--trigger-width': `${groupWidth}px`,
-                                } as CSSProperties
-                            }
+                    <Popover
+                        className='w-[calc(var(--trigger-width)+var(--spacing))]' // Account for the margin on the combobox button
+                    >
+                        <ListBox<T>
+                            className='max-h-[inherit] overflow-auto p-1 outline-0 [clip-path:inset(0_0_0_0_round_.25rem)]'
+                            items={items}
+                            renderEmptyState={renderEmptyState}
                         >
-                            <ListBox<T>
-                                className='max-h-[inherit] overflow-auto p-1 outline-0 [clip-path:inset(0_0_0_0_round_.25rem)]'
-                                items={items}
-                                renderEmptyState={renderEmptyState}
-                            >
-                                {(props) => (
-                                    <OptionRenderer
-                                        {...props}
-                                        showCheckmarkOnSelected={showCheckmarkOnSelected}
-                                        type='listbox'
-                                    />
-                                )}
-                            </ListBox>
-                        </Popover>
-                    </>
-                )}
-            </AriaComboBox>
-        </ComboBoxRefContext.Provider>
+                            {(props) => (
+                                <OptionRenderer
+                                    {...props}
+                                    showCheckmarkOnSelected={showCheckmarkOnSelected}
+                                    type='listbox'
+                                />
+                            )}
+                        </ListBox>
+                    </Popover>
+                </>
+            )}
+        </AriaComboBox>
     )
 }
 ComboBox.displayName = 'ComboBox'
-
-/**
- * React Aria components provides a `trigger-width` CSS variable that can be used to
- * set the width of the popover. In some cases, this doesn't work as expected, so we
- * need to calculate the width of the trigger element ourselves.
- */
-function usePopoverWidth() {
-    const ref = useRef<HTMLDivElement>(null)
-    const [width, setWidth] = useState<null | number>(null)
-
-    useLayoutEffect(() => {
-        const targetElement = ref.current
-        if (!targetElement) return
-
-        const updateWidth = () => {
-            setWidth(targetElement.offsetWidth)
-        }
-
-        updateWidth()
-
-        const observer = new MutationObserver(() => {
-            updateWidth()
-        })
-
-        observer.observe(targetElement, {
-            childList: true,
-            subtree: true,
-        })
-
-        return () => observer.disconnect()
-    }, [])
-
-    return [ref, width] as const
-}

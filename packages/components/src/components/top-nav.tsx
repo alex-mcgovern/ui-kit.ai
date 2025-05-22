@@ -15,7 +15,7 @@ export function TopNav({ sticky = true, ...props }: HTMLProps<HTMLElement> & { s
                 'bg-raised/10 backdrop-blur-xs',
                 'border-mid h-12 border-b',
                 'flex items-center justify-between',
-                'px-4 py-2'
+                'px-6 py-2'
             )}
         />
     )

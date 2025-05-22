@@ -60,6 +60,7 @@ export const Input = ({
                             : props.className
                     )
                 }
+                data-variant-borderless={isBorderless}
                 ref={ref}
             />
         </div>

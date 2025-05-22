@@ -10,7 +10,6 @@ import { tv } from 'tailwind-variants'
 
 import type { Intent } from '../types/intent'
 
-import { focusRing } from '../styles/focus-ring'
 import { renderSlot, Slot, type SlotNode } from '../types/slotted-node'
 
 type TagProps = {
@@ -63,7 +62,6 @@ const tagStyles = tv({
         isDashed: false,
         variant: 'default',
     },
-    extend: focusRing,
     variants: {
         isDashed: {
             false: 'border-solid',

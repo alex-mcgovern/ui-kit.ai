@@ -27,7 +27,6 @@ import {
 import { twMerge } from 'tailwind-merge'
 import { tv } from 'tailwind-variants'
 
-import { focusRing } from '../styles/focus-ring'
 import { Checkbox } from './checkbox'
 import { Skeleton } from './skeleton'
 
@@ -54,7 +53,6 @@ const columnStyles = tv({
         'flex flex-1 items-center gap-1',
         '-outline-offset-2',
     ],
-    extend: focusRing,
     variants: {
         alignment: {
             center: 'justify-center',
@@ -77,7 +75,6 @@ const cellStyles = tv({
     defaultVariants: {
         alignment: 'start',
     },
-    extend: focusRing,
     variants: {
         alignment: {
             center: 'text-center',
@@ -103,7 +100,6 @@ const rowStyles = tv({
         'selected:select-none',
         'selected:bg-tint-light',
     ],
-    extend: focusRing,
 })
 
 const cellSkeletonStyles = tv({
@@ -111,7 +107,6 @@ const cellSkeletonStyles = tv({
     defaultVariants: {
         alignment: 'start',
     },
-    extend: focusRing,
     variants: {
         alignment: {
             center: 'mx-auto',

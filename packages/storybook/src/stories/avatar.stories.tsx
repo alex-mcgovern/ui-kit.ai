@@ -21,7 +21,7 @@ export const Default: Story = {
 
 export const WithImage: Story = {
     args: {
-        src: 'alex.jpeg',
+        src: '/alex.jpeg',
     },
     parameters: {
         displayName: 'With Image',
@@ -39,7 +39,7 @@ export const Square: Story = {
 
 export const SquareWithImage: Story = {
     args: {
-        src: 'alex.jpeg',
+        src: '/alex.jpeg',
         variant: 'square',
     },
     parameters: {

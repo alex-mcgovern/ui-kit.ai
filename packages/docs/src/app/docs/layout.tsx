@@ -24,8 +24,8 @@ export default function Layout({
     const selectedLayoutSegment = selectedLayoutSegments[selectedLayoutSegments.length - 1]
 
     return (
-        <div className='grid grid-cols-[1fr_4fr_1fr] gap-8 min-h-screen'>
-            <Sidebar>
+        <div className='grid grid-cols-1 md:grid-cols-[1fr_4fr_1fr] gap-8 min-h-screen'>
+            <Sidebar className='hidden md:block'>
                 <section className='mb-4'>
                     <Heading
                         className='ml-0.75  text-sm text-mid mb-2'
@@ -79,7 +79,7 @@ export default function Layout({
                 </section>
             </Sidebar>
             <main className='w-full max-w-3xl py-8 px-4 min-w-0 mx-auto'>{children}</main>
-            <nav className='h-[calc(100dvh-3rem)] sticky top-12 px-4 py-6 min-w-0 overflow-y-auto scrollbar-thin'>
+            <nav className='hidden md:block h-[calc(100dvh-3rem)] sticky top-12 px-4 py-6 min-w-0 overflow-y-auto scrollbar-thin'>
                 <TableOfContents key={path} />
             </nav>
         </div>

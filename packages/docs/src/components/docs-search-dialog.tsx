@@ -51,7 +51,10 @@ export function DocsSearchDialog() {
             isOpen={isOpen}
             onOpenChange={handleOpenChange}
         >
-            <Button className='!h-7 px-2 rounded-full justify-between'>
+            <Button
+                className='!h-7 px-2 rounded-full justify-between'
+                variant='secondary'
+            >
                 <SearchIcon className='text-mid' />
                 <span className='shrink-0 text-mid text-xs'>⌘K</span>
             </Button>
@@ -62,7 +65,7 @@ export function DocsSearchDialog() {
                         width='md'
                     >
                         <Autocomplete>
-                            <DialogHeader className='px-1.5'>
+                            <DialogHeader className='border-b border-mid p-2'>
                                 <SearchField
                                     aria-label='Search...'
                                     autoFocus
@@ -74,7 +77,7 @@ export function DocsSearchDialog() {
                                     />
                                 </SearchField>
                             </DialogHeader>
-                            <DialogContent className='p-1'>
+                            <DialogContent className='p-2'>
                                 <Menu
                                     items={ITEMS}
                                     renderEmptyState={() => (

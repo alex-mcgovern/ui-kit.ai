@@ -94,6 +94,11 @@
     -moz-osx-font-smoothing: grayscale; /* Smoother fonts on Firefox */
 }
 
+* {
+    outline-color: transparent; /* Prevents outline flicker on focus */
+    outline-width: 0;
+}
+
 body {
     font-family: 'Inter', sans-serif;
 }
@@ -116,6 +121,28 @@ code {
 ::selection {
     background: var(--theme-default-bg-accent-light);
     color: var(--theme-default-text-accent);
+}
+
+textarea {
+    resize: vertical; /* user can resize vertically, but width is fixed */
+}
+
+:focus,
+[data-focus],
+[data-focus-within] [data-focus-visible] {
+    outline: 0;
+}
+
+/*
+Apply a consistent focus ring to any focus-visible element,
+except when it is a child of already focus-visible element.
+Also to any focus-within element that has a focus-visible child.
+*/
+[data-focus-visible],
+[data-focus-within]:has([data-focus-visible]) {
+    outline: 2px solid;
+    outline-color: var(--theme-default-bg-accent-light);
+    outline-offset: 2px;
 }
 
 /* Hide the user agent default clear button on search inputs */

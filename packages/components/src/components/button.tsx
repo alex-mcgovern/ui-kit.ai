@@ -10,7 +10,6 @@ import { tv } from 'tailwind-variants'
 
 import type { Intent } from '../types/intent'
 
-import { focusRing } from '../styles/focus-ring'
 import { renderSlot, type SlotNode } from '../types/slotted-node'
 import { Loader } from './loader'
 
@@ -36,7 +35,6 @@ const buttonStyle = tv({
     defaultVariants: {
         variant: 'primary',
     },
-    extend: focusRing,
     variants: {
         isIcon: {
             true: 'w-[theme(height.ui-element)] aspect-square px-2 [&_svg]:mx-auto',

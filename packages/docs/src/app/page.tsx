@@ -231,7 +231,7 @@ function HomepageSection({ children, className }: { children: ReactNode; classNa
     return (
         <section
             className={twMerge(
-                'mx-auto max-w-7xl px-4 min-h-[calc(100dvh-3rem)] relative',
+                'mx-auto max-w-7xl px-6 min-h-[calc(100dvh-3rem)] relative',
                 className
             )}
         >
