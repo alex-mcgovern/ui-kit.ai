@@ -138,7 +138,7 @@ Apply a consistent focus ring to any focus-visible element,
 except when it is a child of already focus-visible element.
 Also to any focus-within element that has a focus-visible child.
 */
-[data-focus-visible],
+[data-focus-visible]:not(:is([aria-autocomplete='list'], [role='menuitem'], [role='listitem'])),
 [data-focus-within]:has([data-focus-visible]) {
     outline: 2px solid;
     outline-color: var(--theme-default-bg-accent-light);

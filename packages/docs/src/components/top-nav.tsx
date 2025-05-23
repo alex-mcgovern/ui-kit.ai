@@ -1,8 +1,7 @@
 'use client'
 
-import { LinkButton, TopNav as UIKitTopNav } from '@ui-kit.ai/components'
+import { Link, LinkButton, TopNav as UIKitTopNav } from '@ui-kit.ai/components'
 import { Github } from 'lucide-react'
-import Link from 'next/link'
 
 import { hrefs } from '../lib/hrefs'
 import { DocsSearchDialog } from './docs-search-dialog'

@@ -21,19 +21,33 @@ interface PopoverProps extends Omit<AriaPopoverProps, 'children'> {
 
 const popoverStyles = tv({
     base: [
-        `bg-raised/80 border-mid text-dark rounded border shadow-2xl backdrop-blur-xs transition-none
-        forced-colors:bg-[Canvas]`,
+        `bg-raised/80 backdrop-blur-xs rounded`,
+        `text-dark   shadow-2xl forced-colors:bg-[Canvas]`,
+        'border-mid border',
+        // transition
+        'transition-all will-change-transform duration-200',
+        'translate-y-0',
+        'translate-x-0',
+        // transform origin
+        '[--origin-x:0]',
+        '[--origin-y:0]',
+        // placement
+        'placement-top:[--origin-y:var(--spacing)]',
+        'placement-right:[--origin-x:calc(var(--spacing)_*_-1)]',
+        'placement-bottom:[--origin-y:calc(var(--spacing)_*_-1)]',
+        'placement-left:[--origin-x:var(--spacing)]',
+        // entering
+        'entering:ease-out',
+        'entering:opacity-0',
+        'entering:translate-y-(--origin-y)',
+        'entering:translate-x-(--origin-x)',
+        // exiting
+        'entering:ease-in',
+        'exiting:opacity-0',
+        'exiting:translate-y-(--origin-y)',
+        'exiting:translate-x-(--origin-x)',
+        'exiting:pointer-events-none', // ensure content behind is immediately interactive
     ],
-    variants: {
-        isEntering: {
-            true: `animate-in fade-in placement-left:slide-in-from-right-1 placement-right:slide-in-from-left-1
-            placement-top:slide-in-from-bottom-1 placement-bottom:slide-in-from-top-1 ease-out`,
-        },
-        isExiting: {
-            true: `animate-out fade-out placement-left:slide-out-to-right-1 placement-right:slide-out-to-left-1
-            placement-top:slide-out-to-bottom-1 placement-bottom:slide-out-to-top-1 ease-out`,
-        },
-    },
 })
 
 /**

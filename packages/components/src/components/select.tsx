@@ -51,7 +51,7 @@ export function Select<T extends OptionsSchema<'listbox'> = OptionsSchema<'listb
             {...props}
             className={(rp) =>
                 twMerge(
-                    'group invalid:error relative w-full',
+                    'group invalid:error relative w-full !outline-0',
                     typeof props.className === 'function' ? props.className(rp) : props.className
                 )
             }
