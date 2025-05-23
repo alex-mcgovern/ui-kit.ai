@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.0.13](https://github.com/alex-mcgovern/ui-kit.ai/compare/@ui-kit.ai/docs@v0.0.12...@ui-kit.ai/docs@v0.0.13) (2025-05-23)
+
+
+### Bug Fixes
+
+* overlay styles ([#340](https://github.com/alex-mcgovern/ui-kit.ai/issues/340)) ([9c3e08b](https://github.com/alex-mcgovern/ui-kit.ai/commit/9c3e08bfc5f5bb8d3d9f4caae764f69722f76c3f))
+
 ## [0.0.12](https://github.com/alex-mcgovern/ui-kit.ai/compare/@ui-kit.ai/docs@v0.0.11...@ui-kit.ai/docs@v0.0.12) (2025-05-22)
 
 
