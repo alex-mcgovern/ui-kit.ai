@@ -29,7 +29,7 @@ const tooltipStyles = tv({
             'bg-[var(--theme-default-text-dark)] text-[var(--theme-default-bg-raised)]',
             'group rounded drop-shadow-sm',
             // transition
-            'transition-all will-change-transform',
+            'transition-all duration-200 will-change-transform',
             'translate-y-0',
             'translate-x-0',
             // transform origin
@@ -41,10 +41,12 @@ const tooltipStyles = tv({
             'placement-bottom:[--origin-y:calc(var(--spacing)_*_-1)]',
             'placement-left:[--origin-x:var(--spacing)]',
             // entering
+            'entering:ease-out',
             'entering:opacity-0',
             'entering:translate-y-(--origin-y)',
             'entering:translate-x-(--origin-x)',
             // exiting
+            'entering:ease-in',
             'exiting:opacity-0',
             'exiting:translate-y-(--origin-y)',
             'exiting:translate-x-(--origin-x)',

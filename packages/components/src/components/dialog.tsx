@@ -25,7 +25,7 @@ const modalOverlayStyles = tv({
         'fixed inset-0 z-50',
         'h-dvh w-dvw',
         'flex items-center justify-center text-center',
-        'bg-base/25 backdrop-blur-[2px]',
+        // 'bg-[#000000]/25 backdrop-blur-[2px]',
         // transition properties
         'transition-opacity ease-out',
         // entering
@@ -38,14 +38,20 @@ const modalOverlayStyles = tv({
 
 const modalStyles = tv({
     base: [
-        'h-auto w-auto md:max-h-[75dvh]',
+        'h-dvh w-dvw md:h-auto md:max-h-[75dvh] md:w-auto',
         'flex items-center justify-center',
         'relative',
         'forced-colors:bg-[Canvas]',
         // transition
-        'transition-transform ease-out',
-        'md:entering:translate-y-4',
-        'md:exiting:translate-y-4',
+        'transition-transform duration-200',
+        // entering
+        // 'md:entering:translate-y-4',
+        'entering:ease-out',
+        'md:entering:scale-95',
+        // exiting
+        // 'md:exiting:translate-y-4',
+        'entering:ease-in',
+        'md:entering:scale-98',
         'exiting:pointer-events-none', // ensure content behind is immediately interactive
     ],
 })
@@ -60,12 +66,12 @@ const dialogStyles = tv({
         'text-left',
         'bg-raised/80 backdrop-blur-[2px]',
         // height
-        'sm:max-sm:h-dvh sm:max-sm:max-h-dvh',
-        'h-[unset] max-h-[inherit]',
-        'w-full sm:max-sm:max-w-[100dvw]',
+        'h-dvh max-h-dvh md:h-[unset]',
+        'w-full max-w-[100dvw]',
         // border
-        'sm:max-sm:rounded-none sm:max-sm:border-0',
-        'border-mid rounded-lg border',
+        'rounded-none md:rounded-lg',
+        'sm:max-sm:border-0',
+        'border-mid border',
         '[[data-placement]>&]:p-4',
     ],
     variants: {
