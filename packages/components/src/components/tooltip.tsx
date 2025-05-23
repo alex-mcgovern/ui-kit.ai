@@ -29,7 +29,7 @@ const tooltipStyles = tv({
             'bg-[var(--theme-default-text-dark)] text-[var(--theme-default-bg-raised)]',
             'group rounded drop-shadow-sm',
             // transition
-            'transition-all will-change-transform duration-200',
+            'transition-all duration-200 will-change-transform',
             'translate-y-0',
             'translate-x-0',
             // transform origin

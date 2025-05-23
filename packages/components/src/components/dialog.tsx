@@ -38,7 +38,7 @@ const modalOverlayStyles = tv({
 
 const modalStyles = tv({
     base: [
-        'h-dvh w-dvw md:h-auto md:w-auto md:max-h-[75dvh]',
+        'h-dvh w-dvw md:h-auto md:max-h-[75dvh] md:w-auto',
         'flex items-center justify-center',
         'relative',
         'forced-colors:bg-[Canvas]',
@@ -66,7 +66,7 @@ const dialogStyles = tv({
         'text-left',
         'bg-raised/80 backdrop-blur-[2px]',
         // height
-        'h-dvh md:h-[unset] max-h-dvh',
+        'h-dvh max-h-dvh md:h-[unset]',
         'w-full max-w-[100dvw]',
         // border
         'rounded-none md:rounded-lg',
