@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.0.13](https://github.com/alex-mcgovern/ui-kit.ai/compare/@ui-kit.ai/prettier@v0.0.12...@ui-kit.ai/prettier@v0.0.13) (2025-05-28)
+
+
+### Miscellaneous Chores
+
+* **@ui-kit.ai/prettier:** Synchronize all versions
+
 ## [0.0.12](https://github.com/alex-mcgovern/ui-kit.ai/compare/@ui-kit.ai/prettier@v0.0.11...@ui-kit.ai/prettier@v0.0.12) (2025-05-22)
 
 
