@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import type { ComponentProps } from 'react'
 
+import { zodResolver } from '@hookform/resolvers/zod'
 import { Checkbox } from '@ui-kit.ai/components'
 import {
     ComboBoxButton,
@@ -48,9 +49,18 @@ const COMMUNICATION_PREFERENCE = communicationPreferencesSchema.Enum
 
 function Template(props: ComponentProps<typeof Form<FieldValues>>) {
     return (
-        <Form<FieldValues> {...props}>
+        <Form<FieldValues>
+            {...props}
+            onError={(errors) => {
+                alert(`Errors:\n\n${JSON.stringify(errors, null, 4)}`)
+            }}
+            options={{
+                resolver: zodResolver(schema),
+            }}
+        >
             <FormTextField
                 className='mb-4'
+                isRequired
                 name={FIELD_NAME.email}
                 type='email'
             >
