@@ -30,7 +30,7 @@ function Template(args: ComponentProps<typeof Card>) {
             </CardHeader>
             <CardBody>
                 This is the card body content. Lorem ipsum dolor sit amet, consectetur adipiscing
-                elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                elit, sed do eiusmod tempor incididunt ut labore.
             </CardBody>
             <CardFooter className='flex justify-end gap-2'>
                 <Button variant='secondary'>Secondary</Button>

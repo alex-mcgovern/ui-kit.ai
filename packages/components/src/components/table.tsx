@@ -39,6 +39,7 @@ const columnWrapperStyles = tv({
         'border-mid border-b',
         '[&:focus-within]:z-20 [&:hover]:z-20',
         'text-mid hover:text-dark',
+        'align-bottom',
         'cursor-default hover:cursor-pointer',
     ],
 })

@@ -49,12 +49,12 @@ const buttonStyle = tv({
             ],
             secondary: [
                 'shadow-xs',
-                'border-mid text-dark bg-transparent',
+                'border-mid text-mid bg-transparent',
                 'hover:bg-tint-light',
                 'pressed:bg-tint',
             ],
             tertiary: [
-                'text-dark border-transparent bg-transparent',
+                'text-mid border-transparent bg-transparent',
                 'hover:bg-tint-light',
                 'pressed:bg-tint',
             ],

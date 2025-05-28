@@ -1,15 +1,34 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import type { ComponentProps } from 'react'
 
-import { FieldError } from '@ui-kit.ai/components'
+import { FieldError, Form, FormTextField, Input, Label } from '@ui-kit.ai/components'
 
-function Template(args: ComponentProps<typeof FieldError>) {
-    return <FieldError {...args} />
+function Template(_args: ComponentProps<typeof FieldError>) {
+    return (
+        <Form
+            onSubmit={() => {}}
+            options={{
+                errors: {
+                    name: {
+                        message: 'Full name is required',
+                        type: 'invalid_type',
+                    },
+                },
+            }}
+        >
+            <FormTextField name='name'>
+                <Label className='opacity-50'>Full Name</Label>
+                <Input
+                    className='opacity-50'
+                    placeholder='e.g. John Doe'
+                />
+            </FormTextField>
+        </Form>
+    )
 }
 
 const meta = {
     component: FieldError,
-    render: Template,
     title: 'FieldError',
 } satisfies Meta<typeof FieldError>
 
@@ -23,6 +42,7 @@ export const Default: Story = {
     parameters: {
         displayName: 'Default',
     },
+    render: Template,
 }
 
 export const LongMessage: Story = {
@@ -33,4 +53,5 @@ export const LongMessage: Story = {
     parameters: {
         displayName: 'Long Message',
     },
+    render: Template,
 }
