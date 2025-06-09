@@ -12,9 +12,10 @@ const alertStyles = tv({
     base: [
         'w-full',
         'rounded-lg shadow-xs',
-        'border-light border',
-        'bg-tint-light/80',
-        'text-mid',
+        'border-default border',
+        'bg-tint/80',
+        // 'bg-primary',
+        'text-lo-contrast',
         'p-2 pl-3',
         'flex items-center gap-3',
     ],
@@ -25,7 +26,7 @@ const titleStyles = tv({
 })
 
 const iconStyles = tv({
-    base: 'text-mid size-4 shrink-0 stroke-[1.75px]',
+    base: 'text-lo-contrast size-4 shrink-0 stroke-[1.75px]',
 })
 
 /**

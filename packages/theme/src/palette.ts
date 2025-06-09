@@ -3,6 +3,8 @@
 import { converter, formatHsl, type Hsl, hsl } from 'culori'
 
 import { generateThemeVars } from './css-vars'
+import { generatePalette } from './palette-2'
+import { SHADES } from './shades'
 import { generateBorderUtilitiesCSS } from './tw-utils/border'
 import { genIntentUtils } from './tw-utils/intent'
 import { generateTextUtilitiesCSS } from './tw-utils/text'
@@ -64,11 +66,11 @@ export class ColorPalette {
 ${selector} {
     ${overrideTwColors ? `--color-*: initial; /* override/reset tailwind colors */` : ''}
 ${generateThemeVars({
-    default: this.palette(this.grayHsl, this.accentHsl),
-    info: this.palette(this.accentHsl, this.accentHsl),
-    error: this.palette(this.errorHsl, this.errorHsl),
-    success: this.palette(this.successHsl, this.successHsl),
-    warning: this.palette(this.warningHsl, this.warningHsl),
+    default: generatePalette(this.accentHsl, { shouldUseVibrantShades: false }),
+    info: generatePalette(this.accentHsl, { shouldUseVibrantShades: true }),
+    error: generatePalette(this.errorHsl, { shouldUseVibrantShades: true }),
+    success: generatePalette(this.successHsl, { shouldUseVibrantShades: true }),
+    warning: generatePalette(this.warningHsl, { shouldUseVibrantShades: true }),
 })}
 \t/*-------------------------------------------------
 \t/ Syntax theme color utility mapping
@@ -111,103 +113,166 @@ ${genIntentUtils()}
     }
 
     public palette(gray: Hsl, accent: Hsl) {
+        // TODO: remove gray from palette input
+        const shouldMute = gray.s !== accent.s && gray.l !== accent.l
         return {
             [Color.BG_BASE]: [
-                this._clrFormatHsl(this._clrBg(gray, 'light')),
-                this._clrFormatHsl(this._clrBg(gray, 'dark')),
+                this._clrFormatHsl(
+                    shouldMute
+                        ? SHADES[Color.BG_BASE].light.muted(gray)
+                        : SHADES[Color.BG_BASE].light.vibrant(gray)
+                ),
+                this._clrFormatHsl(
+                    shouldMute
+                        ? SHADES[Color.BG_BASE].dark.muted(gray)
+                        : SHADES[Color.BG_BASE].dark.vibrant(gray)
+                ),
             ],
-            [Color.BG_RAISED]: [
-                this._clrFormatHsl(this._clrBgRaised(gray, 'light')),
-                this._clrFormatHsl(this._clrBgRaised(gray, 'dark')),
-            ],
-            [Color.BG_TINT_DARK]: [
-                this._clrFormatHsl(this._clrShade('dark', this._clrTint(gray, 'light'))),
-                this._clrFormatHsl(this._clrShade('dark', this._clrTint(gray, 'dark'))),
+            [Color.BG_BASE_RAISED]: [
+                this._clrFormatHsl(
+                    shouldMute
+                        ? SHADES[Color.BG_BASE_RAISED].light.muted(gray)
+                        : SHADES[Color.BG_BASE_RAISED].light.vibrant(gray)
+                ),
+                this._clrFormatHsl(
+                    shouldMute
+                        ? SHADES[Color.BG_BASE_RAISED].dark.muted(gray)
+                        : SHADES[Color.BG_BASE_RAISED].dark.vibrant(gray)
+                ),
             ],
             [Color.BG_TINT]: [
-                this._clrFormatHsl(this._clrTint(gray, 'light')),
-                this._clrFormatHsl(this._clrTint(gray, 'dark')),
+                this._clrFormatHsl(
+                    shouldMute
+                        ? SHADES[Color.BG_TINT].light.muted(gray)
+                        : SHADES[Color.BG_TINT].light.vibrant(gray)
+                ),
+                this._clrFormatHsl(
+                    shouldMute
+                        ? SHADES[Color.BG_TINT].dark.muted(gray)
+                        : SHADES[Color.BG_TINT].dark.vibrant(gray)
+                ),
             ],
-            [Color.BG_TINT_LIGHT]: [
-                this._clrFormatHsl(this._clrShade('light', this._clrTint(gray, 'light'))),
-                this._clrFormatHsl(this._clrShade('light', this._clrTint(gray, 'dark'))),
+            [Color.BG_TINT_HOVER]: [
+                this._clrFormatHsl(
+                    shouldMute
+                        ? SHADES[Color.BG_TINT_HOVER].light.muted(gray)
+                        : SHADES[Color.BG_TINT_HOVER].light.vibrant(gray)
+                ),
+                this._clrFormatHsl(
+                    shouldMute
+                        ? SHADES[Color.BG_TINT_HOVER].dark.muted(gray)
+                        : SHADES[Color.BG_TINT_HOVER].dark.vibrant(gray)
+                ),
             ],
-            [Color.BG_ACCENT_DARK]: [
-                this._clrFormatHsl(this._clrShade('dark', this._clrDeriveAccent(accent, 'light'))),
-                this._clrFormatHsl(this._clrShade('dark', this._clrDeriveAccent(accent, 'dark'))),
+            [Color.BG_PRIMARY]: [
+                this._clrFormatHsl(
+                    shouldMute
+                        ? SHADES[Color.BG_PRIMARY].light.muted(gray)
+                        : SHADES[Color.BG_PRIMARY].light.vibrant(gray)
+                ),
+                this._clrFormatHsl(
+                    shouldMute
+                        ? SHADES[Color.BG_PRIMARY].dark.muted(gray)
+                        : SHADES[Color.BG_PRIMARY].dark.vibrant(gray)
+                ),
             ],
-            [Color.BG_ACCENT_MID]: [
-                this._clrFormatHsl(this._clrDeriveAccent(accent, 'light')),
-                this._clrFormatHsl(this._clrDeriveAccent(accent, 'dark')),
-            ],
-            [Color.BG_ACCENT_LIGHT]: [
-                this._clrFormatHsl(this._clrShade('light', this._clrDeriveAccent(accent, 'light'))),
-                this._clrFormatHsl(this._clrShade('light', this._clrDeriveAccent(accent, 'dark'))),
+            [Color.BG_PRIMARY_HOVER]: [
+                this._clrFormatHsl(
+                    shouldMute
+                        ? SHADES[Color.BG_PRIMARY_HOVER].light.muted(gray)
+                        : SHADES[Color.BG_PRIMARY_HOVER].light.vibrant(gray)
+                ),
+                this._clrFormatHsl(
+                    shouldMute
+                        ? SHADES[Color.BG_PRIMARY_HOVER].dark.muted(gray)
+                        : SHADES[Color.BG_PRIMARY_HOVER].dark.vibrant(gray)
+                ),
             ],
             [Color.TEXT_ACCENT]: [
-                this._clrFormatHsl(this._clrFg(this._clrDeriveAccent(accent, 'light'))),
-                this._clrFormatHsl(this._clrFg(this._clrDeriveAccent(accent, 'dark'))),
+                this._clrFormatHsl(
+                    shouldMute
+                        ? SHADES[Color.TEXT_ACCENT].light.muted(gray)
+                        : SHADES[Color.TEXT_ACCENT].light.vibrant(gray)
+                ),
+                this._clrFormatHsl(
+                    shouldMute
+                        ? SHADES[Color.TEXT_ACCENT].dark.muted(gray)
+                        : SHADES[Color.TEXT_ACCENT].dark.vibrant(gray)
+                ),
             ],
-            [Color.TEXT_LIGHT]: [
-                this._clrFormatHsl(this._clrTextDark(gray, 'light')),
-                this._clrFormatHsl(this._clrTextDark(gray, 'dark')),
+            [Color.TEXT_PLACEHOLDER]: [
+                this._clrFormatHsl(
+                    shouldMute
+                        ? SHADES[Color.TEXT_PLACEHOLDER].light.muted(gray)
+                        : SHADES[Color.TEXT_PLACEHOLDER].light.vibrant(gray)
+                ),
+                this._clrFormatHsl(
+                    shouldMute
+                        ? SHADES[Color.TEXT_PLACEHOLDER].dark.muted(gray)
+                        : SHADES[Color.TEXT_PLACEHOLDER].dark.vibrant(gray)
+                ),
             ],
-            [Color.TEXT_MID]: [
-                this._clrFormatHsl(this._clrTextMid(gray, 'light')),
-                this._clrFormatHsl(this._clrTextMid(gray, 'dark')),
+            [Color.TEXT_LO_CONTRAST]: [
+                this._clrFormatHsl(
+                    shouldMute
+                        ? SHADES[Color.TEXT_LO_CONTRAST].light.muted(gray)
+                        : SHADES[Color.TEXT_LO_CONTRAST].light.vibrant(gray)
+                ),
+                this._clrFormatHsl(
+                    shouldMute
+                        ? SHADES[Color.TEXT_LO_CONTRAST].dark.muted(gray)
+                        : SHADES[Color.TEXT_LO_CONTRAST].dark.vibrant(gray)
+                ),
             ],
-            [Color.TEXT_DARK]: [
-                this._clrFormatHsl(this._clrTextHigh(gray, 'light')),
-                this._clrFormatHsl(this._clrTextHigh(gray, 'dark')),
+            [Color.TEXT_HI_CONTRAST]: [
+                this._clrFormatHsl(
+                    shouldMute
+                        ? SHADES[Color.TEXT_HI_CONTRAST].light.muted(gray)
+                        : SHADES[Color.TEXT_HI_CONTRAST].light.vibrant(gray)
+                ),
+                this._clrFormatHsl(
+                    shouldMute
+                        ? SHADES[Color.TEXT_HI_CONTRAST].dark.muted(gray)
+                        : SHADES[Color.TEXT_HI_CONTRAST].dark.vibrant(gray)
+                ),
             ],
-            [Color.BORDER_LIGHT]: [
-                this._clrFormatHsl(this._clrBorderLight(gray, 'light')),
-                this._clrFormatHsl(this._clrBorderLight(gray, 'dark')),
+            [Color.BORDER_DEFAULT]: [
+                this._clrFormatHsl(
+                    shouldMute
+                        ? SHADES[Color.BORDER_DEFAULT].light.muted(gray)
+                        : SHADES[Color.BORDER_DEFAULT].light.vibrant(gray)
+                ),
+                this._clrFormatHsl(
+                    shouldMute
+                        ? SHADES[Color.BORDER_DEFAULT].dark.muted(gray)
+                        : SHADES[Color.BORDER_DEFAULT].dark.vibrant(gray)
+                ),
             ],
-            [Color.BORDER_MID]: [
-                this._clrFormatHsl(this._clrBorder(gray, 'light')),
-                this._clrFormatHsl(this._clrBorder(gray, 'dark')),
+            [Color.BORDER_FIELD]: [
+                this._clrFormatHsl(
+                    shouldMute
+                        ? SHADES[Color.BORDER_FIELD].light.muted(gray)
+                        : SHADES[Color.BORDER_FIELD].light.vibrant(gray)
+                ),
+                this._clrFormatHsl(
+                    shouldMute
+                        ? SHADES[Color.BORDER_FIELD].dark.muted(gray)
+                        : SHADES[Color.BORDER_FIELD].dark.vibrant(gray)
+                ),
             ],
-            [Color.BORDER_DARK]: [
-                this._clrFormatHsl(this._clrBorderDark(gray, 'light')),
-                this._clrFormatHsl(this._clrBorderDark(gray, 'dark')),
+            [Color.BORDER_FIELD_HOVER]: [
+                this._clrFormatHsl(
+                    shouldMute
+                        ? SHADES[Color.BORDER_FIELD_HOVER].light.muted(gray)
+                        : SHADES[Color.BORDER_FIELD_HOVER].light.vibrant(gray)
+                ),
+                this._clrFormatHsl(
+                    shouldMute
+                        ? SHADES[Color.BORDER_FIELD_HOVER].dark.muted(gray)
+                        : SHADES[Color.BORDER_FIELD_HOVER].dark.vibrant(gray)
+                ),
             ],
         } as const
-    }
-    private _clrBg(hsl: Hsl, mode: 'dark' | 'light'): Hsl {
-        return {
-            ...hsl,
-            l: mode === 'light' ? 0.9625 : 0.055,
-            s: 0.05,
-        }
-    }
-    private _clrBgRaised(hsl: Hsl, mode: 'dark' | 'light'): Hsl {
-        return {
-            ...hsl,
-            l: mode === 'light' ? 0.9825 : 0.0888,
-            s: 0.05,
-        }
-    }
-    private _clrBorder(hslVal: Hsl, mode: 'dark' | 'light'): Hsl {
-        return {
-            ...hslVal,
-            l: mode === 'light' ? 0.4 : 0.6,
-            alpha: 0.2,
-        }
-    }
-    private _clrBorderDark(hslVal: Hsl, mode: 'dark' | 'light'): Hsl {
-        return {
-            ...hslVal,
-            l: mode === 'light' ? 0.4 : 0.6,
-            alpha: 0.3,
-        }
-    }
-    private _clrBorderLight(hslVal: Hsl, mode: 'dark' | 'light'): Hsl {
-        return {
-            ...hslVal,
-            l: mode === 'light' ? 0.4 : 0.6,
-            alpha: 0.1,
-        }
     }
     private _clrDeriveAccent(hslVal: Hsl, mode: 'dark' | 'light'): Hsl {
         let l = hslVal.l
@@ -222,13 +287,6 @@ ${genIntentUtils()}
     }
     private _clrDeriveGray(hslVal: Hsl): Hsl {
         return { ...hslVal, s: 0.075 }
-    }
-    private _clrFg(hslVal: Hsl): Hsl {
-        return {
-            ...hslVal,
-            l: hslVal.l > 0.6 ? 0.05 : 0.95,
-            s: 0.5,
-        }
     }
     private _clrFormatHsl(hslVal: Hsl) {
         return formatHsl(hsl(hslVal))
@@ -247,29 +305,11 @@ ${genIntentUtils()}
         return { ...hslVal, l: newL }
     }
 
-    private _clrTextDark(hslVal: Hsl, mode: 'dark' | 'light'): Hsl {
-        return {
-            ...hslVal,
-            l: mode === 'light' ? 0.675 : 0.4,
-        }
-    }
     private _clrTextHigh(hslVal: Hsl, mode: 'dark' | 'light'): Hsl {
         return {
             ...hslVal,
-            l: mode === 'light' ? 0.2 : 0.9,
-        }
-    }
-    private _clrTextMid(hslVal: Hsl, mode: 'dark' | 'light'): Hsl {
-        return {
-            ...hslVal,
-            l: mode === 'light' ? 0.4 : 0.6,
-        }
-    }
-    private _clrTint(hslVal: Hsl, mode: 'dark' | 'light'): Hsl {
-        return {
-            ...hslVal,
-            l: mode === 'light' ? 0.9 : 0.1,
-            s: hslVal.s * 0.5,
+            l: mode === 'light' ? 0.2 : 0.94,
+            s: 0.09,
         }
     }
 }

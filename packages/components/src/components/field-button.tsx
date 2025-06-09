@@ -20,7 +20,7 @@ export function FieldButton({
                 twMerge(
                     '!size-6',
                     'align-middle',
-                    'text-mid',
+                    'text-placeholder',
                     'group-invalid:error',
                     'last-of-type:mr-1 [&:not(:last-of-type)]:mr-px',
                     '[&_svg]:size-3 [&_svg]:shrink-0',

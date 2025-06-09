@@ -78,7 +78,7 @@ export function TableOfContents() {
     return (
         <section className='mb-4'>
             <Heading
-                className='ml-2 text-sm text-mid mb-2'
+                className='ml-2 text-sm text-lo-contrast mb-2'
                 level={3}
             >
                 On this page

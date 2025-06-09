@@ -33,7 +33,7 @@ export function AllComponentsCards() {
                     href={component.href}
                     key={component.name}
                 >
-                    <div className='overflow-hidden mb-1 border-b border-mid'>
+                    <div className='overflow-hidden mb-1 border-b border-default'>
                         <Image
                             alt={component.name}
                             className='not-dark:hidden group-hover:scale-102 transition-transform duration-400 ease-in-out'

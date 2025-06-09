@@ -21,7 +21,7 @@ export function HomepageHero({ className }: { className?: string }) {
             className={twMerge(
                 'relative w-[360px] h-[180px] user-select-none', // dots overlay
                 'after:absolute after:-inset-[75%] after:-z-10',
-                'after:bg-[radial-gradient(var(--theme-info-border-dark)_1px,transparent_1px)]',
+                'after:bg-[radial-gradient(var(--theme-info-border-field-hover)_1px,transparent_1px)]',
                 'after:[background-size:16px_16px]',
                 'after:[mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_30%,transparent_150%)]',
                 className
@@ -54,7 +54,7 @@ export function HomepageHero({ className }: { className?: string }) {
 
 function ChatMessages() {
     return (
-        <Card className='bg-raised/50 backdrop-blur-[2px] w-[360px] h-[180px] shadow-xl'>
+        <Card className='bg-base-raised/50 backdrop-blur-3xl w-[360px] h-[180px] shadow-xl'>
             {/* @ts-expect-error - exported stories are loosely typed */}
             <ChatStories.Default />
         </Card>
@@ -63,7 +63,7 @@ function ChatMessages() {
 
 function ChatReactionControls() {
     return (
-        <Card className='flex gap-2 p-1 rounded-lg shadow-2xl bg-tint-light/50 backdrop-blur-[2px] w-min'>
+        <Card className='flex gap-2 p-1 rounded-lg shadow-2xl bg-tint-hover/50 backdrop-blur-3xl w-min'>
             <Button
                 excludeFromTabOrder
                 isIcon
@@ -91,7 +91,7 @@ function ChatReactionControls() {
 
 function ChatTextArea() {
     return (
-        <Card className='max-w-64 bg-tint-light/50 backdrop-blur-sm w-full shadow-2xl px-3 py-2 rounded-2xl'>
+        <Card className='max-w-64 bg-tint-hover/50 backdrop-blur-sm w-full shadow-2xl px-3 py-2 rounded-2xl'>
             <TextField
                 aria-label='AI chat input'
                 excludeFromTabOrder
@@ -105,13 +105,13 @@ function ChatTextArea() {
             </TextField>
             <div className='flex gap-2'>
                 <TagButton
-                    className='bg-raised/20 w-6 px-1.5'
+                    className='bg-base-raised/20 w-6 px-1.5'
                     excludeFromTabOrder
                 >
                     <PlusIcon />
                 </TagButton>
                 <TagButton
-                    className='bg-raised/20 w-6 px-1.5'
+                    className='bg-base-raised/20 w-6 px-1.5'
                     excludeFromTabOrder
                 >
                     <PaperclipIcon />

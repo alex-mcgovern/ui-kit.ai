@@ -39,7 +39,7 @@ const checkboxContainerStyles = tv({
 const boxStyles = tv({
     base: [
         'bg-base',
-        'border-mid border',
+        'border-field border',
         'size-4',
         'transition-colors',
         'flex flex-shrink-0 items-center justify-center',
@@ -47,16 +47,16 @@ const boxStyles = tv({
         // disabled
         'group-disabled:opacity-50',
         // hover
-        'group-hover:bg-tint-light',
-        'group-hover:border-dark',
+        'group-hover:bg-tint-hover',
+        'group-hover:border-field-hover',
         // selected
-        'group-selected:bg-accent-mid',
-        'group-selected:group-hover:bg-accent-mid',
+        'group-selected:bg-primary',
+        'group-selected:group-hover:bg-primary',
         'group-selected:border-accent',
         'group-selected:group-hover:border-accent',
         // indeterminate
-        'group-indeterminate:bg-accent-mid',
-        'group-indeterminate:group-hover:bg-accent-mid',
+        'group-indeterminate:bg-primary',
+        'group-indeterminate:group-hover:bg-primary',
         'group-indeterminate:border-accent',
         'group-indeterminate:group-hover:border-accent',
     ],
@@ -68,8 +68,8 @@ const iconStyles = tv({
         'transition-colors',
         'stroke-transparent',
         // hover
-        'group-hover:stroke-[var(--theme-default-text-mid)]',
-        'group-hover/row:stroke-[var(--theme-default-text-mid)]',
+        'group-hover:stroke-[var(--theme-default-text-lo-contrast)]',
+        'group-hover/row:stroke-[var(--theme-default-text-lo-contrast)]',
         'group-selected:stroke-[var(--theme-default-text-accent)]',
         'group-indeterminate:stroke-[var(--theme-default-text-accent)]',
     ],
@@ -129,7 +129,7 @@ Checkbox.displayName = 'Checkbox'
 function CheckboxLabel({ description, label }: { description?: string; label: string }) {
     return (
         <div>
-            <Label className='text-dark mb-0 flex items-center gap-1'>{label}</Label>
+            <Label className='text-hi-contrast mb-0 flex items-center gap-1'>{label}</Label>
             {description != null ? (
                 <Description className='!mt-0'>{description}</Description>
             ) : null}

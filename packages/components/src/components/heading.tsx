@@ -30,7 +30,7 @@ export function Heading({
     return (
         <AriaHeading
             {...props}
-            className={twMerge(heading({ level }), 'text-dark mb-4', props.className)}
+            className={twMerge(heading({ level }), 'text-hi-contrast mb-4', props.className)}
             level={level}
         />
     )

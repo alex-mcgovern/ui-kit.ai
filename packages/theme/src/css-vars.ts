@@ -1,9 +1,11 @@
-import type { ColorPalette } from './palette'
+import { formatHsl } from 'culori'
+
+import type { generatePalette } from './palette-2'
 import type { Color, Intent } from './types'
 
 export type VarName = `--theme-${Intent}-${Color}`
 
-export function generateThemeVars(palettes: Record<Intent, ReturnType<ColorPalette['palette']>>) {
+export function generateThemeVars(palettes: Record<Intent, ReturnType<typeof generatePalette>>) {
     return Object.entries(palettes)
         .map(([intent, palette]) => {
             const themeVars = paletteToThemeVars(palette, intent as Intent)
@@ -16,10 +18,11 @@ export function genVarName(intent: Intent, color: Color): VarName {
     return `--theme-${intent}-${color}` as const
 }
 
-function paletteToThemeVars(palette: ReturnType<ColorPalette['palette']>, intent: Intent) {
+function paletteToThemeVars(palette: ReturnType<typeof generatePalette>, intent: Intent) {
     return Object.entries(palette).reduce(
         (acc, [key, [light, dark]]) => {
-            acc[genVarName(intent, key as Color)] = `light-dark(${light}, ${dark})`
+            acc[genVarName(intent, key as Color)] =
+                `light-dark(${formatHsl(light)}, ${formatHsl(dark)})`
             return acc
         },
         {} as Record<string, string>

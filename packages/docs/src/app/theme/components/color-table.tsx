@@ -78,7 +78,7 @@ function CellBorder({
             <TooltipTrigger>
                 <Button
                     className={twMerge(
-                        'flex items-center justify-center size-10 border border-light rounded-sm',
+                        'flex items-center justify-center size-10 border border-default rounded-sm',
                         className
                     )}
                 >
@@ -114,7 +114,7 @@ function CellColor({
             <TooltipTrigger>
                 <Button
                     className={twMerge(
-                        'flex items-center justify-center size-10 border border-light rounded-sm',
+                        'flex items-center justify-center size-10 border border-default rounded-sm',
                         className
                     )}
                 >
@@ -177,70 +177,55 @@ function ColorTableHeader() {
 
 function RowBg(color: Color) {
     switch (color) {
-        case 'bg-accent-dark':
-            return (
-                <RowColor
-                    className='bg-accent-dark text-accent'
-                    color={color}
-                />
-            )
-        case 'bg-accent-light':
-            return (
-                <RowColor
-                    className='bg-accent-light text-accent'
-                    color={color}
-                />
-            )
-        case 'bg-accent-mid':
-            return (
-                <RowColor
-                    className='bg-accent-mid text-accent'
-                    color={color}
-                />
-            )
         case 'bg-base':
             return (
                 <RowColor
-                    className='bg-base text-dark'
+                    className='bg-base text-hi-contrast'
                     color={color}
                 />
             )
-        case 'bg-raised':
+        case 'bg-base-raised':
             return (
                 <RowColor
-                    className='bg-raised text-dark'
+                    className='bg-base-raised text-hi-contrast'
+                    color={color}
+                />
+            )
+        case 'bg-primary':
+            return (
+                <RowColor
+                    className='bg-primary text-accent'
+                    color={color}
+                />
+            )
+        case 'bg-primary-hover':
+            return (
+                <RowColor
+                    className='bg-primary-hover text-accent'
                     color={color}
                 />
             )
         case 'bg-tint':
             return (
                 <RowColor
-                    className='bg-tint text-dark'
+                    className='bg-tint text-hi-contrast'
                     color={color}
                 />
             )
-
-        case 'bg-tint-dark':
+        case 'bg-tint-hover':
             return (
                 <RowColor
-                    className='bg-tint-dark text-dark'
+                    className='bg-tint-hover text-hi-contrast'
                     color={color}
                 />
             )
-        case 'bg-tint-light':
-            return (
-                <RowColor
-                    className='bg-tint-light text-dark'
-                    color={color}
-                />
-            )
-        case 'border-dark':
-        case 'border-light':
-        case 'border-mid':
+        case 'border-default':
+        case 'border-field':
+        case 'border-field-hover':
         case 'text-accent':
-        case 'text-dark':
-        case 'text-light':
-        case 'text-mid':
+        case 'text-hi-contrast':
+        case 'text-lo-contrast':
+        case 'text-placeholder':
             return null
         default:
             color satisfies never
@@ -290,37 +275,35 @@ function RowColor({ className, color }: { className: string; color: Color }) {
 
 function RowRenderBorder(color: Color) {
     switch (color) {
-        case 'bg-accent-dark':
-        case 'bg-accent-light':
-        case 'bg-accent-mid':
         case 'bg-base':
-        case 'bg-raised':
+        case 'bg-base-raised':
+        case 'bg-primary':
+        case 'bg-primary-hover':
         case 'bg-tint':
-        case 'bg-tint-dark':
-        case 'bg-tint-light':
+        case 'bg-tint-hover':
         case 'text-accent':
-        case 'text-dark':
-        case 'text-light':
-        case 'text-mid':
+        case 'text-hi-contrast':
+        case 'text-lo-contrast':
+        case 'text-placeholder':
             return null
-        case 'border-dark':
+        case 'border-default':
             return (
                 <RowBorder
-                    className='text-[var(--theme-default-border-dark)]'
+                    className='text-[var(--theme-default-border-default)]'
                     color={color}
                 />
             )
-        case 'border-light':
+        case 'border-field':
             return (
                 <RowBorder
-                    className='text-[var(--theme-default-border-light)]'
+                    className='text-[var(--theme-default-border-field)]'
                     color={color}
                 />
             )
-        case 'border-mid':
+        case 'border-field-hover':
             return (
                 <RowBorder
-                    className='text-[var(--theme-default-border-mid)]'
+                    className='text-[var(--theme-default-border-field-hover)]'
                     color={color}
                 />
             )
@@ -332,43 +315,41 @@ function RowRenderBorder(color: Color) {
 
 function RowRenderText(color: Color) {
     switch (color) {
-        case 'bg-accent-dark':
-        case 'bg-accent-light':
-        case 'bg-accent-mid':
         case 'bg-base':
-        case 'bg-raised':
+        case 'bg-base-raised':
+        case 'bg-primary':
+        case 'bg-primary-hover':
         case 'bg-tint':
-        case 'bg-tint-dark':
-        case 'bg-tint-light':
-        case 'border-dark':
-        case 'border-light':
-        case 'border-mid':
+        case 'bg-tint-hover':
+        case 'border-default':
+        case 'border-field':
+        case 'border-field-hover':
             return null
         case 'text-accent':
             return (
                 <RowColor
-                    className='bg-accent-mid text-accent'
+                    className='bg-primary text-accent'
                     color={color}
                 />
             )
-        case 'text-dark':
+        case 'text-hi-contrast':
             return (
                 <RowColor
-                    className='bg-transparent text-dark'
+                    className='bg-transparent text-hi-contrast'
                     color={color}
                 />
             )
-        case 'text-light':
+        case 'text-lo-contrast':
             return (
                 <RowColor
-                    className='bg-transparent text-light'
+                    className='bg-transparent text-lo-contrast'
                     color={color}
                 />
             )
-        case 'text-mid':
+        case 'text-placeholder':
             return (
                 <RowColor
-                    className='bg-transparent text-mid'
+                    className='bg-transparent text-placeholder'
                     color={color}
                 />
             )

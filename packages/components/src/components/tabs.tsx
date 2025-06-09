@@ -34,7 +34,8 @@ const tabListStyles = tv({
     base: 'no-scrollbar relative flex max-w-full',
     variants: {
         orientation: {
-            horizontal: 'after:border-mid flex-row after:grow after:border-b after:content-[""]',
+            horizontal:
+                'after:border-default flex-row after:grow after:border-b after:content-[""]',
             vertical: 'flex-col items-start',
         },
     },
@@ -65,27 +66,27 @@ const tabStyles = tv({
     base: [
         'px-4 py-1.5',
         '!-outline-offset-4',
-        'text-mid text-sm whitespace-nowrap',
+        'text-lo-contrast text-sm whitespace-nowrap',
         'font-medium',
         'flex items-center',
         'cursor-pointer',
         // pressed
-        'pressed:text-mid',
+        'pressed:text-lo-contrast',
         // hover
-        'hover:text-dark',
+        'hover:text-hi-contrast',
         // selected
-        'selected:text-dark',
-        'selected:border-[var(--theme-default-bg-accent-mid)]',
+        'selected:text-hi-contrast',
+        'selected:border-[var(--theme-default-bg-primary)]',
         // selected
-        'disabled:text-light',
-        'disabled:selected:text-mid forced-color-adjust-none',
+        'disabled:text-placeholder',
+        'disabled:selected:text-lo-contrast forced-color-adjust-none',
         // horizontal
         'group-orientation-horizontal/tabs:border-b',
-        'group-orientation-horizontal/tabs:border-mid',
+        'group-orientation-horizontal/tabs:border-default',
         // vertical
         'group-orientation-vertical/tabs:w-full',
         'group-orientation-vertical/tabs:border-r',
-        'group-orientation-vertical/tabs:border-mid',
+        'group-orientation-vertical/tabs:border-default',
     ],
 })
 

@@ -124,20 +124,20 @@ export function SelectButton({
             data-variant-borderless={isBorderless}
         >
             {renderSlot(selectedItemIcon ?? slotLeft, {
-                className: 'text-mid [&:is(svg)]:size-3 [&:is(svg)]:shrink-0',
+                className: 'text-placeholder [&:is(svg)]:size-3 [&:is(svg)]:shrink-0',
                 'data-slot': 'slot-left',
             })}
             <AriaSelectValue
                 className={twMerge([
                     'inline-flex flex-1 items-center gap-2',
                     'truncate',
-                    'placeholder-shown:text-light',
+                    'placeholder-shown:text-placeholder',
                 ])}
             >
                 {({ selectedText }) => selectedText}
             </AriaSelectValue>
             {renderSlot(slotRight, {
-                className: 'text-mid [&:is(svg)]:size-3 [&:is(svg)]:shrink-0',
+                className: 'text-placeholder [&:is(svg)]:size-3 [&:is(svg)]:shrink-0',
                 'data-slot': 'slot-right',
             })}
         </AriaButton>

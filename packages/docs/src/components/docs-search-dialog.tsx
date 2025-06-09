@@ -52,11 +52,11 @@ export function DocsSearchDialog() {
             onOpenChange={handleOpenChange}
         >
             <Button
-                className='!h-7 px-2 rounded-full justify-between'
+                className='!h-7 px-2 rounded-full justify-between shadow-none'
                 variant='secondary'
             >
-                <SearchIcon className='text-mid' />
-                <span className='shrink-0 text-mid text-xs'>⌘K</span>
+                <SearchIcon className='text-lo-contrast' />
+                <span className='shrink-0 text-lo-contrast text-xs'>⌘K</span>
             </Button>
             <DialogModalOverlay>
                 <DialogModal>
@@ -65,7 +65,7 @@ export function DocsSearchDialog() {
                         width='md'
                     >
                         <Autocomplete>
-                            <DialogHeader className='border-b border-mid p-2'>
+                            <DialogHeader className='border-b border-default p-2'>
                                 <SearchField
                                     aria-label='Search...'
                                     autoFocus

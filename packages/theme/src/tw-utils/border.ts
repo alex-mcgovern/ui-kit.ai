@@ -2,9 +2,9 @@ import { genVarName, type VarName } from '../css-vars'
 import { Color, Intent, TwBorderUtility } from '../types'
 
 const MAP: Record<TwBorderUtility, VarName> = {
-    [TwBorderUtility.DARK]: genVarName(Intent.DEFAULT, Color.BORDER_DARK),
-    [TwBorderUtility.LIGHT]: genVarName(Intent.DEFAULT, Color.BORDER_LIGHT),
-    [TwBorderUtility.MID]: genVarName(Intent.DEFAULT, Color.BORDER_MID),
+    [TwBorderUtility.FIELD_HOVER]: genVarName(Intent.DEFAULT, Color.BORDER_FIELD_HOVER),
+    [TwBorderUtility.DEFAULT]: genVarName(Intent.DEFAULT, Color.BORDER_DEFAULT),
+    [TwBorderUtility.FIELD]: genVarName(Intent.DEFAULT, Color.BORDER_FIELD),
 }
 
 const template = (utility: string, varName: string): string => `

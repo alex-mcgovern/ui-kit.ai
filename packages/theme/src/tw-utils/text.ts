@@ -4,9 +4,9 @@ import { Intent, TwTextUtility } from '../types'
 
 const MAP: Record<TwTextUtility, VarName> = {
     [TwTextUtility.ACCENT]: genVarName(Intent.DEFAULT, Color.TEXT_ACCENT),
-    [TwTextUtility.DARK]: genVarName(Intent.DEFAULT, Color.TEXT_DARK),
-    [TwTextUtility.LIGHT]: genVarName(Intent.DEFAULT, Color.TEXT_LIGHT),
-    [TwTextUtility.MID]: genVarName(Intent.DEFAULT, Color.TEXT_MID),
+    [TwTextUtility.HI_CONTRAST]: genVarName(Intent.DEFAULT, Color.TEXT_HI_CONTRAST),
+    [TwTextUtility.PLACEHOLDER]: genVarName(Intent.DEFAULT, Color.TEXT_PLACEHOLDER),
+    [TwTextUtility.LO_CONTRAST]: genVarName(Intent.DEFAULT, Color.TEXT_LO_CONTRAST),
 }
 
 export function generateTextUtilitiesCSS(): string {

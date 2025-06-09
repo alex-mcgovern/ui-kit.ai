@@ -5,7 +5,7 @@ import { twMerge } from 'tailwind-merge'
 import { tv } from 'tailwind-variants'
 
 const colorSwatchStyles = tv({
-    base: ['inline-block', 'size-8', 'rounded', 'border-light border', 'shadow-sm'],
+    base: ['inline-block', 'size-8', 'rounded', 'border-default border', 'shadow-sm'],
 })
 
 /**

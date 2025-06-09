@@ -11,26 +11,26 @@ export function TopNav() {
         <UIKitTopNav>
             <div className='flex gap-6 items-center'>
                 <Link
-                    className='font-semibold flex items-center gap-1 text-dark hover:text-mid transition-colors'
+                    className='font-semibold flex items-center gap-1 text-hi-contrast hover:text-lo-contrast transition-colors'
                     href='/'
                 >
                     ❖ ui-kit.ai
                 </Link>
                 <div className='hidden md:flex items-center gap-4'>
                     <Link
-                        className='text-sm  text-dark hover:text-mid transition-colors'
+                        className='text-sm  text-hi-contrast hover:text-lo-contrast transition-colors'
                         href={hrefs.docs.getting_started.introduction}
                     >
                         Docs
                     </Link>
                     <Link
-                        className='text-sm  text-dark hover:text-mid transition-colors'
+                        className='text-sm  text-hi-contrast hover:text-lo-contrast transition-colors'
                         href={hrefs.docs.components}
                     >
                         Components
                     </Link>
                     <Link
-                        className='text-sm  text-dark hover:text-mid transition-colors'
+                        className='text-sm  text-hi-contrast hover:text-lo-contrast transition-colors'
                         href={hrefs.theme}
                     >
                         Theme
