@@ -1,6 +1,6 @@
 import { formatHsl } from 'culori'
 
-import type { generatePalette } from './palette-2'
+import type { generatePalette } from './generate-palette'
 import type { Color, Intent } from './types'
 
 export type VarName = `--theme-${Intent}-${Color}`

@@ -88,13 +88,8 @@ export function generatePalette(
                 : SHADES[Color.BORDER_FIELD_HOVER].dark.muted(color),
         ],
         [Color.TEXT_ACCENT]: [
-            shouldUseVibrantShades
-                ? SHADES[Color.TEXT_ACCENT].light.vibrant(color)
-                : SHADES[Color.TEXT_ACCENT].light.muted(color),
-
-            shouldUseVibrantShades
-                ? SHADES[Color.TEXT_ACCENT].dark.vibrant(color)
-                : SHADES[Color.TEXT_ACCENT].dark.muted(color),
+            SHADES[Color.TEXT_ACCENT].light.vibrant(color),
+            SHADES[Color.TEXT_ACCENT].dark.vibrant(color),
         ],
         [Color.TEXT_HI_CONTRAST]: [
             shouldUseVibrantShades

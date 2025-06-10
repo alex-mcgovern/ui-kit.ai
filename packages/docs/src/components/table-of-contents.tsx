@@ -1,8 +1,7 @@
-import { Heading, ListBox } from '@ui-kit.ai/components'
+import { Heading, ListBox, type OptionsSchema } from '@ui-kit.ai/components'
 import React, { useEffect, useState } from 'react'
 
 interface TOCItem {
-    children?: TOCItem[]
     href: string
     id: string
     level: number
@@ -29,7 +28,7 @@ export function TableOfContents() {
             mainElement.querySelectorAll('h2, h3, h4, h5, h6')
         ) as HTMLHeadingElement[]
 
-        // Process headings to create TOC structure
+        // Process headings to create a flat TOC structure
         const processedItems: TOCItem[] = []
 
         headings.forEach((heading) => {
@@ -54,19 +53,8 @@ export function TableOfContents() {
                 textValue: heading.textContent ?? '',
             }
 
-            // We only want to handle up to 2 levels of indentation
-            if (level === 2) {
-                processedItems.push(item)
-            } else if (level === 3 && processedItems.length > 0) {
-                // Add as child to the last h2 item
-                const lastItem = processedItems[processedItems.length - 1]
-                if (lastItem == null) return
-                if (Array.isArray(lastItem.children) === false) {
-                    lastItem.children = []
-                }
-                lastItem.children.push(item)
-            }
-            // Ignore deeper levels for simplicity
+            // Add all headings to the flat list
+            processedItems.push(item)
         })
 
         setTocItems(processedItems)
@@ -75,44 +63,37 @@ export function TableOfContents() {
     // If no TOC items, don't render anything
     if (tocItems.length === 0) return null
 
+    // Handle smooth scrolling with offset when clicking on a TOC item
+    const handleItemClick = (id: string) => {
+        const element = document.getElementById(id)
+        if (element) {
+            const offsetTop = element.getBoundingClientRect().top + window.scrollY - 56
+            window.scrollTo({
+                behavior: 'smooth',
+                top: offsetTop,
+            })
+        }
+    }
+
     return (
         <section className='mb-4'>
             <Heading
-                className='ml-2 text-sm text-lo-contrast mb-2'
+                className='ml-1 text-sm text-lo-contrast mb-2'
                 level={3}
             >
                 On this page
             </Heading>
-            <ListBox
+            <ListBox<OptionsSchema<'listbox'>>
                 className='w-64 mb-4'
                 items={tocItems.map((item) => ({
-                    href: item.href,
+                    className: item.level > 2 ? 'ml-2 truncate max-w-full' : 'truncate max-w-full',
                     id: item.id,
                     textValue: item.textValue,
                 }))}
+                onAction={(k) => handleItemClick(k.toString())}
                 selectionMode='single'
                 showCheckmarkOnSelected={false}
             />
-            {tocItems.map((item) =>
-                item.children && item.children.length > 0 ? (
-                    <div
-                        className='ml-4'
-                        key={item.id}
-                    >
-                        <ListBox
-                            className='w-64 mb-4'
-                            items={item.children.map((child) => ({
-                                className: 'truncate max-w-full',
-                                href: child.href,
-                                id: child.id,
-                                textValue: child.textValue,
-                            }))}
-                            selectionMode='single'
-                            showCheckmarkOnSelected={false}
-                        />
-                    </div>
-                ) : null
-            )}
         </section>
     )
 }

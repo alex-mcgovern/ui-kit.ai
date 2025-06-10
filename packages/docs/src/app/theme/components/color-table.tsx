@@ -1,5 +1,4 @@
-/* eslint-disable sonarjs/no-duplicate-string */
-import type { ColorPalette } from '@ui-kit.ai/theme'
+'use client'
 
 import {
     Cell,
@@ -12,18 +11,16 @@ import {
     Tooltip,
     TooltipTrigger,
 } from '@ui-kit.ai/components'
+import { Color } from '@ui-kit.ai/theme'
 import { CircleSlash2 } from 'lucide-react'
 // @ts-expect-error - it's a peer dependency
 import { Button } from 'react-aria-components'
 import { twMerge } from 'tailwind-merge'
 
-type Color = keyof Palette
-type Palette = ReturnType<ColorPalette['palette']>
-
 const INTENTS = [null, 'info', 'success', 'warning', 'error'] as const
 type Intent = (typeof INTENTS)[number]
 
-export function ColorTableBg({ palette }: { palette: Palette }) {
+export function ColorTableBg() {
     return (
         <Table
             aria-label='Background colors'
@@ -31,11 +28,11 @@ export function ColorTableBg({ palette }: { palette: Palette }) {
             isCompact
         >
             <ColorTableHeader />
-            <TableBody>{Object.keys(palette).map((color) => RowBg(color as Color))}</TableBody>
+            <TableBody>{Object.values(Color).map((color) => RowBg(color as Color))}</TableBody>
         </Table>
     )
 }
-export function ColorTableBorder({ palette }: { palette: Palette }) {
+export function ColorTableBorder() {
     return (
         <Table
             aria-label='Border colors'
@@ -44,12 +41,12 @@ export function ColorTableBorder({ palette }: { palette: Palette }) {
         >
             <ColorTableHeader />
             <TableBody>
-                {Object.keys(palette).map((color) => RowRenderBorder(color as Color))}
+                {Object.values(Color).map((color) => RowRenderBorder(color as Color))}
             </TableBody>
         </Table>
     )
 }
-export function ColorTableText({ palette }: { palette: Palette }) {
+export function ColorTableText() {
     return (
         <Table
             aria-label='Text colors'
@@ -58,7 +55,7 @@ export function ColorTableText({ palette }: { palette: Palette }) {
         >
             <ColorTableHeader />
             <TableBody>
-                {Object.keys(palette).map((color) => RowRenderText(color as Color))}
+                {Object.values(Color).map((color) => RowRenderText(color as Color))}
             </TableBody>
         </Table>
     )
@@ -177,55 +174,55 @@ function ColorTableHeader() {
 
 function RowBg(color: Color) {
     switch (color) {
-        case 'bg-base':
+        case Color.BG_BASE:
             return (
                 <RowColor
                     className='bg-base text-hi-contrast'
                     color={color}
                 />
             )
-        case 'bg-base-raised':
+        case Color.BG_BASE_RAISED:
             return (
                 <RowColor
                     className='bg-base-raised text-hi-contrast'
                     color={color}
                 />
             )
-        case 'bg-primary':
+        case Color.BG_PRIMARY:
             return (
                 <RowColor
                     className='bg-primary text-accent'
                     color={color}
                 />
             )
-        case 'bg-primary-hover':
+        case Color.BG_PRIMARY_HOVER:
             return (
                 <RowColor
                     className='bg-primary-hover text-accent'
                     color={color}
                 />
             )
-        case 'bg-tint':
+        case Color.BG_TINT:
             return (
                 <RowColor
                     className='bg-tint text-hi-contrast'
                     color={color}
                 />
             )
-        case 'bg-tint-hover':
+        case Color.BG_TINT_HOVER:
             return (
                 <RowColor
                     className='bg-tint-hover text-hi-contrast'
                     color={color}
                 />
             )
-        case 'border-default':
-        case 'border-field':
-        case 'border-field-hover':
-        case 'text-accent':
-        case 'text-hi-contrast':
-        case 'text-lo-contrast':
-        case 'text-placeholder':
+        case Color.BORDER_DEFAULT:
+        case Color.BORDER_FIELD:
+        case Color.BORDER_FIELD_HOVER:
+        case Color.TEXT_ACCENT:
+        case Color.TEXT_HI_CONTRAST:
+        case Color.TEXT_LO_CONTRAST:
+        case Color.TEXT_PLACEHOLDER:
             return null
         default:
             color satisfies never
@@ -275,32 +272,32 @@ function RowColor({ className, color }: { className: string; color: Color }) {
 
 function RowRenderBorder(color: Color) {
     switch (color) {
-        case 'bg-base':
-        case 'bg-base-raised':
-        case 'bg-primary':
-        case 'bg-primary-hover':
-        case 'bg-tint':
-        case 'bg-tint-hover':
-        case 'text-accent':
-        case 'text-hi-contrast':
-        case 'text-lo-contrast':
-        case 'text-placeholder':
+        case Color.BG_BASE:
+        case Color.BG_BASE_RAISED:
+        case Color.BG_PRIMARY:
+        case Color.BG_PRIMARY_HOVER:
+        case Color.BG_TINT:
+        case Color.BG_TINT_HOVER:
+        case Color.TEXT_ACCENT:
+        case Color.TEXT_HI_CONTRAST:
+        case Color.TEXT_LO_CONTRAST:
+        case Color.TEXT_PLACEHOLDER:
             return null
-        case 'border-default':
+        case Color.BORDER_DEFAULT:
             return (
                 <RowBorder
                     className='text-[var(--theme-default-border-default)]'
                     color={color}
                 />
             )
-        case 'border-field':
+        case Color.BORDER_FIELD:
             return (
                 <RowBorder
                     className='text-[var(--theme-default-border-field)]'
                     color={color}
                 />
             )
-        case 'border-field-hover':
+        case Color.BORDER_FIELD_HOVER:
             return (
                 <RowBorder
                     className='text-[var(--theme-default-border-field-hover)]'
@@ -315,38 +312,38 @@ function RowRenderBorder(color: Color) {
 
 function RowRenderText(color: Color) {
     switch (color) {
-        case 'bg-base':
-        case 'bg-base-raised':
-        case 'bg-primary':
-        case 'bg-primary-hover':
-        case 'bg-tint':
-        case 'bg-tint-hover':
-        case 'border-default':
-        case 'border-field':
-        case 'border-field-hover':
+        case Color.BG_BASE:
+        case Color.BG_BASE_RAISED:
+        case Color.BG_PRIMARY:
+        case Color.BG_PRIMARY_HOVER:
+        case Color.BG_TINT:
+        case Color.BG_TINT_HOVER:
+        case Color.BORDER_DEFAULT:
+        case Color.BORDER_FIELD:
+        case Color.BORDER_FIELD_HOVER:
             return null
-        case 'text-accent':
+        case Color.TEXT_ACCENT:
             return (
                 <RowColor
                     className='bg-primary text-accent'
                     color={color}
                 />
             )
-        case 'text-hi-contrast':
+        case Color.TEXT_HI_CONTRAST:
             return (
                 <RowColor
                     className='bg-transparent text-hi-contrast'
                     color={color}
                 />
             )
-        case 'text-lo-contrast':
+        case Color.TEXT_LO_CONTRAST:
             return (
                 <RowColor
                     className='bg-transparent text-lo-contrast'
                     color={color}
                 />
             )
-        case 'text-placeholder':
+        case Color.TEXT_PLACEHOLDER:
             return (
                 <RowColor
                     className='bg-transparent text-placeholder'

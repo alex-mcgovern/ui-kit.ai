@@ -22,26 +22,10 @@ export enum Intent {
     WARNING = 'warning',
 }
 
-export enum TwBgUtility {
-    BASE = 'bg-base',
-    BASE_RAISED = 'bg-base-raised',
-    PRIMARY = 'bg-primary',
-    PRIMARY_HOVER = 'bg-primary-hover',
-    TINT = 'bg-tint',
-    TINT_HOVER = 'bg-tint-hover',
-}
-
 export enum TwBorderUtility {
     DEFAULT = 'border-default',
     FIELD = 'border-field',
     FIELD_HOVER = 'border-field-hover',
-}
-
-export enum TwTextUtility {
-    ACCENT = 'text-accent',
-    HI_CONTRAST = 'text-hi-contrast',
-    LO_CONTRAST = 'text-lo-contrast',
-    PLACEHOLDER = 'text-placeholder',
 }
 
 export type ColorPaletteInput = {

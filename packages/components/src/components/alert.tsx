@@ -13,9 +13,9 @@ const alertStyles = tv({
         'w-full',
         'rounded-lg shadow-xs',
         'border-default border',
-        'bg-tint/80',
+        'bg-tint-hover',
         // 'bg-primary',
-        'text-lo-contrast',
+        'text-hi-contrast',
         'p-2 pl-3',
         'flex items-center gap-3',
     ],
@@ -23,10 +23,6 @@ const alertStyles = tv({
 
 const titleStyles = tv({
     base: 'font-title mb-0 block text-sm font-medium',
-})
-
-const iconStyles = tv({
-    base: 'text-lo-contrast size-4 shrink-0 stroke-[1.75px]',
 })
 
 /**
@@ -58,7 +54,7 @@ export function Alert({
         >
             {renderSlot(icon, {
                 'aria-hidden': true,
-                className: iconStyles(),
+                className: 'size-4 shrink-0',
                 role: 'img',
             })}
             <div>
