@@ -18,15 +18,11 @@ export function CodeInline({
     return (
         <SyntaxHighlighter
             codeTagProps={{
-                className: twMerge(
-                    'bg-tint-hover border-default text-hi-contrast rounded-sm border px-1 py-0.25',
-                    className
-                ),
+                className: twMerge('bg-tint text-hi-contrast rounded-sm px-1 py-0.25', className),
                 style: {
                     whiteSpace: 'unset',
                 },
             }}
-            data-testid='syntax-highlighter-inline'
             language={language}
             PreTag='span'
             useInlineStyles={false}

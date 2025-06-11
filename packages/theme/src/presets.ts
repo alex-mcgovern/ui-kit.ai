@@ -1,32 +1,38 @@
 export const PRESETS = {
-    blue: {
-        accent: '#0090FF',
-        error: '#E5484D',
+    autumnal: {
+        accent: '#FFA057',
+        error: '#FF977D',
+        success: '#3E7949',
+        warning: '#F6E2B4',
+    },
+    boreal: {
+        accent: '#2A7E68',
+        error: '#C8462D',
+        success: '#2A7E68',
+        warning: '#F5B961',
+    },
+    glacial: {
+        accent: '#70B8FF',
+        error: '#FF92AD',
+        success: '#0BD8B6',
+        warning: '#F6EEB4',
+    },
+    neutral: {
+        accent: '#111111',
+        error: '#B54548',
         success: '#30A46C',
         warning: '#FFC53D',
     },
-    gold: {
-        accent: '#AE8C7E',
-        error: '#EC6142',
-        success: '#71D083',
-        warning: '#FFA057',
+    nocturnal: {
+        accent: '#591C47',
+        error: '#E93D82',
+        success: '#0BD8B6',
+        warning: '#F6EEB4',
     },
-    indigo: {
+    professional: {
         accent: '#3E63DD',
         error: '#E54666',
         success: '#29A383',
         warning: '#FFC53D',
-    },
-    iris: {
-        accent: '#5B5BD6',
-        error: '#E93D82',
-        success: '#12A594',
-        warning: '#FFC53D',
-    },
-    yellow: {
-        accent: '#F6EEB4',
-        error: '#FDD1EA',
-        success: '#71D083',
-        warning: '#FFA057',
     },
 } as const

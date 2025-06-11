@@ -63,15 +63,101 @@ const BG_BASE: ShadeLightDark = {
     },
 }
 
-const textAccentFn: ShadeFn = (hsl) => {
-    const contrastRatio = wcagContrast(hsl, TEXT_HI_CONTRAST.light.vibrant(hsl))
+const BG_PRIMARY: ShadeLightDark = {
+    dark: {
+        muted: (hsl) => {
+            const contrastRatio = wcagContrast(hsl, BG_BASE.dark.muted(hsl))
+            if (contrastRatio > 2) return hsl
 
-    if (contrastRatio < 4.5) {
-        return BG_BASE.light.muted(hsl)
-    }
+            return { ...hsl, l: 1 - hsl.l }
+        },
+        vibrant: (hsl) => {
+            const contrastRatio = wcagContrast(hsl, BG_BASE.dark.vibrant(hsl))
+            if (contrastRatio > 2) return hsl
 
-    return TEXT_HI_CONTRAST.light.muted(hsl)
+            return { ...hsl, l: 1 - hsl.l }
+        },
+    },
+    light: {
+        muted: (hsl) => {
+            const contrastRatio = wcagContrast(hsl, BG_BASE.light.muted(hsl))
+            if (contrastRatio > 2) return hsl
+
+            return { ...hsl, l: 1 - hsl.l }
+        },
+        vibrant: (hsl) => {
+            const contrastRatio = wcagContrast(hsl, BG_BASE.light.vibrant(hsl))
+            if (contrastRatio > 2) return hsl
+
+            return { ...hsl, l: 1 - hsl.l }
+        },
+    },
 }
+
+const TEXT_ACCENT: ShadeLightDark = {
+    dark: {
+        muted: (hsl) => {
+            const contrastRatio = wcagContrast(
+                BG_PRIMARY.dark.muted(hsl),
+                TEXT_HI_CONTRAST.dark.muted(hsl)
+            )
+
+            if (contrastRatio < 2.5) {
+                return BG_BASE.dark.muted(hsl)
+            }
+
+            return TEXT_HI_CONTRAST.dark.muted(hsl)
+        },
+        vibrant: (hsl) => {
+            const contrastRatio = wcagContrast(
+                BG_PRIMARY.dark.vibrant(hsl),
+                TEXT_HI_CONTRAST.dark.vibrant(hsl)
+            )
+
+            if (contrastRatio < 2.5) {
+                return BG_BASE.dark.vibrant(hsl)
+            }
+
+            return TEXT_HI_CONTRAST.dark.vibrant(hsl)
+        },
+    },
+    light: {
+        muted: (hsl) => {
+            const contrastRatio = wcagContrast(
+                BG_PRIMARY.light.muted(hsl),
+                TEXT_HI_CONTRAST.light.muted(hsl)
+            )
+
+            if (contrastRatio < 2.5) {
+                return BG_BASE.light.muted(hsl)
+            }
+
+            return TEXT_HI_CONTRAST.light.muted(hsl)
+        },
+        vibrant: (hsl) => {
+            const contrastRatio = wcagContrast(
+                BG_PRIMARY.light.vibrant(hsl),
+                TEXT_HI_CONTRAST.light.vibrant(hsl)
+            )
+
+            if (contrastRatio < 2.5) {
+                return BG_BASE.light.vibrant(hsl)
+            }
+
+            return TEXT_HI_CONTRAST.light.vibrant(hsl)
+        },
+    },
+}
+
+// const textAccentFn: ShadeFn = (hsl) => {
+//     const contrastRatio = wcagContrast(hsl, TEXT_HI_CONTRAST.light.vibrant(hsl))
+
+//     if (contrastRatio < 2.5) {
+//         return BG_BASE.light.muted(hsl)
+//     }
+
+//     return TEXT_HI_CONTRAST.light.muted(hsl)
+// }
 
 export const SHADES: Shades = {
     [Color.BG_BASE]: BG_BASE,
@@ -101,53 +187,30 @@ export const SHADES: Shades = {
             }),
         },
     },
-    [Color.BG_PRIMARY]: {
-        dark: {
-            muted: (hsl) => hsl,
-            vibrant: (hsl) => hsl,
-        },
-        light: {
-            muted: (hsl) => hsl,
-            vibrant: (hsl) => hsl,
-        },
-    },
+    [Color.BG_PRIMARY]: BG_PRIMARY,
     [Color.BG_PRIMARY_HOVER]: {
         dark: {
-            muted: (hsl) => ({ ...hsl, l: hsl.l + 0.05 }),
-            vibrant: (hsl) => ({ ...hsl, l: hsl.l + 0.05 }),
+            muted: (hsl) => {
+                const primary = BG_PRIMARY.dark.muted(hsl)
+                return { ...primary, l: primary.l + 0.05 }
+            },
+            vibrant: (hsl) => {
+                const primary = BG_PRIMARY.dark.vibrant(hsl)
+                return { ...primary, l: primary.l + 0.05 }
+            },
         },
         light: {
-            muted: (hsl) => ({ ...hsl, l: hsl.l + 0.05 }),
-            vibrant: (hsl) => ({ ...hsl, l: hsl.l + 0.05 }),
+            muted: (hsl) => {
+                const primary = BG_PRIMARY.light.muted(hsl)
+                return { ...primary, l: primary.l + 0.05 }
+            },
+            vibrant: (hsl) => {
+                const primary = BG_PRIMARY.light.vibrant(hsl)
+                return { ...primary, l: primary.l + 0.05 }
+            },
         },
     },
     [Color.BG_TINT]: {
-        dark: {
-            muted: (hsl) => ({
-                ...hsl,
-                l: 0.14,
-                s: 0.06,
-            }),
-            vibrant: (hsl) => ({
-                ...hsl,
-                l: 0.19,
-                s: 0.51,
-            }),
-        },
-        light: {
-            muted: (hsl) => ({
-                ...hsl,
-                l: 0.95,
-                s: 0.11,
-            }),
-            vibrant: (hsl) => ({
-                ...hsl,
-                l: 0.96,
-                s: 0.89,
-            }),
-        },
-    },
-    [Color.BG_TINT_HOVER]: {
         dark: {
             muted: (hsl) => ({
                 ...hsl,
@@ -263,16 +326,7 @@ export const SHADES: Shades = {
             }),
         },
     },
-    [Color.TEXT_ACCENT]: {
-        dark: {
-            muted: textAccentFn,
-            vibrant: textAccentFn,
-        },
-        light: {
-            muted: textAccentFn,
-            vibrant: textAccentFn,
-        },
-    },
+    [Color.TEXT_ACCENT]: TEXT_ACCENT,
     [Color.TEXT_HI_CONTRAST]: TEXT_HI_CONTRAST,
     [Color.TEXT_LO_CONTRAST]: {
         dark: {

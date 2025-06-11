@@ -47,7 +47,7 @@ const boxStyles = tv({
         // disabled
         'group-disabled:opacity-50',
         // hover
-        'group-hover:bg-tint-hover',
+        'group-hover:bg-tint',
         'group-hover:border-field-hover',
         // selected
         'group-selected:bg-primary',

@@ -51,15 +51,6 @@ export function generatePalette(
                 ? SHADES[Color.BG_TINT].dark.vibrant(color)
                 : SHADES[Color.BG_TINT].dark.muted(color),
         ],
-        [Color.BG_TINT_HOVER]: [
-            shouldUseVibrantShades
-                ? SHADES[Color.BG_TINT_HOVER].light.vibrant(color)
-                : SHADES[Color.BG_TINT_HOVER].light.muted(color),
-
-            shouldUseVibrantShades
-                ? SHADES[Color.BG_TINT_HOVER].dark.vibrant(color)
-                : SHADES[Color.BG_TINT_HOVER].dark.muted(color),
-        ],
         [Color.BORDER_DEFAULT]: [
             shouldUseVibrantShades
                 ? SHADES[Color.BORDER_DEFAULT].light.vibrant(color)

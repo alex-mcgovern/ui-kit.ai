@@ -12,7 +12,7 @@ const messageBubbleStyles = tv({
     variants: {
         origin: {
             them: ['justify-self-start-safe left-0'],
-            us: ['bg-tint-hover right-0 justify-self-end-safe rounded-xl rounded-tr-none'],
+            us: ['bg-tint right-0 justify-self-end-safe rounded-xl rounded-tr-none'],
         },
     },
 })

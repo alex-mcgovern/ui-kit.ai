@@ -31,16 +31,16 @@ const optionStyle = tv({
         'text-hi-contrast text-sm',
         'outline outline-0',
         'rounded select-none',
-        'px-1.25 py-0.5',
+        'px-2 py-0.5',
         'forced-color-adjust-none',
         // disabled
         'disabled:text-placeholder',
         // hover
-        'hover:bg-tint-hover',
+        'hover:bg-tint',
         // focus
-        'focus:bg-tint-hover',
+        'focus:bg-tint',
         // pressed
-        'pressed:bg-tint-hover',
+        'pressed:bg-tint',
         // selected
         'selected:bg-tint',
     ],

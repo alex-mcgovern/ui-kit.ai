@@ -209,13 +209,6 @@ function RowBg(color: Color) {
                     color={color}
                 />
             )
-        case Color.BG_TINT_HOVER:
-            return (
-                <RowColor
-                    className='bg-tint-hover text-hi-contrast'
-                    color={color}
-                />
-            )
         case Color.BORDER_DEFAULT:
         case Color.BORDER_FIELD:
         case Color.BORDER_FIELD_HOVER:
@@ -277,7 +270,6 @@ function RowRenderBorder(color: Color) {
         case Color.BG_PRIMARY:
         case Color.BG_PRIMARY_HOVER:
         case Color.BG_TINT:
-        case Color.BG_TINT_HOVER:
         case Color.TEXT_ACCENT:
         case Color.TEXT_HI_CONTRAST:
         case Color.TEXT_LO_CONTRAST:
@@ -317,7 +309,6 @@ function RowRenderText(color: Color) {
         case Color.BG_PRIMARY:
         case Color.BG_PRIMARY_HOVER:
         case Color.BG_TINT:
-        case Color.BG_TINT_HOVER:
         case Color.BORDER_DEFAULT:
         case Color.BORDER_FIELD:
         case Color.BORDER_FIELD_HOVER:

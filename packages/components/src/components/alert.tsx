@@ -13,7 +13,7 @@ const alertStyles = tv({
         'w-full',
         'rounded-lg shadow-xs',
         'border-default border',
-        'bg-tint-hover',
+        'bg-tint',
         // 'bg-primary',
         'text-hi-contrast',
         'p-2 pl-3',
@@ -34,7 +34,7 @@ export function Alert({
     actions,
     className,
     icon = <InfoIcon />,
-    intent = 'info',
+    intent,
     text,
     ...props
 }: {

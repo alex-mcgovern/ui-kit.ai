@@ -4,7 +4,6 @@ export enum Color {
     BG_PRIMARY = 'bg-primary',
     BG_PRIMARY_HOVER = 'bg-primary-hover',
     BG_TINT = 'bg-tint',
-    BG_TINT_HOVER = 'bg-tint-hover',
     BORDER_DEFAULT = 'border-default',
     BORDER_FIELD = 'border-field',
     BORDER_FIELD_HOVER = 'border-field-hover',
@@ -31,7 +30,6 @@ export enum TwBorderUtility {
 export type ColorPaletteInput = {
     accent: string
     error: string
-    gray?: string
     success: string
     warning: string
 }

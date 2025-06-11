@@ -119,7 +119,7 @@ code {
 
 /* Global colors for highlighted text */
 ::selection {
-    background: var(--theme-default-bg-primary-hover);
+    background: var(--theme-default-bg-primary);
     color: var(--theme-default-text-accent);
 }
 

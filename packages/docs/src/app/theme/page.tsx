@@ -91,16 +91,6 @@ export default function Page() {
 
                 <section className='mb-8'>
                     <Heading level={4}>Use a preset</Heading>
-                    <p className='mb-2'>
-                        Presets use the excellent{' '}
-                        <Link
-                            href='https://www.radix-ui.com/colors'
-                            target='_blank'
-                        >
-                            radix-ui colors
-                        </Link>{' '}
-                        library.
-                    </p>
                     <ThemePresetPicker setValue={(palette) => onPresetChange(palette)} />
                 </section>
                 <section className='mb-8'>
@@ -151,7 +141,7 @@ function ThemeColorPicker({
 
     return (
         <ColorField
-            className='mb-1 grid grid-cols-2 items-center gap-2'
+            className='mb-1 grid grid-cols-[1fr_2fr] items-center gap-6'
             onChange={onChange}
             value={value}
         >
@@ -231,8 +221,8 @@ function ThemePresetPicker({
     return (
         <Select
             aria-label='Theme preset'
-            className='mb-1 grid grid-cols-2 items-center gap-2'
-            defaultSelectedKey='indigo'
+            className='mb-1 grid grid-cols-[1fr_2fr] items-center gap-6'
+            defaultSelectedKey='professional'
             items={PRESET_ITEMS}
             onSelectionChange={(v) => {
                 const selected = PRESET_ITEMS.find((preset) => preset.id === v)

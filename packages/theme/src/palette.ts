@@ -12,22 +12,20 @@ import { genSyntaxCssVars } from './generate-syntax-css-vars'
 import { PRESETS } from './presets'
 import { genIntentUtils } from './tw-utils/intent'
 
-export const DEFAULT_COLOR_PALETTE_INPUT = PRESETS.indigo
+export const DEFAULT_COLOR_PALETTE_INPUT = PRESETS.professional
 
 export class ColorPalette {
     public accentHsl: Hsl
     public errorHsl: Hsl
-    public grayHsl: Hsl
     public successHsl: Hsl
     public warningHsl: Hsl
     private readonly vendorToHsl = converter('hsl')
 
-    constructor({ accent, error, gray, success, warning }: ColorPaletteInput) {
+    constructor({ accent, error, success, warning }: ColorPaletteInput) {
         this.accentHsl = this._clrHexToHsl(accent)
         this.successHsl = this._clrHexToHsl(success)
         this.warningHsl = this._clrHexToHsl(warning)
         this.errorHsl = this._clrHexToHsl(error)
-        this.grayHsl = gray != null ? this._clrHexToHsl(gray) : this._clrDeriveGray(this.accentHsl)
     }
 
     public css({ overrideTwColors, selector }: { overrideTwColors: boolean; selector: string }) {
@@ -64,9 +62,6 @@ ${genIntentUtils()}
 `
     }
 
-    private _clrDeriveGray(hslVal: Hsl): Hsl {
-        return { ...hslVal, s: 0.075 }
-    }
     private _clrHexToHsl(hex: string): Hsl {
         const hslRepr = this.vendorToHsl(hex)
         if (hslRepr == null) {

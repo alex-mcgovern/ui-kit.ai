@@ -9,6 +9,7 @@ import TableOfContents from '../../components/table-of-contents'
 import { hrefs } from '../../lib/hrefs'
 
 const ITEMS: OptionsSchema<'listbox'>[] = Object.keys(components).map((componentName) => ({
+    className: 'mb-px',
     href: hrefs.component(componentName),
     id: componentName,
     textValue: componentName,

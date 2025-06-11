@@ -63,7 +63,7 @@ function ChatMessages() {
 
 function ChatReactionControls() {
     return (
-        <Card className='flex gap-2 p-1 rounded-lg shadow-2xl bg-tint-hover/50 backdrop-blur-3xl w-min'>
+        <Card className='flex gap-2 p-1 rounded-lg shadow-2xl bg-tint/50 backdrop-blur-3xl w-min'>
             <Button
                 excludeFromTabOrder
                 isIcon
@@ -91,7 +91,7 @@ function ChatReactionControls() {
 
 function ChatTextArea() {
     return (
-        <Card className='max-w-64 bg-tint-hover/50 backdrop-blur-sm w-full shadow-2xl px-3 py-2 rounded-2xl'>
+        <Card className='max-w-64 bg-tint/50 backdrop-blur-sm w-full shadow-2xl px-3 py-2 rounded-2xl'>
             <TextField
                 aria-label='AI chat input'
                 excludeFromTabOrder
