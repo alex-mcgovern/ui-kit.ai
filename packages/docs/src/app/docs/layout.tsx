@@ -9,6 +9,7 @@ import TableOfContents from '../../components/table-of-contents'
 import { hrefs } from '../../lib/hrefs'
 
 const ITEMS: OptionsSchema<'listbox'>[] = Object.keys(components).map((componentName) => ({
+    className: 'mb-px',
     href: hrefs.component(componentName),
     id: componentName,
     textValue: componentName,
@@ -28,7 +29,7 @@ export default function Layout({
             <Sidebar className='hidden md:block'>
                 <section className='mb-4'>
                     <Heading
-                        className='ml-0.75  text-sm text-mid mb-2'
+                        className='ml-0.75  text-sm text-lo-contrast mb-2'
                         level={3}
                     >
                         Getting started
@@ -64,7 +65,7 @@ export default function Layout({
                 </section>
                 <section className='mb-4'>
                     <Heading
-                        className='ml-0.75  text-sm mb-2 text-mid'
+                        className='ml-0.75  text-sm mb-2 text-lo-contrast'
                         level={3}
                     >
                         Components

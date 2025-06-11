@@ -21,9 +21,9 @@ interface PopoverProps extends Omit<AriaPopoverProps, 'children'> {
 
 const popoverStyles = tv({
     base: [
-        'bg-raised/80 rounded backdrop-blur-xs',
-        'text-dark shadow-2xl forced-colors:bg-[Canvas]',
-        'border-mid border',
+        'bg-base-raised/80 rounded backdrop-blur-xs',
+        'text-hi-contrast shadow-2xl forced-colors:bg-[Canvas]',
+        'border-default border',
         // transition
         'transition-all duration-200 will-change-transform',
         'translate-y-0',

@@ -20,26 +20,26 @@ export const Default: Story = {
         <TopNav {...args}>
             <div className='flex items-center gap-6'>
                 <Link
-                    className='text-dark hover:text-mid flex items-center gap-1 font-semibold transition-colors'
+                    className='text-hi-contrast hover:text-lo-contrast flex items-center gap-1 font-semibold transition-colors'
                     href='/'
                 >
                     ❖ ui-kit.ai
                 </Link>
                 <div className='flex items-center gap-4'>
                     <Link
-                        className='text-dark hover:text-mid text-sm transition-colors'
+                        className='text-hi-contrast hover:text-lo-contrast text-sm transition-colors'
                         href='#'
                     >
                         Docs
                     </Link>
                     <Link
-                        className='text-dark hover:text-mid text-sm transition-colors'
+                        className='text-hi-contrast hover:text-lo-contrast text-sm transition-colors'
                         href='#'
                     >
                         Components
                     </Link>
                     <Link
-                        className='text-dark hover:text-mid text-sm transition-colors'
+                        className='text-hi-contrast hover:text-lo-contrast text-sm transition-colors'
                         href='#'
                     >
                         Theme

@@ -25,7 +25,7 @@ const modalOverlayStyles = tv({
         'fixed inset-0 z-50',
         'h-dvh w-dvw',
         'flex items-center justify-center text-center',
-        // 'bg-[#000000]/25 backdrop-blur-[2px]',
+        // 'bg-[#000000]/25 backdrop-blur-3xl',
         // transition properties
         'transition-opacity ease-out',
         // entering
@@ -64,14 +64,14 @@ const dialogStyles = tv({
         '!outline-0',
         'relative',
         'text-left',
-        'bg-raised/80 backdrop-blur-[2px]',
+        'bg-base-raised/80 backdrop-blur-3xl',
         // height
         'h-dvh max-h-dvh md:h-[unset]',
         'w-full max-w-[100dvw]',
         // border
         'rounded-none md:rounded-lg',
         'sm:max-sm:border-0',
-        'border-mid border',
+        'border-default border',
         '[[data-placement]>&]:p-4',
     ],
     variants: {

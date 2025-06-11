@@ -1,7 +1,4 @@
-'use client'
-
 import { Heading } from '@ui-kit.ai/components'
-import { ColorPalette, DEFAULT_COLOR_PALETTE_INPUT } from '@ui-kit.ai/theme'
 
 import {
     ColorTableBg,
@@ -11,8 +8,6 @@ import {
 import { DemoAlert } from '../../../theme/components/demo-alert'
 
 export default function Page() {
-    const palette = new ColorPalette(DEFAULT_COLOR_PALETTE_INPUT)
-
     return (
         <>
             <Heading level={1}>Theme</Heading>
@@ -66,7 +61,7 @@ export default function Page() {
                     interactive elements.
                 </li>
             </ul>
-            <ColorTableBg palette={palette.palette(palette.grayHsl, palette.accentHsl)} />
+            <ColorTableBg />
             <Heading
                 className='my-6'
                 level={2}
@@ -91,7 +86,7 @@ export default function Page() {
                 </li>
             </ul>
 
-            <ColorTableText palette={palette.palette(palette.grayHsl, palette.accentHsl)} />
+            <ColorTableText />
             <Heading
                 className='my-6'
                 level={2}
@@ -112,7 +107,7 @@ export default function Page() {
                 </li>
             </ul>
 
-            <ColorTableBorder palette={palette.palette(palette.grayHsl, palette.accentHsl)} />
+            <ColorTableBorder />
         </>
     )
 }

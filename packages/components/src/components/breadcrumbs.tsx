@@ -28,11 +28,11 @@ export function Breadcrumb(props: BreadcrumbProps & Omit<LinkProps, 'className'>
                 {...props}
                 className={twMerge(
                     props.href != null
-                        ? 'text-mid hover:text-dark underline decoration-dotted'
-                        : 'text-light'
+                        ? 'text-lo-contrast hover:text-hi-contrast underline decoration-dotted'
+                        : 'text-placeholder'
                 )}
             />
-            {props.href != null && <ChevronRightIcon className='text-dark size-3' />}
+            {props.href != null && <ChevronRightIcon className='text-hi-contrast size-3' />}
         </AriaBreadcrumb>
     )
 }

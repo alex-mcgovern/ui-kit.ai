@@ -50,7 +50,7 @@ const COMPONENTS = {
     a({ children, href }) {
         return (
             <Link
-                className='text-dark hover:text-mid underline decoration-dotted'
+                className='text-hi-contrast hover:text-lo-contrast underline decoration-dotted'
                 href={href}
             >
                 {children}

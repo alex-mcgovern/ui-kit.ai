@@ -49,12 +49,12 @@ export function EmptyState({
         >
             {renderSlot(icon, {
                 'aria-hidden': true,
-                className: 'text-mid mb-4 block size-8 [&>*]:stroke-[1.5]',
+                className: 'text-lo-contrast mb-4 block size-8 [&>*]:stroke-[1.5]',
                 role: 'img',
             })}
 
             <Heading
-                className='text-dark mb-1 text-base'
+                className='text-hi-contrast mb-1 text-base'
                 level={2}
             >
                 {title}

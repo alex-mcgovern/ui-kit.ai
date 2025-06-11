@@ -75,7 +75,7 @@
 }
 
 :root {
-    @apply bg-base text-mid;
+    @apply bg-base text-lo-contrast;
     color-scheme: dark light;
 
     scrollbar-color: var(--gray-400) transparent;
@@ -109,7 +109,7 @@ p:not(:last-child) {
 
 strong {
     font-weight: 500;
-    color: var(--theme-default-text-dark);
+    color: var(--theme-default-text-hi-contrast);
 }
 
 .code,
@@ -119,7 +119,7 @@ code {
 
 /* Global colors for highlighted text */
 ::selection {
-    background: var(--theme-default-bg-accent-light);
+    background: var(--theme-default-bg-primary);
     color: var(--theme-default-text-accent);
 }
 
@@ -141,7 +141,7 @@ Also to any focus-within element that has a focus-visible child.
 [data-focus-visible]:not(:is([aria-autocomplete='list'], [role='menuitem'], [role='listitem'])),
 [data-focus-within]:has([data-focus-visible]) {
     outline: 2px solid;
-    outline-color: var(--theme-default-bg-accent-light);
+    outline-color: var(--theme-default-bg-primary-hover);
     outline-offset: 2px;
 }
 
@@ -184,7 +184,7 @@ Also to any focus-within element that has a focus-visible child.
  */
 
 .react-syntax-highlighter-line-number {
-    color: var(--theme-default-text-light);
+    color: var(--theme-default-text-placeholder);
 }
 
 /**
@@ -198,7 +198,7 @@ pre[class*='language-'] {
     font-family: var(--font-mono) !important;
     font-size: var(--text-sm) !important;
     line-height: var(--text-xs--line-height) !important;
-    color: var(--theme-default-text-dark) !important;
+    color: var(--theme-default-text-hi-contrast) !important;
     direction: ltr !important;
     word-spacing: normal !important;
     word-break: normal !important;
@@ -217,12 +217,12 @@ pre[class*='language-'] {
 .token.prolog,
 .token.doctype,
 .token.cdata {
-    color: var(--theme-default-text-light);
+    color: var(--theme-default-text-placeholder);
     font-style: italic;
 }
 .token.plain-text,
 .token.punctuation {
-    color: var(--theme-default-text-dark);
+    color: var(--theme-default-text-hi-contrast);
 }
 
 .token.class,
@@ -266,6 +266,6 @@ pre[class*='language-'] {
 
 .highlight-word {
     display: inline-block;
-    color: var(--theme-default-text-dark);
+    color: var(--theme-default-text-hi-contrast);
     background-color: var(--theme-default-bg-tint);
 }

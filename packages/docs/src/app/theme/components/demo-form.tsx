@@ -117,8 +117,6 @@ export function DemoForm() {
                 <Label>Communication preferences</Label>
                 <Checkbox
                     description='Necessary emails about your account & security.'
-                    isDisabled
-                    isRequired
                     label='Account updates'
                     value='account-updates'
                 />
