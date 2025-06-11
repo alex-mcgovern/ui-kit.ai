@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.0.14](https://github.com/alex-mcgovern/ui-kit.ai/compare/@ui-kit.ai/theme@v0.0.13...@ui-kit.ai/theme@v0.0.14) (2025-06-11)
+
+
+### Features
+
+* improved color scheme ([#356](https://github.com/alex-mcgovern/ui-kit.ai/issues/356)) ([cd41c1c](https://github.com/alex-mcgovern/ui-kit.ai/commit/cd41c1c473b8a7c2f5c75a83c5ca97ad650c56c4))
+
 ## [0.0.13](https://github.com/alex-mcgovern/ui-kit.ai/compare/@ui-kit.ai/theme@v0.0.12...@ui-kit.ai/theme@v0.0.13) (2025-05-28)
 
 
