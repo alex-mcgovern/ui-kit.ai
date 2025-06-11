@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { Skeleton } from '@ui-kit.ai/components'
+import { Card, CardBody, CardHeader, Skeleton } from '@ui-kit.ai/components'
 
 const meta = {
     component: Skeleton,
@@ -10,6 +10,22 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
+function Template(_args: React.ComponentProps<typeof Skeleton>) {
+    return (
+        <Card className='w-80'>
+            <CardHeader className='flex items-center justify-start gap-2'>
+                <Skeleton className='size-10 rounded-full' />
+                <Skeleton className='h-6 w-24 rounded-sm' />
+            </CardHeader>
+            <CardBody className='flex flex-col gap-4'>
+                <Skeleton className='h-4 w-full rounded-sm' />
+                <Skeleton className='h-4 w-full rounded-sm' />
+                <Skeleton className='h-4 w-1/3 rounded-sm' />
+            </CardBody>
+        </Card>
+    )
+}
+
 /**
  * Default skeleton with default height and width
  */
@@ -17,57 +33,5 @@ export const Default: Story = {
     parameters: {
         displayName: 'Default',
     },
-}
-
-/**
- * Custom width skeleton
- */
-export const CustomWidth: Story = {
-    args: {
-        className: 'w-32',
-    },
-    parameters: {
-        displayName: 'Custom Width',
-    },
-}
-
-/**
- * Custom height skeleton
- */
-export const CustomHeight: Story = {
-    args: {
-        className: 'h-12',
-    },
-    parameters: {
-        displayName: 'Custom Height',
-    },
-}
-
-/**
- * Example of multiple skeletons arranged to simulate a loading content block
- */
-export const ContentBlock: Story = {
-    parameters: {
-        displayName: 'Content Block',
-    },
-    render: () => (
-        <div className='space-y-4'>
-            <Skeleton className='h-8 w-3/4' />
-            <Skeleton className='h-4 w-full' />
-            <Skeleton className='h-4 w-full' />
-            <Skeleton className='h-4 w-2/3' />
-        </div>
-    ),
-}
-
-/**
- * Circle shaped skeleton, useful for avatars or icons
- */
-export const Circle: Story = {
-    args: {
-        className: 'h-12 w-12 rounded-full',
-    },
-    parameters: {
-        displayName: 'Circle',
-    },
+    render: Template,
 }

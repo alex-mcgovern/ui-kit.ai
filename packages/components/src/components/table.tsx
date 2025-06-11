@@ -27,7 +27,6 @@ import {
 import { twMerge } from 'tailwind-merge'
 import { tv } from 'tailwind-variants'
 
-import { focusRing } from '../styles/focus-ring'
 import { Checkbox } from './checkbox'
 import { Skeleton } from './skeleton'
 
@@ -37,9 +36,10 @@ const getRandomNumber = (min: number = 0, max: number = 100): number => {
 
 const columnWrapperStyles = tv({
     base: [
-        'border-mid border-b',
+        'border-default border-b',
         '[&:focus-within]:z-20 [&:hover]:z-20',
-        'text-mid hover:text-dark',
+        'text-lo-contrast hover:text-hi-contrast',
+        'align-bottom',
         'cursor-default hover:cursor-pointer',
     ],
 })
@@ -54,7 +54,6 @@ const columnStyles = tv({
         'flex flex-1 items-center gap-1',
         '-outline-offset-2',
     ],
-    extend: focusRing,
     variants: {
         alignment: {
             center: 'justify-center',
@@ -72,12 +71,11 @@ const cellStyles = tv({
         '-outline-offset-2',
         'group-data-[compact]/table:first:pl-0 group-data-[compact]/table:last:pr-0',
         // border styles
-        'border-mid border-b group-last/row:border-b-0',
+        'border-default border-b group-last/row:border-b-0',
     ],
     defaultVariants: {
         alignment: 'start',
     },
-    extend: focusRing,
     variants: {
         alignment: {
             center: 'text-center',
@@ -92,18 +90,17 @@ const rowStyles = tv({
         'group/row',
         'w-full',
         'relative -outline-offset-2',
-        'text-dark disabled:text-tint-dark',
+        'text-hi-contrast disabled:text-placeholder',
         'transition-colors',
         // hover styles
-        'hover:bg-tint-light hover:select-none',
+        'hover:bg-tint hover:select-none',
         'hover:cursor-pointer hover:disabled:cursor-not-allowed',
         // pressed styles
         'pressed:bg-tint',
         // selected styles
         'selected:select-none',
-        'selected:bg-tint-light',
+        'selected:bg-tint',
     ],
-    extend: focusRing,
 })
 
 const cellSkeletonStyles = tv({
@@ -111,7 +108,6 @@ const cellSkeletonStyles = tv({
     defaultVariants: {
         alignment: 'start',
     },
-    extend: focusRing,
     variants: {
         alignment: {
             center: 'mx-auto',
@@ -123,7 +119,7 @@ const cellSkeletonStyles = tv({
 
 // const resizerStyles = tv({
 //     base: [
-//         `bg-mid-contrast resizing:w-[2px] resizing:bg-accent-light resizing:pl-[7px]
+//         `bg-mid-contrast resizing:w-[2px] resizing:bg-primary-hover resizing:pl-[7px]
 //     forced-colors:resizing:bg-[Highlight] box-content h-5 w-px translate-x-[8px] cursor-col-resize
 //     rounded bg-clip-content px-[8px] py-1 -outline-offset-2 forced-colors:bg-[ButtonBorder]`,
 //     ],

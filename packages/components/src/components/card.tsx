@@ -13,7 +13,8 @@ export function Card(props: HTMLProps<HTMLElement>) {
         <section
             {...props}
             className={twMerge(
-                'border-mid bg-raised/80 relative overflow-hidden rounded-lg border shadow-xs',
+                `border-default bg-base-raised/80 relative overflow-hidden rounded-lg border shadow-xs
+                backdrop-blur-3xl`,
                 props.className
             )}
         />
@@ -30,7 +31,8 @@ export function CardLink(props: ComponentProps<typeof Link>) {
             {...props}
             className={(renderProps) =>
                 twMerge(
-                    'border-mid bg-raised/80 relative overflow-hidden rounded-lg border shadow-xs',
+                    `border-default bg-base-raised/80 relative overflow-hidden rounded-lg border shadow-xs
+                    backdrop-blur-3xl`,
                     'transition-all',
                     'hover:shadow-md',
                     typeof props.className === 'function'
@@ -50,7 +52,8 @@ export const CardHeader = (props: HTMLProps<HTMLElement>) => {
     return (
         <header
             {...props}
-            className={twMerge('flex items-center px-4 py-3', props.className)}
+            className={twMerge('my-4 px-4', props.className)}
+            data-component='header'
         />
     )
 }
@@ -66,7 +69,7 @@ export function CardTitle({
     return (
         <Heading
             {...props}
-            className={twMerge('text-md mb-0 truncate', props.className)}
+            className={twMerge('mb-0 truncate text-base', props.className)}
             level={3}
             slot='title'
         >
@@ -77,13 +80,32 @@ export function CardTitle({
 CardTitle.displayName = 'CardTitle'
 
 /**
+ * A CardDescription is an element used to add extra context to a card.
+ */
+export function CardDescription({
+    children,
+    ...props
+}: Omit<ComponentProps<'span'>, 'level' | 'slot'>) {
+    return (
+        <span
+            {...props}
+            className={twMerge('text-lo-contrast mb-0 truncate text-base', props.className)}
+            slot='description'
+        >
+            {children}
+        </span>
+    )
+}
+CardDescription.displayName = 'CardDescription'
+
+/**
  * A CardBody is a container for the main content of the card.
  */
-export function CardBody(props: HTMLProps<HTMLDivElement> & { noPadding?: boolean }) {
+export function CardBody(props: HTMLProps<HTMLDivElement>) {
     return (
         <div
             {...props}
-            className={twMerge('shrink grow px-4 py-4', props.className)}
+            className={twMerge('my-4 px-4 text-base', props.className)}
         />
     )
 }
@@ -96,7 +118,7 @@ export function CardFooter(props: HTMLProps<HTMLElement>) {
     return (
         <footer
             {...props}
-            className={twMerge('flex items-center px-4 py-3', props.className)}
+            className={twMerge('my-4 flex items-center px-4', props.className)}
         />
     )
 }

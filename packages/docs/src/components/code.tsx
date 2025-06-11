@@ -31,7 +31,7 @@ export function Code({
     return (
         <Card className={className}>
             <Tabs>
-                <CardHeader className='p-0'>
+                <CardHeader className='p-0 m-0'>
                     <TabList className='w-full'>
                         <Tab id='preview'>Preview</Tab>
                         <Tab id='code'>Code</Tab>
@@ -41,7 +41,7 @@ export function Code({
                     <TabPanel
                         className={twMerge(
                             'flex items-center justify-center',
-                            'bg-[radial-gradient(var(--theme-default-bg-tint-light)_1px,transparent_1px)] [background-size:16px_16px]'
+                            'bg-[radial-gradient(var(--theme-default-bg-tint)_1px,transparent_1px)] [background-size:16px_16px]'
                         )}
                         id='preview'
                     >

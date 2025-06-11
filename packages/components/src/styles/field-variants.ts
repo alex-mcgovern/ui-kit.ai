@@ -3,16 +3,10 @@ import { tv } from 'tailwind-variants'
 export const fieldVariants = tv({
     base: [
         'h-8',
-        'text-dark text-base',
+        'text-hi-contrast text-base',
         'rounded',
-        'outline outline-0 outline-offset-2',
-        'disabled:text-light',
-        'placeholder:text-light',
-        'forced-colors:outline-[Highlight]',
-        // focus ring
-        'outline outline-0 outline-offset-2',
-        'outline-accent-light',
-        'forced-colors:outline-[Highlight]',
+        'disabled:text-placeholder',
+        'placeholder:text-placeholder',
         // invalid
         'invalid:error group-invalid:error',
     ],
@@ -23,17 +17,16 @@ export const fieldVariants = tv({
         isBorderless: {
             false: [
                 [
-                    'border-mid border',
-                    'bg-base/80',
+                    'border-field border',
+                    'bg-base/80 backdrop-blur-3xl',
                     'transition-colors',
                     // hover
-                    'hover:[&:not([data-disabled])]:border-dark',
+                    'hover:[&:not([data-disabled])]:border-field-hover',
                     // focus visible
-                    'focus-visible:border-dark focus-visible:outline-2',
+                    'focus-visible:border-field-hover',
                     'focus-visible:forced-colors:border-[ButtonBorder]',
-                    'focus-within:[&:has([data-focus-visible])]:outline-2',
                     // disabled
-                    'disabled:border-light disabled:forced-colors:border-[GrayText]',
+                    'disabled:border-default disabled:forced-colors:border-[GrayText]',
                     'forced-colors:border-[Highlight]',
                 ],
             ],

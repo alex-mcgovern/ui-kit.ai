@@ -36,7 +36,7 @@ export const Input = ({
                 <div
                     className={twMerge(
                         'h-ui-element w-[theme(height.ui-element)]',
-                        'text-mid',
+                        'text-placeholder',
                         'absolute inset-x-0 top-0',
                         'flex items-center justify-center',
                         'pointer-events-none',
@@ -60,6 +60,7 @@ export const Input = ({
                             : props.className
                     )
                 }
+                data-variant-borderless={isBorderless}
                 ref={ref}
             />
         </div>

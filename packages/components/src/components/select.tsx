@@ -51,7 +51,7 @@ export function Select<T extends OptionsSchema<'listbox'> = OptionsSchema<'listb
             {...props}
             className={(rp) =>
                 twMerge(
-                    'group invalid:error relative w-full',
+                    'group invalid:error relative w-full !outline-0',
                     typeof props.className === 'function' ? props.className(rp) : props.className
                 )
             }
@@ -61,9 +61,9 @@ export function Select<T extends OptionsSchema<'listbox'> = OptionsSchema<'listb
                 return (
                     <>
                         {typeof children === 'function' ? children(rp) : children}
-                        <Popover className='min-w-[--trigger-width]'>
+                        <Popover className='min-w-(--trigger-width)'>
                             <AriaListBox<T>
-                                className='max-h-[inherit] overflow-auto p-1 outline-none [clip-path:inset(0_0_0_0_round_.75rem)]'
+                                className='max-h-[inherit] overflow-auto p-1 outline-none [clip-path:inset(0_0_0_0_round_.25rem)]'
                                 items={items}
                             >
                                 {(props) => (
@@ -121,22 +121,23 @@ export function SelectButton({
                     typeof props.className === 'function' ? props.className(rp) : props.className
                 )
             }
+            data-variant-borderless={isBorderless}
         >
             {renderSlot(selectedItemIcon ?? slotLeft, {
-                className: 'text-mid [&:is(svg)]:size-3 [&:is(svg)]:shrink-0',
+                className: 'text-placeholder [&:is(svg)]:size-3 [&:is(svg)]:shrink-0',
                 'data-slot': 'slot-left',
             })}
             <AriaSelectValue
                 className={twMerge([
                     'inline-flex flex-1 items-center gap-2',
                     'truncate',
-                    'placeholder-shown:text-light',
+                    'placeholder-shown:text-placeholder',
                 ])}
             >
                 {({ selectedText }) => selectedText}
             </AriaSelectValue>
             {renderSlot(slotRight, {
-                className: 'text-mid [&:is(svg)]:size-3 [&:is(svg)]:shrink-0',
+                className: 'text-placeholder [&:is(svg)]:size-3 [&:is(svg)]:shrink-0',
                 'data-slot': 'slot-right',
             })}
         </AriaButton>

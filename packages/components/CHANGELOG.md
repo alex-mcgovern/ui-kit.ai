@@ -1,5 +1,32 @@
 # Changelog
 
+## [0.0.13](https://github.com/alex-mcgovern/ui-kit.ai/compare/@ui-kit.ai/components@v0.0.12...@ui-kit.ai/components@v0.0.13) (2025-05-28)
+
+
+### Bug Fixes
+
+* **`Menu` & `ListBox`:** clip-path:inset radius ([#335](https://github.com/alex-mcgovern/ui-kit.ai/issues/335)) ([fdf3277](https://github.com/alex-mcgovern/ui-kit.ai/commit/fdf3277993aeb3d28a7aa8cf02520b02a8a22338))
+* overlay styles ([#340](https://github.com/alex-mcgovern/ui-kit.ai/issues/340)) ([9c3e08b](https://github.com/alex-mcgovern/ui-kit.ai/commit/9c3e08bfc5f5bb8d3d9f4caae764f69722f76c3f))
+
+
+### Documentation
+
+* document theme ([#344](https://github.com/alex-mcgovern/ui-kit.ai/issues/344)) ([743f6f5](https://github.com/alex-mcgovern/ui-kit.ai/commit/743f6f5346c5e77ebb70b3f6055d10d6b1ee270c))
+
+## [0.0.12](https://github.com/alex-mcgovern/ui-kit.ai/compare/@ui-kit.ai/components@v0.0.11...@ui-kit.ai/components@v0.0.12) (2025-05-22)
+
+
+### Bug Fixes
+
+* styling nits ([#327](https://github.com/alex-mcgovern/ui-kit.ai/issues/327)) ([2c9be5a](https://github.com/alex-mcgovern/ui-kit.ai/commit/2c9be5a70d8ffc321a8ea9f7a108d8f2bd829b6b))
+
+## [0.0.11](https://github.com/alex-mcgovern/ui-kit.ai/compare/@ui-kit.ai/components@v0.0.10...@ui-kit.ai/components@v0.0.11) (2025-05-20)
+
+
+### Bug Fixes
+
+* icon prop types for `Alert` & `EmptyState`  are not intuitive (and related ts fixes) ([#320](https://github.com/alex-mcgovern/ui-kit.ai/issues/320)) ([f294763](https://github.com/alex-mcgovern/ui-kit.ai/commit/f294763aa5da23d824cb040ebda1ffffbda0ecae))
+
 ## [0.0.10](https://github.com/alex-mcgovern/ui-kit.ai/compare/@ui-kit.ai/components@v0.0.9...@ui-kit.ai/components@v0.0.10) (2025-05-19)
 
 

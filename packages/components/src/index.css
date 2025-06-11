@@ -75,7 +75,7 @@
 }
 
 :root {
-    @apply bg-base text-mid;
+    @apply bg-base text-lo-contrast;
     color-scheme: dark light;
 
     scrollbar-color: var(--gray-400) transparent;
@@ -94,6 +94,11 @@
     -moz-osx-font-smoothing: grayscale; /* Smoother fonts on Firefox */
 }
 
+* {
+    outline-color: transparent; /* Prevents outline flicker on focus */
+    outline-width: 0;
+}
+
 body {
     font-family: 'Inter', sans-serif;
 }
@@ -104,7 +109,7 @@ p:not(:last-child) {
 
 strong {
     font-weight: 500;
-    color: var(--theme-default-text-dark);
+    color: var(--theme-default-text-hi-contrast);
 }
 
 .code,
@@ -114,8 +119,30 @@ code {
 
 /* Global colors for highlighted text */
 ::selection {
-    background: var(--theme-default-bg-accent-light);
+    background: var(--theme-default-bg-primary);
     color: var(--theme-default-text-accent);
+}
+
+textarea {
+    resize: vertical; /* user can resize vertically, but width is fixed */
+}
+
+:focus,
+[data-focus],
+[data-focus-within] [data-focus-visible] {
+    outline: 0;
+}
+
+/*
+Apply a consistent focus ring to any focus-visible element,
+except when it is a child of already focus-visible element.
+Also to any focus-within element that has a focus-visible child.
+*/
+[data-focus-visible]:not(:is([aria-autocomplete='list'], [role='menuitem'], [role='listitem'])),
+[data-focus-within]:has([data-focus-visible]) {
+    outline: 2px solid;
+    outline-color: var(--theme-default-bg-primary-hover);
+    outline-offset: 2px;
 }
 
 /* Hide the user agent default clear button on search inputs */
@@ -157,7 +184,7 @@ code {
  */
 
 .react-syntax-highlighter-line-number {
-    color: var(--theme-default-text-light);
+    color: var(--theme-default-text-placeholder);
 }
 
 /**
@@ -171,7 +198,7 @@ pre[class*='language-'] {
     font-family: var(--font-mono) !important;
     font-size: var(--text-sm) !important;
     line-height: var(--text-xs--line-height) !important;
-    color: var(--theme-default-text-dark) !important;
+    color: var(--theme-default-text-hi-contrast) !important;
     direction: ltr !important;
     word-spacing: normal !important;
     word-break: normal !important;
@@ -190,12 +217,12 @@ pre[class*='language-'] {
 .token.prolog,
 .token.doctype,
 .token.cdata {
-    color: var(--theme-default-text-light);
+    color: var(--theme-default-text-placeholder);
     font-style: italic;
 }
 .token.plain-text,
 .token.punctuation {
-    color: var(--theme-default-text-dark);
+    color: var(--theme-default-text-hi-contrast);
 }
 
 .token.class,
@@ -239,6 +266,6 @@ pre[class*='language-'] {
 
 .highlight-word {
     display: inline-block;
-    color: var(--theme-default-text-dark);
+    color: var(--theme-default-text-hi-contrast);
     background-color: var(--theme-default-bg-tint);
 }

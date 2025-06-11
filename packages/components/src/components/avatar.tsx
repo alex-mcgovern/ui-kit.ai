@@ -27,8 +27,8 @@ export function getInitials(name?: string) {
 getInitials.displayName = 'getInitials'
 
 const avatarStyles = tv({
-    base: `accent bg-tint-light color-tint-fg text-md flex size-12 shrink-0 items-center justify-center
-    uppercase`,
+    base: `accent bg-tint border-default color-tint-fg text-md flex size-12 shrink-0 items-center
+    justify-center uppercase`,
     variants: {
         variant: {
             circle: 'rounded-full',

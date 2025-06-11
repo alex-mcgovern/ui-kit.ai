@@ -10,7 +10,6 @@ import { tv } from 'tailwind-variants'
 
 import type { Intent } from '../types/intent'
 
-import { focusRing } from '../styles/focus-ring'
 import { renderSlot, type SlotNode } from '../types/slotted-node'
 import { Loader } from './loader'
 
@@ -36,7 +35,6 @@ const buttonStyle = tv({
     defaultVariants: {
         variant: 'primary',
     },
-    extend: focusRing,
     variants: {
         isIcon: {
             true: 'w-[theme(height.ui-element)] aspect-square px-2 [&_svg]:mx-auto',
@@ -45,19 +43,19 @@ const buttonStyle = tv({
             primary: [
                 'text-accent',
                 'shadow-xs',
-                'border-light bg-accent-mid',
-                'hover:bg-accent-light',
-                'pressed:bg-accent-dark',
+                'border-field bg-primary',
+                'hover:bg-primary-hover',
+                'pressed:bg-primary',
             ],
             secondary: [
                 'shadow-xs',
-                'border-mid text-dark bg-transparent',
-                'hover:bg-tint-light',
+                'border-field text-lo-contrast bg-transparent',
+                'hover:bg-tint',
                 'pressed:bg-tint',
             ],
             tertiary: [
-                'text-dark border-transparent bg-transparent',
-                'hover:bg-tint-light',
+                'text-lo-contrast border-transparent bg-transparent',
+                'hover:bg-tint',
                 'pressed:bg-tint',
             ],
         },

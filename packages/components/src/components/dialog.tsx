@@ -25,7 +25,7 @@ const modalOverlayStyles = tv({
         'fixed inset-0 z-50',
         'h-dvh w-dvw',
         'flex items-center justify-center text-center',
-        'bg-base/25 backdrop-blur-xs backdrop-brightness-75',
+        // 'bg-[#000000]/25 backdrop-blur-3xl',
         // transition properties
         'transition-opacity ease-out',
         // entering
@@ -38,33 +38,40 @@ const modalOverlayStyles = tv({
 
 const modalStyles = tv({
     base: [
-        'h-auto w-auto md:max-h-[75dvh]',
+        'h-dvh w-dvw md:h-auto md:max-h-[75dvh] md:w-auto',
         'flex items-center justify-center',
         'relative',
         'forced-colors:bg-[Canvas]',
         // transition
-        'transition-transform ease-out',
-        'md:entering:translate-y-4',
-        'md:exiting:translate-y-4',
+        'transition-transform duration-200',
+        // entering
+        // 'md:entering:translate-y-4',
+        'entering:ease-out',
+        'md:entering:scale-95',
+        // exiting
+        // 'md:exiting:translate-y-4',
+        'entering:ease-in',
+        'md:entering:scale-98',
         'exiting:pointer-events-none', // ensure content behind is immediately interactive
     ],
 })
 
 const dialogStyles = tv({
     base: [
+        'group/dialog',
         'flex flex-col',
         'md:shadow-2xl',
-        'outline outline-0',
+        '!outline-0',
         'relative',
         'text-left',
-        'bg-raised/80 backdrop-blur-xs',
+        'bg-base-raised/80 backdrop-blur-3xl',
         // height
-        'sm:max-sm:h-dvh sm:max-sm:max-h-dvh',
-        'h-[unset] max-h-[inherit]',
-        'w-full sm:max-sm:max-w-[100dvw]',
+        'h-dvh max-h-dvh md:h-[unset]',
+        'w-full max-w-[100dvw]',
         // border
-        'sm:max-sm:rounded-none sm:max-sm:border-0',
-        'border-mid rounded-lg border',
+        'rounded-none md:rounded-lg',
+        'sm:max-sm:border-0',
+        'border-default border',
         '[[data-placement]>&]:p-4',
     ],
     variants: {
@@ -105,7 +112,6 @@ export function DialogCloseButton(
             aria-label='Close'
             className={(rp) =>
                 twMerge(
-                    '-mx-3',
                     typeof props.className === 'function' ? props.className(rp) : props.className
                 )
             }
@@ -133,11 +139,15 @@ export function DialogContent({ ref, ...props }: HTMLProps<HTMLDivElement>) {
             {...props}
             className={twMerge(
                 'scrollbar-thin overflow-y-auto',
-                'px-4 py-3',
-                'text-sm',
+                'text-base',
                 'shrink grow',
+                // padding
+                'p-4',
+                'group-has-data-[dialog-footer]/dialog:pb-2',
+                'group-has-data-[dialog-header]/dialog:pt-2',
                 props.className
             )}
+            data-dialog-content
             ref={ref}
         />
     )
@@ -154,10 +164,12 @@ export function DialogFooter({ children, ...props }: HTMLProps<HTMLElement>) {
             className={twMerge(
                 'min-h-10',
                 'flex shrink-0 items-center justify-between gap-2',
-                'border-mid border-t',
-                'py-2 pr-2 pl-4',
+                // padding
+                'p-4',
+                'group-has-data-[dialog-content]/dialog:pt-2',
                 props.className
             )}
+            data-dialog-header
         >
             {children}
         </footer>
@@ -173,12 +185,13 @@ export function DialogHeader(props: HTMLProps<HTMLElement>) {
         <header
             {...props}
             className={twMerge(
-                'h-10',
-                'px-4',
                 'flex shrink-0 items-center justify-between gap-4',
-                'border-mid border-b',
+                // padding
+                'p-4',
+                'group-has-data-[dialog-content]/dialog:pb-2',
                 props.className
             )}
+            data-dialog-header
         />
     )
 }
@@ -199,7 +212,7 @@ export function DialogTitle({
     return (
         <Heading
             {...props}
-            className={twMerge('mb-0 truncate text-sm', props.className)}
+            className={twMerge('mb-0 truncate text-base', props.className)}
             level={3}
             slot='title'
         >

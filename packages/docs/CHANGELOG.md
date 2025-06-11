@@ -1,5 +1,41 @@
 # Changelog
 
+## [0.0.13](https://github.com/alex-mcgovern/ui-kit.ai/compare/@ui-kit.ai/docs@v0.0.12...@ui-kit.ai/docs@v0.0.13) (2025-05-28)
+
+
+### Bug Fixes
+
+* overlay styles ([#340](https://github.com/alex-mcgovern/ui-kit.ai/issues/340)) ([9c3e08b](https://github.com/alex-mcgovern/ui-kit.ai/commit/9c3e08bfc5f5bb8d3d9f4caae764f69722f76c3f))
+
+
+### Documentation
+
+* document theme ([#344](https://github.com/alex-mcgovern/ui-kit.ai/issues/344)) ([743f6f5](https://github.com/alex-mcgovern/ui-kit.ai/commit/743f6f5346c5e77ebb70b3f6055d10d6b1ee270c))
+
+## [0.0.12](https://github.com/alex-mcgovern/ui-kit.ai/compare/@ui-kit.ai/docs@v0.0.11...@ui-kit.ai/docs@v0.0.12) (2025-05-22)
+
+
+### Bug Fixes
+
+* styling nits ([#327](https://github.com/alex-mcgovern/ui-kit.ai/issues/327)) ([2c9be5a](https://github.com/alex-mcgovern/ui-kit.ai/commit/2c9be5a70d8ffc321a8ea9f7a108d8f2bd829b6b))
+* wrong component name in docs ([#334](https://github.com/alex-mcgovern/ui-kit.ai/issues/334)) ([8b2cf19](https://github.com/alex-mcgovern/ui-kit.ai/commit/8b2cf19b48837510f008255c19133da0126c8f1b))
+
+
+### Miscellaneous Chores
+
+* update screenshots ([#333](https://github.com/alex-mcgovern/ui-kit.ai/issues/333)) ([ea7ff7a](https://github.com/alex-mcgovern/ui-kit.ai/commit/ea7ff7aa1bae80e48a3e00bf09347358e5f9252c))
+
+## [0.0.11](https://github.com/alex-mcgovern/ui-kit.ai/compare/@ui-kit.ai/docs@v0.0.10...@ui-kit.ai/docs@v0.0.11) (2025-05-20)
+
+
+### Bug Fixes
+
+* **`TopNav`:** image missing from component index ([#316](https://github.com/alex-mcgovern/ui-kit.ai/issues/316)) ([92ea496](https://github.com/alex-mcgovern/ui-kit.ai/commit/92ea496da2fccdcebe103a71622545f6f8d8c20d))
+* docs search icon color ([#317](https://github.com/alex-mcgovern/ui-kit.ai/issues/317)) ([0c81ba8](https://github.com/alex-mcgovern/ui-kit.ai/commit/0c81ba8ad941eaf5d3d694d7545a8213fbd8a7e3))
+* homepage responsive css ([bf34225](https://github.com/alex-mcgovern/ui-kit.ai/commit/bf342250e50c92a6c6d56f78fcdfb5949078a2f6))
+* icon prop types for `Alert` & `EmptyState`  are not intuitive (and related ts fixes) ([#320](https://github.com/alex-mcgovern/ui-kit.ai/issues/320)) ([f294763](https://github.com/alex-mcgovern/ui-kit.ai/commit/f294763aa5da23d824cb040ebda1ffffbda0ecae))
+* mobile styling on docs homepage ([#318](https://github.com/alex-mcgovern/ui-kit.ai/issues/318)) ([bf34225](https://github.com/alex-mcgovern/ui-kit.ai/commit/bf342250e50c92a6c6d56f78fcdfb5949078a2f6))
+
 ## [0.0.10](https://github.com/alex-mcgovern/ui-kit.ai/compare/@ui-kit.ai/docs@v0.0.9...@ui-kit.ai/docs@v0.0.10) (2025-05-19)
 
 

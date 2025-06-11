@@ -37,7 +37,7 @@ export default function Home() {
         <main
             className={twMerge(
                 'before:h-[200dvh] before:inset-0 before:-z-10 before:absolute',
-                'before:bg-radial-[at_100%_0%] before:from-[var(--theme-error-bg-tint-light)] before:via-40% before:via-[var(--theme-info-bg-tint-light)] before:to-70% before:to-[var(--theme-default-bg-base)]'
+                'before:bg-radial-[at_100%_0%] before:from-[var(--theme-error-bg-tint)] before:via-40% before:via-[var(--theme-info-bg-tint)] before:to-70% before:to-[var(--theme-default-bg-base)]'
             )}
         >
             <HomepageSection className='grid grid-cols-1 md:grid-cols-[3fr_2fr] gap-8 items-center'>
@@ -127,7 +127,7 @@ function HeroContent() {
                 Beautiful UI components
                 <br />
                 for
-                <span className='bg-gradient-to-br from-[var(--theme-error-text-light)] via-[var(--theme-info-text-mid)] to-[var(--theme-info-text-dark)] bg-clip-text text-transparent'>
+                <span className='bg-gradient-to-br from-[var(--theme-error-text-placeholder)] via-[var(--theme-info-text-lo-contrast)] to-[var(--theme-info-text-hi-contrast)] bg-clip-text text-transparent'>
                     {' '}
                     AI-powered
                 </span>{' '}
@@ -202,12 +202,12 @@ function HomepageCard({
         <section>
             <div
                 className={twMerge(
-                    'border-light',
+                    'border-default',
                     'flex items-center justify-center ',
                     'rounded-xl size-16',
                     'mb-4',
                     'shadow-xl',
-                    'bg-gradient-to-tr from-[var(--theme-info-bg-accent-dark)] via-[var(--theme-info-bg-accent-light)] to-[var(--theme-error-bg-accent-mid)]',
+                    'bg-gradient-to-tr from-[var(--theme-info-bg-primary)] via-[var(--theme-info-bg-primary-hover)] to-[var(--theme-error-bg-primary)]',
                     gradientClassName
                 )}
             >
@@ -217,7 +217,7 @@ function HomepageCard({
                 />
             </div>
             <Heading
-                className='text-xl font-bold text-dark mb-2'
+                className='text-xl font-bold text-hi-contrast mb-2'
                 level={4}
             >
                 {title}
@@ -231,7 +231,7 @@ function HomepageSection({ children, className }: { children: ReactNode; classNa
     return (
         <section
             className={twMerge(
-                'mx-auto max-w-7xl px-4 min-h-[calc(100dvh-3rem)] relative',
+                'mx-auto max-w-7xl px-6 min-h-[calc(100dvh-3rem)] relative',
                 className
             )}
         >

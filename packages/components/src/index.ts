@@ -4,7 +4,15 @@ export { Autocomplete } from './components/autocomplete'
 export { Avatar } from './components/avatar'
 export { Breadcrumb, Breadcrumbs } from './components/breadcrumbs'
 export { Button, LinkButton } from './components/button'
-export { Card, CardBody, CardFooter, CardHeader, CardLink, CardTitle } from './components/card'
+export {
+    Card,
+    CardBody,
+    CardDescription,
+    CardFooter,
+    CardHeader,
+    CardLink,
+    CardTitle,
+} from './components/card'
 export { Chat, ChatMessage } from './components/chat'
 export { Checkbox } from './components/checkbox'
 export { CheckboxGroup } from './components/checkbox-group'

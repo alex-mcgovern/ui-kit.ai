@@ -5,7 +5,7 @@ applications.
 
 ## What is @ui-kit.ai?
 
-Not quite. **@ui-kit.ai** is a modern, opinionated UI framework designed to
+**@ui-kit.ai** is a modern, opinionated UI framework designed to
 accelerate the development of AI-powered applications. It is built with a focus
 on:
 

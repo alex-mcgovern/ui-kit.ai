@@ -1,8 +1,9 @@
 'use client'
 
-import { LinkButton, TopNav as UIKitTopNav } from '@ui-kit.ai/components'
+import type { ComponentProps } from 'react'
+
+import { Link, LinkButton, TopNav as UIKitTopNav } from '@ui-kit.ai/components'
 import { Github } from 'lucide-react'
-import Link from 'next/link'
 
 import { hrefs } from '../lib/hrefs'
 import { DocsSearchDialog } from './docs-search-dialog'
@@ -11,31 +12,11 @@ export function TopNav() {
     return (
         <UIKitTopNav>
             <div className='flex gap-6 items-center'>
-                <Link
-                    className='font-semibold flex items-center gap-1 text-dark hover:text-mid transition-colors'
-                    href='/'
-                >
-                    ❖ ui-kit.ai
-                </Link>
+                <TopNavLink href='/'>❖ ui-kit.ai</TopNavLink>
                 <div className='hidden md:flex items-center gap-4'>
-                    <Link
-                        className='text-sm  text-dark hover:text-mid transition-colors'
-                        href={hrefs.docs.getting_started.introduction}
-                    >
-                        Docs
-                    </Link>
-                    <Link
-                        className='text-sm  text-dark hover:text-mid transition-colors'
-                        href={hrefs.docs.components}
-                    >
-                        Components
-                    </Link>
-                    <Link
-                        className='text-sm  text-dark hover:text-mid transition-colors'
-                        href={hrefs.theme}
-                    >
-                        Theme
-                    </Link>
+                    <TopNavLink href={hrefs.docs.getting_started.introduction}>Docs</TopNavLink>
+                    <TopNavLink href={hrefs.docs.components}>Components</TopNavLink>
+                    <TopNavLink href={hrefs.theme}>Theme</TopNavLink>
                 </div>
                 {/* <Tag className='h-5 text-xs px-1.5'>v{packageJson.version}</Tag> */}
             </div>
@@ -56,5 +37,14 @@ export function TopNav() {
                     </Button> */}
             </div>
         </UIKitTopNav>
+    )
+}
+
+function TopNavLink(props: ComponentProps<typeof Link>) {
+    return (
+        <Link
+            {...props}
+            className='text-sm  text-hi-contrast hover:text-lo-contrast transition-colors !no-underline'
+        />
     )
 }

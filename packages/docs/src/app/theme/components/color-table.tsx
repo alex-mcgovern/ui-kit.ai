@@ -1,79 +1,69 @@
-/* eslint-disable sonarjs/no-duplicate-string */
-import type { ColorPalette } from '@ui-kit.ai/theme'
+'use client'
 
-import { Cell, CodeInline, Column, Row, Table, TableBody, TableHeader } from '@ui-kit.ai/components'
+import {
+    Cell,
+    CodeInline,
+    Column,
+    Row,
+    Table,
+    TableBody,
+    TableHeader,
+    Tooltip,
+    TooltipTrigger,
+} from '@ui-kit.ai/components'
+import { Color } from '@ui-kit.ai/theme'
 import { CircleSlash2 } from 'lucide-react'
+// @ts-expect-error - it's a peer dependency
+import { Button } from 'react-aria-components'
 import { twMerge } from 'tailwind-merge'
 
-type Color = keyof Palette
-type Palette = ReturnType<ColorPalette['palette']>
-
-const INTENTS = ['', 'info', 'success', 'warning', 'error'] as const
+const INTENTS = [null, 'info', 'success', 'warning', 'error'] as const
 type Intent = (typeof INTENTS)[number]
 
-export function ColorTableBg({ palette }: { palette: Palette }) {
+export function ColorTableBg() {
     return (
         <Table
             aria-label='Background colors'
-            className='w-full'
+            className='my-8'
+            isCompact
         >
-            <TableHeader className='hidden'>
-                <Column isRowHeader>Name</Column>
-                <Column>Default</Column>
-                <Column>Info</Column>
-                <Column>Success</Column>
-                <Column>Warning</Column>
-                <Column>Error</Column>
-            </TableHeader>
+            <ColorTableHeader />
+            <TableBody>{Object.values(Color).map((color) => RowBg(color as Color))}</TableBody>
+        </Table>
+    )
+}
+export function ColorTableBorder() {
+    return (
+        <Table
+            aria-label='Border colors'
+            className='my-8'
+            isCompact
+        >
+            <ColorTableHeader />
             <TableBody>
-                {Object.keys(palette).map((color) => RowRenderBg(color as Color))}
+                {Object.values(Color).map((color) => RowRenderBorder(color as Color))}
             </TableBody>
         </Table>
     )
 }
-export function ColorTableBorder({ palette }: { palette: Palette }) {
+export function ColorTableText() {
     return (
         <Table
             aria-label='Text colors'
-            className='w-full'
+            className='my-8'
+            isCompact
         >
-            <TableHeader className='hidden'>
-                <Column isRowHeader>Name</Column>
-                <Column>Default</Column>
-                <Column>Info</Column>
-                <Column>Success</Column>
-                <Column>Warning</Column>
-                <Column>Error</Column>
-            </TableHeader>
+            <ColorTableHeader />
             <TableBody>
-                {Object.keys(palette).map((color) => RowRenderBorder(color as Color))}
-            </TableBody>
-        </Table>
-    )
-}
-export function ColorTableText({ palette }: { palette: Palette }) {
-    return (
-        <Table
-            aria-label='Text colors'
-            className='w-full'
-        >
-            <TableHeader className='hidden'>
-                <Column isRowHeader>Name</Column>
-                <Column>Default</Column>
-                <Column>Info</Column>
-                <Column>Success</Column>
-                <Column>Warning</Column>
-                <Column>Error</Column>
-            </TableHeader>
-            <TableBody>
-                {Object.keys(palette).map((color) => RowRenderText(color as Color))}
+                {Object.values(Color).map((color) => RowRenderText(color as Color))}
             </TableBody>
         </Table>
     )
 }
 
-function BorderCell({
+function CellBorder({
     className,
+    colorName,
     intent,
 }: {
     className?: string
@@ -81,168 +71,228 @@ function BorderCell({
     intent: Intent
 }) {
     return (
-        <Cell className={twMerge(intent, 'border-0 p-0 w-8')}>
-            <div className={twMerge('flex items-center justify-center size-8', className)}>
-                <CircleSlash2 className='stroke-current [&>*]:stroke-1' />
-            </div>
+        <Cell className={twMerge(intent, 'border-0 p-1 size-12')}>
+            <TooltipTrigger>
+                <Button
+                    className={twMerge(
+                        'flex items-center justify-center size-10 border border-default rounded-sm',
+                        className
+                    )}
+                >
+                    <CircleSlash2 className='stroke-current [&>*]:stroke-1' />
+                </Button>
+                <Tooltip>
+                    <p>
+                        <strong className='text-[var(--theme-default-bg-base)]'>
+                            Utility class
+                        </strong>
+                        : {colorName} <br />
+                        <strong className='text-[var(--theme-default-bg-base)]'>
+                            Intent
+                        </strong>: <span className='capitalize'>{intent ?? 'default'}</span> <br />
+                    </p>
+                </Tooltip>
+            </TooltipTrigger>
         </Cell>
     )
 }
 
-function BorderTableRow({ className, color }: { className: string; color: Color }) {
-    return (
-        <Row>
-            <Cell className='font-medium py-0 pl-0 pr-2 border-0'>
-                <CodeInline language='plaintext'>{color}</CodeInline>
-            </Cell>
-            {INTENTS.map((intent) => (
-                <BorderCell
-                    className={className}
-                    colorName={color}
-                    intent={intent}
-                    key={color}
-                />
-            ))}
-        </Row>
-    )
-}
-
-function ColorCell({
+function CellColor({
     className,
+    colorName,
     intent,
 }: {
     className?: string
     colorName: string
-    intent: Intent
+    intent?: Intent
 }) {
     return (
-        <Cell className={twMerge(intent, 'border-0 p-0 w-8')}>
-            <div className={twMerge('flex items-center justify-center size-8', className)}>Aa</div>
+        <Cell className={twMerge(intent, 'border-0 p-1 size-12')}>
+            <TooltipTrigger>
+                <Button
+                    className={twMerge(
+                        'flex items-center justify-center size-10 border border-default rounded-sm',
+                        className
+                    )}
+                >
+                    Aa
+                </Button>
+                <Tooltip>
+                    <p>
+                        <strong className='text-[var(--theme-default-bg-base)]'>
+                            Utility class
+                        </strong>
+                        : {colorName} <br />
+                        <strong className='text-[var(--theme-default-bg-base)]'>
+                            Intent
+                        </strong>: <span className='capitalize'>{intent ?? 'default'}</span> <br />
+                    </p>
+                </Tooltip>
+            </TooltipTrigger>
         </Cell>
     )
 }
-function ColorTableRow({ className, color }: { className: string; color: Color }) {
+
+function ColorTableHeader() {
     return (
-        <Row>
-            <Cell className='font-medium py-0 pl-0 pr-2 border-0'>
-                <CodeInline language='plaintext'>{color}</CodeInline>
-            </Cell>
-            {INTENTS.map((intent) => (
-                <ColorCell
-                    className={className}
-                    colorName={color}
-                    intent={intent}
-                    key={color}
-                />
-            ))}
-        </Row>
+        <TableHeader className='hidden'>
+            <Column isRowHeader>Utility class</Column>
+            <Column>CSS variable</Column>
+            <Column
+                alignment='center'
+                className='[writing-mode:vertical-lr] align-bottom'
+            >
+                Default
+            </Column>
+            <Column
+                alignment='center'
+                className='[writing-mode:vertical-lr] align-bottom'
+            >
+                Info
+            </Column>
+            <Column
+                alignment='center'
+                className='[writing-mode:vertical-lr] align-bottom'
+            >
+                Success
+            </Column>
+            <Column
+                alignment='center'
+                className='[writing-mode:vertical-lr] align-bottom'
+            >
+                Warning
+            </Column>
+            <Column
+                alignment='center'
+                className='[writing-mode:vertical-lr] align-bottom'
+            >
+                Error
+            </Column>
+        </TableHeader>
     )
 }
 
-function RowRenderBg(color: Color) {
+function RowBg(color: Color) {
     switch (color) {
-        case 'bg-accent-dark':
+        case Color.BG_BASE:
             return (
-                <ColorTableRow
-                    className='bg-accent-dark text-accent'
+                <RowColor
+                    className='bg-base text-hi-contrast'
                     color={color}
                 />
             )
-        case 'bg-accent-light':
+        case Color.BG_BASE_RAISED:
             return (
-                <ColorTableRow
-                    className='bg-accent-light text-accent'
+                <RowColor
+                    className='bg-base-raised text-hi-contrast'
                     color={color}
                 />
             )
-        case 'bg-accent-mid':
+        case Color.BG_PRIMARY:
             return (
-                <ColorTableRow
-                    className='bg-accent-mid text-accent'
+                <RowColor
+                    className='bg-primary text-accent'
                     color={color}
                 />
             )
-        case 'bg-base':
+        case Color.BG_PRIMARY_HOVER:
             return (
-                <ColorTableRow
-                    className='bg-base text-dark'
+                <RowColor
+                    className='bg-primary-hover text-accent'
                     color={color}
                 />
             )
-        case 'bg-raised':
+        case Color.BG_TINT:
             return (
-                <ColorTableRow
-                    className='bg-raised text-dark'
+                <RowColor
+                    className='bg-tint text-hi-contrast'
                     color={color}
                 />
             )
-        case 'bg-tint':
-            return (
-                <ColorTableRow
-                    className='bg-tint text-dark'
-                    color={color}
-                />
-            )
-
-        case 'bg-tint-dark':
-            return (
-                <ColorTableRow
-                    className='bg-tint-dark text-dark'
-                    color={color}
-                />
-            )
-        case 'bg-tint-light':
-            return (
-                <ColorTableRow
-                    className='bg-tint-light text-dark'
-                    color={color}
-                />
-            )
-        case 'border-dark':
-        case 'border-light':
-        case 'border-mid':
-        case 'text-accent':
-        case 'text-dark':
-        case 'text-light':
-        case 'text-mid':
+        case Color.BORDER_DEFAULT:
+        case Color.BORDER_FIELD:
+        case Color.BORDER_FIELD_HOVER:
+        case Color.TEXT_ACCENT:
+        case Color.TEXT_HI_CONTRAST:
+        case Color.TEXT_LO_CONTRAST:
+        case Color.TEXT_PLACEHOLDER:
             return null
         default:
             color satisfies never
     }
 }
+function RowBorder({ className, color }: { className: string; color: Color }) {
+    return (
+        <Row>
+            <Cell className='font-medium border-0'>
+                <CodeInline language='plaintext'>{color}</CodeInline>
+            </Cell>
+            <Cell className='font-medium border-0 pl-0'>
+                <CodeInline language='plaintext'>{`--theme-default-${color}`}</CodeInline>
+            </Cell>
+            {INTENTS.map((intent) => (
+                <CellBorder
+                    className={className}
+                    colorName={color}
+                    intent={intent}
+                    key={color}
+                />
+            ))}
+        </Row>
+    )
+}
+
+function RowColor({ className, color }: { className: string; color: Color }) {
+    return (
+        <Row>
+            <Cell className='font-medium border-0'>
+                <CodeInline language='plaintext'>{color}</CodeInline>
+            </Cell>
+            <Cell className='font-medium border-0 pl-0'>
+                <CodeInline language='plaintext'>{`--theme-default-${color}`}</CodeInline>
+            </Cell>
+            {INTENTS.map((intent) => (
+                <CellColor
+                    className={className}
+                    colorName={color}
+                    intent={intent}
+                    key={color}
+                />
+            ))}
+        </Row>
+    )
+}
+
 function RowRenderBorder(color: Color) {
     switch (color) {
-        case 'bg-accent-dark':
-        case 'bg-accent-light':
-        case 'bg-accent-mid':
-        case 'bg-base':
-        case 'bg-raised':
-        case 'bg-tint':
-        case 'bg-tint-dark':
-        case 'bg-tint-light':
-        case 'text-accent':
-        case 'text-dark':
-        case 'text-light':
-        case 'text-mid':
+        case Color.BG_BASE:
+        case Color.BG_BASE_RAISED:
+        case Color.BG_PRIMARY:
+        case Color.BG_PRIMARY_HOVER:
+        case Color.BG_TINT:
+        case Color.TEXT_ACCENT:
+        case Color.TEXT_HI_CONTRAST:
+        case Color.TEXT_LO_CONTRAST:
+        case Color.TEXT_PLACEHOLDER:
             return null
-        case 'border-dark':
+        case Color.BORDER_DEFAULT:
             return (
-                <BorderTableRow
-                    className='text-[var(--theme-default-border-dark)]'
+                <RowBorder
+                    className='text-[var(--theme-default-border-default)]'
                     color={color}
                 />
             )
-        case 'border-light':
+        case Color.BORDER_FIELD:
             return (
-                <BorderTableRow
-                    className='text-[var(--theme-default-border-light)]'
+                <RowBorder
+                    className='text-[var(--theme-default-border-field)]'
                     color={color}
                 />
             )
-        case 'border-mid':
+        case Color.BORDER_FIELD_HOVER:
             return (
-                <BorderTableRow
-                    className='text-[var(--theme-default-border-mid)]'
+                <RowBorder
+                    className='text-[var(--theme-default-border-field-hover)]'
                     color={color}
                 />
             )
@@ -251,45 +301,43 @@ function RowRenderBorder(color: Color) {
             color satisfies never
     }
 }
+
 function RowRenderText(color: Color) {
     switch (color) {
-        case 'bg-accent-dark':
-        case 'bg-accent-light':
-        case 'bg-accent-mid':
-        case 'bg-base':
-        case 'bg-raised':
-        case 'bg-tint':
-        case 'bg-tint-dark':
-        case 'bg-tint-light':
-        case 'border-dark':
-        case 'border-light':
-        case 'border-mid':
+        case Color.BG_BASE:
+        case Color.BG_BASE_RAISED:
+        case Color.BG_PRIMARY:
+        case Color.BG_PRIMARY_HOVER:
+        case Color.BG_TINT:
+        case Color.BORDER_DEFAULT:
+        case Color.BORDER_FIELD:
+        case Color.BORDER_FIELD_HOVER:
             return null
-        case 'text-accent':
+        case Color.TEXT_ACCENT:
             return (
-                <ColorTableRow
-                    className='bg-accent-mid text-accent'
+                <RowColor
+                    className='bg-primary text-accent'
                     color={color}
                 />
             )
-        case 'text-dark':
+        case Color.TEXT_HI_CONTRAST:
             return (
-                <ColorTableRow
-                    className='bg-transparent text-dark'
+                <RowColor
+                    className='bg-transparent text-hi-contrast'
                     color={color}
                 />
             )
-        case 'text-light':
+        case Color.TEXT_LO_CONTRAST:
             return (
-                <ColorTableRow
-                    className='bg-transparent text-light'
+                <RowColor
+                    className='bg-transparent text-lo-contrast'
                     color={color}
                 />
             )
-        case 'text-mid':
+        case Color.TEXT_PLACEHOLDER:
             return (
-                <ColorTableRow
-                    className='bg-transparent text-mid'
+                <RowColor
+                    className='bg-transparent text-placeholder'
                     color={color}
                 />
             )

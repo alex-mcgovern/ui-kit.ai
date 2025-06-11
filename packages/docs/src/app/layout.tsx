@@ -5,6 +5,7 @@ import '../index.css'
 import { Inter } from 'next/font/google'
 
 import { RouterProvider } from '../components/providers/router-provider'
+import { ThemeProvider } from '../components/providers/theme-provider'
 import { TopNav } from '../components/top-nav'
 
 const inter = Inter({
@@ -45,11 +46,13 @@ export default function RootLayout({
 }>) {
     return (
         <html lang='en'>
-            <body className={`${inter.className} antialiased relative `}>
-                <RouterProvider>
-                    <TopNav />
-                    {children}
-                </RouterProvider>
+            <body className={`${inter.className} antialiased relative overscroll-none`}>
+                <ThemeProvider>
+                    <RouterProvider>
+                        <TopNav />
+                        {children}
+                    </RouterProvider>
+                </ThemeProvider>
             </body>
         </html>
     )

@@ -15,17 +15,19 @@ import {
     Heading,
     Input,
     Label,
+    Link,
     Popover,
     PopoverDialog,
     Select,
     SelectButton,
 } from '@ui-kit.ai/components'
-import { ColorPalette, DEFAULT_COLOR_PALETTE_INPUT } from '@ui-kit.ai/theme'
+import { ColorPalette, PRESETS } from '@ui-kit.ai/theme'
 import { PipetteIcon } from 'lucide-react'
-import { useState } from 'react'
+import { useContext } from 'react'
 
+import { ThemeContext } from '../../components/providers/theme-provider'
 import { Sidebar } from '../../components/sidebar'
-import { ColorTableBg, ColorTableBorder, ColorTableText } from './components/color-table'
+import { hrefs } from '../../lib/hrefs'
 import { Demo } from './components/demo'
 
 type Palette = {
@@ -38,17 +40,10 @@ type Palette = {
 type Preset = 'coffee' | 'indigo' | 'muted' | 'shadcn'
 
 export default function Page() {
-    const [accent, setAccent] = useState<string>(DEFAULT_COLOR_PALETTE_INPUT.accent)
-    const [error, setError] = useState<string>(DEFAULT_COLOR_PALETTE_INPUT.error)
-    const [success, setSuccess] = useState<string>(DEFAULT_COLOR_PALETTE_INPUT.success)
-    const [warning, setWarning] = useState<string>(DEFAULT_COLOR_PALETTE_INPUT.warning)
-
-    // const [preset, setPreset] = useState<Palette>({
-    //     accent: DEFAULT_COLOR_PALETTE_INPUT.accent,
-    //     error: DEFAULT_COLOR_PALETTE_INPUT.error,
-    //     success: DEFAULT_COLOR_PALETTE_INPUT.success,
-    //     warning: DEFAULT_COLOR_PALETTE_INPUT.warning,
-    // })
+    const themeContext = useContext(ThemeContext)
+    if (themeContext == null) throw new Error('ThemeContext is not available')
+    const { setAccent, setError, setSuccess, setWarning, accent, error, success, warning } =
+        themeContext
 
     const onPresetChange = (palette: Palette) => {
         setAccent(palette.accent)
@@ -71,92 +66,60 @@ export default function Page() {
     })
 
     return (
-        <div className='grid grid-cols-[1fr_3fr] gap-2 min-h-screen'>
+        <div className='grid grid-cols-[1fr_3fr] min-h-screen'>
             <style
                 dangerouslySetInnerHTML={{
                     __html: css,
                 }}
             />
             <Sidebar>
-                <section className='my-8'>
+                <section className='mb-8'>
                     <Heading
-                        className='text-mid'
-                        level={3}
+                        className='text-2xl'
+                        level={1}
                     >
-                        Theme
+                        Theme editor
                     </Heading>
+                    <p className='mb-2'>
+                        A simple way to adapt the look & feel of @ui-kit.ai to your brand.
+                    </p>
+                    <p className='mb-2'>
+                        To learn more, check out the{' '}
+                        <Link href={hrefs.docs.getting_started.theme}>docs</Link>.
+                    </p>
                 </section>
 
-                <ThemePresetPicker setValue={(palette) => onPresetChange(palette)} />
-                <Heading
-                    className='text-mid'
-                    level={4}
-                >
-                    Base colors
-                </Heading>
-
-                <ThemeColorPicker
-                    label='Accent'
-                    setValue={setAccent}
-                    value={accent}
-                />
-                <ThemeColorPicker
-                    label='Error'
-                    setValue={setError}
-                    value={error}
-                />
-                <ThemeColorPicker
-                    label='Success'
-                    setValue={setSuccess}
-                    value={success}
-                />
-                <ThemeColorPicker
-                    label='Warning'
-                    setValue={setWarning}
-                    value={warning}
-                />
-
-                <section className='my-8'>
-                    <Heading
-                        className='text-mid'
-                        level={4}
-                    >
-                        Background
-                    </Heading>
-                    <ColorTableBg palette={palette.palette(palette.grayHsl, palette.accentHsl)} />
+                <section className='mb-8'>
+                    <Heading level={4}>Use a preset</Heading>
+                    <ThemePresetPicker setValue={(palette) => onPresetChange(palette)} />
                 </section>
-
-                <section className='my-8'>
-                    <Heading
-                        className='text-mid'
-                        level={4}
-                    >
-                        Text
-                    </Heading>
-                    <ColorTableText palette={palette.palette(palette.grayHsl, palette.accentHsl)} />
-                </section>
-
-                <section className='my-8'>
-                    <Heading
-                        className='text-mid'
-                        level={4}
-                    >
-                        Border
-                    </Heading>
-                    <ColorTableBorder
-                        palette={palette.palette(palette.grayHsl, palette.accentHsl)}
+                <section className='mb-8'>
+                    <Heading level={4}>Or build your own</Heading>
+                    <ThemeColorPicker
+                        label='Accent'
+                        setValue={setAccent}
+                        value={accent}
+                    />
+                    <ThemeColorPicker
+                        label='Error'
+                        setValue={setError}
+                        value={error}
+                    />
+                    <ThemeColorPicker
+                        label='Success'
+                        setValue={setSuccess}
+                        value={success}
+                    />
+                    <ThemeColorPicker
+                        label='Warning'
+                        setValue={setWarning}
+                        value={warning}
                     />
                 </section>
             </Sidebar>
             <main className='w-full p-4 min-w-0 mx-auto'>
                 <section>
                     <Demo />
-
-                    {/* <Code
-          code={css}
-          component={}
-          language={'css'}
-        /> */}
                 </section>
             </main>
         </div>
@@ -178,7 +141,7 @@ function ThemeColorPicker({
 
     return (
         <ColorField
-            className='mb-1 grid grid-cols-2 items-center gap-2'
+            className='mb-1 grid grid-cols-[1fr_2fr] items-center gap-6'
             onChange={onChange}
             value={value}
         >
@@ -234,74 +197,19 @@ function ThemeColorPicker({
     )
 }
 
-const PRESETS: OptionsSchema<'listbox', Preset, Palette>[] = [
-    {
-        id: 'indigo',
-        textValue: 'Indigo',
+const PRESET_ITEMS: OptionsSchema<'listbox', Preset, Palette>[] = Object.entries(PRESETS).map(
+    ([id, value]) => ({
+        id: id as Preset,
+        textValue: id.charAt(0).toUpperCase() + id.slice(1),
         icon: (
             <ColorSwatch
                 className='size-4'
-                color='#3E63DD'
+                color={value.accent}
             />
         ),
-        value: {
-            accent: '#3E63DD',
-            error: '#E54666',
-            success: '#29A383',
-            warning: '#FFC53D',
-        },
-    },
-    {
-        id: 'muted',
-        textValue: 'Muted (warm)',
-        icon: (
-            <ColorSwatch
-                className='size-4'
-                color='#E6E0E0'
-            />
-        ),
-        value: {
-            accent: '#E6E0E0',
-            error: '#ECA7B6',
-            success: '#D6E0A9',
-            warning: '#FFD675',
-        },
-    },
-    {
-        id: 'shadcn',
-        textValue: 'shadcn',
-        description: 'Credit: shadcn/ui',
-        icon: (
-            <ColorSwatch
-                className='size-4'
-                color='#1C1917'
-            />
-        ),
-        value: {
-            accent: '#1C1917',
-            error: '#E7000B',
-            success: '#16A34A',
-            warning: '#FACC15',
-        },
-    },
-    {
-        id: 'coffee',
-        textValue: 'Coffee',
-        description: 'Credit: HeroUI',
-        icon: (
-            <ColorSwatch
-                className='size-4'
-                color='#1C1917'
-            />
-        ),
-        value: {
-            accent: '#db924b',
-            error: '#fc9581',
-            success: '#9db787',
-            warning: '#ffd25f',
-        },
-    },
-]
+        value: value as Palette,
+    })
+)
 
 function ThemePresetPicker({
     value,
@@ -313,17 +221,18 @@ function ThemePresetPicker({
     return (
         <Select
             aria-label='Theme preset'
-            className='mb-1 grid grid-cols-2 items-center gap-2'
-            items={PRESETS}
+            className='mb-1 grid grid-cols-[1fr_2fr] items-center gap-6'
+            defaultSelectedKey='professional'
+            items={PRESET_ITEMS}
             onSelectionChange={(v) => {
-                const selected = PRESETS.find((preset) => preset.id === v)
+                const selected = PRESET_ITEMS.find((preset) => preset.id === v)
                 if (selected != null && selected.value != null) {
                     setValue(selected.value as Palette)
                 }
             }}
             selectedKey={
                 value != null
-                    ? PRESETS.find((preset) => {
+                    ? PRESET_ITEMS.find((preset) => {
                           return (
                               preset.value != null &&
                               (preset.value as Palette).accent === value.accent &&

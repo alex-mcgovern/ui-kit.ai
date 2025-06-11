@@ -28,19 +28,19 @@ const optionStyle = tv({
         'group/options-item',
         'flex items-center gap-1.5',
         'cursor-default',
-        'text-dark text-sm',
+        'text-hi-contrast text-sm',
         'outline outline-0',
         'rounded select-none',
-        'px-1.25 py-0.5',
+        'px-2 py-0.5',
         'forced-color-adjust-none',
         // disabled
-        'disabled:text-light',
+        'disabled:text-placeholder',
         // hover
-        'hover:bg-tint-light',
+        'hover:bg-tint',
         // focus
-        'focus:bg-tint-light',
+        'focus:bg-tint',
         // pressed
-        'pressed:bg-tint-dark',
+        'pressed:bg-tint',
         // selected
         'selected:bg-tint',
     ],
@@ -113,7 +113,7 @@ function OptionsItem<TType extends OptionType>({
                         <div
                             className={twMerge(
                                 'flex items-center justify-center',
-                                'text-mid',
+                                'text-lo-contrast',
                                 'pointer-events-none',
                                 'size-4 [&_svg]:size-3 [&_svg]:shrink-0'
                             )}
@@ -132,13 +132,13 @@ function OptionsItem<TType extends OptionType>({
                             {props.children ?? props.textValue}
                         </span>
                         {props.description != null ? (
-                            <span className='text-mid group-focus/options-item:text-dark truncate text-sm font-normal'>
+                            <span className='text-lo-contrast group-focus/options-item:text-hi-contrast truncate text-sm font-normal'>
                                 {props.description}
                             </span>
                         ) : null}
                     </div>
                     {showCheckmarkOnSelected === true && isSelected ? (
-                        <IconCheck className='text-mid size-3' />
+                        <IconCheck className='text-lo-contrast size-3' />
                     ) : null}
                 </>
             )}
@@ -172,7 +172,7 @@ OptionsSection.displayName = 'OptionsSection'
 function OptionsSectionHeader(props: HeadingProps) {
     return (
         <Header
-            className='text-mid px-1.5 py-1 text-xs font-medium tracking-wide uppercase'
+            className='text-lo-contrast px-1.5 py-1 text-xs font-medium tracking-wide uppercase'
             {...props}
         />
     )

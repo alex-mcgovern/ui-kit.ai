@@ -1,5 +1,26 @@
 # Changelog
 
+## [0.0.13](https://github.com/alex-mcgovern/ui-kit.ai/compare/@ui-kit.ai/theme@v0.0.12...@ui-kit.ai/theme@v0.0.13) (2025-05-28)
+
+
+### Documentation
+
+* document theme ([#344](https://github.com/alex-mcgovern/ui-kit.ai/issues/344)) ([743f6f5](https://github.com/alex-mcgovern/ui-kit.ai/commit/743f6f5346c5e77ebb70b3f6055d10d6b1ee270c))
+
+## [0.0.12](https://github.com/alex-mcgovern/ui-kit.ai/compare/@ui-kit.ai/theme@v0.0.11...@ui-kit.ai/theme@v0.0.12) (2025-05-22)
+
+
+### Bug Fixes
+
+* styling nits ([#327](https://github.com/alex-mcgovern/ui-kit.ai/issues/327)) ([2c9be5a](https://github.com/alex-mcgovern/ui-kit.ai/commit/2c9be5a70d8ffc321a8ea9f7a108d8f2bd829b6b))
+
+## [0.0.11](https://github.com/alex-mcgovern/ui-kit.ai/compare/@ui-kit.ai/theme@v0.0.10...@ui-kit.ai/theme@v0.0.11) (2025-05-20)
+
+
+### Miscellaneous Chores
+
+* **@ui-kit.ai/theme:** Synchronize all versions
+
 ## [0.0.10](https://github.com/alex-mcgovern/ui-kit.ai/compare/@ui-kit.ai/theme@v0.0.9...@ui-kit.ai/theme@v0.0.10) (2025-05-19)
 
 

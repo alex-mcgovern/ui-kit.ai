@@ -12,9 +12,9 @@ const alertStyles = tv({
     base: [
         'w-full',
         'rounded-lg shadow-xs',
-        'border-light border',
-        'bg-tint-light/80',
-        'text-mid',
+        'border-default border',
+        'bg-tint',
+        'text-hi-contrast',
         'p-2 pl-3',
         'flex items-center gap-3',
     ],
@@ -22,10 +22,6 @@ const alertStyles = tv({
 
 const titleStyles = tv({
     base: 'font-title mb-0 block text-sm font-medium',
-})
-
-const iconStyles = tv({
-    base: 'text-mid size-4 shrink-0 stroke-[1.75px]',
 })
 
 /**
@@ -37,7 +33,7 @@ export function Alert({
     actions,
     className,
     icon = <InfoIcon />,
-    intent = 'info',
+    intent,
     text,
     ...props
 }: {
@@ -57,7 +53,7 @@ export function Alert({
         >
             {renderSlot(icon, {
                 'aria-hidden': true,
-                className: iconStyles(),
+                className: 'size-4 shrink-0',
                 role: 'img',
             })}
             <div>

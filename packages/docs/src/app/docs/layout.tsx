@@ -9,6 +9,7 @@ import TableOfContents from '../../components/table-of-contents'
 import { hrefs } from '../../lib/hrefs'
 
 const ITEMS: OptionsSchema<'listbox'>[] = Object.keys(components).map((componentName) => ({
+    className: 'mb-px',
     href: hrefs.component(componentName),
     id: componentName,
     textValue: componentName,
@@ -24,11 +25,11 @@ export default function Layout({
     const selectedLayoutSegment = selectedLayoutSegments[selectedLayoutSegments.length - 1]
 
     return (
-        <div className='grid grid-cols-[1fr_4fr_1fr] gap-8 min-h-screen'>
-            <Sidebar>
+        <div className='grid grid-cols-1 md:grid-cols-[1fr_4fr_1fr] gap-8 min-h-screen'>
+            <Sidebar className='hidden md:block'>
                 <section className='mb-4'>
                     <Heading
-                        className='ml-0.75  text-sm text-mid mb-2'
+                        className='ml-0.75  text-sm text-lo-contrast mb-2'
                         level={3}
                     >
                         Getting started
@@ -64,7 +65,7 @@ export default function Layout({
                 </section>
                 <section className='mb-4'>
                     <Heading
-                        className='ml-0.75  text-sm mb-2 text-mid'
+                        className='ml-0.75  text-sm mb-2 text-lo-contrast'
                         level={3}
                     >
                         Components
@@ -79,7 +80,7 @@ export default function Layout({
                 </section>
             </Sidebar>
             <main className='w-full max-w-3xl py-8 px-4 min-w-0 mx-auto'>{children}</main>
-            <nav className='h-[calc(100dvh-3rem)] sticky top-12 px-4 py-6 min-w-0 overflow-y-auto scrollbar-thin'>
+            <nav className='hidden md:block h-[calc(100dvh-3rem)] sticky top-12 px-4 py-6 min-w-0 overflow-y-auto scrollbar-thin'>
                 <TableOfContents key={path} />
             </nav>
         </div>

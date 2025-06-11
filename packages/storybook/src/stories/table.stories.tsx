@@ -154,7 +154,7 @@ function TemplatePagination(args: ComponentProps<typeof Table>) {
                 </TableBody>
             </Table>
             <div className='mt-4 flex w-full items-center justify-between'>
-                <span className='text-mid block shrink-0 text-sm font-medium whitespace-nowrap'>
+                <span className='text-lo-contrast block shrink-0 text-sm font-medium whitespace-nowrap'>
                     1-10 of 100
                 </span>
                 <div className='flex items-center justify-center gap-1'>
