@@ -69,7 +69,7 @@ export const WithIcon: Story = {
 export const CustomStyling: Story = {
     args: {
         children: 'Learn more',
-        className: 'error text-mid underline',
+        className: 'error text-lo-contrast underline',
         href: '#',
     },
     parameters: {

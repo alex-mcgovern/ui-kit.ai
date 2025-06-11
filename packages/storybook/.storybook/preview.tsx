@@ -48,7 +48,7 @@ const preview: Preview = {
                         'before:to-[var(--theme-error-bg-tint)]/70',
                         // dots overlay
                         'after:absolute after:inset-0 after:-z-10',
-                        'after:bg-[radial-gradient(var(--theme-default-border-dark)_1px,transparent_1px)]',
+                        'after:bg-[radial-gradient(var(--theme-default-border-default-hover)_1px,transparent_1px)]',
                         'after:[background-size:16px_16px]',
                         'after:[mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_30%,transparent_150%)]'
                     )}

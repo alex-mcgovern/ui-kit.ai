@@ -65,7 +65,7 @@ export function PropsTable({ props }: { props: Props }) {
                                 <Cell>
                                     <PropTypes>{prop.type.name}</PropTypes>
                                 </Cell>
-                                <Cell className='text-mid'>
+                                <Cell className='text-lo-contrast'>
                                     {prop.defaultValue?.value != null ? (
                                         <CodeInline language='plaintext'>
                                             {prop.defaultValue?.value}
@@ -94,7 +94,9 @@ function PropTypes({ children }: { children: string }) {
                     <Fragment key={type}>
                         <CodeInline language='plaintext'>{type}</CodeInline>
 
-                        {isLast === false ? <span className='text-light'>{' | '}</span> : null}
+                        {isLast === false ? (
+                            <span className='text-placeholder'>{' | '}</span>
+                        ) : null}
                     </Fragment>
                 )
             })}

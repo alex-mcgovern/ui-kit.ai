@@ -1,19 +1,16 @@
 export enum Color {
-    BG_ACCENT_DARK = 'bg-accent-dark',
-    BG_ACCENT_LIGHT = 'bg-accent-light',
-    BG_ACCENT_MID = 'bg-accent-mid',
     BG_BASE = 'bg-base',
-    BG_RAISED = 'bg-raised',
+    BG_BASE_RAISED = 'bg-base-raised',
+    BG_PRIMARY = 'bg-primary',
+    BG_PRIMARY_HOVER = 'bg-primary-hover',
     BG_TINT = 'bg-tint',
-    BG_TINT_DARK = 'bg-tint-dark',
-    BG_TINT_LIGHT = 'bg-tint-light',
-    BORDER_DARK = 'border-dark',
-    BORDER_LIGHT = 'border-light',
-    BORDER_MID = 'border-mid',
+    BORDER_DEFAULT = 'border-default',
+    BORDER_FIELD = 'border-field',
+    BORDER_FIELD_HOVER = 'border-field-hover',
     TEXT_ACCENT = 'text-accent',
-    TEXT_DARK = 'text-dark',
-    TEXT_LIGHT = 'text-light',
-    TEXT_MID = 'text-mid',
+    TEXT_HI_CONTRAST = 'text-hi-contrast',
+    TEXT_LO_CONTRAST = 'text-lo-contrast',
+    TEXT_PLACEHOLDER = 'text-placeholder',
 }
 
 export enum Intent {
@@ -24,34 +21,15 @@ export enum Intent {
     WARNING = 'warning',
 }
 
-export enum TwBgUtility {
-    ACCENT_DARK = 'bg-accent-dark',
-    ACCENT_LIGHT = 'bg-accent-light',
-    ACCENT_MID = 'bg-accent-mid',
-    BASE = 'bg-base',
-    RAISED = 'bg-raised',
-    TINT = 'bg-tint',
-    TINT_DARK = 'bg-tint-dark',
-    TINT_LIGHT = 'bg-tint-light',
-}
-
 export enum TwBorderUtility {
-    DARK = 'border-dark',
-    LIGHT = 'border-light',
-    MID = 'border-mid',
-}
-
-export enum TwTextUtility {
-    ACCENT = 'text-accent',
-    DARK = 'text-dark',
-    LIGHT = 'text-light',
-    MID = 'text-mid',
+    DEFAULT = 'border-default',
+    FIELD = 'border-field',
+    FIELD_HOVER = 'border-field-hover',
 }
 
 export type ColorPaletteInput = {
     accent: string
     error: string
-    gray?: string
     success: string
     warning: string
 }
