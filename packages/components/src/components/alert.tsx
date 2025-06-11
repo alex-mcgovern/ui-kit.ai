@@ -14,7 +14,6 @@ const alertStyles = tv({
         'rounded-lg shadow-xs',
         'border-default border',
         'bg-tint',
-        // 'bg-primary',
         'text-hi-contrast',
         'p-2 pl-3',
         'flex items-center gap-3',
