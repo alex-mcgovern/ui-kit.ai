@@ -12,8 +12,8 @@ export function Link(props: ComponentProps<typeof AriaLink>) {
             {...props}
             className={(renderProps) =>
                 twMerge(
-                    `text-lo-contrast underline decoration-dotted hover:text-hi-contrast transition-colors hover:no-underline
-                    hover:decoration-none`,
+                    `text-lo-contrast hover:text-hi-contrast hover:decoration-none underline decoration-dotted
+                    transition-colors hover:no-underline`,
                     typeof props.className === 'function'
                         ? props.className(renderProps)
                         : props.className
