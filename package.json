@@ -39,7 +39,7 @@
         "@types/node": "22.15.17",
         "@ui-kit.ai/prettier": "workspace:*",
         "commitlint": "19.8.1",
-        "knip": "5.55.1",
+        "knip": "5.60.2",
         "sherif": "1.5.0",
         "tsx": "4.19.3",
         "turbo": "2.5.3"
