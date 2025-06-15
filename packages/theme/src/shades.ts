@@ -125,26 +125,26 @@ const TEXT_ACCENT: ShadeLightDark = {
         muted: (hsl) => {
             const contrastRatio = wcagContrast(
                 BG_PRIMARY.light.muted(hsl),
-                TEXT_HI_CONTRAST.light.muted(hsl)
+                TEXT_HI_CONTRAST.dark.muted(hsl)
             )
 
             if (contrastRatio < 2.5) {
-                return BG_BASE.light.muted(hsl)
+                return BG_BASE.dark.muted(hsl)
             }
 
-            return TEXT_HI_CONTRAST.light.muted(hsl)
+            return TEXT_HI_CONTRAST.dark.muted(hsl)
         },
         vibrant: (hsl) => {
             const contrastRatio = wcagContrast(
                 BG_PRIMARY.light.vibrant(hsl),
-                TEXT_HI_CONTRAST.light.vibrant(hsl)
+                TEXT_HI_CONTRAST.dark.vibrant(hsl)
             )
 
             if (contrastRatio < 2.5) {
-                return BG_BASE.light.vibrant(hsl)
+                return BG_BASE.dark.vibrant(hsl)
             }
 
-            return TEXT_HI_CONTRAST.light.vibrant(hsl)
+            return TEXT_HI_CONTRAST.dark.vibrant(hsl)
         },
     },
 }

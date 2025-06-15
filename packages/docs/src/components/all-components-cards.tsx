@@ -29,28 +29,30 @@ export function AllComponentsCards() {
         <>
             {COMPONENTS.map((component) => (
                 <CardLink
-                    className='group'
+                    className='group bg-transparent border-none rounded-none !shadow-none'
                     href={component.href}
                     key={component.name}
                 >
-                    <div className='overflow-hidden mb-1 border-b border-default'>
+                    <div className='overflow-hidden rounded-lg border border-default group-hover:border-field transition-colors'>
                         <Image
                             alt={component.name}
-                            className='not-dark:hidden group-hover:scale-102 transition-transform duration-400 ease-in-out'
+                            className='not-dark:hidden ease-out'
                             height={810}
                             src={component.imageUrlDark}
                             width={1440}
                         />
                         <Image
                             alt={component.name}
-                            className='dark:hidden group-hover:scale-102 transition-transform duration-400 ease-in-out'
+                            className='dark:hidden ease-in-out'
                             height={810}
                             src={component.imageUrlLight}
                             width={1440}
                         />
                     </div>
-                    <CardBody>
-                        <CardTitle className='mb-2'>{component.name}</CardTitle>
+                    <CardBody className='p-0'>
+                        <CardTitle className='mb-2 group-hover:underline decoration-dotted'>
+                            {component.name}
+                        </CardTitle>
                         {component.description != null ? (
                             <Markdown>{component.description}</Markdown>
                         ) : null}

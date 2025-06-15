@@ -25,7 +25,7 @@ export default function Layout({
     const selectedLayoutSegment = selectedLayoutSegments[selectedLayoutSegments.length - 1]
 
     return (
-        <div className='grid grid-cols-1 md:grid-cols-[1fr_4fr_1fr] gap-8 min-h-screen'>
+        <div className='grid grid-cols-1 md:grid-cols-[1fr_4fr_1fr] gap-8 '>
             <Sidebar className='hidden md:block'>
                 <section className='mb-4'>
                     <Heading

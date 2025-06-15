@@ -12,7 +12,12 @@ export function TopNav() {
     return (
         <UIKitTopNav>
             <div className='flex gap-6 items-center'>
-                <TopNavLink href='/'>❖ ui-kit.ai</TopNavLink>
+                <Link
+                    className='font-semibold flex items-center gap-1 text-hi-contrast hover:text-lo-contrast transition-colors !no-underline'
+                    href='/'
+                >
+                    ❖ ui-kit.ai
+                </Link>
                 <div className='hidden md:flex items-center gap-4'>
                     <TopNavLink href={hrefs.docs.getting_started.introduction}>Docs</TopNavLink>
                     <TopNavLink href={hrefs.docs.components}>Components</TopNavLink>

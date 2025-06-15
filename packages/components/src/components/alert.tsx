@@ -11,10 +11,11 @@ import { renderSlot } from '../types/slotted-node'
 const alertStyles = tv({
     base: [
         'w-full',
-        'rounded-lg shadow-xs',
+        'rounded-lg',
+        'shadow-xs',
         'border-default border',
         'bg-tint',
-        'text-hi-contrast',
+        'text-lo-contrast',
         'p-2 pl-3',
         'flex items-center gap-3',
     ],
