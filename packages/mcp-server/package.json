@@ -24,9 +24,9 @@
         "publish-packages": "pnpm publish --access public --no-git-checks"
     },
     "dependencies": {
-        "@modelcontextprotocol/sdk": "1.11.3",
+        "@modelcontextprotocol/sdk": "1.11.4",
         "@ui-kit.ai/metadata": "workspace:*",
-        "zod": "3.24.4"
+        "zod": "3.25.62"
     },
     "devDependencies": {
         "@storybook/react": "8.6.14",
