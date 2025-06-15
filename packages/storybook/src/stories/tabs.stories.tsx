@@ -15,37 +15,37 @@ function TemplateHorizontal() {
             </TabList>
 
             <TabPanel id='tab-1'>
-                <div className='w-full bg-base-raised border border-dashed border-default rounded-lg p-4'>
-                    <div className='flex items-center justify-start gap-2 mb-4'>
+                <div className='bg-base-raised border-default w-full rounded-lg border border-dashed p-4'>
+                    <div className='mb-4 flex items-center justify-start gap-2'>
                         <Skeleton className='size-10 rounded-full' />
                         <Skeleton className='h-6 w-24 rounded-sm' />
                     </div>
-                    <Skeleton className='h-4 mb-4 w-full rounded-sm' />
-                    <Skeleton className='h-4 mb-4 w-full rounded-sm' />
+                    <Skeleton className='mb-4 h-4 w-full rounded-sm' />
+                    <Skeleton className='mb-4 h-4 w-full rounded-sm' />
                     <Skeleton className='h-4 w-1/3 rounded-sm' />
                 </div>
             </TabPanel>
 
             <TabPanel id='tab-2'>
-                <div className='w-full bg-base-raised border border-dashed border-default rounded-lg p-4'>
-                    <div className='flex items-center justify-start gap-2 mb-4'>
+                <div className='bg-base-raised border-default w-full rounded-lg border border-dashed p-4'>
+                    <div className='mb-4 flex items-center justify-start gap-2'>
                         <Skeleton className='size-10 rounded-full' />
                         <Skeleton className='h-6 w-24 rounded-sm' />
                     </div>
-                    <Skeleton className='h-4 mb-4 w-full rounded-sm' />
-                    <Skeleton className='h-4 mb-4 w-full rounded-sm' />
+                    <Skeleton className='mb-4 h-4 w-full rounded-sm' />
+                    <Skeleton className='mb-4 h-4 w-full rounded-sm' />
                     <Skeleton className='h-4 w-1/3 rounded-sm' />
                 </div>
             </TabPanel>
 
             <TabPanel id='tab-3'>
-                <div className='w-full bg-base-raised border border-dashed border-default rounded-lg p-4'>
-                    <div className='flex items-center justify-start gap-2 mb-4'>
+                <div className='bg-base-raised border-default w-full rounded-lg border border-dashed p-4'>
+                    <div className='mb-4 flex items-center justify-start gap-2'>
                         <Skeleton className='size-10 rounded-full' />
                         <Skeleton className='h-6 w-24 rounded-sm' />
                     </div>
-                    <Skeleton className='h-4 mb-4 w-full rounded-sm' />
-                    <Skeleton className='h-4 mb-4 w-full rounded-sm' />
+                    <Skeleton className='mb-4 h-4 w-full rounded-sm' />
+                    <Skeleton className='mb-4 h-4 w-full rounded-sm' />
                     <Skeleton className='h-4 w-1/3 rounded-sm' />
                 </div>
             </TabPanel>
@@ -65,37 +65,37 @@ function TemplateVertical() {
                 <Tab id='tab-3'>Tab 3</Tab>
             </TabList>
             <TabPanel id='tab-1'>
-                <div className='w-full bg-base-raised border border-dashed border-default rounded-lg p-4'>
-                    <div className='flex items-center justify-start gap-2 mb-4'>
+                <div className='bg-base-raised border-default w-full rounded-lg border border-dashed p-4'>
+                    <div className='mb-4 flex items-center justify-start gap-2'>
                         <Skeleton className='size-10 rounded-full' />
                         <Skeleton className='h-6 w-24 rounded-sm' />
                     </div>
-                    <Skeleton className='h-4 mb-4 w-full rounded-sm' />
-                    <Skeleton className='h-4 mb-4 w-full rounded-sm' />
+                    <Skeleton className='mb-4 h-4 w-full rounded-sm' />
+                    <Skeleton className='mb-4 h-4 w-full rounded-sm' />
                     <Skeleton className='h-4 w-1/3 rounded-sm' />
                 </div>
             </TabPanel>
 
             <TabPanel id='tab-2'>
-                <div className='w-full bg-base-raised border border-dashed border-default rounded-lg p-4'>
-                    <div className='flex items-center justify-start gap-2 mb-4'>
+                <div className='bg-base-raised border-default w-full rounded-lg border border-dashed p-4'>
+                    <div className='mb-4 flex items-center justify-start gap-2'>
                         <Skeleton className='size-10 rounded-full' />
                         <Skeleton className='h-6 w-24 rounded-sm' />
                     </div>
-                    <Skeleton className='h-4 mb-4 w-full rounded-sm' />
-                    <Skeleton className='h-4 mb-4 w-full rounded-sm' />
+                    <Skeleton className='mb-4 h-4 w-full rounded-sm' />
+                    <Skeleton className='mb-4 h-4 w-full rounded-sm' />
                     <Skeleton className='h-4 w-1/3 rounded-sm' />
                 </div>
             </TabPanel>
 
             <TabPanel id='tab-3'>
-                <div className='w-full bg-base-raised border border-dashed border-default rounded-lg p-4'>
-                    <div className='flex items-center justify-start gap-2 mb-4'>
+                <div className='bg-base-raised border-default w-full rounded-lg border border-dashed p-4'>
+                    <div className='mb-4 flex items-center justify-start gap-2'>
                         <Skeleton className='size-10 rounded-full' />
                         <Skeleton className='h-6 w-24 rounded-sm' />
                     </div>
-                    <Skeleton className='h-4 mb-4 w-full rounded-sm' />
-                    <Skeleton className='h-4 mb-4 w-full rounded-sm' />
+                    <Skeleton className='mb-4 h-4 w-full rounded-sm' />
+                    <Skeleton className='mb-4 h-4 w-full rounded-sm' />
                     <Skeleton className='h-4 w-1/3 rounded-sm' />
                 </div>
             </TabPanel>

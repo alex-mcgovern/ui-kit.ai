@@ -72,8 +72,8 @@ export function Popover({ children, className, showArrow, ...props }: PopoverPro
             {(showArrow ?? false) && (
                 <OverlayArrow className='group'>
                     <svg
-                        className='fill-(--theme-default-bg-base-raised) stroke-(--theme-default-border-default) group-placement-left:-rotate-90
-                            group-placement-right:rotate-90 group-placement-bottom:rotate-180 block stroke-1
+                        className='group-placement-left:-rotate-90 group-placement-right:rotate-90 group-placement-bottom:rotate-180
+                            block fill-(--theme-default-bg-base-raised) stroke-(--theme-default-border-default) stroke-1
                             forced-colors:fill-[Canvas] forced-colors:stroke-[ButtonBorder]'
                         height={12}
                         viewBox='0 0 12 12'

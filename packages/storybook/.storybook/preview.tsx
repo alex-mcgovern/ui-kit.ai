@@ -39,7 +39,7 @@ const preview: Preview = {
             return (
                 <div
                     className={twMerge(
-                        'flex items-center justify-center h-screen w-screen',
+                        'flex h-screen w-screen items-center justify-center',
                         // gradient background
                         'before:absolute before:inset-0 before:-z-20',
                         'before:bg-base-raised'
@@ -52,7 +52,8 @@ const preview: Preview = {
 
                             // dots overlay
                             'after:absolute after:inset-3 after:-z-10',
-                            'after:bg-[radial-gradient(var(--theme-default-bg-tint)_1px,transparent_1px)] [background-size:16px_16px]',
+                            `[background-size:16px_16px]
+                            after:bg-[radial-gradient(var(--theme-default-bg-tint)_1px,transparent_1px)]`,
                             'after:[background-size:16px_16px]'
                         )}
                     >
