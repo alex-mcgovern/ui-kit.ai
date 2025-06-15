@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.0.14](https://github.com/alex-mcgovern/ui-kit.ai/compare/@ui-kit.ai/mcp-server@v0.0.13...@ui-kit.ai/mcp-server@v0.0.14) (2025-06-15)
+
+
+### Build System
+
+* **deps:** bump @modelcontextprotocol/sdk from 1.11.3 to 1.11.4 ([#323](https://github.com/alex-mcgovern/ui-kit.ai/issues/323)) ([0bbf6a3](https://github.com/alex-mcgovern/ui-kit.ai/commit/0bbf6a34105e6f5075c02639fa94edf1b504a836))
+* **deps:** bump zod from 3.24.4 to 3.25.58 ([#358](https://github.com/alex-mcgovern/ui-kit.ai/issues/358)) ([22f29a5](https://github.com/alex-mcgovern/ui-kit.ai/commit/22f29a5445e39aed2e7027b8a0d780a5009a2d16))
+
 ## [0.0.13](https://github.com/alex-mcgovern/ui-kit.ai/compare/@ui-kit.ai/mcp-server@v0.0.12...@ui-kit.ai/mcp-server@v0.0.13) (2025-05-28)
 
 

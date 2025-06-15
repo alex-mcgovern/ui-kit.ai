@@ -1,5 +1,23 @@
 # Changelog
 
+## [0.0.14](https://github.com/alex-mcgovern/ui-kit.ai/compare/@ui-kit.ai/docs@v0.0.13...@ui-kit.ai/docs@v0.0.14) (2025-06-15)
+
+
+### Features
+
+* improved color scheme ([#356](https://github.com/alex-mcgovern/ui-kit.ai/issues/356)) ([cd41c1c](https://github.com/alex-mcgovern/ui-kit.ai/commit/cd41c1c473b8a7c2f5c75a83c5ca97ad650c56c4))
+
+
+### Miscellaneous Chores
+
+* update screenshots & style fixes ([#370](https://github.com/alex-mcgovern/ui-kit.ai/issues/370)) ([cfe2051](https://github.com/alex-mcgovern/ui-kit.ai/commit/cfe2051b0f3e964278ee9c6e505d8036ee07f1c5))
+
+
+### Build System
+
+* **deps-dev:** bump @tailwindcss/postcss from 4.1.3 to 4.1.8 ([#345](https://github.com/alex-mcgovern/ui-kit.ai/issues/345)) ([201f795](https://github.com/alex-mcgovern/ui-kit.ai/commit/201f795312642f8df8743967fd34c062edbbf9ee))
+* **deps:** bump zod from 3.24.4 to 3.25.58 ([#358](https://github.com/alex-mcgovern/ui-kit.ai/issues/358)) ([22f29a5](https://github.com/alex-mcgovern/ui-kit.ai/commit/22f29a5445e39aed2e7027b8a0d780a5009a2d16))
+
 ## [0.0.13](https://github.com/alex-mcgovern/ui-kit.ai/compare/@ui-kit.ai/docs@v0.0.12...@ui-kit.ai/docs@v0.0.13) (2025-05-28)
 
 
