@@ -64,7 +64,7 @@ const dialogStyles = tv({
         '!outline-0',
         'relative',
         'text-left',
-        'bg-base-raised/80 backdrop-blur-3xl',
+        'bg-base-raised',
         // height
         'h-dvh max-h-dvh md:h-[unset]',
         'w-full max-w-[100dvw]',

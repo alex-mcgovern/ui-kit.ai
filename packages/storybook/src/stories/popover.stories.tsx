@@ -75,7 +75,11 @@ function Template(args: ComponentProps<typeof Popover>) {
     return (
         <DialogTrigger>
             <Button>Show popover</Button>
-            <Popover {...args} />
+            <Popover
+                {...args}
+                defaultOpen
+                showArrow
+            />
         </DialogTrigger>
     )
 }

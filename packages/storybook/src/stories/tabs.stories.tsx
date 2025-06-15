@@ -1,45 +1,53 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { Tab, TabList, TabPanel, Tabs } from '@ui-kit.ai/components'
+import { Skeleton, Tab, TabList, TabPanel, Tabs } from '@ui-kit.ai/components'
 
 function TemplateHorizontal() {
     return (
-        <Tabs>
+        <Tabs className='w-full'>
             <TabList
-                aria-label='Roman history'
+                aria-label='Tabs'
                 className='mb-2'
             >
-                <Tab id='caesar'>Caesar</Tab>
-                <Tab id='octavian'>Octavian</Tab>
-                <Tab id='marc-antony'>Archive</Tab>
+                <Tab id='tab-1'>Tab 1</Tab>
+                <Tab id='tab-2'>Tab 2</Tab>
+                <Tab id='tab-3'>Tab 3</Tab>
             </TabList>
 
-            <TabPanel id='caesar'>
-                <ul className='list-inside list-disc'>
-                    <li className='ml-2'>Crossed the Rubicon in 49 BCE, sparking civil war</li>
-                    <li className='ml-2'>Implemented the Julian calendar</li>
-                    <li className='ml-2'>Assassinated on the Ides of March (March 15) in 44 BCE</li>
-                </ul>
+            <TabPanel id='tab-1'>
+                <div className='w-full bg-base-raised border border-dashed border-default rounded-lg p-4'>
+                    <div className='flex items-center justify-start gap-2 mb-4'>
+                        <Skeleton className='size-10 rounded-full' />
+                        <Skeleton className='h-6 w-24 rounded-sm' />
+                    </div>
+                    <Skeleton className='h-4 mb-4 w-full rounded-sm' />
+                    <Skeleton className='h-4 mb-4 w-full rounded-sm' />
+                    <Skeleton className='h-4 w-1/3 rounded-sm' />
+                </div>
             </TabPanel>
 
-            <TabPanel id='octavian'>
-                <ul className='list-inside list-disc'>
-                    <li className='ml-2'>Was Julius Caesar's adopted son and heir</li>
-                    <li className='ml-2'>Became Rome's first emperor under the name Augustus</li>
-                    <li className='ml-2'>
-                        Defeated Marc Antony and Cleopatra at the Battle of Actium
-                    </li>
-                </ul>
+            <TabPanel id='tab-2'>
+                <div className='w-full bg-base-raised border border-dashed border-default rounded-lg p-4'>
+                    <div className='flex items-center justify-start gap-2 mb-4'>
+                        <Skeleton className='size-10 rounded-full' />
+                        <Skeleton className='h-6 w-24 rounded-sm' />
+                    </div>
+                    <Skeleton className='h-4 mb-4 w-full rounded-sm' />
+                    <Skeleton className='h-4 mb-4 w-full rounded-sm' />
+                    <Skeleton className='h-4 w-1/3 rounded-sm' />
+                </div>
             </TabPanel>
 
-            <TabPanel id='marc-antony'>
-                <ul className='list-inside list-disc'>
-                    <li className='ml-2'>
-                        Formed the Second Triumvirate with Octavian and Lepidus
-                    </li>
-                    <li className='ml-2'>Had a famous romance with Egyptian queen Cleopatra</li>
-                    <li className='ml-2'>Committed suicide after his defeat by Octavian</li>
-                </ul>
+            <TabPanel id='tab-3'>
+                <div className='w-full bg-base-raised border border-dashed border-default rounded-lg p-4'>
+                    <div className='flex items-center justify-start gap-2 mb-4'>
+                        <Skeleton className='size-10 rounded-full' />
+                        <Skeleton className='h-6 w-24 rounded-sm' />
+                    </div>
+                    <Skeleton className='h-4 mb-4 w-full rounded-sm' />
+                    <Skeleton className='h-4 mb-4 w-full rounded-sm' />
+                    <Skeleton className='h-4 w-1/3 rounded-sm' />
+                </div>
             </TabPanel>
         </Tabs>
     )
@@ -49,39 +57,47 @@ function TemplateVertical() {
     return (
         <Tabs orientation='vertical'>
             <TabList
-                aria-label='Roman history'
+                aria-label='Tabs'
                 className='mr-2'
             >
-                <Tab id='caesar'>Caesar</Tab>
-                <Tab id='octavian'>Octavian</Tab>
-                <Tab id='marc-antony'>Archive</Tab>
+                <Tab id='tab-1'>Tab 1</Tab>
+                <Tab id='tab-2'>Tab 2</Tab>
+                <Tab id='tab-3'>Tab 3</Tab>
             </TabList>
-            <TabPanel id='caesar'>
-                <ul className='list-inside list-disc'>
-                    <li className='ml-2'>Crossed the Rubicon in 49 BCE, sparking civil war</li>
-                    <li className='ml-2'>Implemented the Julian calendar</li>
-                    <li className='ml-2'>Assassinated on the Ides of March (March 15) in 44 BCE</li>
-                </ul>
+            <TabPanel id='tab-1'>
+                <div className='w-full bg-base-raised border border-dashed border-default rounded-lg p-4'>
+                    <div className='flex items-center justify-start gap-2 mb-4'>
+                        <Skeleton className='size-10 rounded-full' />
+                        <Skeleton className='h-6 w-24 rounded-sm' />
+                    </div>
+                    <Skeleton className='h-4 mb-4 w-full rounded-sm' />
+                    <Skeleton className='h-4 mb-4 w-full rounded-sm' />
+                    <Skeleton className='h-4 w-1/3 rounded-sm' />
+                </div>
             </TabPanel>
 
-            <TabPanel id='octavian'>
-                <ul className='list-inside list-disc'>
-                    <li className='ml-2'>Was Julius Caesar's adopted son and heir</li>
-                    <li className='ml-2'>Became Rome's first emperor under the name Augustus</li>
-                    <li className='ml-2'>
-                        Defeated Marc Antony and Cleopatra at the Battle of Actium
-                    </li>
-                </ul>
+            <TabPanel id='tab-2'>
+                <div className='w-full bg-base-raised border border-dashed border-default rounded-lg p-4'>
+                    <div className='flex items-center justify-start gap-2 mb-4'>
+                        <Skeleton className='size-10 rounded-full' />
+                        <Skeleton className='h-6 w-24 rounded-sm' />
+                    </div>
+                    <Skeleton className='h-4 mb-4 w-full rounded-sm' />
+                    <Skeleton className='h-4 mb-4 w-full rounded-sm' />
+                    <Skeleton className='h-4 w-1/3 rounded-sm' />
+                </div>
             </TabPanel>
 
-            <TabPanel id='marc-antony'>
-                <ul className='list-inside list-disc'>
-                    <li className='ml-2'>
-                        Formed the Second Triumvirate with Octavian and Lepidus
-                    </li>
-                    <li className='ml-2'>Had a famous romance with Egyptian queen Cleopatra</li>
-                    <li className='ml-2'>Committed suicide after his defeat by Octavian</li>
-                </ul>
+            <TabPanel id='tab-3'>
+                <div className='w-full bg-base-raised border border-dashed border-default rounded-lg p-4'>
+                    <div className='flex items-center justify-start gap-2 mb-4'>
+                        <Skeleton className='size-10 rounded-full' />
+                        <Skeleton className='h-6 w-24 rounded-sm' />
+                    </div>
+                    <Skeleton className='h-4 mb-4 w-full rounded-sm' />
+                    <Skeleton className='h-4 mb-4 w-full rounded-sm' />
+                    <Skeleton className='h-4 w-1/3 rounded-sm' />
+                </div>
             </TabPanel>
         </Tabs>
     )

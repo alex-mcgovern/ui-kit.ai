@@ -14,12 +14,13 @@ initializeMsw()
 
 const screenshotOptions: ScreenshotOptions = {
     captureBeyondViewport: false,
+    clip: { height: 270, width: 480, x: 240, y: 135 },
     fullPage: false,
     omitBackground: true,
     viewport: {
         deviceScaleFactor: 3,
-        height: 270,
-        width: 480,
+        height: 540,
+        width: 960,
     },
 }
 
@@ -38,22 +39,25 @@ const preview: Preview = {
             return (
                 <div
                     className={twMerge(
-                        'relative flex items-center justify-center',
-                        'min-h-[270px] px-12 py-6',
+                        'flex items-center justify-center h-screen w-screen',
                         // gradient background
                         'before:absolute before:inset-0 before:-z-20',
-                        'before:bg-gradient-to-tr',
-                        'before:from-[var(--theme-info-bg-tint)]/70',
-                        'before:via-[var(--theme-info-bg-tint)]/70',
-                        'before:to-[var(--theme-error-bg-tint)]/70',
-                        // dots overlay
-                        'after:absolute after:inset-0 after:-z-10',
-                        'after:bg-[radial-gradient(var(--theme-default-border-default-hover)_1px,transparent_1px)]',
-                        'after:[background-size:16px_16px]',
-                        'after:[mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_30%,transparent_150%)]'
+                        'before:bg-base-raised'
                     )}
                 >
-                    <Story />
+                    <div
+                        className={twMerge(
+                            'relative flex items-center-safe justify-center',
+                            'h-[270px] w-[480px] px-12 py-6',
+
+                            // dots overlay
+                            'after:absolute after:inset-3 after:-z-10',
+                            'after:bg-[radial-gradient(var(--theme-default-bg-tint)_1px,transparent_1px)] [background-size:16px_16px]',
+                            'after:[background-size:16px_16px]'
+                        )}
+                    >
+                        <Story />
+                    </div>
                 </div>
             )
         },
