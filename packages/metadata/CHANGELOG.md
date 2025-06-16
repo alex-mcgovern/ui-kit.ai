@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.0.14](https://github.com/alex-mcgovern/ui-kit.ai/compare/@ui-kit.ai/metadata@v0.0.13...@ui-kit.ai/metadata@v0.0.14) (2025-06-15)
+
+
+### Miscellaneous Chores
+
+* **@ui-kit.ai/metadata:** Synchronize all versions
+
 ## [0.0.13](https://github.com/alex-mcgovern/ui-kit.ai/compare/@ui-kit.ai/metadata@v0.0.12...@ui-kit.ai/metadata@v0.0.13) (2025-05-28)
 
 
