@@ -37,7 +37,7 @@
         "@ui-kit.ai/tsconfig": "workspace:*",
         "@ui-kit.ai/vite": "workspace:*",
         "@ui-kit.ai/vitest": "workspace:*",
-        "react-docgen-typescript": "2.2.2"
+        "react-docgen-typescript": "2.4.0"
     },
     "engines": {
         "node": "22.x"
