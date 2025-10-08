@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.0.15](https://github.com/alex-mcgovern/ui-kit.ai/compare/ui-kit.ai-monorepo@v0.0.14...ui-kit.ai-monorepo@v0.0.15) (2025-10-08)
+
+
+### Bug Fixes
+
+* remove css light-dark syntax ([#445](https://github.com/alex-mcgovern/ui-kit.ai/issues/445)) ([9769d65](https://github.com/alex-mcgovern/ui-kit.ai/commit/9769d6538fbaae968afa6f08664e28ee586bd13e))
+
 ## [0.0.14](https://github.com/alex-mcgovern/ui-kit.ai/compare/ui-kit.ai-monorepo@v0.0.13...ui-kit.ai-monorepo@v0.0.14) (2025-06-15)
 
 
