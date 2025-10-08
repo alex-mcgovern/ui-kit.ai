@@ -9,7 +9,7 @@ const palette = new ColorPalette(DEFAULT_COLOR_PALETTE_INPUT)
 
 const css = palette.css({
     overrideTwColors: true,
-    selector: '@theme',
+    selector: '@theme inline',
 })
 
 fs.writeFileSync(outputPath, css)

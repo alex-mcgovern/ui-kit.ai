@@ -29,21 +29,52 @@ export class ColorPalette {
     }
 
     public css({ overrideTwColors, selector }: { overrideTwColors: boolean; selector: string }) {
-        return `
+        const themeVars = generateThemeVars({
+            default: generatePalette(this.accentHsl, { shouldUseVibrantShades: false }),
+            info: generatePalette(this.accentHsl, { shouldUseVibrantShades: true }),
+            error: generatePalette(this.errorHsl, { shouldUseVibrantShades: true }),
+            success: generatePalette(this.successHsl, { shouldUseVibrantShades: true }),
+            warning: generatePalette(this.warningHsl, { shouldUseVibrantShades: true }),
+        })
+
+        const syntaxVars = genSyntaxCssVars({
+            accentHsl: this.accentHsl,
+            errorHsl: this.errorHsl,
+            successHsl: this.successHsl,
+        })
+
+        const lightVars = { ...themeVars.lightVars, ...syntaxVars.lightVars }
+        const darkVars = { ...themeVars.darkVars, ...syntaxVars.darkVars }
+        const inlineVars = { ...themeVars.inlineVars, ...syntaxVars.inlineVars }
+
+        const serializeLightVars = () =>
+            Object.entries(lightVars)
+                .map(([key, value]) => `  ${key}: ${value};`)
+                .join('\n')
+
+        const serializeDarkVars = () =>
+            Object.entries(darkVars)
+                .map(([key, value]) => `  ${key}: ${value};`)
+                .join('\n')
+
+        const serializeInlineVars = () =>
+            Object.entries(inlineVars)
+                .map(([key, value]) => `  ${key}: ${value};`)
+                .join('\n')
+
+        return `:root {
+${serializeLightVars()}
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+${serializeDarkVars()}
+  }
+}
+
 ${selector} {
-    ${overrideTwColors ? `--color-*: initial; /* override/reset tailwind colors */` : ''}
-${generateThemeVars({
-    default: generatePalette(this.accentHsl, { shouldUseVibrantShades: false }),
-    info: generatePalette(this.accentHsl, { shouldUseVibrantShades: true }),
-    error: generatePalette(this.errorHsl, { shouldUseVibrantShades: true }),
-    success: generatePalette(this.successHsl, { shouldUseVibrantShades: true }),
-    warning: generatePalette(this.warningHsl, { shouldUseVibrantShades: true }),
-})}
-${genSyntaxCssVars({
-    accentHsl: this.accentHsl,
-    errorHsl: this.errorHsl,
-    successHsl: this.successHsl,
-})}
+  ${overrideTwColors ? `--color-*: initial; /* override/reset tailwind colors */` : ''}
+${serializeInlineVars()}
 }
 @utility bg-* {
   background-color: --value(--theme-default-bg-*, [color]);
