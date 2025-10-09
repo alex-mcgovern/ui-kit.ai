@@ -22,13 +22,10 @@ const buttonStyle = tv({
         'text-center text-sm font-medium',
         'cursor-pointer',
         'transition-colors',
-        // padding
         'px-4 py-2',
         '[&:has([data-slot=slot-left])]:pl-3',
         '[&:has([data-slot=slot-right])]:pr-3',
-        // icon styles
         '[&_svg]:size-3 [&_svg]:shrink-0',
-        // disabled
         'disabled:cursor-not-allowed',
         'disabled:opacity-50',
     ],
