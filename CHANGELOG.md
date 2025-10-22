@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.0.15](https://github.com/alex-mcgovern/ui-kit.ai/compare/ui-kit.ai-monorepo@v0.0.14...ui-kit.ai-monorepo@v0.0.15) (2025-10-09)
+
+
+### Miscellaneous Chores
+
+* tidy up styles ([#447](https://github.com/alex-mcgovern/ui-kit.ai/issues/447)) ([605cd25](https://github.com/alex-mcgovern/ui-kit.ai/commit/605cd250ec3b918bc869a0f9f5e11500733b839c))
+
 ## [0.0.14](https://github.com/alex-mcgovern/ui-kit.ai/compare/ui-kit.ai-monorepo@v0.0.13...ui-kit.ai-monorepo@v0.0.14) (2025-06-15)
 
 
