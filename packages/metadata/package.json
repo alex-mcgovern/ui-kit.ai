@@ -39,7 +39,7 @@
         "@ui-kit.ai/vite": "workspace:*",
         "prettier": "3.5.3",
         "react": "19.1.0",
-        "react-docgen-typescript": "2.2.2",
+        "react-docgen-typescript": "2.4.0",
         "react-element-to-jsx-string": "17.0.1"
     },
     "engines": {
